@@ -1,0 +1,22 @@
+{
+  "entry": "0x80007140",
+  "sda_base": "0x80355960",
+  "sda2_base": "0x80357520",
+  "normalized_dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
+  "normalized_dol_size": 1641760,
+  "sections": {
+    ".init": "0x80007100",
+    "extab": "0x80009600",
+    "extabindex": "0x8000ffe0",
+    ".text": "0x80016e80",
+    ".ctors": "0x8016df40",
+    ".dtors": "0x8016e020",
+    ".rodata": "0x8016e040",
+    ".data": "0x8017b7e0",
+    ".bss": "0x80194840",
+    ".sdata": "0x8034d960",
+    ".sbss": "0x8034e6a0",
+    ".sdata2": "0x8034f520",
+    ".sbss2": "0x80351cc0"
+  }
+}

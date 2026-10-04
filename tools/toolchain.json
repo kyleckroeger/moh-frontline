@@ -1,0 +1,28 @@
+{
+  "dtk": {
+    "version": "1.8.4",
+    "platforms": {
+      "Darwin-arm64": {
+        "url": "https://github.com/encounter/decomp-toolkit/releases/download/v1.8.4/dtk-macos-arm64",
+        "sha256": "5ba1fd76adf937847277a1ebe2238b698df0020c3dbbde23ecb126f00fb10353"
+      },
+      "Linux-x86_64": {
+        "url": "https://github.com/encounter/decomp-toolkit/releases/download/v1.8.4/dtk-linux-x86_64",
+        "sha256": "7c86b1994401bde0cad1d308e6c04cccb65e85453ccc5062ac12baab3b03d320"
+      }
+    }
+  },
+  "binutils": {
+    "version": "2.42-2",
+    "platforms": {
+      "Darwin-arm64": {
+        "url": "https://github.com/encounter/gc-wii-binutils/releases/download/2.42-2/macos-universal.zip",
+        "sha256": "c40bad23fd7d9eb22d4533875922fc19785ed067978b605804e345bc6e62449d"
+      },
+      "Linux-x86_64": {
+        "url": "https://github.com/encounter/gc-wii-binutils/releases/download/2.42-2/linux-x86_64.zip",
+        "sha256": "64e4bf7aee5c06075d8fa818ebd2a0a3a72e0eeef3896bdec2f198b0e950fe63"
+      }
+    }
+  }
+}

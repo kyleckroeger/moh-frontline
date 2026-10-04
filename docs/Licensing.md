@@ -1,0 +1,38 @@
+# Licensing
+
+Original contributions to this project are dedicated to the public domain under
+[CC0 1.0 Universal](../LICENSE), to the extent their contributors hold copyright
+and related rights in those contributions. This includes project-written tooling,
+documentation, configuration and original reconstruction work, subject to the
+third-party exclusions below. CC0 includes a fallback license where its waiver
+cannot take full effect; the unmodified legal text is in the root `LICENSE`.
+
+The build, verification and progress tooling under `tools/` and `tests/` is
+adapted from [moh-rising-sun](https://github.com/lifewillbeokay/moh-rising-sun),
+which is also dedicated under CC0 1.0. Credit is retained here and in the README.
+
+## Third-party material
+
+The root dedication does not relicense imported source, headers, library code or
+their adaptations. Their existing terms and notices continue to apply. A file's
+presence here, or its matching the original executable, does not establish
+permission to reuse it under CC0. No third-party source has been imported yet.
+When adding some, such as Dolphin SDK, MSL or other reconstructions from other
+projects, record each one in a table here with its notices and provenance,
+following Rising Sun's `docs/Licensing.md`.
+
+## Original game and tools
+
+This dedication grants no rights in the original game, executable code, assets,
+Nintendo SDK material, trademarks or third-party compiler/tool binaries. Those
+rights remain with their respective holders. Bring your own game copy; original
+images, binaries and assets remain outside the repository. Downloaded build tools
+retain their own licenses.
+
+## Contributions
+
+Submit original contributions under the project's CC0 dedication, only for rights
+you are entitled to dedicate. For third-party material or adaptations, preserve
+the applicable upstream terms and record the source, revision and modifications.
+Identify any licensing uncertainty during review. AI-assisted contributions follow
+the same requirements; see [CONTRIBUTING.md](../CONTRIBUTING.md).

@@ -1,0 +1,60 @@
+# Medal of Honor: Frontline
+
+An early matching decompilation of **Medal of Honor: Frontline** for GameCube, targeting the USA release **GMFE69, revision 0**. The game-code target is the disc's `Moh2RelGC.elf`.
+
+The project follows the structure and verification rules of the sibling [Medal of Honor: Rising Sun decompilation](https://github.com/lifewillbeokay/moh-rising-sun), whose CC0 tooling it adapts. Accepted source is checked against the original executable as part of a complete rebuilt-image comparison; the remainder stays original binary context. AI-assisted contributions are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+Progress counts verified, nonoverlapping source-built function bytes against all bytes in the original executable sections (`.init` and `.text`). Data and BSS earn no code-progress credit; neither do linker-generated tables or original context. See [how progress is verified and published](docs/Progress.md).
+
+## Verified starting point
+
+- `Moh2RelGC.elf`: 2,866,920 bytes; SHA-1 `eb75ebc0073db35e75eba06742b151591d36c004`.
+- 18,811 symbol entries, including 5,005 function entries and 557 source-file entries.
+- **Relocations are preserved** (`.rela.text`, `.rela.data`, …), so every cross-reference in the image is known exactly. Rising Sun's target has no such tables.
+- Compiled with Metrowerks CodeWarrior (`extab`/`extabindex`, `.mwcats.text`, `__sinit_*_cpp`), not ProDG. No DWARF is present.
+- The original-image relink matches the complete 1,641,760-byte DOL derived from the ELF, including its header. Every original allocated ELF file byte, entry point and BSS extent is checked separately.
+- A source build with zero accepted units reproduces the same complete image, so the reconstruction pipeline is ready for the first unit.
+
+This comparison is against a derived analysis image. It does **not** mean the original ELF's symbol tables have been reproduced, the on-disc boot DOL has been replaced, or the game has been tested in an emulator. The boot DOL (`boot.dol`, identical to `Moh2BootRel.dol`) is a separate 168,544-byte program that loads the game ELF. See the [initial audit](docs/initial-audit.md) for details.
+
+## Local setup
+
+Requires Python 3.9+ on Linux x86-64 (including WSL2) or macOS ARM64. Tools are downloaded into ignored `build/tools/` and `build/compiler/` with pinned SHA-256 checksums; on Linux, wibo runs the Windows compilers natively.
+
+```sh
+python3 tools/import_disc.py "/path/to/Medal of Honor - Frontline (USA).iso"
+python3 tools/setup.py
+python3 tools/audit.py
+python3 tools/baseline.py
+python3 tools/reconstruct.py
+python3 -m unittest discover -s tests -v
+```
+
+The importer reads the standard GameCube filesystem table of an uncompressed image (convert RVZ/NKit with Dolphin first). It extracts only the pinned executables into `orig/GMFE69/`, checks their sizes and SHA-1/SHA-256 digests, and leaves the input image untouched.
+
+Run the scripts from any directory; all outputs remain inside this checkout. `baseline.py` and `reconstruct.py` recreate their own build directories, so keep experiments under `scratch/`.
+
+## Outputs
+
+| Path | Contents |
+| --- | --- |
+| `config/GMFE69/target.json` | Executable identities and hashes |
+| `config/GMFE69/baseline.json` | Entry point, SDA bases and comparison layout |
+| `config/GMFE69/project.json` | Accepted source units and the progress denominator |
+| `build/audit/summary.json` | Section and symbol statistics |
+| `build/audit/symbols.json` | Complete local symbol inventory |
+| `build/audit/elf-config/` | dtk symbols and per-file splits (research input; see the audit) |
+| `build/baseline/report.json` | Original-image relink result |
+| `build/reconstruction/report.json` | Complete source-build result |
+| `progress/GMFE69.snapshot.json` | Public, locally verified progress snapshot |
+
+## Next work
+
+1. **Trustworthy per-file splits.** `dtk elf config` recovers ranges for all 557 files, but attributes globals without a file-local anchor to the last file record (`sdfx.c`), which makes the link order cyclic. Use the preserved relocations to fix ownership. This also improves the decomp.dev code map, which currently groups much of the code as "Unknown file".
+2. **Compiler identification.** Pin the CodeWarrior version and flags, starting with small Dolphin SDK units, which Rising Sun has already matched for its own target with `GC/1.2.5n`.
+3. **First accepted units**, then mutation tests for them (see `tests/test_reconstruction.py`).
+4. Register the project on decomp.dev (see [Progress.md](docs/Progress.md)).
+
+## License
+
+Project-written tooling, documentation and configuration are dedicated to the public domain under [CC0 1.0](LICENSE). The tooling is adapted from the CC0 [moh-rising-sun](https://github.com/lifewillbeokay/moh-rising-sun) project. See [licensing scope](docs/Licensing.md). Bring your own game copy; this repository contains no game images, executables, assets or compiler binaries.

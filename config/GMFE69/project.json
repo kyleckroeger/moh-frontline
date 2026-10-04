@@ -1,0 +1,11 @@
+{
+  "target": "Moh2RelGC.elf",
+  "units": [],
+  "progress": {
+    "code_bytes": 1414572,
+    "executable_sections": {
+      ".init": 9452,
+      ".text": 1405120
+    }
+  }
+}

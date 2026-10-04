@@ -1,0 +1,16 @@
+/orig/
+/build/
+/scratch/
+__pycache__/
+.DS_Store
+*.iso
+*.ciso
+*.rvz
+*.gcm
+*.dol
+*.elf
+*.ELF
+*.o
+*.a
+*.exe
+*.zip

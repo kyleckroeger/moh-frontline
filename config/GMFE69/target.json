@@ -1,0 +1,28 @@
+{
+  "disc_id": "GMFE69",
+  "disc_number": 0,
+  "revision": 0,
+  "primary": "Moh2RelGC.elf",
+  "files": {
+    "Moh2RelGC.elf": {
+      "size": 2866920,
+      "sha1": "eb75ebc0073db35e75eba06742b151591d36c004",
+      "sha256": "8a3e0c1db8be94a7c1a320ca7586f59dd723d7f8768c2c711565af894fda589c"
+    },
+    "Moh2StubRelGC.elf": {
+      "size": 278096,
+      "sha1": "fbfba6faaa3631b5180b1bf48945e97573a23346",
+      "sha256": "8e9d0c35c2e935673b2ead2c7849d232ef48fbdf204ee3234782a998a34b1fbf"
+    },
+    "Moh2BootRel.dol": {
+      "size": 168544,
+      "sha1": "85f0c01a86ae2656a0fd0e004af8f0c53884b52a",
+      "sha256": "10aa1b5389f2f02f22d3fec71a0bf3f657d25aff35b87ca180c3a1b1c9cc0128"
+    },
+    "boot.dol": {
+      "size": 168544,
+      "sha1": "85f0c01a86ae2656a0fd0e004af8f0c53884b52a",
+      "sha256": "10aa1b5389f2f02f22d3fec71a0bf3f657d25aff35b87ca180c3a1b1c9cc0128"
+    }
+  }
+}

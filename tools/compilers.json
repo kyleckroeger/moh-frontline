@@ -1,0 +1,19 @@
+{
+  "archive": {
+    "url": "https://files.decomp.dev/compilers_20251118.zip",
+    "sha256": "69b0d4980a2eccea4ae6e70b486714b5190cb6c75e3bc7b8fb5878a8854d0d1c"
+  },
+  "wibo": {
+    "version": "1.0.3",
+    "platforms": {
+      "Darwin-arm64": {
+        "url": "https://github.com/decompals/wibo/releases/download/1.0.3/wibo-macos",
+        "sha256": "bfb53e13706506fef31c331a1b4312af84a5c71af451f0cafe42c5511b2acbe4"
+      },
+      "Linux-x86_64": {
+        "url": "https://github.com/decompals/wibo/releases/download/1.0.3/wibo-x86_64",
+        "sha256": "7fdf620b151744296b9bb93318d8c4009d3d3e98e23718a6eda9fbec4cefbb2a"
+      }
+    }
+  }
+}
