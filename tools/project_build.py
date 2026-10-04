@@ -12,7 +12,7 @@ from formats import Elf32, verify_load_image
 from tool_runner import run, sha256
 from setup import CONFIG, ROOT, setup
 from setup_compiler import setup_compiler
-from sdk_build import compile_sdk, sdk_link_script, resolve_external
+from sdk_build import compile_sdk, resolve_external, sdk_link_script, stripped_address
 
 
 def allocated(elf):
@@ -125,14 +125,21 @@ def validate_units(original, units):
         local_discards = set(unit.get("discarded_local_functions", []))
         if not local_discards <= set(unit["discarded_functions"]) or (local_discards and not unit.get("original_file")):
             raise ValueError("Discarded local function scope is missing")
-        file_name, local_names = None, set()
+        file_name, local_names, linkable = None, set(), set()
         for symbol in symbols:
             if symbol["type"] == 4:
                 file_name = symbol["name"]
             if file_name == unit.get("original_file") and symbol["binding"] == 0:
                 local_names.add(symbol["name"])
-        for name in unit["discarded_functions"] + unit["undefined_in_discarded_code"]:
+            if symbol["binding"] or file_name == unit.get("original_file"):
+                linkable.add(symbol["name"])
+        for name in unit["discarded_functions"]:
             if name in names and (name not in local_discards or name in local_names):
+                raise ValueError(f"Cannot discard a symbol present in the target: {name}")
+        # MW emits unreferenced declarations as undefined symbols. A target
+        # symbol may share the name only as another source file's private one.
+        for name in unit["undefined_in_discarded_code"]:
+            if name in linkable:
                 raise ValueError(f"Cannot discard a symbol present in the target: {name}")
     intervals.sort()
     for a, b in zip(intervals, intervals[1:]):
@@ -150,7 +157,12 @@ def validate_object(obj, unit):
     if len(functions) != len(expected) or {s["name"] for s in functions} != expected:
         raise ValueError("Unexpected compiler function set")
     output = {s["name"]: s for s in allocated(obj)}
-    if len(output) != len(allocated(obj)) or set(output) != {s["name"] for s in unit["sections"]}:
+    # MW's linker also dead-strips data. A compiler section that only discarded
+    # code references is declared; verify_unit proves the link removed it.
+    stripped = set(unit.get("stripped_sections", []))
+    kept = {s["name"] for s in unit["sections"]}
+    if (len(output) != len(allocated(obj)) or set(output) != kept | stripped or kept & stripped
+            or (stripped and not unit["strip_unused"])):
         raise ValueError("Unexpected allocated compiler output")
     text = output[".text"]
     if text["flags"] != 6 or text["type"] != 1 or text["address"] != 0:
@@ -207,6 +219,11 @@ def verify_unit(original, linked, unit):
     if linked.kind != 2:
         raise ValueError("Expected a linked source executable")
     actual_sections = allocated(linked)
+    stripped = unit.get("stripped_sections", [])
+    parked = sorted((s["name"], s["address"]) for s in actual_sections if s["name"] in stripped)
+    if parked != sorted((name, stripped_address(i)) for i, name in enumerate(stripped)):
+        raise ValueError("Stripped sections were not parked outside the image")
+    actual_sections = [s for s in actual_sections if s["name"] not in stripped]
     expected = sorted((s["name"], int(s["address"], 16), s["size"]) for s in unit["sections"])
     if sorted((s["name"], s["address"], s["size"]) for s in actual_sections) != expected:
         raise ValueError("Linked source sections differ from manifest")

@@ -1,0 +1,90 @@
+{
+  "id": "OSReset",
+  "source": "src/dolphin/os/OSReset.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80114794",
+      "size": 132,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f000",
+      "size": 8,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "OSRegisterResetFunction",
+      "address": "0x80114794",
+      "size": 132,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "__OSSyncSram": "0x801155a8",
+    "__flush_cache": "0x80007350",
+    "__init_hardware": "0x80007330",
+    "__start": "0x80007140"
+  },
+  "undefined_in_discarded_code": [
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers"
+  ],
+  "discarded_functions": [
+    "OSUnregisterResetFunction",
+    "__OSCallResetFunctions"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/os/OSReset.c"
+  },
+  "original_file": "OSReset.c",
+  "original_file_index": 10794,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "OSReset.json"
+  }
+}

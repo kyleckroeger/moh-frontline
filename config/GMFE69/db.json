@@ -1,0 +1,114 @@
+{
+  "id": "db",
+  "source": "src/dolsdk2001/db/db.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x801101d0",
+      "size": 236,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018c760",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034ef80",
+      "size": 8,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "DBInit",
+      "address": "0x801101d0",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "__DBExceptionDestination",
+      "address": "0x80110240",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "__DBExceptionDestinationAux",
+      "address": "0x801101f8",
+      "size": 72,
+      "binding": 1
+    },
+    {
+      "name": "__DBIsExceptionMarked",
+      "address": "0x80110250",
+      "size": 28,
+      "binding": 1
+    },
+    {
+      "name": "DBPrintf",
+      "address": "0x8011026c",
+      "size": 80,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "OSDumpContext": "0x801121ac",
+    "OSReport": "0x80112520",
+    "PPCHalt": "0x80110198"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "DBIsDebuggerPresent",
+    "__DBMarkException",
+    "__DBSetPresent"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/db/db.c"
+  },
+  "original_file": "db.c",
+  "original_file_index": 10617,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "stripped_sections": [
+    ".bss",
+    ".sdata"
+  ]
+}

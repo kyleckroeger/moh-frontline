@@ -16,10 +16,17 @@ which is also dedicated under CC0 1.0. Credit is retained here and in the README
 The root dedication does not relicense imported source, headers, library code or
 their adaptations. Their existing terms and notices continue to apply. A file's
 presence here, or its matching the original executable, does not establish
-permission to reuse it under CC0. No third-party source has been imported yet.
-When adding some, such as Dolphin SDK, MSL or other reconstructions from other
-projects, record each one in a table here with its notices and provenance,
-following Rising Sun's `docs/Licensing.md`.
+permission to reuse it under CC0. Where a reference supplies no license, this
+project grants no rights in that reference's material.
+
+| Material | Applicable notices and provenance |
+| --- | --- |
+| Dolphin SDK reconstructions in `src/dolphin/` and headers in `include/dolphin-sdk/` | Copied unchanged from [moh-rising-sun](https://github.com/lifewillbeokay/moh-rising-sun) commit `a701671cad4189cee989327ef33176a7289bac4e`. They keep that project's [SDK notice](../src/dolphin/NOTICE) and network notice; the Prime-derived subset retains [LICENSE.PrimeDecomp](../src/dolphin/LICENSE.PrimeDecomp) and the BFBB-derived subset [LICENSE.bfbb](../src/dolphin/LICENSE.bfbb). The upstream dolsdk2004 reference has no repository-wide license grant |
+
+Each accepted unit manifest under `config/GMFE69/` records its upstream source in
+`upstream` and, when ported, the Rising Sun manifest it was adapted from in
+`adapted_from`. Preserve all notices when reusing these components. When adding
+other third-party material, add a row here.
 
 ## Original game and tools
 

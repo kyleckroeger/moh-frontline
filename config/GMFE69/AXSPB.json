@@ -1,0 +1,111 @@
+{
+  "id": "AXSPB",
+  "source": "src/dolphin/ax/AXSPB.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80120a6c",
+      "size": 1224,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x8031fa60",
+      "size": 54,
+      "type": 8
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f260",
+      "size": 36,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "__AXGetStudio",
+      "address": "0x80120a6c",
+      "size": 12,
+      "binding": 1
+    },
+    {
+      "name": "__AXPrintStudio",
+      "address": "0x80120a78",
+      "size": 1016,
+      "binding": 1
+    },
+    {
+      "name": "__AXSPBInit",
+      "address": "0x80120e70",
+      "size": 44,
+      "binding": 1
+    },
+    {
+      "name": "__AXSPBQuit",
+      "address": "0x80120e9c",
+      "size": 4,
+      "binding": 1
+    },
+    {
+      "name": "__AXDepopVoice",
+      "address": "0x80120ea0",
+      "size": 148,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DCFlushRange": "0x80111880"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "__AXDepopFade"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/ax/AXSPB.c"
+  },
+  "original_file": "AXSPB.c",
+  "original_file_index": 11175,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "AXSPB.json"
+  }
+}

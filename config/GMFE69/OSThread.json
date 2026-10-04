@@ -1,0 +1,237 @@
+{
+  "id": "OSThread",
+  "source": "src/dolsdk2001/os/OSThread.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x801159b4",
+      "size": 4236,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x80317078",
+      "size": 2536,
+      "type": 8
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f028",
+      "size": 12,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "UnsetRun",
+      "address": "0x80115b78",
+      "size": 104,
+      "binding": 0
+    },
+    {
+      "name": "SetEffectivePriority",
+      "address": "0x80115c1c",
+      "size": 448,
+      "binding": 0
+    },
+    {
+      "name": "SelectThread",
+      "address": "0x80115e2c",
+      "size": 512,
+      "binding": 0
+    },
+    {
+      "name": "__OSThreadInit",
+      "address": "0x801159b4",
+      "size": 296,
+      "binding": 1
+    },
+    {
+      "name": "OSInitThreadQueue",
+      "address": "0x80115adc",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "OSGetCurrentThread",
+      "address": "0x80115aec",
+      "size": 12,
+      "binding": 1
+    },
+    {
+      "name": "OSDisableScheduler",
+      "address": "0x80115af8",
+      "size": 64,
+      "binding": 1
+    },
+    {
+      "name": "OSEnableScheduler",
+      "address": "0x80115b38",
+      "size": 64,
+      "binding": 1
+    },
+    {
+      "name": "__OSGetEffectivePriority",
+      "address": "0x80115be0",
+      "size": 60,
+      "binding": 1
+    },
+    {
+      "name": "__OSPromoteThread",
+      "address": "0x80115ddc",
+      "size": 80,
+      "binding": 1
+    },
+    {
+      "name": "__OSReschedule",
+      "address": "0x8011602c",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "OSYieldThread",
+      "address": "0x8011605c",
+      "size": 60,
+      "binding": 1
+    },
+    {
+      "name": "OSCreateThread",
+      "address": "0x80116098",
+      "size": 288,
+      "binding": 1
+    },
+    {
+      "name": "OSExitThread",
+      "address": "0x801161b8",
+      "size": 228,
+      "binding": 1
+    },
+    {
+      "name": "OSWakeupThread",
+      "address": "0x8011693c",
+      "size": 260,
+      "binding": 1
+    },
+    {
+      "name": "OSCancelThread",
+      "address": "0x8011629c",
+      "size": 444,
+      "binding": 1
+    },
+    {
+      "name": "OSSleepThread",
+      "address": "0x80116850",
+      "size": 236,
+      "binding": 1
+    },
+    {
+      "name": "OSResumeThread",
+      "address": "0x80116458",
+      "size": 648,
+      "binding": 1
+    },
+    {
+      "name": "OSSuspendThread",
+      "address": "0x801166e0",
+      "size": 368,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "OSClearContext": "0x801120cc",
+    "OSDisableInterrupts": "0x801135cc",
+    "OSEnableInterrupts": "0x801135e0",
+    "OSGetCurrentContext": "0x80111f60",
+    "OSInitContext": "0x801120f0",
+    "OSLoadContext": "0x80111fec",
+    "OSPanic": "0x801125a0",
+    "OSReport": "0x80112520",
+    "OSRestoreInterrupts": "0x801135f4",
+    "OSSaveContext": "0x80111f6c",
+    "OSSetCurrentContext": "0x80111f04",
+    "__OSUnlockAllMutex": "0x8011450c",
+    "__flush_cache": "0x80007350",
+    "__init_hardware": "0x80007330",
+    "_stack_addr": "0x80361cd0",
+    "_stack_end": "0x80351ccc"
+  },
+  "undefined_in_discarded_code": [
+    "__OSCheckDeadLock",
+    "__OSCheckMutexes",
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers"
+  ],
+  "discarded_functions": [
+    "__OSSwitchThread",
+    "OSIsThreadSuspended",
+    "OSIsThreadTerminated",
+    "__OSIsThreadActive",
+    "SetRun",
+    "UpdatePriority",
+    "OSJoinThread",
+    "OSDetachThread",
+    "OSSetThreadPriority",
+    "OSGetThreadPriority",
+    "OSSetIdleFunction",
+    "OSGetIdleFunction",
+    "CheckThreadQueue",
+    "IsMember",
+    "OSCheckActiveThreads"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/os/OSThread.c"
+  },
+  "original_file": "OSThread.c",
+  "original_file_index": 10818,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "__OSSwitchThread",
+    "__OSIsThreadActive",
+    "SetRun",
+    "UpdatePriority",
+    "CheckThreadQueue",
+    "IsMember"
+  ],
+  "sda_externals": [],
+  "stripped_sections": [
+    ".data",
+    ".sdata"
+  ]
+}

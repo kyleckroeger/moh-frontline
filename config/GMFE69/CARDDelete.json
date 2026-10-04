@@ -1,0 +1,101 @@
+{
+  "id": "CARDDelete",
+  "source": "src/dolphin/card/CARDDelete.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80128b00",
+      "size": 508,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "DeleteCallback",
+      "address": "0x80128b00",
+      "size": 164,
+      "binding": 0
+    },
+    {
+      "name": "CARDDeleteAsync",
+      "address": "0x80128ba4",
+      "size": 272,
+      "binding": 1
+    },
+    {
+      "name": "CARDDelete",
+      "address": "0x80128cb4",
+      "size": 72,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "__CARDBlock": "0x8032f8a0",
+    "__CARDDefaultApiCallback": "0x80122a7c",
+    "__CARDFreeBlock": "0x8012551c",
+    "__CARDGetControlBlock": "0x801239c4",
+    "__CARDGetDirBlock": "0x80125664",
+    "__CARDGetFileNo": "0x80127b80",
+    "__CARDIsOpened": "0x80127ffc",
+    "__CARDPutControlBlock": "0x80123a7c",
+    "__CARDSync": "0x80123ce4",
+    "__CARDSyncCallback": "0x80122a80",
+    "__CARDUpdateDir": "0x80125804",
+    "memset": "0x80009410"
+  },
+  "undefined_in_discarded_code": [
+    "__CARDIsWritable"
+  ],
+  "discarded_functions": [
+    "CARDFastDeleteAsync",
+    "CARDFastDelete"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/card/CARDDelete.c"
+  },
+  "original_file": "CARDDelete.c",
+  "original_file_index": 11299,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "CARDDelete.json"
+  }
+}

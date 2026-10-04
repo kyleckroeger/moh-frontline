@@ -1,0 +1,17 @@
+Dolphin SDK 2001 reconstruction attribution
+
+The C sources in this directory, and the headers under include/dolsdk2001,
+are copied unchanged from the community decompilation of the 5/22/2001
+Dolphin SDK libraries:
+
+  https://github.com/doldecomp/dolsdk2001
+  commit eb1234c45e6df75757c652c835507ca89674f9a8
+
+Credit belongs to that project's contributors and to the original Nintendo
+SDK authors. These are public reconstructions, not an original SDK source
+release. Preserve upstream notices and comments. No LICENSE file was present
+at the commit above; this attribution notice grants no new license.
+
+Medal of Honor: Frontline links a Dec 17 2001 SDK build. Only the units listed
+in config/GMFE69/project.json are accepted, each verified against the user's
+GMFE69 executable; see docs/Dolphin.md.

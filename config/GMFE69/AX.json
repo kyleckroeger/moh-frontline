@@ -1,0 +1,85 @@
+{
+  "id": "AX",
+  "source": "src/dolsdk2001/ax/AX.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8011f6c8",
+      "size": 104,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "AXInit",
+      "address": "0x8011f6c8",
+      "size": 52,
+      "binding": 1
+    },
+    {
+      "name": "AXQuit",
+      "address": "0x8011f6fc",
+      "size": 52,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "__AXAllocInit": "0x8011f7c8",
+    "__AXAllocQuit": "0x8011f87c",
+    "__AXAuxInit": "0x8011fc04",
+    "__AXAuxQuit": "0x8011fce0",
+    "__AXClInit": "0x80120380",
+    "__AXClQuit": "0x8012039c",
+    "__AXOutInit": "0x801206d8",
+    "__AXOutQuit": "0x80120a18",
+    "__AXSPBInit": "0x80120e70",
+    "__AXSPBQuit": "0x80120e9c",
+    "__AXVPBInit": "0x801218a8",
+    "__AXVPBQuit": "0x80121aa8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/ax/AX.c"
+  },
+  "original_file": "AX.c",
+  "original_file_index": 11122,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": []
+}

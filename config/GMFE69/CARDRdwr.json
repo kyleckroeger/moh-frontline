@@ -1,0 +1,96 @@
+{
+  "id": "CARDRdwr",
+  "source": "src/dolphin/card/CARDRdwr.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80124fe0",
+      "size": 640,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "BlockReadCallback",
+      "address": "0x80124fe0",
+      "size": 220,
+      "binding": 0
+    },
+    {
+      "name": "BlockWriteCallback",
+      "address": "0x80125120",
+      "size": 220,
+      "binding": 0
+    },
+    {
+      "name": "__CARDRead",
+      "address": "0x801250bc",
+      "size": 100,
+      "binding": 1
+    },
+    {
+      "name": "__CARDWrite",
+      "address": "0x801251fc",
+      "size": 100,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "__CARDBlock": "0x8032f8a0",
+    "__CARDPutControlBlock": "0x80123a7c",
+    "__CARDReadSegment": "0x801235c0",
+    "__CARDWritePage": "0x801236f4"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "CARDGetXferredBytes"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/card/CARDRdwr.c"
+  },
+  "original_file": "CARDRdwr.c",
+  "original_file_index": 11260,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "CARDRdwr.json"
+  }
+}

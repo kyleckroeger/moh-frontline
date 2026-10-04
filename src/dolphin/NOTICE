@@ -1,0 +1,35 @@
+Dolphin SDK reconstruction attribution
+
+The C sources and internal headers in this directory, and the headers under
+include/dolphin-sdk, derive from the community Dolphin SDK reconstruction:
+
+  https://github.com/doldecomp/dolsdk2004
+  commit 2328b4164b1a98422a2255d83ce9a5a7548990cc
+
+The __GXSetVAT implementation additionally derives from:
+
+  https://github.com/doldecomp/dolsdk2001
+  commit eb1234c45e6df75757c652c835507ca89674f9a8
+  src/gx/GXAttr.c
+
+Credit belongs to those projects' contributors and to the original Nintendo
+SDK authors. These are public reconstructions, not an original SDK source
+release. Preserve upstream notices and comments. No LICENSE file was present
+at the dolsdk2004 commit above; this attribution notice grants no new license.
+
+Local changes were made with AI assistance and verified against the user's
+GR8E69 executable. See docs/Dolphin.md for changes, compiler settings, limits
+and verification. config/GR8E69/dolphin-source.json records upstream file
+hashes and modified files. Only the units listed in project.json are accepted.
+
+The reference headers include facilities and SDK revisions beyond the accepted
+release build. Unused functions, debug configurations and unbuilt headers have
+not been reconstructed or verified for this game.
+
+The seven GBA units, their two headers, OSFont, GXFrameBuf, dvdqueue, OSInterrupt, OSAlarm and the ClearArena
+implementation in OS.c
+additionally derive from
+https://github.com/PrimeDecomp/prime
+commit 693fa74f9a9a7cdbb97f09a09d30853415e40927
+The reference project's unmodified CC0 notice is in LICENSE.PrimeDecomp.
+The GBA layouts are also supported by the target's preserved GBA DWARF data.

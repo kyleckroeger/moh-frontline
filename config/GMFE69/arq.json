@@ -1,0 +1,116 @@
+{
+  "id": "arq",
+  "source": "src/dolsdk2001/ar/arq.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8011f224",
+      "size": 1188,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f1c8",
+      "size": 48,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "__ARQServiceQueueLo",
+      "address": "0x8011f224",
+      "size": 256,
+      "binding": 1
+    },
+    {
+      "name": "__ARQCallbackHack",
+      "address": "0x8011f324",
+      "size": 4,
+      "binding": 1
+    },
+    {
+      "name": "__ARQInterruptServiceRoutine",
+      "address": "0x8011f328",
+      "size": 204,
+      "binding": 1
+    },
+    {
+      "name": "ARQInit",
+      "address": "0x8011f3f4",
+      "size": 104,
+      "binding": 1
+    },
+    {
+      "name": "ARQPostRequest",
+      "address": "0x8011f45c",
+      "size": 348,
+      "binding": 1
+    },
+    {
+      "name": "ARQRemoveRequest",
+      "address": "0x8011f5b8",
+      "size": 272,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "ARRegisterDMACallback": "0x8011e698",
+    "ARStartDMA": "0x8011e6dc",
+    "OSDisableInterrupts": "0x801135cc",
+    "OSRestoreInterrupts": "0x801135f4"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "__ARQPopTaskQueueHi",
+    "__ARQInitTempQueue",
+    "__ARQPushTempQueue",
+    "ARQReset",
+    "ARQRemoveOwnerRequest",
+    "ARQFlushQueue",
+    "ARQSetChunkSize",
+    "ARQGetChunkSize"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/ar/arq.c"
+  },
+  "original_file": "arq.c",
+  "original_file_index": 11107,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": []
+}

@@ -1,0 +1,105 @@
+{
+  "id": "OSResetSW",
+  "source": "src/dolphin/os/OSResetSW.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80114b68",
+      "size": 908,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f008",
+      "size": 32,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "__OSResetSWInterruptHandler",
+      "address": "0x80114b68",
+      "size": 244,
+      "binding": 1
+    },
+    {
+      "name": "OSGetResetButtonState",
+      "address": "0x80114c5c",
+      "size": 664,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "OSDisableInterrupts": "0x801135cc",
+    "OSRestoreInterrupts": "0x801135f4",
+    "__OSGetSystemTime": "0x80116a60",
+    "__OSMaskInterrupts": "0x80113994",
+    "__OSStartTime": "0x8034efa0",
+    "__OSUnmaskInterrupts": "0x80113a1c",
+    "__div2i": "0x80138b60",
+    "__flush_cache": "0x80007350",
+    "__init_hardware": "0x80007330",
+    "__start": "0x80007140"
+  },
+  "undefined_in_discarded_code": [
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers"
+  ],
+  "discarded_functions": [
+    "OSSetResetCallback",
+    "OSGetResetSwitchState",
+    "__OSSetResetButtonTimer"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/os/OSResetSW.c"
+  },
+  "original_file": "OSResetSW.c",
+  "original_file_index": 10799,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "__OSStartTime"
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "OSResetSW.json"
+  }
+}

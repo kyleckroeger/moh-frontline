@@ -1,0 +1,160 @@
+{
+  "id": "OSContext",
+  "source": "src/dolsdk2001/os/OSContext.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80111cb8",
+      "size": 2152,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018cbe8",
+      "size": 471,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "__OSLoadFPUContext",
+      "address": "0x80111cb8",
+      "size": 292,
+      "binding": 0
+    },
+    {
+      "name": "__OSSaveFPUContext",
+      "address": "0x80111ddc",
+      "size": 296,
+      "binding": 0
+    },
+    {
+      "name": "OSSwitchFPUContext",
+      "address": "0x80112454",
+      "size": 132,
+      "binding": 0
+    },
+    {
+      "name": "OSSetCurrentContext",
+      "address": "0x80111f04",
+      "size": 92,
+      "binding": 1
+    },
+    {
+      "name": "OSGetCurrentContext",
+      "address": "0x80111f60",
+      "size": 12,
+      "binding": 1
+    },
+    {
+      "name": "OSSaveContext",
+      "address": "0x80111f6c",
+      "size": 128,
+      "binding": 1
+    },
+    {
+      "name": "OSLoadContext",
+      "address": "0x80111fec",
+      "size": 216,
+      "binding": 1
+    },
+    {
+      "name": "OSGetStackPointer",
+      "address": "0x801120c4",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "OSClearContext",
+      "address": "0x801120cc",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "OSInitContext",
+      "address": "0x801120f0",
+      "size": 188,
+      "binding": 1
+    },
+    {
+      "name": "OSDumpContext",
+      "address": "0x801121ac",
+      "size": 680,
+      "binding": 1
+    },
+    {
+      "name": "__OSContextInit",
+      "address": "0x801124d8",
+      "size": 72,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DBPrintf": "0x8011026c",
+    "OSDisableInterrupts": "0x801135cc",
+    "OSReport": "0x80112520",
+    "OSRestoreInterrupts": "0x801135f4",
+    "__OSSetExceptionHandler": "0x801109e8",
+    "__RAS_OSDisableInterrupts_begin": "0x801135cc",
+    "__RAS_OSDisableInterrupts_end": "0x801135dc",
+    "__cvt_fp2unsigned": "0x801388e8",
+    "__flush_cache": "0x80007350",
+    "__init_hardware": "0x80007330"
+  },
+  "undefined_in_discarded_code": [
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers"
+  ],
+  "discarded_functions": [
+    "OSLoadFPUContext",
+    "OSSaveFPUContext",
+    "OSSwitchStack",
+    "OSSwitchFiber",
+    "OSFillFPUContext"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/os/OSContext.c"
+  },
+  "original_file": "OSContext.c",
+  "original_file_index": 10699,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": []
+}

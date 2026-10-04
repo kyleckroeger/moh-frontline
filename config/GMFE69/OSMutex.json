@@ -1,0 +1,119 @@
+{
+  "id": "OSMutex",
+  "source": "src/dolphin/os/OSMutex.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80114330",
+      "size": 588,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "OSInitMutex",
+      "address": "0x80114330",
+      "size": 56,
+      "binding": 1
+    },
+    {
+      "name": "OSLockMutex",
+      "address": "0x80114368",
+      "size": 220,
+      "binding": 1
+    },
+    {
+      "name": "OSUnlockMutex",
+      "address": "0x80114444",
+      "size": 200,
+      "binding": 1
+    },
+    {
+      "name": "__OSUnlockAllMutex",
+      "address": "0x8011450c",
+      "size": 112,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "OSDisableInterrupts": "0x801135cc",
+    "OSDisableScheduler": "0x80115af8",
+    "OSEnableScheduler": "0x80115b38",
+    "OSGetCurrentThread": "0x80115aec",
+    "OSInitThreadQueue": "0x80115adc",
+    "OSRestoreInterrupts": "0x801135f4",
+    "OSSleepThread": "0x80116850",
+    "OSWakeupThread": "0x8011693c",
+    "__OSGetEffectivePriority": "0x80115be0",
+    "__OSPromoteThread": "0x80115ddc",
+    "__flush_cache": "0x80007350",
+    "__init_hardware": "0x80007330",
+    "__start": "0x80007140"
+  },
+  "undefined_in_discarded_code": [
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers"
+  ],
+  "discarded_functions": [
+    "OSTryLockMutex",
+    "OSInitCond",
+    "OSWaitCond",
+    "OSSignalCond",
+    "IsMember",
+    "__OSCheckMutex",
+    "__OSCheckDeadLock",
+    "__OSCheckMutexes"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/os/OSMutex.c"
+  },
+  "original_file": "OSMutex.c",
+  "original_file_index": 10781,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "IsMember"
+  ],
+  "sda_externals": [],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "OSMutex.json"
+  }
+}

@@ -15,7 +15,7 @@ Progress counts verified, nonoverlapping source-built function bytes against all
 - **Relocations are preserved** (`.rela.text`, `.rela.data`, …), so every cross-reference in the image is known exactly. Rising Sun's target has no such tables.
 - Compiled with Metrowerks CodeWarrior (`extab`/`extabindex`, `.mwcats.text`, `__sinit_*_cpp`), not ProDG. No DWARF is present.
 - The original-image relink matches the complete 1,641,760-byte DOL derived from the ELF, including its header. Every original allocated ELF file byte, entry point and BSS extent is checked separately.
-- A source build with zero accepted units reproduces the same complete image, so the reconstruction pipeline is ready for the first unit.
+- Accepted Dolphin SDK units are verified inside the same complete-image comparison.
 
 This comparison is against a derived analysis image. It does **not** mean the original ELF's symbol tables have been reproduced, the on-disc boot DOL has been replaced, or the game has been tested in an emulator. The boot DOL (`boot.dol`, identical to `Moh2BootRel.dol`) is a separate 168,544-byte program that loads the game ELF. See the [initial audit](docs/initial-audit.md) for details.
 
@@ -50,11 +50,15 @@ Run the scripts from any directory; all outputs remain inside this checkout. `ba
 | `build/reconstruction/report.json` | Complete source-build result |
 | `progress/GMFE69.snapshot.json` | Public, locally verified progress snapshot |
 
+## Contributing units
+
+`tools/port_unit.py` drafts a unit manifest from a source file by matching its relocations to the original's, and `tools/unit_diff.py` shows per-function disassembly differences after a failed verification. See [Dolphin SDK units](docs/Dolphin.md) for the workflow, compiler profile and the CodeWarrior linker behaviors the verifier models.
+
 ## Next work
 
 1. **Trustworthy per-file splits.** `dtk elf config` recovers ranges for all 557 files, but attributes globals without a file-local anchor to the last file record (`sdfx.c`), which makes the link order cyclic. Use the preserved relocations to fix ownership. This also improves the decomp.dev code map, which currently groups much of the code as "Unknown file".
-2. **Compiler identification.** Pin the CodeWarrior version and flags, starting with small Dolphin SDK units, which Rising Sun has already matched for its own target with `GC/1.2.5n`.
-3. **First accepted units**, then mutation tests for them (see `tests/test_reconstruction.py`).
+2. **More Dolphin SDK units.** 33 SDK units are verified with CodeWarrior `GC/1.2.5n`; the [open problems](docs/Dolphin.md#open-problems) list what blocks the rest.
+3. **Mutation tests** for accepted units (see `tests/test_reconstruction.py`), then MSL, MetroTRK and game code.
 4. Register the project on decomp.dev (see [Progress.md](docs/Progress.md)).
 
 ## License

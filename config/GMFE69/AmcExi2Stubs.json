@@ -1,0 +1,113 @@
+{
+  "id": "AmcExi2Stubs",
+  "source": "src/dolphin/amcstubs/AmcExi2Stubs.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x801439a4",
+      "size": 48,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "EXI2_Init",
+      "address": "0x801439a4",
+      "size": 4,
+      "binding": 1
+    },
+    {
+      "name": "EXI2_EnableInterrupts",
+      "address": "0x801439a8",
+      "size": 4,
+      "binding": 1
+    },
+    {
+      "name": "EXI2_Poll",
+      "address": "0x801439ac",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "EXI2_ReadN",
+      "address": "0x801439b4",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "EXI2_WriteN",
+      "address": "0x801439bc",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "EXI2_Reserve",
+      "address": "0x801439c4",
+      "size": 4,
+      "binding": 1
+    },
+    {
+      "name": "EXI2_Unreserve",
+      "address": "0x801439c8",
+      "size": 4,
+      "binding": 1
+    },
+    {
+      "name": "AMC_IsStub",
+      "address": "0x801439cc",
+      "size": 8,
+      "binding": 1
+    }
+  ],
+  "externals": {},
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/amcstubs/AmcExi2Stubs.c"
+  },
+  "original_file": "AmcExi2Stubs.c",
+  "original_file_index": 11997,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "AmcExi2Stubs.json"
+  }
+}

@@ -14,7 +14,8 @@ def external_symbol_index(original):
         if symbol["type"] == 4:
             file_name = symbol["name"]
         if symbol["section"]:
-            key = (symbol["name"], symbol["binding"], file_name if not symbol["binding"] else None)
+            # Weak (2) definitions resolve like globals (1); locals stay file-scoped.
+            key = (symbol["name"], min(symbol["binding"], 1), file_name if not symbol["binding"] else None)
             definitions.setdefault(key, []).append(symbol)
     return definitions
 
@@ -29,11 +30,16 @@ def resolve_external(original, unit, name):
     return matches[0]
 
 
+def stripped_address(index):
+    """Outside GameCube main memory, so retained code cannot use it by accident."""
+    return 0x10000000 + index * 0x100000
+
+
 def compile_sdk(unit, compiler, wrapper, work, execute):
     execute("compile", wrapper, compiler / "mwcceppc.exe", "-c",
             *unit["compiler_flags"], "-I-",
             *[f"-I{ROOT / path}" for path in unit["include_dirs"]],
-            "-ir", ROOT / "src/dolphin", ROOT / unit["source"], "-o", "compiled.o")
+            "-ir", ROOT / unit.get("source_root", "src/dolphin"), ROOT / unit["source"], "-o", "compiled.o")
 
 
 def sdk_link_script(unit, obj, original, tools, work, execute):
@@ -57,6 +63,10 @@ def sdk_link_script(unit, obj, original, tools, work, execute):
     for section in unit["sections"]:
         name = section["name"]
         script.append(f"{name} {section['address']} : {{ compiled.o({name}) }}")
+    # SN's linker has no /DISCARD/. Park sections the original linker
+    # dead-stripped outside the image; they never enter the rebuilt context.
+    for index, name in enumerate(unit.get("stripped_sections", [])):
+        script.append(f"{name} {stripped_address(index):#x} : {{ compiled.o({name}) }}")
     originals = list(original.symbols())
     for index, (name, address) in enumerate(unit["externals"].items()):
         if name not in small:

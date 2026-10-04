@@ -1,0 +1,110 @@
+{
+  "id": "fstload",
+  "source": "src/dolphin/dvd/fstload.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "signed",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8011ab8c",
+      "size": 576,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018dec8",
+      "size": 112,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x80317c38",
+      "size": 112,
+      "type": 8
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034e4b0",
+      "size": 11,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f0e8",
+      "size": 12,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "cb",
+      "address": "0x8011ab8c",
+      "size": 216,
+      "binding": 0
+    },
+    {
+      "name": "__fstLoad",
+      "address": "0x8011ac64",
+      "size": 360,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DVDGetDriveStatus": "0x8011a1f8",
+    "DVDReadAbsAsyncForBS": "0x80119fc4",
+    "DVDReadDiskID": "0x8011a094",
+    "DVDReset": "0x8011a168",
+    "OSGetArenaHi": "0x80111588",
+    "OSReport": "0x80112520",
+    "OSSetArenaHi": "0x80111598",
+    "memcpy": "0x800094f8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/dvd/fstload.c"
+  },
+  "original_file": "fstload.c",
+  "original_file_index": 10979,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "fstload.json"
+  }
+}

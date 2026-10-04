@@ -1,0 +1,110 @@
+{
+  "id": "OSTime",
+  "source": "src/dolsdk2001/os/OSTime.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80116a40",
+      "size": 132,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "OSGetTime",
+      "address": "0x80116a40",
+      "size": 24,
+      "binding": 1
+    },
+    {
+      "name": "OSGetTick",
+      "address": "0x80116a58",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "__OSGetSystemTime",
+      "address": "0x80116a60",
+      "size": 100,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "OSDisableInterrupts": "0x801135cc",
+    "OSRestoreInterrupts": "0x801135f4",
+    "__div2i": "0x80138b60",
+    "__flush_cache": "0x80007350",
+    "__init_hardware": "0x80007330"
+  },
+  "undefined_in_discarded_code": [
+    "EXIProbeReset",
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers",
+    "__mod2i"
+  ],
+  "discarded_functions": [
+    "__SetTime",
+    "__OSSetTime",
+    "__OSSetTick",
+    "IsLeapYear",
+    "GetYearDays",
+    "GetLeapDays",
+    "GetDates",
+    "OSTicksToCalendarTime",
+    "OSCalendarTimeToTicks"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/os/OSTime.c"
+  },
+  "original_file": "OSTime.c",
+  "original_file_index": 10833,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "__SetTime",
+    "IsLeapYear",
+    "GetYearDays",
+    "GetLeapDays",
+    "GetDates"
+  ],
+  "sda_externals": [],
+  "stripped_sections": [
+    ".data"
+  ]
+}

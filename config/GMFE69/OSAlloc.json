@@ -1,0 +1,132 @@
+{
+  "id": "OSAlloc",
+  "source": "src/dolsdk2001/os/OSAlloc.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80111278",
+      "size": 784,
+      "type": 1
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034e478",
+      "size": 4,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034efb0",
+      "size": 16,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "DLInsert",
+      "address": "0x80111278",
+      "size": 172,
+      "binding": 0
+    },
+    {
+      "name": "OSAllocFromHeap",
+      "address": "0x80111324",
+      "size": 252,
+      "binding": 1
+    },
+    {
+      "name": "OSFreeToHeap",
+      "address": "0x80111420",
+      "size": 124,
+      "binding": 1
+    },
+    {
+      "name": "OSSetCurrentHeap",
+      "address": "0x8011149c",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "OSInitAlloc",
+      "address": "0x801114ac",
+      "size": 112,
+      "binding": 1
+    },
+    {
+      "name": "OSCreateHeap",
+      "address": "0x8011151c",
+      "size": 108,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "OSReport": "0x80112520"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "DLAddFront",
+    "DLLookup",
+    "DLExtract",
+    "DLOverlap",
+    "DLSize",
+    "OSAllocFixed",
+    "OSDestroyHeap",
+    "OSAddToHeap",
+    "OSCheckHeap",
+    "OSReferentSize",
+    "OSDumpHeap",
+    "OSVisitAllocated"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/os/OSAlloc.c"
+  },
+  "original_file": "OSAlloc.c",
+  "original_file_index": 10662,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "DLAddFront",
+    "DLLookup",
+    "DLExtract",
+    "DLOverlap",
+    "DLSize"
+  ],
+  "sda_externals": [],
+  "stripped_sections": [
+    ".data"
+  ]
+}

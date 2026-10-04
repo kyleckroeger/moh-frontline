@@ -6,19 +6,581 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 0,
+    "matching_code_bytes": 21924,
     "total_executable_code_bytes": 1414572,
-    "percent": 0.0,
+    "percent": 1.5498680873083872,
     "categories": {
       "reconstructed_game": 0,
-      "restored_library": 0
+      "restored_library": 21924
     },
-    "matching_functions": 0
+    "matching_functions": 129
   },
   "input_sha256": {
+    "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
+    "config/GMFE69/AXProf.json": "ba1ea082ba1cca2929a03e0b3f9715d8f0ba2203b8a59af5c8d43a620397ceef",
+    "config/GMFE69/AXSPB.json": "b545c13a80837ee4ec6447cd14220ca12742a60c4525e91f744603629870f101",
+    "config/GMFE69/AmcExi2Stubs.json": "06e09d04a4badb35d73036086b321ab231a21afa20b86979b63e9546006ca0ce",
+    "config/GMFE69/CARDBlock.json": "9b20825c0b22ffb86797c911f53b3f7b61bc82ca79662bb7770eff62bfd5f25a",
+    "config/GMFE69/CARDCreate.json": "3cf6d6beba2ac741643552f85fd9f114fd204267747630029385ff3a7a704a0d",
+    "config/GMFE69/CARDDelete.json": "c1c26e08366317235691bda59dd8e55e40ffe504c18f081dbc726ba75955bc2c",
+    "config/GMFE69/CARDDir.json": "45f60e8765248b1f5161f2ef9e703619a87d6a3115f7f0e6d745bc807e494618",
+    "config/GMFE69/CARDRdwr.json": "f6823e5de5ee80dc52792b3137627ea5401106745a584bc344d54eeed63855b0",
+    "config/GMFE69/GXStubs.json": "f982b70601475f696346533ae77d4424c28e7ff3e577f677e69199958fa00fdc",
+    "config/GMFE69/OSAlloc.json": "67106699292772ba5d4d82046fe0693ce5131eb6185ba3ef8965019d65fa6948",
+    "config/GMFE69/OSArena.json": "fae99d1b18d3b3604cb8dcad5702e89f090e83b078590b613d5d496d404af0d5",
+    "config/GMFE69/OSAudioSystem.json": "77cbfb9ab923faeba0d5cbf61bd83b1ad685fbb3e710b1bb5365c5d2767f00a0",
+    "config/GMFE69/OSCache.json": "1cde56786574eb0990fadff2d5a823908f12be8bb020c8b3454c124467adc1a3",
+    "config/GMFE69/OSContext.json": "678a14c04297999d61b92b1c85c5aeaad341181b6a9ff0c80c62d12e87b562e6",
+    "config/GMFE69/OSInterrupt.json": "f5c05cf460a925e69e0498258555ab02f61bfef7f808494ed08197b834b4410e",
+    "config/GMFE69/OSLink.json": "3f8bb6e15dbdb60dadeba4a00dd5534d0695c81ba10c4c94662697437dd7bea1",
+    "config/GMFE69/OSMessage.json": "28f4ca013eb889f29452ce4b60a40bb32e49647ac513ed167fb959d48d32f37e",
+    "config/GMFE69/OSMutex.json": "73821799678006005768465d02abed822ac63d97c863f28923bb68efacc692ab",
+    "config/GMFE69/OSReset.json": "77625b94ecae7bcd0bab3364c46eb2b225853b5c4b4799e9d23e634962621119",
+    "config/GMFE69/OSResetSW.json": "448c1b07ffd33631e830f0aad1595aad417cad2159f0b897410bae4027a16f14",
+    "config/GMFE69/OSSync.json": "27c30f37b10db00a3b25b1f38ff69d7c33ab7870f9727aa1bdf9be17332991c8",
+    "config/GMFE69/OSThread.json": "38638c5451250dd068469a8b6b609d98e9aabad647ceb265a4cfd78f3d497cca",
+    "config/GMFE69/OSTime.json": "eb335b6100ab9c431f68433844f0426983bb54d3574ead92ee3aa46d5f83ffa6",
+    "config/GMFE69/SISamplingRate.json": "e4def7467ec8d82fdb9730412721675a9ea0e7ce572d5b8b63e89c3bdfe1eb84",
+    "config/GMFE69/ai_src.json": "f0c8725cb5fed0ec6bbd3940f8c439dc47168cfd29a94c4b891cf592973d7e1a",
+    "config/GMFE69/arq.json": "53c9d956d7cd2b69c858816128443494613f46b3ad680d5056ae00227df49900",
     "config/GMFE69/baseline.json": "36a2b85cf4193e53afac79bdd2a8fdbf8dfb1880cae89e119463f2c81461b42f",
-    "config/GMFE69/project.json": "ae459012e4fbe141e8ddfd5d24abf64d82eeff7765e1dc6060df4e3813590198",
+    "config/GMFE69/db.json": "f5cdac8d1b6ec28c05d82995e2918679665f81055beaea75273deb9b2bb4a458",
+    "config/GMFE69/dsp_debug.json": "abb1bf69b26be3567a5e3a22a729922f11d7a3b8c74ed938895798d0072114a0",
+    "config/GMFE69/dvderror.json": "e707cc3372abd7ab11663cb1d927b494694905f6aff6c33152a9b6fcf015590b",
+    "config/GMFE69/dvdqueue.json": "3972551d2dea13e4955e0652398d4423a1ecfbf913abb2f4a0d352a2d558c905",
+    "config/GMFE69/fstload.json": "c101975fb01250bc8f0325effbe643330b62ccd00eac41e24aff682c06866309",
+    "config/GMFE69/mtxvec.json": "bb6a4f09ca854ab9a727be34f0a20df7f53e0e081e1b83581418b88de9987009",
+    "config/GMFE69/project.json": "f5376802d38ef0fb31882bb744eed781839dd4209039bf908c9aa9a49ed1081d",
     "config/GMFE69/target.json": "f7e8d7b660fd35f21cdc13385271d7b73fabda6669a0d112db63b3b1f3e8b3b2",
+    "include/dolphin-sdk/charPipeline/fileCache.h": "9fc5bbfba874376ec1d239271cda99d84c256b2bd07f884d1177bee6b705b985",
+    "include/dolphin-sdk/charPipeline/structures/HTable.h": "e1e36439d044200512635bc37470f318258d75767fad9ec2d9c407f9c0ee1af8",
+    "include/dolphin-sdk/charPipeline/structures/List.h": "5646f12d28166b80aa7ad18711a2a01b1b1e836f4f509c25a03b2220adcc3c58",
+    "include/dolphin-sdk/charPipeline/structures/Tree.h": "8316aaccf9bf84076cb398d547729ccea67c59a27f51d3634aba8e040373f6af",
+    "include/dolphin-sdk/charPipeline/structures/dolphinString.h": "39e18ad34648580996542d756c3e3cff424429cfaf9f9a19de277bcfc654dc95",
+    "include/dolphin-sdk/charPipeline/structures.h": "13c4b6b169308ae73c966ef8658f7dae0daf4cf64ef18fab45e58dcb893df47d",
+    "include/dolphin-sdk/charPipeline/texPalette.h": "406c7773f21d56cf6448fc327b528a045480cdf59d852b2592631811bc24b437",
+    "include/dolphin-sdk/cmath.h": "8e6260cd070f2b6b50553fb0422df078a02ee7b3e109d80254ad4e7be003129d",
+    "include/dolphin-sdk/dolphin/G2D.h": "e69ab1c81a53473db35ce63babe4307abf6bf5ae089c3f1fda2bf9319ef063e6",
+    "include/dolphin-sdk/dolphin/GBAPriv.h": "8c8d8a0e2430ac8c49d03613186e80e049f0cd15f8f3aff51925094368e7a2d1",
+    "include/dolphin-sdk/dolphin/ai.h": "f28e3cb0fbbfd268625517f1c613f0a1a6ec152f72458ced386bd8f55dceda95",
+    "include/dolphin-sdk/dolphin/am.h": "22113580d85d41d064dca124c415eb36f4a7b0238bd16f7ac876934cc397f95a",
+    "include/dolphin-sdk/dolphin/amc/AmcExi2Comm.h": "43092e0ff6d7aa61821d6a2294810e7a66ee5465ab86556d4cb7aff667d35d8a",
+    "include/dolphin-sdk/dolphin/amc/AmcTypes.h": "3704cf131bf72ab25da6bfee211d0bf56a7204d401d3c950f2138b44f936fd54",
+    "include/dolphin-sdk/dolphin/ar.h": "ac6948054f6b4b25e33c0989346e229dabd5bb478f0baf9275b7601e52aedd37",
+    "include/dolphin-sdk/dolphin/ax.h": "b2816ca0f2d740b154f71b94c214fc1f1ac0f30642c46b18fa160240c411eb16",
+    "include/dolphin-sdk/dolphin/axart.h": "e4466b4be651e797fc2cccd09e7d501b638385c58dc8f0990d690a639c92da55",
+    "include/dolphin-sdk/dolphin/axfx.h": "6a5b670d0961bd3a3477b6a43a36df13f2725d854dd236541bf8f7665d8f5234",
+    "include/dolphin-sdk/dolphin/base/PPCArch.h": "e9706e5597ec1513ecfc73b889e8cc6ff6d01b1e441f1ba638532c61180f04f7",
+    "include/dolphin-sdk/dolphin/card.h": "72047f79ac42bfb22f309308a75814a9530647f861723724f1351640e56ed228",
+    "include/dolphin-sdk/dolphin/db/DBInterface.h": "f94aea2e8090b9816ab615e85c5d7dbb6fc9e6be7cd62a6d6665f2d638cf90ab",
+    "include/dolphin-sdk/dolphin/db.h": "ea21eb952a5f0f1b9b2636587bf25ce1143d7c4567dacfa7fece8abd09a40435",
+    "include/dolphin-sdk/dolphin/demo/DEMOAVX.h": "48eecddf16e331005ca580ebbe5e2ecf6ca62fc821b03b77dab89906810763fb",
+    "include/dolphin-sdk/dolphin/demo/DEMOInit.h": "28f9d1f45306c954ea599ae6699581015e1846def7865516f5ee0cf7ac4b31e9",
+    "include/dolphin-sdk/dolphin/demo/DEMOPad.h": "eaffbb280596e1e2fc00e261243dcd46b6bcb1ea80251df60e2fad8ad3e5f2a2",
+    "include/dolphin-sdk/dolphin/demo/DEMOPuts.h": "57b58bedbd361db10691486b236d76dbe4e0707cc467c85e4eb5c5567e9a5e9c",
+    "include/dolphin-sdk/dolphin/demo/DEMOStats.h": "65ecbd570dd2f4077e8993e342c838df21058b705b4a8d510528b8b687d7a0b1",
+    "include/dolphin-sdk/dolphin/demo/DEMOWin.h": "976a72a69679f426a04a8837da8fdc6b162dac0cdc1a79153370ddbac82d924a",
+    "include/dolphin-sdk/dolphin/demo.h": "ba97693c6d9cc5ee538ef3bd9d0280d89ea26da83bca3ba9aaa7ae0389b4454a",
+    "include/dolphin-sdk/dolphin/dsp.h": "bf2829e4063ce6c2c149193261619de44f14b3347b3250d345f788ad107d33fd",
+    "include/dolphin-sdk/dolphin/dtk.h": "3b2d587c5fac2e7dbc229db97b4f69aed8adfc1c275057b9fda7ed66c48cc53d",
+    "include/dolphin-sdk/dolphin/dvd.h": "2683974fd9e078eda23d6860d1054a85cffa35d317c3c5e7304915565eb75fbf",
+    "include/dolphin-sdk/dolphin/exi.h": "aa2ce0cf96f3378c3c9ff329271bcb85e867f9663fb372ca581b74c30bcf8f35",
+    "include/dolphin-sdk/dolphin/gba.h": "3fcb314112d80ac9a2d6d85be4c7d6aa7d05f11e09dbfd364c51518980ed7333",
+    "include/dolphin-sdk/dolphin/gd/GDBase.h": "e69a647b2dd619d77429a205f9696d945d3abfd33adef0f3f32b9f630c5b9211",
+    "include/dolphin-sdk/dolphin/gd/GDFile.h": "5665af0a21cd4b692867b970bb3d703fcb003d470b5500eceb1c7d5a31c60734",
+    "include/dolphin-sdk/dolphin/gd/GDGeometry.h": "9ea3b7d44d98f4855b0b1d31212d356600fc2e086c8143d7299851437fc6df28",
+    "include/dolphin-sdk/dolphin/gd/GDIndirect.h": "a748cb898b93aba56d5a6af653f824ecf2f0f272821202f1d0e3cfff0ad378bd",
+    "include/dolphin-sdk/dolphin/gd/GDLight.h": "0f29ab4c0388d435648f441dcc259a66d82729bebf11faff71462b298d72fd08",
+    "include/dolphin-sdk/dolphin/gd/GDPixel.h": "76dd05f1fcaa573de32c688dcda96ad731dba87748dabcb79738fea55f52d0c3",
+    "include/dolphin-sdk/dolphin/gd/GDTev.h": "9dd12180e8455979ba553fb083ba24ff74d34c31ede1846f50d02130daf4c94d",
+    "include/dolphin-sdk/dolphin/gd/GDTexture.h": "4c6e561428358c511792c95ef3ecda56ba40f072d95f016b77d84912271b8c61",
+    "include/dolphin-sdk/dolphin/gd/GDTransform.h": "f2335d9c02536baf8df1d6403f2745e1d620218acc687162ebe32f380535db81",
+    "include/dolphin-sdk/dolphin/gd.h": "315e4c98df80d41509a3caa4315ddf75907fc674c3198ea61fe5433f249f8231",
+    "include/dolphin-sdk/dolphin/gx/GXBump.h": "6d596c5a0d7fee8b1e16e31ed3fac1cb2d990e63e1cbd54947dcacffa0ae0efd",
+    "include/dolphin-sdk/dolphin/gx/GXCommandList.h": "a58d128f98bfb4b1fb59e851febb5c47f55fef9f43b44465a454a2964ba31725",
+    "include/dolphin-sdk/dolphin/gx/GXCpu2Efb.h": "8b57d81c36efbb14733fd55c13fc7399dcdc40ab1806083264440068eb28632e",
+    "include/dolphin-sdk/dolphin/gx/GXCull.h": "e3f8d5ffd3af07fcf601e90dcff8652c53916253d5bda22e844228eaa2a89dc0",
+    "include/dolphin-sdk/dolphin/gx/GXDispList.h": "a9ca1122d7cab58c79c670e456fe274e10551b0b4bd486be51986bd68537f303",
+    "include/dolphin-sdk/dolphin/gx/GXDraw.h": "1543da936c3050b9995813c2a2ffdb1d4ffa75b8a61c6acd87352afb48364f99",
+    "include/dolphin-sdk/dolphin/gx/GXEnum.h": "118846e4297df33c50a262172ecbe9ce7bd3491fda6f301466a2bcc4b6d5286e",
+    "include/dolphin-sdk/dolphin/gx/GXFifo.h": "f0ce5d3dc55c96fce66ad3f0530bf5d7625e15e49d15de40cac9db4c9cbda889",
+    "include/dolphin-sdk/dolphin/gx/GXFrameBuffer.h": "4de7f7a2f7c8942b5de36626c83256c1d8c0d22edfe477997d7450951da68a8e",
+    "include/dolphin-sdk/dolphin/gx/GXGeometry.h": "de930a7a36f298da35eea16d079f251bc4ef38d3044c73c12ecca9dbb9cb37eb",
+    "include/dolphin-sdk/dolphin/gx/GXGet.h": "c4cfa0c07fb502317ae6abad1d33812d9a0a89562babb715207b77bfc3010b20",
+    "include/dolphin-sdk/dolphin/gx/GXLighting.h": "03933be61394970ac14b38a8f19aff5d24845969ea60eedef1f130b4ec46c71c",
+    "include/dolphin-sdk/dolphin/gx/GXManage.h": "00a8a5e0cc136df5ff774f8540968295f4ad6f484cc08ea27c1b330187236fde",
+    "include/dolphin-sdk/dolphin/gx/GXPerf.h": "23a1637449dce0b9217567b4c526ceeb1a5dcb9bc2cd3826c51e20c9b8dd927f",
+    "include/dolphin-sdk/dolphin/gx/GXPixel.h": "94e0febafaf6d3d1d1437c09c2acc128319ce14244b93650dc3075845e1e9cae",
+    "include/dolphin-sdk/dolphin/gx/GXStruct.h": "05aed87cefcf9f0faf135823fab2c020a5e467487718acc05fc7e3e771a3d31d",
+    "include/dolphin-sdk/dolphin/gx/GXTev.h": "55d750d122b74382a6f70243709595b3dbb7d0c34c88558c508a99ca3240e6d1",
+    "include/dolphin-sdk/dolphin/gx/GXTexture.h": "ede41389fd9f97e828f86d384fdb7af9e8253035c500aaf06be28e65a5fc7d11",
+    "include/dolphin-sdk/dolphin/gx/GXTransform.h": "c86eed81fb5628b260988f782e54dcf47aeef72b1493162052fda30eda885e89",
+    "include/dolphin-sdk/dolphin/gx/GXVerify.h": "7215b5c60c078316d6ef7178c6e92f791cf2fb4280ac975e7614b3ec33ad7aec",
+    "include/dolphin-sdk/dolphin/gx/GXVert.h": "ca218260c5f5f93c462433d4acd5b7f6456ffd2da41da0fd5eb4eee630dffc66",
+    "include/dolphin-sdk/dolphin/gx.h": "247a687ff063e84c835dcc60bb8daaa054cc99c1360e97ee12efd02ff6f3a7c4",
+    "include/dolphin-sdk/dolphin/hio.h": "9661638fa95efd61dcf029ca1bea04a5c0a2e0648e2ee6354733c6d12854fc6d",
+    "include/dolphin-sdk/dolphin/hw_regs.h": "80ca02a431add323f5e8b5167c0ff6ecc487ebedd13b3869f757a81a2d68f736",
+    "include/dolphin-sdk/dolphin/mcc.h": "0e673a867324497de4f25f30934a95f8eb1efde6a752fc6402a66cbf0d7c88b3",
+    "include/dolphin-sdk/dolphin/mix.h": "e98893ad6c274589df6f3563536624dd4963c16ff65f68c52d41a8bdb00b916c",
+    "include/dolphin-sdk/dolphin/mtx.h": "5e59486b0d8d1eeb7b0e50c8113a42615b2e407e1bc2ed2a80fd2eba491cc4f6",
+    "include/dolphin-sdk/dolphin/os/OSAlarm.h": "457bb9533039628ed60f584ce6796b31a72ac2fc65ca2cfe0aff45b1b6a97667",
+    "include/dolphin-sdk/dolphin/os/OSAlloc.h": "632dbff3188e7f448396d5f1efaf20ea56aa167e21aed425ac31fc073f8b6fea",
+    "include/dolphin-sdk/dolphin/os/OSCache.h": "abac39323db5b11ac27051ed88ac83680ab821c066a79ac746c9603aafe31ebc",
+    "include/dolphin-sdk/dolphin/os/OSContext.h": "e0e5ba0d504ebd85877c1a93a02f530eca85d08ade5e65370356deb54e3c12aa",
+    "include/dolphin-sdk/dolphin/os/OSDC.h": "4e7127f8fabf9e7757e184ff5f95725ec9781b74b1b8a1f9e0d3d5abd9591639",
+    "include/dolphin-sdk/dolphin/os/OSError.h": "902f6bba9b8d8050c852f8a319e2afb96cecf6828c1a6cbb67389fce67be901a",
+    "include/dolphin-sdk/dolphin/os/OSException.h": "8902903148c5507fac4806e7d439239ff706cef5c8b358e73f4d8c2b97f0704f",
+    "include/dolphin-sdk/dolphin/os/OSExec.h": "f274858b69c13b5707b40f868b241972a39a378b27498cc2244a59f367f068a0",
+    "include/dolphin-sdk/dolphin/os/OSFont.h": "0fa756dae47accfd0fa3e744c7bc255ae370d3aced34f961723d410dc798dde7",
+    "include/dolphin-sdk/dolphin/os/OSIC.h": "e7add07ce348bad12f6073172b73335698021899e03610906743ca598c8976e0",
+    "include/dolphin-sdk/dolphin/os/OSInterrupt.h": "3228f03baffc2da2860a900817dc978b2de6556794832f933ea999abe05da54c",
+    "include/dolphin-sdk/dolphin/os/OSL2.h": "06bd75428f213713c6e387387c032a6dd1972e90f54b637561169e849160c4aa",
+    "include/dolphin-sdk/dolphin/os/OSLC.h": "fe85de5207ed4303f18ca2b31369119c5b9582c9c99f8376ea9852522bbfe1da",
+    "include/dolphin-sdk/dolphin/os/OSMemory.h": "4c4291196281f26ffaa7b2276f8851a28f96c448e2f12e9f1bf62168151030b3",
+    "include/dolphin-sdk/dolphin/os/OSMessage.h": "19e523acdc37d6fc686889e032fa6067847a421733eb9519cc110a70b13e5ac4",
+    "include/dolphin-sdk/dolphin/os/OSModule.h": "34a543b47a12ed0554bd7e03ad5abf3dcc9a438d67fef06c148a1070ba4bdec0",
+    "include/dolphin-sdk/dolphin/os/OSMutex.h": "45afd844eb65106da3da5dccc751cb136c65899d5fae916b71e92029bcc138d5",
+    "include/dolphin-sdk/dolphin/os/OSReboot.h": "f76d12de3bbd4655d42831d3e4ed095753db7d2fde5fbd11be13fd4c3f706707",
+    "include/dolphin-sdk/dolphin/os/OSReset.h": "99f22ea97e990502b37e7f47de477f96af0af1a09e2006d3d335774e45635499",
+    "include/dolphin-sdk/dolphin/os/OSResetSW.h": "4f23b1efcefe0dfa982b577b454b717ad1645e9a4a3afaf8ecfd8aa71baaf6f9",
+    "include/dolphin-sdk/dolphin/os/OSRtc.h": "24e215cca694bb8a280e23e82347c0a0c2d2527ce8bed9241400cba3da06f097",
+    "include/dolphin-sdk/dolphin/os/OSSemaphore.h": "536b1f20c3f228455279dff2018c453bacb7692fbfda487c03a141af84a2f989",
+    "include/dolphin-sdk/dolphin/os/OSSerial.h": "5ca27d5d770a5140565f48a772590aed1b6c33d34c22e1345499cfade6beb308",
+    "include/dolphin-sdk/dolphin/os/OSThread.h": "89412c8c5743645053fa008cf954733615992e56ef088f7ef77ab84da42805b0",
+    "include/dolphin-sdk/dolphin/os/OSTime.h": "22474dec2507a9b3d7cf30f99953110d38f4cd0e53eaaadbde8783a5ea5967b5",
+    "include/dolphin-sdk/dolphin/os/OSTimer.h": "3e6223e89665d6f12de92f71b3086acc23d3747896c3603eb03198ee6e5f2f64",
+    "include/dolphin-sdk/dolphin/os/OSUtf.h": "a06e076f6da6f7d50b7bb3067b43ee06184f230b61d1a593f93d819a298259fd",
+    "include/dolphin-sdk/dolphin/os.h": "a3d81a6c250673ce3622f69aa81fd00cf86d0e7f31286c59d456d6a13c594e81",
+    "include/dolphin-sdk/dolphin/pad.h": "de439591b1beda595f25ccafb734557dda5b44aba05630a8cf112f8c96f58a6e",
+    "include/dolphin-sdk/dolphin/perf.h": "e3ed95411463f6e870bb850ac27d5f110fdde13e18bc60a4279554c5c382d10c",
+    "include/dolphin-sdk/dolphin/seq.h": "3895171cb82974f7d7167c9db084f89114d6d3a7d5a23c5c6130621e30c51006",
+    "include/dolphin-sdk/dolphin/si.h": "e8baecd5314704a90ee9faa59eeefd235c7bfadf9ea06bc963fa61e8dc3de7ac",
+    "include/dolphin-sdk/dolphin/sp.h": "d0a0cb84b9b112ab6886e8ff0011e3938da930efb5fd69ca81d00d0bdeb48e12",
+    "include/dolphin-sdk/dolphin/syn.h": "204aed03f84fa2b99c2bb79fa2777e5c16f6ac69f60ed9e2043a6f738f51f345",
+    "include/dolphin-sdk/dolphin/types.h": "a86d1c92f8e6e6d1ce990caacbcbf3b5ae3ac55dafd0b2c7357258e27fdb8f04",
+    "include/dolphin-sdk/dolphin/vi/vifuncs.h": "3d0f57789854d678417cfcad2fc534eb1ebf55ba797777742109137ecbb19bcf",
+    "include/dolphin-sdk/dolphin/vi/vitypes.h": "f903c37071502f8509edb7e2f15f5bc6eb52e06b57366143e19c97d266d337da",
+    "include/dolphin-sdk/dolphin/vi.h": "15b23ea2fdfddc0c5c0fc1433a51c490ec8a101bd14882ec1f039e72acdf4e39",
+    "include/dolphin-sdk/dolphin.h": "5898b417031bafd8d3ea314b76d77ab51626c0b627c8fec9f5ea56f318a12c7e",
+    "include/dolphin-sdk/fake_tgmath.h": "20f8ad65764ae66ea8dce34d6e7c4c689625c8e63ec14941d530bf2276b09c25",
+    "include/dolphin-sdk/libc/assert.h": "3507508b59b00662afd3abfbf762930f4bdd5138fdb1a762f7718292c4b0c447",
+    "include/dolphin-sdk/libc/ctype.h": "24c188a206d41040c37526dd97cc00d06773fe57e4f46e0cf25e720f5f6d186d",
+    "include/dolphin-sdk/libc/errno.h": "69a5cf5e915d1e4232242ff12d643453d41ef67099baadff44d9956a160b1bb4",
+    "include/dolphin-sdk/libc/float.h": "9d2d0abc3d27b33d1452202a2edd5bf2ccb40a21c077a86b0c90c9836ba255fb",
+    "include/dolphin-sdk/libc/limits.h": "4e6a1ef2d8537b587ce64183d685125a1fa04c677eb4be38aecf72d55b7f7ee8",
+    "include/dolphin-sdk/libc/math.h": "a7b17e660c1697375b06dd744e3a0563b3c7720ab54f35c90d7913fdc97a4036",
+    "include/dolphin-sdk/libc/stdarg.h": "11807dcf97c007da7302cdbe529da394e77e6cae769e845d1670d44c82b62c57",
+    "include/dolphin-sdk/libc/stddef.h": "9406c1be01e6e45abe6d3d4e3c4743021888e048641372f20f26216d1c021ecc",
+    "include/dolphin-sdk/libc/stdint.h": "1b2e592f75216a88a782c5fbd38536afb4c184ea1e1c2142d5c8f9b7e2988c61",
+    "include/dolphin-sdk/libc/stdio.h": "88d1b8073d71eed532a23b917efdab80c296d1a4d1ab0aabcc592b4d60f733af",
+    "include/dolphin-sdk/libc/stdlib.h": "96b73df29a8c319611c0f48dc44fbd7dd4dc1cea46c935543e3af87a6038992c",
+    "include/dolphin-sdk/libc/string.h": "32c15447719e8675170844ae143c87bbee0646207012c59ffc7352b50c561956",
+    "include/dolphin-sdk/libc/wchar.h": "eb9359b3f8c80e980c291b31b08b913739a9fda753a2a5007f8bf2bf3c646439",
+    "include/dolphin-sdk/macros.inc": "4e92f656bb511fbb45d66081291371c47ceba7bce9c55f86871116203cf38a46",
+    "include/dolsdk2001/charPipeline/fileCache.h": "4426c7a7105cb9a5f399e4e0beff02bc12d99c0ba5746b17313c349a40d832ea",
+    "include/dolsdk2001/charPipeline/structures/HTable.h": "e14fadeb1228336833fc34b04c268934fd144c7b8a00d80ede66a6337c369423",
+    "include/dolsdk2001/charPipeline/structures/List.h": "665000841b4890e9c57d3981d568a7b26d55c69bf3a0a68dfae89a29948243ab",
+    "include/dolsdk2001/charPipeline/structures/Tree.h": "5119ce72bc15eb27cd4c0638b8ed0e6df6a80c3f992d8ffcc4fd116be66f35b3",
+    "include/dolsdk2001/charPipeline/structures/dolphinString.h": "6e154c5a88d4747585a1fac321434a9430879b69bffd9c4591780a5ce09bf706",
+    "include/dolsdk2001/charPipeline/structures.h": "13c4b6b169308ae73c966ef8658f7dae0daf4cf64ef18fab45e58dcb893df47d",
+    "include/dolsdk2001/charPipeline/texPalette.h": "8b22e678b1ed08fae57e8f4a66c07195295c079a73fd96614a58c6b7f18d0693",
+    "include/dolsdk2001/cmath.h": "517cfb9d0b3a2e87be8ec4087a7a9c96317eec2bdedff5b5cbcbcfc598a6aaeb",
+    "include/dolsdk2001/dolphin/G2D.h": "81affd7f59707be32f24088ffaa1a02571642db571f0a44dae963ae433f3bac5",
+    "include/dolsdk2001/dolphin/GDLight.h": "f1f953cfd48e4006fd43a30205b6d9d3c8cfb19f92bbd7389c557a9b548d232d",
+    "include/dolsdk2001/dolphin/ai.h": "a31a033860bed0960d69e82d1d45293bae97597de869c334ab125374b9cdc035",
+    "include/dolsdk2001/dolphin/amc/AmcExi2Comm.h": "8964cc06d8519c1a1c2e2a705131231eda1d041320a301616a0ca6deb619d791",
+    "include/dolsdk2001/dolphin/amc/AmcTypes.h": "3704cf131bf72ab25da6bfee211d0bf56a7204d401d3c950f2138b44f936fd54",
+    "include/dolsdk2001/dolphin/ar.h": "5626465a792ca824600ec195b9be2c69d72d9386cacb67997aa8672950ee366a",
+    "include/dolsdk2001/dolphin/ax.h": "870da8f2519aa82969ee911b507b508f07b71a47a07a606b716f1a585bcd201c",
+    "include/dolsdk2001/dolphin/axfx.h": "5f5d598d8ba0c87f83a9ecb1a088a37d12cc4c382c4d9f96050f7ba9db4b92bf",
+    "include/dolsdk2001/dolphin/base/PPCArch.h": "dfc6d4f378ccd3f1ff2c7d8a824eb523647b46931da8cc18e23d102360f133f6",
+    "include/dolsdk2001/dolphin/card/CARDBios.h": "bb77538841312ae1aa7db90ff8121c811a33d3184b78476ca10f546d6ebeb075",
+    "include/dolsdk2001/dolphin/card/CARDCheck.h": "7369c7a4a1c8719c0fa1ceb53a7233009f5a152324114ca29f044240f38546a5",
+    "include/dolsdk2001/dolphin/card/CARDCreate.h": "05dc1f39a2dc4d2b35c50414c790124725ccad3f5bcc1f0d3794689b5495d91f",
+    "include/dolsdk2001/dolphin/card/CARDDelete.h": "c0bf856015d59866ba74831bcf16442944b981e1b136478b9900bde13307f262",
+    "include/dolsdk2001/dolphin/card/CARDDir.h": "72ec9c7afd96f5006632938fd8355c4853cd527ebd63c09e7e735b5ff8656038",
+    "include/dolsdk2001/dolphin/card/CARDFormat.h": "9346a5683ef51eef6652cef7325fd7a8e9c49c109c8914ef9c30361de96d60c3",
+    "include/dolsdk2001/dolphin/card/CARDMount.h": "763525324ce7d2929d51c0fadb53214ac7691291a34a669ca1a6ea2611c3ceab",
+    "include/dolsdk2001/dolphin/card/CARDOpen.h": "ab679928a38c665cebe22ce74117fd86bc877fa5d0c3fec698dd6cddbfb1783c",
+    "include/dolsdk2001/dolphin/card/CARDRdwr.h": "70c2bcc4339425ea77d1b00f996aabe0d91e04f17f4a435ee9ffab2b3f27e371",
+    "include/dolsdk2001/dolphin/card/CARDRead.h": "3fe7a50aec12dcedf00ca7875dbfeb13d3381500cf4a5c78b623619c7727d893",
+    "include/dolsdk2001/dolphin/card/CARDRename.h": "b560126dad3145ee6a1f39350bc15b01842dac3d09a5832c630215e845be3249",
+    "include/dolsdk2001/dolphin/card/CARDStat.h": "a621d5777fed08808a38085a03a59f9699d2df70b41e2ffa716b6b1899b14146",
+    "include/dolsdk2001/dolphin/card/CARDWrite.h": "c5b2c77a5c1e95e6da6392b222d10ef501609a6422bb94246d99d30cd21f60b1",
+    "include/dolsdk2001/dolphin/card.h": "5714747b4da834505169fbad8a8e750b8268a9519ffc449dd227e9c03a59c0b8",
+    "include/dolsdk2001/dolphin/db/DBInterface.h": "810250f04b86571a7f5ee36179fea51ea5c55af7e712a5ad9066aac12e0962a0",
+    "include/dolsdk2001/dolphin/db.h": "732e7394881ad9f17d8be3f26508ecfaddb960fc785005231fbe6742c7e11c35",
+    "include/dolsdk2001/dolphin/demo/DEMOInit.h": "6b0eae492d0d74b1c6bda7ac0ce66cb9c17160631ca056ad256114e89bf811e0",
+    "include/dolsdk2001/dolphin/demo/DEMOPad.h": "6920e044939a9e342fbae772699f24fe65c4da2249ff89818cc86e1dbf8e8470",
+    "include/dolsdk2001/dolphin/demo/DEMOPuts.h": "f9244205299ca6d5906c9212714a1de7eabae6cd1f95a314e310a14b11b36d9c",
+    "include/dolsdk2001/dolphin/demo/DEMOStats.h": "78b02c274564be1c04967efdf21ebe8dd2f98f63cbe1cf155d0f210dad74c719",
+    "include/dolsdk2001/dolphin/demo/DEMOWin.h": "5b7b59fa0497f7392c80a284a3cdaf24a7d11af0084e7f8d0f8f95fc59ae2955",
+    "include/dolsdk2001/dolphin/demo.h": "24de33eaecc17e61ab890d536ae92fb696062a309ccd6821609c4f21008999fb",
+    "include/dolsdk2001/dolphin/dolformat.h": "910b6b80ad1ce8952dba08974529871099ed3a71366b27309aed41f45d18ae30",
+    "include/dolsdk2001/dolphin/dsp.h": "f81c9ef8111ab73001695ea6f65b8ea5954bef4be187e034ba53b14d1d5eb9f1",
+    "include/dolsdk2001/dolphin/dtk.h": "2b3363fe171e1c6ef80f5f36e73c15cd3d06213b5693a3ddc27e0f9ebf404536",
+    "include/dolsdk2001/dolphin/dvd.h": "f06fae946defabf34560c839f245ae16c3745d014cf1e114b7ce624aa703af49",
+    "include/dolsdk2001/dolphin/exi.h": "8ae56a9f52faec414a5ef72e62930d5be712102f728b10eab554c243d4fef3f3",
+    "include/dolsdk2001/dolphin/gx/GXBump.h": "4907b7f99eebc28b9e97c66fcc97b0717a9e1c8c4533a1bc3169da6aa99024f9",
+    "include/dolsdk2001/dolphin/gx/GXCommandList.h": "d80f77032737807e28466520eaf272c5eaf709067b4e58cdf869796afd09ff6d",
+    "include/dolsdk2001/dolphin/gx/GXCpu2Efb.h": "6dffba05435eb70d65fc98673659c8eaf28fa0384daef92038bb731248892ed4",
+    "include/dolsdk2001/dolphin/gx/GXCull.h": "e3f8d5ffd3af07fcf601e90dcff8652c53916253d5bda22e844228eaa2a89dc0",
+    "include/dolsdk2001/dolphin/gx/GXDispList.h": "3576f7c615e4de4c2e657e036f0806c10193ea1cdcb08c94cb345f126cd92353",
+    "include/dolsdk2001/dolphin/gx/GXDraw.h": "6dbd8e8d7470ce7a5105ddd16ee9fe713216edb429eb052a0fbf4bae238bc101",
+    "include/dolsdk2001/dolphin/gx/GXEnum.h": "6fd7d7fc2b092fe3eb5febd553eab9601238101e4e720a3a338a0f3a14fc1fdb",
+    "include/dolsdk2001/dolphin/gx/GXFifo.h": "9f762c5e44ea8da36fea38d48feb08e7c0a512539fdd18f45125b4ad24976047",
+    "include/dolsdk2001/dolphin/gx/GXFrameBuffer.h": "6a0973b28179b42e0c42de10167598310b42ae03df71df2f23068683ad33a8dd",
+    "include/dolsdk2001/dolphin/gx/GXGeometry.h": "059c9257f580192c9ab9658de581163f7800c4b7a2800cfa6879ff981ae53174",
+    "include/dolsdk2001/dolphin/gx/GXGet.h": "2fef8f2f09cb420d664ad349c539cbc4fbc00c037c8f07afcb12bedb806ee9e3",
+    "include/dolsdk2001/dolphin/gx/GXLighting.h": "28a8c24db3c40d9306e3a226f62d6aa206f3ec0d087f439b48520454468825bb",
+    "include/dolsdk2001/dolphin/gx/GXManage.h": "b3cbc69aeee91959cebd0b05ec48d9306bc8d2e86109119e94d32a182a7e5dd7",
+    "include/dolsdk2001/dolphin/gx/GXPerf.h": "771c2e3acb1cef5e455dae8d6a760544dac6b93596cf61986df8fd5a5a9eb43e",
+    "include/dolsdk2001/dolphin/gx/GXPixel.h": "10fe0d6fd35448923eaca93d047cf4284865a634cbca24ad78ce97ea9fd510d7",
+    "include/dolsdk2001/dolphin/gx/GXStruct.h": "956348e53a50a26f80969d7ff4aa6070566619256e288ba09d0d57cf2091503e",
+    "include/dolsdk2001/dolphin/gx/GXTev.h": "f4e5a7b998c499b3b688b666f194a3f0bcac0521de3338ff51698c654a7ba03a",
+    "include/dolsdk2001/dolphin/gx/GXTexture.h": "9203eac79c3467103577af66d4031aa76996c133911959845ea19377e312ed36",
+    "include/dolsdk2001/dolphin/gx/GXTransform.h": "251f7c2586b9bf558da638317e368e9a08b9f7cc56e45014951305412e77432f",
+    "include/dolsdk2001/dolphin/gx/GXVerify.h": "dda2b3dc2a76a137d76cf589e12574d66538fe1b3f350d6e7089b5b012685b26",
+    "include/dolsdk2001/dolphin/gx/GXVert.h": "7000e82fd0e0ce77c08c261495336b631b2940c339defaf6f9c1281a4368a8f3",
+    "include/dolsdk2001/dolphin/gx.h": "de80362a4224fd5951b0e77285f60554bab187a701fc2747023fc5a3eadc8798",
+    "include/dolsdk2001/dolphin/hio.h": "a6ebf5cf77a86608977e1fbc79863a96338fccd64259e44d959e06bf03a37db2",
+    "include/dolsdk2001/dolphin/hw_regs.h": "b108ac4a6bc96f9ca035c042b6ff71dad0a2180060ed1228169ccb20d1a02b69",
+    "include/dolsdk2001/dolphin/mcc.h": "7bc13b6be3d6a0c9a75420e49e5fb69c81f174f21aca3892017272490094dcf8",
+    "include/dolsdk2001/dolphin/mix.h": "d182ea1699ccb3de318e29fea8c87d1415db5d96055903905c54f4456a4c2e6a",
+    "include/dolsdk2001/dolphin/mtx.h": "8b277e019b0d6f248935b37a5c3af584264cf41b7fcdf5becb28696837d6d738",
+    "include/dolsdk2001/dolphin/os/OSAlarm.h": "68e26952776f4d9d93a814ea227f36c2687c4b559116be037fa7b9fce557454f",
+    "include/dolsdk2001/dolphin/os/OSAlloc.h": "885be5b96c368afa8b4e9be6fc4924730c1311d4ba0dac2525f3acd5fd57728a",
+    "include/dolsdk2001/dolphin/os/OSCache.h": "afca22635b68c2c9bfa9d27627fd7974b9d518021273aab4f25c7427d38054ac",
+    "include/dolsdk2001/dolphin/os/OSContext.h": "a883eb5a8597f93a690d1293fd395cbb011de4a71302c7f121c88696bf0f0f02",
+    "include/dolsdk2001/dolphin/os/OSDC.h": "c7b25f0dcbd1f1c1e5b84e813157234a075e2df56f3e77951a3221a8bf74e780",
+    "include/dolsdk2001/dolphin/os/OSError.h": "ddc8bfd5f2eab2f605349b5aef34133b6fdac4dd3120408145099557109bb0ee",
+    "include/dolsdk2001/dolphin/os/OSException.h": "3b658d2858123b4b8f50b5605765788971fbaa061f896119b7e4ce13414a7b75",
+    "include/dolsdk2001/dolphin/os/OSFont.h": "87f6d95873f5f9edc3159aaa6785fbd5a1d02413b81bb5dd908d2e750b3d438a",
+    "include/dolsdk2001/dolphin/os/OSIC.h": "e7add07ce348bad12f6073172b73335698021899e03610906743ca598c8976e0",
+    "include/dolsdk2001/dolphin/os/OSInterrupt.h": "03b86e3c2d982ac45f15193a5abce4e3cc874dbc4b842037214764debb5b1c72",
+    "include/dolsdk2001/dolphin/os/OSL2.h": "06bd75428f213713c6e387387c032a6dd1972e90f54b637561169e849160c4aa",
+    "include/dolsdk2001/dolphin/os/OSLC.h": "fe85de5207ed4303f18ca2b31369119c5b9582c9c99f8376ea9852522bbfe1da",
+    "include/dolsdk2001/dolphin/os/OSMessage.h": "9043b73a059bd560bb2f1d5783952d3adb28b14b224c1d82bad6d920a21ac9a6",
+    "include/dolsdk2001/dolphin/os/OSModule.h": "311faa5b8c57a7afd8a4d075f75a845969cf291aeb2e57ef4e24f14b8d70341d",
+    "include/dolsdk2001/dolphin/os/OSMutex.h": "36fc5c90ff1e546624a4add27704037e359dcb418ceba782011373e3af4eb0da",
+    "include/dolsdk2001/dolphin/os/OSReset.h": "a30fca58fdde38ed1fbacca18d3d659f4fecbfe2e510c991e61792d31845f85d",
+    "include/dolsdk2001/dolphin/os/OSResetSW.h": "205b838ccd0bcd49d35588781caf8d1e22672f255cdf9adafdcd9057f7a7a885",
+    "include/dolsdk2001/dolphin/os/OSRtc.h": "8cf6460a5004df727f3dc61e44847c10f3a0f799197199a18499b300da04f948",
+    "include/dolsdk2001/dolphin/os/OSSerial.h": "cb13fde0dedf25c7679bd96faef8508e0e7b002cc491227b32f1c4bd7f51c37b",
+    "include/dolsdk2001/dolphin/os/OSStopwatch.h": "08362febb55f48055f44fbdc9119514d2030e5d2f6dd7b7e437b2e1694304caa",
+    "include/dolsdk2001/dolphin/os/OSThread.h": "5d2690d8e8cacd9496d187912c925328b81d45fd1ae4ae55827a81b2a5f71751",
+    "include/dolsdk2001/dolphin/os/OSTime.h": "8f779f82a0e86791b69b3c2307383db2643e0223f54ba4e19b34ad9266681dee",
+    "include/dolsdk2001/dolphin/os.h": "0ddddfd6ed21e0eb840a45daeed710967cdc0993f156c40049b4990f945c4ad8",
+    "include/dolsdk2001/dolphin/pad.h": "e824b1104f4951823f9048448fdbe7f134e005abbc20fa18f37edf713fcec67a",
+    "include/dolsdk2001/dolphin/perf.h": "b5970347c51e463605bcdfe498d9b13ee4d66cd5ce83a743b95fede6d471fcd4",
+    "include/dolsdk2001/dolphin/seq.h": "7ae440134eba693d0872dee6ceb9561a21e50fabf1a86ca6e94a8abda8923da2",
+    "include/dolsdk2001/dolphin/si.h": "cd11c868e72ab6e6363caf5ffdc8064b0e17de58baaecce58c915b75ca9a5828",
+    "include/dolsdk2001/dolphin/syn.h": "b002db757f644aee6fdf7737bc20d5bbe0539b2633cf11f4f24ae941dac6ed28",
+    "include/dolsdk2001/dolphin/types.h": "a86d1c92f8e6e6d1ce990caacbcbf3b5ae3ac55dafd0b2c7357258e27fdb8f04",
+    "include/dolsdk2001/dolphin/vi/vifuncs.h": "c5a3aada7084782f615ef0380ba600ae24ade2658190687367de1284e3ef4db4",
+    "include/dolsdk2001/dolphin/vi/vitypes.h": "b914b5871ec383fcc4ec7bf620a48b72a5a3b2839e584c4122a4b925d8c7647a",
+    "include/dolsdk2001/dolphin/vi.h": "15b23ea2fdfddc0c5c0fc1433a51c490ec8a101bd14882ec1f039e72acdf4e39",
+    "include/dolsdk2001/dolphin.h": "330f485dffb5c1c6c2605856403638fdc3009b4f10c20b7e6445d95e39c8f8c7",
+    "include/dolsdk2001/fake_tgmath.h": "1daa0c8be3783abf24a6cdbef4c50f583ea73846fd43fda9804e84fb905d0c75",
+    "include/dolsdk2001/global.h": "ac6ce055a7e8425fa9f50e9bbd0535ea5aa1d2dd7bf96dff1fe8ea05e7e270ac",
+    "include/dolsdk2001/libc/assert.h": "3507508b59b00662afd3abfbf762930f4bdd5138fdb1a762f7718292c4b0c447",
+    "include/dolsdk2001/libc/ctype.h": "24c188a206d41040c37526dd97cc00d06773fe57e4f46e0cf25e720f5f6d186d",
+    "include/dolsdk2001/libc/errno.h": "69a5cf5e915d1e4232242ff12d643453d41ef67099baadff44d9956a160b1bb4",
+    "include/dolsdk2001/libc/float.h": "9d2d0abc3d27b33d1452202a2edd5bf2ccb40a21c077a86b0c90c9836ba255fb",
+    "include/dolsdk2001/libc/limits.h": "4e6a1ef2d8537b587ce64183d685125a1fa04c677eb4be38aecf72d55b7f7ee8",
+    "include/dolsdk2001/libc/math.h": "6919caae5772f74ef33f9c3194f4f2faf8266907ea7dcd5c02e358abcbe5dcd8",
+    "include/dolsdk2001/libc/stdarg.h": "11807dcf97c007da7302cdbe529da394e77e6cae769e845d1670d44c82b62c57",
+    "include/dolsdk2001/libc/stddef.h": "9406c1be01e6e45abe6d3d4e3c4743021888e048641372f20f26216d1c021ecc",
+    "include/dolsdk2001/libc/stdint.h": "1b2e592f75216a88a782c5fbd38536afb4c184ea1e1c2142d5c8f9b7e2988c61",
+    "include/dolsdk2001/libc/stdio.h": "88d1b8073d71eed532a23b917efdab80c296d1a4d1ab0aabcc592b4d60f733af",
+    "include/dolsdk2001/libc/stdlib.h": "96b73df29a8c319611c0f48dc44fbd7dd4dc1cea46c935543e3af87a6038992c",
+    "include/dolsdk2001/libc/string.h": "96be3fae011f3a3a8c785c1b4e156d0edec8c93510350c32a17cd83a0005e7ed",
+    "include/dolsdk2001/libc/wchar.h": "eb9359b3f8c80e980c291b31b08b913739a9fda753a2a5007f8bf2bf3c646439",
+    "include/dolsdk2001/macros.h": "501c9c8160161354e35f291cb101a508877ab32d5e28450839be2b3d3da86a39",
+    "include/dolsdk2001/macros.inc": "4e92f656bb511fbb45d66081291371c47ceba7bce9c55f86871116203cf38a46",
+    "src/dolphin/LICENSE.PrimeDecomp": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+    "src/dolphin/LICENSE.bfbb": "36ffd9dc085d529a7e60e1276d73ae5a030b020313e6c5408593a6ae2af39673",
+    "src/dolphin/NETWORK_NOTICE": "bb4c39371835c344ec608a98b06c3c44d39b0df7060c37ae1c200a4d48471b16",
+    "src/dolphin/NOTICE": "0d179cb87cd8a7bfb706069a1d5e618f425bbe25885b61fc4d5223e724fddad3",
+    "src/dolphin/ai/ai.c": "e491df5610ef1f48b432dfed87993a98d4265ddd169da880449aad4845e1a3c2",
+    "src/dolphin/ai/ai_src.c": "8172e0fb8f2e5e2396a537286911aa6dcbbd5d5a19925c13d917d161a64f4684",
+    "src/dolphin/am/__am.h": "137f11f4b674b6092eb50d6c758b3dd3992d4061d35e4a291c9119e5637ec11e",
+    "src/dolphin/amcstubs/AmcExi2Stubs.c": "ce733638d79f518a95c170728fb8ed670ffdfaf693a33ff7ef72a8f039cbc1ca",
+    "src/dolphin/ar/__ar.h": "17242784988ea0273bcf5d7d4bbca91e4e65ceb73330694dd5b531150584c102",
+    "src/dolphin/ar/ar.c": "f7b8209f27b80294b061969144c5209ac3c92ba70939620b2d2ad5213f81b3a2",
+    "src/dolphin/ar/arq.c": "df13b1231649c990676c950057482b2e1ed0cd69fdd318a8c9b10b411146c2f1",
+    "src/dolphin/ax/AX.c": "37b07b3ae8cc4cb14a01012a98b1aeb28ceccafce8c2bde2170a30246a27115d",
+    "src/dolphin/ax/AXAlloc.c": "947a2101490ce7c8b9577d290435a899665a078eebae9fe5aab9e9fd7fbaf170",
+    "src/dolphin/ax/AXAux.c": "1f8e7a82c9687a78ec4406fc4a13ce63d5e7c5f9ca030bb18b274e54a9a45477",
+    "src/dolphin/ax/AXCL.c": "d88935540247eb1512da7d03e5c4b7d2dd86d4686cd372ed06029af8ed7d95f0",
+    "src/dolphin/ax/AXOut.c": "a953c3ef9b111e733ada59300c82bfd0ddf94c80acad1155b4de83ad6c5cb3fc",
+    "src/dolphin/ax/AXProf.c": "86370b0b3832a317e8a1aa49bf2010f6a87c2a7a67f163f8137d05f97d0829a7",
+    "src/dolphin/ax/AXSPB.c": "862d267d0bb4458a09b25eb81399d273cf83628521970bc781002ca4241d72f6",
+    "src/dolphin/ax/AXVPB.c": "e050a7f891156a87f1b4766bd1e5138a0e99c1feaffa52aeb90655da3154bc57",
+    "src/dolphin/ax/__ax.h": "2357bb9dbe06cabc45d73aa3e1db833627ba3d564eba3f485bb20d558a1be2b6",
+    "src/dolphin/axfx/__axfx.h": "73686c724654e027e956a59e2806002dd51484baedb37791962dc354dee8a43f",
+    "src/dolphin/card/CARDBios.c": "f133713b025149a27f75cf037ee2c49dc04f71eaacdd84a21ede03951e3cf81b",
+    "src/dolphin/card/CARDBlock.c": "af6009b5e8adbbc7ca67669ac860d04f99cc7cf98138d48ce9bfea20dc96c340",
+    "src/dolphin/card/CARDCheck.c": "8f6d3d01cd67812d41ed2e75a8f5845d0b88015ab8f0460e894c72705689f4fb",
+    "src/dolphin/card/CARDCreate.c": "64954da2c10ef3a7630e815f944be9adc8911b0edfa6f6aee0d7d4b7d03ed55e",
+    "src/dolphin/card/CARDDelete.c": "2abf75a7181861bf84bf2debc97314e4950f7fe1f02268854f574ae24eaf0540",
+    "src/dolphin/card/CARDDir.c": "7bc7f6cec27df1d343f43232be84675c763bf913ccdc6597a8cfd56a4b3d98a9",
+    "src/dolphin/card/CARDFormat.c": "cef8ee2570f64969c5eaf3746a3b321d23d25765b55bb8baca34d131ce9fa39d",
+    "src/dolphin/card/CARDMount.c": "6684ce9862fbcd7c577372d9e42e62279f23fea4ef2974a51d3cb054753a2bcf",
+    "src/dolphin/card/CARDNet.c": "4b05df1e6871bb4b7064d0a4b6dbf8bdac17edb1c39ee5196d2b71c2de60dd22",
+    "src/dolphin/card/CARDOpen.c": "666a8119c9431235014123743e37b7ecbe10996d3bc326de39469b52ca215a1f",
+    "src/dolphin/card/CARDRdwr.c": "15ad63595114cd30c9b43fb142495af1036d8d144753cd6c746323344329a451",
+    "src/dolphin/card/CARDRead.c": "785fbaf777741e7259ad31681a2f9032cca31b16b5fcee5facccb750d851a92d",
+    "src/dolphin/card/CARDRename.c": "670bcf09749f19d6a28adf2ff1e4140b3a52a088d7ce4568ce734d7c574f8805",
+    "src/dolphin/card/CARDStat.c": "965da27fe108b91e933e7a5df40b56c22d9aa6d64db3faf66159d195616fc682",
+    "src/dolphin/card/CARDStatEx.c": "1739cc582bece6fc3e160e4a7ea1bee65c7cd243f87b7b25a6373d5a4104b42b",
+    "src/dolphin/card/CARDUnlock.c": "a1463f934bcab1b024e306875ff63e1176c48398d991b4ef2e2ca1095aa21815",
+    "src/dolphin/card/CARDWrite.c": "b8a307f52d8dd379d8853046dd1ad393075a7729d1f70d942a4502b59a46ac80",
+    "src/dolphin/card/__card.h": "816a5b93b6785e51d283d53d3b9e106d3a8951f4db22120e566b7df1c73ccfc7",
+    "src/dolphin/demo/__demo.h": "32c8db3d5a18e8cd2f080bec3eea4150709f761eb638835d6d4aace0e2b2d481",
+    "src/dolphin/dsp/__dsp.h": "c6edc766873de40e00c182182e6acad32d25cabed3f3b7f15ff87a02b8c52842",
+    "src/dolphin/dsp/dsp.c": "4cad82becd3d6ab71ae361e47b46fe9d8e9ae14f671c29337984e23bfe9c92af",
+    "src/dolphin/dsp/dsp_debug.c": "34292d0ed4d1e2080b974ff6c6f978ef7c602aaa5ba15f3893421ca13c501ff6",
+    "src/dolphin/dsp/dsp_task.c": "84d778c127056bf37e1d4a7ee8e71c48a37449e4c99afb850ffe86857cae054c",
+    "src/dolphin/dvd/__dvd.h": "1268e8cf9a346bfa107545672fbcb2b8cbea9f3f3adeb430d01de894b1469f56",
+    "src/dolphin/dvd/dvd.c": "45bd7f8b2b0a8ef504f46ee48473ec9b006c1ef8484e267ff222037fdbdf82ef",
+    "src/dolphin/dvd/dvderror.c": "f12f08430c472e4d748bf2ed408df7291f67dd36bff77735cd4cd9bd8f745719",
+    "src/dolphin/dvd/dvdfs.c": "41ea4744fa21958e8d4a6688dd274e154a6179b67cc06dca06cd1618cc17f61e",
+    "src/dolphin/dvd/dvdidutils.c": "17c781caee65ff9580899dde3a41c9ad12089f182f62a145d5a2dfa7d195e29a",
+    "src/dolphin/dvd/dvdlow.c": "c064dd1a2a8969650016cf742c7009ac20aadcec5a6ae990b864feab04ea5686",
+    "src/dolphin/dvd/dvdqueue.c": "838c3e925ca42504770c215d0c84971680a2d38c5d04bcd40f9e92a8fef3e1fa",
+    "src/dolphin/dvd/fstload.c": "d90c3493b439305f26170362d1eff37da7678f42b6cdfcf77f1445a63ed5334a",
+    "src/dolphin/eth/base64.c": "718a42fed1e99d5d30c32f31b2ce542d44ceebd374477978f466168843061e27",
+    "src/dolphin/eth/ethsec.c": "df746823b967810cb058acd94eaf8c386c527f4212af45407811e317f6c716ce",
+    "src/dolphin/eth/md5.c": "c2c735c768c2145be464170fb3aae755b38fc6b289316884656c80e154ed174e",
+    "src/dolphin/exi/EXIBios.c": "df6807f819abd481f6cdd7608a5f372e8f4394e43e9e568b2c1f2bdbdaed849f",
+    "src/dolphin/exi/EXIUart.c": "7194b31708079415f7fbe89a723cd419abeea3839c4d4e1ce1e0ede89a98f20e",
+    "src/dolphin/gba/GBA.c": "226c8898afb3f35f4382067bbc40cf3b4f7f61906cbbce4c7f5a7b0bda99fac9",
+    "src/dolphin/gba/GBAGetProcessStatus.c": "88e8132c776c1bfc9d3f0bb3e6cac8ea7462ca52a12d0438283178ab114f5a6a",
+    "src/dolphin/gba/GBAJoyBoot.c": "72f97ee729b37884b75c71eb34dbf2d4fd092f13c0602129580c4eb10197bd6e",
+    "src/dolphin/gba/GBAKey.c": "1fe939d6612c2c978780194225fd215c392a30e8969e308cdf5942bce6572c3c",
+    "src/dolphin/gba/GBARead.c": "87cf5d3562da83d488964c311425e6a5a2ae0618f719e414495d64cb9f6e4a28",
+    "src/dolphin/gba/GBAWrite.c": "c5e5a9338128a4cf7b4efcdcc2230a702456e09448df2e33344f671da4e7f6b8",
+    "src/dolphin/gba/GBAXfer.c": "3caad4b9ca946889a81d0b6eb16437e10619b60606221fc922d1c5de8c956f07",
+    "src/dolphin/gx/GXAttr.c": "1cc9178eb899b30c18d13eccdf741f499812354c2a4f904caa77cb39599a1552",
+    "src/dolphin/gx/GXBump.c": "3f68039bf91977383e636aa6c7b9553de66f647c9a4bab1c223783e22ceda6ba",
+    "src/dolphin/gx/GXDisplayList.c": "1628e3f98fc1f5c9ad793f7343cffa874e54d7b34269877280a7853d6c7059ae",
+    "src/dolphin/gx/GXFifo.c": "723bad267cf822e3c8b887f5ffa5ca7036036ed08070351e0bb326ccd3252602",
+    "src/dolphin/gx/GXFrameBuf.c": "47c378c9daab34668650fb27bae86078863b56e7395d38753ca10249961be23e",
+    "src/dolphin/gx/GXGeometry.c": "5be0dec37762483c1b1cb37d818a9a14ce63404da78cd450e7f132f3c38c9800",
+    "src/dolphin/gx/GXInit.c": "dc12f4dff1dc1e986ff786168df393dd54664277af6082dc1ecab5d5a0e6e63c",
+    "src/dolphin/gx/GXLight.c": "38d8dd83023adfd56b76cc55c9f20c0cd4a8473ab70f5c90faf55594b4ab3753",
+    "src/dolphin/gx/GXMisc.c": "83830d24d34fb4dcd84befb4a3e13935e415e91fc68798c292a1810fd6e6fd7d",
+    "src/dolphin/gx/GXPerf.c": "013f5c6cab1fcf9ca3609ee3ddb024d88513d4804af7958493f0ff81a7dd3be9",
+    "src/dolphin/gx/GXPixel.c": "90b0f58e9a38e32bd6cfa61d8aeeee40f9b18541b550062ea8e624b466debfd1",
+    "src/dolphin/gx/GXTev.c": "d9f0f81ab5ffdfe7ab831dcc6107f961012ed94c353d289ddffff77da8e42180",
+    "src/dolphin/gx/GXTexture.c": "6a4338c827df7f3eaf9a80f7d1ed1719f9467eb2efd3e7cd425e08e47ce19148",
+    "src/dolphin/gx/__gx.h": "3eaf8e0fac674b708f1c6d05e4a04299c73b289b772ee83654e065ef6396a5ee",
+    "src/dolphin/ip/DHCPDump.c": "497c14e8e67e4da6ff79d59666cacd3c93f07441aa6366a8702271967db17977",
+    "src/dolphin/ip/ICMP.c": "79656afdb473baa0411556d364fea48048fd13122d7262f29b70c03bb33d9080",
+    "src/dolphin/ip/IFFifo.c": "680d4950dd89befbeff3dc21362d11af5f9cc37d95931321262caede9a35b456",
+    "src/dolphin/ip/IFRing.c": "358f03ca6759bbb393210fa5d201e48cb9a294078fdf48e0e80ea21a710fb79f",
+    "src/dolphin/ip/IPCore.c": "05adafd75c4f7d44b14b368388d3a5ee00897d67ea3fe1b6e1a4818df0271236",
+    "src/dolphin/ip/IPDnsDiagnostic.c": "54ba1c69db73c68aa6f4f8f83014a7f4855f5c2b83f712ea93b172af4bfd0691",
+    "src/dolphin/ip/IPLcp.c": "96ffc2208848f5c1419367fba13ac141101afd2ef4c9c447e5f3fafdc80e6512",
+    "src/dolphin/ip/IPOpt.c": "9b7d5a85b9516eab8e3f31dc35751f2785e7d178880154b9428a7b1f5855db52",
+    "src/dolphin/ip/IPRoute.c": "6152d89fe1572084180844950d26b47f01d3b3448de916bb2bf82b4abd378886",
+    "src/dolphin/ip/IPTcpTimeWait.c": "c6d8523182cedfe48527a9b64a8004e118c2c5b75f8f97484564dcc02e24f3a7",
+    "src/dolphin/ip/PPP.c": "401c44f8d3ce83ed1fe8457591397623391f5e878227b46147644d179a225d1a",
+    "src/dolphin/ip/SocketAPI.c": "9894aa99000e0c7a81f3f42c16cd285d46acc6ab1d93024a5e1b9f933ff0d1b5",
+    "src/dolphin/ip/TCPOutput.c": "97eeabce33a85bcf77eed23a501c49c1de522fc579c8193d7b41bb150ca5940a",
+    "src/dolphin/ip/TCPTimer.c": "61977ed41774a2ad5a94b8e662d9bd927b49611ac46e7e796657c6249525632c",
+    "src/dolphin/ip/TCPTransport.c": "81b566ef3453567feb05d82fef724f9b418db6931b28ca215de6fcb40b9aa616",
+    "src/dolphin/ip/TCPUser.c": "56ac1f304f2b050e7beb15f2d6238cb27cfc7158b07a06ed0f44263035c71b23",
+    "src/dolphin/ip/UDPTransport.c": "072293a2c4773c4e7eec45a7500bb8545b41678c6f2be0224000d0c16f81f625",
+    "src/dolphin/mtx/mtx44.c": "7e0525518b6d66fb81116b920c97b3dd1d888c2dbbce844f520606cbc140ee34",
+    "src/dolphin/os/OS.c": "bef87476a6b40543ba86c2b96ceeac7905236169c14d16b401c4e2f0bfccda0f",
+    "src/dolphin/os/OSAlarm.c": "34697e9fef0b467d5787cdc78a9445a237f7e9f08724e0c0b495a6da049878b6",
+    "src/dolphin/os/OSAlloc.c": "973c896549d15693041f2c44817dddf62c054896adb8ecbe9352deee6aebc4f6",
+    "src/dolphin/os/OSArena.c": "4d4dcb84cf0ff6e06c8a00c362993598033b5142bd352d8f7dc3997a62fbae2c",
+    "src/dolphin/os/OSAudioSystem.c": "8825adcdecc52c81582f148ce7dbf654352dad4e0a7fcfd90c3adeebe0d86de3",
+    "src/dolphin/os/OSCache.c": "dd57866253c4175f6c5e3caa16fa9f5ee7a79bceaf737ae83be9646583e75379",
+    "src/dolphin/os/OSDumpContext.c": "682c5274579b82e67b399f379dec1016c04a07f95868269c53c77a78b5893805",
+    "src/dolphin/os/OSError.c": "5e03f95da7a21b9b9de8de421a9611006e9bd16212a6207c2bc63e29297f3b00",
+    "src/dolphin/os/OSFatalScreen.c": "d8b538649b7ed51598bc17fc825ae4a3191f4370c2b44de8f36c1bcbcee64ee0",
+    "src/dolphin/os/OSFont.c": "4603da6e76f803cae7ee93ec2a8b6f3b619437f2e2d60f3d062911d8d6275d19",
+    "src/dolphin/os/OSInterrupt.c": "f51a271244764616a50f9c833505664bce7a08e888e978236495b9ac40cc0942",
+    "src/dolphin/os/OSLink.c": "d16d1bb119b4f64183077edaaf849555e275e5152bf59ffc36ee7e9f94e14da8",
+    "src/dolphin/os/OSMemory.c": "69d5e2f37ddc944022d40b729203959bd701b02812b8362e79d6942346d98947",
+    "src/dolphin/os/OSMessage.c": "9bb48fe1a23cd3921bdaf5695af91ca39bc6aaa271d3057a11220349467464b0",
+    "src/dolphin/os/OSMutex.c": "4e604e4f34cbea5246aff955fd852e988cc1a784b6d0fcdabf85326baa50f37e",
+    "src/dolphin/os/OSReset.c": "7ab5d656c32b63ed41216b706d8e5f42e4b789c0c15ce633cd2fce3d22c29e47",
+    "src/dolphin/os/OSResetSW.c": "788867f6d5feb79c50dea0457ab8bd254968011393c5b15f8c320ac758342686",
+    "src/dolphin/os/OSRtc.c": "6df2bbe5ee8665e14185fb345bc971ce3a948f32a27beac43019c98a436bfc9b",
+    "src/dolphin/os/OSSync.c": "93ac4dd7435d3885065ed2e895eeb56e0c0515453b9b4c60d043d4e3ca0d9745",
+    "src/dolphin/os/OSThread.c": "0cb186937e515974a464a69d2d579dc2dd0e84d4df5884c64b95d6ce5c126e57",
+    "src/dolphin/os/OSTime.c": "9a52461f409da4409445534abbb68d52f7c44635ea4e4a753a63d50e67250aca",
+    "src/dolphin/os/__os.h": "d2f66ca0cc016fa0684da5b96179a0eebbdcd8cdc7f7b7f0f4ac27230e5d8772",
+    "src/dolphin/pad/Pad.c": "e7e1324c5523fab18b956e3730df9bc8c9755c3970556b32333577007751e45c",
+    "src/dolphin/pad/Padclamp.c": "b246598c52c99d2c1d47468f466f4714cb7ca06d5a6ee8d9ae5985214d4b35d5",
+    "src/dolphin/perf/__perf.h": "cc9b3899d19787ff82f8f06a624846f130365f47f9a3f62e259c9771a1845a5c",
+    "src/dolphin/si/SIBios.c": "51828377487aea5374867eed72a34e7588da36896163d13f271cdd3146410ef6",
+    "src/dolphin/si/SISamplingRate.c": "7947cfd2ec671b58d6bccc14e4a279a36bec0f8d1cc4a91e8250dc3a0e2e8394",
+    "src/dolphin/si/__si.h": "ebdc70a1a12a5199f2f59b68f53f206222205e63d6b39a0dd42044298465b0d6",
+    "src/dolphin/syn/__syn.h": "08b05a8b8e04e272305efa50936912ac395d76d937bd73a403065601e469f8ee",
+    "src/dolphin/vi/__vi.h": "22201b234d317ca8d2724210a124ac6ceb9708df13c1b73eae87afab8e625b7b",
+    "src/dolphin/vi/vi.c": "a39c975336daa3c42a5a186d68d0c9c39e91aa0df0003b1b052eb767cdf4beed",
+    "src/dolsdk2001/G2D/G2D.c": "4a6394031c95e5831ea92134b21c6f82d558b0e6e3c029421ed3102dd64077f2",
+    "src/dolsdk2001/NOTICE": "52ae7c6d80a8e81976af1c1833e632710213c035f14e2b7c7cfe925d992cfb49",
+    "src/dolsdk2001/ai/ai.c": "cb8508338aa0c4b10b9134f2f51936618929fe8f63515e137a5ff2f2d4fcc0d9",
+    "src/dolsdk2001/amcnotstub/amcnotstub.c": "b9ecd4554424a09e21ba4c8393bcf8ed86989f2f5c414e38987a226a64b0ac47",
+    "src/dolsdk2001/amcstubs/AmcExi2Stubs.c": "2a36a4a2c25fd284569d4485d247b3092c1587951918f88225ddfba9d85f2f7f",
+    "src/dolsdk2001/ar/__ar.h": "4939b4d4d3be4d9793ce1dcface1cac8a21346897a0b59a64a3b286fddacd55b",
+    "src/dolsdk2001/ar/ar.c": "a7361dc61f70af27242befc467512dbb1187a90fde95db5475e2c36aace369c9",
+    "src/dolsdk2001/ar/arq.c": "b98e2017d56b333ef650141c85a6da849d7d9a4cb674035239b69017210e2252",
+    "src/dolsdk2001/ax/AX.c": "0ae9762d57ac25806d391302996ec68222514872678147635694127c350ed5df",
+    "src/dolsdk2001/ax/AXAlloc.c": "394e4d091d9aeeb3519cb7162082b8157927f43f2db8eb09df3b5f630ffaacbe",
+    "src/dolsdk2001/ax/AXAux.c": "24191cb43b6ff4bca140e77dee9c05bb26da5cd747e87b40e8d24626a9ab56f1",
+    "src/dolsdk2001/ax/AXCL.c": "c66f94dac56f09603e2e26be3fb5f9e7292537751d583c29111e9f38b5ec00ce",
+    "src/dolsdk2001/ax/AXOut.c": "8882a50e0894d3e8698ef75bb45d4881b70f15b3db8ff16f2d5d1a61ebd07a58",
+    "src/dolsdk2001/ax/AXProf.c": "ab820c816778df4d21be244647724e4ee54638fe0eedd4f5667ec30ebe854b23",
+    "src/dolsdk2001/ax/AXSPB.c": "7fa05febc18aeef3287d2c1da86016c5ad473386a5a273edcb167be4c5ae8684",
+    "src/dolsdk2001/ax/AXVPB.c": "7286ff93b493278989c698748abfc9fc58eea6c9ad662e7b0567de10a420de5b",
+    "src/dolsdk2001/ax/DSPCode.c": "3beed970a95adf8229b14dd0d92dd93a3649712d871f6e5f8ae3ef9f6f256fd1",
+    "src/dolsdk2001/ax/__ax.h": "d3feb504e3873f6cfb89c0e2c34237301a16b510ecf950ed12a0048ff5132286",
+    "src/dolsdk2001/axfx/chorus.c": "d47fe1ddb0795170ee6ef0ffa2f7f45e3bec01348a523b780d712bfd26fc1610",
+    "src/dolsdk2001/axfx/delay.c": "e02949974b933af6f6d1f14abe3ea5f701eb14af0bece4289fe778db12717cc6",
+    "src/dolsdk2001/axfx/reverb_hi.c": "e4b8d0e0a8509d70bbd83a09b1ee211b0b7210a942e610990d8933fb842d8f58",
+    "src/dolsdk2001/axfx/reverb_std.c": "1a14c01b896a13c9790b3f6b690d2bcaa72d543ebd4c065f66e5edbebaed399f",
+    "src/dolsdk2001/base/PPCArch.c": "0e5006928b9ff3ae1d890de3c5ff26a14d6857a6134e8b3dae19b6508a7ca1bc",
+    "src/dolsdk2001/base/PPCPm.c": "eb616550f0870ebe62592c7c10839c307c311b619d7e29a50808174fbf884b3a",
+    "src/dolsdk2001/card/CARDBios.c": "20f021700576c39fb67ebd16907fd764fa141ad3c63165251d8367bf9c5a9778",
+    "src/dolsdk2001/card/CARDBlock.c": "a04fea68ce6bcfd76c4ec46cb177ad2bd6d80fbe0d2acb7ab1181366a466788c",
+    "src/dolsdk2001/card/CARDCheck.c": "931050b97766908585c66cf0bf4fd8d4051f23506e995a256bafd765c153931f",
+    "src/dolsdk2001/card/CARDCreate.c": "760b94de471cd02bb52704897a20ba6cb56e1145c87a804734f8bde0db0bf9f2",
+    "src/dolsdk2001/card/CARDDelete.c": "61b1b69ebf069a5e61683b2e0e19db3d714aed83ac36a895e56b2d7353a97cec",
+    "src/dolsdk2001/card/CARDDir.c": "8bbe3fdce6d4a790780f5d0ac483bb3b47e717debb45558d412a29695a917bdc",
+    "src/dolsdk2001/card/CARDFormat.c": "4602fea9e1aa66b87d7fe0a26cca4b306a39bf85bed08173e3beaa246da2e745",
+    "src/dolsdk2001/card/CARDMount.c": "4b05fdae189c87f4300b3127f0ee034e6ba6b183d3d60a190077951d696e478f",
+    "src/dolsdk2001/card/CARDOpen.c": "d04522c793befc8b1a752736d1d436b8ffb289beca07242159c57e179bd525e2",
+    "src/dolsdk2001/card/CARDRaw.c": "4f97436eb3d4c993c7d1effb222a088ad3fa6dc242e21ce53305448564270ca4",
+    "src/dolsdk2001/card/CARDRdwr.c": "99ce351eff3aa32fa49a90b1d1cf45a25497fef2b7b96b221c64c3a3922fa35f",
+    "src/dolsdk2001/card/CARDRead.c": "eb2fbe06ef21ae3e45e3194132dfddd020cdd9d1d68ff3674be87467f234d723",
+    "src/dolsdk2001/card/CARDRename.c": "7dc956822ba2fa232de634ae0e294f1899959f93f5689500df7e58e3e2fb9e24",
+    "src/dolsdk2001/card/CARDStat.c": "ce11d59d0cb96cb59e32b5054c0a890e44043f10c6e2830cbdc254767a2df33f",
+    "src/dolsdk2001/card/CARDStatEx.c": "37ec0ff3c11f3669aa62683a0e54c8154e3c0616aaa438f970165dc17f18b329",
+    "src/dolsdk2001/card/CARDUnlock.c": "dd4937084f2171faa6563ef61da67b002b74721a292f89549d42af894c2cd454",
+    "src/dolsdk2001/card/CARDWrite.c": "22e5cecd49f11f497ef61878550c29ab20d307a7c1e31cb0f4223e1ae1a5a40b",
+    "src/dolsdk2001/card/__card.h": "d810100a86e323c91488980f26cc90ae0d7bb4eee7f62286bedc38dd3c4d72fd",
+    "src/dolsdk2001/db/db.c": "655083ea009280f1402b7ec43bb87f0941d6e7ae4174291f802287f7c8d0b548",
+    "src/dolsdk2001/demo/DEMOFont.c": "6dec5f7ebed5ad8b856522cfb58d586e140f3ef2c50e49550fddff991cc81971",
+    "src/dolsdk2001/demo/DEMOInit.c": "8a54776c71cce7ce367c1253842b9ce26676bb12356b8a78fd07d67afcc9c8d0",
+    "src/dolsdk2001/demo/DEMOPad.c": "a95dcd227f52e0b72095adf8bf53e7753aa41b751850908da74f6150c39415be",
+    "src/dolsdk2001/demo/DEMOPuts.c": "c7337729410e542f2e64d8c11d38654fa05fdc3d68b699fa24edfaf1b339167a",
+    "src/dolsdk2001/demo/DEMOStats.c": "b816ce757520af427300ab9c7c8cc54f8caa1cedc30d91b5695c549e3914d600",
+    "src/dolsdk2001/demo/DEMOWin.c": "68122a2a0ccc2f95451fa66a00f7808a0392b8f076c8216c8385a284fee13a66",
+    "src/dolsdk2001/demo/__demo.h": "32c8db3d5a18e8cd2f080bec3eea4150709f761eb638835d6d4aace0e2b2d481",
+    "src/dolsdk2001/dolformat/DOLLoader.c": "bf508687282453efbb9ec64fe6646832c50f80ddf8845850e3cf02bb4e5ddc68",
+    "src/dolsdk2001/dsp/__dsp.h": "b0a11d9f86f672867d294d8695c2a5e51c28ae63f6d2f206f965869da910401c",
+    "src/dolsdk2001/dsp/dsp.c": "14b29ded4ae0bd4498b977287342571d396e96466d5c7bd59851803c5bc731b5",
+    "src/dolsdk2001/dsp/dsp_debug.c": "3618c75af9da09c04fcc065f87a644ad69c97faabc16030343fbff4f2897ad58",
+    "src/dolsdk2001/dsp/dsp_task.c": "ce1a99822081ccc869a8b6bedecb38f47a641e4744b01249fa83e2ac958b14b0",
+    "src/dolsdk2001/dtk/dtk.c": "550627946d4b53897f7a463478d4304c7757d82253f76386f2559a5573b24574",
+    "src/dolsdk2001/dvd/__dvd.h": "7d7c1d795cd0498fddf3f1b54548b43a069de3ebb763f038e78371b3ba5d695d",
+    "src/dolsdk2001/dvd/dvd.c": "ddcc8e3c0d7059697dd88c37d73b3c0c7802e294b0c5b7d993558ec13a2cca61",
+    "src/dolsdk2001/dvd/dvdfs.c": "58cfd3a0467a19eeabfaf4b0b2ca3543ff0d942943ff18b1b668a5e88cddb1d8",
+    "src/dolsdk2001/dvd/dvdlow.c": "0f67c9d7965c19f1ba58b06ae5e7178d971e783a4ffd7ad9d1bef24b0df5f16b",
+    "src/dolsdk2001/dvd/dvdqueue.c": "7dcab20bd1cbeee252c32c6dd364838f7151302fd2204b022d21ad80443cc849",
+    "src/dolsdk2001/dvd/fstload.c": "3c7a5bd7147d02e22e3db61bb373ba85e0342bde87bb04448ff5ece80ad7bcb1",
+    "src/dolsdk2001/fileCache/fileCache.c": "f05a524b13a229d2881b233490a084091053dcc07752ec5f5b353ead6b056e19",
+    "src/dolsdk2001/gx/GXAttr.c": "24198fc8241505c87aaff62eb33542f90fc03e67db62cf58dab8b3a7a48ac180",
+    "src/dolsdk2001/gx/GXBump.c": "b3e417dbeaabbd4bdf2a83359f560ca71d407f0c49f291ef7551f2469320124d",
+    "src/dolsdk2001/gx/GXDisplayList.c": "36d4fb49859b8952b27e54d9a3d89e26b1fef7fc2b82ab65b9bf292d6556f94d",
+    "src/dolsdk2001/gx/GXDraw.c": "beef6be1f52fa22983653c710d1e6bf48a0ecdc28d007e1c5bad31d2b9ee9d07",
+    "src/dolsdk2001/gx/GXFifo.c": "489d5f342e7b8fc331391af63a96711a91630506f6b15286a7526572cf2cfabe",
+    "src/dolsdk2001/gx/GXFrameBuf.c": "f95af795ba5b127539dd5eca6235f34fba356a1d0d7a9f229c0530a2502fa52f",
+    "src/dolsdk2001/gx/GXGeometry.c": "dac2946a8eb9b97371aae9ceb2f2fcd011750fb1d9f969ca286f460c3b8a8b21",
+    "src/dolsdk2001/gx/GXInit.c": "5bf18654218048b7099829a54ab80cbbd4424a74222477f066ddb8cceb9c4ec4",
+    "src/dolsdk2001/gx/GXLight.c": "27256cb0ed1d7611978833e7802bc62d54e0418ff6fcc21985a5aeb0fe6c0ff6",
+    "src/dolsdk2001/gx/GXMisc.c": "b47dca0c84905c85bbaeaf90a1b7cff0aa3cf9ee635bd1ce7809fde04242ecda",
+    "src/dolsdk2001/gx/GXPerf.c": "070678f4f78898453fb45782ad0bf549ed97774f9abb6049c38de4bc306f6459",
+    "src/dolsdk2001/gx/GXPixel.c": "ad5a013248385d622f224d42f065003ba62a00f4a13329dd249c3ec199cfd171",
+    "src/dolsdk2001/gx/GXSave.c": "b27c1ee3460da8ab130e3a3e40190f6ccc057cf42818ac4567de7728fc071fb3",
+    "src/dolsdk2001/gx/GXStubs.c": "d4fe05a2f0242d9a57e28640f98155cd2db169571f2eccd8ea8407546d053f48",
+    "src/dolsdk2001/gx/GXTev.c": "f7785dac14054c2aceec8f3c810b57bc367daa41dc63924e282ba8b1275f2bd4",
+    "src/dolsdk2001/gx/GXTexture.c": "f9a43a932bcdbf2da18adf892576551e31d30d5a646a885d558eeacb2821344d",
+    "src/dolsdk2001/gx/GXTransform.c": "fc4976de65435c8c3387dab6e250b075f3e380a17a4f43bc6bf49d7e325a6b6d",
+    "src/dolsdk2001/gx/GXVerifRAS.c": "13083b45c8b04fca4d9d5dff1d3afd3cc5aceb6453ced3f314ffca1a8f1ec903",
+    "src/dolsdk2001/gx/GXVerifXF.c": "f6d2ac4150d8d30923eb7bd867d2388997f731a8b3b3b414213219b1288ced0c",
+    "src/dolsdk2001/gx/GXVerify.c": "6789eb38fe22938d660c699e438514165b36df5664d483a381e70451fa655123",
+    "src/dolsdk2001/gx/GXVert.c": "9f9df6ddaeab7f2d3225fd34f5d524fcda133a187cfaf43e2d206e71e1123306",
+    "src/dolsdk2001/gx/__gx.h": "82dbec2a0600ae745d67c95f195534d7888ec842dda886e7f729d415792bf826",
+    "src/dolsdk2001/hio/hio.c": "4b65c888ebbb758c28a9124f77c1ffb9c3b16035981714614d9d897f6159911b",
+    "src/dolsdk2001/mcc/fio.c": "6e87df03e13043c37a8059751f99bcf91c88ac315172c79d323052f501821d0d",
+    "src/dolsdk2001/mcc/mcc.c": "3eced8956eb8eebcbb90e5efd7a5f7051943f5dc858cbc32af93db0354deec42",
+    "src/dolsdk2001/mcc/tty.c": "568da5d40d5a40c237f5b413bc7cdda8cf02f7a8275c03c4dc262f9b9afbca5f",
+    "src/dolsdk2001/mix/mix.c": "c0f9ee0630969eb0277ad195dfbe44eeca9101d69c38d7c0bbe7ac3904bacff4",
+    "src/dolsdk2001/mtx/mtx.c": "20648dc6964c1223744e17dc4a9b6e59051c0e96144043e27fc2a5c45c0db3f3",
+    "src/dolsdk2001/mtx/mtx44.c": "ed9c261dc770703df6db98cb8e9a17ef6c1afa4c3af98a08857e5a50fb796630",
+    "src/dolsdk2001/mtx/mtxstack.c": "3c4081a26ebe48bdf86c860f6274607030c4fa41939a5b8ce0042127288d1e42",
+    "src/dolsdk2001/mtx/mtxvec.c": "876a05f7e101dbe5c77620c1054a19110cd77d3cd4127f93f8c7316ba6354339",
+    "src/dolsdk2001/mtx/psmtx.c": "096580c1c6365693b0e3aaf8d4ee7164ab6371a4b1dc83af006a94db91eed317",
+    "src/dolsdk2001/mtx/vec.c": "a701873d33d652d2ea988ef2b5071f71b0395ca87a8f74e6234bda7aa95eafd7",
+    "src/dolsdk2001/odemustubs/odemustubs.c": "9dc4692c4ea0e26973099dbfc34024083c5d7804d534c4ceeba2f2d82ce8ed0c",
+    "src/dolsdk2001/odenotstub/odenotstub.c": "f142c20867d72778853446d15a157a27a2935db513f9e7a5b99dad42244539eb",
+    "src/dolsdk2001/os/OS.c": "2f08a9cc89fef3260658211e042e38b399f871ef0806c79d24bb546cabcb6677",
+    "src/dolsdk2001/os/OSAddress.c": "ce0f7aa46994ac02146d56bdf54e1ae2795627843e3b8fff26961844e78a906b",
+    "src/dolsdk2001/os/OSAlarm.c": "409c0023888b4b5950a6e7c7172b8fab10e276425162554cc27e53e775b6bbeb",
+    "src/dolsdk2001/os/OSAlloc.c": "5868c5806827534297e0b8f3dca1eff89d70b8caa1ed6f8b18914023aaba1df8",
+    "src/dolsdk2001/os/OSArena.c": "679f270fe86162e7b41b786e73d6a7addbd4537c56781933d3703a63f7035f49",
+    "src/dolsdk2001/os/OSAudioSystem.c": "75f705f28d36bd6c718aec0a4d5d28f46a631148434149e791491b6af403228d",
+    "src/dolsdk2001/os/OSCache.c": "962091787eaab712cb028d0887b30d414b9ecd50ab130667cc3936a4ea290eeb",
+    "src/dolsdk2001/os/OSContext.c": "8cfc70b92ed2c6e5f80e7c613bb2a6a325792b67a72b727d3e6ab2348df1e896",
+    "src/dolsdk2001/os/OSError.c": "f6982fa42c1f0a6885b92f756477d052bcbefba81f166180d3eeebfd38123292",
+    "src/dolsdk2001/os/OSExi.c": "bc1ab5a0aa2aeb3c476304a7aed5a778c283c315c4427b1490f3dfdbcbbfdf2a",
+    "src/dolsdk2001/os/OSExiAd16.c": "f75960f20bb0a4fd124b4a430a9dffa5553172f7e398d0cd0b6d03b2bf4407fd",
+    "src/dolsdk2001/os/OSFont.c": "385ad009e79f50cef612ecf344df402f5b8d87bd8a74b345cfcbe5a37f326ec5",
+    "src/dolsdk2001/os/OSInterrupt.c": "08d8a075ef539c427c3394fd35039f8f8352288386d35dac5ffb4a0c77f4d149",
+    "src/dolsdk2001/os/OSLink.c": "28ab98f1e4e149b3fa5998044ce4d75b53b0820ddf8c75d2478745386931b43c",
+    "src/dolsdk2001/os/OSMemory.c": "762e33b1921590e64f23d5344225025f4a1842ebfddf189da805967df370f44c",
+    "src/dolsdk2001/os/OSMessage.c": "451a80b3e8361737963937f92b70de24b5e3b44e0242b009324bcabddc445edc",
+    "src/dolsdk2001/os/OSMutex.c": "46c506ca2f168f35eb353e31c481c3764a8d76568cde5ce2d2d6bab0851c86c2",
+    "src/dolsdk2001/os/OSReset.c": "5505b0a3239f9188cf9015aba96f4a55b6d31998af0d2a0ec53a54e443541e24",
+    "src/dolsdk2001/os/OSResetSW.c": "208b02f2dd28e9a357847ff7a9f73e427044aca658e07ffff3690d1b8f431474",
+    "src/dolsdk2001/os/OSRtc.c": "988a9620feeb01f124194981b91ae2d8d800dcd06187979fa3396b67300170cf",
+    "src/dolsdk2001/os/OSSerial.c": "dbeaa3c81110ad8214fe10a6a535bdf099e44fe8a51741cd9c351019193e6901",
+    "src/dolsdk2001/os/OSStopwatch.c": "2d43fe77bdaa5001a7dcba8782ac8c475bde0755ccbdb5febb4d833991ec18ec",
+    "src/dolsdk2001/os/OSSync.c": "ca8ab2a74d2834b216cba159b41c8f0ed110085964f564696621750ec9e9b71a",
+    "src/dolsdk2001/os/OSThread.c": "1c97b881fb589632e233a7420f2bf57a09898ffae5657a681e8e917ff228bf70",
+    "src/dolsdk2001/os/OSTime.c": "72918386ca0cc4eec0dcddb48a2c0c43e214318c1d4ec6fb762e75b2658b765b",
+    "src/dolsdk2001/os/OSTimer.c": "5bb25ce9ea4a3a71d3b33ae58aca1a7abaf6cb6d78cd5b9518ccd5e59419a5d4",
+    "src/dolsdk2001/os/OSUartExi.c": "0b4bfc29c0e2949f5a59d9c10516ef0b076656a1478eb3b2462b5f6403f9fb9f",
+    "src/dolsdk2001/os/__os.h": "ff70431f292eb574a27bd2ad0b4c9272d510a07b72bbbd16f9afe8e2434ecd79",
+    "src/dolsdk2001/os/__ppc_eabi_init.c": "5441d3bde2066db800e2577d7850add364c5f663c50ea922aa10a73ad7853100",
+    "src/dolsdk2001/os/__start.c": "2a9cba8499e76177d611c5343a9d5b3fe10dee9fa85e5a6b240b184746df45c1",
+    "src/dolsdk2001/os/time.dolphin.c": "3408aa510f7846f5603d472685ecb7f5f83a1f1825336ffe46df25b549737899",
+    "src/dolsdk2001/pad/Pad.c": "6f3c7d2487e07cdbcf628c48890ae7a29818ac7a7a650c8d5fc4dba633fb011a",
+    "src/dolsdk2001/pad/Padclamp.c": "c178fad712823b78c34c87f9f64266371988ca6e273fd6a19b63360e6110fe0a",
+    "src/dolsdk2001/perf/__perf.h": "4c7ba383b30bd6c1a2a8bf6afbd7a521cf410abee17786e6114f4136184790bf",
+    "src/dolsdk2001/perf/perf.c": "b802a0b238551f57e43d81d2d82082ac4b43c81c91b0d07a4b21c2e74641e495",
+    "src/dolsdk2001/perf/perfdraw.c": "a6150e13094a9981dbcfb342c916c44671a641f6b6fdbeab13db9ab807ae3d09",
+    "src/dolsdk2001/seq/seq.c": "7bc4ef90edc1a132795f93746285dd9a14599b3d6ca42a681459f4271b005059",
+    "src/dolsdk2001/stub.c": "38992b51dff9808f6935e0ce0bba6b8676d69caf9a8a151c4c063e22c114cc65",
+    "src/dolsdk2001/support/HTable.c": "7d130af48c5766bf153c3d309325c8c9c7544404110c1da4b920cece63e656b1",
+    "src/dolsdk2001/support/List.c": "07f41bb2fa51b0f031c76a043b0608f0d16a3ea5bf7bb97c7efd27e85d5a63df",
+    "src/dolsdk2001/support/Tree.c": "9cc53d22ad40f18c08b0cd35c89c8f3ae59b07ed1d790445a2dde48e7021c386",
+    "src/dolsdk2001/support/string.c": "b2c455ac8b0520cd37152029f8eea9eb4dd8597d394c686f93309e1477aa8da7",
+    "src/dolsdk2001/syn/__syn.h": "12888f5215d6f9089798096cbc70b8d06a1b5f328a14b199f37e0c04968146e4",
+    "src/dolsdk2001/syn/syn.c": "0eece11d56158332907f527a693b182660d7ccbb7eeeb7eefcdedfa468e4f58d",
+    "src/dolsdk2001/syn/synctrl.c": "36370a9f630e41def4734f0dab2391eebf4200c015f0262fa644c614d73e3780",
+    "src/dolsdk2001/syn/synenv.c": "3c1157822aea35db53c18b6f59544bdbfc53046b8ab4ea37cd8710198928f3ea",
+    "src/dolsdk2001/syn/synlfo.c": "5222e43bd096fbf8767e8dad17501ec74f8d574e9dfb8e5c05f6ad40743e920e",
+    "src/dolsdk2001/syn/synmix.c": "539d37001d93a0a9c5802e0e94cdfcfbe94b2b901de1561b35c6f6e4a569586b",
+    "src/dolsdk2001/syn/synpitch.c": "404a893f084a60463f187629da11d8e5a876fb24ca801ee5a36dab6cefc295d8",
+    "src/dolsdk2001/syn/synsample.c": "89bb71fa62033d843c08775be95d7956879eb41f8ad70610604b853aaa299f4a",
+    "src/dolsdk2001/syn/synvoice.c": "e6ce89c8b2a432dfe025d1369dfc39f9a0b1b42eb3c190e663393f0008e10f6e",
+    "src/dolsdk2001/syn/synwt.c": "0885d38f5f92dfff4a9e7ccff2c5f4dc810739dc8c2830893f7b959730763e7c",
+    "src/dolsdk2001/texPalette/texPalette.c": "2fbecaeb4db037737be4a54c88eb0ba09ac34cd4b92cee34ba16ea078dcb39b6",
+    "src/dolsdk2001/vi/__vi.h": "6f64b90b4706c8fb173eb537b557a1ec7b2ed87b9419ab6edcf14e522133a944",
+    "src/dolsdk2001/vi/gpioexi.c": "b8396dbed0a42220838073334c1281d9b235a16565dd06c5f0f8e8cdc33118de",
+    "src/dolsdk2001/vi/i2c.c": "4e62553f4b64678fac11d28b6a7617e3034d5192dc8ea6be4d9bd322edf215ce",
+    "src/dolsdk2001/vi/initphilips.c": "bf8d8b1159c56f722022dfd599ba84d7e9b898b81369f29de8e25d35434912f3",
+    "src/dolsdk2001/vi/vi.c": "55aeca6a29fb85b0d8b30bec9a53c777bad20ef331521ef496cd2f53c2a20256",
     "tools/audit.py": "9385332d49fb5899572afed342e75614ffc12596b8deda9f8cac2fff4424e928",
     "tools/baseline.py": "2818a42771bffd6b19e439949067cb2bd23709f3419686d52eb104ec4b051433",
     "tools/code_map.py": "1bb7545aef44792f54bfe21539f3e1ca2a61f14c57b8ddb81c342cf44a525901",
@@ -26,17 +588,1383 @@
     "tools/dependencies.py": "904789a0085a12fbc9405b95f47e5b827a33850738bf7e2aa2b3c3ed548da118",
     "tools/formats.py": "3124d742d0518c913dfc575602bba63befbd9e0e78220e5a85059cda277f8f81",
     "tools/import_disc.py": "a76b0fc8a963fa5e26e432e8261c26f199989c7e2fc2c90cf0116878db15597b",
+    "tools/port_unit.py": "400de624b9b6b7dd5384cf7d6da4dfbaf738e77c34ab1669ebe3425a113cbc52",
     "tools/progress_report.py": "af4b24a59d4d50a01b1d75ae55cc3299fba1ae9cb58c5d15522553fcc89502a5",
-    "tools/project_build.py": "653644349b4e4be7168ddcc6747879019f33aa9906a32d7a9438c31f5fdd37a7",
+    "tools/project_build.py": "26b540c37a8f5c7340406b01a04d255c24a2938292f8bff0f35c4a86e6c1836f",
     "tools/reconstruct.py": "ae713fceeb3eef9f113af483ad5e3d5d6f1123fc424d0595099247e3e07a4cf2",
-    "tools/sdk_build.py": "8d2dce457fa5de303d9e46e0c4821094065e9814ef3a1e3723d0c0bb618dbce1",
+    "tools/sdk_build.py": "36d846272a3652bc8ea4c95a48f48b120c3ca184ad6aa5bf62322f2cb5438834",
     "tools/setup.py": "99f9d6bf69d36a45530565f597d0bdc926da68d96515bfdd1ec011719b8ebe84",
     "tools/setup_compiler.py": "4da101de7e8e2faf67f3130038312fdfa8152a6391d6b16ece437d22a93bd512",
     "tools/split_config.py": "2ce59060cb78e5d0e3fb624f8ec9ff78074da815d1ba1a45ecc7744b6b0e5f6c",
     "tools/tool_runner.py": "bbbfef4ab75b86d03beea250ceeb3aafed4609bb2f0258d3db6c2ad1be9953f7",
-    "tools/toolchain.json": "1b0f0c99f6d0dde8d74b58432e49a87cd14c20c408d3b36d95bdaab8c88d7314"
+    "tools/toolchain.json": "1b0f0c99f6d0dde8d74b58432e49a87cd14c20c408d3b36d95bdaab8c88d7314",
+    "tools/unit_diff.py": "fe6b356d2fcd70eb1df0d388c243561e343b2c0a92b8bedbd9ff953b0c02ad0d"
   },
-  "units": [],
+  "units": [
+    {
+      "id": "OSCache",
+      "category": "restored_library",
+      "functions": 3,
+      "code_bytes": 748,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE",
+        "-opt",
+        "nopeep"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "L2Init",
+        "L2Enable",
+        "L2Disable",
+        "L2SetDataOnly",
+        "L2SetWriteThrough"
+      ],
+      "object_sha256": "3193e6b13233ff1d1486f6782c7d8831e9dc00b88da574c2ef631e0a0dc5effd",
+      "linked_sha256": "b4ee414010313aa9c5b08b123c8f7e8a508fd4fda991bf5899d13277aaa597c1"
+    },
+    {
+      "id": "AXProf",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 72,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "AXInitProfile",
+        "AXGetProfile"
+      ],
+      "object_sha256": "639a4d940840d7843bbb43fde2c6b3fe5b718940f0a90b38c7748525913f9299",
+      "linked_sha256": "d60f7c735a2ac66fc758a90815cb0cf7ac7cab45423d48e06f0549674f042ead"
+    },
+    {
+      "id": "AXSPB",
+      "category": "restored_library",
+      "functions": 5,
+      "code_bytes": 1224,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "__AXDepopFade"
+      ],
+      "object_sha256": "565308d98b78e02396cdac585dad71021252a67ccfdb8c945554789ce387beb2",
+      "linked_sha256": "103456a638f6a475c047cbd7c81c4388797b9e5e40ac29acc9cc6a681efc486c"
+    },
+    {
+      "id": "AmcExi2Stubs",
+      "category": "restored_library",
+      "functions": 8,
+      "code_bytes": 48,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "6e8b228dc8e5dfdb54a262b02ab6c734e2081f9385c734ac665620f12982dbf1",
+      "linked_sha256": "45da91309789e95b26736649edc21ea400c14f9267cde06197d0b6cced578d11"
+    },
+    {
+      "id": "CARDBlock",
+      "category": "restored_library",
+      "functions": 6,
+      "code_bytes": 1028,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "235dab17fb0779701d2f4a450b59f32c8edef3d786aecf1ec8113da4dd593a3a",
+      "linked_sha256": "0ad7ff3288817bb06ccbe24cff7e47b18861322bfa9ebb07dde44b878ce16d05"
+    },
+    {
+      "id": "CARDCreate",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 848,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "CARDCreate"
+      ],
+      "object_sha256": "b47a600379b7c35917917c805d874842c665875fc8acd14bc5c4fbb04c6f21de",
+      "linked_sha256": "aca8d5662248e74e3eb6a8008f27a4e10e91eaf684aca106f8f2fba8fb65bd15"
+    },
+    {
+      "id": "CARDDelete",
+      "category": "restored_library",
+      "functions": 3,
+      "code_bytes": 508,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "CARDFastDeleteAsync",
+        "CARDFastDelete"
+      ],
+      "object_sha256": "87034b9f580fd3ac3ff2bf19410f0b08b991e7044bc0c9a9326e96e1a4f055cc",
+      "linked_sha256": "23701503e81b65d266970380fb5cad15423f8e62211def1d276ee5c5d9c3330e"
+    },
+    {
+      "id": "CARDDir",
+      "category": "restored_library",
+      "functions": 4,
+      "code_bytes": 612,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "1f2715d773bbad318c9cd70375f00f59f1f8d948702e56a51fc395fd8181be29",
+      "linked_sha256": "f1a3f13180fe22efbc2ee61735d0aa0dc1fd378687d83e90d77f6996c916eeaf"
+    },
+    {
+      "id": "OSArena",
+      "category": "restored_library",
+      "functions": 4,
+      "code_bytes": 32,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "OSAllocFromArenaLo",
+        "OSAllocFromArenaHi"
+      ],
+      "object_sha256": "cda64435f75def705984b2a061ea2ea9c5dd8a292e4d7fb82c1971c383113329",
+      "linked_sha256": "a64b2c70c28585441a9976320a9a7b556316ca9dbceaaf169c18f19ef1baa2ab"
+    },
+    {
+      "id": "OSAudioSystem",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 660,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "324740194f97cdbc6d050a723aa8db6512f300e241d8e4d003020d15b377a45c",
+      "linked_sha256": "4874b2faba6228a96ffe38fd12cd6cd7bd9261443b49c27017914b9dba8103ca"
+    },
+    {
+      "id": "OSMessage",
+      "category": "restored_library",
+      "functions": 3,
+      "code_bytes": 516,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "OSJamMessage"
+      ],
+      "object_sha256": "cdc61b42afc72fcdb9f86b88cfc5104f516c1506388e729f1d8ffebf5183e83c",
+      "linked_sha256": "122dd3e6fb0c34668a6c934045f78efb5c65b75f7da0f092e8e052cbf00516e2"
+    },
+    {
+      "id": "OSMutex",
+      "category": "restored_library",
+      "functions": 4,
+      "code_bytes": 588,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "OSTryLockMutex",
+        "OSInitCond",
+        "OSWaitCond",
+        "OSSignalCond",
+        "IsMember",
+        "__OSCheckMutex",
+        "__OSCheckDeadLock",
+        "__OSCheckMutexes"
+      ],
+      "object_sha256": "d62ec8ff1f4c75691df13b173f2dc995fddcbdbc053c1badee91f139f0094c06",
+      "linked_sha256": "d13111273ea2c332b84d69614065c04d27aede42c3cd4ab68d1b90d10a4fcdd5"
+    },
+    {
+      "id": "dsp_debug",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 80,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "__DSPGetCurrentTask"
+      ],
+      "object_sha256": "59300de02fe34a0963e620c47b58966bef0bb9fd7b55e2a8e0f258b87041627b",
+      "linked_sha256": "9d09800731e7593d0c9ca0175b42515d876879d20a85644036f23517a24b20b0"
+    },
+    {
+      "id": "dvderror",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 408,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "signed",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "Convert"
+      ],
+      "object_sha256": "44803a2915cedc43b53d2334697ac95aa3ed5b298c61c28bc08a4c6fe6cb67aa",
+      "linked_sha256": "b2afef25e52e62d5144160e9a83730a71c4f572c810145431bf22c73b3c7af32"
+    },
+    {
+      "id": "OSResetSW",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 908,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "OSSetResetCallback",
+        "OSGetResetSwitchState",
+        "__OSSetResetButtonTimer"
+      ],
+      "object_sha256": "9a6ed4b3f8b75502dae62fb03552355e788ddd4b2bd1b654598d5583d02717ce",
+      "linked_sha256": "c8d88d24ce947dcdc7c5d1d935426424c909dbee00ef6c4ace2c786324bf010d"
+    },
+    {
+      "id": "CARDRdwr",
+      "category": "restored_library",
+      "functions": 4,
+      "code_bytes": 640,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "CARDGetXferredBytes"
+      ],
+      "object_sha256": "4d827740fb72cd069b626d414279b1abafadd1f7127d1a79ea10b00895fd5a7d",
+      "linked_sha256": "3ca9a2e4d64f768da4124c5dba5275241fffe036395d76b3c4c2070195a1acfc"
+    },
+    {
+      "id": "SISamplingRate",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 264,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "d4b4c923611cbaa7a720b6c69a458077b55247626f8bc5f944368e3720506681",
+      "linked_sha256": "07ad354fcbd17f89a9ae24e36828bf2e94f64e3b4a3c9ad005312e5055833808"
+    },
+    {
+      "id": "dvdqueue",
+      "category": "restored_library",
+      "functions": 5,
+      "code_bytes": 504,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "signed",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "PopWaitingQueuePrio",
+        "__DVDIsBlockInWaitingQueue"
+      ],
+      "object_sha256": "a9bebb267fee5b8952a76147f49ac7d59c06891ab3a1ffdca0740f3f5f407ea0",
+      "linked_sha256": "0b4c0c1c92871036a3e50fdbc87fdb4ca2c22ec69428186e9fc76f94a084c175"
+    },
+    {
+      "id": "fstload",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 576,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "signed",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "c89b681964956a2b0fd7d7b95b096b98b5acb81e92c5e5a3e2b26e6ab050d145",
+      "linked_sha256": "3540c04cedd6922b3708be3dc528eed7355357a024693796181e214889efa0e2"
+    },
+    {
+      "id": "OSInterrupt",
+      "category": "restored_library",
+      "functions": 7,
+      "code_bytes": 2000,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE",
+        "-opt",
+        "nopeep"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "OSGetInterruptMask",
+        "OSSetInterruptMask"
+      ],
+      "object_sha256": "4307707a9ee5a5116c989dd727396eda42885c2246f399f2ac20dd68185f49a6",
+      "linked_sha256": "0b8329ad8f5c5181d9f05fb1a1c90b8ab5e091dba69e955d788fd7e521ccbb00"
+    },
+    {
+      "id": "OSReset",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 132,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "OSUnregisterResetFunction",
+        "__OSCallResetFunctions"
+      ],
+      "object_sha256": "77bd297b52ae3d348ec7c73093ef21f202e64d509ef5633be1487efeed23beeb",
+      "linked_sha256": "ec938ccd6396bdec633e4977cdb2116127419ae4885726cf789d64da41d50adf"
+    },
+    {
+      "id": "OSSync",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 100,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE",
+        "-opt",
+        "nopeep"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "cabd2636052fcb9e55ffaf4bc7f7c86747191351e4a95f4959399102701987e4",
+      "linked_sha256": "64e0fb48821000ed933eb67d97a138947988a507c989e380a9f1888849efb43b"
+    },
+    {
+      "id": "AX",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 104,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "1458977c2024d4d74cfc07f641ac74b66d81404173a1b587c031a65194ae7b7e",
+      "linked_sha256": "e9c4841bdc730a5f7fb4d04786904c4a6941835da9beca151ca28710d5c8964a"
+    },
+    {
+      "id": "GXStubs",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 4,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "a9221c052ce538e0c9fdb567d2253bbcf4ed31125c85b71f7b8a063c9a563ab9",
+      "linked_sha256": "2ab7446b648a5efc0faa475461d333fe4f2d649acb808fd954f077bcc3b7a127"
+    },
+    {
+      "id": "OSThread",
+      "category": "restored_library",
+      "functions": 19,
+      "code_bytes": 4236,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "__OSSwitchThread",
+        "OSIsThreadSuspended",
+        "OSIsThreadTerminated",
+        "__OSIsThreadActive",
+        "SetRun",
+        "UpdatePriority",
+        "OSJoinThread",
+        "OSDetachThread",
+        "OSSetThreadPriority",
+        "OSGetThreadPriority",
+        "OSSetIdleFunction",
+        "OSGetIdleFunction",
+        "CheckThreadQueue",
+        "IsMember",
+        "OSCheckActiveThreads"
+      ],
+      "object_sha256": "bc386e977d31775742d555be3cf21c23bea284e95f010a22a78f1165b7cc0b14",
+      "linked_sha256": "5f9c6c7ff4f365fc696e66b5606d90019c8ed3ad558ec3743414e6e9120ee3a4"
+    },
+    {
+      "id": "OSAlloc",
+      "category": "restored_library",
+      "functions": 6,
+      "code_bytes": 784,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "DLAddFront",
+        "DLLookup",
+        "DLExtract",
+        "DLOverlap",
+        "DLSize",
+        "OSAllocFixed",
+        "OSDestroyHeap",
+        "OSAddToHeap",
+        "OSCheckHeap",
+        "OSReferentSize",
+        "OSDumpHeap",
+        "OSVisitAllocated"
+      ],
+      "object_sha256": "7791bcfb9ef0a0e2f90592a192017001a7dbe59deef5a48cee8392f5abc2c493",
+      "linked_sha256": "3a38728eadba4f14a5460ddf763e4b3a5ba91738617f7054b93f4d15d3190378"
+    },
+    {
+      "id": "OSLink",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 24,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "OSNotifyLink",
+        "OSNotifyUnlink",
+        "OSSetStringTable",
+        "Relocate",
+        "OSLink",
+        "Undo",
+        "OSUnlink"
+      ],
+      "object_sha256": "51c81e5df351de34d92eb813e17a2363e3394fa441326287c36521aa88792730",
+      "linked_sha256": "b0c432aee225f9f371c4b89ecf13eefa4687e724c93e927a578e54ff165845c6"
+    },
+    {
+      "id": "OSTime",
+      "category": "restored_library",
+      "functions": 3,
+      "code_bytes": 132,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "__SetTime",
+        "__OSSetTime",
+        "__OSSetTick",
+        "IsLeapYear",
+        "GetYearDays",
+        "GetLeapDays",
+        "GetDates",
+        "OSTicksToCalendarTime",
+        "OSCalendarTimeToTicks"
+      ],
+      "object_sha256": "d2019c941962fad2739a25437ff9e53269c6a415376ad255d11254d49e49afe0",
+      "linked_sha256": "0c91fc59199d3d19a1ee5b004fde8936064769d16128f10ce7964ebbfbbdbfa9"
+    },
+    {
+      "id": "arq",
+      "category": "restored_library",
+      "functions": 6,
+      "code_bytes": 1188,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "__ARQPopTaskQueueHi",
+        "__ARQInitTempQueue",
+        "__ARQPushTempQueue",
+        "ARQReset",
+        "ARQRemoveOwnerRequest",
+        "ARQFlushQueue",
+        "ARQSetChunkSize",
+        "ARQGetChunkSize"
+      ],
+      "object_sha256": "95f3fa0e7d2abf836db70bc9f73e7320dfedf1378109a7cc7dc637a5906101ef",
+      "linked_sha256": "a722cd99ee2537162a111d27b0aa51c013e1e3aabf14939948e71f88ed95af15"
+    },
+    {
+      "id": "db",
+      "category": "restored_library",
+      "functions": 5,
+      "code_bytes": 236,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "DBIsDebuggerPresent",
+        "__DBMarkException",
+        "__DBSetPresent"
+      ],
+      "object_sha256": "0358cf25591e6ef383cb0facb4f32e15f8c92830d961113f4efc309f6aa8ccf0",
+      "linked_sha256": "32f1835df21c82f0cc72bc97edbe4193e36608c977934538436d7d8b093c895d"
+    },
+    {
+      "id": "mtxvec",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 84,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "signed",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "C_MTXMultVec",
+        "C_MTXMultVecArray",
+        "PSMTXMultVecArray",
+        "MTXMultVecSR",
+        "MTXMultVecArraySR"
+      ],
+      "object_sha256": "cb2dcb380ca1fe31c07182f1e5039cd80cb88ecf0aa3c8d016d2c756fd4880c0",
+      "linked_sha256": "13e5ee3654b705896621ebf75f0eade7705a24cb7c291db9dfae8dd443e1ca23"
+    },
+    {
+      "id": "OSContext",
+      "category": "restored_library",
+      "functions": 12,
+      "code_bytes": 2152,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "OSLoadFPUContext",
+        "OSSaveFPUContext",
+        "OSSwitchStack",
+        "OSSwitchFiber",
+        "OSFillFPUContext"
+      ],
+      "object_sha256": "576bfdadbafcd6e0b0eed93bd34d9eaeb6efd590ca1f28f943798b759e21d7f8",
+      "linked_sha256": "15833a624cac7695b3181f63d688a08fa9bbd848ae1ce0419faf4b1f6b21be23"
+    },
+    {
+      "id": "ai_src",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 484,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE",
+        "-opt",
+        "nopeep"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "0d805270539ee20571bab0165ba8df60c8594f6849dbcb1f5a8e7a18154d4ec1",
+      "linked_sha256": "40d792df22ff53e07079d8e04faa963830db2feeff8f5eaf2916175f7c475b26"
+    }
+  ],
   "code_map": {
     "schema_version": 1,
     "sections": [
@@ -25130,42 +27058,12 @@
             "kind": "function",
             "name": "PPCMtwpar",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801101d0",
-            "size": 40,
-            "kind": "function",
-            "name": "DBInit",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801101f8",
-            "size": 72,
-            "kind": "function",
-            "name": "__DBExceptionDestinationAux",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80110240",
-            "size": 16,
-            "kind": "function",
-            "name": "__DBExceptionDestination",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80110250",
-            "size": 28,
-            "kind": "function",
-            "name": "__DBIsExceptionMarked",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011026c",
-            "size": 80,
-            "kind": "function",
-            "name": "DBPrintf",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 801102bc",
+        "ranges": [
           {
             "address": "0x801102bc",
             "size": 40,
@@ -25343,99 +27241,8 @@
         ]
       },
       {
-        "name": "Unmatched files/OSAlloc.c [local symbols only]",
-        "file_record": 192,
-        "file_name": "OSAlloc.c",
+        "name": "Unknown file/.text @ 8011183c",
         "ranges": [
-          {
-            "address": "0x80111278",
-            "size": 172,
-            "kind": "function",
-            "name": "DLInsert",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80111324",
-        "ranges": [
-          {
-            "address": "0x80111324",
-            "size": 252,
-            "kind": "function",
-            "name": "OSAllocFromHeap",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80111420",
-            "size": 124,
-            "kind": "function",
-            "name": "OSFreeToHeap",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011149c",
-            "size": 16,
-            "kind": "function",
-            "name": "OSSetCurrentHeap",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801114ac",
-            "size": 112,
-            "kind": "function",
-            "name": "OSInitAlloc",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011151c",
-            "size": 108,
-            "kind": "function",
-            "name": "OSCreateHeap",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80111588",
-            "size": 8,
-            "kind": "function",
-            "name": "OSGetArenaHi",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80111590",
-            "size": 8,
-            "kind": "function",
-            "name": "OSGetArenaLo",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80111598",
-            "size": 8,
-            "kind": "function",
-            "name": "OSSetArenaHi",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801115a0",
-            "size": 8,
-            "kind": "function",
-            "name": "OSSetArenaLo",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801115a8",
-            "size": 444,
-            "kind": "function",
-            "name": "__OSInitAudioSystem",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80111764",
-            "size": 216,
-            "kind": "function",
-            "name": "__OSStopAudioSystem",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x8011183c",
             "size": 20,
@@ -25505,129 +27312,12 @@
             "kind": "function",
             "name": "LCDisable",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801119cc",
-            "size": 152,
-            "kind": "function",
-            "name": "L2GlobalInvalidate",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80111a64",
-            "size": 352,
-            "kind": "function",
-            "name": "DMAErrorHandler",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80111bc4",
-            "size": 244,
-            "kind": "function",
-            "name": "__OSCacheInit",
-            "evidence": "unknown-file"
           }
         ]
       },
       {
-        "name": "Unmatched files/OSContext.c [local symbols only]",
-        "file_record": 196,
-        "file_name": "OSContext.c",
+        "name": "Unknown file/.text @ 80112520",
         "ranges": [
-          {
-            "address": "0x80111cb8",
-            "size": 292,
-            "kind": "function",
-            "name": "__OSLoadFPUContext",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80111ddc",
-            "size": 296,
-            "kind": "function",
-            "name": "__OSSaveFPUContext",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80112454",
-            "size": 132,
-            "kind": "function",
-            "name": "OSSwitchFPUContext",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80111f04",
-        "ranges": [
-          {
-            "address": "0x80111f04",
-            "size": 92,
-            "kind": "function",
-            "name": "OSSetCurrentContext",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80111f60",
-            "size": 12,
-            "kind": "function",
-            "name": "OSGetCurrentContext",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80111f6c",
-            "size": 128,
-            "kind": "function",
-            "name": "OSSaveContext",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80111fec",
-            "size": 216,
-            "kind": "function",
-            "name": "OSLoadContext",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801120c4",
-            "size": 8,
-            "kind": "function",
-            "name": "OSGetStackPointer",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801120cc",
-            "size": 36,
-            "kind": "function",
-            "name": "OSClearContext",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801120f0",
-            "size": 188,
-            "kind": "function",
-            "name": "OSInitContext",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801121ac",
-            "size": 680,
-            "kind": "function",
-            "name": "OSDumpContext",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 801124d8",
-        "ranges": [
-          {
-            "address": "0x801124d8",
-            "size": 72,
-            "kind": "function",
-            "name": "__OSContextInit",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x80112520",
             "size": 128,
@@ -25761,27 +27451,6 @@
             "kind": "function",
             "name": "OSRestoreInterrupts",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80113618",
-            "size": 28,
-            "kind": "function",
-            "name": "__OSSetInterruptHandler",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80113634",
-            "size": 20,
-            "kind": "function",
-            "name": "__OSGetInterruptHandler",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80113648",
-            "size": 116,
-            "kind": "function",
-            "name": "__OSInterruptInit",
-            "evidence": "unknown-file"
           }
         ]
       },
@@ -25791,77 +27460,11 @@
         "file_name": "OSInterrupt.c",
         "ranges": [
           {
-            "address": "0x801136bc",
-            "size": 728,
-            "kind": "function",
-            "name": "SetInterruptMask",
-            "evidence": "local-file-symbol"
-          },
-          {
             "address": "0x80113de8",
             "size": 76,
             "kind": "function",
             "name": "ExternalInterruptHandler",
             "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80113994",
-        "ranges": [
-          {
-            "address": "0x80113994",
-            "size": 136,
-            "kind": "function",
-            "name": "__OSMaskInterrupts",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80113a1c",
-            "size": 136,
-            "kind": "function",
-            "name": "__OSUnmaskInterrupts",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80113aa4",
-            "size": 836,
-            "kind": "function",
-            "name": "__OSDispatchInterrupt",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80113e34",
-        "ranges": [
-          {
-            "address": "0x80113e34",
-            "size": 24,
-            "kind": "function",
-            "name": "__OSModuleInit",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80113e4c",
-            "size": 96,
-            "kind": "function",
-            "name": "OSInitMessageQueue",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80113eac",
-            "size": 200,
-            "kind": "function",
-            "name": "OSSendMessage",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80113f74",
-            "size": 220,
-            "kind": "function",
-            "name": "OSReceiveMessage",
-            "evidence": "unknown-file"
           }
         ]
       },
@@ -25916,34 +27519,6 @@
             "kind": "function",
             "name": "__OSInitMemoryProtection",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80114330",
-            "size": 56,
-            "kind": "function",
-            "name": "OSInitMutex",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80114368",
-            "size": 220,
-            "kind": "function",
-            "name": "OSLockMutex",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80114444",
-            "size": 200,
-            "kind": "function",
-            "name": "OSUnlockMutex",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011450c",
-            "size": 112,
-            "kind": "function",
-            "name": "__OSUnlockAllMutex",
-            "evidence": "unknown-file"
           }
         ]
       },
@@ -25976,13 +27551,6 @@
             "size": 460,
             "kind": "function",
             "name": "__OSReboot",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80114794",
-            "size": 132,
-            "kind": "function",
-            "name": "OSRegisterResetFunction",
             "evidence": "unknown-file"
           }
         ]
@@ -26023,20 +27591,6 @@
             "size": 48,
             "kind": "function",
             "name": "OSGetResetCode",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80114b68",
-            "size": 244,
-            "kind": "function",
-            "name": "__OSResetSWInterruptHandler",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80114c5c",
-            "size": 664,
-            "kind": "function",
-            "name": "OSGetResetButtonState",
             "evidence": "unknown-file"
           }
         ]
@@ -26171,191 +27725,8 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 80115950",
+        "name": "Unknown file/.text @ 80116ac4",
         "ranges": [
-          {
-            "address": "0x80115950",
-            "size": 100,
-            "kind": "function",
-            "name": "__OSInitSystemCall",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801159b4",
-            "size": 296,
-            "kind": "function",
-            "name": "__OSThreadInit",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80115adc",
-            "size": 16,
-            "kind": "function",
-            "name": "OSInitThreadQueue",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80115aec",
-            "size": 12,
-            "kind": "function",
-            "name": "OSGetCurrentThread",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80115af8",
-            "size": 64,
-            "kind": "function",
-            "name": "OSDisableScheduler",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80115b38",
-            "size": 64,
-            "kind": "function",
-            "name": "OSEnableScheduler",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/OSThread.c [local symbols only]",
-        "file_record": 209,
-        "file_name": "OSThread.c",
-        "ranges": [
-          {
-            "address": "0x80115b78",
-            "size": 104,
-            "kind": "function",
-            "name": "UnsetRun",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80115c1c",
-            "size": 448,
-            "kind": "function",
-            "name": "SetEffectivePriority",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80115e2c",
-            "size": 512,
-            "kind": "function",
-            "name": "SelectThread",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80115be0",
-        "ranges": [
-          {
-            "address": "0x80115be0",
-            "size": 60,
-            "kind": "function",
-            "name": "__OSGetEffectivePriority",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80115ddc",
-        "ranges": [
-          {
-            "address": "0x80115ddc",
-            "size": 80,
-            "kind": "function",
-            "name": "__OSPromoteThread",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8011602c",
-        "ranges": [
-          {
-            "address": "0x8011602c",
-            "size": 48,
-            "kind": "function",
-            "name": "__OSReschedule",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011605c",
-            "size": 60,
-            "kind": "function",
-            "name": "OSYieldThread",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80116098",
-            "size": 288,
-            "kind": "function",
-            "name": "OSCreateThread",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801161b8",
-            "size": 228,
-            "kind": "function",
-            "name": "OSExitThread",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011629c",
-            "size": 444,
-            "kind": "function",
-            "name": "OSCancelThread",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80116458",
-            "size": 648,
-            "kind": "function",
-            "name": "OSResumeThread",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801166e0",
-            "size": 368,
-            "kind": "function",
-            "name": "OSSuspendThread",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80116850",
-            "size": 236,
-            "kind": "function",
-            "name": "OSSleepThread",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011693c",
-            "size": 260,
-            "kind": "function",
-            "name": "OSWakeupThread",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80116a40",
-            "size": 24,
-            "kind": "function",
-            "name": "OSGetTime",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80116a58",
-            "size": 8,
-            "kind": "function",
-            "name": "OSGetTick",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80116a60",
-            "size": 100,
-            "kind": "function",
-            "name": "__OSGetSystemTime",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x80116ac4",
             "size": 88,
@@ -26416,14 +27787,12 @@
             "kind": "function",
             "name": "PSMTXScale",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80116ccc",
-            "size": 84,
-            "kind": "function",
-            "name": "PSMTXMultVec",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 80116d20",
+        "ranges": [
           {
             "address": "0x80116d20",
             "size": 156,
@@ -26966,93 +28335,6 @@
             "kind": "function",
             "name": "__DVDPrepareResetAsync",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011a7fc",
-            "size": 56,
-            "kind": "function",
-            "name": "__DVDClearWaitingQueue",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011a834",
-            "size": 104,
-            "kind": "function",
-            "name": "__DVDPushWaitingQueue",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011a89c",
-            "size": 160,
-            "kind": "function",
-            "name": "__DVDPopWaitingQueue",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011a93c",
-            "size": 88,
-            "kind": "function",
-            "name": "__DVDCheckWaitingQueue",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011a994",
-            "size": 96,
-            "kind": "function",
-            "name": "__DVDDequeueWaitingQueue",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/dvderror.c [local symbols only]",
-        "file_record": 220,
-        "file_name": "dvderror.c",
-        "ranges": [
-          {
-            "address": "0x8011a9f4",
-            "size": 284,
-            "kind": "function",
-            "name": "ErrorCode2Num",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8011ab10",
-        "ranges": [
-          {
-            "address": "0x8011ab10",
-            "size": 124,
-            "kind": "function",
-            "name": "__DVDStoreErrorCode",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/fstload.c [local symbols only]",
-        "file_record": 221,
-        "file_name": "fstload.c",
-        "ranges": [
-          {
-            "address": "0x8011ab8c",
-            "size": 216,
-            "kind": "function",
-            "name": "cb",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8011ac64",
-        "ranges": [
-          {
-            "address": "0x8011ac64",
-            "size": 360,
-            "kind": "function",
-            "name": "__fstLoad",
-            "evidence": "unknown-file"
           }
         ]
       },
@@ -27424,13 +28706,6 @@
             "kind": "function",
             "name": "__AICallbackStackSwitch",
             "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011e4b4",
-            "size": 484,
-            "kind": "function",
-            "name": "__AI_SRC_INIT",
-            "evidence": "local-file-symbol"
           }
         ]
       },
@@ -27543,64 +28818,8 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 8011f224",
+        "name": "Unknown file/.text @ 8011f730",
         "ranges": [
-          {
-            "address": "0x8011f224",
-            "size": 256,
-            "kind": "function",
-            "name": "__ARQServiceQueueLo",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011f324",
-            "size": 4,
-            "kind": "function",
-            "name": "__ARQCallbackHack",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011f328",
-            "size": 204,
-            "kind": "function",
-            "name": "__ARQInterruptServiceRoutine",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011f3f4",
-            "size": 104,
-            "kind": "function",
-            "name": "ARQInit",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011f45c",
-            "size": 348,
-            "kind": "function",
-            "name": "ARQPostRequest",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011f5b8",
-            "size": 272,
-            "kind": "function",
-            "name": "ARQRemoveRequest",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011f6c8",
-            "size": 52,
-            "kind": "function",
-            "name": "AXInit",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011f6fc",
-            "size": 52,
-            "kind": "function",
-            "name": "AXQuit",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x8011f730",
             "size": 24,
@@ -27836,42 +29055,12 @@
             "kind": "function",
             "name": "__AXOutQuit",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80120a6c",
-            "size": 12,
-            "kind": "function",
-            "name": "__AXGetStudio",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80120a78",
-            "size": 1016,
-            "kind": "function",
-            "name": "__AXPrintStudio",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80120e70",
-            "size": 44,
-            "kind": "function",
-            "name": "__AXSPBInit",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80120e9c",
-            "size": 4,
-            "kind": "function",
-            "name": "__AXSPBQuit",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80120ea0",
-            "size": 148,
-            "kind": "function",
-            "name": "__AXDepopVoice",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 80120f34",
+        "ranges": [
           {
             "address": "0x80120f34",
             "size": 8,
@@ -27962,14 +29151,12 @@
             "kind": "function",
             "name": "AXSetVoiceAdpcmLoop",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80121e84",
-            "size": 72,
-            "kind": "function",
-            "name": "__AXGetCurrentProfile",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 80121ecc",
+        "ranges": [
           {
             "address": "0x80121ecc",
             "size": 16,
@@ -28046,14 +29233,12 @@
             "kind": "function",
             "name": "DSPAssertTask",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801221a8",
-            "size": 80,
-            "kind": "function",
-            "name": "__DSP_debug_printf",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 801221f8",
+        "ranges": [
           {
             "address": "0x801221f8",
             "size": 1060,
@@ -28333,142 +29518,8 @@
         ]
       },
       {
-        "name": "Unmatched files/CARDRdwr.c [local symbols only]",
-        "file_record": 242,
-        "file_name": "CARDRdwr.c",
+        "name": "Unknown file/.text @ 801258c8",
         "ranges": [
-          {
-            "address": "0x80124fe0",
-            "size": 220,
-            "kind": "function",
-            "name": "BlockReadCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80125120",
-            "size": 220,
-            "kind": "function",
-            "name": "BlockWriteCallback",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 801250bc",
-        "ranges": [
-          {
-            "address": "0x801250bc",
-            "size": 100,
-            "kind": "function",
-            "name": "__CARDRead",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 801251fc",
-        "ranges": [
-          {
-            "address": "0x801251fc",
-            "size": 100,
-            "kind": "function",
-            "name": "__CARDWrite",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80125260",
-            "size": 8,
-            "kind": "function",
-            "name": "__CARDGetFatBlock",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/CARDBlock.c [local symbols only]",
-        "file_record": 243,
-        "file_name": "CARDBlock.c",
-        "ranges": [
-          {
-            "address": "0x80125268",
-            "size": 212,
-            "kind": "function",
-            "name": "WriteCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8012533c",
-            "size": 200,
-            "kind": "function",
-            "name": "EraseCallback",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80125404",
-        "ranges": [
-          {
-            "address": "0x80125404",
-            "size": 280,
-            "kind": "function",
-            "name": "__CARDAllocBlock",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012551c",
-            "size": 156,
-            "kind": "function",
-            "name": "__CARDFreeBlock",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801255b8",
-            "size": 172,
-            "kind": "function",
-            "name": "__CARDUpdateFatBlock",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80125664",
-            "size": 8,
-            "kind": "function",
-            "name": "__CARDGetDirBlock",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/CARDDir.c [local symbols only]",
-        "file_record": 244,
-        "file_name": "CARDDir.c",
-        "ranges": [
-          {
-            "address": "0x8012566c",
-            "size": 208,
-            "kind": "function",
-            "name": "WriteCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8012573c",
-            "size": 200,
-            "kind": "function",
-            "name": "EraseCallback",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80125804",
-        "ranges": [
-          {
-            "address": "0x80125804",
-            "size": 196,
-            "kind": "function",
-            "name": "__CARDUpdateDir",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x801258c8",
             "size": 432,
@@ -28688,29 +29739,8 @@
         ]
       },
       {
-        "name": "Unmatched files/CARDCreate.c [local symbols only]",
-        "file_record": 249,
-        "file_name": "CARDCreate.c",
+        "name": "Unknown file/.text @ 80128354",
         "ranges": [
-          {
-            "address": "0x80128004",
-            "size": 304,
-            "kind": "function",
-            "name": "CreateCallbackFat",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80128134",
-        "ranges": [
-          {
-            "address": "0x80128134",
-            "size": 544,
-            "kind": "function",
-            "name": "CARDCreateAsync",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x80128354",
             "size": 440,
@@ -28782,39 +29812,6 @@
             "size": 72,
             "kind": "function",
             "name": "CARDWrite",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/CARDDelete.c [local symbols only]",
-        "file_record": 252,
-        "file_name": "CARDDelete.c",
-        "ranges": [
-          {
-            "address": "0x80128b00",
-            "size": 164,
-            "kind": "function",
-            "name": "DeleteCallback",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80128ba4",
-        "ranges": [
-          {
-            "address": "0x80128ba4",
-            "size": 272,
-            "kind": "function",
-            "name": "CARDDeleteAsync",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80128cb4",
-            "size": 72,
-            "kind": "function",
-            "name": "CARDDelete",
             "evidence": "unknown-file"
           }
         ]
@@ -29824,14 +30821,12 @@
             "kind": "function",
             "name": "GXSetFieldMode",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012ff10",
-            "size": 4,
-            "kind": "function",
-            "name": "__GXSetRange",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 8012ff14",
+        "ranges": [
           {
             "address": "0x8012ff14",
             "size": 112,
@@ -32125,63 +33120,12 @@
             "kind": "function",
             "name": "cosf",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801439a4",
-            "size": 4,
-            "kind": "function",
-            "name": "EXI2_Init",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801439a8",
-            "size": 4,
-            "kind": "function",
-            "name": "EXI2_EnableInterrupts",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801439ac",
-            "size": 8,
-            "kind": "function",
-            "name": "EXI2_Poll",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801439b4",
-            "size": 8,
-            "kind": "function",
-            "name": "EXI2_ReadN",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801439bc",
-            "size": 8,
-            "kind": "function",
-            "name": "EXI2_WriteN",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801439c4",
-            "size": 4,
-            "kind": "function",
-            "name": "EXI2_Reserve",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801439c8",
-            "size": 4,
-            "kind": "function",
-            "name": "EXI2_Unreserve",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801439cc",
-            "size": 8,
-            "kind": "function",
-            "name": "AMC_IsStub",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 801439d4",
+        "ranges": [
           {
             "address": "0x801439d4",
             "size": 8,
@@ -32688,21 +33632,12 @@
             "kind": "function",
             "name": "SIProbe",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80147798",
-            "size": 228,
-            "kind": "function",
-            "name": "SISetSamplingRate",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8014787c",
-            "size": 36,
-            "kind": "function",
-            "name": "SIRefreshSamplingRate",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 801478a0",
+        "ranges": [
           {
             "address": "0x801478a0",
             "size": 108,

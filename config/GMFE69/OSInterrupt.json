@@ -1,0 +1,145 @@
+{
+  "id": "OSInterrupt",
+  "source": "src/dolphin/os/OSInterrupt.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE",
+    "-opt",
+    "nopeep"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80113618",
+      "size": 2000,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018dbf0",
+      "size": 44,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034efd8",
+      "size": 24,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "SetInterruptMask",
+      "address": "0x801136bc",
+      "size": 728,
+      "binding": 0
+    },
+    {
+      "name": "__OSSetInterruptHandler",
+      "address": "0x80113618",
+      "size": 28,
+      "binding": 1
+    },
+    {
+      "name": "__OSGetInterruptHandler",
+      "address": "0x80113634",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "__OSInterruptInit",
+      "address": "0x80113648",
+      "size": 116,
+      "binding": 1
+    },
+    {
+      "name": "__OSMaskInterrupts",
+      "address": "0x80113994",
+      "size": 136,
+      "binding": 1
+    },
+    {
+      "name": "__OSUnmaskInterrupts",
+      "address": "0x80113a1c",
+      "size": 136,
+      "binding": 1
+    },
+    {
+      "name": "__OSDispatchInterrupt",
+      "address": "0x80113aa4",
+      "size": 836,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "ExternalInterruptHandler": "0x80113de8",
+    "OSDisableInterrupts": "0x801135cc",
+    "OSDisableScheduler": "0x80115af8",
+    "OSEnableScheduler": "0x80115b38",
+    "OSGetTime": "0x80116a40",
+    "OSLoadContext": "0x80111fec",
+    "OSRestoreInterrupts": "0x801135f4",
+    "__OSReschedule": "0x8011602c",
+    "__OSSetExceptionHandler": "0x801109e8",
+    "__flush_cache": "0x80007350",
+    "__init_hardware": "0x80007330",
+    "__start": "0x80007140",
+    "memset": "0x80009410"
+  },
+  "undefined_in_discarded_code": [
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers"
+  ],
+  "discarded_functions": [
+    "OSGetInterruptMask",
+    "OSSetInterruptMask"
+  ],
+  "upstream": {
+    "repository": "https://github.com/PrimeDecomp/prime",
+    "commit": "693fa74f9a9a7cdbb97f09a09d30853415e40927",
+    "path": "extern/sdk/dolphin/os/OSInterrupt.c"
+  },
+  "original_file": "OSInterrupt.c",
+  "original_file_index": 10760,
+  "local_externals": [
+    "ExternalInterruptHandler"
+  ],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "OSInterrupt.json"
+  }
+}
