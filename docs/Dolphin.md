@@ -16,6 +16,26 @@ size comparisons alone cannot pick the compiler. `AX` and `GXStubs` also
 verify with 1.2.5 and are recorded as built. A working profile is not proof of
 the original compiler release.
 
+## Local modifications to dolsdk2001
+
+Frontline's Dec 2001 SDK already contains some changes found in later SDKs.
+Each change below was required by, and verified against, the original bytes.
+Upstream is commit `eb1234c` of dolsdk2001.
+
+| File | Change | Evidence |
+| --- | --- | --- |
+| `gx/__gx.h` | Struct head `vNumNot`, `bpSentNot`, 16-bit `vNum`/`vLim`; `tevTcEnab` added after `tcsManEnab` (later fields +4) | `dirtyState` at `0x4F4`; `lhz 4`/`lhz 6` loads in `__GXSendFlushPrim` |
+| `gx/*.c` (11 files) | `gx->bpSent = x` → `gx->bpSentNot = !x` | Inverted constants stored at `gx+2` |
+| `gx/GXGeometry.c`, `gx/GXDisplayList.c` | Flush test on `vNumNot == 0` | Inverted branch in `GXBegin`/`GXCallDisplayList` |
+| `gx/GXMisc.c` | `GXSetMisc` maintains `vNumNot`; `GXFlush` writes 8 words | 2004 code, sizes and bytes |
+| `gx/GXTransform.c` | Scissor and viewport offset 342 (was 340) | Immediates and `.sdata2` constant `342.0f` |
+| `gx/GXFifo.c` | `CPUFifo`/`GPFifo` private and declared first; `__GXFifoInit` clears them | Local symbols and `.sbss` order |
+| `ax/AXAlloc.c` | `__AXPushFreeStack` clears `priority` | 2004 code |
+| `ax/AXAux.c` | Aux input getters test the callback; the B getter tests `__AXCallbackAuxA` (an SDK bug fixed later) | Relocation to `__AXCallbackAuxA` at `0x8011fd42` |
+| `os/OSAlarm.c`, `os/__os.h` | System-time calls throughout; 2004 `OSSetPeriodicAlarm` and `DecrementerExceptionCallback` | Relocations to `__OSGetSystemTime` |
+| `card/CARDUnlock.c` | `DoneCallback` returns after each error callback | 2004 code |
+| `include/dolphin/card.h` | `CARDControl` gains `cid` and `diskID` (size `0x110`) | `mulli rX, chan, 272` |
+
 ## Porting workflow
 
 ```sh
@@ -45,6 +65,12 @@ The original was linked by the MW linker, unlike Rising Sun's ProDG link:
   parked at `0x10000000 + n * 0x100000`, outside main memory, and never enter the
   rebuilt image. `verify_unit` checks they are parked; retained code that used
   them would fail the byte comparison.
+- **Trimmed data.** When MW removed unused objects at the start or end of a data
+  section, the manifest section names the kept slice (`linked_offset`,
+  `linked_size`). The whole compiled section is linked at the shifted base, only
+  the kept bytes are compared and credited, the trimmed part must hold whole
+  compiler objects, and retained code may not refer into it. Stripping in the
+  middle of a section is not supported.
 - **Weak definitions.** Frontline has weak globals (for example `PPCHalt`,
   `__start`). External resolution treats them like globals.
 - **Declaration-only symbols.** `__declspec(section ".init")` declarations in
@@ -55,17 +81,14 @@ The original was linked by the MW linker, unlike Rising Sun's ProDG link:
 
 ## Open problems
 
-- **Partial data stripping.** When MW removed some but not all objects of a data
-  section (e.g. `__ai_src_time_start`/`_end` at the end of `ai.c`'s `.sbss`), the
-  whole compiled section no longer fits. The `ai_src` fragment is accepted
-  instead of the whole of `ai.c`.
-- **Small-data ordering.** `dsp.c` and `dsp_task.c` place `.sbss` objects in an
-  order different from the compiled object (inconsistent anchors).
-- **Revision differences.** About 40 SDK files differ from both reconstructions
-  in one or a few functions (`OSAlarm`, `GXAttr`, `CARD*`, `vi`, `Pad`, …). These
-  need per-function source changes between the 2001 and 2004 code. Rising Sun's
-  SDK units and dolsdk2001 together give two reference points.
-- `GXBump`, `GXDisplayList`, `GXGeometry`, `GXTransform`: equal sizes but
-  different bytes; inspect with `unit_diff.py`.
+- **Middle-of-section data stripping**, and small-data ordering in `dsp.c` and
+  `dsp_task.c`: no single base places all kept objects.
+- **Revision differences.** Remaining SDK files differ from both reconstructions
+  in some functions. `scratch`-style comparison of each function's size against
+  the 2001 and 2004 builds shows where to start: `Pad`, `CARDCheck` and
+  `CARDFormat` are explained entirely by 2004 functions, which suggests the 2004
+  source as their base.
+- Compiled code that calls a different function than the original is reported by
+  `port_unit.py` (for example `OSGetTime` vs `__OSGetSystemTime`).
 - `PPCArch`, `odenotstub`: linked function symbols differ (likely asm-only or
   alias functions).

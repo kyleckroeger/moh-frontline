@@ -174,7 +174,7 @@ void GXSetGPMetric(GXPerf0 perf0, GXPerf1 perf1)
         break;
     }
 
-    gx->bpSent = 1;
+    gx->bpSentNot = 0;
 }
 
 void GXReadGPMetric(u32 *cnt0, u32 *cnt1)
@@ -416,7 +416,7 @@ void GXClearPixMetric(void)
     GX_WRITE_RAS_REG(reg);
     reg = 0x57000AAA;
     GX_WRITE_RAS_REG(reg);
-    gx->bpSent = 1;
+    gx->bpSentNot = 0;
 }
 
 void GXSetVCacheMetric(GXVCachePerf attr)
@@ -458,7 +458,7 @@ void GXInitXfRasMetric(void)
     GX_WRITE_RAS_REG(reg);
     reg = 0x31000;
     GX_WRITE_XF_REG(6, reg);
-    gx->bpSent = 0;
+    gx->bpSentNot = 1;
 }
 
 void GXReadXfRasMetric(u32 *xf_wait_in, u32 *xf_wait_out, u32 *ras_busy, u32 *clocks)

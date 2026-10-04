@@ -9,6 +9,9 @@
 #define PHYSICAL(x) (((u32)x) & 0x3FFFFFFF)
 #define GX_PHYSICAL_ADDR(x) ((u32)x & ~((~OS_PHYSICAL_MASK) << 16))
 
+// Frontline: private and declared first, as in later SDKs.
+static struct __GXFifoObj *CPUFifo;
+static struct __GXFifoObj *GPFifo;
 static OSThread *__GXCurrentThread;
 static GXBool CPGPLinked;
 static BOOL GXOverflowSuspendInProgress;
@@ -18,8 +21,6 @@ static u32 __GXOverflowCount;
 static int IsWGPipeRedirected;
 #endif
 
-struct __GXFifoObj *CPUFifo;
-struct __GXFifoObj *GPFifo;
 void *__GXCurrentBP;
 
 static void __GXFifoReadEnable(void);
@@ -410,6 +411,8 @@ void __GXFifoInit(void)
     __OSUnmaskInterrupts(0x4000);
     __GXCurrentThread = OSGetCurrentThread();
     GXOverflowSuspendInProgress = FALSE;
+    CPUFifo = NULL;
+    GPFifo = NULL;
 }
 
 static void __GXFifoReadEnable(void)

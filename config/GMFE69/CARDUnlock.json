@@ -1,0 +1,128 @@
+{
+  "id": "CARDUnlock",
+  "source": "src/dolsdk2001/card/CARDUnlock.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80123dcc",
+      "size": 4628,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018fe20",
+      "size": 352,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "bitrev",
+      "address": "0x80123dcc",
+      "size": 364,
+      "binding": 0
+    },
+    {
+      "name": "ReadArrayUnlock",
+      "address": "0x80123f38",
+      "size": 324,
+      "binding": 0
+    },
+    {
+      "name": "DummyLen",
+      "address": "0x8012407c",
+      "size": 148,
+      "binding": 0
+    },
+    {
+      "name": "InitCallback",
+      "address": "0x80124c4c",
+      "size": 112,
+      "binding": 0
+    },
+    {
+      "name": "DoneCallback",
+      "address": "0x80124cbc",
+      "size": 804,
+      "binding": 0
+    },
+    {
+      "name": "__CARDUnlock",
+      "address": "0x80124110",
+      "size": 2876,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DCFlushRange": "0x80111880",
+    "DCInvalidateRange": "0x80111850",
+    "DSPAddTask": "0x80122070",
+    "DSPCheckMailToDSP": "0x80121ecc",
+    "DSPSendMailToDSP": "0x80121f04",
+    "EXIDeselect": "0x801451a0",
+    "EXIImmEx": "0x801447ac",
+    "EXIProbe": "0x80144d78",
+    "EXISelect": "0x80145074",
+    "EXIUnlock": "0x80145860",
+    "OSGetTick": "0x80116a58",
+    "__CARDBlock": "0x8032f8a0",
+    "__CARDMountCallback": "0x80126e7c",
+    "__CARDReadStatus": "0x80122e90",
+    "memset": "0x80009410",
+    "rand": "0x8013fc54",
+    "srand": "0x8013fc4c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "exnor_1st",
+    "exnor",
+    "GetInitVal"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/card/CARDUnlock.c"
+  },
+  "original_file": "CARDUnlock.c",
+  "original_file_index": 11251,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "exnor_1st",
+    "exnor",
+    "GetInitVal"
+  ],
+  "sda_externals": []
+}

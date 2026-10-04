@@ -138,6 +138,9 @@ def match(obj, original, file_index):
                 raise ValueError(f"Relocation type differs at {base + where:#x}")
             target = osymbol["address"] + oaddend
             if symbol["section"] == 0:
+                if osymbol["name"] and osymbol["name"] != symbol["name"] and not addend:
+                    raise ValueError(f"Compiled code refers to {symbol['name']} where the original "
+                                     f"refers to {osymbol['name']} (at {base + where:#x})")
                 anchor(externals, symbol["name"], target - addend)
             elif symbol["section"] < 0xFF00:
                 offset = position(symbol["section"], symbol["address"] + addend)
@@ -162,6 +165,29 @@ def referenced(obj, index, kept, addresses):
         if section != text and names[section] in addresses:
             return True
     return False
+
+
+def kept_span(obj, index, kept, original, locals_):
+    """Compiled [start, end) of objects the original kept, if MW trimmed the ends."""
+    symbols = list(obj.symbols())
+    objects = [s for s in symbols if s["section"] == index and s["type"] == 1 and s["size"]]
+    text = next(s["index"] for s in obj.sections if s["name"] == ".text")
+    keep = {(s["address"], s["size"]) for s in objects
+            if not s["name"].startswith("@") and find(s, original, locals_) is not None}
+    roots = [(text, f["address"], f["address"] + f["size"]) for f, _ in kept]
+    while roots:
+        section, start, end = roots.pop()
+        for where_section, where, _, symbol, addend in relocations(obj):
+            if where_section != section or not start <= where < end or symbol["section"] != index:
+                continue
+            target = symbol["address"] + addend
+            for s in objects:
+                if s["address"] <= target < s["address"] + s["size"] and (s["address"], s["size"]) not in keep:
+                    keep.add((s["address"], s["size"]))
+                    roots.append((index, s["address"], s["address"] + s["size"]))
+    if not keep:
+        return None
+    return min(a for a, _ in keep), max(a + n for a, n in keep)
 
 
 def compare_functions(obj, original, file_index):
@@ -210,9 +236,19 @@ def draft(args):
                 stripped.append(section["name"])
                 continue
             raise ValueError(f"Could not place compiled section {section['name']}")
-        size = text_size if section["name"] == ".text" else section["size"]
-        sections.append({"name": section["name"], "address": hex(addresses[section["name"]]),
-                         "size": size, "type": section["type"]})
+        if section["name"] == ".text":
+            sections.append({"name": ".text", "address": hex(addresses[".text"]), "size": text_size, "type": 1})
+            continue
+        span = kept_span(obj, section["index"], kept, original, original.locals_of(file_index))
+        if span is None and discarded:
+            stripped.append(section["name"])
+            continue
+        start, end = span if span and discarded else (0, section["size"])
+        entry = {"name": section["name"], "address": hex(addresses[section["name"]] + start),
+                 "size": end - start, "type": section["type"]}
+        if (start, end) != (0, section["size"]):
+            entry.update(linked_offset=start, linked_size=section["size"])
+        sections.append(entry)
     text = next(s for s in sections if s["name"] == ".text")
     start = int(text["address"], 16)
     functions = [{"name": s["name"], "address": hex(s["address"]), "size": s["size"], "binding": s["binding"]}

@@ -1,0 +1,146 @@
+{
+  "id": "OSAlarm",
+  "source": "src/dolsdk2001/os/OSAlarm.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80110b54",
+      "size": 1828,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034efa8",
+      "size": 8,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "DecrementerExceptionHandler",
+      "address": "0x8011122c",
+      "size": 76,
+      "binding": 0
+    },
+    {
+      "name": "InsertAlarm",
+      "address": "0x80110bac",
+      "size": 592,
+      "binding": 0
+    },
+    {
+      "name": "DecrementerExceptionCallback",
+      "address": "0x80110ffc",
+      "size": 560,
+      "binding": 0
+    },
+    {
+      "name": "OSInitAlarm",
+      "address": "0x80110b54",
+      "size": 76,
+      "binding": 1
+    },
+    {
+      "name": "OSCreateAlarm",
+      "address": "0x80110ba0",
+      "size": 12,
+      "binding": 1
+    },
+    {
+      "name": "OSSetAlarm",
+      "address": "0x80110dfc",
+      "size": 104,
+      "binding": 1
+    },
+    {
+      "name": "OSSetPeriodicAlarm",
+      "address": "0x80110e64",
+      "size": 124,
+      "binding": 1
+    },
+    {
+      "name": "OSCancelAlarm",
+      "address": "0x80110ee0",
+      "size": 284,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "OSClearContext": "0x801120cc",
+    "OSDisableInterrupts": "0x801135cc",
+    "OSDisableScheduler": "0x80115af8",
+    "OSEnableScheduler": "0x80115b38",
+    "OSLoadContext": "0x80111fec",
+    "OSReport": "0x80112520",
+    "OSRestoreInterrupts": "0x801135f4",
+    "OSSetCurrentContext": "0x80111f04",
+    "PPCMtdec": "0x80110188",
+    "__OSGetExceptionHandler": "0x80110a04",
+    "__OSGetSystemTime": "0x80116a60",
+    "__OSReschedule": "0x8011602c",
+    "__OSSetExceptionHandler": "0x801109e8",
+    "__OSTimeToSystemTime": "0x80116ac4",
+    "__div2i": "0x80138b60",
+    "__flush_cache": "0x80007350",
+    "__init_hardware": "0x80007330"
+  },
+  "undefined_in_discarded_code": [
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers"
+  ],
+  "discarded_functions": [
+    "OSCheckAlarmQueue",
+    "SetTimer",
+    "OSSetAbsAlarm"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/os/OSAlarm.c"
+  },
+  "original_file": "OSAlarm.c",
+  "original_file_index": 10655,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "SetTimer"
+  ],
+  "sda_externals": [],
+  "stripped_sections": [
+    ".data"
+  ]
+}

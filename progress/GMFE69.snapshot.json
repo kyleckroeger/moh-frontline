@@ -6,17 +6,19 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 21924,
+    "matching_code_bytes": 40480,
     "total_executable_code_bytes": 1414572,
-    "percent": 1.5498680873083872,
+    "percent": 2.8616429563147014,
     "categories": {
       "reconstructed_game": 0,
-      "restored_library": 21924
+      "restored_library": 40480
     },
-    "matching_functions": 129
+    "matching_functions": 234
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
+    "config/GMFE69/AXAlloc.json": "b51afdb5cb97132361ccd2fe3e018cda2e215277e2c457b6ff35b3a9cd352f47",
+    "config/GMFE69/AXAux.json": "e73769cf63d05e457ce16280d154d201b73a7014df5904ad30b39446572b82ce",
     "config/GMFE69/AXProf.json": "ba1ea082ba1cca2929a03e0b3f9715d8f0ba2203b8a59af5c8d43a620397ceef",
     "config/GMFE69/AXSPB.json": "b545c13a80837ee4ec6447cd14220ca12742a60c4525e91f744603629870f101",
     "config/GMFE69/AmcExi2Stubs.json": "06e09d04a4badb35d73036086b321ab231a21afa20b86979b63e9546006ca0ce",
@@ -25,7 +27,16 @@
     "config/GMFE69/CARDDelete.json": "c1c26e08366317235691bda59dd8e55e40ffe504c18f081dbc726ba75955bc2c",
     "config/GMFE69/CARDDir.json": "45f60e8765248b1f5161f2ef9e703619a87d6a3115f7f0e6d745bc807e494618",
     "config/GMFE69/CARDRdwr.json": "f6823e5de5ee80dc52792b3137627ea5401106745a584bc344d54eeed63855b0",
+    "config/GMFE69/CARDUnlock.json": "7716542ea7b19b3b01b0afaf41869f75a4772afefa61129b459ba5b420bc3285",
+    "config/GMFE69/GXBump.json": "a78c5c03a49b6ec3cbb3d45288946827cb15b6fbf7b0a7c632b5191731e75525",
+    "config/GMFE69/GXDisplayList.json": "f7347b3d89b9742bcebfe209ec4be05580ca9effb91646f940b7a03d4648d397",
+    "config/GMFE69/GXFifo.json": "f73ba935928b52f77cce38e854ff5d6557357dacbe2ea1f2fbc6b8ed85afa229",
+    "config/GMFE69/GXGeometry.json": "812b2a048b783c48d666c565007dfcf4860344f7cad016a6d903726c22befd09",
+    "config/GMFE69/GXLight.json": "61ed42d7e68c16cfbfc3a1e46f52a5035fc114ac18fbfeaddd363d3888295166",
+    "config/GMFE69/GXMisc.json": "08008e3e750601a0a56d2442b14c450e5677f3ebe4f14eb98e6066cb011367d5",
     "config/GMFE69/GXStubs.json": "f982b70601475f696346533ae77d4424c28e7ff3e577f677e69199958fa00fdc",
+    "config/GMFE69/GXTransform.json": "38225301a6fd0d656301839a81128f2235b7fbe70c809990d1beeb45d8a5182b",
+    "config/GMFE69/OSAlarm.json": "1e86d7d9e28dd6c2d842af34882125cb9181ba4a9c4adca999722390b2e59824",
     "config/GMFE69/OSAlloc.json": "67106699292772ba5d4d82046fe0693ce5131eb6185ba3ef8965019d65fa6948",
     "config/GMFE69/OSArena.json": "fae99d1b18d3b3604cb8dcad5702e89f090e83b078590b613d5d496d404af0d5",
     "config/GMFE69/OSAudioSystem.json": "77cbfb9ab923faeba0d5cbf61bd83b1ad685fbb3e710b1bb5365c5d2767f00a0",
@@ -50,7 +61,7 @@
     "config/GMFE69/dvdqueue.json": "3972551d2dea13e4955e0652398d4423a1ecfbf913abb2f4a0d352a2d558c905",
     "config/GMFE69/fstload.json": "c101975fb01250bc8f0325effbe643330b62ccd00eac41e24aff682c06866309",
     "config/GMFE69/mtxvec.json": "bb6a4f09ca854ab9a727be34f0a20df7f53e0e081e1b83581418b88de9987009",
-    "config/GMFE69/project.json": "f5376802d38ef0fb31882bb744eed781839dd4209039bf908c9aa9a49ed1081d",
+    "config/GMFE69/project.json": "5d1abb16de2e0e9eb39c641cebc8782dc6a979093c991ced3d41429518a39964",
     "config/GMFE69/target.json": "f7e8d7b660fd35f21cdc13385271d7b73fabda6669a0d112db63b3b1f3e8b3b2",
     "include/dolphin-sdk/charPipeline/fileCache.h": "9fc5bbfba874376ec1d239271cda99d84c256b2bd07f884d1177bee6b705b985",
     "include/dolphin-sdk/charPipeline/structures/HTable.h": "e1e36439d044200512635bc37470f318258d75767fad9ec2d9c407f9c0ee1af8",
@@ -207,7 +218,7 @@
     "include/dolsdk2001/dolphin/card/CARDRename.h": "b560126dad3145ee6a1f39350bc15b01842dac3d09a5832c630215e845be3249",
     "include/dolsdk2001/dolphin/card/CARDStat.h": "a621d5777fed08808a38085a03a59f9699d2df70b41e2ffa716b6b1899b14146",
     "include/dolsdk2001/dolphin/card/CARDWrite.h": "c5b2c77a5c1e95e6da6392b222d10ef501609a6422bb94246d99d30cd21f60b1",
-    "include/dolsdk2001/dolphin/card.h": "5714747b4da834505169fbad8a8e750b8268a9519ffc449dd227e9c03a59c0b8",
+    "include/dolsdk2001/dolphin/card.h": "8a4c4869136086dd6244f326aca31f8ecf7ce88520a713466cc9b228dcbea643",
     "include/dolsdk2001/dolphin/db/DBInterface.h": "810250f04b86571a7f5ee36179fea51ea5c55af7e712a5ad9066aac12e0962a0",
     "include/dolsdk2001/dolphin/db.h": "732e7394881ad9f17d8be3f26508ecfaddb960fc785005231fbe6742c7e11c35",
     "include/dolsdk2001/dolphin/demo/DEMOInit.h": "6b0eae492d0d74b1c6bda7ac0ce66cb9c17160631ca056ad256114e89bf811e0",
@@ -426,7 +437,7 @@
     "src/dolphin/vi/__vi.h": "22201b234d317ca8d2724210a124ac6ceb9708df13c1b73eae87afab8e625b7b",
     "src/dolphin/vi/vi.c": "a39c975336daa3c42a5a186d68d0c9c39e91aa0df0003b1b052eb767cdf4beed",
     "src/dolsdk2001/G2D/G2D.c": "4a6394031c95e5831ea92134b21c6f82d558b0e6e3c029421ed3102dd64077f2",
-    "src/dolsdk2001/NOTICE": "52ae7c6d80a8e81976af1c1833e632710213c035f14e2b7c7cfe925d992cfb49",
+    "src/dolsdk2001/NOTICE": "ccf64ee8764708043935167247a8210235f777c0c500026a2278aee6d8c083c5",
     "src/dolsdk2001/ai/ai.c": "cb8508338aa0c4b10b9134f2f51936618929fe8f63515e137a5ff2f2d4fcc0d9",
     "src/dolsdk2001/amcnotstub/amcnotstub.c": "b9ecd4554424a09e21ba4c8393bcf8ed86989f2f5c414e38987a226a64b0ac47",
     "src/dolsdk2001/amcstubs/AmcExi2Stubs.c": "2a36a4a2c25fd284569d4485d247b3092c1587951918f88225ddfba9d85f2f7f",
@@ -434,8 +445,8 @@
     "src/dolsdk2001/ar/ar.c": "a7361dc61f70af27242befc467512dbb1187a90fde95db5475e2c36aace369c9",
     "src/dolsdk2001/ar/arq.c": "b98e2017d56b333ef650141c85a6da849d7d9a4cb674035239b69017210e2252",
     "src/dolsdk2001/ax/AX.c": "0ae9762d57ac25806d391302996ec68222514872678147635694127c350ed5df",
-    "src/dolsdk2001/ax/AXAlloc.c": "394e4d091d9aeeb3519cb7162082b8157927f43f2db8eb09df3b5f630ffaacbe",
-    "src/dolsdk2001/ax/AXAux.c": "24191cb43b6ff4bca140e77dee9c05bb26da5cd747e87b40e8d24626a9ab56f1",
+    "src/dolsdk2001/ax/AXAlloc.c": "c1eae401b23837629556a7cc0fd53b5bd2bd6f8b7d49a067866b2d8732168cf1",
+    "src/dolsdk2001/ax/AXAux.c": "e3388b3e97e7e88e8d13a51250e5ce1339870520b9a4d0d9f9f18052de9c279c",
     "src/dolsdk2001/ax/AXCL.c": "c66f94dac56f09603e2e26be3fb5f9e7292537751d583c29111e9f38b5ec00ce",
     "src/dolsdk2001/ax/AXOut.c": "8882a50e0894d3e8698ef75bb45d4881b70f15b3db8ff16f2d5d1a61ebd07a58",
     "src/dolsdk2001/ax/AXProf.c": "ab820c816778df4d21be244647724e4ee54638fe0eedd4f5667ec30ebe854b23",
@@ -464,7 +475,7 @@
     "src/dolsdk2001/card/CARDRename.c": "7dc956822ba2fa232de634ae0e294f1899959f93f5689500df7e58e3e2fb9e24",
     "src/dolsdk2001/card/CARDStat.c": "ce11d59d0cb96cb59e32b5054c0a890e44043f10c6e2830cbdc254767a2df33f",
     "src/dolsdk2001/card/CARDStatEx.c": "37ec0ff3c11f3669aa62683a0e54c8154e3c0616aaa438f970165dc17f18b329",
-    "src/dolsdk2001/card/CARDUnlock.c": "dd4937084f2171faa6563ef61da67b002b74721a292f89549d42af894c2cd454",
+    "src/dolsdk2001/card/CARDUnlock.c": "2d5efe33b5993326d583efa7782f68fa416323e5075bfad398ab6278fef6d724",
     "src/dolsdk2001/card/CARDWrite.c": "22e5cecd49f11f497ef61878550c29ab20d307a7c1e31cb0f4223e1ae1a5a40b",
     "src/dolsdk2001/card/__card.h": "d810100a86e323c91488980f26cc90ae0d7bb4eee7f62286bedc38dd3c4d72fd",
     "src/dolsdk2001/db/db.c": "655083ea009280f1402b7ec43bb87f0941d6e7ae4174291f802287f7c8d0b548",
@@ -488,28 +499,28 @@
     "src/dolsdk2001/dvd/dvdqueue.c": "7dcab20bd1cbeee252c32c6dd364838f7151302fd2204b022d21ad80443cc849",
     "src/dolsdk2001/dvd/fstload.c": "3c7a5bd7147d02e22e3db61bb373ba85e0342bde87bb04448ff5ece80ad7bcb1",
     "src/dolsdk2001/fileCache/fileCache.c": "f05a524b13a229d2881b233490a084091053dcc07752ec5f5b353ead6b056e19",
-    "src/dolsdk2001/gx/GXAttr.c": "24198fc8241505c87aaff62eb33542f90fc03e67db62cf58dab8b3a7a48ac180",
-    "src/dolsdk2001/gx/GXBump.c": "b3e417dbeaabbd4bdf2a83359f560ca71d407f0c49f291ef7551f2469320124d",
-    "src/dolsdk2001/gx/GXDisplayList.c": "36d4fb49859b8952b27e54d9a3d89e26b1fef7fc2b82ab65b9bf292d6556f94d",
+    "src/dolsdk2001/gx/GXAttr.c": "8d9c43d4e0d36b224affad917a89639cf1eb01a3852ea0ef2e21ab9a7a212295",
+    "src/dolsdk2001/gx/GXBump.c": "08edafadf117cf3fca4efe8344fabd953d1c4d24d5fb823a727c35e669f9d006",
+    "src/dolsdk2001/gx/GXDisplayList.c": "4d7ecd11d2f3b21bd7de38f590ae670995335d36a5d7e4867f3dc63844aa6c33",
     "src/dolsdk2001/gx/GXDraw.c": "beef6be1f52fa22983653c710d1e6bf48a0ecdc28d007e1c5bad31d2b9ee9d07",
-    "src/dolsdk2001/gx/GXFifo.c": "489d5f342e7b8fc331391af63a96711a91630506f6b15286a7526572cf2cfabe",
-    "src/dolsdk2001/gx/GXFrameBuf.c": "f95af795ba5b127539dd5eca6235f34fba356a1d0d7a9f229c0530a2502fa52f",
-    "src/dolsdk2001/gx/GXGeometry.c": "dac2946a8eb9b97371aae9ceb2f2fcd011750fb1d9f969ca286f460c3b8a8b21",
+    "src/dolsdk2001/gx/GXFifo.c": "e7237b7cf3efac7dd7b5e52fe881dbed8c07828a535ad1ca8c64cd251e20ba41",
+    "src/dolsdk2001/gx/GXFrameBuf.c": "41677da3ba7a4035900ff7ae50b3c6cdeecc06643fd90451c60b03d89b309894",
+    "src/dolsdk2001/gx/GXGeometry.c": "ac5ea408c49d80bb94ab6e309c8c401bc6e17be97d0ba08b8035ba6979527693",
     "src/dolsdk2001/gx/GXInit.c": "5bf18654218048b7099829a54ab80cbbd4424a74222477f066ddb8cceb9c4ec4",
-    "src/dolsdk2001/gx/GXLight.c": "27256cb0ed1d7611978833e7802bc62d54e0418ff6fcc21985a5aeb0fe6c0ff6",
-    "src/dolsdk2001/gx/GXMisc.c": "b47dca0c84905c85bbaeaf90a1b7cff0aa3cf9ee635bd1ce7809fde04242ecda",
-    "src/dolsdk2001/gx/GXPerf.c": "070678f4f78898453fb45782ad0bf549ed97774f9abb6049c38de4bc306f6459",
-    "src/dolsdk2001/gx/GXPixel.c": "ad5a013248385d622f224d42f065003ba62a00f4a13329dd249c3ec199cfd171",
+    "src/dolsdk2001/gx/GXLight.c": "facc34df81acba09dff51d4dbbfaa8b3b47917bdc9b53d41f1bd611e07f52879",
+    "src/dolsdk2001/gx/GXMisc.c": "e0b13ba77a4994368844942c89471a15c47f82f6a458ec109032a5958a43b25c",
+    "src/dolsdk2001/gx/GXPerf.c": "3c30e7f6a8e22b9572984278382ebda6f3942409c079da03a5b789a9d861d4ac",
+    "src/dolsdk2001/gx/GXPixel.c": "9d0cace4a933f47d8901252e8b2ac1d41a59949840c8fe19e8076c3ac2cb7502",
     "src/dolsdk2001/gx/GXSave.c": "b27c1ee3460da8ab130e3a3e40190f6ccc057cf42818ac4567de7728fc071fb3",
     "src/dolsdk2001/gx/GXStubs.c": "d4fe05a2f0242d9a57e28640f98155cd2db169571f2eccd8ea8407546d053f48",
-    "src/dolsdk2001/gx/GXTev.c": "f7785dac14054c2aceec8f3c810b57bc367daa41dc63924e282ba8b1275f2bd4",
-    "src/dolsdk2001/gx/GXTexture.c": "f9a43a932bcdbf2da18adf892576551e31d30d5a646a885d558eeacb2821344d",
-    "src/dolsdk2001/gx/GXTransform.c": "fc4976de65435c8c3387dab6e250b075f3e380a17a4f43bc6bf49d7e325a6b6d",
+    "src/dolsdk2001/gx/GXTev.c": "19ead36f7b5a2517d6bd6fef1af1dbaa9481f30b89240b491a7cdeab9160a952",
+    "src/dolsdk2001/gx/GXTexture.c": "4d9b0241bc030d79e36b38f73b3bbb6f55cd8ff92d22705bc8eb685d7918f154",
+    "src/dolsdk2001/gx/GXTransform.c": "8e66108896275d89af0e84a76099bf3bdf295ec9ded0e4cfa384b7757a46358b",
     "src/dolsdk2001/gx/GXVerifRAS.c": "13083b45c8b04fca4d9d5dff1d3afd3cc5aceb6453ced3f314ffca1a8f1ec903",
     "src/dolsdk2001/gx/GXVerifXF.c": "f6d2ac4150d8d30923eb7bd867d2388997f731a8b3b3b414213219b1288ced0c",
     "src/dolsdk2001/gx/GXVerify.c": "6789eb38fe22938d660c699e438514165b36df5664d483a381e70451fa655123",
     "src/dolsdk2001/gx/GXVert.c": "9f9df6ddaeab7f2d3225fd34f5d524fcda133a187cfaf43e2d206e71e1123306",
-    "src/dolsdk2001/gx/__gx.h": "82dbec2a0600ae745d67c95f195534d7888ec842dda886e7f729d415792bf826",
+    "src/dolsdk2001/gx/__gx.h": "4cb01d2e72fe3488b84440ea92c4f734d5961d21666eb0e06ba60dc9fa404eca",
     "src/dolsdk2001/hio/hio.c": "4b65c888ebbb758c28a9124f77c1ffb9c3b16035981714614d9d897f6159911b",
     "src/dolsdk2001/mcc/fio.c": "6e87df03e13043c37a8059751f99bcf91c88ac315172c79d323052f501821d0d",
     "src/dolsdk2001/mcc/mcc.c": "3eced8956eb8eebcbb90e5efd7a5f7051943f5dc858cbc32af93db0354deec42",
@@ -525,7 +536,7 @@
     "src/dolsdk2001/odenotstub/odenotstub.c": "f142c20867d72778853446d15a157a27a2935db513f9e7a5b99dad42244539eb",
     "src/dolsdk2001/os/OS.c": "2f08a9cc89fef3260658211e042e38b399f871ef0806c79d24bb546cabcb6677",
     "src/dolsdk2001/os/OSAddress.c": "ce0f7aa46994ac02146d56bdf54e1ae2795627843e3b8fff26961844e78a906b",
-    "src/dolsdk2001/os/OSAlarm.c": "409c0023888b4b5950a6e7c7172b8fab10e276425162554cc27e53e775b6bbeb",
+    "src/dolsdk2001/os/OSAlarm.c": "4c8cebe2905eaa44b218bb8bf4dbb4e098a3b92ccb2c5c3ed0a96c9b60d3389c",
     "src/dolsdk2001/os/OSAlloc.c": "5868c5806827534297e0b8f3dca1eff89d70b8caa1ed6f8b18914023aaba1df8",
     "src/dolsdk2001/os/OSArena.c": "679f270fe86162e7b41b786e73d6a7addbd4537c56781933d3703a63f7035f49",
     "src/dolsdk2001/os/OSAudioSystem.c": "75f705f28d36bd6c718aec0a4d5d28f46a631148434149e791491b6af403228d",
@@ -550,7 +561,7 @@
     "src/dolsdk2001/os/OSTime.c": "72918386ca0cc4eec0dcddb48a2c0c43e214318c1d4ec6fb762e75b2658b765b",
     "src/dolsdk2001/os/OSTimer.c": "5bb25ce9ea4a3a71d3b33ae58aca1a7abaf6cb6d78cd5b9518ccd5e59419a5d4",
     "src/dolsdk2001/os/OSUartExi.c": "0b4bfc29c0e2949f5a59d9c10516ef0b076656a1478eb3b2462b5f6403f9fb9f",
-    "src/dolsdk2001/os/__os.h": "ff70431f292eb574a27bd2ad0b4c9272d510a07b72bbbd16f9afe8e2434ecd79",
+    "src/dolsdk2001/os/__os.h": "0543b7e052a13204a68ee66f31a4382ff5768fa59e5ee25872e9c7ef9dc9a07d",
     "src/dolsdk2001/os/__ppc_eabi_init.c": "5441d3bde2066db800e2577d7850add364c5f663c50ea922aa10a73ad7853100",
     "src/dolsdk2001/os/__start.c": "2a9cba8499e76177d611c5343a9d5b3fe10dee9fa85e5a6b240b184746df45c1",
     "src/dolsdk2001/os/time.dolphin.c": "3408aa510f7846f5603d472685ecb7f5f83a1f1825336ffe46df25b549737899",
@@ -588,11 +599,11 @@
     "tools/dependencies.py": "904789a0085a12fbc9405b95f47e5b827a33850738bf7e2aa2b3c3ed548da118",
     "tools/formats.py": "3124d742d0518c913dfc575602bba63befbd9e0e78220e5a85059cda277f8f81",
     "tools/import_disc.py": "a76b0fc8a963fa5e26e432e8261c26f199989c7e2fc2c90cf0116878db15597b",
-    "tools/port_unit.py": "400de624b9b6b7dd5384cf7d6da4dfbaf738e77c34ab1669ebe3425a113cbc52",
+    "tools/port_unit.py": "eec97a8ac4a8add8cf9ed388166fff96456e310c89773facfdbb746764d0ba19",
     "tools/progress_report.py": "af4b24a59d4d50a01b1d75ae55cc3299fba1ae9cb58c5d15522553fcc89502a5",
-    "tools/project_build.py": "26b540c37a8f5c7340406b01a04d255c24a2938292f8bff0f35c4a86e6c1836f",
+    "tools/project_build.py": "67ecf276a8fa4aa5904ad1c2ec9236933a106efce5b5fb99cd98f6a2d400a9e4",
     "tools/reconstruct.py": "ae713fceeb3eef9f113af483ad5e3d5d6f1123fc424d0595099247e3e07a4cf2",
-    "tools/sdk_build.py": "36d846272a3652bc8ea4c95a48f48b120c3ca184ad6aa5bf62322f2cb5438834",
+    "tools/sdk_build.py": "f665d52b4f5ecee212e85c9c61148771fa4339359923e6f06745940c2da5bfa4",
     "tools/setup.py": "99f9d6bf69d36a45530565f597d0bdc926da68d96515bfdd1ec011719b8ebe84",
     "tools/setup_compiler.py": "4da101de7e8e2faf67f3130038312fdfa8152a6391d6b16ece437d22a93bd512",
     "tools/split_config.py": "2ce59060cb78e5d0e3fb624f8ec9ff78074da815d1ba1a45ecc7744b6b0e5f6c",
@@ -1963,6 +1974,492 @@
       "discarded_functions": [],
       "object_sha256": "0d805270539ee20571bab0165ba8df60c8594f6849dbcb1f5a8e7a18154d4ec1",
       "linked_sha256": "40d792df22ff53e07079d8e04faa963830db2feeff8f5eaf2916175f7c475b26"
+    },
+    {
+      "id": "GXGeometry",
+      "category": "restored_library",
+      "functions": 9,
+      "code_bytes": 952,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "GXGetLineWidth",
+        "GXGetPointSize",
+        "GXGetCullMode"
+      ],
+      "object_sha256": "317b5267f80773e82469d914f25f94b99a83ed08147648cf73156feeb5ca0fe5",
+      "linked_sha256": "c15a27f9536912c9f00de534e957cec6aabc7afa947279f159bb4bc404c146ae"
+    },
+    {
+      "id": "GXDisplayList",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 112,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "GXBeginDisplayList",
+        "GXEndDisplayList"
+      ],
+      "object_sha256": "2149d97541668f65ed44d1de8905fef6f4b7ced847e319ee2c2d9f317a59f3a4",
+      "linked_sha256": "671221c79d552354d65603eebb3ab997d58452dc5064ceb14b4b4c42aa44ed18"
+    },
+    {
+      "id": "GXTransform",
+      "category": "restored_library",
+      "functions": 17,
+      "code_bytes": 1792,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "GXProject",
+        "WriteMTXPS3x3",
+        "GXLoadNrmMtxImm3x3",
+        "GXLoadNrmMtxIndx3x3",
+        "GXLoadTexMtxIndx",
+        "GXGetViewportv",
+        "GXGetScissor"
+      ],
+      "object_sha256": "055dbd52b3b8ccd8f8844bd2e8692122f5876090d67833700f1f32f3cfef4d0d",
+      "linked_sha256": "2860babb73bea7650f445ddd70a3b5bcbc5f973e00853529b952d71eba4f826f"
+    },
+    {
+      "id": "GXBump",
+      "category": "restored_library",
+      "functions": 9,
+      "code_bytes": 1716,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "GXSetTevIndWarp",
+        "GXSetTevIndTile",
+        "GXSetTevIndBumpST",
+        "GXSetTevIndBumpXYZ"
+      ],
+      "object_sha256": "dcc06bd5803ea2187d0441097087473a235a6c57c76292e96a995cc30c8f0729",
+      "linked_sha256": "ffd9d61c91168347ac9caece4963950ccf15581240f7d5a3e3de8ea5d68c168f"
+    },
+    {
+      "id": "GXLight",
+      "category": "restored_library",
+      "functions": 10,
+      "code_bytes": 2284,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "GXInitLightAttn",
+        "GXInitLightAttnA",
+        "GXGetLightAttnA",
+        "GXInitLightAttnK",
+        "GXGetLightAttnK",
+        "GXGetLightPos",
+        "GXGetLightDir",
+        "GXInitSpecularDir",
+        "GXInitSpecularDirHA",
+        "GXGetLightColor",
+        "GXLoadLightObjIndx"
+      ],
+      "object_sha256": "ea72cb5b3af9a04a5f053f7804021a101f23f0b648a57683f62f9c64f55db2ea",
+      "linked_sha256": "90d0b00cce48ffa8f1a08374d7812308773ecc297b23eac9ca1b4c89a3c662c3"
+    },
+    {
+      "id": "AXAlloc",
+      "category": "restored_library",
+      "functions": 10,
+      "code_bytes": 1236,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "__AXInitVoiceStacks",
+        "__AXPopFreeStack",
+        "__AXPushStackHead",
+        "__AXPopStackFromBottom",
+        "AXSetVoicePriority"
+      ],
+      "object_sha256": "4b60f8b28a6640693095ff25fda28b0406511bd4e010bae66c350dae97978f29",
+      "linked_sha256": "ba92cf2fbb42ac4b8d5cac4df63002627bc2e499fda2eb2f6e055b938e7dab29"
+    },
+    {
+      "id": "GXMisc",
+      "category": "restored_library",
+      "functions": 13,
+      "code_bytes": 936,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "GXSetMisc",
+        "GXResetWriteGatherPipe",
+        "GXAbortFrame",
+        "GXSetDrawSync",
+        "GXReadDrawSync",
+        "GXSetDrawDone",
+        "GXWaitDrawDone",
+        "GXPixModeSync",
+        "GXTexModeSync",
+        "GXPeekARGB",
+        "GXPokeARGB",
+        "GXPeekZ",
+        "GXPokeZ",
+        "GXSetDrawSyncCallback",
+        "GXSetDrawDoneCallback",
+        "GXCompressZ16",
+        "GXDecompressZ16"
+      ],
+      "object_sha256": "119df402b0fe619939da0716be9bd0fc4d72340661470f564dbfa40002404a49",
+      "linked_sha256": "6774d37504077e340302e5aea42cbdb266850f915ee609247601c0590ce2f086"
+    },
+    {
+      "id": "AXAux",
+      "category": "restored_library",
+      "functions": 8,
+      "code_bytes": 808,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "AXRegisterAuxBCallback"
+      ],
+      "object_sha256": "0ef1f5b0873734dca0e54fa692008d33f67fa14759ca116072365c95f95341a0",
+      "linked_sha256": "8cb8e098cf9b24d7d1c5f051cedb1da1bb40293c09ee07786dee806c88daa579"
+    },
+    {
+      "id": "GXFifo",
+      "category": "restored_library",
+      "functions": 14,
+      "code_bytes": 2264,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "GXOverflowHandler",
+        "GXUnderflowHandler",
+        "GXBreakPointHandler",
+        "GXSaveCPUFifo",
+        "__GXSaveCPUFifoAux",
+        "GXSaveGPFifo",
+        "GXGetGPStatus",
+        "GXGetFifoStatus",
+        "GXGetFifoPtrs",
+        "GXGetFifoBase",
+        "GXGetFifoSize",
+        "GXGetFifoLimits",
+        "GXSetBreakPtCallback",
+        "GXEnableBreakPt",
+        "GXDisableBreakPt",
+        "__GXInsaneWatermark",
+        "__GXCleanGPFifo",
+        "GXSetCurrentGXThread",
+        "GXGetCurrentGXThread",
+        "GXGetCPUFifo",
+        "GXGetGPFifo",
+        "GXGetOverflowCount",
+        "GXResetOverflowCount"
+      ],
+      "object_sha256": "c072ea230d509e0cb97787298190422e9caa13ac9ea307a94a523ba4518b633d",
+      "linked_sha256": "1bae95b167308f54281938c0f984633eac48f2f877885a27af1079ced12bef50"
+    },
+    {
+      "id": "OSAlarm",
+      "category": "restored_library",
+      "functions": 8,
+      "code_bytes": 1828,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "OSCheckAlarmQueue",
+        "SetTimer",
+        "OSSetAbsAlarm"
+      ],
+      "object_sha256": "27a9cd9bae04e3de11cdcf514ff514f973a8e0a8a6ecc44ff0a2a39d8b7c0944",
+      "linked_sha256": "cc0f9783b72df7e4d800496f3a1f45b62512743dd970b48c3e09a339cfa26d90"
+    },
+    {
+      "id": "CARDUnlock",
+      "category": "restored_library",
+      "functions": 6,
+      "code_bytes": 4628,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "exnor_1st",
+        "exnor",
+        "GetInitVal"
+      ],
+      "object_sha256": "004c6cabc1354e5503bb9c1a97929e7f9bf5d985988e41e9d1e56a231a14c08d",
+      "linked_sha256": "67e1558423665981c41167d86c6ad34a91856dfe4f60afd7ab6d8bd7b3cf7f12"
     }
   ],
   "code_map": {
@@ -27169,74 +27666,6 @@
             "kind": "function",
             "name": "__OSGetDIConfig",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80110b54",
-            "size": 76,
-            "kind": "function",
-            "name": "OSInitAlarm",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80110ba0",
-            "size": 12,
-            "kind": "function",
-            "name": "OSCreateAlarm",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/OSAlarm.c [local symbols only]",
-        "file_record": 191,
-        "file_name": "OSAlarm.c",
-        "ranges": [
-          {
-            "address": "0x80110bac",
-            "size": 592,
-            "kind": "function",
-            "name": "InsertAlarm",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80110ffc",
-            "size": 560,
-            "kind": "function",
-            "name": "DecrementerExceptionCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011122c",
-            "size": 76,
-            "kind": "function",
-            "name": "DecrementerExceptionHandler",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80110dfc",
-        "ranges": [
-          {
-            "address": "0x80110dfc",
-            "size": 104,
-            "kind": "function",
-            "name": "OSSetAlarm",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80110e64",
-            "size": 124,
-            "kind": "function",
-            "name": "OSSetPeriodicAlarm",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80110ee0",
-            "size": 284,
-            "kind": "function",
-            "name": "OSCancelAlarm",
-            "evidence": "unknown-file"
           }
         ]
       },
@@ -28818,134 +29247,8 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 8011f730",
+        "name": "Unknown file/.text @ 8011ff2c",
         "ranges": [
-          {
-            "address": "0x8011f730",
-            "size": 24,
-            "kind": "function",
-            "name": "__AXGetStackHead",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011f748",
-            "size": 128,
-            "kind": "function",
-            "name": "__AXServiceCallbackStack",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011f7c8",
-            "size": 180,
-            "kind": "function",
-            "name": "__AXAllocInit",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011f87c",
-            "size": 180,
-            "kind": "function",
-            "name": "__AXAllocQuit",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011f930",
-            "size": 32,
-            "kind": "function",
-            "name": "__AXPushFreeStack",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011f950",
-            "size": 16,
-            "kind": "function",
-            "name": "__AXPushCallbackStack",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011f960",
-            "size": 28,
-            "kind": "function",
-            "name": "__AXPopCallbackStack",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011f97c",
-            "size": 148,
-            "kind": "function",
-            "name": "__AXRemoveFromStack",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011fa10",
-            "size": 128,
-            "kind": "function",
-            "name": "AXFreeVoice",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011fa90",
-            "size": 372,
-            "kind": "function",
-            "name": "AXAcquireVoice",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011fc04",
-            "size": 220,
-            "kind": "function",
-            "name": "__AXAuxInit",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011fce0",
-            "size": 16,
-            "kind": "function",
-            "name": "__AXAuxQuit",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011fcf0",
-            "size": 52,
-            "kind": "function",
-            "name": "__AXGetAuxAInput",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011fd24",
-            "size": 28,
-            "kind": "function",
-            "name": "__AXGetAuxAOutput",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011fd40",
-            "size": 52,
-            "kind": "function",
-            "name": "__AXGetAuxBInput",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011fd74",
-            "size": 28,
-            "kind": "function",
-            "name": "__AXGetAuxBOutput",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011fd90",
-            "size": 400,
-            "kind": "function",
-            "name": "__AXProcessAux",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8011ff20",
-            "size": 12,
-            "kind": "function",
-            "name": "AXRegisterAuxACallback",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x8011ff2c",
             "size": 8,
@@ -29464,60 +29767,6 @@
         ]
       },
       {
-        "name": "Unmatched files/CARDUnlock.c [local symbols only]",
-        "file_record": 241,
-        "file_name": "CARDUnlock.c",
-        "ranges": [
-          {
-            "address": "0x80123dcc",
-            "size": 364,
-            "kind": "function",
-            "name": "bitrev",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80123f38",
-            "size": 324,
-            "kind": "function",
-            "name": "ReadArrayUnlock",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8012407c",
-            "size": 148,
-            "kind": "function",
-            "name": "DummyLen",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80124c4c",
-            "size": 112,
-            "kind": "function",
-            "name": "InitCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80124cbc",
-            "size": 804,
-            "kind": "function",
-            "name": "DoneCallback",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80124110",
-        "ranges": [
-          {
-            "address": "0x80124110",
-            "size": 2876,
-            "kind": "function",
-            "name": "__CARDUnlock",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
         "name": "Unknown file/.text @ 801258c8",
         "ranges": [
           {
@@ -29918,121 +30167,6 @@
         ]
       },
       {
-        "name": "Unmatched files/GXFifo.c [local symbols only]",
-        "file_record": 257,
-        "file_name": "GXFifo.c",
-        "ranges": [
-          {
-            "address": "0x8012a65c",
-            "size": 316,
-            "kind": "function",
-            "name": "GXCPInterruptHandler",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8012ab54",
-            "size": 40,
-            "kind": "function",
-            "name": "__GXFifoReadEnable",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8012ab7c",
-            "size": 36,
-            "kind": "function",
-            "name": "__GXFifoReadDisable",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8012aba0",
-            "size": 68,
-            "kind": "function",
-            "name": "__GXFifoLink",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8012abe4",
-            "size": 76,
-            "kind": "function",
-            "name": "__GXWriteFifoIntEnable",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8012ac30",
-            "size": 76,
-            "kind": "function",
-            "name": "__GXWriteFifoIntReset",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8012a798",
-        "ranges": [
-          {
-            "address": "0x8012a798",
-            "size": 108,
-            "kind": "function",
-            "name": "GXInitFifoBase",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012a804",
-            "size": 112,
-            "kind": "function",
-            "name": "GXInitFifoPtrs",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012a874",
-            "size": 12,
-            "kind": "function",
-            "name": "GXInitFifoLimits",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012a880",
-            "size": 272,
-            "kind": "function",
-            "name": "GXSetCPUFifo",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012a990",
-            "size": 376,
-            "kind": "function",
-            "name": "GXSetGPFifo",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012ab08",
-            "size": 76,
-            "kind": "function",
-            "name": "__GXFifoInit",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8012ac7c",
-        "ranges": [
-          {
-            "address": "0x8012ac7c",
-            "size": 260,
-            "kind": "function",
-            "name": "GXRedirectWriteGatherPipe",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012ad80",
-            "size": 436,
-            "kind": "function",
-            "name": "GXRestoreWriteGatherPipe",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/GXAttr.c [local symbols only]",
         "file_record": 258,
         "file_name": "GXAttr.c",
@@ -30118,173 +30252,12 @@
             "kind": "function",
             "name": "GXSetNumTexGens",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012bf94",
-            "size": 92,
-            "kind": "function",
-            "name": "GXFlush",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012bff0",
-            "size": 128,
-            "kind": "function",
-            "name": "GXDrawDone",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c070",
-            "size": 20,
-            "kind": "function",
-            "name": "GXPokeAlphaMode",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c084",
-            "size": 20,
-            "kind": "function",
-            "name": "GXPokeAlphaRead",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c098",
-            "size": 28,
-            "kind": "function",
-            "name": "GXPokeAlphaUpdate",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c0b4",
-            "size": 136,
-            "kind": "function",
-            "name": "GXPokeBlendMode",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c13c",
-            "size": 28,
-            "kind": "function",
-            "name": "GXPokeColorUpdate",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c158",
-            "size": 20,
-            "kind": "function",
-            "name": "GXPokeDstAlpha",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c16c",
-            "size": 28,
-            "kind": "function",
-            "name": "GXPokeDither",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c188",
-            "size": 40,
-            "kind": "function",
-            "name": "GXPokeZMode",
-            "evidence": "unknown-file"
           }
         ]
       },
       {
-        "name": "Unmatched files/GXMisc.c [local symbols only]",
-        "file_record": 259,
-        "file_name": "GXMisc.c",
+        "name": "Unknown file/.text @ 8012c6f4",
         "ranges": [
-          {
-            "address": "0x8012c1b0",
-            "size": 136,
-            "kind": "function",
-            "name": "GXTokenInterruptHandler",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8012c238",
-            "size": 132,
-            "kind": "function",
-            "name": "GXFinishInterruptHandler",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8012c2bc",
-        "ranges": [
-          {
-            "address": "0x8012c2bc",
-            "size": 128,
-            "kind": "function",
-            "name": "__GXPEInit",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c33c",
-            "size": 140,
-            "kind": "function",
-            "name": "__GXSetDirtyState",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c3c8",
-            "size": 220,
-            "kind": "function",
-            "name": "GXBegin",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c4a4",
-            "size": 136,
-            "kind": "function",
-            "name": "__GXSendFlushPrim",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c52c",
-            "size": 88,
-            "kind": "function",
-            "name": "GXSetLineWidth",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c584",
-            "size": 84,
-            "kind": "function",
-            "name": "GXSetPointSize",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c5d8",
-            "size": 100,
-            "kind": "function",
-            "name": "GXEnableTexOffsets",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c63c",
-            "size": 80,
-            "kind": "function",
-            "name": "GXSetCullMode",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c68c",
-            "size": 68,
-            "kind": "function",
-            "name": "GXSetCoPlanar",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c6d0",
-            "size": 36,
-            "kind": "function",
-            "name": "__GXSetGenMode",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x8012c6f4",
             "size": 288,
@@ -30368,77 +30341,12 @@
             "kind": "function",
             "name": "GXClearBoundingBox",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012d120",
-            "size": 384,
-            "kind": "function",
-            "name": "GXInitLightSpot",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012d2a0",
-            "size": 208,
-            "kind": "function",
-            "name": "GXInitLightDistAttn",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012d370",
-            "size": 16,
-            "kind": "function",
-            "name": "GXInitLightPos",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012d380",
-            "size": 28,
-            "kind": "function",
-            "name": "GXInitLightDir",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012d39c",
-            "size": 40,
-            "kind": "function",
-            "name": "GXInitLightColor",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012d3c4",
-            "size": 328,
-            "kind": "function",
-            "name": "GXLoadLightObjImm",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012d50c",
-            "size": 360,
-            "kind": "function",
-            "name": "GXSetChanAmbColor",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012d674",
-            "size": 360,
-            "kind": "function",
-            "name": "GXSetChanMatColor",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012d7dc",
-            "size": 76,
-            "kind": "function",
-            "name": "GXSetNumChans",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012d828",
-            "size": 484,
-            "kind": "function",
-            "name": "GXSetChanCtrl",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 8012da0c",
+        "ranges": [
           {
             "address": "0x8012da0c",
             "size": 628,
@@ -30576,70 +30484,12 @@
             "kind": "function",
             "name": "__GXSetTmemConfig",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012e7c4",
-            "size": 156,
-            "kind": "function",
-            "name": "GXSetTevIndirect",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012e860",
-            "size": 352,
-            "kind": "function",
-            "name": "GXSetIndTexMtx",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012e9c0",
-            "size": 468,
-            "kind": "function",
-            "name": "GXSetIndTexCoordScale",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012eb94",
-            "size": 312,
-            "kind": "function",
-            "name": "GXSetIndTexOrder",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012eccc",
-            "size": 44,
-            "kind": "function",
-            "name": "GXSetNumIndStages",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012ecf8",
-            "size": 72,
-            "kind": "function",
-            "name": "GXSetTevDirect",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012ed40",
-            "size": 72,
-            "kind": "function",
-            "name": "GXSetTevIndRepeat",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012ed88",
-            "size": 204,
-            "kind": "function",
-            "name": "__GXUpdateBPMask",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012ee54",
-            "size": 36,
-            "kind": "function",
-            "name": "__GXFlushTextureState",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 8012ee78",
+        "ranges": [
           {
             "address": "0x8012ee78",
             "size": 420,
@@ -30825,146 +30675,8 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 8012ff14",
+        "name": "Unknown file/.text @ 80130684",
         "ranges": [
-          {
-            "address": "0x8012ff14",
-            "size": 112,
-            "kind": "function",
-            "name": "GXCallDisplayList",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012ff84",
-            "size": 212,
-            "kind": "function",
-            "name": "GXSetProjection",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80130058",
-            "size": 220,
-            "kind": "function",
-            "name": "GXSetProjectionv",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80130134",
-            "size": 120,
-            "kind": "function",
-            "name": "GXGetProjectionv",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/GXTransform.c [local symbols only]",
-        "file_record": 269,
-        "file_name": "GXTransform.c",
-        "ranges": [
-          {
-            "address": "0x801301ac",
-            "size": 52,
-            "kind": "function",
-            "name": "WriteMTXPS4x3",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801301e0",
-            "size": 52,
-            "kind": "function",
-            "name": "WriteMTXPS3x3from3x4",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80130214",
-            "size": 36,
-            "kind": "function",
-            "name": "WriteMTXPS4x2",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80130238",
-        "ranges": [
-          {
-            "address": "0x80130238",
-            "size": 60,
-            "kind": "function",
-            "name": "GXLoadPosMtxImm",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80130274",
-            "size": 48,
-            "kind": "function",
-            "name": "GXLoadPosMtxIndx",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801302a4",
-            "size": 64,
-            "kind": "function",
-            "name": "GXLoadNrmMtxImm",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801302e4",
-            "size": 60,
-            "kind": "function",
-            "name": "GXSetCurrentMtx",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80130320",
-            "size": 132,
-            "kind": "function",
-            "name": "GXLoadTexMtxImm",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801303a4",
-            "size": 284,
-            "kind": "function",
-            "name": "GXSetViewportJitter",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801304c0",
-            "size": 36,
-            "kind": "function",
-            "name": "GXSetViewport",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801304e4",
-            "size": 176,
-            "kind": "function",
-            "name": "GXSetScissor",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80130594",
-            "size": 68,
-            "kind": "function",
-            "name": "GXSetScissorBoxOffset",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801305d8",
-            "size": 40,
-            "kind": "function",
-            "name": "GXSetClipMode",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80130600",
-            "size": 132,
-            "kind": "function",
-            "name": "__GXSetMatrixIndex",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x80130684",
             "size": 2200,

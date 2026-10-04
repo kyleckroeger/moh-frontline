@@ -1,0 +1,151 @@
+{
+  "id": "GXLight",
+  "source": "src/dolsdk2001/gx/GXLight.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8012d120",
+      "size": 2284,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80190210",
+      "size": 28,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x80351470",
+      "size": 52,
+      "type": 1,
+      "linked_offset": 32,
+      "linked_size": 108
+    }
+  ],
+  "functions": [
+    {
+      "name": "GXInitLightSpot",
+      "address": "0x8012d120",
+      "size": 384,
+      "binding": 1
+    },
+    {
+      "name": "GXInitLightDistAttn",
+      "address": "0x8012d2a0",
+      "size": 208,
+      "binding": 1
+    },
+    {
+      "name": "GXInitLightPos",
+      "address": "0x8012d370",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "GXInitLightDir",
+      "address": "0x8012d380",
+      "size": 28,
+      "binding": 1
+    },
+    {
+      "name": "GXInitLightColor",
+      "address": "0x8012d39c",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "GXLoadLightObjImm",
+      "address": "0x8012d3c4",
+      "size": 328,
+      "binding": 1
+    },
+    {
+      "name": "GXSetChanAmbColor",
+      "address": "0x8012d50c",
+      "size": 360,
+      "binding": 1
+    },
+    {
+      "name": "GXSetChanMatColor",
+      "address": "0x8012d674",
+      "size": 360,
+      "binding": 1
+    },
+    {
+      "name": "GXSetNumChans",
+      "address": "0x8012d7dc",
+      "size": 76,
+      "binding": 1
+    },
+    {
+      "name": "GXSetChanCtrl",
+      "address": "0x8012d828",
+      "size": 484,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "cosf": "0x80143980",
+    "gx": "0x8034e4f8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "GXInitLightAttn",
+    "GXInitLightAttnA",
+    "GXGetLightAttnA",
+    "GXInitLightAttnK",
+    "GXGetLightAttnK",
+    "GXGetLightPos",
+    "GXGetLightDir",
+    "GXInitSpecularDir",
+    "GXInitSpecularDirHA",
+    "GXGetLightColor",
+    "GXLoadLightObjIndx"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/gx/GXLight.c"
+  },
+  "original_file": "GXLight.c",
+  "original_file_index": 11373,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "gx"
+  ]
+}

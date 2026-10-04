@@ -1,0 +1,142 @@
+{
+  "id": "AXAlloc",
+  "source": "src/dolsdk2001/ax/AXAlloc.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8011f730",
+      "size": 1236,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x80317e40",
+      "size": 256,
+      "type": 8
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f1f8",
+      "size": 4,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "__AXGetStackHead",
+      "address": "0x8011f730",
+      "size": 24,
+      "binding": 1
+    },
+    {
+      "name": "__AXServiceCallbackStack",
+      "address": "0x8011f748",
+      "size": 128,
+      "binding": 1
+    },
+    {
+      "name": "__AXPopCallbackStack",
+      "address": "0x8011f960",
+      "size": 28,
+      "binding": 1
+    },
+    {
+      "name": "__AXRemoveFromStack",
+      "address": "0x8011f97c",
+      "size": 148,
+      "binding": 1
+    },
+    {
+      "name": "__AXPushFreeStack",
+      "address": "0x8011f930",
+      "size": 32,
+      "binding": 1
+    },
+    {
+      "name": "__AXAllocInit",
+      "address": "0x8011f7c8",
+      "size": 180,
+      "binding": 1
+    },
+    {
+      "name": "__AXAllocQuit",
+      "address": "0x8011f87c",
+      "size": 180,
+      "binding": 1
+    },
+    {
+      "name": "__AXPushCallbackStack",
+      "address": "0x8011f950",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "AXFreeVoice",
+      "address": "0x8011fa10",
+      "size": 128,
+      "binding": 1
+    },
+    {
+      "name": "AXAcquireVoice",
+      "address": "0x8011fa90",
+      "size": 372,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "OSDisableInterrupts": "0x801135cc",
+    "OSRestoreInterrupts": "0x801135f4",
+    "__AXSetPBDefault": "0x8012186c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "__AXInitVoiceStacks",
+    "__AXPopFreeStack",
+    "__AXPushStackHead",
+    "__AXPopStackFromBottom",
+    "AXSetVoicePriority"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/ax/AXAlloc.c"
+  },
+  "original_file": "AXAlloc.c",
+  "original_file_index": 11124,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": []
+}

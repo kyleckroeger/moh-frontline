@@ -35,7 +35,7 @@ BOOL OSCheckAlarmQueue(void) {
 }
 
 static void SetTimer(struct OSAlarm * alarm) {
-    OSTime delta = alarm->fire - OSGetTime();
+    OSTime delta = alarm->fire - __OSGetSystemTime();
 
     if (delta < 0) {
         PPCMtdec(0);
@@ -62,7 +62,7 @@ static void InsertAlarm(OSAlarm* alarm, OSTime fire, OSAlarmHandler handler) {
     OSAlarm* prev;
     
     if (0 < alarm->period) {
-        OSTime time = OSGetTime();
+        OSTime time = __OSGetSystemTime();
         
         fire = alarm->start;
         if (alarm->start < time) {
@@ -116,7 +116,7 @@ void OSSetAlarm(OSAlarm* alarm, OSTime tick, OSAlarmHandler handler) {
     ASSERTMSGLINE(0x115, handler, "OSSetAlarm(): null handler was specified.");
     enabled = OSDisableInterrupts();
     alarm->period = 0;
-    InsertAlarm(alarm, OSGetTime() + tick, handler);
+    InsertAlarm(alarm, __OSGetSystemTime() + tick, handler);
     ASSERTLINE(0x11C, OSCheckAlarmQueue());
     OSRestoreInterrupts(enabled);
 }
@@ -132,16 +132,14 @@ void OSSetAbsAlarm(struct OSAlarm * alarm, long long time, void (* handler)(stru
     OSRestoreInterrupts(enabled);
 }
 
+// Frontline: the later SDK version of this function.
 void OSSetPeriodicAlarm(OSAlarm* alarm, OSTime start, OSTime period, OSAlarmHandler handler) {
-    BOOL enabled;
-    ASSERTMSGLINE(0x14D, period > 0, "OSSetPeriodicAlarm(): period was less than zero.");
-    ASSERTMSGLINE(0x14E, handler, "OSSetPeriodicAlarm(): null handler was specified.");
-    enabled = OSDisableInterrupts();
-    alarm->period = period;
-    alarm->start = start;
-    InsertAlarm(alarm, 0, handler);
-    ASSERTLINE(0x156, OSCheckAlarmQueue());
-    OSRestoreInterrupts(enabled);
+  BOOL enabled;
+  enabled = OSDisableInterrupts();
+  alarm->period = period;
+  alarm->start = __OSTimeToSystemTime(start);
+  InsertAlarm(alarm, 0, handler);
+  OSRestoreInterrupts(enabled);
 }
 
 void OSCancelAlarm(OSAlarm* alarm) {
@@ -174,48 +172,52 @@ void OSCancelAlarm(OSAlarm* alarm) {
     OSRestoreInterrupts(enabled);
 }
 
+// Frontline: the later SDK version of this function.
 static void DecrementerExceptionCallback(register __OSException exception,
                                          register OSContext* context) {
-    OSAlarm* alarm;
-    OSAlarm* next;
-    OSAlarmHandler handler;
-    OSTime time;
-
-    time = OSGetTime();
-    alarm = AlarmQueue.head;
-    if (alarm == 0) {
-        OSLoadContext(context);
-    }
-
-    if (time < alarm->fire) {
-        SetTimer(alarm);
-        OSLoadContext(context);
-    }
-
-    next = alarm->next;
-    AlarmQueue.head = next;
-    if (next == 0) {
-        AlarmQueue.tail = 0;
-    } else {
-        next->prev = 0;
-    }
-    ASSERTLINE(0x1C2, OSCheckAlarmQueue());
-    handler = alarm->handler;
-    alarm->handler = 0;
-    if (0 < alarm->period) {
-        InsertAlarm(alarm, 0, handler);
-        ASSERTLINE(0x1CC, OSCheckAlarmQueue());
-    }
-
-    if (AlarmQueue.head) {
-        SetTimer(AlarmQueue.head);
-    }
-
-    OSDisableScheduler();
-    handler(alarm, context);
-    OSEnableScheduler();
-    __OSReschedule();
+  OSAlarm* alarm;
+  OSAlarm* next;
+  OSAlarmHandler handler;
+  OSTime time;
+  OSContext exceptionContext;
+  time = __OSGetSystemTime();
+  alarm = AlarmQueue.head;
+  if (alarm == 0) {
     OSLoadContext(context);
+  }
+
+  if (time < alarm->fire) {
+    SetTimer(alarm);
+    OSLoadContext(context);
+  }
+
+  next = alarm->next;
+  AlarmQueue.head = next;
+  if (next == 0) {
+    AlarmQueue.tail = 0;
+  } else {
+    next->prev = 0;
+  }
+
+  handler = alarm->handler;
+  alarm->handler = 0;
+  if (0 < alarm->period) {
+    InsertAlarm(alarm, 0, handler);
+  }
+
+  if (AlarmQueue.head) {
+    SetTimer(AlarmQueue.head);
+  }
+
+  OSDisableScheduler();
+  OSClearContext(&exceptionContext);
+  OSSetCurrentContext(&exceptionContext);
+  handler(alarm, context);
+  OSClearContext(&exceptionContext);
+  OSSetCurrentContext(context);
+  OSEnableScheduler();
+  __OSReschedule();
+  OSLoadContext(context);
 }
 
 static asm void DecrementerExceptionHandler(register __OSException exception,

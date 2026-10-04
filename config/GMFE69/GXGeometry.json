@@ -1,0 +1,126 @@
+{
+  "id": "GXGeometry",
+  "source": "src/dolsdk2001/gx/GXGeometry.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8012c33c",
+      "size": 952,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "__GXSetDirtyState",
+      "address": "0x8012c33c",
+      "size": 140,
+      "binding": 1
+    },
+    {
+      "name": "__GXSetGenMode",
+      "address": "0x8012c6d0",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "GXBegin",
+      "address": "0x8012c3c8",
+      "size": 220,
+      "binding": 1
+    },
+    {
+      "name": "__GXSendFlushPrim",
+      "address": "0x8012c4a4",
+      "size": 136,
+      "binding": 1
+    },
+    {
+      "name": "GXSetLineWidth",
+      "address": "0x8012c52c",
+      "size": 88,
+      "binding": 1
+    },
+    {
+      "name": "GXSetPointSize",
+      "address": "0x8012c584",
+      "size": 84,
+      "binding": 1
+    },
+    {
+      "name": "GXEnableTexOffsets",
+      "address": "0x8012c5d8",
+      "size": 100,
+      "binding": 1
+    },
+    {
+      "name": "GXSetCullMode",
+      "address": "0x8012c63c",
+      "size": 80,
+      "binding": 1
+    },
+    {
+      "name": "GXSetCoPlanar",
+      "address": "0x8012c68c",
+      "size": 68,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "__GXSetSUTexRegs": "0x8012e408",
+    "__GXSetVAT": "0x8012b8fc",
+    "__GXSetVCD": "0x8012b3ec",
+    "__GXUpdateBPMask": "0x8012ed88",
+    "gx": "0x8034e4f8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "GXGetLineWidth",
+    "GXGetPointSize",
+    "GXGetCullMode"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/gx/GXGeometry.c"
+  },
+  "original_file": "GXGeometry.c",
+  "original_file_index": 11365,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "gx"
+  ]
+}

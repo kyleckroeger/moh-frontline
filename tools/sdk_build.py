@@ -62,7 +62,8 @@ def sdk_link_script(unit, obj, original, tools, work, execute):
     script = ["SECTIONS {"]
     for section in unit["sections"]:
         name = section["name"]
-        script.append(f"{name} {section['address']} : {{ compiled.o({name}) }}")
+        base = int(section["address"], 16) - section.get("linked_offset", 0)
+        script.append(f"{name} {base:#x} : {{ compiled.o({name}) }}")
     # SN's linker has no /DISCARD/. Park sections the original linker
     # dead-stripped outside the image; they never enter the rebuilt context.
     for index, name in enumerate(unit.get("stripped_sections", [])):

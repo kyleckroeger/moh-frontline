@@ -1,0 +1,128 @@
+{
+  "id": "AXAux",
+  "source": "src/dolsdk2001/ax/AXAux.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8011fc04",
+      "size": 808,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x80317f40",
+      "size": 11520,
+      "type": 8
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f200",
+      "size": 44,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "__AXAuxInit",
+      "address": "0x8011fc04",
+      "size": 220,
+      "binding": 1
+    },
+    {
+      "name": "__AXAuxQuit",
+      "address": "0x8011fce0",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "__AXGetAuxAInput",
+      "address": "0x8011fcf0",
+      "size": 52,
+      "binding": 1
+    },
+    {
+      "name": "__AXGetAuxAOutput",
+      "address": "0x8011fd24",
+      "size": 28,
+      "binding": 1
+    },
+    {
+      "name": "__AXGetAuxBInput",
+      "address": "0x8011fd40",
+      "size": 52,
+      "binding": 1
+    },
+    {
+      "name": "__AXGetAuxBOutput",
+      "address": "0x8011fd74",
+      "size": 28,
+      "binding": 1
+    },
+    {
+      "name": "__AXProcessAux",
+      "address": "0x8011fd90",
+      "size": 400,
+      "binding": 1
+    },
+    {
+      "name": "AXRegisterAuxACallback",
+      "address": "0x8011ff20",
+      "size": 12,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DCFlushRangeNoSync": "0x801118e8",
+    "DCInvalidateRange": "0x80111850",
+    "__AXClMode": "0x8034f23c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "AXRegisterAuxBCallback"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/ax/AXAux.c"
+  },
+  "original_file": "AXAux.c",
+  "original_file_index": 11132,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "__AXClMode"
+  ]
+}

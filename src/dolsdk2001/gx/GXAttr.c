@@ -34,7 +34,7 @@ static void __GXXfVtxSpecs(void)
     nTex += GET_REG_FIELD(gx->vcdHi, 2, 14) ? 1 : 0;
     reg = (nCols) | (nNrm << 2) | (nTex << 4);
     GX_WRITE_XF_REG(8, reg);
-    gx->bpSent = 0;
+    gx->bpSentNot = 1;
 }
 
 static inline void SETVCDATTR(GXAttr Attr, GXAttrType Type)

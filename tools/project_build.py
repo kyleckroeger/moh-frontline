@@ -40,6 +40,12 @@ def object_record(symbol):
     return name, symbol["address"], symbol["size"], symbol["binding"]
 
 
+def kept_slice(section):
+    """MW strips unused leading or trailing data objects: [start, end) of compiled bytes kept."""
+    start = section.get("linked_offset", 0)
+    return start, start + section["size"]
+
+
 def target_section(section):
     """Permit read-only subsections and named native SN vtables, never code/BSS."""
     name = section["name"]
@@ -174,10 +180,25 @@ def validate_object(obj, unit):
         cursor += f["size"]
     if cursor != text["size"]:
         raise ValueError("Unaccounted compiler text bytes")
+    trimmed = {}
     for section in unit["sections"]:
         actual = output[section["name"]]
-        if actual["type"] != section.get("type", 1) or (section["name"] != ".text" and actual["size"] != section["size"]):
+        start, end = kept_slice(section)
+        if (actual["type"] != section.get("type", 1) or
+                (section["name"] != ".text" and actual["size"] != section.get("linked_size", section["size"])) or
+                (section["name"] == ".text" and "linked_offset" in section)):
             raise ValueError("Compiler data layout differs from manifest")
+        if section["name"] != ".text" and (start, end) != (0, actual["size"]):
+            if not unit["strip_unused"]:
+                raise ValueError("Trimmed data requires native unused-code stripping")
+            objects = [(s["address"], s["address"] + s["size"]) for s in symbols
+                       if s["section"] == actual["index"] and s["type"] == 1 and s["size"]]
+            if any(a < start < b or a < end < b for a, b in objects):
+                raise ValueError("Trimmed data cuts through a compiler object")
+            for a, b in ((0, start), (end, actual["size"])):
+                if a < b and not any(a <= x and y <= b for x, y in objects):
+                    raise ValueError("Trimmed data holds no complete compiler object")
+            trimmed[actual["index"]] = (start, end)
         if section["name"].startswith(".gnu.linkonce.d."):
             obj_symbol = check_vtable_storage(obj, section, 0, (2,))
             if actual["flags"] != 3 or obj_symbol["section"] != actual["index"]:
@@ -207,6 +228,15 @@ def validate_object(obj, unit):
             symbol = symbols[info >> 8]
             if info & 255 == 109 and not symbol["section"]:
                 small_externals.add(symbol["name"])
+            if symbol["section"] in trimmed:
+                _, _, addend = struct.unpack_from(">IIi", obj.contents(section), offset)
+                start, end = trimmed[symbol["section"]]
+                retained = (not any(f["address"] <= location < f["address"] + f["size"] for f in discarded)
+                            if section["info"] == text["index"] else
+                            section["info"] not in trimmed or
+                            trimmed[section["info"]][0] <= location < trimmed[section["info"]][1])
+                if retained and not start <= symbol["address"] + addend < end:
+                    raise ValueError("Retained code or data references trimmed data")
             if symbol["name"] in absent:
                 if section["info"] != text["index"] or not any(
                         f["address"] <= location < f["address"] + f["size"] for f in discarded):
@@ -224,9 +254,15 @@ def verify_unit(original, linked, unit):
     if parked != sorted((name, stripped_address(i)) for i, name in enumerate(stripped)):
         raise ValueError("Stripped sections were not parked outside the image")
     actual_sections = [s for s in actual_sections if s["name"] not in stripped]
-    expected = sorted((s["name"], int(s["address"], 16), s["size"]) for s in unit["sections"])
+    expected = sorted((s["name"], int(s["address"], 16) - s.get("linked_offset", 0),
+                       s.get("linked_size", s["size"])) for s in unit["sections"])
     if sorted((s["name"], s["address"], s["size"]) for s in actual_sections) != expected:
         raise ValueError("Linked source sections differ from manifest")
+    # Only the kept slice of a trimmed section is source-built output.
+    manifest_sections = {s["name"]: s for s in unit["sections"]}
+    actual_sections = [dict(s, address=s["address"] + kept_slice(manifest_sections[s["name"]])[0],
+                            offset=s["offset"] + kept_slice(manifest_sections[s["name"]])[0],
+                            size=manifest_sections[s["name"]]["size"]) for s in actual_sections]
     if function_records(linked) != manifest_functions(unit):
         raise ValueError("Linked source functions differ from original")
     if any(s["type"] in (4, 9) and s["size"] for s in linked.sections):
@@ -276,7 +312,8 @@ def verify_unit(original, linked, unit):
                         original_objects.append(object_record(symbol))
             actual_objects = [object_record(s)
                               for s in linked.symbols() if s["type"] in storage_types and s["size"]
-                              and s["section"] == section["index"]]
+                              and s["section"] == section["index"]
+                              and section["address"] <= s["address"] < section["address"] + section["size"]]
             if not original_objects or sorted(actual_objects) != sorted(original_objects):
                 raise ValueError(f"BSS object ownership differs: {unit['id']} {section['name']}")
         offset = section["address"] - target["address"]

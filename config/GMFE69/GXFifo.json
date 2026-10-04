@@ -1,0 +1,201 @@
+{
+  "id": "GXFifo",
+  "source": "src/dolsdk2001/gx/GXFifo.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8012a65c",
+      "size": 2264,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f2d8",
+      "size": 28,
+      "type": 8,
+      "linked_offset": 0,
+      "linked_size": 32
+    }
+  ],
+  "functions": [
+    {
+      "name": "__GXWriteFifoIntEnable",
+      "address": "0x8012abe4",
+      "size": 76,
+      "binding": 0
+    },
+    {
+      "name": "__GXWriteFifoIntReset",
+      "address": "0x8012ac30",
+      "size": 76,
+      "binding": 0
+    },
+    {
+      "name": "GXCPInterruptHandler",
+      "address": "0x8012a65c",
+      "size": 316,
+      "binding": 0
+    },
+    {
+      "name": "__GXFifoLink",
+      "address": "0x8012aba0",
+      "size": 68,
+      "binding": 0
+    },
+    {
+      "name": "__GXFifoReadDisable",
+      "address": "0x8012ab7c",
+      "size": 36,
+      "binding": 0
+    },
+    {
+      "name": "__GXFifoReadEnable",
+      "address": "0x8012ab54",
+      "size": 40,
+      "binding": 0
+    },
+    {
+      "name": "GXInitFifoBase",
+      "address": "0x8012a798",
+      "size": 108,
+      "binding": 1
+    },
+    {
+      "name": "GXInitFifoLimits",
+      "address": "0x8012a874",
+      "size": 12,
+      "binding": 1
+    },
+    {
+      "name": "GXInitFifoPtrs",
+      "address": "0x8012a804",
+      "size": 112,
+      "binding": 1
+    },
+    {
+      "name": "GXSetCPUFifo",
+      "address": "0x8012a880",
+      "size": 272,
+      "binding": 1
+    },
+    {
+      "name": "GXSetGPFifo",
+      "address": "0x8012a990",
+      "size": 376,
+      "binding": 1
+    },
+    {
+      "name": "__GXFifoInit",
+      "address": "0x8012ab08",
+      "size": 76,
+      "binding": 1
+    },
+    {
+      "name": "GXRedirectWriteGatherPipe",
+      "address": "0x8012ac7c",
+      "size": 260,
+      "binding": 1
+    },
+    {
+      "name": "GXRestoreWriteGatherPipe",
+      "address": "0x8012ad80",
+      "size": 436,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "GXFlush": "0x8012bf94",
+    "OSClearContext": "0x801120cc",
+    "OSDisableInterrupts": "0x801135cc",
+    "OSGetCurrentThread": "0x80115aec",
+    "OSRestoreInterrupts": "0x801135f4",
+    "OSResumeThread": "0x80116458",
+    "OSSetCurrentContext": "0x80111f04",
+    "OSSuspendThread": "0x801166e0",
+    "PPCMfwpar": "0x801101bc",
+    "PPCMtwpar": "0x801101c8",
+    "PPCSync": "0x80110190",
+    "__OSSetInterruptHandler": "0x80113618",
+    "__OSUnmaskInterrupts": "0x80113a1c",
+    "__cpReg": "0x8034f2cc",
+    "__piReg": "0x8034f2c8",
+    "gx": "0x8034e4f8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "GXOverflowHandler",
+    "GXUnderflowHandler",
+    "GXBreakPointHandler",
+    "GXSaveCPUFifo",
+    "__GXSaveCPUFifoAux",
+    "GXSaveGPFifo",
+    "GXGetGPStatus",
+    "GXGetFifoStatus",
+    "GXGetFifoPtrs",
+    "GXGetFifoBase",
+    "GXGetFifoSize",
+    "GXGetFifoLimits",
+    "GXSetBreakPtCallback",
+    "GXEnableBreakPt",
+    "GXDisableBreakPt",
+    "__GXInsaneWatermark",
+    "__GXCleanGPFifo",
+    "GXSetCurrentGXThread",
+    "GXGetCurrentGXThread",
+    "GXGetCPUFifo",
+    "GXGetGPFifo",
+    "GXGetOverflowCount",
+    "GXResetOverflowCount"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/gx/GXFifo.c"
+  },
+  "original_file": "GXFifo.c",
+  "original_file_index": 11327,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "GXOverflowHandler",
+    "GXUnderflowHandler",
+    "GXBreakPointHandler"
+  ],
+  "sda_externals": [
+    "__cpReg",
+    "__piReg",
+    "gx"
+  ]
+}

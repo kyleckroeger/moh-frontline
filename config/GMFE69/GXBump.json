@@ -1,0 +1,131 @@
+{
+  "id": "GXBump",
+  "source": "src/dolsdk2001/gx/GXBump.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8012e7c4",
+      "size": 1716,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x803514d0",
+      "size": 4,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 24
+    }
+  ],
+  "functions": [
+    {
+      "name": "GXSetTevIndirect",
+      "address": "0x8012e7c4",
+      "size": 156,
+      "binding": 1
+    },
+    {
+      "name": "GXSetIndTexMtx",
+      "address": "0x8012e860",
+      "size": 352,
+      "binding": 1
+    },
+    {
+      "name": "GXSetIndTexCoordScale",
+      "address": "0x8012e9c0",
+      "size": 468,
+      "binding": 1
+    },
+    {
+      "name": "GXSetIndTexOrder",
+      "address": "0x8012eb94",
+      "size": 312,
+      "binding": 1
+    },
+    {
+      "name": "GXSetNumIndStages",
+      "address": "0x8012eccc",
+      "size": 44,
+      "binding": 1
+    },
+    {
+      "name": "GXSetTevDirect",
+      "address": "0x8012ecf8",
+      "size": 72,
+      "binding": 1
+    },
+    {
+      "name": "GXSetTevIndRepeat",
+      "address": "0x8012ed40",
+      "size": 72,
+      "binding": 1
+    },
+    {
+      "name": "__GXUpdateBPMask",
+      "address": "0x8012ed88",
+      "size": 204,
+      "binding": 1
+    },
+    {
+      "name": "__GXFlushTextureState",
+      "address": "0x8012ee54",
+      "size": 36,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "gx": "0x8034e4f8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "GXSetTevIndWarp",
+    "GXSetTevIndTile",
+    "GXSetTevIndBumpST",
+    "GXSetTevIndBumpXYZ"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/gx/GXBump.c"
+  },
+  "original_file": "GXBump.c",
+  "original_file_index": 11406,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "gx"
+  ]
+}

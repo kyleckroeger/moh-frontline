@@ -82,6 +82,9 @@ typedef struct CARDControl
     CARDCallback eraseCallback;
     CARDCallback unlockCallback;
     OSAlarm alarm;
+    // Frontline: fields of later SDKs (struct size 0x110).
+    u32 cid;
+    const DVDDiskID *diskID;
 } CARDControl;
 
 typedef struct CARDDecParam {

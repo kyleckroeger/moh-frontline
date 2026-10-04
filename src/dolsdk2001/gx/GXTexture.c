@@ -556,7 +556,7 @@ void GXLoadTexObjPreLoaded(GXTexObj *obj, GXTexRegion *region, GXTexMapID id)
     gx->tImage0[id] = t->image0;
     gx->tMode0[id] = t->mode0;
     gx->dirtyState |= 1;
-    gx->bpSent = 1;
+    gx->bpSentNot = 0;
 }
 
 void GXLoadTexObj(GXTexObj *obj, GXTexMapID id)
@@ -1037,7 +1037,7 @@ void GXSetTexCoordScaleManually(GXTexCoordID coord, u8 enable, u16 ss, u16 ts)
         SET_REG_FIELD(0x6DA, gx->suTs1[coord], 16, 0, (u16)(ts - 1));
         GX_WRITE_RAS_REG(gx->suTs0[coord]);
         GX_WRITE_RAS_REG(gx->suTs1[coord]);
-        gx->bpSent = 1;
+        gx->bpSentNot = 0;
     }
 }
 
@@ -1050,7 +1050,7 @@ void GXSetTexCoordCylWrap(GXTexCoordID coord, u8 s_enable, u8 t_enable)
     if (gx->tcsManEnab & (1 << coord)) {
         GX_WRITE_RAS_REG(gx->suTs0[coord]);
         GX_WRITE_RAS_REG(gx->suTs1[coord]);
-        gx->bpSent = 1;
+        gx->bpSentNot = 0;
     }
 }
 
@@ -1063,7 +1063,7 @@ void GXSetTexCoordBias(GXTexCoordID coord, u8 s_enable, u8 t_enable)
     if (gx->tcsManEnab & (1 << coord)) {
         GX_WRITE_RAS_REG(gx->suTs0[coord]);
         GX_WRITE_RAS_REG(gx->suTs1[coord]);
-        gx->bpSent = 1;
+        gx->bpSentNot = 0;
     }
 }
 
@@ -1084,7 +1084,7 @@ static void __SetSURegs(u32 tmap, u32 tcoord)
     SET_REG_FIELD(0x73D, gx->suTs1[tcoord], 1, 16, t_bias);
     GX_WRITE_RAS_REG(gx->suTs0[tcoord]);
     GX_WRITE_RAS_REG(gx->suTs1[tcoord]);
-    gx->bpSent = 1;
+    gx->bpSentNot = 0;
 }
 
 void __GXSetSUTexRegs(void)

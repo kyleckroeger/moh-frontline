@@ -1,0 +1,186 @@
+{
+  "id": "GXTransform",
+  "source": "src/dolsdk2001/gx/GXTransform.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8012ff84",
+      "size": 1792,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x80351508",
+      "size": 24,
+      "type": 1,
+      "linked_offset": 8,
+      "linked_size": 32
+    }
+  ],
+  "functions": [
+    {
+      "name": "WriteMTXPS4x3",
+      "address": "0x801301ac",
+      "size": 52,
+      "binding": 0
+    },
+    {
+      "name": "WriteMTXPS3x3from3x4",
+      "address": "0x801301e0",
+      "size": 52,
+      "binding": 0
+    },
+    {
+      "name": "WriteMTXPS4x2",
+      "address": "0x80130214",
+      "size": 36,
+      "binding": 0
+    },
+    {
+      "name": "GXSetProjection",
+      "address": "0x8012ff84",
+      "size": 212,
+      "binding": 1
+    },
+    {
+      "name": "GXSetProjectionv",
+      "address": "0x80130058",
+      "size": 220,
+      "binding": 1
+    },
+    {
+      "name": "GXGetProjectionv",
+      "address": "0x80130134",
+      "size": 120,
+      "binding": 1
+    },
+    {
+      "name": "GXLoadPosMtxImm",
+      "address": "0x80130238",
+      "size": 60,
+      "binding": 1
+    },
+    {
+      "name": "GXLoadPosMtxIndx",
+      "address": "0x80130274",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "GXLoadNrmMtxImm",
+      "address": "0x801302a4",
+      "size": 64,
+      "binding": 1
+    },
+    {
+      "name": "GXSetCurrentMtx",
+      "address": "0x801302e4",
+      "size": 60,
+      "binding": 1
+    },
+    {
+      "name": "__GXSetMatrixIndex",
+      "address": "0x80130600",
+      "size": 132,
+      "binding": 1
+    },
+    {
+      "name": "GXLoadTexMtxImm",
+      "address": "0x80130320",
+      "size": 132,
+      "binding": 1
+    },
+    {
+      "name": "GXSetViewportJitter",
+      "address": "0x801303a4",
+      "size": 284,
+      "binding": 1
+    },
+    {
+      "name": "GXSetViewport",
+      "address": "0x801304c0",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "GXSetScissor",
+      "address": "0x801304e4",
+      "size": 176,
+      "binding": 1
+    },
+    {
+      "name": "GXSetScissorBoxOffset",
+      "address": "0x80130594",
+      "size": 68,
+      "binding": 1
+    },
+    {
+      "name": "GXSetClipMode",
+      "address": "0x801305d8",
+      "size": 40,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "__GXSetRange": "0x8012ff10",
+    "__cvt_fp2unsigned": "0x801388e8",
+    "gx": "0x8034e4f8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "GXProject",
+    "WriteMTXPS3x3",
+    "GXLoadNrmMtxImm3x3",
+    "GXLoadNrmMtxIndx3x3",
+    "GXLoadTexMtxIndx",
+    "GXGetViewportv",
+    "GXGetScissor"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/gx/GXTransform.c"
+  },
+  "original_file": "GXTransform.c",
+  "original_file_index": 11430,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "WriteMTXPS3x3"
+  ],
+  "sda_externals": [
+    "gx"
+  ]
+}

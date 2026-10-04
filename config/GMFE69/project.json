@@ -33,7 +33,18 @@
     "db.json",
     "mtxvec.json",
     "OSContext.json",
-    "ai_src.json"
+    "ai_src.json",
+    "GXGeometry.json",
+    "GXDisplayList.json",
+    "GXTransform.json",
+    "GXBump.json",
+    "GXLight.json",
+    "AXAlloc.json",
+    "GXMisc.json",
+    "AXAux.json",
+    "GXFifo.json",
+    "OSAlarm.json",
+    "CARDUnlock.json"
   ],
   "progress": {
     "code_bytes": 1414572,

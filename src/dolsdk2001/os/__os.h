@@ -79,6 +79,7 @@ void __OSReschedule(void);
 // OSTime.c
 void __OSSetTime(long long time);
 long long __OSGetSystemTime();
+long long __OSTimeToSystemTime(long long time);
 void __OSSetTick(register unsigned long newTicks);
 
 // ppc_eabi_init.c

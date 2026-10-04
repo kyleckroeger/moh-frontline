@@ -220,7 +220,7 @@ u32 GXSetDispCopyYScale(f32 vscale)
     SET_REG_FIELD(0x4A6, reg, 9, 0, iScale);
     SET_REG_FIELD(0x4A7, reg, 8, 24, 0x4E);
     GX_WRITE_RAS_REG(reg);
-    gx->bpSent = 1;
+    gx->bpSentNot = 0;
     SET_REG_FIELD(0x4AB, gx->cpDisp, 1, 10, enable);
     ht = GET_REG_FIELD(gx->cpDispSize, 10, 10) + 1;
     return ht * fScale;
@@ -249,7 +249,7 @@ void GXSetCopyClear(GXColor clear_clr, u32 clear_z)
     SET_REG_FIELD(0x4D5, reg, 24, 0, clear_z);
     SET_REG_FIELD(0x4D6, reg, 8, 24, 0x51);
     GX_WRITE_RAS_REG(reg);
-    gx->bpSent = 1;
+    gx->bpSentNot = 0;
 }
 
 void GXSetCopyFilter(GXBool aa, const u8 sample_pattern[12][2], GXBool vf, const u8 vfilter[7]) {
@@ -329,7 +329,7 @@ void GXSetCopyFilter(GXBool aa, const u8 sample_pattern[12][2], GXBool vf, const
     }
     GX_WRITE_RAS_REG(coeff0);
     GX_WRITE_RAS_REG(coeff1);
-    gx->bpSent = 1;
+    gx->bpSentNot = 0;
 }
 
 void GXSetDispCopyGamma(GXGamma gamma)
@@ -429,7 +429,7 @@ void GXCopyDisp(void *dest, GXBool clear)
     if (changePeCtrl) {
         GX_WRITE_RAS_REG(gx->peCtrl);
     }
-    gx->bpSent = 1;
+    gx->bpSentNot = 0;
 }
 
 void GXCopyTex(void *dest, GXBool clear)
@@ -490,7 +490,7 @@ void GXCopyTex(void *dest, GXBool clear)
     if (changePeCtrl) {
         GX_WRITE_RAS_REG(gx->peCtrl);
     }
-    gx->bpSent = 1;
+    gx->bpSentNot = 0;
 }
 
 void GXClearBoundingBox(void)
@@ -502,7 +502,7 @@ void GXClearBoundingBox(void)
     GX_WRITE_RAS_REG(reg);
     reg = 0x560003FF;
     GX_WRITE_RAS_REG(reg);
-    gx->bpSent = 1;
+    gx->bpSentNot = 0;
 }
 
 void GXReadBoundingBox(u16 *left, u16 *top, u16 *right, u16 *bottom)

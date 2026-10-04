@@ -1,8 +1,8 @@
 Dolphin SDK 2001 reconstruction attribution
 
 The C sources in this directory, and the headers under include/dolsdk2001,
-are copied unchanged from the community decompilation of the 5/22/2001
-Dolphin SDK libraries:
+are copied from the community decompilation of the 5/22/2001 Dolphin SDK
+libraries:
 
   https://github.com/doldecomp/dolsdk2001
   commit eb1234c45e6df75757c652c835507ca89674f9a8
@@ -11,6 +11,11 @@ Credit belongs to that project's contributors and to the original Nintendo
 SDK authors. These are public reconstructions, not an original SDK source
 release. Preserve upstream notices and comments. No LICENSE file was present
 at the commit above; this attribution notice grants no new license.
+
+Local changes reproduce Frontline's Dec 17 2001 SDK build, in part from the
+later dolsdk2004 reconstruction used by Rising Sun (see src/dolphin/NOTICE).
+They were made with AI assistance; every modified file and the evidence for
+each change are listed in docs/Dolphin.md under "Local modifications".
 
 Medal of Honor: Frontline links a Dec 17 2001 SDK build. Only the units listed
 in config/GMFE69/project.json are accepted, each verified against the user's
