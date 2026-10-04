@@ -69,19 +69,41 @@ the caveat below). Use it for orientation only.
 
 The relink proves the toolchain and layout. It earns no source credit.
 
-## Per-file splits: not yet trustworthy
+## Per-file splits
 
-`dtk elf config` emits ranges for all 557 files in every section. They are not
-yet usable for a per-file split:
+`dtk elf config` alone attributes every global without a file-local anchor to
+the last file record (`sdfx.c`), which makes the link order cyclic. Its other
+problems are empty ranges, ranges that run into the next section's padding, and
+a range wrapping to `0x0` at the end of `.sbss2`.
 
-- Ranges for globals with no file-local anchor are attributed to the **last** file
-  record, `sdfx.c`. This includes `__start` in `.init` and the first `.bss`,
-  `.rodata`, `.sdata` and `.sbss` ranges, which sit next to `Moh2.cpp`. The
-  resulting link order is cyclic.
-- `__init_cpp_exceptions.cpp` comes first in `.ctors`/`.dtors`. This is normal MW
-  linker behavior that a link-order resolver must allow.
-- Some ranges are empty, run into the alignment padding before the next
-  section, or wrap to `0x0` at the end of `.sbss2`.
+`tools/file_map.py` recovers ownership from the original instead
+(`build/audit/file_map.json`):
 
-The preserved relocations should make correct ownership recoverable. That is
-the first research task, and it also feeds the decomp.dev code map.
+| Rule | Evidence | Symbols placed |
+| --- | --- | ---: |
+| local-symbol | Private symbols follow their file record | 10,282 |
+| exception-index | A function's private `extabindex` entry points to it | 2,230 |
+| private-reference | A global's bytes refer to one file's private symbol | 446 |
+| same-address | An object starts at a file's private section marker | 11 |
+| table-target | A `.ctors`/`.dtors` word goes with the routine it calls | 51 |
+| between-same-file | Contributions follow file-record (link) order in every section | 1,288 |
+| same-class (inferred) | A C++ method goes with its class's other methods | 134 |
+| between-same-file (inferred) | Link order around inferred placements | 85 |
+| unresolved | | 1,235 |
+
+The link-order rule holds without exception: file contributions appear in
+file-record order in every section except `.ctors`/`.dtors`, where the MW
+runtime's entries come first (`__init_cpp_exceptions.cpp`,
+`global_destructor_chain.c`; renamed to `.ctors$10`, `.dtors$10`/`$15` as in
+other CodeWarrior decompilations). Against the functions of every verified unit,
+the strong rules have placed every function correctly. A sole-caller rule was
+tried and rejected, scoring 2 of 6.
+
+`baseline.py` now splits the image into **535 objects**: 357 per-file objects
+plus 178 dtk auto-units for unowned stretches. GNU `ld` relinks them into the
+identical DOL. For the split only, unowned stretches that cannot start on the
+section alignment are attached to the preceding file. These are listed as
+`split_guesses` and do not affect the code map. Before linking, global names
+containing `@` (MW thunks, globalized `@N` labels) are renamed, because GNU `ld`
+would read them as symbol versions. `--whole-image` keeps the previous
+single-object check.

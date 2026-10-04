@@ -14,7 +14,7 @@ Progress counts verified, nonoverlapping source-built function bytes against all
 - 18,811 symbol entries, including 5,005 function entries and 557 source-file entries.
 - **Relocations are preserved** (`.rela.text`, `.rela.data`, …), so every cross-reference in the image is known exactly. Rising Sun's target has no such tables.
 - Compiled with Metrowerks CodeWarrior (`extab`/`extabindex`, `.mwcats.text`, `__sinit_*_cpp`), not ProDG. No DWARF is present.
-- The original-image relink matches the complete 1,641,760-byte DOL derived from the ELF, including its header. Every original allocated ELF file byte, entry point and BSS extent is checked separately.
+- The original-image relink (535 per-file objects) matches the complete 1,641,760-byte DOL derived from the ELF, including its header. Every original allocated ELF file byte, entry point and BSS extent is checked separately.
 - Accepted Dolphin SDK units are verified inside the same complete-image comparison.
 
 This comparison is against a derived analysis image. It does **not** mean the original ELF's symbol tables have been reproduced, the on-disc boot DOL has been replaced, or the game has been tested in an emulator. The boot DOL (`boot.dol`, identical to `Moh2BootRel.dol`) is a separate 168,544-byte program that loads the game ELF. See the [initial audit](docs/initial-audit.md) for details.
@@ -45,7 +45,8 @@ Run the scripts from any directory; all outputs remain inside this checkout. `ba
 | `config/GMFE69/project.json` | Accepted source units and the progress denominator |
 | `build/audit/summary.json` | Section and symbol statistics |
 | `build/audit/symbols.json` | Complete local symbol inventory |
-| `build/audit/elf-config/` | dtk symbols and per-file splits (research input; see the audit) |
+| `build/audit/elf-config/` | dtk's own symbols and splits (research input) |
+| `build/audit/file_map.json` | Recovered per-file ranges with evidence |
 | `build/baseline/report.json` | Original-image relink result |
 | `build/reconstruction/report.json` | Complete source-build result |
 | `progress/GMFE69.snapshot.json` | Public, locally verified progress snapshot |
@@ -56,7 +57,7 @@ Run the scripts from any directory; all outputs remain inside this checkout. `ba
 
 ## Next work
 
-1. **Trustworthy per-file splits.** `dtk elf config` recovers ranges for all 557 files, but attributes globals without a file-local anchor to the last file record (`sdfx.c`), which makes the link order cyclic. Use the preserved relocations to fix ownership. This also improves the decomp.dev code map, which currently groups much of the code as "Unknown file".
+1. **Resolve the remaining file boundaries.** `tools/file_map.py` places most symbols in their source files from symbols, relocations and link order, and the per-file split relinks identically. About 1,200 symbols near file boundaries remain unresolved (see the [audit](docs/initial-audit.md#per-file-splits)); verified units settle them.
 2. **More Dolphin SDK units.** 33 SDK units are verified with CodeWarrior `GC/1.2.5n`; the [open problems](docs/Dolphin.md#open-problems) list what blocks the rest.
 3. **Mutation tests** for accepted units (see `tests/test_reconstruction.py`), then MSL, MetroTRK and game code.
 4. Register the project on decomp.dev (see [Progress.md](docs/Progress.md)).

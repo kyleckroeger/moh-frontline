@@ -1,11 +1,7 @@
-"""Adapt dtk's ELF-derived configuration for splitting the ELF-derived DOL.
+"""Adapt dtk's ELF-derived symbols for splitting the ELF-derived DOL.
 
-`dtk elf config` reads the original symbols and relocations. Its per-file
-ranges are not yet trustworthy for this target: globals with no file-local
-anchor are attributed to the last file record (sdfx.c), which makes the link
-order cyclic. The baseline therefore splits one unit spanning every allocated
-section, using the original symbols only to guide analysis. See
-docs/initial-audit.md.
+dtk's own per-file ranges are wrong for this target; file_map.py supplies
+per-file splits. The whole-image split remains for baseline.py --whole-image.
 """
 
 # dtk recreates these from the DOL's .ctors/.dtors and rejects duplicates.

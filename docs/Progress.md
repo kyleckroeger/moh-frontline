@@ -51,11 +51,11 @@ fragments of an original translation unit.
 Unreconstructed code is represented by named file groups, explicitly unassigned
 function groups, shared entry-point groups, and unidentified code/padding ranges,
 all with zero matching credit. Their ranges plus accepted source must partition
-the complete executable with no gaps or overlaps. The code map infers file groups
-only from file-local symbols for now. Rising Sun's adjacent-marker inference uses
-GCC `gcc2_compiled.` markers, which CodeWarrior does not emit, so many functions
-appear under "Unknown file" until relocation-based ownership is implemented (see
-the [initial audit](initial-audit.md)). Data, BSS, linker tables and original
+the complete executable with no gaps or overlaps. File groups come from the
+recovered file map (see the [initial audit](initial-audit.md#per-file-splits)).
+Groups are labeled `[local symbols only]`, `[symbol evidence]` or
+`[inferred file group]`; functions without a recovered file stay under
+"Unknown file". Data, BSS, linker tables and original
 context earn no code credit. No fuzzy partial-match credit is used. Runtime is untested.
 
 ## Registering the project

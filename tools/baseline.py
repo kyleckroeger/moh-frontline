@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Relink the original image through dtk and compare the entire ELF-derived DOL."""
+import argparse
 import hashlib
 import json
 import shutil
@@ -9,6 +10,7 @@ from pathlib import Path
 from audit import load_target
 from formats import Elf32, verify_load_image
 from setup import CONFIG, ROOT, setup
+from file_map import build_file_map, ranges, splits_text
 from split_config import normalize_symbols, whole_image_splits
 
 
@@ -16,7 +18,7 @@ def run(*args):
     subprocess.run([str(arg) for arg in args], cwd=ROOT, check=True)
 
 
-def baseline():
+def baseline(per_file=True):
     tools = setup()
     original, elf = load_target()
     config = json.loads((CONFIG / "baseline.json").read_text())
@@ -32,8 +34,14 @@ def baseline():
     verify_load_image(elf, expected)
     run(tools / "dtk", "elf", "config", original, build / "elf-config")
     (build / "symbols.txt").write_text(normalize_symbols((build / "elf-config/symbols.txt").read_text()))
-    (build / "splits.txt").write_text(whole_image_splits(
-        (build / "elf-config/splits.txt").read_text(), elf, original.stem))
+    dtk_splits = (build / "elf-config/splits.txt").read_text()
+    if per_file:
+        files, items, sections, _ = build_file_map(elf)
+        owned, _ = ranges(files, items, sections)
+        splits = splits_text(files, owned, dtk_splits.split("\n\n", 1)[0])
+    else:
+        splits = whole_image_splits(dtk_splits, elf, original.stem)
+    (build / "splits.txt").write_text(splits)
     (build / "config.yml").write_text(
         "object: " + json.dumps(str(reference)) + "\n"
         "hash: " + config["normalized_dol_sha1"] + "\n"
@@ -47,38 +55,33 @@ def baseline():
     for symbol in elf.symbols():
         if symbol["section"] and symbol["binding"] and symbol["type"] != 4:
             originals.setdefault(symbol["name"], []).append(symbol)
-    pinned, split_sizes = {}, {}
+    defined, undefined = set(), set()
     for unit in units:
-        obj = Elf32((ROOT / unit["object"]).read_bytes())
-        for section in obj.sections:
-            if section["flags"] & 2:
-                split_sizes[section["name"]] = split_sizes.get(section["name"], 0) + section["size"]
-        for symbol in obj.symbols():
-            if symbol["section"] or not symbol["binding"] or not symbol["name"]:
-                continue
-            if len(originals.get(symbol["name"], [])) != 1:
-                raise ValueError(f"No unique original definition: {symbol['name']}")
-            pinned[symbol["name"]] = originals[symbol["name"]][0]
+        for symbol in Elf32((ROOT / unit["object"]).read_bytes()).symbols():
+            if symbol["binding"] and symbol["name"]:
+                (defined if symbol["section"] else undefined).add(symbol["name"])
+    pinned = {}
+    for name in sorted(undefined - defined):
+        if len(originals.get(name, [])) != 1:
+            raise ValueError(f"No unique original definition: {name}")
+        pinned[name] = originals[name][0]
     # dtk also omits the bytes of MW linker tables (_rom_copy_info,
-    # _bss_init_info, _eti_init_info). GNU ld cannot regenerate them, so a
-    # section tail is taken from the original only if pinned tables fill it.
+    # _bss_init_info, _eti_init_info) and the null words ending .ctors/.dtors.
+    # GNU ld cannot regenerate them: take each section's tail from the
+    # original, made only of pinned tables and that terminator.
     tails = []
     for section in elf.sections:
         if not section["flags"] & 2 or section["type"] == 8 or not section["size"]:
             continue
-        start = section["address"] + split_sizes.get(section["name"], 0)
-        cursor, end = start, section["address"] + section["size"]
-        for symbol in sorted(pinned.values(), key=lambda s: s["address"]):
-            if symbol["section"] == section["index"] and symbol["address"] == cursor and symbol["size"]:
-                cursor += symbol["size"]
-        # MW terminates the constructor and destructor tables with a null word.
-        terminator = elf.contents(section)[-4:] == bytes(4)
-        if section["name"] in (".ctors", ".dtors") and cursor == end - 4 and terminator:
-            cursor = end
-        if cursor != end:
-            raise ValueError(f"Split omits original bytes outside linker tables: {section['name']}")
-        if start < end:
-            tails.append((section, start, end))
+        end = section["address"] + section["size"]
+        cursor = end
+        if section["name"] in (".ctors", ".dtors") and elf.contents(section)[-4:] == bytes(4):
+            cursor -= 4
+        for symbol in sorted(pinned.values(), key=lambda s: -s["address"]):
+            if symbol["section"] == section["index"] and symbol["size"] and symbol["address"] + symbol["size"] == cursor:
+                cursor = symbol["address"]
+        if cursor < end:
+            tails.append((section, cursor, end))
     (build / "linker-tables.s").write_text("".join(
         f'.section .linker_tables.{section["name"].lstrip(".")},"a",@progbits\n'
         f'.incbin "{original}",{section["offset"] + start - section["address"]},{end - start}\n'
@@ -86,11 +89,22 @@ def baseline():
     run(tools / "powerpc-eabi-as", "-o", build / "linker-tables.o", build / "linker-tables.s")
     script = "ENTRY(__start)\nSECTIONS {\n"
     script += f"__start = {config['entry']};\n_SDA_BASE_ = {config['sda_base']};\n_SDA2_BASE_ = {config['sda2_base']};\n"
-    script += "".join(f"{name} {address} : {{ *({name}) *(.linker_tables.{name.lstrip('.')}) }}\n"
+    script += "".join(f"{name} {address} : {{ *(SORT_BY_NAME({name}$*)) *({name}) *(.linker_tables.{name.lstrip('.')}) }}\n"
                       for name, address in config["sections"].items())
     script += "".join(f"{name} = {symbol['address']:#x};\n" for name, symbol in pinned.items())
     script += "}\n"
     (build / "link.ld").write_text(script)
+    # GNU ld reads "name@version" in global names, but MW uses '@' in thunks
+    # (@32@f) and dtk globalizes duplicate @N labels. Rename them in every
+    # object; names do not affect the linked bytes.
+    versioned = set()
+    for unit in units:
+        versioned |= {s["name"] for s in Elf32((ROOT / unit["object"]).read_bytes()).symbols()
+                      if s["binding"] and "@" in s["name"]}
+    if versioned:
+        (build / "rename.syms").write_text("".join(f"{n} {n.replace('@', '$at$')}\n" for n in sorted(versioned)))
+        for unit in units:
+            run(tools / "powerpc-eabi-objcopy", f"--redefine-syms={build / 'rename.syms'}", ROOT / unit["object"])
     run(tools / "powerpc-eabi-ld", "-e", config["entry"], "-T", build / "link.ld",
         "-o", build / "relinked.elf", *[u["object"] for u in units], build / "linker-tables.o")
     run(tools / "dtk", "elf2dol", build / "relinked.elf", build / "relinked.dol")
@@ -110,4 +124,7 @@ def baseline():
 
 
 if __name__ == "__main__":
-    baseline()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--whole-image", action="store_true",
+                        help="Split one object spanning every section instead of per-file objects")
+    baseline(per_file=not parser.parse_args().whole_image)

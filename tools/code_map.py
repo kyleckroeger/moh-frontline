@@ -31,7 +31,9 @@ def cluster_functions(functions):
     return clusters
 
 
-def build_code_map(elf, accepted):
+def build_code_map(elf, accepted, file_owners=None):
+    """file_owners: optional {(name, address): (file ordinal, evidence)} from file_map.py."""
+    file_owners = file_owners or {}
     sections = {s["index"]: s for s in elf.sections if s["flags"] & 6 == 6 and s["size"]}
     files, functions = [], []
     current_file = None
@@ -106,6 +108,8 @@ def build_code_map(elf, accepted):
         function = symbols[0]
         owner = function["owner"]
         evidence = "local-file-symbol"
+        if owner is None and (function["name"], start) in file_owners:
+            owner, evidence = file_owners[(function["name"], start)]
         if owner is None:
             matches = [r for r in intervals if r[2] == cluster["section"] and r[0] <= start and end <= r[1]]
             owner = matches[0][3] if len(matches) == 1 else None
@@ -134,8 +138,10 @@ def build_code_map(elf, accepted):
             previous_unknown = (cluster["section"], end, group)
 
     for group in file_groups.values():
-        inferred = any(r["evidence"] == "adjacent-compiler-markers" for r in group["ranges"])
-        group["name"] += " [inferred file group]" if inferred else " [local symbols only]"
+        evidence = {r["evidence"] for r in group["ranges"]}
+        inferred = any(e == "adjacent-compiler-markers" or "inferred" in e for e in evidence)
+        group["name"] += (" [inferred file group]" if inferred else " [local symbols only]"
+                          if evidence == {"local-file-symbol"} else " [symbol evidence]")
 
     for index, section in sections.items():
         cursor, stop = section["address"], section["address"] + section["size"]
