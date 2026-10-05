@@ -37,18 +37,21 @@ Upstream is commit `eb1234c` of dolsdk2001.
 | `os/OSAlarm.c`, `os/__os.h` | System-time calls throughout; 2004 `OSSetPeriodicAlarm` and `DecrementerExceptionCallback` | Relocations to `__OSGetSystemTime` |
 | `card/CARDUnlock.c` | `DoneCallback` returns after each error callback | 2004 code |
 | `include/dolphin/card.h` | `CARDControl` gains `cid` and `diskID` (size `0x110`) | `mulli rX, chan, 272` |
+| `gx/GXTev.c` | `GXSetTevOrder` updates `tevTcEnab` on the texcoord test (2004 code); replaces the plain ternary | Read-modify-write of `gx+0x4E0` (`lwz 1248`/`andc`/`or`/`stw 1248`) at `0x8012f600`-`0x8012f63c`; function is 476 bytes, not the 416-byte 2001 ternary |
 
 ## Local modifications to the 2004 tree
 
-Four further units are verified from `src/dolphin/` (the 2004 adaptation).
+Five further units are verified from `src/dolphin/` (the 2004 adaptation).
 `mtx44.c` needs no change; the `card` units keep behaviour the 2004 source
-later changed, so they are edited against the original bytes.
+later changed, and `pad/Padclamp.c` keeps the Dec 2001 `PADClampRegion`, so they
+are edited against the original bytes.
 
 | File | Change | Evidence |
 | --- | --- | --- |
 | `card/CARDCheck.c` | `VerifyID` tests `encode` before the serial checks, using `OSGetFontEncode` | Check order in the original; relocation to `OSGetFontEncode` |
 | `card/CARDFormat.c` | Format progress stays at the mount-step offset (`formatStep` = `mountStep`); `OSGetFontEncode` | Relocation to `OSGetFontEncode`; shared progress field |
 | `card/CARDWrite.c` | `__CARDAccess` instead of `__CARDIsWritable` | Relocation to `__CARDAccess` |
+| `pad/Padclamp.c`, `include/dolphin-sdk/dolphin/pad.h` | `PADClampRegion` drops the unused `radStick`/`radSubstick` (8 bytes); `ClampRegion` is non-const (`.sdata`); `ClampTrigger` takes only the trigger and reads `ClampRegion` itself | Region at `.sdata:0x8034e4c0` size 8; original PADClamp loads `-29856(r13)` and `1(r29)`, and reloads `minTrigger` after the store. The `ClampTrigger` signature is inferred from that inlined code; the function itself is dead-stripped |
 
 ## Porting workflow
 

@@ -1,0 +1,158 @@
+{
+  "id": "GXTev",
+  "source": "src/dolsdk2001/gx/GXTev.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8012ee78",
+      "size": 2384,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80190270",
+      "size": 36,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "GXSetTevOp",
+      "address": "0x8012ee78",
+      "size": 420,
+      "binding": 1
+    },
+    {
+      "name": "GXSetTevColorIn",
+      "address": "0x8012f01c",
+      "size": 128,
+      "binding": 1
+    },
+    {
+      "name": "GXSetTevAlphaIn",
+      "address": "0x8012f09c",
+      "size": 132,
+      "binding": 1
+    },
+    {
+      "name": "GXSetTevColorOp",
+      "address": "0x8012f120",
+      "size": 192,
+      "binding": 1
+    },
+    {
+      "name": "GXSetTevAlphaOp",
+      "address": "0x8012f1e0",
+      "size": 192,
+      "binding": 1
+    },
+    {
+      "name": "GXSetTevKColor",
+      "address": "0x8012f2a0",
+      "size": 116,
+      "binding": 1
+    },
+    {
+      "name": "GXSetTevKColorSel",
+      "address": "0x8012f314",
+      "size": 108,
+      "binding": 1
+    },
+    {
+      "name": "GXSetTevKAlphaSel",
+      "address": "0x8012f380",
+      "size": 108,
+      "binding": 1
+    },
+    {
+      "name": "GXSetTevSwapMode",
+      "address": "0x8012f3ec",
+      "size": 88,
+      "binding": 1
+    },
+    {
+      "name": "GXSetTevSwapModeTable",
+      "address": "0x8012f444",
+      "size": 160,
+      "binding": 1
+    },
+    {
+      "name": "GXSetAlphaCompare",
+      "address": "0x8012f4e4",
+      "size": 80,
+      "binding": 1
+    },
+    {
+      "name": "GXSetZTexture",
+      "address": "0x8012f534",
+      "size": 132,
+      "binding": 1
+    },
+    {
+      "name": "GXSetTevOrder",
+      "address": "0x8012f5b8",
+      "size": 476,
+      "binding": 1
+    },
+    {
+      "name": "GXSetNumTevStages",
+      "address": "0x8012f794",
+      "size": 52,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "gx": "0x8034e4f8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "GXSetTevColor",
+    "GXSetTevColorS10",
+    "GXSetTevClampMode"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/gx/GXTev.c"
+  },
+  "original_file": "GXTev.c",
+  "original_file_index": 11410,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "gx"
+  ]
+}

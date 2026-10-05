@@ -50,7 +50,9 @@
     "mtx44.json",
     "CARDCheck.json",
     "CARDWrite.json",
-    "CARDFormat.json"
+    "CARDFormat.json",
+    "GXTev.json",
+    "Padclamp.json"
   ],
   "progress": {
     "code_bytes": 1414572,

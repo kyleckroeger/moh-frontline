@@ -1,0 +1,87 @@
+{
+  "id": "Padclamp",
+  "source": "src/dolphin/pad/Padclamp.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8011c7c4",
+      "size": 568,
+      "type": 1
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034e4c0",
+      "size": 8,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "ClampStick",
+      "address": "0x8011c7c4",
+      "size": 304,
+      "binding": 0
+    },
+    {
+      "name": "PADClamp",
+      "address": "0x8011c8f4",
+      "size": 264,
+      "binding": 1
+    }
+  ],
+  "externals": {},
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "ClampTrigger"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/pad/Padclamp.c"
+  },
+  "original_file": "Padclamp.c",
+  "original_file_index": 11040,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "ClampTrigger"
+  ],
+  "sda_externals": [],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "Padclamp.json"
+  }
+}

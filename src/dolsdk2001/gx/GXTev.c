@@ -365,7 +365,14 @@ void GXSetTevOrder(GXTevStageID stage, GXTexCoordID coord, GXTexMapID map, GXCha
 
     tmap = map & ~0x100;
     tmap = (tmap >= GX_MAX_TEXMAP) ? GX_TEXMAP0 : tmap;
-    tcoord = (coord >= GX_MAX_TEXCOORD) ? GX_TEXCOORD0 : coord;
+
+    if (coord >= GX_MAX_TEXCOORD) {
+        tcoord = GX_TEXCOORD0;
+        gx->tevTcEnab = gx->tevTcEnab & ~(1 << stage);
+    } else {
+        tcoord = coord;
+        gx->tevTcEnab = gx->tevTcEnab | (1 << stage);
+    }
 
     if (stage & 1) {
         SET_REG_FIELD(0x314, *ptref, 3, 12, tmap);

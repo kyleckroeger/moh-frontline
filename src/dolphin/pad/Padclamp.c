@@ -1,7 +1,7 @@
 #include <dolphin.h>
 #include <dolphin/pad.h>
 
-static const PADClampRegion ClampRegion = {
+static PADClampRegion ClampRegion = {
     // Triggers
     30,
     180,
@@ -15,15 +15,11 @@ static const PADClampRegion ClampRegion = {
     15,
     59,
     31,
-
-    // Stick radii
-    56,
-    44,
 };
 
 // prototypes
 static void ClampStick(s8* px, s8* py, s8 max, s8 xy, s8 min);
-static void ClampTrigger(u8* trigger, u8 min, u8 max);
+static void ClampTrigger(u8* trigger);
 
 static void ClampStick(s8* px, s8* py, s8 max, s8 xy, s8 min) {
     int x = *px;
@@ -81,14 +77,14 @@ static void ClampStick(s8* px, s8* py, s8 max, s8 xy, s8 min) {
 }
 
 
-static void ClampTrigger(u8* trigger, u8 min, u8 max) {
-    if (*trigger <= min) {
+static void ClampTrigger(u8* trigger) {
+    if (*trigger <= ClampRegion.minTrigger) {
         *trigger = 0;
     } else {
-        if (max < *trigger) {
-            *trigger = max;
+        if (ClampRegion.maxTrigger < *trigger) {
+            *trigger = ClampRegion.maxTrigger;
         }
-        *trigger -= min;
+        *trigger -= ClampRegion.minTrigger;
     }
 }
 
@@ -99,8 +95,8 @@ void PADClamp(PADStatus * status) {
         if (status->err == PAD_ERR_NONE) {
             ClampStick(&status->stickX, &status->stickY, ClampRegion.maxStick, ClampRegion.xyStick, ClampRegion.minStick);
             ClampStick(&status->substickX, &status->substickY, ClampRegion.maxSubstick, ClampRegion.xySubstick, ClampRegion.minSubstick);
-            ClampTrigger(&status->triggerLeft, ClampRegion.minTrigger, ClampRegion.maxTrigger);
-            ClampTrigger(&status->triggerRight, ClampRegion.minTrigger, ClampRegion.maxTrigger);
+            ClampTrigger(&status->triggerLeft);
+            ClampTrigger(&status->triggerRight);
         }
     }
 }

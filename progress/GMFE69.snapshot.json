@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 51416,
+    "matching_code_bytes": 54368,
     "total_executable_code_bytes": 1414572,
-    "percent": 3.6347389881886536,
+    "percent": 3.84342401800686,
     "categories": {
       "reconstructed_game": 0,
-      "restored_library": 51416
+      "restored_library": 54368
     },
-    "matching_functions": 271
+    "matching_functions": 287
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -39,6 +39,7 @@
     "config/GMFE69/GXMisc.json": "08008e3e750601a0a56d2442b14c450e5677f3ebe4f14eb98e6066cb011367d5",
     "config/GMFE69/GXPixel.json": "8a078293429864d0af0f5181a695a381b0144714e2ac2281d6ce38136aeeb262",
     "config/GMFE69/GXStubs.json": "f982b70601475f696346533ae77d4424c28e7ff3e577f677e69199958fa00fdc",
+    "config/GMFE69/GXTev.json": "4b28b0baa32d270c71bc6725d0b291fc2236dc9f6f6d0c104edb0ba1fa3b4399",
     "config/GMFE69/GXTransform.json": "38225301a6fd0d656301839a81128f2235b7fbe70c809990d1beeb45d8a5182b",
     "config/GMFE69/OSAlarm.json": "1e86d7d9e28dd6c2d842af34882125cb9181ba4a9c4adca999722390b2e59824",
     "config/GMFE69/OSAlloc.json": "67106699292772ba5d4d82046fe0693ce5131eb6185ba3ef8965019d65fa6948",
@@ -55,6 +56,7 @@
     "config/GMFE69/OSSync.json": "27c30f37b10db00a3b25b1f38ff69d7c33ab7870f9727aa1bdf9be17332991c8",
     "config/GMFE69/OSThread.json": "38638c5451250dd068469a8b6b609d98e9aabad647ceb265a4cfd78f3d497cca",
     "config/GMFE69/OSTime.json": "eb335b6100ab9c431f68433844f0426983bb54d3574ead92ee3aa46d5f83ffa6",
+    "config/GMFE69/Padclamp.json": "570f443e7a228e96a9e869248c68a59a1d9e68052c20523d1c9a482772bfe76b",
     "config/GMFE69/SISamplingRate.json": "e4def7467ec8d82fdb9730412721675a9ea0e7ce572d5b8b63e89c3bdfe1eb84",
     "config/GMFE69/ai_src.json": "f0c8725cb5fed0ec6bbd3940f8c439dc47168cfd29a94c4b891cf592973d7e1a",
     "config/GMFE69/arq.json": "53c9d956d7cd2b69c858816128443494613f46b3ad680d5056ae00227df49900",
@@ -67,7 +69,7 @@
     "config/GMFE69/fstload.json": "c101975fb01250bc8f0325effbe643330b62ccd00eac41e24aff682c06866309",
     "config/GMFE69/mtx44.json": "6ec8c80e78a896f985eb769ac01b97ff684e2d83116660d2c740123270c0ddf5",
     "config/GMFE69/mtxvec.json": "bb6a4f09ca854ab9a727be34f0a20df7f53e0e081e1b83581418b88de9987009",
-    "config/GMFE69/project.json": "493f46e8d5a33ecf9c616d7563485749266e049da7788a23006ab854b95a7e42",
+    "config/GMFE69/project.json": "5549ebd3127a4fd71c58a6469e7f2aaa320b1d36a6be3e103fca2c6b82803af8",
     "config/GMFE69/target.json": "f7e8d7b660fd35f21cdc13385271d7b73fabda6669a0d112db63b3b1f3e8b3b2",
     "include/dolphin-sdk/charPipeline/fileCache.h": "9fc5bbfba874376ec1d239271cda99d84c256b2bd07f884d1177bee6b705b985",
     "include/dolphin-sdk/charPipeline/structures/HTable.h": "e1e36439d044200512635bc37470f318258d75767fad9ec2d9c407f9c0ee1af8",
@@ -168,7 +170,7 @@
     "include/dolphin-sdk/dolphin/os/OSTimer.h": "3e6223e89665d6f12de92f71b3086acc23d3747896c3603eb03198ee6e5f2f64",
     "include/dolphin-sdk/dolphin/os/OSUtf.h": "a06e076f6da6f7d50b7bb3067b43ee06184f230b61d1a593f93d819a298259fd",
     "include/dolphin-sdk/dolphin/os.h": "a3d81a6c250673ce3622f69aa81fd00cf86d0e7f31286c59d456d6a13c594e81",
-    "include/dolphin-sdk/dolphin/pad.h": "de439591b1beda595f25ccafb734557dda5b44aba05630a8cf112f8c96f58a6e",
+    "include/dolphin-sdk/dolphin/pad.h": "3571d6fef229628521360ec7e07e9e3a484b35d985802bdfde1efa40b6dfac3f",
     "include/dolphin-sdk/dolphin/perf.h": "e3ed95411463f6e870bb850ac27d5f110fdde13e18bc60a4279554c5c382d10c",
     "include/dolphin-sdk/dolphin/seq.h": "3895171cb82974f7d7167c9db084f89114d6d3a7d5a23c5c6130621e30c51006",
     "include/dolphin-sdk/dolphin/si.h": "e8baecd5314704a90ee9faa59eeefd235c7bfadf9ea06bc963fa61e8dc3de7ac",
@@ -434,7 +436,7 @@
     "src/dolphin/os/OSTime.c": "9a52461f409da4409445534abbb68d52f7c44635ea4e4a753a63d50e67250aca",
     "src/dolphin/os/__os.h": "d2f66ca0cc016fa0684da5b96179a0eebbdcd8cdc7f7b7f0f4ac27230e5d8772",
     "src/dolphin/pad/Pad.c": "e7e1324c5523fab18b956e3730df9bc8c9755c3970556b32333577007751e45c",
-    "src/dolphin/pad/Padclamp.c": "b246598c52c99d2c1d47468f466f4714cb7ca06d5a6ee8d9ae5985214d4b35d5",
+    "src/dolphin/pad/Padclamp.c": "6f59409681539394aa23cf639c2431f89cb5e2bdd728fce61681b0e1b0a8d359",
     "src/dolphin/perf/__perf.h": "cc9b3899d19787ff82f8f06a624846f130365f47f9a3f62e259c9771a1845a5c",
     "src/dolphin/si/SIBios.c": "51828377487aea5374867eed72a34e7588da36896163d13f271cdd3146410ef6",
     "src/dolphin/si/SISamplingRate.c": "7947cfd2ec671b58d6bccc14e4a279a36bec0f8d1cc4a91e8250dc3a0e2e8394",
@@ -519,7 +521,7 @@
     "src/dolsdk2001/gx/GXPixel.c": "6812d77fe5788d51a8ae7cb285a6f7f71a6be3a0bd57d79363187609f2643f16",
     "src/dolsdk2001/gx/GXSave.c": "b27c1ee3460da8ab130e3a3e40190f6ccc057cf42818ac4567de7728fc071fb3",
     "src/dolsdk2001/gx/GXStubs.c": "d4fe05a2f0242d9a57e28640f98155cd2db169571f2eccd8ea8407546d053f48",
-    "src/dolsdk2001/gx/GXTev.c": "19ead36f7b5a2517d6bd6fef1af1dbaa9481f30b89240b491a7cdeab9160a952",
+    "src/dolsdk2001/gx/GXTev.c": "2133c9c81f3af1f92e2f206385730793bfd4d5e4e439dd86841063add19417d4",
     "src/dolsdk2001/gx/GXTexture.c": "4d9b0241bc030d79e36b38f73b3bbb6f55cd8ff92d22705bc8eb685d7918f154",
     "src/dolsdk2001/gx/GXTransform.c": "8e66108896275d89af0e84a76099bf3bdf295ec9ded0e4cfa384b7757a46358b",
     "src/dolsdk2001/gx/GXVerifRAS.c": "13083b45c8b04fca4d9d5dff1d3afd3cc5aceb6453ced3f314ffca1a8f1ec903",
@@ -2723,6 +2725,86 @@
       ],
       "object_sha256": "43ec2e7e138d0062105b89fd97da9a3a35656fcfe01189e10e7c4d32bd3d75d6",
       "linked_sha256": "d1723de3ebf615fdada103b465b5829f9dee2b8de88a4b5be7d1b13423aa1848"
+    },
+    {
+      "id": "GXTev",
+      "category": "restored_library",
+      "functions": 14,
+      "code_bytes": 2384,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "GXSetTevColor",
+        "GXSetTevColorS10",
+        "GXSetTevClampMode"
+      ],
+      "object_sha256": "ff81226f6ee650a9945c9b4fc6fc250bf3adcf16a067449228cd5f6b966fc055",
+      "linked_sha256": "a3052fc3a184fb5575c55f295e0eafcd4b7c441ffef92f2b1c4319bdd853b093"
+    },
+    {
+      "id": "Padclamp",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 568,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "ClampTrigger"
+      ],
+      "object_sha256": "8161cd0bc3dfcc64fd23ffe4bdb8ab755a6f19090f536bf5f0e0ab7520bdb5a7",
+      "linked_sha256": "4b61d941da6683af3d18ab23591e11184467c24968bbebf12368dc57f81d0225"
     }
   ],
   "code_map": {
@@ -29451,27 +29533,6 @@
         ]
       },
       {
-        "name": "Unmatched files/Padclamp.c [symbol evidence]",
-        "file_record": 223,
-        "file_name": "Padclamp.c",
-        "ranges": [
-          {
-            "address": "0x8011c7c4",
-            "size": 304,
-            "kind": "function",
-            "name": "ClampStick",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011c8f4",
-            "size": 264,
-            "kind": "function",
-            "name": "PADClamp",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/Pad.c [symbol evidence]",
         "file_record": 224,
         "file_name": "Pad.c",
@@ -30898,121 +30959,6 @@
             "size": 576,
             "kind": "function",
             "name": "__GXSetTmemConfig",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8012ee78",
-        "ranges": [
-          {
-            "address": "0x8012ee78",
-            "size": 420,
-            "kind": "function",
-            "name": "GXSetTevOp",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012f01c",
-            "size": 128,
-            "kind": "function",
-            "name": "GXSetTevColorIn",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012f09c",
-            "size": 132,
-            "kind": "function",
-            "name": "GXSetTevAlphaIn",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012f120",
-            "size": 192,
-            "kind": "function",
-            "name": "GXSetTevColorOp",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012f1e0",
-            "size": 192,
-            "kind": "function",
-            "name": "GXSetTevAlphaOp",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012f2a0",
-            "size": 116,
-            "kind": "function",
-            "name": "GXSetTevKColor",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012f314",
-            "size": 108,
-            "kind": "function",
-            "name": "GXSetTevKColorSel",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012f380",
-            "size": 108,
-            "kind": "function",
-            "name": "GXSetTevKAlphaSel",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012f3ec",
-            "size": 88,
-            "kind": "function",
-            "name": "GXSetTevSwapMode",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012f444",
-            "size": 160,
-            "kind": "function",
-            "name": "GXSetTevSwapModeTable",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012f4e4",
-            "size": 80,
-            "kind": "function",
-            "name": "GXSetAlphaCompare",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012f534",
-            "size": 132,
-            "kind": "function",
-            "name": "GXSetZTexture",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/GXTev.c [symbol evidence]",
-        "file_record": 265,
-        "file_name": "GXTev.c",
-        "ranges": [
-          {
-            "address": "0x8012f5b8",
-            "size": 476,
-            "kind": "function",
-            "name": "GXSetTevOrder",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8012f794",
-        "ranges": [
-          {
-            "address": "0x8012f794",
-            "size": 52,
-            "kind": "function",
-            "name": "GXSetNumTevStages",
             "evidence": "unknown-file"
           }
         ]
