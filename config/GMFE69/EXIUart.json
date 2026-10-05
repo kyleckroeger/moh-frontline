@@ -1,0 +1,110 @@
+{
+  "id": "EXIUart",
+  "source": "src/dolphin/exi/EXIUart.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80145cf8",
+      "size": 624,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f358",
+      "size": 16,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "InitializeUART",
+      "address": "0x80145cf8",
+      "size": 112,
+      "binding": 1
+    },
+    {
+      "name": "WriteUARTN",
+      "address": "0x80145d68",
+      "size": 512,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "EXIAttach": "0x80144eac",
+    "EXIDeselect": "0x801451a0",
+    "EXIDetach": "0x80144fb8",
+    "EXIGetID": "0x8014597c",
+    "EXIImm": "0x80144550",
+    "EXILock": "0x8014576c",
+    "EXISelect": "0x80145074",
+    "EXISync": "0x80144938",
+    "EXIUnlock": "0x80145860",
+    "OSGetConsoleType": "0x801102bc",
+    "__flush_cache": "0x80007350",
+    "__init_hardware": "0x80007330",
+    "__start": "0x80007140"
+  },
+  "undefined_in_discarded_code": [
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers"
+  ],
+  "discarded_functions": [
+    "ProbeBarnacle",
+    "__OSEnableBarnacle",
+    "ReadUARTN",
+    "QueueLength"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/exi/EXIUart.c"
+  },
+  "original_file": "EXIUart.c",
+  "original_file_index": 12029,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "ProbeBarnacle",
+    "QueueLength"
+  ],
+  "sda_externals": [],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "EXIUart.json"
+  }
+}

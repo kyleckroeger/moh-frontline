@@ -5,6 +5,8 @@
 #include <macros.h>
 
 void EnableMetroTRKInterrupts(void);
+void __OSInitMemoryProtection(void);
+void OSInitAlarm(void);
 
 // internal headers
 #include "__os.h"
@@ -32,6 +34,8 @@ extern unsigned long __PADSpec;
 extern unsigned char __ArenaLo[];
 extern char _stack_addr[];
 extern unsigned char __ArenaHi[];
+extern unsigned long BOOT_REGION_START : 0x812FDFF0;
+extern unsigned long BOOT_REGION_END : 0x812FDFEC;
 
 // dummy entry points to the OS Exception vector
 void __OSEVStart(void);
@@ -47,16 +51,19 @@ void __OSDBJUMPEND(void);
 
 #define NOP 0x60000000
 
+static double ZeroF;
 static struct OSBootInfo_s * BootInfo;
 static unsigned long * BI2DebugFlag;
-static double ZeroF;
+static unsigned long BI2DebugFlagHolder;
 static int AreWeInitialized;
 static void (* * OSExceptionTable)(unsigned char, struct OSContext *);
+OSTime __OSStartTime;
+BOOL __OSInIPL;
 
 // functions
 static asm void __OSInitFPRs(void);
 static void OSExceptionInit(void);
-static void OSDefaultExceptionHandler(unsigned char exception /* r3 */, struct OSContext * context /* r4 */);
+void OSDefaultExceptionHandler(unsigned char exception /* r3 */, struct OSContext * context /* r4 */);
 
 unsigned long __OSIsDebuggerPresent() {
     return *(u32*)OSPhysicalToCached(0x40);
@@ -108,12 +115,39 @@ unsigned long OSGetConsoleType() {
     return BootInfo->consoleType;
 }
 
+static void ClearArena(void) {
+    u32 start;
+    u32 end;
+
+    if ((u32)(OSGetResetCode() + 0x80000000) != 0U) {
+        memset(OSGetArenaLo(), 0U, (u32)OSGetArenaHi() - (u32)OSGetArenaLo());
+        return;
+    }
+    start = BOOT_REGION_START;
+    end = BOOT_REGION_END;
+    if (start == 0U) {
+        memset(OSGetArenaLo(), 0U, (u32)OSGetArenaHi() - (u32)OSGetArenaLo());
+        return;
+    }
+    if ((u32)OSGetArenaLo() < start) {
+        if ((u32)OSGetArenaHi() <= start) {
+            memset(OSGetArenaLo(), 0U, (u32)OSGetArenaHi() - (u32)OSGetArenaLo());
+            return;
+        }
+        memset(OSGetArenaLo(), 0U, start - (u32)OSGetArenaLo());
+        if ((u32)OSGetArenaHi() > end) {
+            memset((void*)end, 0, (u32)OSGetArenaHi() - end);
+        }
+    }
+}
+
 void OSInit() {
     unsigned long consoleType;
     void * bi2StartAddr;
 
     if (AreWeInitialized == 0) {
         AreWeInitialized = 1;
+        __OSStartTime = __OSGetSystemTime();
         OSDisableInterrupts();
         BootInfo = (struct OSBootInfo_s *)OSPhysicalToCached(0);
         BI2DebugFlag = NULL;
@@ -121,9 +155,15 @@ void OSInit() {
         bi2StartAddr = (void*)(*(u32*)OSPhysicalToCached(0xF4));
         if (bi2StartAddr) {
             BI2DebugFlag = (void*)((char*)bi2StartAddr + 0xC);
-            __DVDLongFileNameFlag = ((u32*)bi2StartAddr)[8];
             __PADSpec = ((u32*)bi2StartAddr)[9];
+            *(u8*)OSPhysicalToCached(0x30E8) = *BI2DebugFlag;
+            *(u8*)OSPhysicalToCached(0x30E9) = __PADSpec;
+        } else if (BootInfo->arenaHi) {
+            BI2DebugFlagHolder = *(u8*)OSPhysicalToCached(0x30E8);
+            BI2DebugFlag = &BI2DebugFlagHolder;
+            __PADSpec = *(u8*)OSPhysicalToCached(0x30E9);
         }
+        __DVDLongFileNameFlag = 1;
         OSSetArenaLo((!BootInfo->arenaLo) ? &__ArenaLo : BootInfo->arenaLo);
         if ((!BootInfo->arenaLo) && (BI2DebugFlag) && (*(u32*)BI2DebugFlag < 2)) {
             OSSetArenaLo((void*)(((u32)(char*)&_stack_addr + 0x1F) & 0xFFFFFFE0));
@@ -131,6 +171,7 @@ void OSInit() {
         OSSetArenaHi((!BootInfo->arenaHi) ? &__ArenaHi : BootInfo->arenaHi);
         OSExceptionInit();
         __OSInitSystemCall();
+        OSInitAlarm();
         __OSModuleInit();
         __OSInterruptInit();
         __OSSetInterruptHandler(0x16, &__OSResetSWInterruptHandler);
@@ -141,19 +182,26 @@ void OSInit() {
         __OSInitSram();
         __OSThreadInit();
         __OSInitAudioSystem();
-        ASSERTLINE(0x252, BootInfo); // oh sure, assert NOW, you've already dereferenced it a bunch of times.
+
+        {
+            u32 hid2 = PPCMfhid2();
+            hid2 &= ~0x40000000;
+            PPCMthid2(hid2);
+        }
+
         if ((BootInfo->consoleType & OS_CONSOLE_DEVELOPMENT) != 0) {
             BootInfo->consoleType = OS_CONSOLE_DEVHW1;
         } else {
             BootInfo->consoleType = OS_CONSOLE_RETAIL1;
         }
         BootInfo->consoleType += (__PIRegs[11] & 0xF0000000) >> 28;
-        OSReport("\nDolphin OS $Revision: 36 $.\n");
-#if DEBUG
-        OSReport("Kernel built : %s %s\n", "May 22 2001", "01:47:06");
-#else
-        OSReport("Kernel built : %s %s\n", "May 22 2001", "02:04:48");
-#endif
+
+        if (!__OSInIPL) {
+            __OSInitMemoryProtection();
+        }
+
+        OSReport("\nDolphin OS $Revision: 49 $.\n");
+        OSReport("Kernel built : %s %s\n", "Dec 17 2001", "18:46:45");
         OSReport("Console Type : ");
 
         // work out what console type this corresponds to and report it
@@ -189,6 +237,7 @@ void OSInit() {
         if (BI2DebugFlag && ((*BI2DebugFlag) >= 2)) {
           EnableMetroTRKInterrupts();
         }
+        ClearArena();
         OSEnableInterrupts();
     }
 }

@@ -1,0 +1,101 @@
+{
+  "id": "CARDStat",
+  "source": "src/dolphin/card/CARDStat.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80128cfc",
+      "size": 1248,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "UpdateIconOffsets",
+      "address": "0x80128cfc",
+      "size": 504,
+      "binding": 0
+    },
+    {
+      "name": "CARDGetStatus",
+      "address": "0x80128ef4",
+      "size": 300,
+      "binding": 1
+    },
+    {
+      "name": "CARDSetStatusAsync",
+      "address": "0x80129020",
+      "size": 372,
+      "binding": 1
+    },
+    {
+      "name": "CARDSetStatus",
+      "address": "0x80129194",
+      "size": 72,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "OSGetTime": "0x80116a40",
+    "__CARDAccess": "0x80127ab8",
+    "__CARDGetControlBlock": "0x801239c4",
+    "__CARDGetDirBlock": "0x80125664",
+    "__CARDIsPublic": "0x80127b50",
+    "__CARDPutControlBlock": "0x80123a7c",
+    "__CARDSync": "0x80123ce4",
+    "__CARDSyncCallback": "0x80122a80",
+    "__CARDUpdateDir": "0x80125804",
+    "__div2i": "0x80138b60",
+    "memcpy": "0x800094f8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/card/CARDStat.c"
+  },
+  "original_file": "CARDStat.c",
+  "original_file_index": 11302,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "CARDStat.json"
+  }
+}

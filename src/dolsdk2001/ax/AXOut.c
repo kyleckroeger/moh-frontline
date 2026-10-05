@@ -16,15 +16,25 @@ volatile static long long __AXOsTime;
 static void (* __AXUserFrameCallback)();
 volatile static int __AXDSPInitFlag;
 static int __AXDSPDoneFlag;
+volatile static unsigned long __AXDebugSteppingMode;
 
 // functions
 static void __AXDSPInitCallback(void *task);
 static void __AXDSPResumeCallback(void *task);
 static void __AXDSPDoneCallback(void *task);
 
+#define BUFFER_MEMSET(buffer, size)    \
+    {                                  \
+        u32* p = (u32*)&buffer;        \
+        int i;                         \
+        for (i = 0; i < size; i++) {   \
+            *p = 0;                    \
+            p++;                       \
+        }                              \
+    }
+
 void __AXOutNewFrame(u32 lessDspCycles) {
     u32 cl;
-    int old;
     AXPROFILE * profile;
 
     __AXLocalProfile.axFrameStart = OSGetTime();
@@ -35,7 +45,6 @@ void __AXOutNewFrame(u32 lessDspCycles) {
     do {} while (DSPCheckMailToDSP() != 0U);
     DSPSendMailToDSP(cl);
     do {} while (DSPCheckMailToDSP() != 0U);
-    old = OSEnableInterrupts();
     __AXServiceCallbackStack();
     __AXLocalProfile.auxProcessingStart = OSGetTime();
     __AXProcessAux();
@@ -53,9 +62,13 @@ void __AXOutNewFrame(u32 lessDspCycles) {
     __AXLocalProfile.axNumVoices = __AXGetNumVoices();
     profile = (void*)__AXGetCurrentProfile();
     if (profile) {
-        memcpy(profile, &__AXLocalProfile, sizeof(AXPROFILE));
+        u8 * dst = (u8*)profile;
+        u8 * src = (u8*)&__AXLocalProfile;
+        int i;
+        for (i = 0; i < sizeof(AXPROFILE); i++) {
+            dst[i] = src[i];
+        }
     }
-    OSRestoreInterrupts(old);
 }
 
 void __AXOutAiCallback(void) {
@@ -63,12 +76,12 @@ void __AXOutAiCallback(void) {
         __AXOsTime = OSGetTime();
     }
     if (__AXOutDspReady == 1) {
-        __AXOutNewFrame(0);
         __AXOutDspReady = 0;
-        return;
+        __AXOutNewFrame(0);
+    } else {
+        __AXOutDspReady = 2;
+        DSPAssertTask(&task);
     }
-    __AXOutDspReady = 2;
-    DSPAssertTask(&task);
 }
 
 static void __AXDSPInitCallback(void *task) {
@@ -119,9 +132,10 @@ void __AXOutInit(void) {
     ASSERTLINE(0x13C, ((u32)&__AXOutBuffer[1][0] & 0x1F) == 0);
     ASSERTLINE(0x13D, ((u32)&__AXOutSBuffer[0] & 0x1F) == 0);
     __AXOutFrame = 0;
-    memset(__AXOutBuffer, 0, sizeof(__AXOutBuffer));
+    __AXDebugSteppingMode = 0;
+    BUFFER_MEMSET(__AXOutBuffer, 0x140);
     DCFlushRange(__AXOutBuffer, sizeof(__AXOutBuffer));
-    memset(__AXOutSBuffer, 0, sizeof(__AXOutSBuffer));
+    BUFFER_MEMSET(__AXOutSBuffer, 0xA0);
     DCFlushRange(__AXOutSBuffer, sizeof(__AXOutSBuffer));
     __AXOutInitDSP();
     AIRegisterDMACallback(__AXOutAiCallback);

@@ -3,7 +3,6 @@
 
 #include "__ax.h"
 
-static u16 __AXHRTFHistory[128];
 static u16 __AXCommandList[2][384];
 
 static u32 __AXCommandListPosition;
@@ -42,18 +41,15 @@ void __AXNextFrame(void * sbuffer, void * buffer) {
     __AXWriteToCommandList((u16)(data));
     __AXCommandListCycles += 0x2E44;
         switch (__AXClMode) {     
-            case 1:
-                __AXWriteToCommandList(8);
-                __AXWriteToCommandList((u16) ((u32) &__AXHRTFHistory >> 0x10U));
-                __AXWriteToCommandList((u16) &__AXHRTFHistory);
+            case 0:
+                __AXWriteToCommandList(7);
                 __AXWriteToCommandList((u16) ((u32)sbuffer >> 0x10U));
                 __AXWriteToCommandList((u32)sbuffer);
-                __AXCommandListCycles += 0xAFC8;
+                __AXCommandListCycles += 0x546;
                 break;
-            case 0:
-            case 3:
+            case 1:
             case 4:
-                __AXWriteToCommandList(7);
+                __AXWriteToCommandList(0x11U);
                 __AXWriteToCommandList((u16) ((u32)sbuffer >> 0x10U));
                 __AXWriteToCommandList((u32)sbuffer);
                 __AXCommandListCycles += 0x5E6;
@@ -121,9 +117,6 @@ void __AXClQuit(void) {
 
 void AXSetMode(u32 mode) {
     if (__AXClMode != mode) {
-        if (mode == 1) {
-            memset(&__AXHRTFHistory, 0, 0x100);
-        }
         __AXClMode = mode;
     }
 }

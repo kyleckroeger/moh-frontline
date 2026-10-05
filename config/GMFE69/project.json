@@ -52,7 +52,14 @@
     "CARDWrite.json",
     "CARDFormat.json",
     "GXTev.json",
-    "Padclamp.json"
+    "Padclamp.json",
+    "EXIUart.json",
+    "CARDRead.json",
+    "CARDStat.json",
+    "OSError.json",
+    "AXCL.json",
+    "AXOut.json",
+    "OS.json"
   ],
   "progress": {
     "code_bytes": 1414572,

@@ -1,0 +1,127 @@
+{
+  "id": "OSError",
+  "source": "src/dolsdk2001/os/OSError.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80112520",
+      "size": 968,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018cdc0",
+      "size": 796,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x80316fc0",
+      "size": 64,
+      "type": 8
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034e488",
+      "size": 2,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "OSReport",
+      "address": "0x80112520",
+      "size": 128,
+      "binding": 1
+    },
+    {
+      "name": "OSPanic",
+      "address": "0x801125a0",
+      "size": 300,
+      "binding": 1
+    },
+    {
+      "name": "OSSetErrorHandler",
+      "address": "0x801126cc",
+      "size": 28,
+      "binding": 1
+    },
+    {
+      "name": "__OSUnhandledException",
+      "address": "0x801126e8",
+      "size": 512,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "OSDisableInterrupts": "0x801135cc",
+    "OSDisableScheduler": "0x80115af8",
+    "OSDumpContext": "0x801121ac",
+    "OSEnableScheduler": "0x80115b38",
+    "OSGetStackPointer": "0x801120c4",
+    "OSGetTime": "0x80116a40",
+    "OSLoadContext": "0x80111fec",
+    "PPCHalt": "0x80110198",
+    "__OSLastInterrupt": "0x8034efe0",
+    "__OSLastInterruptSrr0": "0x8034efdc",
+    "__OSLastInterruptTime": "0x8034efe8",
+    "__OSReschedule": "0x8011602c",
+    "__flush_cache": "0x80007350",
+    "__init_hardware": "0x80007330",
+    "vprintf": "0x8013dc0c"
+  },
+  "undefined_in_discarded_code": [
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers"
+  ],
+  "discarded_functions": [],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/os/OSError.c"
+  },
+  "original_file": "OSError.c",
+  "original_file_index": 10719,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "__OSLastInterrupt",
+    "__OSLastInterruptSrr0",
+    "__OSLastInterruptTime"
+  ]
+}

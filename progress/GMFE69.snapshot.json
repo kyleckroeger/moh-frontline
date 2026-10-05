@@ -6,19 +6,21 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 54368,
+    "matching_code_bytes": 63340,
     "total_executable_code_bytes": 1414572,
-    "percent": 3.84342401800686,
+    "percent": 4.477679467711789,
     "categories": {
       "reconstructed_game": 0,
-      "restored_library": 54368
+      "restored_library": 63340
     },
-    "matching_functions": 287
+    "matching_functions": 325
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
     "config/GMFE69/AXAlloc.json": "b51afdb5cb97132361ccd2fe3e018cda2e215277e2c457b6ff35b3a9cd352f47",
     "config/GMFE69/AXAux.json": "e73769cf63d05e457ce16280d154d201b73a7014df5904ad30b39446572b82ce",
+    "config/GMFE69/AXCL.json": "c5367f35781decdccab46116ab1ec0a186fd454f9205e9580f4da6fa0dc23771",
+    "config/GMFE69/AXOut.json": "f6a71b0f8f7e0d5388ef5290b5a2a3f4adc679d27fb8a14c9157268f1280a418",
     "config/GMFE69/AXProf.json": "ba1ea082ba1cca2929a03e0b3f9715d8f0ba2203b8a59af5c8d43a620397ceef",
     "config/GMFE69/AXSPB.json": "b545c13a80837ee4ec6447cd14220ca12742a60c4525e91f744603629870f101",
     "config/GMFE69/AmcExi2Stubs.json": "06e09d04a4badb35d73036086b321ab231a21afa20b86979b63e9546006ca0ce",
@@ -29,8 +31,11 @@
     "config/GMFE69/CARDDir.json": "45f60e8765248b1f5161f2ef9e703619a87d6a3115f7f0e6d745bc807e494618",
     "config/GMFE69/CARDFormat.json": "07cdbc24fc5f0880fdbd38f2a28eb06cc3661b6c3a399647b24065059d98f4e6",
     "config/GMFE69/CARDRdwr.json": "f6823e5de5ee80dc52792b3137627ea5401106745a584bc344d54eeed63855b0",
+    "config/GMFE69/CARDRead.json": "0613bbc21efae2d73ad3beb886b984a4e89b8a7163ab6ded75f0c2c5748f0262",
+    "config/GMFE69/CARDStat.json": "e03bf32bdb249914a02454fa9671d8eb663e5d56997d8c6fc727fbaa6265d8b4",
     "config/GMFE69/CARDUnlock.json": "7716542ea7b19b3b01b0afaf41869f75a4772afefa61129b459ba5b420bc3285",
     "config/GMFE69/CARDWrite.json": "281660a172ac3b60419b0fb73f382239d55a0c22e81768890c98b0e0ca2bb817",
+    "config/GMFE69/EXIUart.json": "3664769d38b00c6667a6a8d583bd985d8a26b24d7fdb3c09c978c7fbdf4d64ee",
     "config/GMFE69/GXBump.json": "a78c5c03a49b6ec3cbb3d45288946827cb15b6fbf7b0a7c632b5191731e75525",
     "config/GMFE69/GXDisplayList.json": "f7347b3d89b9742bcebfe209ec4be05580ca9effb91646f940b7a03d4648d397",
     "config/GMFE69/GXFifo.json": "f73ba935928b52f77cce38e854ff5d6557357dacbe2ea1f2fbc6b8ed85afa229",
@@ -41,12 +46,14 @@
     "config/GMFE69/GXStubs.json": "f982b70601475f696346533ae77d4424c28e7ff3e577f677e69199958fa00fdc",
     "config/GMFE69/GXTev.json": "4b28b0baa32d270c71bc6725d0b291fc2236dc9f6f6d0c104edb0ba1fa3b4399",
     "config/GMFE69/GXTransform.json": "38225301a6fd0d656301839a81128f2235b7fbe70c809990d1beeb45d8a5182b",
+    "config/GMFE69/OS.json": "c3796d6fcdd2a8f7d11c7060245d5ab1b85316fc6251876d2bbf7e93469f11a8",
     "config/GMFE69/OSAlarm.json": "1e86d7d9e28dd6c2d842af34882125cb9181ba4a9c4adca999722390b2e59824",
     "config/GMFE69/OSAlloc.json": "67106699292772ba5d4d82046fe0693ce5131eb6185ba3ef8965019d65fa6948",
     "config/GMFE69/OSArena.json": "fae99d1b18d3b3604cb8dcad5702e89f090e83b078590b613d5d496d404af0d5",
     "config/GMFE69/OSAudioSystem.json": "77cbfb9ab923faeba0d5cbf61bd83b1ad685fbb3e710b1bb5365c5d2767f00a0",
     "config/GMFE69/OSCache.json": "1cde56786574eb0990fadff2d5a823908f12be8bb020c8b3454c124467adc1a3",
     "config/GMFE69/OSContext.json": "678a14c04297999d61b92b1c85c5aeaad341181b6a9ff0c80c62d12e87b562e6",
+    "config/GMFE69/OSError.json": "c7b0ad34648538e94301b0bc8c5c6fe4b4bbea81546b42cb56b10e3af1a7655f",
     "config/GMFE69/OSInterrupt.json": "f5c05cf460a925e69e0498258555ab02f61bfef7f808494ed08197b834b4410e",
     "config/GMFE69/OSLink.json": "3f8bb6e15dbdb60dadeba4a00dd5534d0695c81ba10c4c94662697437dd7bea1",
     "config/GMFE69/OSMessage.json": "28f4ca013eb889f29452ce4b60a40bb32e49647ac513ed167fb959d48d32f37e",
@@ -69,7 +76,7 @@
     "config/GMFE69/fstload.json": "c101975fb01250bc8f0325effbe643330b62ccd00eac41e24aff682c06866309",
     "config/GMFE69/mtx44.json": "6ec8c80e78a896f985eb769ac01b97ff684e2d83116660d2c740123270c0ddf5",
     "config/GMFE69/mtxvec.json": "bb6a4f09ca854ab9a727be34f0a20df7f53e0e081e1b83581418b88de9987009",
-    "config/GMFE69/project.json": "5549ebd3127a4fd71c58a6469e7f2aaa320b1d36a6be3e103fca2c6b82803af8",
+    "config/GMFE69/project.json": "36d22cc72c81cc0cd029318b8c35df1cf7c31d3f28b805f7d422aa4e5464a11f",
     "config/GMFE69/target.json": "f7e8d7b660fd35f21cdc13385271d7b73fabda6669a0d112db63b3b1f3e8b3b2",
     "include/dolphin-sdk/charPipeline/fileCache.h": "9fc5bbfba874376ec1d239271cda99d84c256b2bd07f884d1177bee6b705b985",
     "include/dolphin-sdk/charPipeline/structures/HTable.h": "e1e36439d044200512635bc37470f318258d75767fad9ec2d9c407f9c0ee1af8",
@@ -273,7 +280,7 @@
     "include/dolsdk2001/dolphin/os/OSContext.h": "a883eb5a8597f93a690d1293fd395cbb011de4a71302c7f121c88696bf0f0f02",
     "include/dolsdk2001/dolphin/os/OSDC.h": "c7b25f0dcbd1f1c1e5b84e813157234a075e2df56f3e77951a3221a8bf74e780",
     "include/dolsdk2001/dolphin/os/OSError.h": "ddc8bfd5f2eab2f605349b5aef34133b6fdac4dd3120408145099557109bb0ee",
-    "include/dolsdk2001/dolphin/os/OSException.h": "3b658d2858123b4b8f50b5605765788971fbaa061f896119b7e4ce13414a7b75",
+    "include/dolsdk2001/dolphin/os/OSException.h": "09e7d0eb7c47f2e8ec345d8ce01534b2380c093c15d4ff743a5a3334df042255",
     "include/dolsdk2001/dolphin/os/OSFont.h": "87f6d95873f5f9edc3159aaa6785fbd5a1d02413b81bb5dd908d2e750b3d438a",
     "include/dolsdk2001/dolphin/os/OSIC.h": "e7add07ce348bad12f6073172b73335698021899e03610906743ca598c8976e0",
     "include/dolsdk2001/dolphin/os/OSInterrupt.h": "03b86e3c2d982ac45f15193a5abce4e3cc874dbc4b842037214764debb5b1c72",
@@ -349,9 +356,9 @@
     "src/dolphin/card/CARDNet.c": "4b05df1e6871bb4b7064d0a4b6dbf8bdac17edb1c39ee5196d2b71c2de60dd22",
     "src/dolphin/card/CARDOpen.c": "666a8119c9431235014123743e37b7ecbe10996d3bc326de39469b52ca215a1f",
     "src/dolphin/card/CARDRdwr.c": "15ad63595114cd30c9b43fb142495af1036d8d144753cd6c746323344329a451",
-    "src/dolphin/card/CARDRead.c": "785fbaf777741e7259ad31681a2f9032cca31b16b5fcee5facccb750d851a92d",
+    "src/dolphin/card/CARDRead.c": "e2c80995d24c987b9483f6ad7b6375595c28f24315eec1b7a8e52a5f71f5a999",
     "src/dolphin/card/CARDRename.c": "670bcf09749f19d6a28adf2ff1e4140b3a52a088d7ce4568ce734d7c574f8805",
-    "src/dolphin/card/CARDStat.c": "965da27fe108b91e933e7a5df40b56c22d9aa6d64db3faf66159d195616fc682",
+    "src/dolphin/card/CARDStat.c": "b2d84be88b453cd1b600f64e2a3a4feb4060ec258980c44d82099a0a1cf8c93d",
     "src/dolphin/card/CARDStatEx.c": "1739cc582bece6fc3e160e4a7ea1bee65c7cd243f87b7b25a6373d5a4104b42b",
     "src/dolphin/card/CARDUnlock.c": "a1463f934bcab1b024e306875ff63e1176c48398d991b4ef2e2ca1095aa21815",
     "src/dolphin/card/CARDWrite.c": "7509f975c0f12ee0ca9077ddda135495e2310041bf4b463ed95a5724895a1518",
@@ -373,7 +380,7 @@
     "src/dolphin/eth/ethsec.c": "df746823b967810cb058acd94eaf8c386c527f4212af45407811e317f6c716ce",
     "src/dolphin/eth/md5.c": "c2c735c768c2145be464170fb3aae755b38fc6b289316884656c80e154ed174e",
     "src/dolphin/exi/EXIBios.c": "df6807f819abd481f6cdd7608a5f372e8f4394e43e9e568b2c1f2bdbdaed849f",
-    "src/dolphin/exi/EXIUart.c": "7194b31708079415f7fbe89a723cd419abeea3839c4d4e1ce1e0ede89a98f20e",
+    "src/dolphin/exi/EXIUart.c": "40081fb49c03ce42e79aefade0db46552fe85d82c051d9190f40847b44ef7ab9",
     "src/dolphin/gba/GBA.c": "226c8898afb3f35f4382067bbc40cf3b4f7f61906cbbce4c7f5a7b0bda99fac9",
     "src/dolphin/gba/GBAGetProcessStatus.c": "88e8132c776c1bfc9d3f0bb3e6cac8ea7462ca52a12d0438283178ab114f5a6a",
     "src/dolphin/gba/GBAJoyBoot.c": "72f97ee729b37884b75c71eb34dbf2d4fd092f13c0602129580c4eb10197bd6e",
@@ -455,8 +462,8 @@
     "src/dolsdk2001/ax/AX.c": "0ae9762d57ac25806d391302996ec68222514872678147635694127c350ed5df",
     "src/dolsdk2001/ax/AXAlloc.c": "c1eae401b23837629556a7cc0fd53b5bd2bd6f8b7d49a067866b2d8732168cf1",
     "src/dolsdk2001/ax/AXAux.c": "e3388b3e97e7e88e8d13a51250e5ce1339870520b9a4d0d9f9f18052de9c279c",
-    "src/dolsdk2001/ax/AXCL.c": "c66f94dac56f09603e2e26be3fb5f9e7292537751d583c29111e9f38b5ec00ce",
-    "src/dolsdk2001/ax/AXOut.c": "8882a50e0894d3e8698ef75bb45d4881b70f15b3db8ff16f2d5d1a61ebd07a58",
+    "src/dolsdk2001/ax/AXCL.c": "8174b2ae2455d6570dcf3e37089215ea8ae90f1ae4f86c665410985501ec8b46",
+    "src/dolsdk2001/ax/AXOut.c": "82baef05e40460b1d0e423e6175d113b2a1a6af2751a88a96e8ace6bf53acd23",
     "src/dolsdk2001/ax/AXProf.c": "ab820c816778df4d21be244647724e4ee54638fe0eedd4f5667ec30ebe854b23",
     "src/dolsdk2001/ax/AXSPB.c": "7fa05febc18aeef3287d2c1da86016c5ad473386a5a273edcb167be4c5ae8684",
     "src/dolsdk2001/ax/AXVPB.c": "7286ff93b493278989c698748abfc9fc58eea6c9ad662e7b0567de10a420de5b",
@@ -542,7 +549,7 @@
     "src/dolsdk2001/mtx/vec.c": "a701873d33d652d2ea988ef2b5071f71b0395ca87a8f74e6234bda7aa95eafd7",
     "src/dolsdk2001/odemustubs/odemustubs.c": "9dc4692c4ea0e26973099dbfc34024083c5d7804d534c4ceeba2f2d82ce8ed0c",
     "src/dolsdk2001/odenotstub/odenotstub.c": "f142c20867d72778853446d15a157a27a2935db513f9e7a5b99dad42244539eb",
-    "src/dolsdk2001/os/OS.c": "2f08a9cc89fef3260658211e042e38b399f871ef0806c79d24bb546cabcb6677",
+    "src/dolsdk2001/os/OS.c": "8315b98311f40cab75cad8070e6b2082602c4ca0f0092476c6c6c80e2c5618da",
     "src/dolsdk2001/os/OSAddress.c": "ce0f7aa46994ac02146d56bdf54e1ae2795627843e3b8fff26961844e78a906b",
     "src/dolsdk2001/os/OSAlarm.c": "4c8cebe2905eaa44b218bb8bf4dbb4e098a3b92ccb2c5c3ed0a96c9b60d3389c",
     "src/dolsdk2001/os/OSAlloc.c": "5868c5806827534297e0b8f3dca1eff89d70b8caa1ed6f8b18914023aaba1df8",
@@ -550,7 +557,7 @@
     "src/dolsdk2001/os/OSAudioSystem.c": "75f705f28d36bd6c718aec0a4d5d28f46a631148434149e791491b6af403228d",
     "src/dolsdk2001/os/OSCache.c": "962091787eaab712cb028d0887b30d414b9ecd50ab130667cc3936a4ea290eeb",
     "src/dolsdk2001/os/OSContext.c": "8cfc70b92ed2c6e5f80e7c613bb2a6a325792b67a72b727d3e6ab2348df1e896",
-    "src/dolsdk2001/os/OSError.c": "f6982fa42c1f0a6885b92f756477d052bcbefba81f166180d3eeebfd38123292",
+    "src/dolsdk2001/os/OSError.c": "d45b291fe6ccea5444f9259e7451f6bd86ffa951869dc74f3a6b87455f7da104",
     "src/dolsdk2001/os/OSExi.c": "bc1ab5a0aa2aeb3c476304a7aed5a778c283c315c4427b1490f3dfdbcbbfdf2a",
     "src/dolsdk2001/os/OSExiAd16.c": "f75960f20bb0a4fd124b4a430a9dffa5553172f7e398d0cd0b6d03b2bf4407fd",
     "src/dolsdk2001/os/OSFont.c": "385ad009e79f50cef612ecf344df402f5b8d87bd8a74b345cfcbe5a37f326ec5",
@@ -2805,6 +2812,280 @@
       ],
       "object_sha256": "8161cd0bc3dfcc64fd23ffe4bdb8ab755a6f19090f536bf5f0e0ab7520bdb5a7",
       "linked_sha256": "4b61d941da6683af3d18ab23591e11184467c24968bbebf12368dc57f81d0225"
+    },
+    {
+      "id": "EXIUart",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 624,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "ProbeBarnacle",
+        "__OSEnableBarnacle",
+        "ReadUARTN",
+        "QueueLength"
+      ],
+      "object_sha256": "be531db14f51b76b506cb0e50a46f0164dec6a5ada3cd3d3d2913d0ee126dd0e",
+      "linked_sha256": "7e340a1eb718170247f2c7d13bee1b9d6ce0488df9c8dd7068a6ef24402b2d0a"
+    },
+    {
+      "id": "CARDRead",
+      "category": "restored_library",
+      "functions": 3,
+      "code_bytes": 1072,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "CARDRead",
+        "CARDCancel"
+      ],
+      "object_sha256": "6c19e560d3033981ce24e41a790d430ff82aa17bc326e89d0524ecbdd2cea0e1",
+      "linked_sha256": "476c01802692d4e1845372d1e911da040863fbaf165d0c49496da0cd1bed50be"
+    },
+    {
+      "id": "CARDStat",
+      "category": "restored_library",
+      "functions": 4,
+      "code_bytes": 1248,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "883f1f2b7f75fd05ccc3eb79a8d6db98d972f3b42724eac0a9bad716ab03bbe5",
+      "linked_sha256": "88157bd713c56c68220a62e5c184b5fc85253151c7ac02bdeaa450dea181b28f"
+    },
+    {
+      "id": "OSError",
+      "category": "restored_library",
+      "functions": 4,
+      "code_bytes": 968,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "e74f1a05aa6c3041cd2cce730316062b74b5d1ff53137ac5442f03bf608baebe",
+      "linked_sha256": "0d9c82aa0d35c2e3942f99f4dec7b70fe87c46df120a53800d1b5b7f37d28049"
+    },
+    {
+      "id": "AXCL",
+      "category": "restored_library",
+      "functions": 6,
+      "code_bytes": 1160,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "__AXWriteToCommandList",
+        "AXGetMode"
+      ],
+      "object_sha256": "fd59cd917de1de10e07d9c1548183821b5341dc03a0bf551879ad28953f93d0d",
+      "linked_sha256": "422adb1ae219d250f71081e2deb774c5b7598c260ca1520228d168d0b4418aac"
+    },
+    {
+      "id": "AXOut",
+      "category": "restored_library",
+      "functions": 8,
+      "code_bytes": 1720,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "AXRegisterCallback"
+      ],
+      "object_sha256": "a23b75d9cf49f3c1c836b84decc3eedc687198e6a3f4dc9434bb1b5f79776d42",
+      "linked_sha256": "9729e307b0e96b8c6ab0f88cc396129daa244bec8cc738818e276ab97dc7852f"
+    },
+    {
+      "id": "OS",
+      "category": "restored_library",
+      "functions": 11,
+      "code_bytes": 2180,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "__OSIsDebuggerPresent",
+        "__OSInitFPRs"
+      ],
+      "object_sha256": "2f14e1b1be6b1d63d6ab72c1b157e09c1f52274c58456d7dc14743ce344e9f2e",
+      "linked_sha256": "70ba1bf880ab95a19cf6bc2b0ba2fd2bc74bb510fa286caf572fba9fa50f1200"
     }
   ],
   "code_map": {
@@ -28350,92 +28631,8 @@
         ]
       },
       {
-        "name": "Unmatched files/OS.c [symbol evidence]",
-        "file_record": 190,
-        "file_name": "OS.c",
+        "name": "Unknown file/.text @ 80110b40",
         "ranges": [
-          {
-            "address": "0x801102bc",
-            "size": 40,
-            "kind": "function",
-            "name": "OSGetConsoleType",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x801102e4",
-            "size": 268,
-            "kind": "function",
-            "name": "ClearArena",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801103f0",
-            "size": 848,
-            "kind": "function",
-            "name": "OSInit",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80110740",
-            "size": 640,
-            "kind": "function",
-            "name": "OSExceptionInit",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801109c0",
-            "size": 36,
-            "kind": "function",
-            "name": "__OSDBIntegrator",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801109e4",
-            "size": 4,
-            "kind": "function",
-            "name": "__OSDBJump",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801109e8",
-            "size": 28,
-            "kind": "function",
-            "name": "__OSSetExceptionHandler",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80110a04",
-            "size": 20,
-            "kind": "function",
-            "name": "__OSGetExceptionHandler",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80110a18",
-            "size": 156,
-            "kind": "function",
-            "name": "OSExceptionVector",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80110ab4",
-        "ranges": [
-          {
-            "address": "0x80110ab4",
-            "size": 84,
-            "kind": "function",
-            "name": "OSDefaultExceptionHandler",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80110b08",
-            "size": 56,
-            "kind": "function",
-            "name": "__OSPSInit",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x80110b40",
             "size": 20,
@@ -28517,46 +28714,6 @@
             "kind": "function",
             "name": "LCDisable",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80112520",
-        "ranges": [
-          {
-            "address": "0x80112520",
-            "size": 128,
-            "kind": "function",
-            "name": "OSReport",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/OSError.c [symbol evidence]",
-        "file_record": 197,
-        "file_name": "OSError.c",
-        "ranges": [
-          {
-            "address": "0x801125a0",
-            "size": 300,
-            "kind": "function",
-            "name": "OSPanic",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x801126cc",
-            "size": 28,
-            "kind": "function",
-            "name": "OSSetErrorHandler",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x801126e8",
-            "size": 512,
-            "kind": "function",
-            "name": "__OSUnhandledException",
-            "evidence": "private-reference"
           }
         ]
       },
@@ -29832,123 +29989,6 @@
         ]
       },
       {
-        "name": "Unmatched files/AXCL.c [symbol evidence]",
-        "file_record": 231,
-        "file_name": "AXCL.c",
-        "ranges": [
-          {
-            "address": "0x8011ff2c",
-            "size": 8,
-            "kind": "function",
-            "name": "__AXGetCommandListCycles",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8011ff34",
-            "size": 60,
-            "kind": "function",
-            "name": "__AXGetCommandListAddress",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8011ff70",
-            "size": 1040,
-            "kind": "function",
-            "name": "__AXNextFrame",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80120380",
-            "size": 28,
-            "kind": "function",
-            "name": "__AXClInit",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8012039c",
-        "ranges": [
-          {
-            "address": "0x8012039c",
-            "size": 4,
-            "kind": "function",
-            "name": "__AXClQuit",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801203a0",
-            "size": 20,
-            "kind": "function",
-            "name": "AXSetMode",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/AXOut.c [symbol evidence]",
-        "file_record": 232,
-        "file_name": "AXOut.c",
-        "ranges": [
-          {
-            "address": "0x801203b4",
-            "size": 392,
-            "kind": "function",
-            "name": "__AXOutNewFrame",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8012053c",
-            "size": 104,
-            "kind": "function",
-            "name": "__AXOutAiCallback",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x801205a4",
-            "size": 12,
-            "kind": "function",
-            "name": "__AXDSPInitCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801205b0",
-            "size": 88,
-            "kind": "function",
-            "name": "__AXDSPResumeCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80120608",
-            "size": 12,
-            "kind": "function",
-            "name": "__AXDSPDoneCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80120614",
-            "size": 196,
-            "kind": "function",
-            "name": "__AXOutInitDSP",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x801206d8",
-            "size": 832,
-            "kind": "function",
-            "name": "__AXOutInit",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80120a18",
-            "size": 84,
-            "kind": "function",
-            "name": "__AXOutQuit",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/AXVPB.c [symbol evidence]",
         "file_record": 234,
         "file_name": "AXVPB.c",
@@ -30507,76 +30547,8 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 80128354",
+        "name": "Unknown file/.text @ 801291dc",
         "ranges": [
-          {
-            "address": "0x80128354",
-            "size": 440,
-            "kind": "function",
-            "name": "__CARDSeek",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/CARDRead.c [symbol evidence]",
-        "file_record": 250,
-        "file_name": "CARDRead.c",
-        "ranges": [
-          {
-            "address": "0x8012850c",
-            "size": 304,
-            "kind": "function",
-            "name": "ReadCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8012863c",
-            "size": 328,
-            "kind": "function",
-            "name": "CARDReadAsync",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/CARDStat.c [symbol evidence]",
-        "file_record": 253,
-        "file_name": "CARDStat.c",
-        "ranges": [
-          {
-            "address": "0x80128cfc",
-            "size": 504,
-            "kind": "function",
-            "name": "UpdateIconOffsets",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80128ef4",
-            "size": 300,
-            "kind": "function",
-            "name": "CARDGetStatus",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80129020",
-            "size": 372,
-            "kind": "function",
-            "name": "CARDSetStatusAsync",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80129194",
-        "ranges": [
-          {
-            "address": "0x80129194",
-            "size": 72,
-            "kind": "function",
-            "name": "CARDSetStatus",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x801291dc",
             "size": 188,
@@ -33639,27 +33611,6 @@
             "size": 892,
             "kind": "function",
             "name": "EXIGetID",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/EXIUart.c [symbol evidence]",
-        "file_record": 359,
-        "file_name": "EXIUart.c",
-        "ranges": [
-          {
-            "address": "0x80145cf8",
-            "size": 112,
-            "kind": "function",
-            "name": "InitializeUART",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80145d68",
-            "size": 512,
-            "kind": "function",
-            "name": "WriteUARTN",
             "evidence": "private-reference"
           }
         ]

@@ -1,0 +1,101 @@
+{
+  "id": "CARDRead",
+  "source": "src/dolphin/card/CARDRead.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80128354",
+      "size": 1072,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "ReadCallback",
+      "address": "0x8012850c",
+      "size": 304,
+      "binding": 0
+    },
+    {
+      "name": "__CARDSeek",
+      "address": "0x80128354",
+      "size": 440,
+      "binding": 1
+    },
+    {
+      "name": "CARDReadAsync",
+      "address": "0x8012863c",
+      "size": 328,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DCInvalidateRange": "0x80111850",
+    "OSDisableInterrupts": "0x801135cc",
+    "OSRestoreInterrupts": "0x801135f4",
+    "__CARDAccess": "0x80127ab8",
+    "__CARDBlock": "0x8032f8a0",
+    "__CARDDefaultApiCallback": "0x80122a7c",
+    "__CARDGetControlBlock": "0x801239c4",
+    "__CARDGetDirBlock": "0x80125664",
+    "__CARDGetFatBlock": "0x80125260",
+    "__CARDIsPublic": "0x80127b50",
+    "__CARDPutControlBlock": "0x80123a7c",
+    "__CARDRead": "0x801250bc",
+    "__CARDSync": "0x80123ce4",
+    "__CARDSyncCallback": "0x80122a80"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "CARDRead",
+    "CARDCancel"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/card/CARDRead.c"
+  },
+  "original_file": "CARDRead.c",
+  "original_file_index": 11292,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "CARDRead.json"
+  }
+}

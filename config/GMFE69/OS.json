@@ -1,0 +1,197 @@
+{
+  "id": "OS",
+  "source": "src/dolsdk2001/os/OS.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x801102bc",
+      "size": 2180,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018c778",
+      "size": 292,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 443
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034ef88",
+      "size": 32,
+      "type": 8,
+      "linked_offset": 8,
+      "linked_size": 40
+    }
+  ],
+  "functions": [
+    {
+      "name": "ClearArena",
+      "address": "0x801102e4",
+      "size": 268,
+      "binding": 0
+    },
+    {
+      "name": "OSExceptionInit",
+      "address": "0x80110740",
+      "size": 640,
+      "binding": 0
+    },
+    {
+      "name": "__OSDBIntegrator",
+      "address": "0x801109c0",
+      "size": 36,
+      "binding": 0
+    },
+    {
+      "name": "__OSDBJump",
+      "address": "0x801109e4",
+      "size": 4,
+      "binding": 0
+    },
+    {
+      "name": "OSExceptionVector",
+      "address": "0x80110a18",
+      "size": 156,
+      "binding": 0
+    },
+    {
+      "name": "OSGetConsoleType",
+      "address": "0x801102bc",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "OSInit",
+      "address": "0x801103f0",
+      "size": 848,
+      "binding": 1
+    },
+    {
+      "name": "OSDefaultExceptionHandler",
+      "address": "0x80110ab4",
+      "size": 84,
+      "binding": 1
+    },
+    {
+      "name": "__OSSetExceptionHandler",
+      "address": "0x801109e8",
+      "size": 28,
+      "binding": 1
+    },
+    {
+      "name": "__OSGetExceptionHandler",
+      "address": "0x80110a04",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "__OSPSInit",
+      "address": "0x80110b08",
+      "size": 56,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DBPrintf": "0x8011026c",
+    "DCFlushRangeNoSync": "0x801118e8",
+    "EXIInit": "0x80145658",
+    "EnableMetroTRKInterrupts": "0x801371a0",
+    "ICFlashInvalidate": "0x80111980",
+    "ICInvalidateRange": "0x80111948",
+    "OSDisableInterrupts": "0x801135cc",
+    "OSEnableInterrupts": "0x801135e0",
+    "OSGetArenaHi": "0x80111588",
+    "OSGetArenaLo": "0x80111590",
+    "OSGetResetCode": "0x80114b38",
+    "OSInitAlarm": "0x80110b54",
+    "OSReport": "0x80112520",
+    "OSSetArenaHi": "0x80111598",
+    "OSSetArenaLo": "0x801115a0",
+    "PPCMfhid2": "0x801101ac",
+    "PPCMthid2": "0x801101b4",
+    "SIInit": "0x8014683c",
+    "__ArenaHi": "0x81700000",
+    "__ArenaLo": "0x80363ce0",
+    "__DBIsExceptionMarked": "0x80110250",
+    "__DVDLongFileNameFlag": "0x8034f094",
+    "__OSCacheInit": "0x80111bc4",
+    "__OSContextInit": "0x801124d8",
+    "__OSGetSystemTime": "0x80116a60",
+    "__OSInitAudioSystem": "0x801115a8",
+    "__OSInitMemoryProtection": "0x80114210",
+    "__OSInitSram": "0x8011506c",
+    "__OSInitSystemCall": "0x80115950",
+    "__OSInterruptInit": "0x80113648",
+    "__OSModuleInit": "0x80113e34",
+    "__OSResetSWInterruptHandler": "0x80114b68",
+    "__OSSetInterruptHandler": "0x80113618",
+    "__OSThreadInit": "0x801159b4",
+    "__OSUnhandledException": "0x801126e8",
+    "__PADSpec": "0x8034f164",
+    "__flush_cache": "0x80007350",
+    "__init_hardware": "0x80007330",
+    "_stack_addr": "0x80361cd0",
+    "memcpy": "0x800094f8",
+    "memset": "0x80009410"
+  },
+  "undefined_in_discarded_code": [
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers"
+  ],
+  "discarded_functions": [
+    "__OSIsDebuggerPresent",
+    "__OSInitFPRs"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/os/OS.c"
+  },
+  "original_file": "OS.c",
+  "original_file_index": 10622,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "__OSInitFPRs"
+  ],
+  "sda_externals": [
+    "__DVDLongFileNameFlag",
+    "__PADSpec"
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "id": "AXCL",
+  "source": "src/dolsdk2001/ax/AXCL.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8011ff2c",
+      "size": 1160,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x8031ac40",
+      "size": 1536,
+      "type": 8
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f230",
+      "size": 16,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "__AXGetCommandListCycles",
+      "address": "0x8011ff2c",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "__AXGetCommandListAddress",
+      "address": "0x8011ff34",
+      "size": 60,
+      "binding": 1
+    },
+    {
+      "name": "__AXNextFrame",
+      "address": "0x8011ff70",
+      "size": 1040,
+      "binding": 1
+    },
+    {
+      "name": "__AXClInit",
+      "address": "0x80120380",
+      "size": 28,
+      "binding": 1
+    },
+    {
+      "name": "__AXClQuit",
+      "address": "0x8012039c",
+      "size": 4,
+      "binding": 1
+    },
+    {
+      "name": "AXSetMode",
+      "address": "0x801203a0",
+      "size": 20,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DCFlushRange": "0x80111880",
+    "__AXGetAuxAInput": "0x8011fcf0",
+    "__AXGetAuxAOutput": "0x8011fd24",
+    "__AXGetAuxBInput": "0x8011fd40",
+    "__AXGetAuxBOutput": "0x8011fd74",
+    "__AXGetPBs": "0x80121860",
+    "__AXGetStudio": "0x80120a6c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "__AXWriteToCommandList",
+    "AXGetMode"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/ax/AXCL.c"
+  },
+  "original_file": "AXCL.c",
+  "original_file_index": 11150,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": []
+}
