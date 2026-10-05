@@ -76,9 +76,9 @@ published reference, without inventing types or boundaries.
 
 1. Continue the SDK unit queue (`scratch/remaining.txt`). Each accepted unit
    settles file boundaries and adds verified bytes.
-2. Write `docs/ReuseMap.md`: map each recovered file group to a published
-   reference (dolsdk2001, dolsdk2004, Rising Sun, NFS MW EAGL, RE4 formatter,
-   …) with the evidence and its limits, mirroring Rising Sun's reuse index.
+2. Maintain `docs/ReuseMap.md`: each recovered file group mapped to candidate
+   published references (dolsdk2001, dolsdk2004, MWCC MSL/runtime, NFS MW EAGL,
+   Rising Sun, …), with evidence, limits and the ranked backlog.
 3. Use `tools/code_map.py` and `tools/dependencies.py` to rank shared helpers
    by unfinished callers, and record the ranking (a `docs/Dependencies.md`).
 4. Add mutation tests for accepted units in `tests/test_reconstruction.py`.
