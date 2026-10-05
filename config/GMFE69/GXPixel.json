@@ -1,0 +1,154 @@
+{
+  "id": "GXPixel",
+  "source": "src/dolsdk2001/gx/GXPixel.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8012f7c8",
+      "size": 1864,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80190298",
+      "size": 32,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x803514d8",
+      "size": 48,
+      "type": 1,
+      "linked_offset": 32,
+      "linked_size": 120
+    }
+  ],
+  "functions": [
+    {
+      "name": "GXSetFog",
+      "address": "0x8012f7c8",
+      "size": 432,
+      "binding": 1
+    },
+    {
+      "name": "GXSetFogRangeAdj",
+      "address": "0x8012f978",
+      "size": 256,
+      "binding": 1
+    },
+    {
+      "name": "GXSetBlendMode",
+      "address": "0x8012fa78",
+      "size": 260,
+      "binding": 1
+    },
+    {
+      "name": "GXSetColorUpdate",
+      "address": "0x8012fb7c",
+      "size": 64,
+      "binding": 1
+    },
+    {
+      "name": "GXSetAlphaUpdate",
+      "address": "0x8012fbbc",
+      "size": 64,
+      "binding": 1
+    },
+    {
+      "name": "GXSetZMode",
+      "address": "0x8012fbfc",
+      "size": 120,
+      "binding": 1
+    },
+    {
+      "name": "GXSetZCompLoc",
+      "address": "0x8012fc74",
+      "size": 64,
+      "binding": 1
+    },
+    {
+      "name": "GXSetPixelFmt",
+      "address": "0x8012fcb4",
+      "size": 272,
+      "binding": 1
+    },
+    {
+      "name": "GXSetDither",
+      "address": "0x8012fdc4",
+      "size": 64,
+      "binding": 1
+    },
+    {
+      "name": "GXSetDstAlpha",
+      "address": "0x8012fe04",
+      "size": 84,
+      "binding": 1
+    },
+    {
+      "name": "GXSetFieldMask",
+      "address": "0x8012fe58",
+      "size": 56,
+      "binding": 1
+    },
+    {
+      "name": "GXSetFieldMode",
+      "address": "0x8012fe90",
+      "size": 128,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "__GXFlushTextureState": "0x8012ee54",
+    "__cvt_fp2unsigned": "0x801388e8",
+    "gx": "0x8034e4f8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "GXInitFogAdjTable"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/gx/GXPixel.c"
+  },
+  "original_file": "GXPixel.c",
+  "original_file_index": 11414,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "gx"
+  ]
+}

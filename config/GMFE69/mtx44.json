@@ -1,0 +1,89 @@
+{
+  "id": "mtx44",
+  "source": "src/dolphin/mtx/mtx44.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80116d20",
+      "size": 308,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x80351428",
+      "size": 16,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 24
+    }
+  ],
+  "functions": [
+    {
+      "name": "C_MTXFrustum",
+      "address": "0x80116d20",
+      "size": 156,
+      "binding": 1
+    },
+    {
+      "name": "C_MTXOrtho",
+      "address": "0x80116dbc",
+      "size": 152,
+      "binding": 1
+    }
+  ],
+  "externals": {},
+  "undefined_in_discarded_code": [
+    "tanf"
+  ],
+  "discarded_functions": [
+    "C_MTXPerspective"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/mtx/mtx44.c"
+  },
+  "original_file": "mtx44.c",
+  "original_file_index": 10851,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "mtx44.json"
+  }
+}

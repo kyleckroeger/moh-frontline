@@ -3,6 +3,9 @@
 #include "os/__os.h"
 #include "__card.h"
 
+// Frontline: format progress is kept at the mount-step offset (0x24).
+#define formatStep mountStep
+
 static void FormatCallback(s32 chan, s32 result) {
     CARDControl* card;
     CARDCallback callback;
@@ -124,11 +127,11 @@ s32 __CARDFormatRegion(s32 chan, u16 encode) {
 }
 
 s32 CARDFormatAsync(s32 chan, CARDCallback callback) {
-    return __CARDFormatRegionAsync(chan, __CARDGetFontEncode(), callback);
+    return __CARDFormatRegionAsync(chan, OSGetFontEncode(), callback);
 }
 
 s32 CARDFormat(s32 chan) {
-    s32 result = __CARDFormatRegionAsync(chan, __CARDGetFontEncode(), &__CARDSyncCallback);
+    s32 result = __CARDFormatRegionAsync(chan, OSGetFontEncode(), &__CARDSyncCallback);
     if (result < 0) {
         return result;
     }

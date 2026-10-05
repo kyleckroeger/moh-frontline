@@ -1,0 +1,177 @@
+{
+  "id": "dvdfs",
+  "source": "src/dolsdk2001/dvd/dvdfs.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "signed",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80117ca8",
+      "size": 1952,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018dc30",
+      "size": 308,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 947
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034e4a0",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f080",
+      "size": 32,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "entryToPath",
+      "address": "0x80118134",
+      "size": 352,
+      "binding": 0
+    },
+    {
+      "name": "cbForReadAsync",
+      "address": "0x80118418",
+      "size": 48,
+      "binding": 0
+    },
+    {
+      "name": "__DVDFSInit",
+      "address": "0x80117ca8",
+      "size": 56,
+      "binding": 1
+    },
+    {
+      "name": "DVDConvertPathToEntrynum",
+      "address": "0x80117ce0",
+      "size": 756,
+      "binding": 1
+    },
+    {
+      "name": "DVDFastOpen",
+      "address": "0x80117fd4",
+      "size": 116,
+      "binding": 1
+    },
+    {
+      "name": "DVDOpen",
+      "address": "0x80118048",
+      "size": 200,
+      "binding": 1
+    },
+    {
+      "name": "DVDGetCurrentDir",
+      "address": "0x80118294",
+      "size": 196,
+      "binding": 1
+    },
+    {
+      "name": "DVDClose",
+      "address": "0x80118110",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "DVDReadAsyncPrio",
+      "address": "0x80118358",
+      "size": 192,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DVDCancel": "0x8011a524",
+    "DVDReadAbsAsyncPrio": "0x80119ee8",
+    "OSDisableInterrupts": "0x801135cc",
+    "OSPanic": "0x801125a0",
+    "OSReport": "0x80112520",
+    "OSRestoreInterrupts": "0x801135f4",
+    "OSSleepThread": "0x80116850",
+    "OSWakeupThread": "0x8011693c",
+    "tolower": "0x8013c66c"
+  },
+  "undefined_in_discarded_code": [
+    "DVDPrepareStreamAbsAsync",
+    "DVDSeekAbsAsyncPrio"
+  ],
+  "discarded_functions": [
+    "isSame",
+    "myStrncpy",
+    "DVDConvertEntrynumToPath",
+    "DVDChangeDir",
+    "DVDReadPrio",
+    "cbForReadSync",
+    "DVDSeekAsyncPrio",
+    "cbForSeekAsync",
+    "DVDSeekPrio",
+    "cbForSeekSync",
+    "DVDGetFileInfoStatus",
+    "DVDOpenDir",
+    "DVDReadDir",
+    "DVDCloseDir",
+    "DVDGetFSTLocation",
+    "DVDPrepareStreamAsync",
+    "cbForPrepareStreamAsync",
+    "DVDPrepareStream",
+    "cbForPrepareStreamSync",
+    "DVDGetTransferredSize"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/dvd/dvdfs.c"
+  },
+  "original_file": "dvdfs.c",
+  "original_file_index": 10889,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "isSame",
+    "myStrncpy",
+    "DVDConvertEntrynumToPath",
+    "cbForReadSync",
+    "cbForSeekAsync",
+    "cbForSeekSync",
+    "cbForPrepareStreamAsync",
+    "cbForPrepareStreamSync"
+  ],
+  "sda_externals": []
+}

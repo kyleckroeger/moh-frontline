@@ -99,7 +99,7 @@ s32 CARDWriteAsync(CARDFileInfo* fileInfo, void* buf, s32 length, s32 offset, CA
 
     dir = __CARDGetDirBlock(card);
     ent = &dir[fileInfo->fileNo];
-    result = __CARDIsWritable(card, ent);
+    result = __CARDAccess(card, ent);
     if (result < 0)
         return __CARDPutControlBlock(card, result);
 

@@ -44,7 +44,13 @@
     "AXAux.json",
     "GXFifo.json",
     "OSAlarm.json",
-    "CARDUnlock.json"
+    "CARDUnlock.json",
+    "GXPixel.json",
+    "dvdfs.json",
+    "mtx44.json",
+    "CARDCheck.json",
+    "CARDWrite.json",
+    "CARDFormat.json"
   ],
   "progress": {
     "code_bytes": 1414572,

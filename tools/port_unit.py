@@ -145,7 +145,9 @@ def match(obj, original, file_index):
             elif symbol["section"] < 0xFF00:
                 offset = position(symbol["section"], symbol["address"] + addend)
                 if offset is None:
-                    raise ValueError(f"Kept code references discarded code at {base + where:#x}")
+                    if section == text_index:
+                        raise ValueError(f"Kept code references discarded code at {base + where:#x}")
+                    continue  # data of discarded code (e.g. a jump table), trimmed later
                 name = names[symbol["section"]]
                 if name not in addresses:
                     changed = True

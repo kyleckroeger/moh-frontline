@@ -144,7 +144,7 @@ void GXSetFogRangeAdj(GXBool enable, u16 center, GXFogAdjTable *table)
         }
     }
     range_c = 0;
-    SET_REG_FIELD(0x115, range_c, 10, 0, center + 340);
+    SET_REG_FIELD(0x115, range_c, 10, 0, center + 342);
     SET_REG_FIELD(0x116, range_c, 1, 10, enable);
     SET_REG_FIELD(0x117, range_c, 8, 24, 0xE8);
     GX_WRITE_RAS_REG(range_c);

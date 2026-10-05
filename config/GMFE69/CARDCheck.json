@@ -1,0 +1,134 @@
+{
+  "id": "CARDCheck",
+  "source": "src/dolphin/card/CARDCheck.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x801258c8",
+      "size": 3900,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "VerifyID",
+      "address": "0x80125a78",
+      "size": 644,
+      "binding": 0
+    },
+    {
+      "name": "VerifyDir",
+      "address": "0x80125cfc",
+      "size": 576,
+      "binding": 0
+    },
+    {
+      "name": "VerifyFAT",
+      "address": "0x80125f3c",
+      "size": 644,
+      "binding": 0
+    },
+    {
+      "name": "__CARDCheckSum",
+      "address": "0x801258c8",
+      "size": 432,
+      "binding": 1
+    },
+    {
+      "name": "__CARDVerify",
+      "address": "0x801261c0",
+      "size": 140,
+      "binding": 1
+    },
+    {
+      "name": "CARDCheckExAsync",
+      "address": "0x8012624c",
+      "size": 1424,
+      "binding": 1
+    },
+    {
+      "name": "CARDCheckAsync",
+      "address": "0x801267dc",
+      "size": 40,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "OSDisableInterrupts": "0x801135cc",
+    "OSGetFontEncode": "0x80112b90",
+    "OSRestoreInterrupts": "0x801135f4",
+    "__CARDBlock": "0x8032f8a0",
+    "__CARDGetControlBlock": "0x801239c4",
+    "__CARDPutControlBlock": "0x80123a7c",
+    "__CARDSync": "0x80123ce4",
+    "__CARDSyncCallback": "0x80122a80",
+    "__CARDUpdateDir": "0x80125804",
+    "__CARDUpdateFatBlock": "0x801255b8",
+    "__OSLockSramEx": "0x801151fc",
+    "__OSUnlockSramEx": "0x80115584",
+    "__flush_cache": "0x80007350",
+    "__init_hardware": "0x80007330",
+    "__shr2i": "0x80138dc4",
+    "__start": "0x80007140",
+    "memcpy": "0x800094f8",
+    "memset": "0x80009410"
+  },
+  "undefined_in_discarded_code": [
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers"
+  ],
+  "discarded_functions": [
+    "CARDCheckEx",
+    "CARDCheck"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/card/CARDCheck.c"
+  },
+  "original_file": "CARDCheck.c",
+  "original_file_index": 11272,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "CARDCheck.json"
+  }
+}

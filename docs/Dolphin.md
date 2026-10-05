@@ -29,12 +29,26 @@ Upstream is commit `eb1234c` of dolsdk2001.
 | `gx/GXGeometry.c`, `gx/GXDisplayList.c` | Flush test on `vNumNot == 0` | Inverted branch in `GXBegin`/`GXCallDisplayList` |
 | `gx/GXMisc.c` | `GXSetMisc` maintains `vNumNot`; `GXFlush` writes 8 words | 2004 code, sizes and bytes |
 | `gx/GXTransform.c` | Scissor and viewport offset 342 (was 340) | Immediates and `.sdata2` constant `342.0f` |
+| `gx/GXPixel.c` | `GXSetFogRangeAdj` centre offset 342 (was 340) | Immediate `center + 342` |
+| `dvd/dvdfs.c` | Dec 2001 `OSPanic` line numbers 376, 739, 745 | `OSPanic` line-number immediates |
 | `gx/GXFifo.c` | `CPUFifo`/`GPFifo` private and declared first; `__GXFifoInit` clears them | Local symbols and `.sbss` order |
 | `ax/AXAlloc.c` | `__AXPushFreeStack` clears `priority` | 2004 code |
 | `ax/AXAux.c` | Aux input getters test the callback; the B getter tests `__AXCallbackAuxA` (an SDK bug fixed later) | Relocation to `__AXCallbackAuxA` at `0x8011fd42` |
 | `os/OSAlarm.c`, `os/__os.h` | System-time calls throughout; 2004 `OSSetPeriodicAlarm` and `DecrementerExceptionCallback` | Relocations to `__OSGetSystemTime` |
 | `card/CARDUnlock.c` | `DoneCallback` returns after each error callback | 2004 code |
 | `include/dolphin/card.h` | `CARDControl` gains `cid` and `diskID` (size `0x110`) | `mulli rX, chan, 272` |
+
+## Local modifications to the 2004 tree
+
+Four further units are verified from `src/dolphin/` (the 2004 adaptation).
+`mtx44.c` needs no change; the `card` units keep behaviour the 2004 source
+later changed, so they are edited against the original bytes.
+
+| File | Change | Evidence |
+| --- | --- | --- |
+| `card/CARDCheck.c` | `VerifyID` tests `encode` before the serial checks, using `OSGetFontEncode` | Check order in the original; relocation to `OSGetFontEncode` |
+| `card/CARDFormat.c` | Format progress stays at the mount-step offset (`formatStep` = `mountStep`); `OSGetFontEncode` | Relocation to `OSGetFontEncode`; shared progress field |
+| `card/CARDWrite.c` | `__CARDAccess` instead of `__CARDIsWritable` | Relocation to `__CARDAccess` |
 
 ## Porting workflow
 
@@ -84,10 +98,15 @@ The original was linked by the MW linker, unlike Rising Sun's ProDG link:
 - **Middle-of-section data stripping**, and small-data ordering in `dsp.c` and
   `dsp_task.c`: no single base places all kept objects.
 - **Revision differences.** Remaining SDK files differ from both reconstructions
-  in some functions. `scratch`-style comparison of each function's size against
-  the 2001 and 2004 builds shows where to start: `Pad`, `CARDCheck` and
-  `CARDFormat` are explained entirely by 2004 functions, which suggests the 2004
-  source as their base.
+  in some functions. A `scratch`-style comparison of each function's size against
+  the 2001 and 2004 builds shows where to start: `Pad` is explained entirely by
+  2004 functions, which suggests the 2004 source as its base. `CARDCheck`,
+  `CARDFormat` and `CARDWrite` were resolved that way and are now accepted.
+- **Discarded functions with retained jump tables.** MW dead-strips a function
+  while its switch tables sit in a data section that is otherwise kept. The SN
+  linker then retains the function through the data relocation, so `GXPerf`
+  (whose trimmed `.data` references `GXReadGPMetric`) cannot yet reproduce the
+  original `.text` layout.
 - Compiled code that calls a different function than the original is reported by
   `port_unit.py` (for example `OSGetTime` vs `__OSGetSystemTime`).
 - `PPCArch`, `odenotstub`: linked function symbols differ (likely asm-only or

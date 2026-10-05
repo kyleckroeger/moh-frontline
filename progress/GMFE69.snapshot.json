@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 40480,
+    "matching_code_bytes": 51416,
     "total_executable_code_bytes": 1414572,
-    "percent": 2.8616429563147014,
+    "percent": 3.6347389881886536,
     "categories": {
       "reconstructed_game": 0,
-      "restored_library": 40480
+      "restored_library": 51416
     },
-    "matching_functions": 234
+    "matching_functions": 271
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -23,17 +23,21 @@
     "config/GMFE69/AXSPB.json": "b545c13a80837ee4ec6447cd14220ca12742a60c4525e91f744603629870f101",
     "config/GMFE69/AmcExi2Stubs.json": "06e09d04a4badb35d73036086b321ab231a21afa20b86979b63e9546006ca0ce",
     "config/GMFE69/CARDBlock.json": "9b20825c0b22ffb86797c911f53b3f7b61bc82ca79662bb7770eff62bfd5f25a",
+    "config/GMFE69/CARDCheck.json": "520a86f316a267f2b8745ffdc72ef9a7d9545335b18b7e85247563e79c50e69f",
     "config/GMFE69/CARDCreate.json": "3cf6d6beba2ac741643552f85fd9f114fd204267747630029385ff3a7a704a0d",
     "config/GMFE69/CARDDelete.json": "c1c26e08366317235691bda59dd8e55e40ffe504c18f081dbc726ba75955bc2c",
     "config/GMFE69/CARDDir.json": "45f60e8765248b1f5161f2ef9e703619a87d6a3115f7f0e6d745bc807e494618",
+    "config/GMFE69/CARDFormat.json": "07cdbc24fc5f0880fdbd38f2a28eb06cc3661b6c3a399647b24065059d98f4e6",
     "config/GMFE69/CARDRdwr.json": "f6823e5de5ee80dc52792b3137627ea5401106745a584bc344d54eeed63855b0",
     "config/GMFE69/CARDUnlock.json": "7716542ea7b19b3b01b0afaf41869f75a4772afefa61129b459ba5b420bc3285",
+    "config/GMFE69/CARDWrite.json": "281660a172ac3b60419b0fb73f382239d55a0c22e81768890c98b0e0ca2bb817",
     "config/GMFE69/GXBump.json": "a78c5c03a49b6ec3cbb3d45288946827cb15b6fbf7b0a7c632b5191731e75525",
     "config/GMFE69/GXDisplayList.json": "f7347b3d89b9742bcebfe209ec4be05580ca9effb91646f940b7a03d4648d397",
     "config/GMFE69/GXFifo.json": "f73ba935928b52f77cce38e854ff5d6557357dacbe2ea1f2fbc6b8ed85afa229",
     "config/GMFE69/GXGeometry.json": "812b2a048b783c48d666c565007dfcf4860344f7cad016a6d903726c22befd09",
     "config/GMFE69/GXLight.json": "61ed42d7e68c16cfbfc3a1e46f52a5035fc114ac18fbfeaddd363d3888295166",
     "config/GMFE69/GXMisc.json": "08008e3e750601a0a56d2442b14c450e5677f3ebe4f14eb98e6066cb011367d5",
+    "config/GMFE69/GXPixel.json": "8a078293429864d0af0f5181a695a381b0144714e2ac2281d6ce38136aeeb262",
     "config/GMFE69/GXStubs.json": "f982b70601475f696346533ae77d4424c28e7ff3e577f677e69199958fa00fdc",
     "config/GMFE69/GXTransform.json": "38225301a6fd0d656301839a81128f2235b7fbe70c809990d1beeb45d8a5182b",
     "config/GMFE69/OSAlarm.json": "1e86d7d9e28dd6c2d842af34882125cb9181ba4a9c4adca999722390b2e59824",
@@ -58,10 +62,12 @@
     "config/GMFE69/db.json": "f5cdac8d1b6ec28c05d82995e2918679665f81055beaea75273deb9b2bb4a458",
     "config/GMFE69/dsp_debug.json": "abb1bf69b26be3567a5e3a22a729922f11d7a3b8c74ed938895798d0072114a0",
     "config/GMFE69/dvderror.json": "e707cc3372abd7ab11663cb1d927b494694905f6aff6c33152a9b6fcf015590b",
+    "config/GMFE69/dvdfs.json": "3a7e5c902b07320492019461ccbfe54e1c9166f4a2f84d8d3a4b7446a7f425f9",
     "config/GMFE69/dvdqueue.json": "3972551d2dea13e4955e0652398d4423a1ecfbf913abb2f4a0d352a2d558c905",
     "config/GMFE69/fstload.json": "c101975fb01250bc8f0325effbe643330b62ccd00eac41e24aff682c06866309",
+    "config/GMFE69/mtx44.json": "6ec8c80e78a896f985eb769ac01b97ff684e2d83116660d2c740123270c0ddf5",
     "config/GMFE69/mtxvec.json": "bb6a4f09ca854ab9a727be34f0a20df7f53e0e081e1b83581418b88de9987009",
-    "config/GMFE69/project.json": "5d1abb16de2e0e9eb39c641cebc8782dc6a979093c991ced3d41429518a39964",
+    "config/GMFE69/project.json": "493f46e8d5a33ecf9c616d7563485749266e049da7788a23006ab854b95a7e42",
     "config/GMFE69/target.json": "f7e8d7b660fd35f21cdc13385271d7b73fabda6669a0d112db63b3b1f3e8b3b2",
     "include/dolphin-sdk/charPipeline/fileCache.h": "9fc5bbfba874376ec1d239271cda99d84c256b2bd07f884d1177bee6b705b985",
     "include/dolphin-sdk/charPipeline/structures/HTable.h": "e1e36439d044200512635bc37470f318258d75767fad9ec2d9c407f9c0ee1af8",
@@ -332,11 +338,11 @@
     "src/dolphin/axfx/__axfx.h": "73686c724654e027e956a59e2806002dd51484baedb37791962dc354dee8a43f",
     "src/dolphin/card/CARDBios.c": "f133713b025149a27f75cf037ee2c49dc04f71eaacdd84a21ede03951e3cf81b",
     "src/dolphin/card/CARDBlock.c": "af6009b5e8adbbc7ca67669ac860d04f99cc7cf98138d48ce9bfea20dc96c340",
-    "src/dolphin/card/CARDCheck.c": "8f6d3d01cd67812d41ed2e75a8f5845d0b88015ab8f0460e894c72705689f4fb",
+    "src/dolphin/card/CARDCheck.c": "86a3ff4988ab042cb09aa4df95f05d230520263dc14b70882b80b08c199c2d4e",
     "src/dolphin/card/CARDCreate.c": "64954da2c10ef3a7630e815f944be9adc8911b0edfa6f6aee0d7d4b7d03ed55e",
     "src/dolphin/card/CARDDelete.c": "2abf75a7181861bf84bf2debc97314e4950f7fe1f02268854f574ae24eaf0540",
     "src/dolphin/card/CARDDir.c": "7bc7f6cec27df1d343f43232be84675c763bf913ccdc6597a8cfd56a4b3d98a9",
-    "src/dolphin/card/CARDFormat.c": "cef8ee2570f64969c5eaf3746a3b321d23d25765b55bb8baca34d131ce9fa39d",
+    "src/dolphin/card/CARDFormat.c": "c428840947d3498635415387a116b6129e64584fc9bc5b5d9eb1b6e51446a236",
     "src/dolphin/card/CARDMount.c": "6684ce9862fbcd7c577372d9e42e62279f23fea4ef2974a51d3cb054753a2bcf",
     "src/dolphin/card/CARDNet.c": "4b05df1e6871bb4b7064d0a4b6dbf8bdac17edb1c39ee5196d2b71c2de60dd22",
     "src/dolphin/card/CARDOpen.c": "666a8119c9431235014123743e37b7ecbe10996d3bc326de39469b52ca215a1f",
@@ -346,7 +352,7 @@
     "src/dolphin/card/CARDStat.c": "965da27fe108b91e933e7a5df40b56c22d9aa6d64db3faf66159d195616fc682",
     "src/dolphin/card/CARDStatEx.c": "1739cc582bece6fc3e160e4a7ea1bee65c7cd243f87b7b25a6373d5a4104b42b",
     "src/dolphin/card/CARDUnlock.c": "a1463f934bcab1b024e306875ff63e1176c48398d991b4ef2e2ca1095aa21815",
-    "src/dolphin/card/CARDWrite.c": "b8a307f52d8dd379d8853046dd1ad393075a7729d1f70d942a4502b59a46ac80",
+    "src/dolphin/card/CARDWrite.c": "7509f975c0f12ee0ca9077ddda135495e2310041bf4b463ed95a5724895a1518",
     "src/dolphin/card/__card.h": "816a5b93b6785e51d283d53d3b9e106d3a8951f4db22120e566b7df1c73ccfc7",
     "src/dolphin/demo/__demo.h": "32c8db3d5a18e8cd2f080bec3eea4150709f761eb638835d6d4aace0e2b2d481",
     "src/dolphin/dsp/__dsp.h": "c6edc766873de40e00c182182e6acad32d25cabed3f3b7f15ff87a02b8c52842",
@@ -494,7 +500,7 @@
     "src/dolsdk2001/dtk/dtk.c": "550627946d4b53897f7a463478d4304c7757d82253f76386f2559a5573b24574",
     "src/dolsdk2001/dvd/__dvd.h": "7d7c1d795cd0498fddf3f1b54548b43a069de3ebb763f038e78371b3ba5d695d",
     "src/dolsdk2001/dvd/dvd.c": "ddcc8e3c0d7059697dd88c37d73b3c0c7802e294b0c5b7d993558ec13a2cca61",
-    "src/dolsdk2001/dvd/dvdfs.c": "58cfd3a0467a19eeabfaf4b0b2ca3543ff0d942943ff18b1b668a5e88cddb1d8",
+    "src/dolsdk2001/dvd/dvdfs.c": "6a0713f6aea7b07d3c2f28c5232cf3090854fe1372075eaabfb34b9f3d889901",
     "src/dolsdk2001/dvd/dvdlow.c": "0f67c9d7965c19f1ba58b06ae5e7178d971e783a4ffd7ad9d1bef24b0df5f16b",
     "src/dolsdk2001/dvd/dvdqueue.c": "7dcab20bd1cbeee252c32c6dd364838f7151302fd2204b022d21ad80443cc849",
     "src/dolsdk2001/dvd/fstload.c": "3c7a5bd7147d02e22e3db61bb373ba85e0342bde87bb04448ff5ece80ad7bcb1",
@@ -510,7 +516,7 @@
     "src/dolsdk2001/gx/GXLight.c": "facc34df81acba09dff51d4dbbfaa8b3b47917bdc9b53d41f1bd611e07f52879",
     "src/dolsdk2001/gx/GXMisc.c": "e0b13ba77a4994368844942c89471a15c47f82f6a458ec109032a5958a43b25c",
     "src/dolsdk2001/gx/GXPerf.c": "3c30e7f6a8e22b9572984278382ebda6f3942409c079da03a5b789a9d861d4ac",
-    "src/dolsdk2001/gx/GXPixel.c": "9d0cace4a933f47d8901252e8b2ac1d41a59949840c8fe19e8076c3ac2cb7502",
+    "src/dolsdk2001/gx/GXPixel.c": "6812d77fe5788d51a8ae7cb285a6f7f71a6be3a0bd57d79363187609f2643f16",
     "src/dolsdk2001/gx/GXSave.c": "b27c1ee3460da8ab130e3a3e40190f6ccc057cf42818ac4567de7728fc071fb3",
     "src/dolsdk2001/gx/GXStubs.c": "d4fe05a2f0242d9a57e28640f98155cd2db169571f2eccd8ea8407546d053f48",
     "src/dolsdk2001/gx/GXTev.c": "19ead36f7b5a2517d6bd6fef1af1dbaa9481f30b89240b491a7cdeab9160a952",
@@ -600,7 +606,7 @@
     "tools/file_map.py": "3b17864b22df195bc3256d63620cf57a171db1333d5e7d39d2d85f029b4fd93b",
     "tools/formats.py": "3124d742d0518c913dfc575602bba63befbd9e0e78220e5a85059cda277f8f81",
     "tools/import_disc.py": "a76b0fc8a963fa5e26e432e8261c26f199989c7e2fc2c90cf0116878db15597b",
-    "tools/port_unit.py": "eec97a8ac4a8add8cf9ed388166fff96456e310c89773facfdbb746764d0ba19",
+    "tools/port_unit.py": "e0efb8a0645d7d538d58cfca1ecffb28b5c1b32c0d08198827e115e35837c123",
     "tools/progress_report.py": "18f16a51268af84afa8c58e6be719abd94f5ffba16592ed0adcdbd94b9c67b9d",
     "tools/project_build.py": "67ecf276a8fa4aa5904ad1c2ec9236933a106efce5b5fb99cd98f6a2d400a9e4",
     "tools/reconstruct.py": "ae713fceeb3eef9f113af483ad5e3d5d6f1123fc424d0595099247e3e07a4cf2",
@@ -2461,6 +2467,261 @@
       ],
       "object_sha256": "004c6cabc1354e5503bb9c1a97929e7f9bf5d985988e41e9d1e56a231a14c08d",
       "linked_sha256": "67e1558423665981c41167d86c6ad34a91856dfe4f60afd7ab6d8bd7b3cf7f12"
+    },
+    {
+      "id": "GXPixel",
+      "category": "restored_library",
+      "functions": 12,
+      "code_bytes": 1864,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "GXInitFogAdjTable"
+      ],
+      "object_sha256": "28b41d72e7c00220896df76d6f12ec432f463808801db219c82a74c2464156c7",
+      "linked_sha256": "9929163f1c39fbfd9efd6a5c50c7e62bbc1802b536f8ae546fb32e3851b75f45"
+    },
+    {
+      "id": "dvdfs",
+      "category": "restored_library",
+      "functions": 9,
+      "code_bytes": 1952,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "signed",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "isSame",
+        "myStrncpy",
+        "DVDConvertEntrynumToPath",
+        "DVDChangeDir",
+        "DVDReadPrio",
+        "cbForReadSync",
+        "DVDSeekAsyncPrio",
+        "cbForSeekAsync",
+        "DVDSeekPrio",
+        "cbForSeekSync",
+        "DVDGetFileInfoStatus",
+        "DVDOpenDir",
+        "DVDReadDir",
+        "DVDCloseDir",
+        "DVDGetFSTLocation",
+        "DVDPrepareStreamAsync",
+        "cbForPrepareStreamAsync",
+        "DVDPrepareStream",
+        "cbForPrepareStreamSync",
+        "DVDGetTransferredSize"
+      ],
+      "object_sha256": "c5c9853b06682eabed872681cc683d91b7a156a41ff2b1adbd1add93e3708d6d",
+      "linked_sha256": "b5f248c467dee5c5077c7a7ec7c41b75a1fa028bbf6f2f46401494ae9432690d"
+    },
+    {
+      "id": "mtx44",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 308,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "C_MTXPerspective"
+      ],
+      "object_sha256": "a1d2a28c115a42b84b5c0318e86435fce43054c0082c68b136ab3b96d9bf7ca6",
+      "linked_sha256": "82c51477174a196b439e793dc5b525eab1e5c3de1d94de4d20cf78cdcf4d2de3"
+    },
+    {
+      "id": "CARDCheck",
+      "category": "restored_library",
+      "functions": 7,
+      "code_bytes": 3900,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "CARDCheckEx",
+        "CARDCheck"
+      ],
+      "object_sha256": "a52eab42cb89eb3493bc50460265d5e142c00bed5d6a068d720ac7c21e97d439",
+      "linked_sha256": "8395e94860c6b158dffefee1e06584911e1e91c25d73981759c4b1ebed7554a2"
+    },
+    {
+      "id": "CARDWrite",
+      "category": "restored_library",
+      "functions": 4,
+      "code_bytes": 892,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "1a39cb7da949149f4cc180b1ad9237a0dd15a2908af14d74b8634d8b15a9079e",
+      "linked_sha256": "dff67840e20c5ccd3c93675468a15c45c97e2c05369b64d3cf4becde31164e48"
+    },
+    {
+      "id": "CARDFormat",
+      "category": "restored_library",
+      "functions": 3,
+      "code_bytes": 2020,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "__CARDFormatRegion",
+        "CARDFormat"
+      ],
+      "object_sha256": "43ec2e7e138d0062105b89fd97da9a3a35656fcfe01189e10e7c4d32bd3d75d6",
+      "linked_sha256": "d1723de3ebf615fdada103b465b5829f9dee2b8de88a4b5be7d1b13423aa1848"
     }
   ],
   "code_map": {
@@ -28636,27 +28897,6 @@
         ]
       },
       {
-        "name": "Unmatched files/mtx44.c [symbol evidence]",
-        "file_record": 215,
-        "file_name": "mtx44.c",
-        "ranges": [
-          {
-            "address": "0x80116d20",
-            "size": 156,
-            "kind": "function",
-            "name": "C_MTXFrustum",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80116dbc",
-            "size": 152,
-            "kind": "function",
-            "name": "C_MTXOrtho",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/dvdlow.c [symbol evidence]",
         "file_record": 216,
         "file_name": "dvdlow.c",
@@ -28800,76 +29040,6 @@
             "kind": "function",
             "name": "__DVDLowSetWAType",
             "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/dvdfs.c [symbol evidence]",
-        "file_record": 217,
-        "file_name": "dvdfs.c",
-        "ranges": [
-          {
-            "address": "0x80117ca8",
-            "size": 56,
-            "kind": "function",
-            "name": "__DVDFSInit",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80117ce0",
-            "size": 756,
-            "kind": "function",
-            "name": "DVDConvertPathToEntrynum",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80117fd4",
-            "size": 116,
-            "kind": "function",
-            "name": "DVDFastOpen",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80118048",
-            "size": 200,
-            "kind": "function",
-            "name": "DVDOpen",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80118110",
-            "size": 36,
-            "kind": "function",
-            "name": "DVDClose",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80118134",
-            "size": 352,
-            "kind": "function",
-            "name": "entryToPath",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80118294",
-            "size": 196,
-            "kind": "function",
-            "name": "DVDGetCurrentDir",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80118358",
-            "size": 192,
-            "kind": "function",
-            "name": "DVDReadAsyncPrio",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80118418",
-            "size": 48,
-            "kind": "function",
-            "name": "cbForReadAsync",
-            "evidence": "local-file-symbol"
           }
         ]
       },
@@ -30148,69 +30318,8 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 801258c8",
+        "name": "Unknown file/.text @ 80126804",
         "ranges": [
-          {
-            "address": "0x801258c8",
-            "size": 432,
-            "kind": "function",
-            "name": "__CARDCheckSum",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/CARDCheck.c [symbol evidence]",
-        "file_record": 245,
-        "file_name": "CARDCheck.c",
-        "ranges": [
-          {
-            "address": "0x80125a78",
-            "size": 644,
-            "kind": "function",
-            "name": "VerifyID",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80125cfc",
-            "size": 576,
-            "kind": "function",
-            "name": "VerifyDir",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80125f3c",
-            "size": 644,
-            "kind": "function",
-            "name": "VerifyFAT",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801261c0",
-            "size": 140,
-            "kind": "function",
-            "name": "__CARDVerify",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8012624c",
-            "size": 1424,
-            "kind": "function",
-            "name": "CARDCheckExAsync",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 801267dc",
-        "ranges": [
-          {
-            "address": "0x801267dc",
-            "size": 40,
-            "kind": "function",
-            "name": "CARDCheckAsync",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x80126804",
             "size": 56,
@@ -30275,36 +30384,8 @@
         ]
       },
       {
-        "name": "Unmatched files/CARDFormat.c [symbol evidence]",
-        "file_record": 247,
-        "file_name": "CARDFormat.c",
+        "name": "Unknown file/.text @ 80127a50",
         "ranges": [
-          {
-            "address": "0x8012726c",
-            "size": 324,
-            "kind": "function",
-            "name": "FormatCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801273b0",
-            "size": 1624,
-            "kind": "function",
-            "name": "__CARDFormatRegionAsync",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80127a08",
-        "ranges": [
-          {
-            "address": "0x80127a08",
-            "size": 72,
-            "kind": "function",
-            "name": "CARDFormatAsync",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x80127a50",
             "size": 104,
@@ -30393,46 +30474,6 @@
             "kind": "function",
             "name": "CARDReadAsync",
             "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/CARDWrite.c [symbol evidence]",
-        "file_record": 251,
-        "file_name": "CARDWrite.c",
-        "ranges": [
-          {
-            "address": "0x80128784",
-            "size": 368,
-            "kind": "function",
-            "name": "WriteCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801288f4",
-            "size": 176,
-            "kind": "function",
-            "name": "EraseCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801289a4",
-            "size": 276,
-            "kind": "function",
-            "name": "CARDWriteAsync",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80128ab8",
-        "ranges": [
-          {
-            "address": "0x80128ab8",
-            "size": 72,
-            "kind": "function",
-            "name": "CARDWrite",
-            "evidence": "unknown-file"
           }
         ]
       },
@@ -30971,102 +31012,6 @@
             "size": 52,
             "kind": "function",
             "name": "GXSetNumTevStages",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/GXPixel.c [symbol evidence]",
-        "file_record": 266,
-        "file_name": "GXPixel.c",
-        "ranges": [
-          {
-            "address": "0x8012f7c8",
-            "size": 432,
-            "kind": "function",
-            "name": "GXSetFog",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8012f978",
-            "size": 256,
-            "kind": "function",
-            "name": "GXSetFogRangeAdj",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012fa78",
-            "size": 260,
-            "kind": "function",
-            "name": "GXSetBlendMode",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012fb7c",
-            "size": 64,
-            "kind": "function",
-            "name": "GXSetColorUpdate",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012fbbc",
-            "size": 64,
-            "kind": "function",
-            "name": "GXSetAlphaUpdate",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012fbfc",
-            "size": 120,
-            "kind": "function",
-            "name": "GXSetZMode",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012fc74",
-            "size": 64,
-            "kind": "function",
-            "name": "GXSetZCompLoc",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012fcb4",
-            "size": 272,
-            "kind": "function",
-            "name": "GXSetPixelFmt",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8012fdc4",
-        "ranges": [
-          {
-            "address": "0x8012fdc4",
-            "size": 64,
-            "kind": "function",
-            "name": "GXSetDither",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012fe04",
-            "size": 84,
-            "kind": "function",
-            "name": "GXSetDstAlpha",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012fe58",
-            "size": 56,
-            "kind": "function",
-            "name": "GXSetFieldMask",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012fe90",
-            "size": 128,
-            "kind": "function",
-            "name": "GXSetFieldMode",
             "evidence": "unknown-file"
           }
         ]

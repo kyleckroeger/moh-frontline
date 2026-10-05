@@ -1,0 +1,105 @@
+{
+  "id": "CARDWrite",
+  "source": "src/dolphin/card/CARDWrite.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80128784",
+      "size": 892,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "WriteCallback",
+      "address": "0x80128784",
+      "size": 368,
+      "binding": 0
+    },
+    {
+      "name": "EraseCallback",
+      "address": "0x801288f4",
+      "size": 176,
+      "binding": 0
+    },
+    {
+      "name": "CARDWriteAsync",
+      "address": "0x801289a4",
+      "size": 276,
+      "binding": 1
+    },
+    {
+      "name": "CARDWrite",
+      "address": "0x80128ab8",
+      "size": 72,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DCStoreRange": "0x801118b4",
+    "OSGetTime": "0x80116a40",
+    "__CARDAccess": "0x80127ab8",
+    "__CARDBlock": "0x8032f8a0",
+    "__CARDDefaultApiCallback": "0x80122a7c",
+    "__CARDEraseSector": "0x80123810",
+    "__CARDGetDirBlock": "0x80125664",
+    "__CARDGetFatBlock": "0x80125260",
+    "__CARDPutControlBlock": "0x80123a7c",
+    "__CARDSeek": "0x80128354",
+    "__CARDSync": "0x80123ce4",
+    "__CARDSyncCallback": "0x80122a80",
+    "__CARDUpdateDir": "0x80125804",
+    "__CARDWrite": "0x801251fc",
+    "__div2i": "0x80138b60"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/card/CARDWrite.c"
+  },
+  "original_file": "CARDWrite.c",
+  "original_file_index": 11295,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "CARDWrite.json"
+  }
+}

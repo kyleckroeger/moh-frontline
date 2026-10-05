@@ -28,11 +28,12 @@ void __CARDCheckSum(void* ptr, int length, u16* checksum, u16* checksumInv) {
         *checksumInv = 0;
 }
 
-static s32 VerifyID(CARDControl* card) {
-    CARDID* id;
+// Frontline: the encoding check precedes the serial check, as in the 2001 SDK.
+static s32 VerifyID(CARDControl *card) {
+    CARDID *id;
     u16 checksum;
     u16 checksumInv;
-    OSSramEx* sramEx;
+    OSSramEx *sramEx;
     OSTime rand;
     int i;
 
@@ -45,11 +46,16 @@ static s32 VerifyID(CARDControl* card) {
     if (id->checkSum != checksum || id->checkSumInv != checksumInv)
         return CARD_RESULT_BROKEN;
 
-    rand = *(OSTime*)&id->serial[12];
+    if (id->encode != OSGetFontEncode())
+        return CARD_RESULT_ENCODING;
+
+    rand = *(OSTime *)&id->serial[12];
     sramEx = __OSLockSramEx();
-    for (i = 0; i < 12; i++) {
+    for (i = 0; i < 12; i++)
+    {
         rand = (rand * 1103515245 + 12345) >> 16;
-        if (id->serial[i] != (u8)(sramEx->flashID[card - __CARDBlock][i] + rand)) {
+        if (id->serial[i] != (u8)(sramEx->flashID[card - __CARDBlock][i] + rand))
+        {
             __OSUnlockSramEx(FALSE);
             return CARD_RESULT_BROKEN;
         }
@@ -57,9 +63,6 @@ static s32 VerifyID(CARDControl* card) {
     }
 
     __OSUnlockSramEx(FALSE);
-
-    if (id->encode != __CARDGetFontEncode())
-        return CARD_RESULT_ENCODING;
 
     return CARD_RESULT_READY;
 }

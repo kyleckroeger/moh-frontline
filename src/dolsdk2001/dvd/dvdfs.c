@@ -123,7 +123,7 @@ s32 DVDConvertPathToEntrynum(char* pathPtr) {
             illegal = TRUE;
     
         if (illegal)
-            OSPanic(__FILE__, 0x16B,
+            OSPanic(__FILE__, 376,  // Frontline: Dec 2001 line number
                 "DVDConvertEntrynumToPath(possibly DVDOpen or DVDChangeDir or DVDOpenDir): "
                 "specified directory or file (%s) doesn't match standard 8.3 format. This is a "
                 "temporary restriction and will be removed soon\n",
@@ -307,11 +307,11 @@ BOOL DVDReadAsyncPrio(DVDFileInfo* fileInfo, void* addr, s32 length, s32 offset,
         ASSERTMSGLINE(0x2D0, !(offset & 3), "DVDReadAsync(): offset must be multiple of 4 byte  ");
         
         if (!((0 <= offset) && (offset < fileInfo->length))) {
-            OSPanic(__FILE__, 0x2D5, "DVDReadAsync(): specified area is out of the file  ");
+            OSPanic(__FILE__, 739, "DVDReadAsync(): specified area is out of the file  ");
         }
         
         if (!((0 <= offset + length) && (offset + length < fileInfo->length + DVD_MIN_TRANSFER_SIZE))) {
-            OSPanic(__FILE__, 0x2DB, "DVDReadAsync(): specified area is out of the file  ");
+            OSPanic(__FILE__, 745, "DVDReadAsync(): specified area is out of the file  ");
         }
         
         fileInfo->callback = callback;
