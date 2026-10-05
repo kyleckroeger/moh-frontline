@@ -2,6 +2,7 @@
 /build/
 /scratch/
 __pycache__/
+objdiff.json
 .DS_Store
 *.iso
 *.ciso

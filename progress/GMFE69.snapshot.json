@@ -606,6 +606,7 @@
     "tools/file_map.py": "3b17864b22df195bc3256d63620cf57a171db1333d5e7d39d2d85f029b4fd93b",
     "tools/formats.py": "3124d742d0518c913dfc575602bba63befbd9e0e78220e5a85059cda277f8f81",
     "tools/import_disc.py": "a76b0fc8a963fa5e26e432e8261c26f199989c7e2fc2c90cf0116878db15597b",
+    "tools/objdiff_config.py": "4133276adf513df6f4aad3d70df298f0bb0f8ced4ae1abc72703e8e0dc9bb13a",
     "tools/port_unit.py": "e0efb8a0645d7d538d58cfca1ecffb28b5c1b32c0d08198827e115e35837c123",
     "tools/progress_report.py": "18f16a51268af84afa8c58e6be719abd94f5ffba16592ed0adcdbd94b9c67b9d",
     "tools/project_build.py": "67ecf276a8fa4aa5904ad1c2ec9236933a106efce5b5fb99cd98f6a2d400a9e4",

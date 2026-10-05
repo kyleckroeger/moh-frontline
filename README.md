@@ -53,7 +53,7 @@ Run the scripts from any directory; all outputs remain inside this checkout. `ba
 
 ## Contributing units
 
-`tools/port_unit.py` drafts a unit manifest from a source file by matching its relocations to the original's, and `tools/unit_diff.py` shows per-function disassembly differences after a failed verification. See [Dolphin SDK units](docs/Dolphin.md) for the workflow, compiler profile and the CodeWarrior linker behaviors the verifier models.
+`tools/port_unit.py` drafts a unit manifest from a source file by matching its relocations to the original's, and `tools/unit_diff.py` shows per-function disassembly differences after a failed verification. After a build, `tools/objdiff_config.py` writes a git-ignored `objdiff.json` for local per-function diffing. See [Dolphin SDK units](docs/Dolphin.md) for the workflow, compiler profile and the CodeWarrior linker behaviors the verifier models.
 
 ## Next work
 
