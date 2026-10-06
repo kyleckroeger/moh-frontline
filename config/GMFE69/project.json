@@ -346,7 +346,8 @@
     "filedev.json",
     "rcmpbase.json",
     "matstack.json",
-    "anim_obj.json"
+    "anim_obj.json",
+    "fader.json"
   ],
   "progress": {
     "code_bytes": 1414572,
