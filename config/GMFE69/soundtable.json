@@ -1,0 +1,122 @@
+{
+  "id": "soundtable",
+  "source": "src/game/soundtable.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800ee6cc",
+      "size": 216,
+      "type": 1
+    },
+    {
+      "name": ".ctors",
+      "address": "0x8016dfec",
+      "size": 4,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000f538",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800160d0",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x802d84e8",
+      "size": 12,
+      "type": 8
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034ece8",
+      "size": 8,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "__sinit_soundtable_cpp",
+      "address": "0x800ee768",
+      "size": 60,
+      "binding": 0
+    },
+    {
+      "name": "offsetPtr<Q211CSoundTable4SKey>__FRPQ211CSoundTable4SKeyi",
+      "address": "0x800ee750",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<Q211CSoundTable11SSoundParms>__FRPQ211CSoundTable11SSoundParmsi",
+      "address": "0x800ee738",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<Q211CSoundTable10SAnimEntry>__FRPQ211CSoundTable10SAnimEntryi",
+      "address": "0x800ee720",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "__dt__11CSoundTableFv",
+      "address": "0x800ee6cc",
+      "size": 84,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "TLT_CloseFile__FPv": "0x8001d820",
+    "__dl__FPv": "0x8001ca2c",
+    "__register_global_object": "0x801381bc"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "soundtable.cpp",
+  "original_file_index": 9193
+}
