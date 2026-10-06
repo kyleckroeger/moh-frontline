@@ -360,7 +360,8 @@
     "bsevents.json",
     "pathxSND.json",
     "destructor_queue.json",
-    "AITankDoodad.json"
+    "AITankDoodad.json",
+    "AIPlayerDoodad.json"
   ],
   "progress": {
     "code_bytes": 1414572,
