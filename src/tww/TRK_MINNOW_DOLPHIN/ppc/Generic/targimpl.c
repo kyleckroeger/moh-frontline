@@ -4,8 +4,8 @@
    compiled with the TWW headers plus Pikmin's DSVersions/DSCPUType types and
    MSR bits (Dolphin/PPCArch.h), at GC 1.3 like mem_TRK.c. The other
    functions of the file are declared only: the head (MSR access, memcpy,
-   interrupt and exception handlers) matches but cannot share a unit with this
-   tail, and the middle (FP register access, support requests, stop
+   interrupt and exception handlers) is the separate unit targimpl_head.c, and
+   the middle (FP register access, support requests, stop
    information, the interrupt check, extended-2 access) differs; the full
    Pikmin-based draft is scratch/lib/targimpl_pik.c. The CPU and TRK state,
    the save state and the 128-bit temporary are declared extern: they follow
