@@ -460,7 +460,9 @@
     "svol.json",
     "SearchNode.json",
     "sprite.json",
-    "AITankObject.json"
+    "AITankObject.json",
+    "sfecho.json",
+    "saemsmbf.json"
   ],
   "progress": {
     "code_bytes": 1414572,
