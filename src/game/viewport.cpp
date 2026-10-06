@@ -10,9 +10,8 @@ void GXSetScissor(unsigned long left, unsigned long top, unsigned long wd, unsig
 unsigned long VIGetNextField(void);
 }
 
-// The by-value copies are made with lfd/stfd pairs, so this view is 16 bytes
-// and 8-byte aligned (vector.cpp's view has only x, y and z; the original
-// layout is not known).
+// The by-value copies are made with lfd/stfd pairs, so this view is 8-byte
+// aligned (16 bytes with padding); the original declaration is not known.
 class CVector3 {
 public:
     CVector3() {}
@@ -21,7 +20,6 @@ public:
     float x;
     float y;
     float z;
-    float w;
 } __attribute__((aligned(8)));
 
 class CMatrix {
