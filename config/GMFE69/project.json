@@ -565,7 +565,8 @@
     "bsbifunc_attach.json",
     "bsbifunc_grenade.json",
     "bsbifunc_vibration.json",
-    "bsbifunc_ammo.json"
+    "bsbifunc_ammo.json",
+    "bsbifunc_explosion.json"
   ],
   "progress": {
     "code_bytes": 1414572,

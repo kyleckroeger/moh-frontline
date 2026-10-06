@@ -1,0 +1,101 @@
+{
+  "id": "bsbifunc_explosion",
+  "source": "src/game/bsbifunc_explosion.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80023b6c",
+      "size": 800,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x80009b0c",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80010658",
+      "size": 36,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "BIFunc_CreateExplosion__FPPiPv",
+      "address": "0x80023b6c",
+      "size": 488,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_SetMuzzleFireForPlayer__FPPiPv",
+      "address": "0x80023e08",
+      "size": 132,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_AmbientTrack_Azimuth__FPPiPv",
+      "address": "0x80023d54",
+      "size": 180,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "AmbientTrack_SetLocation__FPC8CVector3": "0x800ebdf4",
+    "SetMuzzleStatusForPlayer__Fb": "0x800a7a64",
+    "__ct__10CExplosionFR6CScene8CVector3fff17EScriptBulletTypeP10ISceneNodeb": "0x800cf6ac",
+    "__dt__10CExplosionFv": "0x800cf634",
+    "g_iCurrentBIFIndex": "0x8034e77c",
+    "g_pBSObject": "0x8034e7e0",
+    "g_pBuiltInFunctions": "0x8034e778",
+    "g_scene": "0x8019484c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "g_iCurrentBIFIndex",
+    "g_pBSObject",
+    "g_pBuiltInFunctions"
+  ],
+  "original_file": "bsbifunc.cpp",
+  "original_file_index": 443
+}
