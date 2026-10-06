@@ -1,0 +1,80 @@
+{
+  "id": "supmutpf",
+  "source": "src/ea/supmutpf.c",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80161954",
+      "size": 532,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SFILTER_unpackmtpf__FPviPvPvi",
+      "address": "0x80161954",
+      "size": 416,
+      "binding": 1
+    },
+    {
+      "name": "SFILTER_unpackmtpfinit__FPvP16UNPACKINITPARAMS",
+      "address": "0x80161af4",
+      "size": 116,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "SNDDRV_getmastervoice__Fi": "0x8016b600",
+    "SNDDRV_getsamplechan__Fi": "0x8016b630",
+    "SNDI_memcpy": "0x8016d730",
+    "SNDPKTPLAYI_freeframes__Fiii": "0x8015af8c",
+    "SNDPKTPLAYI_get__FiiPiPi": "0x8015ad74",
+    "SNDPKTPLAYI_voicetopackethandle__Fi": "0x8015b0a8",
+    "_restgpr_27": "0x80138a5c",
+    "_savegpr_27": "0x80138a10",
+    "decodemut__FP10UTALKSTATE": "0x801635d8",
+    "initmut__FPcP10UTALKSTATE": "0x801631f4",
+    "memset": "0x80009410"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "supmutpf.c",
+  "original_file_index": 13063
+}

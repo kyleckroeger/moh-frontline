@@ -202,6 +202,7 @@ establish a type, the source comments say so.
 | `smixc.c`, `sfxrev.c` | 2 | 636 | `mixc` (scaled add into a mix buffer) and `MIXI_reverbblock` (comb filter with a one-pole low-pass in the feedback, 1e-30 anti-denormal offset) |
 | `sdfx.c` | 3 | 732 | Platform effects: reverb select/restore (inlined into `SNDPLATFORM_fxinit`) and per-voice send levels as DSP aux-bus levels or software wet gain (scales 1/127 and 1/(127·32767)) |
 | `sx87d16.c` | 1 | 392 | `decode16x87`: 16-bit PCM to float |
+| `supmutf.c`, `supmutpf.c`, `suppf.c` | 7 | 1,424 | MicroTalk unpackers (in memory and through the packet player, 432-sample blocks) and the packet-player 16-bit PCM unpacker |
 | More sound files: `sbvalid.c`, `sst3dpos.c`, `ssthold.c`, `sctlfilt.c`, `shipass.c`, `slowpass.c`, `sstgetrp.c`, `sstopall.c`, `sstautov.c`, `sattrdef.c`, `scalcfx.c`, `sballoc.c`, `sbhdrcpy.c`, `sctrldry.cpp`, `stimemul.c` | 17 | 1,768 | Bank slots, voice controls applied to each platform voice (`iSNDpatchkey` loop), stream setters and defaults; record members are inferred views |
 | `memblock.cpp` | 1 | 44 | `MEM_initblock` writes a block header ('BM', flags, size, neighbour links); the name and tail-size arguments are not stored |
 | `memlist.cpp` | 5 | 464 | Address-ordered circular free list (`FREE_find`, `FREE_findlargest`, `FREE_gettotalfree`, `FREE_add`, `FREE_remove`) with the class's 'BS' sentinel; `FREE_findlargest` needs the operand order of `0 > size - 1 ? 0 : size - 1` for its branchless max |

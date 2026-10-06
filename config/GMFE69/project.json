@@ -299,7 +299,10 @@
     "smixc.json",
     "sfxrev.json",
     "sdfx.json",
-    "sx87d16.json"
+    "sx87d16.json",
+    "supmutf.json",
+    "supmutpf.json",
+    "suppf.json"
   ],
   "progress": {
     "code_bytes": 1414572,
