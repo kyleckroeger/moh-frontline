@@ -308,7 +308,8 @@
     "hlsfile.json",
     "locatbig.json",
     "spktplay.json",
-    "salloc.json"
+    "salloc.json",
+    "aramalloc.json"
   ],
   "progress": {
     "code_bytes": 1414572,

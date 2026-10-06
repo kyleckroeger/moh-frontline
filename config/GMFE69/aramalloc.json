@@ -1,0 +1,68 @@
+{
+  "id": "aramalloc",
+  "source": "src/ea/aramalloc.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x801501ec",
+      "size": 116,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "ARAM_NEW_poolmanager",
+      "address": "0x801501ec",
+      "size": 116,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "MEM_alloc": "0x8014f7dc",
+    "NEW_BPoolMan": "0x8014ff44",
+    "mb_default": "0x8034f3c0"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "mb_default"
+  ],
+  "original_file": "aramalloc.cpp",
+  "original_file_index": 12417
+}
