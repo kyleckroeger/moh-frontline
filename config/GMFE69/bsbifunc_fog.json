@@ -1,0 +1,101 @@
+{
+  "id": "bsbifunc_fog",
+  "source": "src/game/bsbifunc_fog.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800206bc",
+      "size": 352,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x80009a04",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800104fc",
+      "size": 24,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "BIFunc_SetDefaultFogParams__FPPiPv",
+      "address": "0x80020778",
+      "size": 164,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_StopCorpseSearch__FPPiPv",
+      "address": "0x800206c4",
+      "size": 180,
+      "binding": 1
+    },
+    {
+      "name": "GetScriptData__10BSGO_BasicFv",
+      "address": "0x800206bc",
+      "size": 8,
+      "binding": 2
+    }
+  ],
+  "externals": {
+    "SetFog__FR6CColorff": "0x80017df8",
+    "TLT_FindNextResourceByType__F13TLTResourceIDP24LevelFileContentsStruct_": "0x8001d910",
+    "Unregister__10BSScheduleFP35BSScheduleRegistrationRecord_struct": "0x8003aaf4",
+    "Unregister__10BSScheduleFP8BSObject": "0x8003aa58",
+    "g_CorpseSearchSchedule": "0x801974f4",
+    "g_iCurrentBIFIndex": "0x8034e77c",
+    "g_pBuiltInFunctions": "0x8034e778"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [
+    "g_CorpseSearchSchedule"
+  ],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "g_iCurrentBIFIndex",
+    "g_pBuiltInFunctions"
+  ],
+  "original_file": "bsbifunc.cpp",
+  "original_file_index": 443
+}
