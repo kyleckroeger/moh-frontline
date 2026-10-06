@@ -6,16 +6,17 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 266980,
+    "matching_code_bytes": 267864,
     "total_executable_code_bytes": 1414572,
-    "percent": 18.873553272650668,
+    "percent": 18.936045673178885,
     "categories": {
-      "reconstructed_game": 67100,
+      "reconstructed_game": 67984,
       "restored_library": 199880
     },
-    "matching_functions": 1494
+    "matching_functions": 1503
   },
   "input_sha256": {
+    "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
     "config/GMFE69/AIPlayerDoodad.json": "5ab45909efeb94b828331a8b68a46467e9cb19518255f572f32340c24b98dff2",
     "config/GMFE69/AIPlayerObject.json": "89824370512e8f14345d260f39b95516cf337b026e7e61b8d6013d4d3664516a",
     "config/GMFE69/AISoldierDoodad.json": "2ff63fd49039400e569490a49c8f89bc08ec427340dabd46764dc1812cdf00c9",
@@ -236,7 +237,7 @@
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/pathxSND.json": "711dcdf3a5a5a7b4124ae70e377c5e863dc39c8de8a0de785b3dc3921c685fa0",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "756828018bb28d6e30a5232a758bc3ccbf7780a3130b43c51fdf54417e30dba2",
+    "config/GMFE69/project.json": "35a686ad9f56a2c178d6c2495311943b63d71452eafdb8bce5e81e912309c0da",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1294,6 +1295,7 @@
     "src/ea/threads.cpp": "4aca18d1643d4756519e5c0caebd686a45930fb884894501da9bbf87da1d0c11",
     "src/ea/timer.cpp": "5fbb8bd406632aa10e62ca1c8523eee1e88d3fcd17e3edcdf1b3d7cfd0f19708",
     "src/ea/timerthread.cpp": "e2ee2dfbb74893029f0693bb5b76212bdd70223c892d9fd963984794c6193628",
+    "src/game/AIFilter.cpp": "f07b9b59492ad0297b6a3567e44a9931c993d85dec42bf59089f1d58322d8e93",
     "src/game/AIPlayerDoodad.cpp": "218144f1416be0e264e2255e27e05126728778a56d650e5705a961e69003196e",
     "src/game/AIPlayerObject.cpp": "b1e57451819617f12a53f7185419f09b4ece3035859b25fcedb2752ec9d226bf",
     "src/game/AISoldierDoodad.cpp": "a70f1395b35f9773c7b6bbcd36e3da76824a4604449b9d8b5472447931a9754a",
@@ -17826,6 +17828,45 @@
       "discarded_functions": [],
       "object_sha256": "d3b7f07e200abd31f0190f0ce46636c0cef3f7bef00fa3c0a863f247acac970b",
       "linked_sha256": "6527fa202a68d8f18dd7d790feacee87b4f8f388ec42debfbab94ca1128d6b58"
+    },
+    {
+      "id": "AIFilter",
+      "category": "reconstructed_game",
+      "functions": 9,
+      "code_bytes": 884,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "e08aa6564258e4dea94ab57ef4dbbdbcb1696e766eed765b03e6554b045d9a46",
+      "linked_sha256": "acf4862803d533e1ef26a6bafbe36f72f0f42506de185e227a941bc952b6a8b4"
     }
   ],
   "code_map": {
@@ -24203,69 +24244,6 @@
             "size": 192,
             "kind": "function",
             "name": "GetLookDirection__21CAIFilterPlayerObjectFR20CAIFilterRealVector3R20CAIFilterRealVector3",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8005a4d0",
-            "size": 40,
-            "kind": "function",
-            "name": "ShouldILeaveMMG__15CAIFilterObjectFP8BSObject",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8005a4f8",
-            "size": 56,
-            "kind": "function",
-            "name": "ChooseMMGPoint__15CAIFilterObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8005a530",
-            "size": 56,
-            "kind": "function",
-            "name": "GetTargetGuessPosition__15CAIFilterObjectFR21CAIFilterRealPosition",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8005a568",
-            "size": 232,
-            "kind": "function",
-            "name": "CalculateAngleDiff__27CAIFilterRealEulerDirectionCFRC21CAIFilterRealPositionRC21CAIFilterRealPositionPfPf",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8005a650",
-            "size": 128,
-            "kind": "function",
-            "name": "RotateAboutZ__20CAIFilterRealVector3Ff",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8005a6d0",
-            "size": 36,
-            "kind": "function",
-            "name": "GetDistanceSquaredXYReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8005a6f4",
-            "size": 52,
-            "kind": "function",
-            "name": "GetDistanceSquaredXYZReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8005a728",
-            "size": 136,
-            "kind": "function",
-            "name": "GetDistanceXYReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8005a7b0",
-            "size": 148,
-            "kind": "function",
-            "name": "GetDistanceXYZReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition",
             "evidence": "exception-index"
           },
           {

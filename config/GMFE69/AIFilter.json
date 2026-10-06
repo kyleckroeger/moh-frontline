@@ -1,0 +1,138 @@
+{
+  "id": "AIFilter",
+  "source": "src/game/AIFilter.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8005a4d0",
+      "size": 884,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000aedc",
+      "size": 56,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80012020",
+      "size": 84,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x8034fb48",
+      "size": 24,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "ShouldILeaveMMG__15CAIFilterObjectFP8BSObject",
+      "address": "0x8005a4d0",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "ChooseMMGPoint__15CAIFilterObjectFv",
+      "address": "0x8005a4f8",
+      "size": 56,
+      "binding": 1
+    },
+    {
+      "name": "GetTargetGuessPosition__15CAIFilterObjectFR21CAIFilterRealPosition",
+      "address": "0x8005a530",
+      "size": 56,
+      "binding": 1
+    },
+    {
+      "name": "CalculateAngleDiff__27CAIFilterRealEulerDirectionCFRC21CAIFilterRealPositionRC21CAIFilterRealPositionPfPf",
+      "address": "0x8005a568",
+      "size": 232,
+      "binding": 1
+    },
+    {
+      "name": "RotateAboutZ__20CAIFilterRealVector3Ff",
+      "address": "0x8005a650",
+      "size": 128,
+      "binding": 1
+    },
+    {
+      "name": "GetDistanceSquaredXYReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition",
+      "address": "0x8005a6d0",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "GetDistanceSquaredXYZReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition",
+      "address": "0x8005a6f4",
+      "size": 52,
+      "binding": 1
+    },
+    {
+      "name": "GetDistanceXYReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition",
+      "address": "0x8005a728",
+      "size": 136,
+      "binding": 1
+    },
+    {
+      "name": "GetDistanceXYZReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition",
+      "address": "0x8005a7b0",
+      "size": 148,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "ChooseMMGPoint__9CAIObjectFv": "0x80047b04",
+    "MathFunAtan2F__Fff": "0x8009358c",
+    "MathFunNormalizeAngleNegativePiToPi__Ff": "0x8009340c",
+    "MathFunRotateAboutZ__FPfPff": "0x80093474",
+    "ShouldILeaveMMG__9CAIObjectFP20TriggerObject_struct": "0x800478b8",
+    "cos": "0x80143228",
+    "sin": "0x80143790"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "AIFilter.cpp",
+  "original_file_index": 2575
+}
