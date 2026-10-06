@@ -499,3 +499,7 @@ void __OSPSInit(void)
     }
   // clang-format on
 }
+
+u8 __OSGetDIConfig(void) {
+    return (u8)__DIRegs[9];
+}

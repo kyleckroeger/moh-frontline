@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x801102bc",
-      "size": 2180,
+      "size": 2200,
       "type": 1
     },
     {
@@ -124,6 +124,12 @@
       "address": "0x80110b08",
       "size": 56,
       "binding": 1
+    },
+    {
+      "name": "__OSGetDIConfig",
+      "address": "0x80110b40",
+      "size": 20,
+      "binding": 1
     }
   ],
   "externals": {
@@ -184,8 +190,6 @@
     "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
     "path": "src/os/OS.c"
   },
-  "original_file": "OS.c",
-  "original_file_index": 10622,
   "local_externals": [],
   "discarded_local_functions": [
     "__OSInitFPRs"
@@ -193,5 +197,7 @@
   "sda_externals": [
     "__DVDLongFileNameFlag",
     "__PADSpec"
-  ]
+  ],
+  "original_file": "OS.c",
+  "original_file_index": 10622
 }

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 239744,
+    "matching_code_bytes": 239764,
     "total_executable_code_bytes": 1414572,
-    "percent": 16.948165240086755,
+    "percent": 16.949579095302326,
     "categories": {
       "reconstructed_game": 47860,
-      "restored_library": 191884
+      "restored_library": 191904
     },
-    "matching_functions": 1196
+    "matching_functions": 1197
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -63,7 +63,7 @@
     "config/GMFE69/MallocInit.json": "8084909a7be143dbe22e68d1ec13bf2de5447a3ce15fc2023dff212530d007d1",
     "config/GMFE69/NMWException.json": "993919adc03819f768ac97f37687a067894f1324f0097fa28477b34baf8f9157",
     "config/GMFE69/NewMore.json": "a73fc17ffb36c223ebeace7005486781fe8461b7cdeead36cec2f2532fdd9aea",
-    "config/GMFE69/OS.json": "c3796d6fcdd2a8f7d11c7060245d5ab1b85316fc6251876d2bbf7e93469f11a8",
+    "config/GMFE69/OS.json": "1545bcf993357bb6d3a55d38f18f89d1633c3ce0a893f0c196874fe2f0113f54",
     "config/GMFE69/OSAlarm.json": "1e86d7d9e28dd6c2d842af34882125cb9181ba4a9c4adca999722390b2e59824",
     "config/GMFE69/OSAlloc.json": "67106699292772ba5d4d82046fe0693ce5131eb6185ba3ef8965019d65fa6948",
     "config/GMFE69/OSArena.json": "fae99d1b18d3b3604cb8dcad5702e89f090e83b078590b613d5d496d404af0d5",
@@ -1026,7 +1026,7 @@
     "src/dolsdk2001/mtx/vec.c": "a701873d33d652d2ea988ef2b5071f71b0395ca87a8f74e6234bda7aa95eafd7",
     "src/dolsdk2001/odemustubs/odemustubs.c": "9dc4692c4ea0e26973099dbfc34024083c5d7804d534c4ceeba2f2d82ce8ed0c",
     "src/dolsdk2001/odenotstub/odenotstub.c": "f142c20867d72778853446d15a157a27a2935db513f9e7a5b99dad42244539eb",
-    "src/dolsdk2001/os/OS.c": "8315b98311f40cab75cad8070e6b2082602c4ca0f0092476c6c6c80e2c5618da",
+    "src/dolsdk2001/os/OS.c": "a6dabf6af767bddbee6117ea4ec09d835b09b85bf2330a062afd0ca5c8c219bf",
     "src/dolsdk2001/os/OSAddress.c": "ce0f7aa46994ac02146d56bdf54e1ae2795627843e3b8fff26961844e78a906b",
     "src/dolsdk2001/os/OSAlarm.c": "4c8cebe2905eaa44b218bb8bf4dbb4e098a3b92ccb2c5c3ed0a96c9b60d3389c",
     "src/dolsdk2001/os/OSAlloc.c": "5868c5806827534297e0b8f3dca1eff89d70b8caa1ed6f8b18914023aaba1df8",
@@ -3932,8 +3932,8 @@
     {
       "id": "OS",
       "category": "restored_library",
-      "functions": 11,
-      "code_bytes": 2180,
+      "functions": 12,
+      "code_bytes": 2200,
       "compiler_family": "GC",
       "compiler_version": "1.2.5n",
       "compiler_flags": [
@@ -3965,8 +3965,8 @@
         "__OSIsDebuggerPresent",
         "__OSInitFPRs"
       ],
-      "object_sha256": "2f14e1b1be6b1d63d6ab72c1b157e09c1f52274c58456d7dc14743ce344e9f2e",
-      "linked_sha256": "2a8198d9cfc153ebc369bfdce33f0ca6efb22a59756826baba614e8aabe323a6"
+      "object_sha256": "3088587b69fa7ba4251f190872b618840729abbb3312d492ca937e50434775a4",
+      "linked_sha256": "ab17dfd59abf8157feef0d8263a05c85de022f6b95f1735434a1d2747ce797a1"
     },
     {
       "id": "CARDMount",
@@ -39669,18 +39669,6 @@
             "size": 8,
             "kind": "function",
             "name": "PPCMtwpar",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80110b40",
-        "ranges": [
-          {
-            "address": "0x80110b40",
-            "size": 20,
-            "kind": "function",
-            "name": "__OSGetDIConfig",
             "evidence": "unknown-file"
           }
         ]
