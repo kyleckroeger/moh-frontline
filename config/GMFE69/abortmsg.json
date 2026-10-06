@@ -1,0 +1,93 @@
+{
+  "id": "abortmsg",
+  "source": "src/ea/abortmsg.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80151078",
+      "size": 400,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80192f98",
+      "size": 29,
+      "type": 1
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034e5e0",
+      "size": 3,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f3d0",
+      "size": 8,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "REAL_abortmessage",
+      "address": "0x80151078",
+      "size": 180,
+      "binding": 1
+    },
+    {
+      "name": "SYSTEM_abortmessage",
+      "address": "0x8015112c",
+      "size": 220,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "PRINT_string": "0x801516e0",
+    "REAL_exit": "0x8015193c",
+    "REALabortmessage": "0x8034e658",
+    "vsprintf": "0x8013db94"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "REALabortmessage"
+  ],
+  "original_file": "abortmsg.cpp",
+  "original_file_index": 12457
+}

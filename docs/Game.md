@@ -89,6 +89,7 @@ and layouts it marks as descriptive stay descriptive here.
 | `LinkedList.cpp` | 8 | 424 | — | Singly linked list (head, tail, count) and its element |
 | `texpack.cpp` | 6 | 428 | — | Texture pack lookup (`bsearch` over 16-byte names) and offset fix-up; with its weak `offsetPtr` instantiations. Its own copy of `offsetPtr<void>` was dropped by the linker in favour of propdat's, so the source declares that specialisation instead of instantiating it |
 | `anim.cpp` | 11 | 532 | — | Animation module start-up, the user-opcode callback stacks and the global `g_AnimDB` (constructed by `__sinit_anim_cpp`) |
+| `orient.cpp` | 2 | 300 | — | Fixed-point (one turn = 0x1000000) shortest-way angle interpolation, `extern "C"` names; the 64-bit product shape fixes where the difference is taken |
 
 ## Endian conversions
 
@@ -168,4 +169,5 @@ establish a type, the source comments say so.
 | `exit.cpp` | 4 | 488 | REAL exit handlers: a 64-entry table run in reverse on restore; `REAL_exit` inlines `REAL_restore` |
 | `ssysreal.c` | 3 | 172 | Hooks the sound system into REAL (system task, abort hook, exit handler); its local static gets a run-time guard (`init$`) |
 | `initosalloc.cpp` | 3 | 312 | OS heap set-up with the Dolphin arena-rounding idiom, and MSL's `__sys_alloc` on the REAL allocator |
+| `abortmsg.cpp` | 2 | 400 | `REAL_abortmessage` / `SYSTEM_abortmessage`: format into a 512-byte buffer with CodeWarrior's `__builtin_va_info`, then the abort hook or print plus `REAL_exit` |
 

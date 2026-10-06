@@ -192,7 +192,9 @@
     "texpack.json",
     "anim.json",
     "ssysreal.json",
-    "initosalloc.json"
+    "initosalloc.json",
+    "abortmsg.json",
+    "orient.json"
   ],
   "progress": {
     "code_bytes": 1414572,

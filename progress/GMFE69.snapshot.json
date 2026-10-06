@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 207908,
+    "matching_code_bytes": 208608,
     "total_executable_code_bytes": 1414572,
-    "percent": 14.697590507941625,
+    "percent": 14.747075440486592,
     "categories": {
-      "reconstructed_game": 16888,
-      "restored_library": 191020
+      "reconstructed_game": 17188,
+      "restored_library": 191420
     },
-    "matching_functions": 948
+    "matching_functions": 952
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -98,6 +98,7 @@
     "config/GMFE69/__start.json": "bbc91fc41082638a4f9c7fa8e297ef35ce208ebbbe59ffc1e842b3f1883246b9",
     "config/GMFE69/__va_arg.json": "523247766ff767fddb6ce11adb0f872bf170fbbc4854a8287ec8141007d37507",
     "config/GMFE69/abort_exit.json": "6ece500a463798efa6113ceec565b1bc449b5f23ea3602f03a676c413fa303b8",
+    "config/GMFE69/abortmsg.json": "fc9e25ea47fc41db92f2b5a39f024f4172ff4e8af6c1302258dca0dd60389c95",
     "config/GMFE69/ai.json": "57c30f25d932fdeb3f89033a5520f9d2de67dc88142e1f33a09be06723837827",
     "config/GMFE69/alloc.json": "fb00980764751afb051dcf8d20531d16fad345cbb4ab5446ac3f13dae1d82c1e",
     "config/GMFE69/anim.json": "6c0f7deb10acc52b25def57dae0a0ea6329965cecfc7a591ba086eda441dd7a8",
@@ -158,8 +159,9 @@
     "config/GMFE69/mutex_TRK.json": "c1339b6a00e96b3e2606f9882d05781f6e62b5c42a06ac18f6b3c3d3ff807a35",
     "config/GMFE69/nubevent.json": "d6afc4bc3a93eb5ab6fc791d166d4243a4fee57863e76656a656235d2e20e0f2",
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
+    "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "7edffc212122604fe422207548db45baefd03e9fedfce465418beda92f1da78b",
+    "config/GMFE69/project.json": "0ae8d937d9a431cc0a78a38b3da60ec7658ec81d438bf80d35e620ba0d6f5df3",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -971,6 +973,7 @@
     "src/ea/SNDI_mult16.c": "4f89d97881a128095f971693bc70d7667fff3f4d9616ce2bb4c5d82d0287e3d4",
     "src/ea/SNDI_root1x.c": "7f9b7d5d12060bfbf3592c216c854befc5946190765109b0ca053b8aaea27759",
     "src/ea/SNDI_sin.c": "b60cf7dd7e0f9c570a0b4a2a6dd05db4729472fec2d2beb6e8fe4063c5010cd2",
+    "src/ea/abortmsg.cpp": "3dab94dd43cec779c87131efbfc0ee283cfd1b5768c02976f4370f4eb1787055",
     "src/ea/cpudetect.cpp": "82ad74ceba8d5dcd8eda8284a31e54ca3a660ce35f0909967bfb80204e8081e7",
     "src/ea/exit.cpp": "74497f5488a200cd082a1769249e659f5cd17b94ee5c7e6b2b4f3b240c9f1923",
     "src/ea/fontnull.cpp": "f5c2dfb2e21956fc5d3a1b11c46ae763d9b5cd956badc5e3db912b1e59a9d641",
@@ -1001,6 +1004,7 @@
     "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
     "src/game/dmgeom.cpp": "6f176541b44727ce39e90fbc33d60d1c7cd572e20cde4bc86401f647cd9f7f14",
     "src/game/gcSystem.cpp": "e97d4933fe4ba1c46e72d853db6ff53b0c8136020bef2237c66ad38a0d1e1068",
+    "src/game/orient.cpp": "031b0d870db82013b99a554649dfe99038d03705b3309d14909ed0094ee43304",
     "src/game/propdat.cpp": "b1e26b00f10be619cc409432f6748e200a0064248119fafa81774718c305885d",
     "src/game/real_bridge.cpp": "3528e557dcb6116823246402f1003e63fd82246a624dcbc2f18e5ee8b9bf8e41",
     "src/game/surfacetype.cpp": "3499ce5dc7d066f093e39c158e9b096e37683df4d6b6d234eb9b08395d411390",
@@ -10332,6 +10336,84 @@
       "discarded_functions": [],
       "object_sha256": "b9ffb76ce00cf4706507fc7e32eaa9105dc787557034b720a725fec0e31a6523",
       "linked_sha256": "195fdb9b0d6b540b0aba631ce20252f1f310b2c3bc940e9dbb4466d97a693d83"
+    },
+    {
+      "id": "abortmsg",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 400,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "b92dd457e89668b419a11500dd5253f0d649699502c75e90e3cc437e205f5654",
+      "linked_sha256": "972d7c17017e00b16950b9de98239ea2f7b796d778c98b6138296f9d346428bb"
+    },
+    {
+      "id": "orient",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 300,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "5a5c5786f8c3bf8c0e965cd67b9b761313bd1aaa9287963201eac7e315096f6c",
+      "linked_sha256": "0cb4489db3b11679e603e0a7eaeee87699269394dd616ecd5a8d9b4daffb6d74"
     }
   ],
   "code_map": {
@@ -27340,27 +27422,6 @@
         ]
       },
       {
-        "name": "Unmatched files/orient.cpp [symbol evidence]",
-        "file_record": 123,
-        "file_name": "orient.cpp",
-        "ranges": [
-          {
-            "address": "0x800b8418",
-            "size": 116,
-            "kind": "function",
-            "name": "OrientLerpAngle",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800b848c",
-            "size": 184,
-            "kind": "function",
-            "name": "Orient3Lerp",
-            "evidence": "exception-index"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/pumhandler.cpp [symbol evidence]",
         "file_record": 124,
         "file_name": "pumhandler.cpp",
@@ -37698,27 +37759,6 @@
             "kind": "function",
             "name": "MEM_clear",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/abortmsg.cpp [symbol evidence]",
-        "file_record": 401,
-        "file_name": "abortmsg.cpp",
-        "ranges": [
-          {
-            "address": "0x80151078",
-            "size": 180,
-            "kind": "function",
-            "name": "REAL_abortmessage",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8015112c",
-            "size": 220,
-            "kind": "function",
-            "name": "SYSTEM_abortmessage",
-            "evidence": "private-reference"
           }
         ]
       },
