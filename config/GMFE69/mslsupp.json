@@ -1,6 +1,6 @@
 {
   "id": "mslsupp",
-  "source": "src/tww/TRK_MINNOW_DOLPHIN/MetroTRK/Export/mslsupp.c",
+  "source": "src/msl/mslsupp.c",
   "category": "restored_library",
   "compiler_family": "GC",
   "compiler_version": "1.3.2",
@@ -17,7 +17,7 @@
     "-Cpp_exceptions",
     "off",
     "-inline",
-    "auto",
+    "off",
     "-pragma",
     "cats off",
     "-pragma",
@@ -43,71 +43,83 @@
     "-common",
     "off",
     "-inline",
-    "deferred,auto",
+    "off",
     "-char",
     "signed",
     "-sdata",
     "0",
     "-sdata2",
-    "0"
+    "0",
+    "-enum",
+    "min"
   ],
-  "include_dirs": [
-    "include/tww",
-    "src/tww",
-    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include",
-    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Include",
-    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/PPC_EABI/Include",
-    "src/tww/PowerPC_EABI_Support/MSL/MSL_C++/MSL_Common/Include",
-    "src/tww/PowerPC_EABI_Support/Runtime/Inc",
-    "src/tww/PowerPC_EABI_Support/MetroTRK"
-  ],
-  "strip_unused": true,
-  "source_root": "src/tww",
+  "include_dirs": [],
+  "strip_unused": false,
   "sections": [
     {
       "name": ".text",
-      "address": "0x80137f34",
-      "size": 376,
+      "address": "0x80137a78",
+      "size": 1212,
       "type": 1
     }
   ],
   "functions": [
     {
-      "name": "__TRK_write_console",
-      "address": "0x80137f34",
-      "size": 188,
+      "name": "convertFileMode",
+      "address": "0x80137a78",
+      "size": 192,
+      "binding": 0
+    },
+    {
+      "name": "__position_file",
+      "address": "0x80137b38",
+      "size": 220,
       "binding": 1
     },
     {
-      "name": "__read_console",
-      "address": "0x80137ff0",
-      "size": 188,
+      "name": "__close_file",
+      "address": "0x80137c14",
+      "size": 132,
+      "binding": 1
+    },
+    {
+      "name": "__open_file",
+      "address": "0x80137c98",
+      "size": 176,
+      "binding": 1
+    },
+    {
+      "name": "__write_file",
+      "address": "0x80137d48",
+      "size": 180,
+      "binding": 1
+    },
+    {
+      "name": "__read_file",
+      "address": "0x80137dfc",
+      "size": 180,
+      "binding": 1
+    },
+    {
+      "name": "__close_console",
+      "address": "0x80137eb0",
+      "size": 132,
       "binding": 1
     }
   ],
   "externals": {
     "GetTRKConnected": "0x80134d18",
-    "GetUseSerialIO": "0x80137a5c",
-    "TRKAccessFile": "0x80137060"
+    "TRKAccessFile": "0x80137060",
+    "TRKCloseFile": "0x80137070",
+    "TRKOpenFile": "0x80137068",
+    "TRKPositionFile": "0x80137078"
   },
   "undefined_in_discarded_code": [],
-  "discarded_functions": [
-    "__access_file",
-    "__write_file",
-    "__read_file"
-  ],
-  "upstream": {
-    "repository": "https://github.com/zeldaret/tww",
-    "commit": "a1854d47ce5aa9d0f21c7fb5a71aaade63659693",
-    "path": "src/TRK_MINNOW_DOLPHIN/MetroTRK/Export/mslsupp.c"
-  },
-  "original_file": "mslsupp.c",
-  "original_file_index": 11539,
+  "discarded_functions": [],
+  "upstream": {},
   "local_externals": [],
-  "discarded_local_functions": [
-    "__access_file",
-    "__write_file",
-    "__read_file"
-  ],
-  "sda_externals": []
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "mslsupp.c",
+  "original_file_index": 11539
 }

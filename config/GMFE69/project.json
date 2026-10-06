@@ -175,7 +175,9 @@
     "uart_console_io.json",
     "NewMore.json",
     "buffer_io.json",
-    "bsearch.json"
+    "bsearch.json",
+    "math_ppc.json",
+    "w_pow.json"
   ],
   "progress": {
     "code_bytes": 1414572,

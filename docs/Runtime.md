@@ -70,6 +70,12 @@ linked comparison then treats weak and global alike.
   inlined, `__write_console` weak and no `__close_console`.
 - `bsearch.c`: checks its arguments, compares element 0, then binary-searches
   elements 1 to `num - 1`.
+- `mslsupp.c`: MetroTRK's MSL file hooks (`__open_file`, `__read_file`,
+  `__write_file`, `__position_file`, `__close_file`, `__close_console`) and
+  the local `convertFileMode`. The original object has debug sections and is
+  built with inlining off (the TRK profile otherwise); `convertFileMode`
+  takes the mode by pointer and returns a full-width value.
+- `w_pow.c`: fdlibm's `_IEEE_LIBM` `pow` wrapper.
 - `NewMore.cp`: `std::exception`'s destructor and `what()`, both weak (as
   header-inline members emitted with the vtable); built with RTTI on.
 
@@ -83,10 +89,8 @@ with `strtol` inlined), and `__load_buffer` and `setvbuf` in `buffer_io.c`
 
 - No reference links these, so they need reconstruction from the
   disassembly: the C++ throw/unwind code of `Gecko_ExceptionPPC.cp`
-  (`__throw`, `ExPPC_*`, about 5 KB), `mslsupp.c`'s file hooks (`__open_file`
-  and the rest; Pikmin 2 has only placeholder stubs), `ansi_files.c`'s file-table helpers,
-  `fopen`/`freopen`/`fread`, and the
-  `pow`/`cosf` wrappers.
+  (`__throw`, `ExPPC_*`, about 5 KB), `ansi_files.c`'s file-table helpers,
+  `fopen`/`freopen`/`fread` (`cosf` now comes from the Wind Waker `math_ppc.c`).
 - MetroTRK: Frontline links the Wind Waker's revision (117 of 118 function
   sizes agree), but the Wind Waker decompilation marks most TRK files
   non-matching. The matching files (`mainloop`, `nubevent`, `usr_put`,

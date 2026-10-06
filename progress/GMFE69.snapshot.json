@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 201688,
+    "matching_code_bytes": 202592,
     "total_executable_code_bytes": 1414572,
-    "percent": 14.257881535899198,
+    "percent": 14.321787791642985,
     "categories": {
       "reconstructed_game": 12484,
-      "restored_library": 189204
+      "restored_library": 190108
     },
-    "matching_functions": 873
+    "matching_functions": 880
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -135,13 +135,14 @@
     "config/GMFE69/k_tan.json": "5e836f5272de8311719911c6d828e87588e253e3c00bf27901135926e0aedd42",
     "config/GMFE69/main_TRK.json": "53a7c3f8fdc516d26210c5002897d55d0bb651015e4e46852c26248d117ade9b",
     "config/GMFE69/mainloop.json": "2994436609fef577d03fa3220d0c44d5933025297dcfae7a7880dded142e765a",
+    "config/GMFE69/math_ppc.json": "b9333b4067895dff685beb9b33137457e747e7894562c6b8de8258785645b3f6",
     "config/GMFE69/mbstring.json": "9de9f46cc9601517195f1c54fab48fb7e78bb2f47d69f7aa83c76823aea418d9",
     "config/GMFE69/mem.json": "ca3c317259aa8b4ae29fb186b81dae2190665955e0af421cfa574e77be7bb350",
     "config/GMFE69/mem_funcs.json": "cdc21eee7ec690a2964eff60bc9e230f0115ca0eb200b536179c0a35c292ae7a",
     "config/GMFE69/meminitadr.json": "381fcfbcbb6c274bbc1966d84f43a5ba64175efe3e51b4f0b3824230aa348172",
     "config/GMFE69/misc_io.json": "ce7d57c797416feb92a3a89e4ce5412b18b2a322ecac1667ffdca9c454e2e8f1",
     "config/GMFE69/mpc_7xx_603e.json": "815f349dc1383d438a3836cb5ba5bd2db4279c6d017721a52804a4fd42e85507",
-    "config/GMFE69/mslsupp.json": "a8c2e182d3fd7c6fbbf31466bc4091b837c9b9fe2b2d626115c78941e63d6a4d",
+    "config/GMFE69/mslsupp.json": "2541b92f398de9b87693f46cf3c1788ca2567585937933406e7e83b347675dd5",
     "config/GMFE69/mtx.json": "61ba8caa4839c1bb759b694d83cff465e9a2e293d606c43603098ae206217583",
     "config/GMFE69/mtx44.json": "6ec8c80e78a896f985eb769ac01b97ff684e2d83116660d2c740123270c0ddf5",
     "config/GMFE69/mtxvec.json": "bb6a4f09ca854ab9a727be34f0a20df7f53e0e081e1b83581418b88de9987009",
@@ -149,7 +150,7 @@
     "config/GMFE69/nubevent.json": "d6afc4bc3a93eb5ab6fc791d166d4243a4fee57863e76656a656235d2e20e0f2",
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "cce91ef49801070242706e9e29d089401b85b98283a6e40da5936d22064c217d",
+    "config/GMFE69/project.json": "6326f60ceed28bb87881a1c9e8b1a3497fe20667f703067dec107ba9a661140d",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -193,6 +194,7 @@
     "config/GMFE69/w_asin.json": "6ef38372a66e69e06862a0052ea7b2f9ae81b1c04e8a466f5a130c1acc0c145f",
     "config/GMFE69/w_atan2.json": "402b21748cf6b931e5860dd52e20681cac8648006dfd7e3b5c41144243ed05a6",
     "config/GMFE69/w_fmod.json": "81caff7c99d3c90cc1ea13f61be2502ce1e31069af5b51bddb79d9c3a714e3a8",
+    "config/GMFE69/w_pow.json": "a78fefa213b3d89fe33e266577385f296f8a0c3e98d0db87ed508eb668ef83a6",
     "config/GMFE69/wchar_io.json": "ee564e1aaa5348b7e3cb91d1b7ac0dcbd1a22c55f06404f16e5fd322e84baf3e",
     "include/dolphin-sdk/charPipeline/fileCache.h": "9fc5bbfba874376ec1d239271cda99d84c256b2bd07f884d1177bee6b705b985",
     "include/dolphin-sdk/charPipeline/structures/HTable.h": "e1e36439d044200512635bc37470f318258d75767fad9ec2d9c407f9c0ee1af8",
@@ -976,8 +978,10 @@
     "src/game/propdat.cpp": "b1e26b00f10be619cc409432f6748e200a0064248119fafa81774718c305885d",
     "src/msl/NewMore.cp": "cb60e70e586609256a8ff5c7a4b0efbdf7586b7fa7e3cb43b7f84e309e87c1be",
     "src/msl/bsearch.c": "e18222caa9298644a58b0d497c283f472396491e6297b39abb4865632978533a",
+    "src/msl/mslsupp.c": "b218ce6eb031f2b74fc27abb2c18cfe43e63a47161ada8703531fd06c18964b0",
     "src/msl/signal.c": "38550f6b4c1ab95b94663077e5a4135fbeb15f00b541dbc5d9aad91e3c2e7e9e",
     "src/msl/uart_console_io.c": "ebc3c2826a594fe07935597a55732f43f6f5fb0cd8f25d8b4e99b56bb3ce0900",
+    "src/msl/w_pow.c": "ffa2dc29129da5fe0529f988e8859f6462f8b332fda949eaeed158d11b7b5752",
     "src/prime/LICENSE.PrimeDecomp": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
     "src/prime/NOTICE": "2304a8d6a92dae039b32a3eb93b1ef80b3b4c205dc03fa134d023a526ab81cdd",
     "src/prime/runtime/CPlusLibPPC.cpp": "44a5aa781055458140830b5cb32c0fbb92a277ef67d59be7e85fb5e9ee08825b",
@@ -4939,8 +4943,8 @@
     {
       "id": "mslsupp",
       "category": "restored_library",
-      "functions": 2,
-      "code_bytes": 376,
+      "functions": 7,
+      "code_bytes": 1212,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -4956,7 +4960,7 @@
         "-Cpp_exceptions",
         "off",
         "-inline",
-        "auto",
+        "off",
         "-pragma",
         "cats off",
         "-pragma",
@@ -4982,22 +4986,20 @@
         "-common",
         "off",
         "-inline",
-        "deferred,auto",
+        "off",
         "-char",
         "signed",
         "-sdata",
         "0",
         "-sdata2",
-        "0"
+        "0",
+        "-enum",
+        "min"
       ],
-      "strip_unused": true,
-      "discarded_functions": [
-        "__access_file",
-        "__write_file",
-        "__read_file"
-      ],
-      "object_sha256": "08558260c628161a23830f21b99f33911a9e60d090d77f5084265be39b721524",
-      "linked_sha256": "bce52a781617f8425df35b3dd1b4e30c059869e2f6ba902de3b8fa8db1bc9d48"
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "18a3b1ed0a36b3948a80865d911bb3be84cf0628f324d313de8d3b9de8a64eca",
+      "linked_sha256": "5262d6ee5fd20b00a76ecd726143987053eccef06d25aa57f0ff1fd4c6fdd993"
     },
     {
       "id": "__init_cpp_exceptions",
@@ -9603,6 +9605,118 @@
       "discarded_functions": [],
       "object_sha256": "0942944fe61c25ba4bf1b8fa12d73d5127288590f405630af83748501be7977b",
       "linked_sha256": "d00fc875846a49047e4c67ee5c3c41584ad24a0e3c70ac7c58b0d8d60c3b4838"
+    },
+    {
+      "id": "math_ppc",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 36,
+      "compiler_family": "GC",
+      "compiler_version": "1.3",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-pragma",
+        "warn_notinlined off",
+        "-maxerrors",
+        "1",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-fp_contract",
+        "on",
+        "-str",
+        "reuse",
+        "-multibyte",
+        "-DVERSION=0",
+        "-DNDEBUG=1",
+        "-O4,p",
+        "-use_lmw_stmw",
+        "on",
+        "-str",
+        "reuse,pool,readonly",
+        "-common",
+        "off",
+        "-inline",
+        "deferred,auto",
+        "-char",
+        "signed"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "tanf",
+        "sinf",
+        "acosf"
+      ],
+      "object_sha256": "35f5214aa17c158ddeb127cd81ac6da830410a0becf4c8a4b036a2cd509f018d",
+      "linked_sha256": "38cbf8debfd42e4fc5048fb9c47e5f74902b5aaedd29655d2b7d38d6d10fb83f"
+    },
+    {
+      "id": "w_pow",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 32,
+      "compiler_family": "GC",
+      "compiler_version": "1.3",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-pragma",
+        "warn_notinlined off",
+        "-maxerrors",
+        "1",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-fp_contract",
+        "on",
+        "-str",
+        "reuse",
+        "-multibyte",
+        "-DVERSION=0",
+        "-DNDEBUG=1",
+        "-O4,p",
+        "-use_lmw_stmw",
+        "on",
+        "-str",
+        "reuse,pool,readonly",
+        "-common",
+        "off",
+        "-inline",
+        "deferred,auto",
+        "-char",
+        "signed"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "a1e1d471a28ea40dbea888b2f6921cfd6c0d6765666c8285a4523d1f2d3dc3c7",
+      "linked_sha256": "4940dce2f28fc7b76597e9b845a4f1222628b1095b5bbf158c0ea36cb70b26de"
     }
   ],
   "code_map": {
@@ -35958,58 +36072,21 @@
         ]
       },
       {
-        "name": "Unmatched files/mslsupp.c [symbol evidence]",
-        "file_record": 294,
-        "file_name": "mslsupp.c",
+        "name": "Unknown file/.text @ 80137f34",
         "ranges": [
           {
-            "address": "0x80137a78",
-            "size": 192,
+            "address": "0x80137f34",
+            "size": 188,
             "kind": "function",
-            "name": "convertFileMode",
-            "evidence": "local-file-symbol"
+            "name": "__TRK_write_console",
+            "evidence": "unknown-file"
           },
           {
-            "address": "0x80137b38",
-            "size": 220,
+            "address": "0x80137ff0",
+            "size": 188,
             "kind": "function",
-            "name": "__position_file",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80137c14",
-            "size": 132,
-            "kind": "function",
-            "name": "__close_file",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80137c98",
-            "size": 176,
-            "kind": "function",
-            "name": "__open_file",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80137d48",
-            "size": 180,
-            "kind": "function",
-            "name": "__write_file",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80137dfc",
-            "size": 180,
-            "kind": "function",
-            "name": "__read_file",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80137eb0",
-            "size": 132,
-            "kind": "function",
-            "name": "__close_console",
-            "evidence": "between-same-file"
+            "name": "__read_console",
+            "evidence": "unknown-file"
           }
         ]
       },
@@ -36164,25 +36241,6 @@
             "size": 72,
             "kind": "function",
             "name": "fopen",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80143960",
-        "ranges": [
-          {
-            "address": "0x80143960",
-            "size": 32,
-            "kind": "function",
-            "name": "pow",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80143980",
-            "size": 36,
-            "kind": "function",
-            "name": "cosf",
             "evidence": "unknown-file"
           }
         ]
