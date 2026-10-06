@@ -552,7 +552,10 @@
     "bsbifunc_collision.json",
     "bsbifunc_mmg.json",
     "bsbifunc_ground.json",
-    "bsbifunc_respawn.json"
+    "bsbifunc_respawn.json",
+    "bsbifunc_mpplayer.json",
+    "bsbifunc_choosetarget.json",
+    "bsbifunc_death.json"
   ],
   "progress": {
     "code_bytes": 1414572,
