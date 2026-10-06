@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 207424,
+    "matching_code_bytes": 207908,
     "total_executable_code_bytes": 1414572,
-    "percent": 14.66337521172482,
+    "percent": 14.697590507941625,
     "categories": {
-      "reconstructed_game": 16404,
+      "reconstructed_game": 16888,
       "restored_library": 191020
     },
-    "matching_functions": 942
+    "matching_functions": 948
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -136,6 +136,7 @@
     "config/GMFE69/gcSystem.json": "3bf2743737fe9c041930fdcb9879f7d17600a25c1ffc836927c0901688b92aea",
     "config/GMFE69/global_destructor_chain.json": "0fe0a3698440cd1f1bff61944bd62409272132d09eb6b5c82b9745b82413e6fa",
     "config/GMFE69/idct.json": "eb6d0797d88ce828568e804d35d083be094fd1ef17858bf028ba89364ff70164",
+    "config/GMFE69/initosalloc.json": "8b7026255dd67738809c2ee6fd45777736a78312b70526f944ca63f799bcd3e7",
     "config/GMFE69/inittmr.json": "7755f1641b77990ae66e1ef55ad3b56891762a7784c3a1f993f458cc6bc71f24",
     "config/GMFE69/k_cos.json": "db8492c041a6d2c074f54a05f37f23f647f9007d1ddfb016ac1b68ef92f560eb",
     "config/GMFE69/k_rem_pio2.json": "98e7c06d536b5d074d8001e65314d859cc90af96052300f3d60796c07912caec",
@@ -158,7 +159,7 @@
     "config/GMFE69/nubevent.json": "d6afc4bc3a93eb5ab6fc791d166d4243a4fee57863e76656a656235d2e20e0f2",
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "2f964aae43a3c5ee03d140cb0146d3970473a37c13312ee7b8382e552737592c",
+    "config/GMFE69/project.json": "7edffc212122604fe422207548db45baefd03e9fedfce465418beda92f1da78b",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -191,6 +192,7 @@
     "config/GMFE69/slinkmix.json": "0d66b0e0297a0e7e7bf0c13cc7f212971c66ee4114cf017c282deb2b452f6755",
     "config/GMFE69/spantoaz.json": "0e3c799ee99a0820131c59ca50dbae62300eb93899d8495888384884db8c42db",
     "config/GMFE69/ssine.json": "ab1e72c303f947cc940dd1d39e24614bd8f638dd228ea71235c2d724f37d0729",
+    "config/GMFE69/ssysreal.json": "3b9fb3ecf4cd22c2c1d2c57eab822d87cdfdb5e946081517b26a19ceb8db67e1",
     "config/GMFE69/string.json": "dfcf9ebcd504cab3afb3e06b74c7e218ecadac89ebde48c40659fcaeb0a01628",
     "config/GMFE69/strtoul.json": "96027a37123019cd24fdaf9c4ec6caa8228464cf8362a2b3ba7e36acdb35dad5",
     "config/GMFE69/surfacetype.json": "86dc7dabf78f07ec11a9d5eca99eb78762ddd2392826818716ae3082c324a362",
@@ -973,6 +975,7 @@
     "src/ea/exit.cpp": "74497f5488a200cd082a1769249e659f5cd17b94ee5c7e6b2b4f3b240c9f1923",
     "src/ea/fontnull.cpp": "f5c2dfb2e21956fc5d3a1b11c46ae763d9b5cd956badc5e3db912b1e59a9d641",
     "src/ea/idct.cpp": "b3f69a37bb85fc0cad5293848e9add29eb184e02082723c04d1ab7aec557a8a4",
+    "src/ea/initosalloc.cpp": "de7adefcde275593a6ed8ebcae40eef5f82e0fcd932e4569270e2bad4db8fe64",
     "src/ea/inittmr.cpp": "2b8bc47a5536adecefaedb4c74d54e5a0509db63fdfef428e0975b1dcabababa",
     "src/ea/meminitadr.cpp": "95eed033a03deab2f0918e8b1a92183e8cf0a9bb94d793f3558d6aa13d112d8d",
     "src/ea/rcmp_mpc_codec_chunk_types.cpp": "b996231c1c402b6ecdd813bb69df3ae8a3580e537b71dd9fa91e238690bb3635",
@@ -990,6 +993,7 @@
     "src/ea/slinkmix.c": "3cf4c749e4f9caf67c6276ed5df5b66b07e13be40dc7192b1d952b35fd5225f5",
     "src/ea/spantoaz.c": "e31c00ca71938e75d62f7465384c809d31a6bd0daa4b46f9d2576df1cbe2775c",
     "src/ea/ssine.c": "93302d8c4f67ab20ec7e2ead484fb1726b447d5e118755a655f69a2b8479136c",
+    "src/ea/ssysreal.c": "08872d0af87f62ff0a9c5171fb908b629202f85e585ef45923d546f90b77f4f8",
     "src/ea/timerthread.cpp": "e2ee2dfbb74893029f0693bb5b76212bdd70223c892d9fd963984794c6193628",
     "src/game/LinkedList.cpp": "3007b79180a5844b8b799dc4fc11618f6b5da77679e6c73c6f388fec501beb2a",
     "src/game/MallocInit.cpp": "ba35f4c9ac530c717f81930ab9aa3a203ea81844e4776914ae6b51acf4188a74",
@@ -10250,6 +10254,84 @@
       "discarded_functions": [],
       "object_sha256": "7b40c57bfdab99aa46de100c158ea334e4835de70a621df5fd0d48ee183dcf6b",
       "linked_sha256": "8e7a074587e5d8421018552c37331aedece4f3d122b1515112033739d9e966bd"
+    },
+    {
+      "id": "ssysreal",
+      "category": "reconstructed_game",
+      "functions": 3,
+      "code_bytes": 172,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "b8bd345888dd3d94afcf8c12583112e16996e57033bdb310b9e20f6c80bdf86b",
+      "linked_sha256": "8534000a3fb2316fe09fb79f3c3181c84a96de5cfecf8d2823fb6660597f9709"
+    },
+    {
+      "id": "initosalloc",
+      "category": "reconstructed_game",
+      "functions": 3,
+      "code_bytes": 312,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "b9ffb76ce00cf4706507fc7e32eaa9105dc787557034b720a725fec0e31a6523",
+      "linked_sha256": "195fdb9b0d6b540b0aba631ce20252f1f310b2c3bc940e9dbb4466d97a693d83"
     }
   ],
   "code_map": {
@@ -37580,34 +37662,6 @@
         ]
       },
       {
-        "name": "Unmatched files/initosalloc.cpp [symbol evidence]",
-        "file_record": 396,
-        "file_name": "initosalloc.cpp",
-        "ranges": [
-          {
-            "address": "0x80150704",
-            "size": 92,
-            "kind": "function",
-            "name": "iGC_GetMaxOsMemory__Fv",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80150760",
-            "size": 140,
-            "kind": "function",
-            "name": "iGC_InitMem__Fv",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x801507ec",
-            "size": 80,
-            "kind": "function",
-            "name": "__sys_alloc",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
         "name": "Unknown file/.text @ 8015083c",
         "ranges": [
           {
@@ -37987,34 +38041,6 @@
             "kind": "function",
             "name": "SNDSYS_service",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80153208",
-            "size": 36,
-            "kind": "function",
-            "name": "SNDREAL_systemtask__Fii",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8015322c",
-            "size": 4,
-            "kind": "function",
-            "name": "SNDREAL_abortmsg__FPc",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/ssysreal.c [symbol evidence]",
-        "file_record": 420,
-        "file_name": "ssysreal.c",
-        "ranges": [
-          {
-            "address": "0x80153230",
-            "size": 132,
-            "kind": "function",
-            "name": "SNDSYS_vectortoreal",
-            "evidence": "private-reference"
           }
         ]
       },

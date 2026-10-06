@@ -166,4 +166,6 @@ establish a type, the source comments say so.
 | `inittmr.cpp` | 5 | 524 | REAL timer set-up: a periodic OS alarm at `bus clock / 4 / hz` posts to the timer thread, which runs eight handler slots; the tick counters are volatile |
 | `timerthread.cpp` | 4 | 352 | The timer thread's message loop and its queue, stack and thread objects |
 | `exit.cpp` | 4 | 488 | REAL exit handlers: a 64-entry table run in reverse on restore; `REAL_exit` inlines `REAL_restore` |
+| `ssysreal.c` | 3 | 172 | Hooks the sound system into REAL (system task, abort hook, exit handler); its local static gets a run-time guard (`init$`) |
+| `initosalloc.cpp` | 3 | 312 | OS heap set-up with the Dolphin arena-rounding idiom, and MSL's `__sys_alloc` on the REAL allocator |
 
