@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 245288,
+    "matching_code_bytes": 245948,
     "total_executable_code_bytes": 1414572,
-    "percent": 17.340085905842898,
+    "percent": 17.386743127956723,
     "categories": {
-      "reconstructed_game": 48556,
+      "reconstructed_game": 49216,
       "restored_library": 196732
     },
-    "matching_functions": 1239
+    "matching_functions": 1242
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -202,7 +202,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "72d0433867277f7925fe2a1b57ed772f628bef7aa0df66b61fbe57735e909c63",
+    "config/GMFE69/project.json": "2ed04ce974728d7e145483cb7dbb63c47bfd951725c655541304f11a9ede477f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -335,6 +335,7 @@
     "config/GMFE69/usr_put.json": "fc210d4609484140e85306a13eed93ea270caf0897407db3637436d79074440e",
     "config/GMFE69/vector.json": "ed0c381a8941389959ee9a5125f981d7d8d997be92b8b26fd01ae6f758938e5c",
     "config/GMFE69/vi.json": "3341dbca41fdd83ec556de88bdc9cedb4cbd6a7c397486637cd9b6ed88713655",
+    "config/GMFE69/viewport.json": "0c53affef7597c4529b9ccbb9623f6ac0f2cc68e6b22e144da649abeacb6ec1c",
     "config/GMFE69/w_acos.json": "a345c047f5199566fd9a6302a59458cf71ad12d620db8cb118380c70a6b63e86",
     "config/GMFE69/w_asin.json": "6ef38372a66e69e06862a0052ea7b2f9ae81b1c04e8a466f5a130c1acc0c145f",
     "config/GMFE69/w_atan2.json": "402b21748cf6b931e5860dd52e20681cac8648006dfd7e3b5c41144243ed05a6",
@@ -1257,6 +1258,7 @@
     "src/game/texpack.cpp": "170a3a9592cbea2d199a09aba976cc93963f0104100915e1f5d9d23eaf30f61a",
     "src/game/trig.cpp": "5f3032fa44b1d5ddca67665564f3e280e9585d9fb7883e6e5d6398c9e032da74",
     "src/game/vector.cpp": "418a16a82127cea03fd102a27d28bf20ccd7f83caafb1ff1425f09bd38ed113d",
+    "src/game/viewport.cpp": "14cce6fa29a6c3fcbe75c86d1ba8e05432c93d143507850b55104d9234c8a643",
     "src/msl/NewMore.cp": "cb60e70e586609256a8ff5c7a4b0efbdf7586b7fa7e3cb43b7f84e309e87c1be",
     "src/msl/bsearch.c": "e18222caa9298644a58b0d497c283f472396491e6297b39abb4865632978533a",
     "src/msl/mslsupp.c": "dd035227b8e683320b6147ec006a50b26ba14f315be2755a3d573476e16eb2e8",
@@ -15792,6 +15794,45 @@
       "discarded_functions": [],
       "object_sha256": "557b44cdacb2a06ffc36c56755ec8a54cc5b762156e8e566918f05eb8ce0178f",
       "linked_sha256": "2eb344fc6537ca33471e4410b5f4f1f6ffa7db21275e1c970dbd03a23381277b"
+    },
+    {
+      "id": "viewport",
+      "category": "reconstructed_game",
+      "functions": 3,
+      "code_bytes": 660,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "abf0313046aa1e6db535641ccf0f72fdbe7156c21b6393ba2394f3b9883eafc7",
+      "linked_sha256": "16871aaab948184e3ca821de7f6b100f70b9170cc642626eb603eec14146a8e6"
     }
   ],
   "code_map": {
@@ -25714,34 +25755,6 @@
             "kind": "function",
             "name": "__ct__19CLightVolumeManagerFv",
             "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/viewport.cpp [inferred file group]",
-        "file_record": 68,
-        "file_name": "viewport.cpp",
-        "ranges": [
-          {
-            "address": "0x8007914c",
-            "size": 196,
-            "kind": "function",
-            "name": "GetTMClipToView__9CViewportCFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80079210",
-            "size": 420,
-            "kind": "function",
-            "name": "SetViewport__9CViewportCFR7CScreen",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800793b4",
-            "size": 44,
-            "kind": "function",
-            "name": "SetRect__9CViewportFffff",
-            "evidence": "same-class (inferred)"
           }
         ]
       },

@@ -322,7 +322,8 @@
     "serpoll.json",
     "smixlowp.json",
     "sresopat.json",
-    "draw_context.json"
+    "draw_context.json",
+    "viewport.json"
   ],
   "progress": {
     "code_bytes": 1414572,
