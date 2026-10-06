@@ -307,7 +307,8 @@
     "saramman.json",
     "hlsfile.json",
     "locatbig.json",
-    "spktplay.json"
+    "spktplay.json",
+    "salloc.json"
   ],
   "progress": {
     "code_bytes": 1414572,
