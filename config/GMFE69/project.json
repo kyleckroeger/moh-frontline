@@ -448,7 +448,8 @@
     "targimpl.json",
     "renderlist.json",
     "debug_prof.json",
-    "alarm.json"
+    "alarm.json",
+    "toilet.json"
   ],
   "progress": {
     "code_bytes": 1414572,
