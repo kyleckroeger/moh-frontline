@@ -367,7 +367,8 @@
     "AISoldierObject.json",
     "bsobject.json",
     "msgbuf.json",
-    "mem_TRK.json"
+    "mem_TRK.json",
+    "Soldier_object.json"
   ],
   "progress": {
     "code_bytes": 1414572,

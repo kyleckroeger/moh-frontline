@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 266248,
+    "matching_code_bytes": 266464,
     "total_executable_code_bytes": 1414572,
-    "percent": 18.821806171760787,
+    "percent": 18.837075808088947,
     "categories": {
-      "reconstructed_game": 66368,
+      "reconstructed_game": 66584,
       "restored_library": 199880
     },
-    "matching_functions": 1476
+    "matching_functions": 1483
   },
   "input_sha256": {
     "config/GMFE69/AIPlayerDoodad.json": "5ab45909efeb94b828331a8b68a46467e9cb19518255f572f32340c24b98dff2",
@@ -103,6 +103,7 @@
     "config/GMFE69/SNDI_mult16.json": "833732210b2687248ee9e85d7d585acc47190e661085eec78d0ddad969eb0951",
     "config/GMFE69/SNDI_root1x.json": "ea826a27a8d9e2588fd750844842c1e363c3555078469ac393e6172f6aedada7",
     "config/GMFE69/SNDI_sin.json": "0b60fa9265dea81e4c4dc40bdaf11377f21325b62ab47bfd58ada88b7602fee2",
+    "config/GMFE69/Soldier_object.json": "d625d33bbfdcbd4ae922099756d0a2525feb495afdd309517e996dc20e2f2aff",
     "config/GMFE69/UISActionProcess.json": "2a99d24d9da29f023bab9396c2424e8dafe6ce9bdaa87904306b5ea85783af91",
     "config/GMFE69/UISEvent.json": "494508d3a1bc6ee076038b4f42906c60c3d009f45520a50f128c75aed4f00631",
     "config/GMFE69/UISUtils.json": "35f21ff40f787f65cdda0e7900b9e15618e631193c6e854a229d1378530b456d",
@@ -234,7 +235,7 @@
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/pathxSND.json": "711dcdf3a5a5a7b4124ae70e377c5e863dc39c8de8a0de785b3dc3921c685fa0",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "52a1471b0f02f5a8c8c2ad7d90a19b669ad101b8a0a97f1987ca4dd4e41dd8c0",
+    "config/GMFE69/project.json": "63a51ce50ab824901f31af2b183db0aee1ef792fb61e5abd5d713f082704aa45",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1299,6 +1300,7 @@
     "src/game/LinkedList.cpp": "3007b79180a5844b8b799dc4fc11618f6b5da77679e6c73c6f388fec501beb2a",
     "src/game/MallocInit.cpp": "ba35f4c9ac530c717f81930ab9aa3a203ea81844e4776914ae6b51acf4188a74",
     "src/game/MathFun.cpp": "5a60cf13aeb557c033e5adb906365756165d8401c8d9f239c72e95a9c96b96df",
+    "src/game/Soldier_object.cpp": "92bf858d3c8b06c691309b702079f4c10d3da7935ed4b50d4e27764fa7eeca41",
     "src/game/UISActionProcess.c": "0c8322629537a363a11f51d7aa0ddaf2fa57f6d24c22fb15f45f76e6566d5f7e",
     "src/game/UISEvent.c": "a9b324a04b57cdf40fbb819827d2073be6fa1b9fa1be2f1c0757e46dd3747a82",
     "src/game/UISUtils.c": "2e101b81ca9b5914c365c0afa440b86886d07e54d6257f711e93bac63363577e",
@@ -17703,6 +17705,45 @@
       "discarded_functions": [],
       "object_sha256": "5063d3f26e65729ab347e18358943c74fcdc96af92961f15f8abea57751d62fc",
       "linked_sha256": "efcd2181856e4206ae6f9a6a91978bc1f769a0475f6b1b5c59423ac23bb25dd3"
+    },
+    {
+      "id": "Soldier_object",
+      "category": "reconstructed_game",
+      "functions": 7,
+      "code_bytes": 216,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "f818ac8713fe3cca3a26316b36a827d0b9c0d5e4009e014da3be9d572e023b7e",
+      "linked_sha256": "4209e4812fbc62cb53935795a7b226a40393dbe887e89b249507c8c7a2e2d15b"
     }
   ],
   "code_map": {
@@ -31833,59 +31874,10 @@
         ]
       },
       {
-        "name": "Unmatched files/Soldier_object.cpp [inferred file group]",
+        "name": "Unmatched files/Soldier_object.cpp [symbol evidence]",
         "file_record": 117,
         "file_name": "Soldier_object.cpp",
         "ranges": [
-          {
-            "address": "0x800a9b2c",
-            "size": 8,
-            "kind": "function",
-            "name": "GetAIDoodad__14CSoldierObjectCFv",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x800a9b34",
-            "size": 4,
-            "kind": "function",
-            "name": "AsSoldierObject__14CSoldierObjectCFv",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x800a9b38",
-            "size": 4,
-            "kind": "function",
-            "name": "AsSoldierObject__14CSoldierObjectFv",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x800a9b3c",
-            "size": 68,
-            "kind": "function",
-            "name": "Destroy__14CSoldierObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800a9b80",
-            "size": 52,
-            "kind": "function",
-            "name": "SetHeadTrans__14CSoldierObjectFb",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800a9bb4",
-            "size": 36,
-            "kind": "function",
-            "name": "SetHeadTrackPlayer__14CSoldierObjectFbi",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800a9bd8",
-            "size": 44,
-            "kind": "function",
-            "name": "FadeOut__14CSoldierObjectFf",
-            "evidence": "between-same-file"
-          },
           {
             "address": "0x800a9c04",
             "size": 256,
