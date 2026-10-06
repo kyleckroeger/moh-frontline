@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 256288,
+    "matching_code_bytes": 256484,
     "total_executable_code_bytes": 1414572,
-    "percent": 18.117706274406675,
+    "percent": 18.131562055519268,
     "categories": {
-      "reconstructed_game": 59284,
+      "reconstructed_game": 59480,
       "restored_library": 197004
     },
-    "matching_functions": 1385
+    "matching_functions": 1387
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -218,7 +218,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "79cdb81873be1466568fb6287bb276b4a33a0a8618079c3f820102b183d50c66",
+    "config/GMFE69/project.json": "7a8f7de9b02d4a51811ecbd81fed165be7fdaee9763d5ff49903dc6a4c6827b8",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -256,6 +256,7 @@
     "config/GMFE69/sctlfilt.json": "b1b4403df5f172a96a7c8189f27b7f46a0c740002e8f50e74e0a783e2488cd73",
     "config/GMFE69/sctrldry.json": "561b4b93070d6a4cbfb714e3f6de5824f583795298bba426606a1ad4803dc401",
     "config/GMFE69/sdfx.json": "6985d96463b5ccc311927984ccfb649a26f4ecd6d154e532138a036ae75a2d70",
+    "config/GMFE69/sdspmix.json": "4b6ea6f75b8bcbf98246ed2495d6179e165cc32bc0fd1ddb13ce99b0e755de69",
     "config/GMFE69/seffect.json": "1f2e675cdc34dcfe499834a7adf6256a18d28d06f23e058f49a77fa789234528",
     "config/GMFE69/serpoll.json": "faaac3f7ba5c4c9dd3ae24cedf33edd4c3e11a903a07b7e45f9a6c29abd5ba7b",
     "config/GMFE69/sexithndl.json": "6c5ce5b1a58d2ddb2c89bc93ff456205622350a9281cc71a3231093184cedeff",
@@ -1182,6 +1183,7 @@
     "src/ea/sctlfilt.c": "f0ee0f9939f8a8bf3d378bd02f819abd234a5da38120e7e84861b2ec0a3b180b",
     "src/ea/sctrldry.cpp": "98429e0252980217b230bcd6d5250668bdac5623e921d3124d66481497622d43",
     "src/ea/sdfx.c": "9d83385a1a795ded1328d0f6f4b30339b8a2c7b14b2b7243908abdcbf11ef50a",
+    "src/ea/sdspmix.c": "f3f163faad33f649346ac0465f922f12142b3153ac1623ddbee56c9feb8aef2e",
     "src/ea/seffect.c": "6470b7ac2e0167459da612e29801943ce71964f2f306dfcdbe4697ff88bb99f7",
     "src/ea/sexithndl.c": "b5dc86e69a579d07c16f0ef7558d5928fb5c5271c2748f3833c203e624a60019",
     "src/ea/sfamplf.c": "b5e0e1378b6b933600349577efcd46e525d10547f4a340f22efb78ac6441dde6",
@@ -16918,6 +16920,45 @@
       "discarded_functions": [],
       "object_sha256": "d9967cd7fb40077c765340db05fd8c1bab256b0a89e78c20eb727c934b06ad25",
       "linked_sha256": "4e8a6f1b1ec28832479046f2ace191764e37c1892baa5e7ebb647a86f12a18aa"
+    },
+    {
+      "id": "sdspmix",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 196,
+      "compiler_family": "GC",
+      "compiler_version": "1.3",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "05b3fa33b0ca31ef9084df05cc78b8f139d6c1619499234d53bfc3cef0dccb23",
+      "linked_sha256": "15274c953b0432dba09ceb358dfd96fbc3cd934e655a724cbfbd7464ca30f1d4"
     }
   ],
   "code_map": {
@@ -43955,20 +43996,6 @@
         "file_record": 554,
         "file_name": "sdspmix.c",
         "ranges": [
-          {
-            "address": "0x8016d00c",
-            "size": 88,
-            "kind": "function",
-            "name": "SNDDRV_DSPMixerSetPan__FP6_AXVPBPUs",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8016d064",
-            "size": 108,
-            "kind": "function",
-            "name": "SNDDRV_DSPMixerSetAuxBus__FP6_AXVPBUsi",
-            "evidence": "private-reference"
-          },
           {
             "address": "0x8016d0d0",
             "size": 264,

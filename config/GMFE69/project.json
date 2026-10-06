@@ -349,7 +349,8 @@
     "anim_obj.json",
     "fader.json",
     "dmrender.json",
-    "sserver.json"
+    "sserver.json",
+    "sdspmix.json"
   ],
   "progress": {
     "code_bytes": 1414572,
