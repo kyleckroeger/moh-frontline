@@ -402,7 +402,11 @@
     "UIStudio.json",
     "sound.json",
     "memalloc.json",
-    "AIObject.json"
+    "AIObject.json",
+    "matrix.json",
+    "smixer.json",
+    "rcmp_main.json",
+    "IStudio.json"
   ],
   "progress": {
     "code_bytes": 1414572,
