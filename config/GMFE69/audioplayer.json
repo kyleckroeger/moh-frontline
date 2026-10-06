@@ -1,0 +1,128 @@
+{
+  "id": "audioplayer",
+  "source": "src/game/audioplayer.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8010879c",
+      "size": 652,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000fd9c",
+      "size": 40,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80016b68",
+      "size": 60,
+      "type": 1
+    },
+    {
+      "name": ".rodata",
+      "address": "0x8017ac98",
+      "size": 14,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x80351358",
+      "size": 4,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "IsAudioFinished__Q24RCMP12AUDIO_PLAYERFv",
+      "address": "0x8010879c",
+      "size": 84,
+      "binding": 1
+    },
+    {
+      "name": "StartSound__Q24RCMP12AUDIO_PLAYERFv",
+      "address": "0x801087f0",
+      "size": 88,
+      "binding": 1
+    },
+    {
+      "name": "SetSpeed__Q24RCMP12AUDIO_PLAYERFUi",
+      "address": "0x80108848",
+      "size": 100,
+      "binding": 1
+    },
+    {
+      "name": "__dt__Q24RCMP12AUDIO_PLAYERFv",
+      "address": "0x801088ac",
+      "size": 128,
+      "binding": 1
+    },
+    {
+      "name": "__ct__Q24RCMP12AUDIO_PLAYERFii",
+      "address": "0x8010892c",
+      "size": 252,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DEBUG_break": "0x80151208",
+    "MEM_free": "0x8014f83c",
+    "SNDSTRM_createtap": "0x8015c570",
+    "SNDSTRM_destroy": "0x8015bef4",
+    "SNDSTRM_modifyhold": "0x8015c4b0",
+    "SNDSTRM_overheadtap": "0x8015c1f4",
+    "SNDSTRM_pitchmult": "0x8015c728",
+    "SNDSTRM_queuerequestid": "0x8015c518",
+    "SNDSTRM_requeststatus": "0x8015c37c",
+    "SNDSTRM_status": "0x8015c288",
+    "SNDSYS_entercritical": "0x80153554",
+    "SNDSYS_inited": "0x801530d0",
+    "SNDSYS_leavecritical": "0x80153588",
+    "SNDplaysetdef": "0x8015d458",
+    "rcmp_sys__4RCMP": "0x803158ac"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "audioplayer.cpp",
+  "original_file_index": 10376
+}

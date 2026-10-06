@@ -374,7 +374,8 @@
     "AIFilter.json",
     "collisionvolume.json",
     "ipad.json",
-    "SearchNodeList.json"
+    "SearchNodeList.json",
+    "audioplayer.json"
   ],
   "progress": {
     "code_bytes": 1414572,
