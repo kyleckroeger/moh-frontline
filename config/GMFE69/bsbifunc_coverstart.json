@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x8003357c",
-      "size": 236,
+      "size": 428,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000a0fc",
-      "size": 16,
+      "size": 24,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80010f40",
-      "size": 24,
+      "size": 36,
       "type": 1
     }
   ],
@@ -68,9 +68,17 @@
       "address": "0x800335f8",
       "size": 112,
       "binding": 1
+    },
+    {
+      "name": "BIFunc_AIStopAStarPathWalk__FPPiPv",
+      "address": "0x80033668",
+      "size": 192,
+      "binding": 1
     }
   ],
   "externals": {
+    "CleanupAStarPathWalk__9CAIObjectFv": "0x8004b728",
+    "GetDistanceSquaredXYZReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition": "0x8005a6f4",
     "StartCoverPointWalkToStored__9CAIObjectFb": "0x8004ab04",
     "g_iCurrentBIFIndex": "0x8034e77c",
     "g_pBuiltInFunctions": "0x8034e778"
