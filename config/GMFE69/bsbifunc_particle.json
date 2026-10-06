@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x80029198",
-      "size": 836,
+      "size": 1444,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009c9c",
-      "size": 24,
+      "size": 32,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x800108b0",
-      "size": 36,
+      "size": 48,
       "type": 1
     }
   ],
@@ -76,13 +76,32 @@
       "binding": 1
     },
     {
+      "name": "BIFunc_CreateParticleSystemByType__FPPiPv",
+      "address": "0x800294dc",
+      "size": 596,
+      "binding": 1
+    },
+    {
       "name": "SetSystemInitialVelocity__15CParticleSystemF8CVector3",
       "address": "0x800294d8",
       "size": 4,
       "binding": 2
+    },
+    {
+      "name": "SetLocalToWorld__15CParticleSystemFRC7CMatrix",
+      "address": "0x80029730",
+      "size": 4,
+      "binding": 2
+    },
+    {
+      "name": "AsThrownObject__13CStaticObjectFv",
+      "address": "0x80029734",
+      "size": 8,
+      "binding": 2
     }
   ],
   "externals": {
+    "Create__15CParticleSystemFUl": "0x80080c78",
     "Create__6CLightFUl": "0x80078648",
     "GetMatrix__11CQuaternionCFR7CMatrix": "0x80091c9c",
     "InitClass__7CMatrixFv": "0x80090b78",

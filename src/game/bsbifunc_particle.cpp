@@ -3,22 +3,32 @@
 // placed at the script trigger's position and rotation moved by the offset) and
 // return it, deactivate a particle system and set a particle system's initial
 // velocity (from three floats), followed by the weak, empty
-// CParticleSystem::SetSystemInitialVelocity. Each reads its arguments below the
-// script stack top (the system first) and pops the built-in's arguments; a null
-// system is skipped. The file name is this project's; the original record is
-// bsbifunc.cpp and the built-ins around these are not reconstructed. The
+// CParticleSystem::SetSystemInitialVelocity, then create a particle system by
+// type (placed at the scene node's transform, moved to the centre of its world
+// bounding volume for static objects that are neither thrown nor hierarchy
+// tanks, or at the script trigger's position and rotation; then moved by the
+// offset) and return it, followed by the weak, empty
+// CParticleSystem::SetLocalToWorld and the weak CStaticObject::AsThrownObject
+// (0). Each reads its arguments below the script stack top (the system first)
+// and pops the built-in's arguments; a null system is skipped. The file name is
+// this project's; the original record is bsbifunc.cpp and the built-ins around
+// these are not reconstructed (ResetParticleSystemRotation after them copies a
+// matrix row field by field here, not as the original's two doubles). The
 // functions, classes and globals are named by the mangled symbols; ISceneNode
 // is declared with its virtual functions in the order of __vt__10ISceneNode
 // (SetAttachedLight at +212) and IMovingSceneNode's after them in the order of
-// __vt__13CStaticObject (SetTMLocalToWorld at +232), CLight derives from
-// IMovingSceneNode, the trigger and script-object views are inferred, CMatrix's
-// constructor is an inline view (initialising the class once); CRenderBin and
-// CParticleSystem are declared with their virtual functions in the order of
-// __vt__15CParticleSystem (the pointer at +28 after 28 bytes of members; the
-// destructors declared and defined elsewhere), the 18 null entries at +60 to
-// +128 as pure virtual functions whose names are unknown; return types not
-// visible in the code are left as int or void, and the built-in record view is
-// inferred.
+// __vt__13CStaticObject (SetTMLocalToWorld at +232), CStaticObject derives from
+// IMovingSceneNode with its virtual functions in the order of
+// __vt__13CStaticObject up to AsHierTankObject at +328 (the unnamed entry at
+// +300 as a placeholder), CLight derives from IMovingSceneNode, the world
+// bounding volume view (its centre at +64) is inferred, the trigger and
+// script-object views are inferred, CMatrix's constructor is an inline view
+// (initialising the class once); CRenderBin and CParticleSystem are declared
+// with their virtual functions in the order of __vt__15CParticleSystem (the
+// pointer at +28 after 28 bytes of members; the destructors declared and
+// defined elsewhere), the 18 null entries at +60 to +128 as pure virtual
+// functions whose names are unknown; return types not visible in the code are
+// left as int or void, and the built-in record view is inferred.
 //
 // CVector3 view: four floats, 8-byte aligned, built by an inline constructor
 // from x, y and z (inferred; the copy to the by-value argument is two lfd/stfd
@@ -44,6 +54,7 @@ public:
     void PreTranslate(CVector3);
 
     float m[4][4];
+
     static bool s_ClassInit;
 } __attribute__((aligned(16)));
 
@@ -62,6 +73,8 @@ class CCollision;
 class CDrawContext;
 class CVector3;
 class CBullet;
+class CStaticObject;
+struct VolumeView;
 class CLight;
 class CPlayerObject;
 struct AIDoodadView;
@@ -81,7 +94,7 @@ public:
     virtual void CommitUpdate();
     virtual void Draw(CDrawContext&);
     virtual int GetLocalBoundingVolume(EVolumeType) const;
-    virtual int GetWorldBoundingVolume(EVolumeType) const;
+    virtual const VolumeView* GetWorldBoundingVolume(EVolumeType) const;
     virtual void GetTMLocalToWorld(CMatrix&) const;
     virtual void GetPosition(CVector3&) const;
     virtual void GetRightward(CVector3&) const;
@@ -96,7 +109,7 @@ public:
     virtual void HandleBulletCollision(CBullet*, const CCollision&);
     virtual void* AsMovingNode();
     virtual const void* AsMovingNode() const;
-    virtual void* AsStaticObject();
+    virtual CStaticObject* AsStaticObject();
     virtual const void* AsStaticObject() const;
     virtual void* AsHierObject();
     virtual const void* AsHierObject() const;
@@ -132,6 +145,44 @@ public:
     virtual void Halt();
     virtual void ApplyForceTo(CVector3, float);
     virtual void SetTMLocalToWorld(const CMatrix&);
+};
+
+struct VolumeView {
+    unsigned char unknown00[64];
+    CVector3 center;
+};
+
+class BSObject;
+class BPDLightVolume;
+enum EBSEventEnum {};
+
+class CStaticObject : public IMovingSceneNode {
+public:
+    virtual ~CStaticObject();
+    virtual void PreTransform(const CMatrix&);
+    virtual void Transform(const CMatrix&);
+    virtual void Move(CVector3);
+    virtual void Rotate(CVector3, float);
+    virtual void Pitch(float);
+    virtual void Roll(float);
+    virtual void Yaw(float);
+    virtual void SetPosition(CVector3);
+    virtual void SetBasis(CVector3, CVector3, CVector3);
+    virtual void Orthonormalize();
+    virtual int GetWorldLinearVelocity() const;
+    virtual void EnterLightVolume(BPDLightVolume*);
+    virtual void ExitLightVolume(BPDLightVolume*);
+    virtual int GetLightVolume();
+    virtual void Init();
+    virtual void SetScript(BSObject*);
+    virtual void unknown12c();
+    virtual void TranslateFromScript(CVector3&, CVector3&, EBSEventEnum);
+    virtual void RotateFromScript(CVector3&, CVector3&, EBSEventEnum);
+    virtual void ScaleFromScript(float, float, EBSEventEnum);
+    virtual void StartMotionPlayback(int, int, EBSEventEnum);
+    virtual void* AsThrownObject();
+    virtual void* AsWeaponObject();
+    virtual void* AsHierTankObject();
 };
 
 class CLight : public IMovingSceneNode {
@@ -217,6 +268,7 @@ public:
     virtual void SetSystemLifetime(float);
     virtual void SetParticleLifetime(float);
     virtual void SetSystemInitialVelocity(CVector3);
+    static CParticleSystem* Create(unsigned long);
 };
 
 struct BSBuiltinView {
@@ -276,4 +328,41 @@ void BIFunc_SetParticleSystemVelocity(int** stack, void*) {
 }
 
 __declspec(weak) void CParticleSystem::SetSystemInitialVelocity(CVector3) {
+}
+
+void BIFunc_CreateParticleSystemByType(int** stack, void* object) {
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    float x = *(float*)(*stack - (count - 2));
+    float y = *(float*)(*stack - (count - 3));
+    float z = *(float*)(*stack - (count - 4));
+    unsigned long type = *(*stack - (count - 1));
+    CVector3 offset(x, y, z);
+    CMatrix matrix;
+    if (object) {
+        ISceneNode* node = (ISceneNode*)object;
+        node->GetTMLocalToWorld(matrix);
+        if (node->AsStaticObject() && !node->AsStaticObject()->AsThrownObject() && !node->AsStaticObject()->AsHierTankObject()) {
+            const VolumeView* volume = node->GetWorldBoundingVolume((ISceneNode::EVolumeType)3);
+            if (volume)
+                matrix.SetPos(volume->center);
+        }
+    } else {
+        TriggerCoreView* core = g_pBSObject->trigger->core;
+        CVector3 position(core->x, core->y, core->z);
+        core->rotation.GetMatrix(matrix);
+        matrix.SetPos(position);
+    }
+    matrix.PreTranslate(offset);
+    CParticleSystem* system = CParticleSystem::Create(type);
+    if (system)
+        system->SetLocalToWorld(matrix);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    **stack = *(int*)&system;
+}
+
+__declspec(weak) void CParticleSystem::SetLocalToWorld(const CMatrix&) {
+}
+
+__declspec(weak) void* CStaticObject::AsThrownObject() {
+    return 0;
 }
