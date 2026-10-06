@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 246912,
+    "matching_code_bytes": 247552,
     "total_executable_code_bytes": 1414572,
-    "percent": 17.454890949347224,
+    "percent": 17.50013431624548,
     "categories": {
-      "reconstructed_game": 50180,
+      "reconstructed_game": 50820,
       "restored_library": 196732
     },
-    "matching_functions": 1257
+    "matching_functions": 1261
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -119,6 +119,7 @@
     "config/GMFE69/bstimer.json": "f6c1bc76d8200192cc1dc0fcc0d071b489cc158c09f820ee351e4190d480c6ae",
     "config/GMFE69/buffer_io.json": "9a997068c0c387e86e9609ec66493e7caa8d98ea675676441eb2ff729f5d4186",
     "config/GMFE69/coda.json": "ed79629f16e36603a2a74fe3bfd2db4c7043efb597de702316a222bcbb355440",
+    "config/GMFE69/configfile.json": "91ea7c527a01fbdf35a79bee7b9f1f527b45ca2c45cceaca096207d590220903",
     "config/GMFE69/cpudetect.json": "f617351e9aa4e5ec3cd84ed1322674cc8c654e2e1e9b138b5402edf93e1acd56",
     "config/GMFE69/ctype.json": "204f2baf71f1c77a57c8bb685dba45f7583994fc6c39201224cb2a0ed20eb580",
     "config/GMFE69/db.json": "f5cdac8d1b6ec28c05d82995e2918679665f81055beaea75273deb9b2bb4a458",
@@ -203,7 +204,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "825aab092ef5315b5b4ca6ff360b971366035213305fd5639bf134ccdfdbdb6c",
+    "config/GMFE69/project.json": "9a36c89a641281e1abee60b27a56f86439896c24a40374a3a4a6ac85d5ea1856",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1252,6 +1253,7 @@
     "src/game/anim.cpp": "9e086af4631ac941623f4e90cc4d858d9a4a1ddde96c1433e494b2f9411978d3",
     "src/game/bsmachin.cpp": "29ef7c9c19942e3dc51d97c49266ac9b237c8658ffef55d4536c8968e7d44b1e",
     "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
+    "src/game/configfile.cpp": "d7e5f7aff38b5ab2c1744e81f1a3469c55b6e00a561d1f5cd43f49ccf6b6d2ec",
     "src/game/dmgeom.cpp": "6f176541b44727ce39e90fbc33d60d1c7cd572e20cde4bc86401f647cd9f7f14",
     "src/game/draw_context.cpp": "261589cc092b9c8c7b80605255eefc78641468141f4d33264252696f62c9782b",
     "src/game/framework.cpp": "8cebad26aba8fe4a9a9ece0492c0bf7bb34882a1eec7dd48a1b3b93d0830914f",
@@ -16079,6 +16081,45 @@
       "discarded_functions": [],
       "object_sha256": "7e37411c1d09e76c62602d36842387828d4207bb88bec43d8917a08e3b5a39b1",
       "linked_sha256": "24c03af07c3abd87fdb002c821811436ff02ed36fc1ce31fde04ead7ce159fe5"
+    },
+    {
+      "id": "configfile",
+      "category": "reconstructed_game",
+      "functions": 4,
+      "code_bytes": 640,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "8d1ffc1905870025410505a6f342e6f16dabb9bc8b5fce90d71ddb7c253d6da7",
+      "linked_sha256": "09a64465c93e957ef7c20531b2ea594f421cef31419e748ae7c50d4a2c284966"
     }
   ],
   "code_map": {
@@ -17176,39 +17217,6 @@
             "kind": "function",
             "name": "GetBool__11CConfigFileFPCcb",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001c350",
-            "size": 144,
-            "kind": "function",
-            "name": "SetSection__11CConfigFileFPCc",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001c3e0",
-            "size": 92,
-            "kind": "function",
-            "name": "__dt__11CConfigFileFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001c43c",
-            "size": 388,
-            "kind": "function",
-            "name": "__ct__11CConfigFileFPCc",
-            "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8001c5c0",
-        "ranges": [
-          {
-            "address": "0x8001c5c0",
-            "size": 16,
-            "kind": "function",
-            "name": "__ct__14CConfigSectionFv",
-            "evidence": "unknown-file"
           }
         ]
       },
