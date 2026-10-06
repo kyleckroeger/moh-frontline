@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 224688,
+    "matching_code_bytes": 226020,
     "total_executable_code_bytes": 1414572,
-    "percent": 15.883815033805279,
+    "percent": 15.977977791162274,
     "categories": {
-      "reconstructed_game": 33668,
+      "reconstructed_game": 35000,
       "restored_library": 191020
     },
-    "matching_functions": 1104
+    "matching_functions": 1105
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -166,6 +166,7 @@
     "config/GMFE69/memblock.json": "a977671a106b065e421ed7ba52dc1c546f6602d88af2d8e96e5715cccc8ebbb8",
     "config/GMFE69/memclass.json": "bd3eb85f748a024917f020168820322686ed77df1d9b1825791bcc04a15eddf5",
     "config/GMFE69/memclear.json": "14ed66bb9f1df277a76613048da6cdd05021817f4d48a33cde217c54a6035c7b",
+    "config/GMFE69/memcopy.json": "0330568031415c48128091886690c21c9191493b167613550e074170964278f4",
     "config/GMFE69/memfill.json": "ca0086e29fc0fb3ec93cb9616e066a38e603eaa801272c047e590396f968760d",
     "config/GMFE69/meminit.json": "7f97bc09beb240774c638e6eea15407c70e896c05531a91a080e597eb5beb25b",
     "config/GMFE69/meminitadr.json": "381fcfbcbb6c274bbc1966d84f43a5ba64175efe3e51b4f0b3824230aa348172",
@@ -188,7 +189,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "07b7c55396da916d6c84706a5a0b3f4a397db52397eb39238a29fd469c17ada8",
+    "config/GMFE69/project.json": "cb894557785dac312783b9d2e72f937b927119770fe4a16b33f74c70bf7970c3",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1088,6 +1089,7 @@
     "src/ea/memblock.cpp": "9c22c07fb0234fb28e395fc44ebaa5d07b2ae93122bdbfb90b8e1b0da347e3ef",
     "src/ea/memclass.cpp": "a4eb43ad53e833f091a4ae51184503b05c3e24aa61a702e685f1358fe820fdc2",
     "src/ea/memclear.cpp": "8533b60f48b86f07d120cb308bc5018b0275144d78c0cdeaa4bbf265d98c4d9e",
+    "src/ea/memcopy.cpp": "3f0f478c68f8768a78a25a26b586a914c33dd3b94761909ff543e74e3fe2bd24",
     "src/ea/memfill.cpp": "b6b4cd5f43024135698bef1950d49238281dc813b15c00aca9e69a6a30169ef3",
     "src/ea/meminit.cpp": "6f4b58a238cdb1b45a57d44204b6f524eb6a0e3468a4c5007b6b87891252a75f",
     "src/ea/meminitadr.cpp": "95eed033a03deab2f0918e8b1a92183e8cf0a9bb94d793f3558d6aa13d112d8d",
@@ -14391,6 +14393,45 @@
       "discarded_functions": [],
       "object_sha256": "3bfc2a2d95bd25bcf9e67a96af48e267668bcdf84713d78da6230a67f76b9046",
       "linked_sha256": "76513e60dfbbd12f06e1b07cbf0d8aad5edafb76e97afb1db537cd5f07857468"
+    },
+    {
+      "id": "memcopy",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 1332,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "133ba345fa6591eea68b9831d155827941b5ae3039ad1981f535aeb7a473641c",
+      "linked_sha256": "9f2391508774342dd5397f62a918911bb4c90a6745b55e01881ba2b4fb0d67c5"
     }
   ],
   "code_map": {
@@ -41275,18 +41316,6 @@
             "kind": "function",
             "name": "ARAM_alloc",
             "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80150880",
-        "ranges": [
-          {
-            "address": "0x80150880",
-            "size": 1332,
-            "kind": "function",
-            "name": "MEM_copy",
-            "evidence": "unknown-file"
           }
         ]
       },

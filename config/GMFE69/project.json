@@ -291,7 +291,8 @@
     "supf.json",
     "sbremove.json",
     "memfill.json",
-    "initvblt.json"
+    "initvblt.json",
+    "memcopy.json"
   ],
   "progress": {
     "code_bytes": 1414572,
