@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 227164,
+    "matching_code_bytes": 227604,
     "total_executable_code_bytes": 1414572,
-    "percent": 16.058850309492907,
+    "percent": 16.08995512423546,
     "categories": {
-      "reconstructed_game": 36144,
+      "reconstructed_game": 36584,
       "restored_library": 191020
     },
-    "matching_functions": 1110
+    "matching_functions": 1112
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -189,7 +189,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "20ea76462645144ecb4897448108346bc2a8eb6f1b916eb6502dc8b26e0e210b",
+    "config/GMFE69/project.json": "8203a048a40e279076545f3c555a34d365578863ccfac99102b0da0532f398ca",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -306,6 +306,7 @@
     "config/GMFE69/trig.json": "fc3515f7450abad9fe74ce81c40946371221fba799328195e2e12c9b81e26645",
     "config/GMFE69/uart_console_io.json": "c12ad27f08ae82aef8dffc7980694bcb0a18c94f53658fab67915a668275a538",
     "config/GMFE69/usr_put.json": "fc210d4609484140e85306a13eed93ea270caf0897407db3637436d79074440e",
+    "config/GMFE69/vector.json": "ed0c381a8941389959ee9a5125f981d7d8d997be92b8b26fd01ae6f758938e5c",
     "config/GMFE69/vi.json": "3341dbca41fdd83ec556de88bdc9cedb4cbd6a7c397486637cd9b6ed88713655",
     "config/GMFE69/w_acos.json": "a345c047f5199566fd9a6302a59458cf71ad12d620db8cb118380c70a6b63e86",
     "config/GMFE69/w_asin.json": "6ef38372a66e69e06862a0052ea7b2f9ae81b1c04e8a466f5a130c1acc0c145f",
@@ -1210,6 +1211,7 @@
     "src/game/system.cpp": "a6b1bce950e974ebaf7e6c7afc31ecab8f41566550163428c632534bc8f78b83",
     "src/game/texpack.cpp": "170a3a9592cbea2d199a09aba976cc93963f0104100915e1f5d9d23eaf30f61a",
     "src/game/trig.cpp": "5f3032fa44b1d5ddca67665564f3e280e9585d9fb7883e6e5d6398c9e032da74",
+    "src/game/vector.cpp": "418a16a82127cea03fd102a27d28bf20ccd7f83caafb1ff1425f09bd38ed113d",
     "src/msl/NewMore.cp": "cb60e70e586609256a8ff5c7a4b0efbdf7586b7fa7e3cb43b7f84e309e87c1be",
     "src/msl/bsearch.c": "e18222caa9298644a58b0d497c283f472396491e6297b39abb4865632978533a",
     "src/msl/mslsupp.c": "b218ce6eb031f2b74fc27abb2c18cfe43e63a47161ada8703531fd06c18964b0",
@@ -14514,6 +14516,45 @@
       "discarded_functions": [],
       "object_sha256": "4326fd70e20013fa0cb693c2468068527d711a23709653f5834127ffb2dde905",
       "linked_sha256": "6f339894f6c48ab3488040c025107b2740a512bcd3538f1ede776e9904402700"
+    },
+    {
+      "id": "vector",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 440,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "584968affeba8bc040b22d4bc7f887c54b84e992c538457f22c7375207b074a8",
+      "linked_sha256": "d704a3dc029c01c16c86423c5880b9fd7e0252391dbd52d6e5af8a727fb09e33"
     }
   ],
   "code_map": {
@@ -27561,27 +27602,6 @@
             "size": 456,
             "kind": "function",
             "name": "MathLLAngleInit__Fv",
-            "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/vector.cpp [symbol evidence]",
-        "file_record": 104,
-        "file_name": "vector.cpp",
-        "ranges": [
-          {
-            "address": "0x8009213c",
-            "size": 304,
-            "kind": "function",
-            "name": "Constrain__8CVector3FRC8CVector3f",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8009226c",
-            "size": 136,
-            "kind": "function",
-            "name": "Rotate__8CVector2FRC8CVector2l",
             "evidence": "exception-index"
           }
         ]

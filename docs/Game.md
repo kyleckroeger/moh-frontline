@@ -91,6 +91,7 @@ and layouts it marks as descriptive stay descriptive here.
 | `anim.cpp` | 11 | 532 | — | Animation module start-up, the user-opcode callback stacks and the global `g_AnimDB` (constructed by `__sinit_anim_cpp`) |
 | `orient.cpp` | 2 | 300 | — | Fixed-point (one turn = 0x1000000) shortest-way angle interpolation, `extern "C"` names; the 64-bit product shape fixes where the difference is taken |
 | `memory.cpp` | 7 | 748 | `DWI_alloc`/`DWI_allocalign` and the global `operator new`/`new[]`/`delete`/`delete[]` on the REAL heap; `DWI_alloc` is inlined into the `new` forms (hence two `memset` calls), and the `throw()` deletes keep their exception-spec frames |
+| `vector.cpp` | 2 | 440 | `CVector3::Constrain` (spherical interpolation toward a target; Frontline's version takes a const target and has no opposite-vector case, unlike Rising Sun's) and `CVector2::Rotate`; the scaled target is an inline `float * CVector3` temporary |
 | `framework.cpp` | 2 | 8 | Empty `FRAMEWORK::Init`/`Restore` |
 | `isexportdefs.cpp` | 1 | 16 | `NullifyScreenAndLibrary` |
 | `isShellGroup.cpp`, `ispausegroup.cpp`, `isShellLibrary.cpp`, `ispauselibrary.cpp` (fragments) | 4 | 56 | One-line selectors of the shell/pause screen and library tables; the files' string data is not reconstructed |

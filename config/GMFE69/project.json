@@ -294,7 +294,8 @@
     "initvblt.json",
     "memcopy.json",
     "seffect.json",
-    "sbadd.json"
+    "sbadd.json",
+    "vector.json"
   ],
   "progress": {
     "code_bytes": 1414572,
