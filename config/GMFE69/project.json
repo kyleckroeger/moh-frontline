@@ -440,7 +440,8 @@
     "devicemgr.json",
     "MemoryCardGC.json",
     "filesys.json",
-    "filesys_ea.json"
+    "filesys_ea.json",
+    "dmcluster.json"
   ],
   "progress": {
     "code_bytes": 1414572,
