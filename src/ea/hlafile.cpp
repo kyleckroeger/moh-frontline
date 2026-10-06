@@ -1,14 +1,19 @@
-// EA's asynchronous file layer, from ASYNCFILE_restore to ASYNCFILE_getstatus:
+// EA's asynchronous file layer, from ASYNCFILE_restore to the end of the
+// file:
 // shutting down (cancel every request, wait until none has a file operation
 // running, free the table and destroy the mutex), queueing a whole-file load
 // or a read (take a request from the free list, give it a fresh id, start the
 // file-system operation and its completion callback) and reporting whether a
-// request is still busy. The function and static names come from the
+// request is still busy, releasing a finished request (waiting for its
+// operation, reporting its byte counts) and cancelling one (cancelling its
+// operation, freeing it when it never started). The function and static names come from the
 // symbols; the 48-byte request layout, the options view and the inline
 // helpers are inferred; the operation handle is volatile (completion
 // callbacks clear it, and the target reloads it). The file's small statics
 // and mutex are defined here in their original order.
 extern "C" {
+int FILESYS_waitop(int);
+int FILESYS_cancelop(int);
 void MUTEX_lock(void*);
 void MUTEX_unlock(void*);
 void MUTEX_destroy(void*);
@@ -18,7 +23,7 @@ void THREAD_yield(int);
 int FILESYS_open(const char*, int, int, void*);
 int FILESYS_read(int, void*, int, int, int, void*);
 void FILESYS_callbackop(int, void (*)(int, int, void*));
-void ASYNCFILE_cancel(int);
+int ASYNCFILE_cancel(int);
 }
 
 // File-local in the original (defined earlier in the file).
@@ -36,10 +41,10 @@ extern FILESYSOPTSVIEW gFileSysOpts;
 struct ASYNCREQUESTVIEW {
     int id;
     ASYNCREQUESTVIEW* next;
-    int unknown08;
-    int unknown0c;
-    int unknown10;
-    int unknown14;
+    int done;
+    int released;
+    int cancelled;
+    void* allocated;
     int unknown18;
     volatile int op;
     int file;
@@ -103,10 +108,10 @@ extern "C" int ASYNCFILE_load(const char* name, int size) {
     if (r == 0)
         return 0;
     newrequestid(r);
-    r->unknown08 = 0;
-    r->unknown0c = 0;
-    r->unknown10 = 0;
-    r->unknown14 = 1;
+    r->done = 0;
+    r->released = 0;
+    r->cancelled = 0;
+    r->allocated = (void*)1;
     r->unknown18 = 0;
     r->buffer = 0;
     r->size = size;
@@ -123,10 +128,10 @@ extern "C" int ASYNCFILE_read(int file, void* buffer, int position, int size) {
     if (r == 0)
         return 0;
     newrequestid(r);
-    r->unknown08 = 0;
-    r->unknown0c = 0;
-    r->unknown10 = 0;
-    r->unknown14 = 0;
+    r->done = 0;
+    r->released = 0;
+    r->cancelled = 0;
+    r->allocated = 0;
     r->unknown18 = 0;
     r->file = file;
     r->buffer = buffer;
@@ -163,4 +168,74 @@ extern "C" int ASYNCFILE_getstatus(int id) {
         status = r->op == 0;
     MUTEX_unlock(mutex);
     return status;
+}
+
+static inline void freerequest(ASYNCREQUESTVIEW* r) {
+    if (r->cancelled && (unsigned int)r->allocated > 1)
+        gFileSysOpts.mfree(r->allocated);
+    r->id &= 0xFF;
+    r->op = 0;
+    MUTEX_lock(mutex);
+    if (freequeue[0] == 0)
+        freequeue[0] = r;
+    else
+        freequeue[1]->next = r;
+    freequeue[1] = r;
+    r->next = 0;
+    MUTEX_unlock(mutex);
+}
+
+extern "C" int ASYNCFILE_release(int id, int* remaining, int* done) {
+    ASYNCREQUESTVIEW* r;
+    int cancelled = 0;
+    MUTEX_lock(mutex);
+    r = findrequest(id);
+    if (r) {
+        cancelled = r->cancelled;
+        if (!cancelled)
+            r->released = 1;
+    }
+    MUTEX_unlock(mutex);
+    if (r == 0 || cancelled)
+        return -1;
+    while (r->op != 0)
+        FILESYS_waitop(r->op);
+    if (r->cancelled) {
+        if (remaining)
+            *remaining = 0;
+        if (done)
+            *done = 0;
+        freerequest(r);
+        return -1;
+    }
+    if (remaining)
+        *remaining = r->position - r->done;
+    if (done)
+        *done = r->done;
+    freerequest(r);
+    return 1;
+}
+
+extern "C" int ASYNCFILE_cancel(int id) {
+    ASYNCREQUESTVIEW* r;
+    int op = 0;
+    int cancelled = 0;
+    int released = 0;
+    MUTEX_lock(mutex);
+    r = findrequest(id);
+    if (r) {
+        op = r->op;
+        cancelled = r->cancelled;
+        released = r->released;
+        if (op != 0 || released == 0)
+            r->cancelled = 1;
+    }
+    MUTEX_unlock(mutex);
+    if (r == 0 || cancelled != 0 || r->cancelled == 0)
+        return -1;
+    if (op != 0)
+        FILESYS_cancelop(op);
+    if (op == 0 && released == 0)
+        freerequest(r);
+    return 1;
 }

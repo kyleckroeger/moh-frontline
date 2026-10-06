@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8014b3c0",
-      "size": 976,
+      "size": 1960,
       "type": 1
     },
     {
@@ -55,6 +55,12 @@
     }
   ],
   "functions": [
+    {
+      "name": "ASYNCFILE_cancel",
+      "address": "0x8014b9dc",
+      "size": 396,
+      "binding": 1
+    },
     {
       "name": "ASYNCFILE_restore",
       "address": "0x8014b3c0",
@@ -78,13 +84,20 @@
       "address": "0x8014b6f4",
       "size": 156,
       "binding": 1
+    },
+    {
+      "name": "ASYNCFILE_release",
+      "address": "0x8014b790",
+      "size": 588,
+      "binding": 1
     }
   ],
   "externals": {
-    "ASYNCFILE_cancel": "0x8014b9dc",
     "FILESYS_callbackop": "0x80148624",
+    "FILESYS_cancelop": "0x801487e4",
     "FILESYS_open": "0x80148c38",
     "FILESYS_read": "0x80148d7c",
+    "FILESYS_waitop": "0x80148980",
     "MUTEX_destroy": "0x80152100",
     "MUTEX_lock": "0x8015212c",
     "MUTEX_unlock": "0x80152150",
