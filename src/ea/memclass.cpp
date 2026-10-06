@@ -20,7 +20,7 @@ struct MEMCLASS {
     MEMBLOCK* low;
     MEMBLOCK* high;
     MEMBLOCK free;
-    int field28;
+    int field28; // MEMCLASS_create's fifth argument; MEM_free (not reconstructed) rounds sizes up to it
     int alignment;
     int field30;
     int flags;
