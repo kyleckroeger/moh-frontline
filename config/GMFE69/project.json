@@ -388,7 +388,13 @@
     "ShellMenu.json",
     "thrown_obj.json",
     "thrownbullet.json",
-    "projectilebullet.json"
+    "projectilebullet.json",
+    "world_volume.json",
+    "cdbobject.json",
+    "Screen.json",
+    "staticmesh.json",
+    "attachobject.json",
+    "animated.json"
   ],
   "progress": {
     "code_bytes": 1414572,

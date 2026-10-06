@@ -1,0 +1,88 @@
+{
+  "id": "cdbobject",
+  "source": "src/game/cdbobject.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8006fa2c",
+      "size": 40,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "TestCollision__10CCDBObjectCFRC10CCDBObjectR10CCollisionb",
+      "address": "0x8006fa4c",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "TestCollision__10CCDBObjectCFRC12CWorldVolumeR10CCollisionb",
+      "address": "0x8006fa44",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "TestCollision__10CCDBObjectCF8CVector3R10CCollisionb",
+      "address": "0x8006fa3c",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "TestCollision__10CCDBObjectCFRC6CPlaneR10CCollisionb",
+      "address": "0x8006fa34",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "TestCollision__10CCDBObjectCFRC9CTriangleR10CCollisionb",
+      "address": "0x8006fa2c",
+      "size": 8,
+      "binding": 2
+    }
+  ],
+  "externals": {},
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "cdbobject.cpp",
+  "original_file_index": 3304
+}
