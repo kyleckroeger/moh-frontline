@@ -400,7 +400,8 @@
     "Tank_object.json",
     "player.json",
     "UIStudio.json",
-    "sound.json"
+    "sound.json",
+    "memalloc.json"
   ],
   "progress": {
     "code_bytes": 1414572,
