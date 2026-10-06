@@ -39,6 +39,13 @@ class Original:
         self.elf = elf
         self.symbols = list(elf.symbols())
         self.relocs = {where: (kind, symbol, addend) for _, where, kind, symbol, addend in relocations(elf)}
+        # Target address -> [(location, kind)], to place sections that only
+        # refer outward (an exception index points at its functions).
+        self.referrers = {}
+        for where, (kind, symbol, addend) in self.relocs.items():
+            self.referrers.setdefault(symbol["address"] + addend, []).append((where, kind))
+        self.section_of = lambda address: next(
+            (s["name"] for s in elf.sections if s["flags"] & 2 and s["address"] <= address < s["address"] + s["size"]), None)
         self.files = [i for i, s in enumerate(self.symbols) if s["type"] == 4]
 
     def file_index(self, name, index=None):
@@ -164,6 +171,34 @@ def match(obj, original, file_index):
                 if name not in addresses:
                     changed = True
                 anchor(addresses, name, target - offset)
+    # A section nothing placed refers to (extabindex) is pinned by its own
+    # references to placed code: the original relocation from the section of
+    # the same name to the same target fixes its base.
+    for section, where, kind, symbol, addend in relocations(obj):
+        name = names[section]
+        if name in addresses or symbol["section"] not in layout or names[symbol["section"]] not in addresses:
+            continue
+        offset = position(symbol["section"], symbol["address"] + addend)
+        if offset is None:
+            continue
+        target = addresses[names[symbol["section"]]] + offset
+        sources = [w for w, k in original.referrers.get(target, []) if k == kind and original.section_of(w) == name]
+        if len(sources) == 1:
+            anchor(addresses, name, sources[0] - where)
+            changed = True
+    while changed:
+        changed = False
+        for section, where, kind, symbol, addend in relocations(obj):
+            base = addresses.get(names[section])
+            where = position(section, where)
+            if base is None or where is None or base + where not in original.relocs:
+                continue
+            okind, osymbol, oaddend = original.relocs[base + where]
+            if symbol["section"] and symbol["section"] < 0xFF00 and names[symbol["section"]] not in addresses:
+                offset = position(symbol["section"], symbol["address"] + addend)
+                if offset is not None and okind == kind:
+                    anchor(addresses, names[symbol["section"]], osymbol["address"] + oaddend - offset)
+                    changed = True
     return addresses, externals, layout, discarded
 
 
@@ -188,6 +223,20 @@ def kept_span(obj, index, kept, original, locals_):
     keep = {(s["address"], s["size"]) for s in objects
             if not s["name"].startswith("@") and find(s, original, locals_) is not None}
     roots = [(f["section"], f["address"], f["address"] + f["size"]) for f, _ in kept]
+    # Objects that point at kept code (exception-index entries) are kept too.
+    kept_ranges = [(f["section"], f["address"], f["address"] + f["size"]) for f, _ in kept]
+    by_section = {}
+    for s in symbols:
+        if s["type"] == 1 and s["size"] and s["section"] and s["section"] < 0xFF00:
+            by_section.setdefault(s["section"], []).append(s)
+    for where_section, where, _, symbol, addend in relocations(obj):
+        target = symbol["address"] + addend
+        if any(symbol["section"] == c and a <= target < b for c, a, b in kept_ranges):
+            for s in by_section.get(where_section, []):
+                if s["address"] <= where < s["address"] + s["size"]:
+                    if where_section == index:
+                        keep.add((s["address"], s["size"]))
+                    roots.append((where_section, s["address"], s["address"] + s["size"]))
     while roots:
         section, start, end = roots.pop()
         for where_section, where, _, symbol, addend in relocations(obj):

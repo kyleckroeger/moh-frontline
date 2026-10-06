@@ -60,7 +60,8 @@ Run the scripts from any directory; all outputs remain inside this checkout. `ba
 1. **Resolve the remaining file boundaries.** `tools/file_map.py` places most symbols in their source files from symbols, relocations and link order, and the per-file split relinks identically. About 950 symbols near file boundaries remain unresolved, mostly in EA's sound and system libraries (see the [audit](docs/initial-audit.md#per-file-splits)); verified units settle them.
 2. **More Dolphin SDK units.** 81 SDK units are verified (79 with CodeWarrior `GC/1.2.5n`, 2 with `GC/1.2.5`); the [open problems](docs/Dolphin.md#open-problems) list what blocks the rest.
 3. **Metrowerks runtime libraries.** 64 MSL, runtime, math, MetroTRK and debugger-stub units are verified from the Wind Waker and Prime reconstructions; [Runtime.md](docs/Runtime.md) lists the rest, including MetroTRK.
-4. **Mutation tests** for accepted units (see `tests/test_reconstruction.py`), then game code.
+4. **Game code.** The compiler profile is established and `bstimer.cpp` is the first verified game unit; [Game.md](docs/Game.md) has the method.
+5. **Mutation tests** for accepted units (see `tests/test_reconstruction.py`).
 
 ## License
 

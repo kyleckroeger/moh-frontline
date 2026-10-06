@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 187284,
+    "matching_code_bytes": 189304,
     "total_executable_code_bytes": 1414572,
-    "percent": 13.239623009645321,
+    "percent": 13.382422386417941,
     "categories": {
-      "reconstructed_game": 0,
+      "reconstructed_game": 2020,
       "restored_library": 187284
     },
-    "matching_functions": 799
+    "matching_functions": 805
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -97,6 +97,7 @@
     "config/GMFE69/ar.json": "f7bf6b4079ed418edeb4c95ff15f08f4450ac1e184d58dd1af945665137df3c2",
     "config/GMFE69/arq.json": "53c9d956d7cd2b69c858816128443494613f46b3ad680d5056ae00227df49900",
     "config/GMFE69/baseline.json": "36a2b85cf4193e53afac79bdd2a8fdbf8dfb1880cae89e119463f2c81461b42f",
+    "config/GMFE69/bstimer.json": "f6c1bc76d8200192cc1dc0fcc0d071b489cc158c09f820ee351e4190d480c6ae",
     "config/GMFE69/ctype.json": "204f2baf71f1c77a57c8bb685dba45f7583994fc6c39201224cb2a0ed20eb580",
     "config/GMFE69/db.json": "f5cdac8d1b6ec28c05d82995e2918679665f81055beaea75273deb9b2bb4a458",
     "config/GMFE69/direct_io.json": "6bc91b9814ea8394c4fb8292d3c0f477dd5841c089e81e92061adaca275f77ab",
@@ -137,7 +138,7 @@
     "config/GMFE69/nubevent.json": "d6afc4bc3a93eb5ab6fc791d166d4243a4fee57863e76656a656235d2e20e0f2",
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "5c53619a870787ee8fe19cb103e977046585cb4230e0d2cce47a7020f568dbde",
+    "config/GMFE69/project.json": "0c82d95908058758f7f751e8e53d4e910ca45bb061b7fc0972b8202ab2324ca5",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
     "config/GMFE69/rand.json": "958d1564ced02e430faca2258c920c5b7f36bd3ba70f168d2cbb54dace181f59",
@@ -919,6 +920,7 @@
     "src/dolsdk2001/vi/i2c.c": "4e62553f4b64678fac11d28b6a7617e3034d5192dc8ea6be4d9bd322edf215ce",
     "src/dolsdk2001/vi/initphilips.c": "bf8d8b1159c56f722022dfd599ba84d7e9b898b81369f29de8e25d35434912f3",
     "src/dolsdk2001/vi/vi.c": "55aeca6a29fb85b0d8b30bec9a53c777bad20ef331521ef496cd2f53c2a20256",
+    "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
     "src/prime/LICENSE.PrimeDecomp": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
     "src/prime/NOTICE": "2304a8d6a92dae039b32a3eb93b1ef80b3b4c205dc03fa134d023a526ab81cdd",
     "src/prime/runtime/CPlusLibPPC.cpp": "44a5aa781055458140830b5cb32c0fbb92a277ef67d59be7e85fb5e9ee08825b",
@@ -1139,7 +1141,7 @@
     "tools/formats.py": "3124d742d0518c913dfc575602bba63befbd9e0e78220e5a85059cda277f8f81",
     "tools/import_disc.py": "a76b0fc8a963fa5e26e432e8261c26f199989c7e2fc2c90cf0116878db15597b",
     "tools/objdiff_config.py": "4133276adf513df6f4aad3d70df298f0bb0f8ced4ae1abc72703e8e0dc9bb13a",
-    "tools/port_unit.py": "01286576bff146da77b51212ed583cf1f552875952673e7d8c738af528ca406b",
+    "tools/port_unit.py": "40d4c50f4e5bcb69a0c554c96b103476c06f548ad10c592dd77d64c86be00f98",
     "tools/progress_report.py": "6f77d4f04165a2875275be1fe3d5a84fe128690c3b850c7ea3aaf1e1e307be1f",
     "tools/project_build.py": "8079d8cc43e58510528ee1109e7752dd9da30b28c92feff41d0af158ad132c5a",
     "tools/reconstruct.py": "ae713fceeb3eef9f113af483ad5e3d5d6f1123fc424d0595099247e3e07a4cf2",
@@ -8293,6 +8295,49 @@
       "discarded_functions": [],
       "object_sha256": "cc4f8f503d4e7b41f221bf11006d0ccb1fe8ed2094b8932cfb53ea4c14e32325",
       "linked_sha256": "4c2583a0d0f875ebf8ced951523179e5926f150720b8fe17f4d8ff45b4f079da"
+    },
+    {
+      "id": "bstimer",
+      "category": "reconstructed_game",
+      "functions": 6,
+      "code_bytes": 2020,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "BSTimerRemoveTimerEvent__FP19BSTimerEvent_structPP19BSTimerEvent_struct",
+        "BSGetFreeTimerEvent__Fv",
+        "BSTimerRemoveTimerInstances__FP8BSObject",
+        "BSTimerRemoveDuplicateTimerInstances__FP8BSObjectUs",
+        "BSTimerRemoveLatterTimerInstances__FP8BSObjectUsi"
+      ],
+      "object_sha256": "4a9da104fa8fcfedf6b42c1513b5b8ffcbc20acde8ceb3b64f0d44bbd4361eb8",
+      "linked_sha256": "57de54da1d2ca9873e79b9079339702a5c317dcaba183b93e9ab4048fd10c16f"
     }
   ],
   "code_map": {
@@ -12814,60 +12859,6 @@
             "size": 8,
             "kind": "function",
             "name": "BSScheduleGetMemoryRequirements__Fv",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/bstimer.cpp [symbol evidence]",
-        "file_record": 19,
-        "file_name": "bstimer.cpp",
-        "ranges": [
-          {
-            "address": "0x8003ad68",
-            "size": 216,
-            "kind": "function",
-            "name": "BSUnregisterTimerEvents__FP8BSObject",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8003ae40",
-            "size": 844,
-            "kind": "function",
-            "name": "BSRegisterTimerEvent__FiUsP8BSObjectPv19ETimerReplaceMethod",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8003b18c",
-            "size": 328,
-            "kind": "function",
-            "name": "BSUpdateTimer__Ff",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8003b2d4",
-            "size": 20,
-            "kind": "function",
-            "name": "BSEndTimer__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8003b2e8",
-            "size": 604,
-            "kind": "function",
-            "name": "BSInitTimer__Fv",
-            "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8003b544",
-        "ranges": [
-          {
-            "address": "0x8003b544",
-            "size": 8,
-            "kind": "function",
-            "name": "BSTimerGetMemoryRequirements__Fv",
             "evidence": "unknown-file"
           }
         ]

@@ -145,7 +145,8 @@
     "mutex_TRK.json",
     "flush_cache.json",
     "mpc_7xx_603e.json",
-    "targcont.json"
+    "targcont.json",
+    "bstimer.json"
   ],
   "progress": {
     "code_bytes": 1414572,
