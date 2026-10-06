@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 266828,
+    "matching_code_bytes": 266980,
     "total_executable_code_bytes": 1414572,
-    "percent": 18.86280797301233,
+    "percent": 18.873553272650668,
     "categories": {
-      "reconstructed_game": 66948,
+      "reconstructed_game": 67100,
       "restored_library": 199880
     },
-    "matching_functions": 1492
+    "matching_functions": 1494
   },
   "input_sha256": {
     "config/GMFE69/AIPlayerDoodad.json": "5ab45909efeb94b828331a8b68a46467e9cb19518255f572f32340c24b98dff2",
@@ -173,6 +173,7 @@
     "config/GMFE69/file_io.json": "1f7376a3e1cbacd1b77840e0eae4b3069ae28a805f71eb751ebf19dcd296e710",
     "config/GMFE69/filedev.json": "345d10da83f1a2011e5fc4b9278fee1b53e1cdef4497f8fe2b0ee38ca1bafa48",
     "config/GMFE69/flush_cache.json": "aa1c08f24f7fa7ce6bf2cfa32e6ae398b7b93fea2374de2a6120d5e28e6b9578",
+    "config/GMFE69/font.json": "192da369bd9089ea5ff935965a96644b66682a28b77c07194c7d7bc62b3539e8",
     "config/GMFE69/fontchar.json": "52d15cdb73d5c697247c5e96fc9c264304ab2e315365308ab6d0f47d0d6364d8",
     "config/GMFE69/fontcreate.json": "8eae282aa690a9f53df0acd27ccc63183d4e34168a62224a70720500e604ea54",
     "config/GMFE69/fontdriver.json": "27b42de3991900159428c94f1a033360c2531114649cb99d10abcc4c476dc96d",
@@ -235,7 +236,7 @@
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/pathxSND.json": "711dcdf3a5a5a7b4124ae70e377c5e863dc39c8de8a0de785b3dc3921c685fa0",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "d6ec284844ff26a8b452788aef8eab6a077be6dec5bc8094e78d7cf779b948f3",
+    "config/GMFE69/project.json": "756828018bb28d6e30a5232a758bc3ccbf7780a3130b43c51fdf54417e30dba2",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1325,6 +1326,7 @@
     "src/game/dmrender.cpp": "7b92ea9bad0f52f4ba4728f8386f4da6fd4a3b93b5293dd87d1fdcf6bc6c3ec8",
     "src/game/draw_context.cpp": "261589cc092b9c8c7b80605255eefc78641468141f4d33264252696f62c9782b",
     "src/game/fader.cpp": "fcc29dce43a0cf9eca978df224fba99596b634584e886a18cb434749daf4a4e0",
+    "src/game/font.cpp": "20dc282ade8622a6477d4a787b1df38aa6a0af7c35078543606bbd3b26152cf1",
     "src/game/framework.cpp": "8cebad26aba8fe4a9a9ece0492c0bf7bb34882a1eec7dd48a1b3b93d0830914f",
     "src/game/gcSystem.cpp": "e97d4933fe4ba1c46e72d853db6ff53b0c8136020bef2237c66ad38a0d1e1068",
     "src/game/input.cpp": "9b914f9339fceba59b141fcb97b7cce47a6e04470aac30a23f30a5f69e35fae9",
@@ -17785,6 +17787,45 @@
       "discarded_functions": [],
       "object_sha256": "2e40698152a248c0f3a30e1c400b38ed5b099bcd7262c573e635fdfc5acd581a",
       "linked_sha256": "2ed5645a7a2943938406b7496c1fbaee1bf2ba39f5a5a87bd527c9a6d446d89f"
+    },
+    {
+      "id": "font",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 152,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "d3b7f07e200abd31f0190f0ce46636c0cef3f7bef00fa3c0a863f247acac970b",
+      "linked_sha256": "6527fa202a68d8f18dd7d790feacee87b4f8f388ec42debfbab94ca1128d6b58"
     }
   ],
   "code_map": {
@@ -27378,24 +27419,10 @@
         ]
       },
       {
-        "name": "Unmatched files/font.cpp [inferred file group]",
+        "name": "Unmatched files/font.cpp [symbol evidence]",
         "file_record": 72,
         "file_name": "font.cpp",
         "ranges": [
-          {
-            "address": "0x8007c0fc",
-            "size": 4,
-            "kind": "function",
-            "name": "DestroyFont__11CFontDriverFP4FONT",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x8007c100",
-            "size": 148,
-            "kind": "function",
-            "name": "CreateFont__11CFontDriverFP4FONT",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x8007c194",
             "size": 108,

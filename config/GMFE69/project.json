@@ -369,7 +369,8 @@
     "msgbuf.json",
     "mem_TRK.json",
     "Soldier_object.json",
-    "world_object.json"
+    "world_object.json",
+    "font.json"
   ],
   "progress": {
     "code_bytes": 1414572,
