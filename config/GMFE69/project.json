@@ -422,7 +422,8 @@
     "bsbifunc.json",
     "publisher.json",
     "hierobject.json",
-    "motionblur.json"
+    "motionblur.json",
+    "bsfile.json"
   ],
   "progress": {
     "code_bytes": 1414572,
