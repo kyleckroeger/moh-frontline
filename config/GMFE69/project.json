@@ -445,7 +445,8 @@
     "animplayer.json",
     "msghndlr.json",
     "support.json",
-    "targimpl.json"
+    "targimpl.json",
+    "renderlist.json"
   ],
   "progress": {
     "code_bytes": 1414572,
