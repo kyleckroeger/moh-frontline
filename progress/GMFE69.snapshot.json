@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 281704,
+    "matching_code_bytes": 282672,
     "total_executable_code_bytes": 1414572,
-    "percent": 19.914433482353672,
+    "percent": 19.982864074787287,
     "categories": {
-      "reconstructed_game": 81824,
+      "reconstructed_game": 82792,
       "restored_library": 199880
     },
-    "matching_functions": 1809
+    "matching_functions": 1817
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -307,7 +307,7 @@
     "config/GMFE69/s_modf.json": "19c80bbeaa8c51ee3125929c7519ced093a1c194a026b3ab10541bbaafda3e7a",
     "config/GMFE69/s_sin.json": "72a9c31b228d23acc079c9dd985ac8f6cdb2115b9df2cf5acd29882938696942",
     "config/GMFE69/s_tan.json": "4d4245a72ecbda130924076021f01024ffa5f912437d596842d21aa4b2ac1390",
-    "config/GMFE69/saems.json": "393f39c933594e85096657c77909ee2255155b518be653e6104d908b92a92165",
+    "config/GMFE69/saems.json": "2a4eff30459ff7bc179c9e3d14b17625e2d921dc86d910ad9f888b4c032dc6d8",
     "config/GMFE69/salloc.json": "ef3ec4f12f03a954dcf6987abf6f3758f75a48fdf016e8928adde29968cc5d4b",
     "config/GMFE69/saramman.json": "f3b24db465f9155f71b8e87e5be925838d41336f84ed7c65f079b9f1b037a1f9",
     "config/GMFE69/sattrdef.json": "2062535254eee3ac4100a4a8a86e83bf872f5c8bad922fe3e395962696444769",
@@ -1256,7 +1256,7 @@
     "src/ea/rcmp2real.cpp": "1d046950eca9f279ad901b132d22290eb4f44d42d4605181f63b1b097122ac25",
     "src/ea/rcmp_mpc_codec_chunk_types.cpp": "b996231c1c402b6ecdd813bb69df3ae8a3580e537b71dd9fa91e238690bb3635",
     "src/ea/s3dlow.c": "b79405b9175ff0299ba213a824c1599ebc4384af549addcc8725867ebc0390ce",
-    "src/ea/saems.c": "2d090b98b1eec0d4122e7dcc40b8360782b39c6aae88d2e4f3da898d3037ecc6",
+    "src/ea/saems.c": "ba4a3ef121b20d731c53ffff3e99c0795543b04ca0c9a39bef48ef93e4840a15",
     "src/ea/salloc.c": "3ac96aeac05c97dbc75a0a10fd30800dc8d61d636ec073ae89d3bcacd001affe",
     "src/ea/saramman.c": "a1fc41a18822adc35b7bfab01340e095d9a0e9aeefe021415e771332e38998f1",
     "src/ea/sattrdef.c": "5e55d42f497ca48214b54fe67659d8ed3943f33e3491bdc4832a83938bf10363",
@@ -20458,8 +20458,8 @@
     {
       "id": "saems",
       "category": "reconstructed_game",
-      "functions": 8,
-      "code_bytes": 664,
+      "functions": 16,
+      "code_bytes": 1632,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -20491,8 +20491,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "cad0429fc4be0c99e3e9a37527589e34b8657e10aa95cc8733ff18c498bff58e",
-      "linked_sha256": "caf82a3dc672621b80fbbf4c03e24f56951a8592a5ee5e2ded780ea2e07ae483"
+      "object_sha256": "06003c9c5214d9d58f32b8a1dfe8bfa215dfd0e76a31797fd05a18a1e046a139",
+      "linked_sha256": "ed4cf94c8df9c8d21000fca05de88f1a48ed98fb7116778886dc0a2d49befc89"
     }
   ],
   "code_map": {
@@ -43006,64 +43006,8 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 80155a14",
+        "name": "Unknown file/.text @ 80155ddc",
         "ranges": [
-          {
-            "address": "0x80155a14",
-            "size": 120,
-            "kind": "function",
-            "name": "AEMSI_updatetable__FP15AEMSCOMPDYNAMICP6MODULE",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80155a8c",
-            "size": 188,
-            "kind": "function",
-            "name": "AEMSI_updatetable2__FP15AEMSCOMPDYNAMICP6MODULE",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80155b48",
-            "size": 192,
-            "kind": "function",
-            "name": "AEMSI_updatedelaytrig__FP15AEMSCOMPDYNAMICP6MODULE",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80155c08",
-            "size": 212,
-            "kind": "function",
-            "name": "AEMSI_updatedelayline__FP15AEMSCOMPDYNAMICP6MODULE",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80155cdc",
-            "size": 16,
-            "kind": "function",
-            "name": "AEMSI_updatewarp__FP15AEMSCOMPDYNAMICP6MODULE",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80155cec",
-            "size": 64,
-            "kind": "function",
-            "name": "AEMSI_updatemax__FP15AEMSCOMPDYNAMICP6MODULE",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80155d2c",
-            "size": 68,
-            "kind": "function",
-            "name": "AEMSI_updatemin__FP15AEMSCOMPDYNAMICP6MODULE",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80155d70",
-            "size": 108,
-            "kind": "function",
-            "name": "AEMSI_updatestategen__FP15AEMSCOMPDYNAMICP6MODULE",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x80155ddc",
             "size": 60,
