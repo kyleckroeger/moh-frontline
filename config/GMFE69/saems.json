@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8015577c",
-      "size": 1632,
+      "size": 1968,
       "type": 1
     }
   ],
@@ -47,6 +47,18 @@
       "name": "AEMSI_updatetable2__FP15AEMSCOMPDYNAMICP6MODULE",
       "address": "0x80155a8c",
       "size": 188,
+      "binding": 1
+    },
+    {
+      "name": "SNDAEMSI_updatesend__FP15AEMSCOMPDYNAMICP6MODULE",
+      "address": "0x80155e18",
+      "size": 276,
+      "binding": 1
+    },
+    {
+      "name": "SNDAEMSI_updatedestroy__FP15AEMSCOMPDYNAMICP6MODULE",
+      "address": "0x80155ddc",
+      "size": 60,
       "binding": 1
     },
     {
@@ -141,6 +153,8 @@
     }
   ],
   "externals": {
+    "SNDAEMSI_destroyinstance__FP6MODULEi": "0x80156508",
+    "SNDAEMS_beginevent": "0x8034e66c",
     "__div2i": "0x80138b60",
     "sndaems": "0x80340410"
   },
@@ -149,7 +163,9 @@
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": [],
+  "sda_externals": [
+    "SNDAEMS_beginevent"
+  ],
   "original_file": "saems.c",
   "original_file_index": 12620
 }

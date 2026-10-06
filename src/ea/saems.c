@@ -1,8 +1,10 @@
-/* The AEMS module updaters from the multiplexer to the state generator: each
+/* The AEMS module updaters from the multiplexer to the event sender: each
    reads the component's inputs and writes its output (arithmetic with
-   clamping, table lookups, delays, extremes). AEMSCOMPDYNAMIC and MODULE are
-   named by the mangled symbols; the component layout, the per-component
-   static definitions it points to and the sndaems view are inferred. */
+   clamping, table lookups, delays, extremes), destroys the instance or sends
+   an event when the inputs change. AEMSCOMPDYNAMIC and MODULE are named by
+   the mangled symbols; the component layout, the per-component static
+   definitions it points to, the sndaems view and the event buffer's size
+   (from the stack frame) are inferred. */
 struct MODULE;
 
 struct AEMSCOMPDEFVIEW {
@@ -50,17 +52,26 @@ struct AEMSCOMPDYNAMIC {
     int* in;
     AEMSOUTPUTVIEW out;
     AEMSSTATEVIEW state0;
-    AEMSSTATEVIEW state1;
+    union {
+        int value;
+        short* samples;
+        int* values;
+    } state1;
     short* read;
 };
 
 struct SNDAEMSVIEW {
     int unknown00;
     int rate;
-    unsigned char unknown08[60];
+    unsigned char unknown08[35];
+    unsigned char handlerCount;
+    void (*handlers[6])(int, int*);
 };
 
 extern SNDAEMSVIEW sndaems;
+extern void (*SNDAEMS_beginevent)(int*);
+
+void SNDAEMSI_destroyinstance(MODULE*, int);
 void AEMSI_updatemux(AEMSCOMPDYNAMIC* comp, MODULE*) {
     int* in = comp->in;
     if (in[0] > 0)
@@ -219,5 +230,30 @@ void AEMSI_updatestategen(AEMSCOMPDYNAMIC* comp, MODULE*) {
         if (comp->state0.samples[i] <= 0 && comp->in[i] > 0)
             comp->out.value = def->values[i];
         comp->state0.samples[i] = comp->in[i];
+    }
+}
+
+void SNDAEMSI_updatedestroy(AEMSCOMPDYNAMIC* comp, MODULE* module) {
+    if (comp->in[0] > 0)
+        SNDAEMSI_destroyinstance(module, comp->state0.value);
+}
+
+void SNDAEMSI_updatesend(AEMSCOMPDYNAMIC* comp, MODULE*) {
+    AEMSCOMPDEFVIEW* def = (AEMSCOMPDEFVIEW*)comp->def;
+    int event[18];
+    int i;
+    int changed = 0;
+    for (i = 0; i < def->param0; i++) {
+        if (comp->state1.values[i] != comp->in[i])
+            changed = 1;
+        comp->state1.values[i] = comp->in[i];
+    }
+    if (changed == 1) {
+        event[0] = def->param1;
+        for (i = 0; i < def->param0; i++)
+            event[i + 1] = comp->in[i];
+        SNDAEMS_beginevent(event);
+        for (i = 0; i < sndaems.handlerCount; i++)
+            sndaems.handlers[i](comp->state0.value, event);
     }
 }
