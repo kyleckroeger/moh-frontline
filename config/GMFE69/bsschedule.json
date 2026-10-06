@@ -1,0 +1,145 @@
+{
+  "id": "bsschedule",
+  "source": "src/game/bsschedule.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "deferred,auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8003aa58",
+      "size": 784,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000a3cc",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80011360",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034e840",
+      "size": 8,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "Unregister__10BSScheduleFP8BSObject",
+      "address": "0x8003aa58",
+      "size": 156,
+      "binding": 1
+    },
+    {
+      "name": "Unregister__10BSScheduleFP35BSScheduleRegistrationRecord_struct",
+      "address": "0x8003aaf4",
+      "size": 104,
+      "binding": 1
+    },
+    {
+      "name": "Register__10BSScheduleFP8BSObjectUsbiii",
+      "address": "0x8003ab5c",
+      "size": 208,
+      "binding": 1
+    },
+    {
+      "name": "Shutdown__10BSScheduleFv",
+      "address": "0x8003ac2c",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "Reset__10BSScheduleFPFP8BSObjectiiiPiPi_bii",
+      "address": "0x8003ac5c",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "Init__10BSScheduleFPFP8BSObjectiiiPiPi_bii",
+      "address": "0x8003ac84",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "__dt__10BSScheduleFv",
+      "address": "0x8003acac",
+      "size": 60,
+      "binding": 1
+    },
+    {
+      "name": "__ct__10BSScheduleFv",
+      "address": "0x8003ace8",
+      "size": 12,
+      "binding": 1
+    },
+    {
+      "name": "BSEndSchedule__Fv",
+      "address": "0x8003acf4",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "BSInitSchedule__Fv",
+      "address": "0x8003ad04",
+      "size": 92,
+      "binding": 1
+    },
+    {
+      "name": "BSScheduleGetMemoryRequirements__Fv",
+      "address": "0x8003ad60",
+      "size": 8,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "BSUtilGetMemory__Fii": "0x8003b83c",
+    "__dl__FPv": "0x8001ca2c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "bsschedule.cpp",
+  "original_file_index": 1360
+}

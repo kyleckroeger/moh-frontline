@@ -336,7 +336,8 @@
     "animseq.json",
     "animdb.json",
     "skeleton.json",
-    "animintf.json"
+    "animintf.json",
+    "bsschedule.json"
   ],
   "progress": {
     "code_bytes": 1414572,

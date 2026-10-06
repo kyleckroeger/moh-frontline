@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 251096,
+    "matching_code_bytes": 251880,
     "total_executable_code_bytes": 1414572,
-    "percent": 17.750669460444573,
+    "percent": 17.806092584894937,
     "categories": {
-      "reconstructed_game": 54364,
+      "reconstructed_game": 55148,
       "restored_library": 196732
     },
-    "matching_functions": 1292
+    "matching_functions": 1303
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -121,6 +121,7 @@
     "config/GMFE69/bmem.json": "6f2cc24cb578401f28e36031abc716a23a3beb45bf6c43c10ede6c273e9070b2",
     "config/GMFE69/bsearch.json": "dd287b9523a5f289e22dc32f273d0f9756b610c9280ec41b84aac1d7ea50912b",
     "config/GMFE69/bsmachin.json": "99e6f626f2cdb4c5eddca656c56ef9cc28369e547992ff630f5c3bbc93fa72ef",
+    "config/GMFE69/bsschedule.json": "05081ad4065280f633b1f7b1f78a5650b603ee6d40b792db93b1084b188c2d07",
     "config/GMFE69/bstimer.json": "f6c1bc76d8200192cc1dc0fcc0d071b489cc158c09f820ee351e4190d480c6ae",
     "config/GMFE69/buffer_io.json": "9a997068c0c387e86e9609ec66493e7caa8d98ea675676441eb2ff729f5d4186",
     "config/GMFE69/coda.json": "ed79629f16e36603a2a74fe3bfd2db4c7043efb597de702316a222bcbb355440",
@@ -209,7 +210,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "1af2b9ef6b74228c858bfd46183e62bdfdb8b042f6e9c3536f0a74c06ed9a593",
+    "config/GMFE69/project.json": "3074bc70913677eb73d520ff3379b7bd7932ff45a4f1d6959f46962777055054",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1263,6 +1264,7 @@
     "src/game/animseq.cpp": "41ae1e334e9a48b7d9b8fa506401aa98bb74422f5ff869e6865e116682792658",
     "src/game/animwgt.cpp": "001c05d29d185c0a4f21712270ddb62c29fc3808bede837c4acdb3ad1c63af1c",
     "src/game/bsmachin.cpp": "29ef7c9c19942e3dc51d97c49266ac9b237c8658ffef55d4536c8968e7d44b1e",
+    "src/game/bsschedule.cpp": "03573e4203501782b94b4ed70853989b43110a29ecee0af5d0eed5e4baf9919c",
     "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
     "src/game/configfile.cpp": "d7e5f7aff38b5ab2c1744e81f1a3469c55b6e00a561d1f5cd43f49ccf6b6d2ec",
     "src/game/dmgeom.cpp": "6f176541b44727ce39e90fbc33d60d1c7cd572e20cde4bc86401f647cd9f7f14",
@@ -16366,6 +16368,45 @@
       "discarded_functions": [],
       "object_sha256": "e8672c70cea5a6289623d4e6d2f542eb434a81fdd2857e38790625d4903ac6c0",
       "linked_sha256": "6fb46bb6651c48da1021e622d0fe471e3d3817d12c0b7a2a7d3787addb40d2d6"
+    },
+    {
+      "id": "bsschedule",
+      "category": "reconstructed_game",
+      "functions": 11,
+      "code_bytes": 784,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "deferred,auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "65576c0680272557ab1f6d6f976eaeee15229a2589415a25530dee2cc9c5f32b",
+      "linked_sha256": "da9c575895b91496629b93600ab9c90631aa3d88d3573753f50547856a732b25"
     }
   ],
   "code_map": {
@@ -20325,88 +20366,6 @@
             "kind": "function",
             "name": "Update__10BSScheduleFv",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x8003aa58",
-            "size": 156,
-            "kind": "function",
-            "name": "Unregister__10BSScheduleFP8BSObject",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8003aaf4",
-            "size": 104,
-            "kind": "function",
-            "name": "Unregister__10BSScheduleFP35BSScheduleRegistrationRecord_struct",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8003ab5c",
-            "size": 208,
-            "kind": "function",
-            "name": "Register__10BSScheduleFP8BSObjectUsbiii",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8003ac2c",
-            "size": 48,
-            "kind": "function",
-            "name": "Shutdown__10BSScheduleFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8003ac5c",
-            "size": 40,
-            "kind": "function",
-            "name": "Reset__10BSScheduleFPFP8BSObjectiiiPiPi_bii",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8003ac84",
-            "size": 40,
-            "kind": "function",
-            "name": "Init__10BSScheduleFPFP8BSObjectiiiPiPi_bii",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8003acac",
-            "size": 60,
-            "kind": "function",
-            "name": "__dt__10BSScheduleFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8003ace8",
-            "size": 12,
-            "kind": "function",
-            "name": "__ct__10BSScheduleFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8003acf4",
-            "size": 16,
-            "kind": "function",
-            "name": "BSEndSchedule__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8003ad04",
-            "size": 92,
-            "kind": "function",
-            "name": "BSInitSchedule__Fv",
-            "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8003ad60",
-        "ranges": [
-          {
-            "address": "0x8003ad60",
-            "size": 8,
-            "kind": "function",
-            "name": "BSScheduleGetMemoryRequirements__Fv",
-            "evidence": "unknown-file"
           }
         ]
       },
