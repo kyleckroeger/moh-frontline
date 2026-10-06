@@ -1,13 +1,18 @@
-// A fragment of bsbifunc.cpp (0x80030348): built-ins that return the
-// player's weapon refire rate (0 without a weapon), start the player's death
-// sequence (in multiplayer also dropping the multiplayer dump object; in
-// single player for the first player) and stop the first player's path. Each
-// pops the built-in's arguments. The file name is this project's; the
-// original record is bsbifunc.cpp and the built-ins around these are not
+// A fragment of bsbifunc.cpp (0x800300cc): built-ins that report whether the
+// first player is disguised (the script data's two disguise flags set and no
+// weapon other than type 37 drawn; the arguments are popped twice), whether the
+// player is aiming (a flag bit of the player), add a hit direction to the
+// player's interface (directions 0 to 3 as interface directions 1, 3, 4 and 2),
+// return the player's weapon refire rate (0 without a weapon), start the
+// player's death sequence (in multiplayer also dropping the multiplayer dump
+// object; in single player for the first player) and stop the first player's
+// path. Each pops the built-in's arguments. The file name is this project's;
+// the original record is bsbifunc.cpp and the built-ins around these are not
 // reconstructed. The functions, classes and globals are named by the mangled
 // symbols; ISceneNode is declared with its virtual functions in the order of
-// __vt__10ISceneNode, and the weapon, scene and built-in record views are
-// inferred.
+// __vt__10ISceneNode and BSGO_Basic in the order of __vt__10BSGO_Basic,
+// CPlayerObject derives from ISceneNode, and the weapon, player, script-data,
+// scene and built-in record views and the weapon-type helpers are inferred.
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
@@ -17,6 +22,7 @@ class CBullet;
 class CLight;
 class CPlayerObject;
 struct AIDoodadView;
+struct BSObjectView;
 
 class ISceneNode {
 public:
@@ -43,7 +49,7 @@ public:
     virtual int IsDrawEnabled() const;
     virtual EClsnId GetCollisionId() const;
     virtual void SetCollisionId(EClsnId);
-    virtual int GetScriptObject() const;
+    virtual BSObjectView* GetScriptObject() const;
     virtual void TriggerScriptEvent(int, void*, bool);
     virtual void HandleBulletCollision(CBullet*, const CCollision&);
     virtual void* AsMovingNode();
@@ -85,14 +91,47 @@ class CWeapon {
 public:
     unsigned char unknown000[640];
     WeaponPropertiesView* m_properties;
+    unsigned char unknown284[20];
+    int m_type;
 };
 
-class CPlayerObject {
+class UserInterface {
+public:
+    void AddHitDirection(unsigned int);
+};
+
+struct DisguiseView {
+    unsigned char unknown00[16];
+    int disguised;
+    int active;
+};
+
+class BSGO_Basic {
+    unsigned char unknown00[12];
+
+public:
+    virtual void Destroy();
+    virtual DisguiseView* GetScriptData();
+};
+
+struct BSObjectView {
+    unsigned char unknown00[12];
+    BSGO_Basic* user;
+};
+
+class CPlayerObject : public ISceneNode {
 public:
     CWeapon* GetCurrentWeapon() const;
     void StartDeathSequence();
     void DropMPDumpObject();
     void StopPath();
+
+    unsigned char unknown004[912];
+    unsigned char unknown394 : 4;
+    unsigned char m_aiming : 1;
+    unsigned char unknown394b : 3;
+    unsigned char unknown395[1755];
+    UserInterface m_interface;
 };
 
 class CScene {
@@ -115,6 +154,50 @@ struct BSBuiltinView {
 
 extern BSBuiltinView* g_pBuiltInFunctions;
 extern int g_iCurrentBIFIndex;
+
+inline int GetWeaponType(CPlayerObject* player) {
+    CWeapon* weapon = player->GetCurrentWeapon();
+    int type = -1;
+    if (weapon)
+        type = weapon->m_type;
+    return type;
+}
+
+inline bool HasArmedWeapon(CPlayerObject* player) {
+    int type = GetWeaponType(player);
+    if (type == 37 || type == -1)
+        return false;
+    return true;
+}
+
+void BIFunc_IsPlayerDisguised(int** stack, void*) {
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    DisguiseView* disguise = g_scene.GetPlayer(0)->GetScriptObject()->user->GetScriptData();
+    bool disguised = false;
+    if (disguise->disguised && disguise->active && !HasArmedWeapon(g_scene.GetPlayer(0)))
+        disguised = true;
+    **stack = disguised;
+}
+
+void BIFunc_IsPlayerAiming(int** stack, void* object) {
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    **stack = ((ISceneNode*)object)->AsPlayerObject()->m_aiming;
+}
+
+void BIFunc_PlayerAddHitDirection(int** stack, void* object) {
+    int direction = *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1));
+    CPlayerObject* player = ((ISceneNode*)object)->AsPlayerObject();
+    if (direction == 0)
+        player->m_interface.AddHitDirection(1);
+    else if (direction == 1)
+        player->m_interface.AddHitDirection(3);
+    else if (direction == 2)
+        player->m_interface.AddHitDirection(4);
+    else if (direction == 3)
+        player->m_interface.AddHitDirection(2);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
 
 void BIFunc_PlayerGetWeaponRefireRate(int** stack, void* object) {
     CWeapon* weapon = ((ISceneNode*)object)->AsPlayerObject()->GetCurrentWeapon();

@@ -39,20 +39,20 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80030348",
-      "size": 380,
+      "address": "0x800300cc",
+      "size": 1016,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x80009f1c",
-      "size": 24,
+      "address": "0x80009f04",
+      "size": 48,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80010c70",
-      "size": 36,
+      "address": "0x80010c4c",
+      "size": 72,
       "type": 1
     }
   ],
@@ -61,6 +61,24 @@
       "name": "BIFunc_PlayerStopPath__FPPiPv",
       "address": "0x80030464",
       "size": 96,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_IsPlayerDisguised__FPPiPv",
+      "address": "0x800300cc",
+      "size": 288,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_IsPlayerAiming__FPPiPv",
+      "address": "0x800301ec",
+      "size": 112,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_PlayerAddHitDirection__FPPiPv",
+      "address": "0x8003025c",
+      "size": 236,
       "binding": 1
     },
     {
@@ -77,6 +95,7 @@
     }
   ],
   "externals": {
+    "AddHitDirection__13UserInterfaceFUi": "0x800ba8c0",
     "DropMPDumpObject__13CPlayerObjectFv": "0x8009c6fc",
     "GetCurrentWeapon__13CPlayerObjectCFv": "0x8009fb78",
     "GetPlayer__6CSceneCFi": "0x800d8274",
