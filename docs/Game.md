@@ -149,7 +149,7 @@ and layouts it marks as descriptive stay descriptive here.
 | `thrown_obj.cpp` (fragment) | 6 | 40 | — | `CThrownObject` weak defaults (object type 4, cast, empty script translate/rotate/scale) and `SetDeleted` (a bit in the flag byte at +756, inferred bit-field view) |
 | `thrownbullet.cpp` (fragment) | 6 | 48 | — | `CThrownBullet` weak bounding-volume, collision-enabled, attached-light, damage (through the weapon record) and cast accessors; the velocity getter that follows copies a 16-byte vector as doublewords |
 | `projectilebullet.cpp` (fragment) | 5 | 40 | — | `CProjectileBullet` weak bounding-volume, damage, fired-by and cast accessors |
-| `world_volume.cpp` (fragment) | 5 | 40 | — | Weak `CWorldVolume::TestCollision` defaults (no collision) for triangles, planes, points, world volumes and CDB objects |
+| `world_volume.cpp` (fragment) | 6 | 76 | — | Weak `CWorldVolume::TestCollision` defaults (no collision) for triangles, planes, points, world volumes and CDB objects, then `GetExtents` (the extents at `+40`/`+56` copied as two `lfd`/`stfd` pairs each, double-pair `CVector3` view) |
 | `cdbobject.cpp` (fragment) | 5 | 40 | — | The same weak `TestCollision` defaults for `CCDBObject` |
 | `csg_volume.cpp` (fragment) | 2 | 296 | — | `CCSGVolume`: empty `TransformedCopy` and `GetExtents`, the union of the hierarchy object's sub-volume extents starting from `FLT_MAX`/`-FLT_MAX` (sub-volume `GetExtents` virtual in the order of `__vt__7IVolume`). `Create` (which stores the vtables) and the collision tests are not reconstructed |
 | `cdbgeom.cpp` (fragment) | 5 | 156 | — | Weak `CCDBVolBox` collision tests: none against world volumes, otherwise the `CVolBox` base tests (point by value, CDB object, box, generic volume) |

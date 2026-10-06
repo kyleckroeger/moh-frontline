@@ -1,7 +1,7 @@
 {
   "id": "world_volume",
   "source": "src/game/world_volume.cpp",
-  "category": "reconstructed_game",
+  "category": "restored_library",
   "compiler_family": "GC",
   "compiler_version": "1.3.2",
   "compiler_flags": [
@@ -40,11 +40,17 @@
     {
       "name": ".text",
       "address": "0x800cbb80",
-      "size": 40,
+      "size": 76,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "GetExtents__12CWorldVolumeCFR8CVector3R8CVector3",
+      "address": "0x800cbba8",
+      "size": 36,
+      "binding": 1
+    },
     {
       "name": "TestCollision__12CWorldVolumeCFRC10CCDBObjectR10CCollisionb",
       "address": "0x800cbba0",

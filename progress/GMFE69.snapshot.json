@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 322776,
+    "matching_code_bytes": 322812,
     "total_executable_code_bytes": 1414572,
-    "percent": 22.81792655304926,
+    "percent": 22.82047149243729,
     "categories": {
-      "reconstructed_game": 92032,
-      "restored_library": 230744
+      "reconstructed_game": 91992,
+      "restored_library": 230820
     },
-    "matching_functions": 2108
+    "matching_functions": 2109
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -526,7 +526,7 @@
     "config/GMFE69/weapon.json": "2d4134be5d421c8e1084685e52aad733b50c47fcb282892126aa4409303bfa7d",
     "config/GMFE69/weaponfactory.json": "20cd24f59303b1482f3445e5292fea0c1d91d58faa58adf58b2ae313e9df2245",
     "config/GMFE69/world_object.json": "46e604664d2f764f1b3787b6ecbed9aa0bf28e87e278326e9f7f8372d8321857",
-    "config/GMFE69/world_volume.json": "f51efcc465dd4552e6fe9852c126c1e5aad9ed569e99bcd8641a0d6132242e85",
+    "config/GMFE69/world_volume.json": "8d3bbe5e5b885bc03833f6920da4ed1bdf798ef6e958c4c69b0be980fa752b43",
     "include/dolphin-sdk/charPipeline/fileCache.h": "9fc5bbfba874376ec1d239271cda99d84c256b2bd07f884d1177bee6b705b985",
     "include/dolphin-sdk/charPipeline/structures/HTable.h": "e1e36439d044200512635bc37470f318258d75767fad9ec2d9c407f9c0ee1af8",
     "include/dolphin-sdk/charPipeline/structures/List.h": "5646f12d28166b80aa7ad18711a2a01b1b1e836f4f509c25a03b2220adcc3c58",
@@ -1616,7 +1616,7 @@
     "src/game/weapon.cpp": "8379d19d5294b3b397664a29b8875d31f99a857a23284d1a491e757b27976d83",
     "src/game/weaponfactory.cpp": "918057846d18e297a460e23fc2153ee2dcd97d2c042c6f6b71658c9fcdecb0f9",
     "src/game/world_object.cpp": "fb23848a360e439658289be801ce9a3893c571554861f742698a693af8d600e5",
-    "src/game/world_volume.cpp": "9e0fe4e16cee4480dc9d4c1c868f06499ac0130ad9892fef2c86e4abc6ab758f",
+    "src/game/world_volume.cpp": "064d5095c3daaabb50dd06295a2c6e7873828a8ff376d0be65dd7a51875c5ced",
     "src/msl/NewMore.cp": "cb60e70e586609256a8ff5c7a4b0efbdf7586b7fa7e3cb43b7f84e309e87c1be",
     "src/msl/bsearch.c": "e18222caa9298644a58b0d497c283f472396491e6297b39abb4865632978533a",
     "src/msl/mslsupp.c": "dd035227b8e683320b6147ec006a50b26ba14f315be2755a3d573476e16eb2e8",
@@ -18804,9 +18804,9 @@
     },
     {
       "id": "world_volume",
-      "category": "reconstructed_game",
-      "functions": 5,
-      "code_bytes": 40,
+      "category": "restored_library",
+      "functions": 6,
+      "code_bytes": 76,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -18838,8 +18838,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "5eb02da97b07b076347fe03e54641243d2deb5fe94bf2687003042b33b1ad984",
-      "linked_sha256": "7505e523bee17ef745a4f7e132b17479af0bbbf921118a46fc7a9b4372f8c799"
+      "object_sha256": "53110536a9fb03c656e57b904cce980cdd151f70b4eb3d74fe6b32c7ca618ada",
+      "linked_sha256": "8c9f6ff3c5e6dc2c9a30a4f98dc5770c20317de391cf91ef07fd497829bdfb66"
     },
     {
       "id": "cdbobject",
@@ -37894,13 +37894,6 @@
         "file_record": 134,
         "file_name": "world_volume.cpp",
         "ranges": [
-          {
-            "address": "0x800cbba8",
-            "size": 36,
-            "kind": "function",
-            "name": "GetExtents__12CWorldVolumeCFR8CVector3R8CVector3",
-            "evidence": "between-same-file"
-          },
           {
             "address": "0x800cbbcc",
             "size": 116,
