@@ -401,7 +401,8 @@
     "player.json",
     "UIStudio.json",
     "sound.json",
-    "memalloc.json"
+    "memalloc.json",
+    "AIObject.json"
   ],
   "progress": {
     "code_bytes": 1414572,

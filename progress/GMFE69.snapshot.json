@@ -6,17 +6,18 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 272900,
+    "matching_code_bytes": 273064,
     "total_executable_code_bytes": 1414572,
-    "percent": 19.292054416459536,
+    "percent": 19.303648029227215,
     "categories": {
-      "reconstructed_game": 73020,
+      "reconstructed_game": 73184,
       "restored_library": 199880
     },
-    "matching_functions": 1709
+    "matching_functions": 1713
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
+    "config/GMFE69/AIObject.json": "24a53c7094486ea0a42c24edf3fa121e00d44edc31088b88f645f9fb08b66c2b",
     "config/GMFE69/AIPlayerDoodad.json": "5ab45909efeb94b828331a8b68a46467e9cb19518255f572f32340c24b98dff2",
     "config/GMFE69/AIPlayerObject.json": "89824370512e8f14345d260f39b95516cf337b026e7e61b8d6013d4d3664516a",
     "config/GMFE69/AISoldierDoodad.json": "2ff63fd49039400e569490a49c8f89bc08ec427340dabd46764dc1812cdf00c9",
@@ -258,7 +259,7 @@
     "config/GMFE69/player_weapon_object.json": "2c451ab555672599946bb97ca631b2a316350d8f99e8e9b77cf7f8f648d219df",
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "d10840c17b5a060dc6c969f5261c2256ac4104c6b294d9a6f7ea7c4b9f19a506",
+    "config/GMFE69/project.json": "2232b048b0ec390021aa075e127cebd2801946bcabe618e8f2353840f7d51c0b",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
@@ -1329,6 +1330,7 @@
     "src/ea/timer.cpp": "5fbb8bd406632aa10e62ca1c8523eee1e88d3fcd17e3edcdf1b3d7cfd0f19708",
     "src/ea/timerthread.cpp": "e2ee2dfbb74893029f0693bb5b76212bdd70223c892d9fd963984794c6193628",
     "src/game/AIFilter.cpp": "f07b9b59492ad0297b6a3567e44a9931c993d85dec42bf59089f1d58322d8e93",
+    "src/game/AIObject.cpp": "cdf645a510ac632a534b0e06beadf41b4992c5e9bc6aa844fb9d0c78bb1b0ad7",
     "src/game/AIPlayerDoodad.cpp": "218144f1416be0e264e2255e27e05126728778a56d650e5705a961e69003196e",
     "src/game/AIPlayerObject.cpp": "b1e57451819617f12a53f7185419f09b4ece3035859b25fcedb2752ec9d226bf",
     "src/game/AISoldierDoodad.cpp": "a70f1395b35f9773c7b6bbcd36e3da76824a4604449b9d8b5472447931a9754a",
@@ -19099,6 +19101,45 @@
       "discarded_functions": [],
       "object_sha256": "92d940a92727dfde248627ac0e909d278b1ea2ecd7df4b2cfef774fc8c35b545",
       "linked_sha256": "b521038156d883852d8f9e37b6eb9c32618bdcf5621c9915bc70754eb20372f1"
+    },
+    {
+      "id": "AIObject",
+      "category": "reconstructed_game",
+      "functions": 4,
+      "code_bytes": 164,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "2931155e64074fcaf2e5679af263f1f9582b1c268dacec6462da0952e82e2ec6",
+      "linked_sha256": "c83ed47e50f3b1b3e1f18d0004fbc02503fdb8b3d5efa93e1907df05182ca29b"
     }
   ],
   "code_map": {
@@ -23734,34 +23775,6 @@
             "size": 288,
             "kind": "function",
             "name": "SetTarget__9CAIObjectFP9CAIObject",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8004d53c",
-            "size": 40,
-            "kind": "function",
-            "name": "GetDistanceSquaredXYReal__9CAIObjectFP9CAIObject",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8004d564",
-            "size": 44,
-            "kind": "function",
-            "name": "GetDistanceSquaredXYZReal__9CAIObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8004d590",
-            "size": 40,
-            "kind": "function",
-            "name": "GetDistanceSquaredXYZReal__9CAIObjectFP9CAIObject",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8004d5b8",
-            "size": 40,
-            "kind": "function",
-            "name": "GetDistanceXYZReal__9CAIObjectFP9CAIObject",
             "evidence": "exception-index"
           },
           {
