@@ -1,0 +1,116 @@
+{
+  "id": "bsbifunc_aim",
+  "source": "src/game/bsbifunc_aim.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8003394c",
+      "size": 732,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000a12c",
+      "size": 40,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80010f88",
+      "size": 60,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "BIFunc_AIContinueSplinePathWalk__FPPiPv",
+      "address": "0x80033af4",
+      "size": 196,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_AIStopSplinePathWalk__FPPiPv",
+      "address": "0x80033bb8",
+      "size": 112,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_AIIsItAGoodTimeToFire__FPPiPv",
+      "address": "0x8003394c",
+      "size": 108,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_AIEnableTargetAim__FPPiPv",
+      "address": "0x800339b8",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_AIGetDistanceToTargetXYZ__FPPiPv",
+      "address": "0x800339e0",
+      "size": 148,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_AIGetDistanceToTargetXY__FPPiPv",
+      "address": "0x80033a74",
+      "size": 128,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "ContinueTraversalForwardAStar__22CAISplinePathTraversalFP15CAIFilterObject": "0x8005039c",
+    "GetDistanceSquaredXYReal__9CAIObjectFP9CAIObject": "0x8004d53c",
+    "GetDistanceSquaredXYZReal__9CAIObjectFP9CAIObject": "0x8004d590",
+    "GetDistanceSquaredXYZReal__9CAIObjectFv": "0x8004d564",
+    "g_iCurrentBIFIndex": "0x8034e77c",
+    "g_pBuiltInFunctions": "0x8034e778"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "g_iCurrentBIFIndex",
+    "g_pBuiltInFunctions"
+  ],
+  "original_file": "bsbifunc.cpp",
+  "original_file_index": 443
+}
