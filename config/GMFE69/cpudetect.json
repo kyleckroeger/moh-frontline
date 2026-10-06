@@ -1,0 +1,76 @@
+{
+  "id": "cpudetect",
+  "source": "src/ea/cpudetect.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80151b3c",
+      "size": 80,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80193390",
+      "size": 14,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x8033ef20",
+      "size": 24,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "CPU_detect",
+      "address": "0x80151b3c",
+      "size": 80,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "strcpy": "0x80140040"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "cpudetect.cpp",
+  "original_file_index": 12521
+}

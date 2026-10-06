@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 194796,
+    "matching_code_bytes": 195028,
     "total_executable_code_bytes": 1414572,
-    "percent": 13.770667028613602,
+    "percent": 13.78706774911422,
     "categories": {
-      "reconstructed_game": 7512,
+      "reconstructed_game": 7744,
       "restored_library": 187284
     },
-    "matching_functions": 819
+    "matching_functions": 824
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -98,6 +98,7 @@
     "config/GMFE69/arq.json": "53c9d956d7cd2b69c858816128443494613f46b3ad680d5056ae00227df49900",
     "config/GMFE69/baseline.json": "36a2b85cf4193e53afac79bdd2a8fdbf8dfb1880cae89e119463f2c81461b42f",
     "config/GMFE69/bstimer.json": "f6c1bc76d8200192cc1dc0fcc0d071b489cc158c09f820ee351e4190d480c6ae",
+    "config/GMFE69/cpudetect.json": "f617351e9aa4e5ec3cd84ed1322674cc8c654e2e1e9b138b5402edf93e1acd56",
     "config/GMFE69/ctype.json": "204f2baf71f1c77a57c8bb685dba45f7583994fc6c39201224cb2a0ed20eb580",
     "config/GMFE69/db.json": "f5cdac8d1b6ec28c05d82995e2918679665f81055beaea75273deb9b2bb4a458",
     "config/GMFE69/direct_io.json": "6bc91b9814ea8394c4fb8292d3c0f477dd5841c089e81e92061adaca275f77ab",
@@ -117,6 +118,7 @@
     "config/GMFE69/e_rem_pio2.json": "9a217bc41cbc7dbd160fd9b8170c55fb494d44d9f79f1a2cc3cecf82078e7391",
     "config/GMFE69/file_io.json": "9d737a74c74cec09092f5f2fe98942c67c235f62b404b17bbc55dd04abba5ebc",
     "config/GMFE69/flush_cache.json": "aa1c08f24f7fa7ce6bf2cfa32e6ae398b7b93fea2374de2a6120d5e28e6b9578",
+    "config/GMFE69/fontnull.json": "33b563264e24e0d459bd1dabaf7c027c3e008864dffaca1b1f177daa5a177aaa",
     "config/GMFE69/fstload.json": "c101975fb01250bc8f0325effbe643330b62ccd00eac41e24aff682c06866309",
     "config/GMFE69/global_destructor_chain.json": "0fe0a3698440cd1f1bff61944bd62409272132d09eb6b5c82b9745b82413e6fa",
     "config/GMFE69/k_cos.json": "db8492c041a6d2c074f54a05f37f23f647f9007d1ddfb016ac1b68ef92f560eb",
@@ -128,6 +130,7 @@
     "config/GMFE69/mbstring.json": "9de9f46cc9601517195f1c54fab48fb7e78bb2f47d69f7aa83c76823aea418d9",
     "config/GMFE69/mem.json": "ca3c317259aa8b4ae29fb186b81dae2190665955e0af421cfa574e77be7bb350",
     "config/GMFE69/mem_funcs.json": "cdc21eee7ec690a2964eff60bc9e230f0115ca0eb200b536179c0a35c292ae7a",
+    "config/GMFE69/meminitadr.json": "381fcfbcbb6c274bbc1966d84f43a5ba64175efe3e51b4f0b3824230aa348172",
     "config/GMFE69/misc_io.json": "e39e7fba76d1f21b4fb96170ded69a7452c3171401394b070a9a1504678c7486",
     "config/GMFE69/mpc_7xx_603e.json": "815f349dc1383d438a3836cb5ba5bd2db4279c6d017721a52804a4fd42e85507",
     "config/GMFE69/mslsupp.json": "a8c2e182d3fd7c6fbbf31466bc4091b837c9b9fe2b2d626115c78941e63d6a4d",
@@ -138,11 +141,12 @@
     "config/GMFE69/nubevent.json": "d6afc4bc3a93eb5ab6fc791d166d4243a4fee57863e76656a656235d2e20e0f2",
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "f47e86c976a7d95993e4180a09468b5a5d983f8d9eab961c773c138bde96e8cc",
+    "config/GMFE69/project.json": "398b97623e7b22a22d6ff6137a99c238ab0bfdeaeeb4c0b97c692a313767f492",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
     "config/GMFE69/rand.json": "958d1564ced02e430faca2258c920c5b7f36bd3ba70f168d2cbb54dace181f59",
+    "config/GMFE69/rcmp_mpc_codec_chunk_types.json": "42f8600fb47568b4635edb3182a0d6d788bb94c0419a514e14604d564197d33d",
     "config/GMFE69/runtime.json": "a141c730e48954adb12802ec9b1ab64c4b3ac71f37caeb7ea3af62616adf28e6",
     "config/GMFE69/s_atan.json": "b6130d2ccba797fa29836d3fa3f07fbc4da188446df024ff3de704580ddde5e0",
     "config/GMFE69/s_copysign.json": "a549fbe76f6b278012ec447d49c0d13bd3f1911426f10964b9ccd2e6dbdbe719",
@@ -154,6 +158,7 @@
     "config/GMFE69/s_sin.json": "72a9c31b228d23acc079c9dd985ac8f6cdb2115b9df2cf5acd29882938696942",
     "config/GMFE69/s_tan.json": "4d4245a72ecbda130924076021f01024ffa5f912437d596842d21aa4b2ac1390",
     "config/GMFE69/scanf.json": "8b6c8c106b3e30ef33cf95e2b2598aa1fa8faba019ccbe4cde367c2c19efc736",
+    "config/GMFE69/sfir8.json": "6f2ed0999536ea81aaa7bf92bd085b56c83981bacb67275d8d910fba1c548290",
     "config/GMFE69/string.json": "e6454998be307b09afe6355ffe0a3db4e36e82f2473bdf518fff7c7e67e776ff",
     "config/GMFE69/strtoul.json": "f78ce35bf10a20248e7ba6a255fc9a431224cd5abdcd08160729e3ec87d1ce09",
     "config/GMFE69/targcont.json": "b2ca2a623eb919a56e51a2a987564851f0820315980336f1c08791bf38a03769",
@@ -921,6 +926,11 @@
     "src/dolsdk2001/vi/i2c.c": "4e62553f4b64678fac11d28b6a7617e3034d5192dc8ea6be4d9bd322edf215ce",
     "src/dolsdk2001/vi/initphilips.c": "bf8d8b1159c56f722022dfd599ba84d7e9b898b81369f29de8e25d35434912f3",
     "src/dolsdk2001/vi/vi.c": "55aeca6a29fb85b0d8b30bec9a53c777bad20ef331521ef496cd2f53c2a20256",
+    "src/ea/cpudetect.cpp": "82ad74ceba8d5dcd8eda8284a31e54ca3a660ce35f0909967bfb80204e8081e7",
+    "src/ea/fontnull.cpp": "f5c2dfb2e21956fc5d3a1b11c46ae763d9b5cd956badc5e3db912b1e59a9d641",
+    "src/ea/meminitadr.cpp": "95eed033a03deab2f0918e8b1a92183e8cf0a9bb94d793f3558d6aa13d112d8d",
+    "src/ea/rcmp_mpc_codec_chunk_types.cpp": "b996231c1c402b6ecdd813bb69df3ae8a3580e537b71dd9fa91e238690bb3635",
+    "src/ea/sfir8.c": "c89f8d7ae6555fb4e9a57c39b74c65bb989aca35d110111a1bcbf4547149235b",
     "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
     "src/game/propdat.cpp": "b1e26b00f10be619cc409432f6748e200a0064248119fafa81774718c305885d",
     "src/prime/LICENSE.PrimeDecomp": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
@@ -8379,6 +8389,203 @@
       "discarded_functions": [],
       "object_sha256": "fab03c6b27be5fe149e35aa4d6a66650b13f1097af1ee6a246f17dd7fa406f90",
       "linked_sha256": "2015dd43e06f3feaf051f6d92dba1ba10f78ad6191c084d428f7ddc8d1c34607"
+    },
+    {
+      "id": "rcmp_mpc_codec_chunk_types",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 28,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "fb73459a321b82819abbecec937c33a8a3065bb49645abc40afa2ccb20d4ca1a",
+      "linked_sha256": "b463a4b02ac060edf9d821c9ef6d62e50aa1d798ff8238a585a464b411fcae77"
+    },
+    {
+      "id": "sfir8",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 40,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "a83773d2cee91ee7d6d41a1b40b940955de3986a168df154491ebb9af635c136",
+      "linked_sha256": "f4d0118fe04420f8100ded11086ed639fff59a423ecc8d3e34a5b1b900584330"
+    },
+    {
+      "id": "fontnull",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 4,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "af0e5da9d53aa0a198726bb8684756490aea6ef3db0b42a1184987a999ed6a7f",
+      "linked_sha256": "42b7aaf0e7e9c60c5e6b80a7a63419ec92e0a7837e9184112ee5c8fc133258f6"
+    },
+    {
+      "id": "cpudetect",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 80,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "bb5a2c74696401635dff2a17b0e312d44517b95d8b75058e4854465c4b415424",
+      "linked_sha256": "23946acff5ca11338dacd4ce62ff7937f583a390440a5fd353d1f1a5f35e1cc1"
+    },
+    {
+      "id": "meminitadr",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 80,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "cf2108c67d62ecd9f690a7687466c2b6f029a36fa1709aec5d67a6a4ac8b6c54",
+      "linked_sha256": "bdd117db59881bfae30432f092cbe21898dd1597dca03a937ab4d9ea68a68c7a"
     }
   ],
   "code_map": {
@@ -32966,20 +33173,6 @@
         ]
       },
       {
-        "name": "Unmatched files/rcmp_mpc_codec_chunk_types.cpp [symbol evidence]",
-        "file_record": 178,
-        "file_name": "rcmp_mpc_codec_chunk_types.cpp",
-        "ranges": [
-          {
-            "address": "0x80105218",
-            "size": 28,
-            "kind": "function",
-            "name": "MPC_CODEC_is_chunk_for_codec__4RCMPFUi",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/rcmpbase.cpp [inferred file group]",
         "file_record": 180,
         "file_name": "rcmpbase.cpp",
@@ -36041,20 +36234,6 @@
         ]
       },
       {
-        "name": "Unmatched files/fontnull.cpp [local symbols only]",
-        "file_record": 377,
-        "file_name": "fontnull.cpp",
-        "ranges": [
-          {
-            "address": "0x8014eea0",
-            "size": 4,
-            "kind": "function",
-            "name": "NULL_draw__FP4FONTPC8FONTCHARff",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
         "name": "Unknown file/.text @ 8014eea4",
         "ranges": [
           {
@@ -36206,20 +36385,6 @@
             "kind": "function",
             "name": "MEM_init",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/meminitadr.cpp [symbol evidence]",
-        "file_record": 387,
-        "file_name": "meminitadr.cpp",
-        "ranges": [
-          {
-            "address": "0x8014fb7c",
-            "size": 80,
-            "kind": "function",
-            "name": "MEM_initadr",
-            "evidence": "private-reference"
           }
         ]
       },
@@ -36586,20 +36751,6 @@
             "kind": "function",
             "name": "stricmp",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/cpudetect.cpp [symbol evidence]",
-        "file_record": 408,
-        "file_name": "cpudetect.cpp",
-        "ranges": [
-          {
-            "address": "0x80151b3c",
-            "size": 80,
-            "kind": "function",
-            "name": "CPU_detect",
-            "evidence": "private-reference"
           }
         ]
       },
@@ -38947,20 +39098,6 @@
             "size": 952,
             "kind": "function",
             "name": "calcFIRCoeffs__FP11SNDFIRSTATEi",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/sfir8.c [symbol evidence]",
-        "file_record": 534,
-        "file_name": "sfir8.c",
-        "ranges": [
-          {
-            "address": "0x80165004",
-            "size": 40,
-            "kind": "function",
-            "name": "SNDI_fir8init__FP11SNDFIRSTATE",
             "evidence": "private-reference"
           }
         ]

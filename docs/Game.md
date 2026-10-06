@@ -105,3 +105,28 @@ conversion, so the overloads are recovered from the code they leave:
 The fragment covers only these functions. The remaining propdat functions (BSP
 patch-up, trigger setup, player starts and `PatchUpAllPropertyData`) are drafted
 in scratch and are not accepted.
+
+## EA library units (`src/ea/`)
+
+EA's shared libraries (the "REAL" runtime, sound and resource code linked into
+Frontline) are reconstructed in `src/ea/` as `reconstructed_game` units, from
+the disassembly alone (no reference source). They use the game profile with
+two differences, both shown by the verified units:
+
+- `-Cpp_exceptions off`: functions that call out (`CPU_detect`, `MEM_initadr`)
+  have no `extab`/`extabindex` entries.
+- `-str reuse` without `readonly`: string literals are in `.data`/`.sdata`
+  (`"Gekko PowerPC"`, `"RAM"`).
+
+Some files are named `.c` but have C++-mangled names (`sfir8.c`); they are built
+with `-lang c++`. Struct and parameter types are views; where the code does not
+establish a type, the source comments say so.
+
+| File | Functions | Bytes | Notes |
+| --- | ---: | ---: | --- |
+| `fontnull.cpp` | 1 | 4 | Static `NULL_draw` referenced by the global `FONTnulldriver` table (20 bytes; only the draw entry is established) |
+| `rcmp_mpc_codec_chunk_types.cpp` | 1 | 28 | Loop over a one-entry anonymous-namespace `ChunkTypes` table (`'MPCh'`) |
+| `sfir8.c` | 1 | 40 | Clears an eight-float FIR history |
+| `cpudetect.cpp` | 1 | 80 | Fills the static `cpuinfo` from the bus clock word at `0x800000FC` |
+| `meminitadr.cpp` | 1 | 80 | One `MEMCLASS_create` call (`"RAM"`, 32-byte alignment) |
+
