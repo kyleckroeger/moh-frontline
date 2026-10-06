@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 126972,
+    "matching_code_bytes": 139968,
     "total_executable_code_bytes": 1414572,
-    "percent": 8.976001221570906,
+    "percent": 9.89472434064862,
     "categories": {
       "reconstructed_game": 0,
-      "restored_library": 126972
+      "restored_library": 139968
     },
-    "matching_functions": 547
+    "matching_functions": 598
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -40,6 +40,7 @@
     "config/GMFE69/CARDWrite.json": "281660a172ac3b60419b0fb73f382239d55a0c22e81768890c98b0e0ca2bb817",
     "config/GMFE69/EXIBios.json": "c9390151ed61c1e36be176f48feef883f85c6733e4cb6389153a8ad9b732e034",
     "config/GMFE69/EXIUart.json": "3664769d38b00c6667a6a8d583bd985d8a26b24d7fdb3c09c978c7fbdf4d64ee",
+    "config/GMFE69/GXAttr.json": "ea90b83882469eb6a3053e49241ad47b10f60966178ced3b2ca6c376a51de057",
     "config/GMFE69/GXBump.json": "a78c5c03a49b6ec3cbb3d45288946827cb15b6fbf7b0a7c632b5191731e75525",
     "config/GMFE69/GXDisplayList.json": "f7347b3d89b9742bcebfe209ec4be05580ca9effb91646f940b7a03d4648d397",
     "config/GMFE69/GXFifo.json": "f73ba935928b52f77cce38e854ff5d6557357dacbe2ea1f2fbc6b8ed85afa229",
@@ -52,6 +53,7 @@
     "config/GMFE69/GXPixel.json": "8a078293429864d0af0f5181a695a381b0144714e2ac2281d6ce38136aeeb262",
     "config/GMFE69/GXStubs.json": "f982b70601475f696346533ae77d4424c28e7ff3e577f677e69199958fa00fdc",
     "config/GMFE69/GXTev.json": "4b28b0baa32d270c71bc6725d0b291fc2236dc9f6f6d0c104edb0ba1fa3b4399",
+    "config/GMFE69/GXTexture.json": "fee53b58bcc52dee50e933340ae77066267452c98410a66575d8acd6d920c0bc",
     "config/GMFE69/GXTransform.json": "38225301a6fd0d656301839a81128f2235b7fbe70c809990d1beeb45d8a5182b",
     "config/GMFE69/OS.json": "c3796d6fcdd2a8f7d11c7060245d5ab1b85316fc6251876d2bbf7e93469f11a8",
     "config/GMFE69/OSAlarm.json": "1e86d7d9e28dd6c2d842af34882125cb9181ba4a9c4adca999722390b2e59824",
@@ -77,10 +79,13 @@
     "config/GMFE69/SIBios.json": "ef42fc4b95402bef0544ec5fe1a10c75781171f56afba7954318d42020fd6c1a",
     "config/GMFE69/SISamplingRate.json": "e4def7467ec8d82fdb9730412721675a9ea0e7ce572d5b8b63e89c3bdfe1eb84",
     "config/GMFE69/ai_src.json": "f0c8725cb5fed0ec6bbd3940f8c439dc47168cfd29a94c4b891cf592973d7e1a",
+    "config/GMFE69/ar.json": "f7bf6b4079ed418edeb4c95ff15f08f4450ac1e184d58dd1af945665137df3c2",
     "config/GMFE69/arq.json": "53c9d956d7cd2b69c858816128443494613f46b3ad680d5056ae00227df49900",
     "config/GMFE69/baseline.json": "36a2b85cf4193e53afac79bdd2a8fdbf8dfb1880cae89e119463f2c81461b42f",
     "config/GMFE69/db.json": "f5cdac8d1b6ec28c05d82995e2918679665f81055beaea75273deb9b2bb4a458",
+    "config/GMFE69/dsp.json": "6c4ba9a2f66c0ef3e23283c2ae295edd31558a47efcff76f281c5ba678f4d74d",
     "config/GMFE69/dsp_debug.json": "abb1bf69b26be3567a5e3a22a729922f11d7a3b8c74ed938895798d0072114a0",
+    "config/GMFE69/dsp_task.json": "23fad1688cbbe0178fb9b445cc0d319c557ace917f657fe4d2e1b34efa7c90b7",
     "config/GMFE69/dvd.json": "121312ac4bb040c75b0e7189d8e139340898c69323bf7bc7f171b1e302751427",
     "config/GMFE69/dvderror.json": "e707cc3372abd7ab11663cb1d927b494694905f6aff6c33152a9b6fcf015590b",
     "config/GMFE69/dvdfs.json": "3a7e5c902b07320492019461ccbfe54e1c9166f4a2f84d8d3a4b7446a7f425f9",
@@ -89,7 +94,7 @@
     "config/GMFE69/fstload.json": "c101975fb01250bc8f0325effbe643330b62ccd00eac41e24aff682c06866309",
     "config/GMFE69/mtx44.json": "6ec8c80e78a896f985eb769ac01b97ff684e2d83116660d2c740123270c0ddf5",
     "config/GMFE69/mtxvec.json": "bb6a4f09ca854ab9a727be34f0a20df7f53e0e081e1b83581418b88de9987009",
-    "config/GMFE69/project.json": "fb6fcbe54682f95adc4833c13167aadea4e35ffabedced998e6b37c49d05ad01",
+    "config/GMFE69/project.json": "f014839b0610d127638bc8419e79b2dce4856d24f7ffb23694e7bae3e4016425",
     "config/GMFE69/target.json": "f7e8d7b660fd35f21cdc13385271d7b73fabda6669a0d112db63b3b1f3e8b3b2",
     "config/GMFE69/vi.json": "3341dbca41fdd83ec556de88bdc9cedb4cbd6a7c397486637cd9b6ed88713655",
     "include/dolphin-sdk/charPipeline/fileCache.h": "9fc5bbfba874376ec1d239271cda99d84c256b2bd07f884d1177bee6b705b985",
@@ -347,7 +352,7 @@
     "src/dolphin/am/__am.h": "137f11f4b674b6092eb50d6c758b3dd3992d4061d35e4a291c9119e5637ec11e",
     "src/dolphin/amcstubs/AmcExi2Stubs.c": "ce733638d79f518a95c170728fb8ed670ffdfaf693a33ff7ef72a8f039cbc1ca",
     "src/dolphin/ar/__ar.h": "17242784988ea0273bcf5d7d4bbca91e4e65ceb73330694dd5b531150584c102",
-    "src/dolphin/ar/ar.c": "f7b8209f27b80294b061969144c5209ac3c92ba70939620b2d2ad5213f81b3a2",
+    "src/dolphin/ar/ar.c": "bb2e5dce77bedb3cced9edee3a4b39ec6ffabf31310ac2d6889d1927fa6fd40d",
     "src/dolphin/ar/arq.c": "df13b1231649c990676c950057482b2e1ed0cd69fdd318a8c9b10b411146c2f1",
     "src/dolphin/ax/AX.c": "37b07b3ae8cc4cb14a01012a98b1aeb28ceccafce8c2bde2170a30246a27115d",
     "src/dolphin/ax/AXAlloc.c": "947a2101490ce7c8b9577d290435a899665a078eebae9fe5aab9e9fd7fbaf170",
@@ -517,7 +522,7 @@
     "src/dolsdk2001/demo/__demo.h": "32c8db3d5a18e8cd2f080bec3eea4150709f761eb638835d6d4aace0e2b2d481",
     "src/dolsdk2001/dolformat/DOLLoader.c": "bf508687282453efbb9ec64fe6646832c50f80ddf8845850e3cf02bb4e5ddc68",
     "src/dolsdk2001/dsp/__dsp.h": "b0a11d9f86f672867d294d8695c2a5e51c28ae63f6d2f206f965869da910401c",
-    "src/dolsdk2001/dsp/dsp.c": "14b29ded4ae0bd4498b977287342571d396e96466d5c7bd59851803c5bc731b5",
+    "src/dolsdk2001/dsp/dsp.c": "f3aaf202bd62b9ee9ab89debd2169a0f0c3df6224ae0aea5691a46b02450f1ef",
     "src/dolsdk2001/dsp/dsp_debug.c": "3618c75af9da09c04fcc065f87a644ad69c97faabc16030343fbff4f2897ad58",
     "src/dolsdk2001/dsp/dsp_task.c": "ce1a99822081ccc869a8b6bedecb38f47a641e4744b01249fa83e2ac958b14b0",
     "src/dolsdk2001/dtk/dtk.c": "550627946d4b53897f7a463478d4304c7757d82253f76386f2559a5573b24574",
@@ -528,7 +533,7 @@
     "src/dolsdk2001/dvd/dvdqueue.c": "7dcab20bd1cbeee252c32c6dd364838f7151302fd2204b022d21ad80443cc849",
     "src/dolsdk2001/dvd/fstload.c": "3c7a5bd7147d02e22e3db61bb373ba85e0342bde87bb04448ff5ece80ad7bcb1",
     "src/dolsdk2001/fileCache/fileCache.c": "f05a524b13a229d2881b233490a084091053dcc07752ec5f5b353ead6b056e19",
-    "src/dolsdk2001/gx/GXAttr.c": "8d9c43d4e0d36b224affad917a89639cf1eb01a3852ea0ef2e21ab9a7a212295",
+    "src/dolsdk2001/gx/GXAttr.c": "cea6b95e10dfc45a0fe3c733b29bf61ed6dd770e50526fffeb8c0167b2d363a2",
     "src/dolsdk2001/gx/GXBump.c": "08edafadf117cf3fca4efe8344fabd953d1c4d24d5fb823a727c35e669f9d006",
     "src/dolsdk2001/gx/GXDisplayList.c": "4d7ecd11d2f3b21bd7de38f590ae670995335d36a5d7e4867f3dc63844aa6c33",
     "src/dolsdk2001/gx/GXDraw.c": "beef6be1f52fa22983653c710d1e6bf48a0ecdc28d007e1c5bad31d2b9ee9d07",
@@ -543,7 +548,7 @@
     "src/dolsdk2001/gx/GXSave.c": "b27c1ee3460da8ab130e3a3e40190f6ccc057cf42818ac4567de7728fc071fb3",
     "src/dolsdk2001/gx/GXStubs.c": "d4fe05a2f0242d9a57e28640f98155cd2db169571f2eccd8ea8407546d053f48",
     "src/dolsdk2001/gx/GXTev.c": "2133c9c81f3af1f92e2f206385730793bfd4d5e4e439dd86841063add19417d4",
-    "src/dolsdk2001/gx/GXTexture.c": "4d9b0241bc030d79e36b38f73b3bbb6f55cd8ff92d22705bc8eb685d7918f154",
+    "src/dolsdk2001/gx/GXTexture.c": "966705cc525b6ebf8218cb739cb01a7d6972a03321800ccf028375fedf957406",
     "src/dolsdk2001/gx/GXTransform.c": "8e66108896275d89af0e84a76099bf3bdf295ec9ded0e4cfa384b7757a46358b",
     "src/dolsdk2001/gx/GXVerifRAS.c": "13083b45c8b04fca4d9d5dff1d3afd3cc5aceb6453ced3f314ffca1a8f1ec903",
     "src/dolsdk2001/gx/GXVerifXF.c": "f6d2ac4150d8d30923eb7bd867d2388997f731a8b3b3b414213219b1288ced0c",
@@ -3818,6 +3823,255 @@
       ],
       "object_sha256": "a7eadf0d5e74d2a4aae91c8f269dab7cc589aab5d2bfb3a7d5a3e8a1695e141f",
       "linked_sha256": "546ad4f8b5e0a2413061fbe1f07935ddbae7a3ec1ed9b05573a2d0e7cf2b053b"
+    },
+    {
+      "id": "dsp_task",
+      "category": "restored_library",
+      "functions": 5,
+      "code_bytes": 2180,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "__DSP_add_task"
+      ],
+      "object_sha256": "c51d33fe6592ebdb8524fddf02415844e01abf61a36486ba0dca26a4ff6bc904",
+      "linked_sha256": "7040975d32ec09bbab53c1ce9441b9acc68f4703519b32daadca17349ba777b3"
+    },
+    {
+      "id": "dsp",
+      "category": "restored_library",
+      "functions": 11,
+      "code_bytes": 732,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "signed",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "DSPReadCPUToDSPMbox",
+        "DSPAssertInt",
+        "DSPUnhalt",
+        "DSPCancelTask"
+      ],
+      "object_sha256": "9cae7718922bbd1d369c0e56d933138decfa8add4841742625a59f1a7f00e69c",
+      "linked_sha256": "ba181a2f1dd2138d528b8ce670aaf9cffba67dd62f54f44919c97eb6dfc1b876"
+    },
+    {
+      "id": "GXAttr",
+      "category": "restored_library",
+      "functions": 11,
+      "code_bytes": 4192,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "GXSetVtxDescv",
+        "GXGetVtxDesc",
+        "GXGetVtxDescv",
+        "GXSetVtxAttrFmtv",
+        "GXGetVtxAttrFmtv"
+      ],
+      "object_sha256": "731c02b98ec980b93f48c82722c8d7975e695c8cdb20f9a81620d05127eb7833",
+      "linked_sha256": "4a25f9804212da6bd0552904b47d4f4278151d7c7aac19042a1230a15cacadfe"
+    },
+    {
+      "id": "GXTexture",
+      "category": "restored_library",
+      "functions": 17,
+      "code_bytes": 2936,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "__GXGetTexTileShift",
+        "GXGetTexBufferSize",
+        "__GetImageTileCount",
+        "GXInitTexObjData",
+        "GXInitTexObjWrapMode",
+        "GXInitTexObjTlut",
+        "GXInitTexObjUserData",
+        "GXGetTexObjUserData",
+        "GXGetTexObjAll",
+        "GXGetTexObjData",
+        "GXGetTexObjWrapS",
+        "GXGetTexObjWrapT",
+        "GXGetTexObjMipMap",
+        "GXGetTexObjLODAll",
+        "GXGetTexObjMinFilt",
+        "GXGetTexObjMagFilt",
+        "GXGetTexObjMinLOD",
+        "GXGetTexObjMaxLOD",
+        "GXGetTexObjLODBias",
+        "GXGetTexObjBiasClamp",
+        "GXGetTexObjEdgeLOD",
+        "GXGetTexObjMaxAniso",
+        "GXGetTexObjTlut",
+        "GXGetTlutObjAll",
+        "GXGetTlutObjData",
+        "GXGetTlutObjFmt",
+        "GXGetTlutObjNumEntries",
+        "GXInitTexPreLoadRegion",
+        "GXGetTexRegionAll",
+        "GXGetTlutRegionAll",
+        "GXInvalidateTexRegion",
+        "GXPreLoadEntireTexture",
+        "GXSetTexCoordScaleManually",
+        "GXSetTexCoordCylWrap",
+        "GXSetTexCoordBias",
+        "__GXGetSUTexSize"
+      ],
+      "object_sha256": "d893b336bbd133cd055c5908dbc22f7cf0cbd48c069abb5ff49ab67d03370a29",
+      "linked_sha256": "769f0244fbcb028f4672213ca3253615758fdbfa815453d131b9fbdfd38f5d87"
+    },
+    {
+      "id": "ar",
+      "category": "restored_library",
+      "functions": 7,
+      "code_bytes": 2956,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "ARGetDMAStatus",
+        "ARAlloc",
+        "ARFree",
+        "ARReset",
+        "ARSetSize",
+        "ARGetSize",
+        "ARGetInternalSize",
+        "ARClear",
+        "__ARClearInterrupt",
+        "__ARGetInterruptStatus",
+        "__ARWaitForDMA",
+        "__ARWriteDMA",
+        "__ARReadDMA",
+        "__ARClearArea"
+      ],
+      "object_sha256": "d330eeba9c65ea5767966dcc8ef40c86145c7380b3a02087ec0ca3a40a4bc370",
+      "linked_sha256": "2fa9dd4796a2de3eb676f2da1794ea256f7d3fc7c6ddab8fea6043526918dd1c"
     }
   ],
   "code_map": {
@@ -29827,208 +30081,6 @@
         ]
       },
       {
-        "name": "Unmatched files/ar.c [symbol evidence]",
-        "file_record": 226,
-        "file_name": "ar.c",
-        "ranges": [
-          {
-            "address": "0x8011e698",
-            "size": 68,
-            "kind": "function",
-            "name": "ARRegisterDMACallback",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8011e6dc",
-            "size": 240,
-            "kind": "function",
-            "name": "ARStartDMA",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011e7cc",
-            "size": 8,
-            "kind": "function",
-            "name": "ARCheckInit",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011e7d4",
-            "size": 188,
-            "kind": "function",
-            "name": "ARInit",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011e890",
-            "size": 8,
-            "kind": "function",
-            "name": "ARGetBaseAddress",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011e898",
-            "size": 120,
-            "kind": "function",
-            "name": "__ARHandler",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011e910",
-            "size": 2324,
-            "kind": "function",
-            "name": "__ARChecksize",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80121ecc",
-        "ranges": [
-          {
-            "address": "0x80121ecc",
-            "size": 16,
-            "kind": "function",
-            "name": "DSPCheckMailToDSP",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80121edc",
-            "size": 16,
-            "kind": "function",
-            "name": "DSPCheckMailFromDSP",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80121eec",
-            "size": 24,
-            "kind": "function",
-            "name": "DSPReadMailFromDSP",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80121f04",
-            "size": 20,
-            "kind": "function",
-            "name": "DSPSendMailToDSP",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/dsp.c [symbol evidence]",
-        "file_record": 237,
-        "file_name": "dsp.c",
-        "ranges": [
-          {
-            "address": "0x80121f18",
-            "size": 184,
-            "kind": "function",
-            "name": "DSPInit",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80121fd0",
-            "size": 8,
-            "kind": "function",
-            "name": "DSPCheckInit",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80121fd8",
-            "size": 72,
-            "kind": "function",
-            "name": "DSPReset",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80122020",
-        "ranges": [
-          {
-            "address": "0x80122020",
-            "size": 64,
-            "kind": "function",
-            "name": "DSPHalt",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80122060",
-            "size": 16,
-            "kind": "function",
-            "name": "DSPGetDMAStatus",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80122070",
-            "size": 112,
-            "kind": "function",
-            "name": "DSPAddTask",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801220e0",
-            "size": 200,
-            "kind": "function",
-            "name": "DSPAssertTask",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 801221f8",
-        "ranges": [
-          {
-            "address": "0x801221f8",
-            "size": 1060,
-            "kind": "function",
-            "name": "__DSPHandler",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012261c",
-            "size": 416,
-            "kind": "function",
-            "name": "__DSP_exec_task",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/dsp_task.c [symbol evidence]",
-        "file_record": 239,
-        "file_name": "dsp_task.c",
-        "ranges": [
-          {
-            "address": "0x801227bc",
-            "size": 396,
-            "kind": "function",
-            "name": "__DSP_boot_task",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80122948",
-        "ranges": [
-          {
-            "address": "0x80122948",
-            "size": 160,
-            "kind": "function",
-            "name": "__DSP_insert_task",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801229e8",
-            "size": 148,
-            "kind": "function",
-            "name": "__DSP_remove_task",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
         "name": "Unknown file/.text @ 80127a50",
         "ranges": [
           {
@@ -30112,221 +30164,6 @@
             "kind": "function",
             "name": "CARDSetAttributes",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/GXAttr.c [symbol evidence]",
-        "file_record": 258,
-        "file_name": "GXAttr.c",
-        "ranges": [
-          {
-            "address": "0x8012af34",
-            "size": 344,
-            "kind": "function",
-            "name": "__GXXfVtxSpecs",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8012b08c",
-            "size": 864,
-            "kind": "function",
-            "name": "GXSetVtxDesc",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8012b3ec",
-            "size": 360,
-            "kind": "function",
-            "name": "__GXSetVCD",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8012b554",
-            "size": 76,
-            "kind": "function",
-            "name": "GXClearVtxDesc",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012b5a0",
-            "size": 860,
-            "kind": "function",
-            "name": "GXSetVtxAttrFmt",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8012b8fc",
-            "size": 156,
-            "kind": "function",
-            "name": "__GXSetVAT",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012b998",
-            "size": 584,
-            "kind": "function",
-            "name": "GXGetVtxAttrFmt",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8012bbe0",
-            "size": 140,
-            "kind": "function",
-            "name": "GXSetArray",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012bc6c",
-            "size": 16,
-            "kind": "function",
-            "name": "GXInvalidateVtxCache",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012bc7c",
-            "size": 720,
-            "kind": "function",
-            "name": "GXSetTexCoordGen2",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8012bf4c",
-        "ranges": [
-          {
-            "address": "0x8012bf4c",
-            "size": 72,
-            "kind": "function",
-            "name": "GXSetNumTexGens",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/GXTexture.c [symbol evidence]",
-        "file_record": 263,
-        "file_name": "GXTexture.c",
-        "ranges": [
-          {
-            "address": "0x8012da0c",
-            "size": 628,
-            "kind": "function",
-            "name": "GXInitTexObj",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8012dc80",
-            "size": 72,
-            "kind": "function",
-            "name": "GXInitTexObjCI",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012dcc8",
-            "size": 404,
-            "kind": "function",
-            "name": "GXInitTexObjLOD",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012de5c",
-            "size": 16,
-            "kind": "function",
-            "name": "GXGetTexObjWidth",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012de6c",
-            "size": 16,
-            "kind": "function",
-            "name": "GXGetTexObjHeight",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012de7c",
-            "size": 8,
-            "kind": "function",
-            "name": "GXGetTexObjFmt",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012de84",
-            "size": 424,
-            "kind": "function",
-            "name": "GXLoadTexObjPreLoaded",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012e02c",
-            "size": 84,
-            "kind": "function",
-            "name": "GXLoadTexObj",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012e080",
-            "size": 72,
-            "kind": "function",
-            "name": "GXInitTlutObj",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012e0c8",
-            "size": 156,
-            "kind": "function",
-            "name": "GXLoadTlut",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012e164",
-            "size": 288,
-            "kind": "function",
-            "name": "GXInitTexCacheRegion",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012e284",
-            "size": 72,
-            "kind": "function",
-            "name": "GXInitTlutRegion",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012e2cc",
-            "size": 72,
-            "kind": "function",
-            "name": "GXInvalidateTexAll",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012e314",
-            "size": 20,
-            "kind": "function",
-            "name": "GXSetTexRegionCallback",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012e328",
-            "size": 20,
-            "kind": "function",
-            "name": "GXSetTlutRegionCallback",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012e33c",
-            "size": 204,
-            "kind": "function",
-            "name": "__SetSURegs",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8012e408",
-            "size": 380,
-            "kind": "function",
-            "name": "__GXSetSUTexRegs",
-            "evidence": "private-reference"
           }
         ]
       },

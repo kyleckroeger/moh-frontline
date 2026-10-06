@@ -60,8 +60,8 @@ range from `GXInit.c` (4,332) down to `dsp.c` (264). Reference: dolsdk2001 /
 dolsdk2004, with per-unit revision notes in `docs/Dolphin.md`. This is the
 cheapest work and it settles file boundaries.
 
-Known blockers (`docs/Dolphin.md` open problems): `dsp.c` / `dsp_task.c`
-small-data ordering and `PPCArch` / `odenotstub` linked-symbol differences.
+Known blockers (`docs/Dolphin.md` open problems): `PPCArch` / `odenotstub`
+linked-symbol differences.
 
 ## Backlog 2 — high fan-in helpers (do these first)
 

@@ -62,11 +62,14 @@ Upstream is commit `eb1234c` of dolsdk2001.
 | `gx/GXFrameBuf.c` | Add the later `GXGetYScaleFactor` and its `static __GXGetNumXfbLines` from the 2004 tree; `GXSetDispCopyYScale` returns `__GXGetNumXfbLines(ht, iScale)` | `GXGetYScaleFactor` at `0x8012c9c0` (568 bytes); `GXSetDispCopyYScale` at `0x8012cbf8` is 212 bytes with the line-count helper inlined; no `__GXGetNumXfbLines` symbol |
 | `gx/GXFrameBuf.c` | Add `GXEurgb60Hz480IntDf` after `GXPal524IntAa`, written like `GXNtsc480IntDf` with `viTVmode` 20. Its place among the stripped render modes, and any other EURGB60 modes the Dec 2001 file defined, are unknown | Global `GXEurgb60Hz480IntDf` at `0x801901d4` (60 bytes) follows `GXPal528IntDf`; its bytes equal `GXNtsc480IntDf`'s except the first word, `0x14`. Only the four `*IntDf` modes are kept (`stripped_objects`) |
 | `gx/GXPerf.c` | `GXSetGPMetric` uses the 2004 case order (`GX_PERF0_CLOCKS` first, `GX_PERF1_TC_MISS` before `GX_PERF1_CLOCKS`) and the 2004 `0x2300xxxx` TRIANGLES register values | `GXSetGPMetric` at `0x80130684` is 2,200 bytes; it loads `lis 0x2301` 15 times and never `0x2304` (the 2001 `0x2303xxxx` values); jump tables `@242` (92 bytes) and `@241` (144) at `.data:0x801902b8` |
+| `dsp/dsp.c` | `__DSP_first_task`, `__DSP_last_task`, `__DSP_curr_task` and `__DSP_tmp_task` are `extern`: Dec 2001 defines them in `dsp_task.c`, as the 2004 tree does. `BUILD_DATE`/`BUILD_TIME` are `Dec 17 2001`/`18:25:00` | dsp.c's `.sbss` is only `__DSP_init_flag` (`0x8034f2a8`, 4 bytes); the four globals lie at `0x8034f2b8`-`0x8034f2c4` inside the verified `dsp_task` unit, compiled from the unmodified 2004 file. `.data` at `0x8018fc80` holds `Dec 17 2001` and `18:25:00` |
+| `gx/GXAttr.c` | `SETVCDATTR`'s `GX_VA_NRM`/`GX_VA_NBT` cases set both normal flags in each branch (2004 form) | `0x8012b1e4`: `cmpwi r4,0`/`beq`, then `stb` of 1 to `hasNrms` (`1052`), 0 to `hasBiNrms` (`1053`) and `stw` of `nrmType`; the else branch stores 0 to `hasNrms`. `GXSetVtxDesc` at `0x8012b08c` is 864 bytes. The dead jump tables of the discarded `*v`/`GXGetVtxDesc` functions are `stripped_objects` |
+| `gx/GXTexture.c` | `GXInitTexObj` picks the mipmap min filter by format (`0xA0` for formats 8/9/10, else `0xC0`); `__GXSetSUTexRegs` also tests `gx->tevTcEnab & (1 << i)`. Both are the 2004 code | `GXInitTexObj` at `0x8012da0c` is 628 bytes (2001 builds 596); `__GXSetSUTexRegs` at `0x8012e408` is 380 bytes (2001 builds 364); both compare byte-identical |
 
 ## Local modifications to the 2004 tree
 
 Other units are verified from `src/dolphin/` (the 2004 adaptation).
-`mtx44.c` needs no change. The files below keep behaviour that the 2004 source
+`mtx44.c` and `dsp_task.c` need no change. The files below keep behaviour that the 2004 source
 later changed (the `card` units, `pad/Padclamp.c`'s Dec 2001 `PADClampRegion`,
 `exi/EXIUart.c`), so they are edited against the original bytes.
 
@@ -110,6 +113,8 @@ later changed (the `card` units, `pad/Padclamp.c`'s Dec 2001 `PADClampRegion`,
 | `dvd/dvd.c` | `stateCheckID` uses `memcmp` (0x1C then 0x20) against `executing->id`/`currID` instead of `DVDCompareDiskID` | `bl memcmp` at `0x80118d84`/`0x80118dec` with `li r5,28`; function is 228 bytes |
 | `dvd/dvd.c` | `stateReady` keeps the 2001 `ResumeFromHere` cases 1/2/3/7/4/6/5; `stateBusy` drops the 2004 zero-length read and optional-command default; `cbForStateBusy` tests the DMA/imm commands directly | 8-entry jump table `@293` at `0x8018ddb4`; `stateBusy` is 704 bytes with `cmplwi r0,15` ending at the epilogue; direct `CurrCommand == 1/4/5/14` and `== 9/10/11/12` compares |
 | `dvd/dvd.c` | `DVDCancelAsync` and `DVDCheckDisk` drop later-2004 additions | `DVDCancelAsync` has no `executing = &DummyCommandBlock` in the cover/motor case (624 bytes); `DVDCheckDisk` has no `ResumeFromHere` test in the END/PAUSING case (228 bytes) |
+| `ar/ar.c` | Drop `__ARVersion` and its `OSRegisterVersion` call | `ARInit` at `0x8011e7d4` is 188 bytes; the 2004 body with the call is 196 |
+| `ar/ar.c` | Dec 2001 `__ARChecksize`: the 2004 preamble (wait for the controller, fixed 16 MB internal size, `__AR_ExpansionSize`) without the 2004 ARAM save/restore buffers; five dummy writes, then one test write and read, then the expansion probes, each read followed by `PPCSync` and no invalidate. The mode bits keep the 2004 spellings (`ARAM_mode \|= 0 << 1`, `4 << 1`, ...), which the final register write's code depends on. Reconstructed from the disassembly | `__ARChecksize` at `0x8011e910` is 2,324 bytes with a 312-byte frame (three 63-byte pads; 2004 builds 6,132, 2001 3,788); inlined `__ARWriteDMA`/`__ARReadDMA` with the 2004 `__ARClearInterrupt` sequence (`li -137`/`ori 32`); stores to `__AR_InternalSize` (`-26544(r13)`) and `__AR_ExpansionSize` (`-26540`) |
 
 ## Porting workflow
 
@@ -152,6 +157,9 @@ The original was linked by the MW linker, unlike Rising Sun's ProDG link:
   section's other bytes in a copy of the object (`input.o`; `compiled.o` stays
   the hashed compiler output). The trimmed-tail rules then apply. A listed name
   may not exist in the target, and retained code may not refer to it.
+  Use it instead of `linked_offset` for leading objects too when the shifted
+  base would break the section's alignment; SN then pads the start (`dsp_task`
+  `.sbss`, `GXTexture` `.data`).
 - **Relocations in removed bytes.** Relocations located in stripped sections,
   trimmed slices or stripped objects are pointed at their own section before
   linking. Otherwise SN keeps a discarded function alive through dead data, such
@@ -167,8 +175,6 @@ The original was linked by the MW linker, unlike Rising Sun's ProDG link:
 
 ## Open problems
 
-- **Small-data ordering** in `dsp.c` and `dsp_task.c`: no single base places
-  all kept objects. Check whether `stripped_objects` now covers them.
 - **Revision differences.** Remaining SDK files differ from both reconstructions
   in some functions. A `scratch`-style comparison of each function's size against
   the 2001 and 2004 builds shows where to start. `CARDCheck`, `CARDFormat`,

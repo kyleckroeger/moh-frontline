@@ -4,11 +4,11 @@
 
 #include "__dsp.h"
 
-#define BUILD_DATE "May 22 2001"
+#define BUILD_DATE "Dec 17 2001"
 #if DEBUG
 #define BUILD_TIME "01:48:51"
 #else
-#define BUILD_TIME "02:06:43"
+#define BUILD_TIME "18:25:00"
 #endif
 
 u32 DSPCheckMailToDSP(void)
@@ -50,10 +50,10 @@ void DSPAssertInt(void)
 }
 
 static int __DSP_init_flag;
-DSPTaskInfo *__DSP_first_task;
-DSPTaskInfo *__DSP_last_task;
-DSPTaskInfo *__DSP_curr_task;
-DSPTaskInfo *__DSP_tmp_task;
+extern DSPTaskInfo *__DSP_first_task;
+extern DSPTaskInfo *__DSP_last_task;
+extern DSPTaskInfo *__DSP_curr_task;
+extern DSPTaskInfo *__DSP_tmp_task;
 
 void DSPInit(void)
 {

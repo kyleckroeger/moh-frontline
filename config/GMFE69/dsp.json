@@ -1,0 +1,165 @@
+{
+  "id": "dsp",
+  "source": "src/dolsdk2001/dsp/dsp.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "signed",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80121ecc",
+      "size": 732,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018fc80",
+      "size": 53,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f2a8",
+      "size": 4,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "DSPCheckMailToDSP",
+      "address": "0x80121ecc",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "DSPCheckMailFromDSP",
+      "address": "0x80121edc",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "DSPReadMailFromDSP",
+      "address": "0x80121eec",
+      "size": 24,
+      "binding": 1
+    },
+    {
+      "name": "DSPSendMailToDSP",
+      "address": "0x80121f04",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "DSPInit",
+      "address": "0x80121f18",
+      "size": 184,
+      "binding": 1
+    },
+    {
+      "name": "DSPCheckInit",
+      "address": "0x80121fd0",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "DSPReset",
+      "address": "0x80121fd8",
+      "size": 72,
+      "binding": 1
+    },
+    {
+      "name": "DSPHalt",
+      "address": "0x80122020",
+      "size": 64,
+      "binding": 1
+    },
+    {
+      "name": "DSPGetDMAStatus",
+      "address": "0x80122060",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "DSPAddTask",
+      "address": "0x80122070",
+      "size": 112,
+      "binding": 1
+    },
+    {
+      "name": "DSPAssertTask",
+      "address": "0x801220e0",
+      "size": 200,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "OSDisableInterrupts": "0x801135cc",
+    "OSRestoreInterrupts": "0x801135f4",
+    "__DSPHandler": "0x801221f8",
+    "__DSP_boot_task": "0x801227bc",
+    "__DSP_curr_task": "0x8034f2c4",
+    "__DSP_debug_printf": "0x801221a8",
+    "__DSP_first_task": "0x8034f2c0",
+    "__DSP_insert_task": "0x80122948",
+    "__DSP_last_task": "0x8034f2bc",
+    "__DSP_rude_task": "0x8034f2b4",
+    "__DSP_rude_task_pending": "0x8034f2b0",
+    "__DSP_tmp_task": "0x8034f2b8",
+    "__OSSetInterruptHandler": "0x80113618",
+    "__OSUnmaskInterrupts": "0x80113a1c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "DSPReadCPUToDSPMbox",
+    "DSPAssertInt",
+    "DSPUnhalt",
+    "DSPCancelTask"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/dsp/dsp.c"
+  },
+  "original_file": "dsp.c",
+  "original_file_index": 11217,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "__DSP_curr_task",
+    "__DSP_first_task",
+    "__DSP_last_task",
+    "__DSP_rude_task",
+    "__DSP_rude_task_pending",
+    "__DSP_tmp_task"
+  ]
+}

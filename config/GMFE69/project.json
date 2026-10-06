@@ -73,7 +73,12 @@
     "GXFrameBuf.json",
     "Pad.json",
     "dvd.json",
-    "GXPerf.json"
+    "GXPerf.json",
+    "dsp_task.json",
+    "dsp.json",
+    "GXAttr.json",
+    "GXTexture.json",
+    "ar.json"
   ],
   "progress": {
     "code_bytes": 1414572,

@@ -190,7 +190,11 @@ void GXInitTexObj(GXTexObj *obj, void *image_ptr, u16 width, u16 height, GXTexFm
     if (mipmap != 0) {
         u8 lmax;
         t->flags |= 1;
-        t->mode0 = (t->mode0 & 0xFFFFFF1F) | 0xC0;
+        if (format == 8 || format == 9 || format == 10) {
+            t->mode0 = (t->mode0 & 0xFFFFFF1F) | 0xA0;
+        } else {
+            t->mode0 = (t->mode0 & 0xFFFFFF1F) | 0xC0;
+        }
         if (width > height) {
             maxLOD = 31 - __cntlzw(width);
         } else {
@@ -1133,7 +1137,7 @@ void __GXSetSUTexRegs(void)
             } else {
                 coord = GET_REG_FIELD(*ptref, 3, 3);
             }
-            if ((tmap != 0xFF) && !(gx->tcsManEnab & (1 << coord))) {
+            if ((tmap != 0xFF) && !(gx->tcsManEnab & (1 << coord)) && (gx->tevTcEnab & (1 << i))) {
                 __SetSURegs(tmap, coord);
             }
         }
