@@ -531,7 +531,11 @@
     "cdbgeom_volbox.json",
     "ShellMenu_mp.json",
     "ShellMenu_card.json",
-    "bsbifunc_reload.json"
+    "bsbifunc_reload.json",
+    "bsbifunc_cook.json",
+    "bsbifunc_holdtime.json",
+    "bsbifunc_ai.json",
+    "bsbifunc_misc.json"
   ],
   "progress": {
     "code_bytes": 1414572,
