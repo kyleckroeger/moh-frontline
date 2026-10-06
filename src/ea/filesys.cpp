@@ -2,10 +2,11 @@
 // callbacks that abort with a message, initialisation (installing the default
 // callbacks when none are set, allocating the device's memory through the
 // callback, or taking caller-supplied memory), the memory overhead for a
-// number of files and handles, and shutdown. The function and global names
+// number of handles and operations, and shutdown. The function and global names
 // come from the symbols; the options and device layouts are inferred views,
-// and the parameters' meanings (handles, buffer size, files) are inferred
-// from the defaults and the overhead formula.
+// and the parameters' meanings (handles, buffer size, operations) are inferred
+// from the defaults, the overhead formula and the 48-byte operation records
+// that FILESYS_opstatus reads.
 struct OSMutex {
     unsigned char unknown00[24];
 };
@@ -28,7 +29,7 @@ struct FILESYSOPTSVIEW {
 };
 
 struct FILEDEVICEVIEW {
-    int files;
+    int operations;
     int handles;
     int unknown08;
     unsigned char unknown0c[12];
@@ -52,55 +53,55 @@ static int DefaultFILE_mfree(void*) {
     return 0;
 }
 
-extern "C" int FILESYS_init(int handles, int bufferSize, int files) {
+extern "C" int FILESYS_init(int handles, int bufferSize, int operations) {
     if (!gFileSysOpts.malloc) {
         gFileSysOpts.malloc = DefaultFILE_malloc;
         gFileSysOpts.mfree = DefaultFILE_mfree;
     }
-    if (gFileDevice.files == 0) {
-        void* memory = gFileSysOpts.malloc("File Sys", FILESYS_overhead(handles, bufferSize, files), 0);
-        return FILESYS_initadr(handles, bufferSize, files, memory);
+    if (gFileDevice.operations == 0) {
+        void* memory = gFileSysOpts.malloc("File Sys", FILESYS_overhead(handles, bufferSize, operations), 0);
+        return FILESYS_initadr(handles, bufferSize, operations, memory);
     }
     return 0;
 }
 
-extern "C" int FILESYS_initadr(int handles, int bufferSize, int files, void* memory) {
+extern "C" int FILESYS_initadr(int handles, int bufferSize, int operations, void* memory) {
     if (!handles)
         handles = 24;
     if (!bufferSize)
         bufferSize = 2048;
-    if (!files)
-        files = 10;
+    if (!operations)
+        operations = 10;
     if (!gFileSysOpts.malloc) {
         gFileSysOpts.malloc = DefaultFILE_malloc;
         gFileSysOpts.mfree = DefaultFILE_mfree;
     }
-    if (gFileDevice.files == 0) {
-        gFileDevice.files = files;
+    if (gFileDevice.operations == 0) {
+        gFileDevice.operations = operations;
         gFileDevice.handles = handles;
         gFileDevice.unknown08 = 255;
         gFileDevice.memory = (char*)memory;
         OSInitMutex(&FileMutex);
-        MEM_fill(gFileDevice.memory, 0, FILESYS_overhead(handles, bufferSize, files));
-        gFileDevice.handleMemory = gFileDevice.memory + gFileDevice.files * 48;
+        MEM_fill(gFileDevice.memory, 0, FILESYS_overhead(handles, bufferSize, operations));
+        gFileDevice.handleMemory = gFileDevice.memory + gFileDevice.operations * 48;
         initfiledev();
         return 1;
     }
     return 0;
 }
 
-extern "C" int FILESYS_overhead(int handles, int, int files) {
+extern "C" int FILESYS_overhead(int handles, int, int operations) {
     if (!handles)
         handles = 24;
-    if (!files)
-        files = 10;
-    return files * 48 + handles * 324;
+    if (!operations)
+        operations = 10;
+    return operations * 48 + handles * 324;
 }
 
 extern "C" void FILESYS_restore() {
-    if (gFileDevice.files) {
+    if (gFileDevice.operations) {
         killfiledev();
         gFileSysOpts.mfree(gFileDevice.memory);
-        gFileDevice.files = 0;
+        gFileDevice.operations = 0;
     }
 }
