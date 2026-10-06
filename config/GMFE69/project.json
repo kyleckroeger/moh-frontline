@@ -463,7 +463,10 @@
     "AITankObject.json",
     "sfecho.json",
     "saemsmbf.json",
-    "sfreson.json"
+    "sfreson.json",
+    "saemsbnk.json",
+    "satospkr.json",
+    "sfrsf.json"
   ],
   "progress": {
     "code_bytes": 1414572,
