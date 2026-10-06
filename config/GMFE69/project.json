@@ -337,7 +337,8 @@
     "animdb.json",
     "skeleton.json",
     "animintf.json",
-    "bsschedule.json"
+    "bsschedule.json",
+    "dolphin_trk_glue.json"
   ],
   "progress": {
     "code_bytes": 1414572,

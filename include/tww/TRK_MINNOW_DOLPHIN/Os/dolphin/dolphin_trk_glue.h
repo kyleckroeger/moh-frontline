@@ -13,17 +13,16 @@ typedef int (*DBCommInitFunc)(void*, __OSInterruptHandler);
 typedef int (*DBCommReadFunc)(u8*, int);
 typedef int (*DBCommWriteFunc)(const u8*, int);
 
+// Frontline's older MetroTRK has the seven-entry table (as in Pikmin's
+// decompilation): 28 bytes, open at +0x14 and close at +0x18.
 typedef struct DBCommTable {
     DBCommInitFunc initialize_func;
     DBCommFunc init_interrupts_func;
-    DBCommFunc shutdown_func;
     DBCommFunc peek_func;
     DBCommReadFunc read_func;
     DBCommWriteFunc write_func;
     DBCommFunc open_func;
     DBCommFunc close_func;
-    DBCommFunc pre_continue_func;
-    DBCommFunc post_stop_func;
 } DBCommTable;
 
 void UnreserveEXI2Port();

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 251880,
+    "matching_code_bytes": 252152,
     "total_executable_code_bytes": 1414572,
-    "percent": 17.806092584894937,
+    "percent": 17.825321015826695,
     "categories": {
       "reconstructed_game": 55148,
-      "restored_library": 196732
+      "restored_library": 197004
     },
-    "matching_functions": 1303
+    "matching_functions": 1308
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -134,6 +134,7 @@
     "config/GMFE69/dispatch.json": "9785b3256f8baf02b4d894ff082a1103522e7730d2bea7f05c504b418b5a462f",
     "config/GMFE69/dmgeom.json": "9829feea0b00aad311216a345cb671d1c82c01af17c198cd9ecea52129f159fa",
     "config/GMFE69/dolphin_trk.json": "9f66a923f4f6e4103cb15c12022e534d623c661d7ace9cc644364dfd361c06b7",
+    "config/GMFE69/dolphin_trk_glue.json": "35632428fdcb95c68c3d34d0e84c498fdf35a8a1150c9c0bfb433defb9d187d4",
     "config/GMFE69/draw_context.json": "982726912b09ce3e360e31108753cc5cd578e2c0267a2268454edfd80816387a",
     "config/GMFE69/dsp.json": "6c4ba9a2f66c0ef3e23283c2ae295edd31558a47efcff76f281c5ba678f4d74d",
     "config/GMFE69/dsp_debug.json": "abb1bf69b26be3567a5e3a22a729922f11d7a3b8c74ed938895798d0072114a0",
@@ -210,7 +211,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "3074bc70913677eb73d520ff3379b7bd7932ff45a4f1d6959f46962777055054",
+    "config/GMFE69/project.json": "bebfe6090aadb9d622d60be7b21071157b8931f7f83f8588b7dd9e330a0f24e9",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -735,7 +736,7 @@
     "include/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/GDEV_Stubs.h": "7e8a2824c0af501c0d5e07946e0f4836490efada597a595726b2844d65c39d21",
     "include/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/UDP_Stubs.h": "45ae9d2896dab2a4ed90a416a8e55f87bb15895c66b5424fa7272e4b63d4d82f",
     "include/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/dolphin_trk.h": "acfb8a9012432d29d5916e5dcc7b2ed1d3624fb0b8662c41217b5319be2d2355",
-    "include/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/dolphin_trk_glue.h": "c379e687b56b47be57bb2ff4c03a356ba20106f28ab389e93658fb87368ae445",
+    "include/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/dolphin_trk_glue.h": "b1ed46b8c34edbf131509e65636490ed1cfc066e4c3dca1969a6920361cdb9f7",
     "include/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/targcont.h": "ba4fc38865104be0ccf5e0059f5dd46a7246af6e3e10166d42f8c6fe3fa045cd",
     "include/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/target_options.h": "98fcb28b5ba58894c6f469a1b16dab8a46fbb61de548485054bfa48fe96fddb6",
     "include/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/usr_put.h": "a57a39c80be6be4b6ca059ac397cd5b262a01a89a7647eca784d78bebfa2d1a3",
@@ -1478,7 +1479,7 @@
     "src/tww/PowerPC_EABI_Support/Runtime/Src/runtime.c": "9c88825db7eb271cfcad6657bba2233147519488c679e921b5b0a97e8502c066",
     "src/tww/TRK_MINNOW_DOLPHIN/MetroTRK/Export/mslsupp.c": "df9f98f6da0f77a326451b05cd961a373ef9dcdee7466c9fffe89fb60850777e",
     "src/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/dolphin_trk.c": "0ee0b63aeb13c985f5b11101625131cc550ab166a49ea6e764e0f7aa932c3515",
-    "src/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/dolphin_trk_glue.c": "2a437e8c8cb94af6fee4b93a8d2c98e9200ea9c851ab8707fe0ea7bede9c2b0c",
+    "src/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/dolphin_trk_glue.c": "4f82416650e8082ecdb6794bb2fa523602e2a039e309b7319d1744641e94718e",
     "src/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/targcont.c": "850ec92876b13e4d809dbc4217fc97dd0fdb4613e13ebb5b8ef0245036d3dd61",
     "src/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/target_options.c": "a58de7903d25bce90f1f816007f81423753a19504600510c8a54d3b0c05575de",
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/dispatch.c": "f98fda592d9a9861c62de0ec0d7c306ae34635d23f141a9482cf0be509b334e6",
@@ -16407,6 +16408,65 @@
       "discarded_functions": [],
       "object_sha256": "65576c0680272557ab1f6d6f976eaeee15229a2589415a25530dee2cc9c5f32b",
       "linked_sha256": "da9c575895b91496629b93600ab9c90631aa3d88d3573753f50547856a732b25"
+    },
+    {
+      "id": "dolphin_trk_glue",
+      "category": "restored_library",
+      "functions": 5,
+      "code_bytes": 272,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-pragma",
+        "warn_notinlined off",
+        "-maxerrors",
+        "1",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-fp_contract",
+        "on",
+        "-str",
+        "reuse",
+        "-multibyte",
+        "-DVERSION=0",
+        "-DNDEBUG=1",
+        "-O4,p",
+        "-use_lmw_stmw",
+        "on",
+        "-rostr",
+        "-str",
+        "reuse",
+        "-common",
+        "off",
+        "-inline",
+        "deferred,auto",
+        "-char",
+        "signed",
+        "-sdata",
+        "0",
+        "-sdata2",
+        "0"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "c8bb15aff5273652fe8f59d7c6964597957a4573a93c5302e00325a8ccd7d910",
+      "linked_sha256": "cadfc5d82cca543c3d0fa3bb99f2ec0f75ab3be3c4ec3cc3e7acbc007f6c12ff"
     }
   ],
   "code_map": {
@@ -41034,46 +41094,6 @@
             "size": 292,
             "kind": "function",
             "name": "TRKValidMemory32",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8013757c",
-        "ranges": [
-          {
-            "address": "0x8013757c",
-            "size": 136,
-            "kind": "function",
-            "name": "TRKLoadContext",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80137604",
-            "size": 4,
-            "kind": "function",
-            "name": "TRKUARTInterruptHandler",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80137608",
-            "size": 36,
-            "kind": "function",
-            "name": "TRK_board_display",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8013762c",
-            "size": 48,
-            "kind": "function",
-            "name": "UnreserveEXI2Port",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8013765c",
-            "size": 48,
-            "kind": "function",
-            "name": "ReserveEXI2Port",
             "evidence": "unknown-file"
           }
         ]
