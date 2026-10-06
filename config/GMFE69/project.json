@@ -325,7 +325,8 @@
     "draw_context.json",
     "viewport.json",
     "threads.json",
-    "srandom.json"
+    "srandom.json",
+    "supxaf.json"
   ],
   "progress": {
     "code_bytes": 1414572,
