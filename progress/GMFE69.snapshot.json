@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 212864,
+    "matching_code_bytes": 213372,
     "total_executable_code_bytes": 1414572,
-    "percent": 15.047943830359996,
+    "percent": 15.083855752835486,
     "categories": {
       "reconstructed_game": 18208,
-      "restored_library": 194656
+      "restored_library": 195164
     },
-    "matching_functions": 985
+    "matching_functions": 987
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -152,9 +152,11 @@
     "config/GMFE69/mem_funcs.json": "cdc21eee7ec690a2964eff60bc9e230f0115ca0eb200b536179c0a35c292ae7a",
     "config/GMFE69/memblock.json": "32f964dc6ae072dcfc2a752964f9304b621e72e36d0d41e6463aae738d4e2ca7",
     "config/GMFE69/memclass.json": "3440558f5e682e0cbb84289712ac7e9950349a169f3d77b9a8afa66479c43f7d",
+    "config/GMFE69/meminit.json": "e998bb69f335eef024a826392ec7db8c1e3ab91980b8fa54e524fae07d1504d0",
     "config/GMFE69/meminitadr.json": "381fcfbcbb6c274bbc1966d84f43a5ba64175efe3e51b4f0b3824230aa348172",
     "config/GMFE69/memlist.json": "ef56fcfd94d677ce15d3530d16d7ee9bc277d85e763a35d5a8a41e94649b5d67",
     "config/GMFE69/memory.json": "fe888334b7e0b723c25eefadb3445d72d0b6a47eb84f7b32d253937403302a75",
+    "config/GMFE69/memrestore.json": "8605367662e2360f761d5eb938ac0851657dc0a9899d39b84c9141f54a844d3c",
     "config/GMFE69/memstd.json": "8dc1ab83ee6aaaf08f7ce309512df0f4df90e48b7aeb282d89e5d3a4826019e2",
     "config/GMFE69/memunused.json": "1ce6252c58d5f863e0dc9d1092d5432896bc8b3cc203e541f3dc6d282eb7f80b",
     "config/GMFE69/misc_io.json": "ce7d57c797416feb92a3a89e4ce5412b18b2a322ecac1667ffdca9c454e2e8f1",
@@ -168,7 +170,7 @@
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "c0881aff84f2d2c71db96845b147dc417cdc380f502e58c50ef74125bac96678",
+    "config/GMFE69/project.json": "68018e0ea4801df336abe2a4f8178058cda2bcfdf78912b01a69268412b4b3cc",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -993,8 +995,10 @@
     "src/ea/inittmr.cpp": "2b8bc47a5536adecefaedb4c74d54e5a0509db63fdfef428e0975b1dcabababa",
     "src/ea/memblock.cpp": "9c22c07fb0234fb28e395fc44ebaa5d07b2ae93122bdbfb90b8e1b0da347e3ef",
     "src/ea/memclass.cpp": "a4eb43ad53e833f091a4ae51184503b05c3e24aa61a702e685f1358fe820fdc2",
+    "src/ea/meminit.cpp": "6f4b58a238cdb1b45a57d44204b6f524eb6a0e3468a4c5007b6b87891252a75f",
     "src/ea/meminitadr.cpp": "95eed033a03deab2f0918e8b1a92183e8cf0a9bb94d793f3558d6aa13d112d8d",
     "src/ea/memlist.cpp": "af06183e742ee289773e18004a7f251be79665847c496d5baad08faba2fff294",
+    "src/ea/memrestore.cpp": "8abce98c790304dcbcda3aa59341f3ff3e19d0cfcb70505d022ea920572e4f76",
     "src/ea/memstd.cpp": "bdd831ad24f47d71d66682d7b32eb55077754f05d022543a80cbca4e4d4e884d",
     "src/ea/memunused.cpp": "8891e09cb882120333548c62aa2245dc6205bfa7122c8a65fa14a06e6b129fee",
     "src/ea/rcmp_mpc_codec_chunk_types.cpp": "b996231c1c402b6ecdd813bb69df3ae8a3580e537b71dd9fa91e238690bb3635",
@@ -10824,6 +10828,84 @@
       "discarded_functions": [],
       "object_sha256": "76ed4b227cb7700ca1e306506e7171f6c1583c3bd7436fb03ecbb2d58e792076",
       "linked_sha256": "4dfd12bb6c5bbfe5a8232bf5c36c2d1ef8f16c64b041b05ec9190ee7283dcb3f"
+    },
+    {
+      "id": "meminit",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 136,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "111b73c261cf9b4de996d9b69f9380b61866b2f742faf69d145033b5fe3938c3",
+      "linked_sha256": "7c9b8f76d49298632b3cbe2dda9668899207307ba2aa5cd2570aff6793a68675"
+    },
+    {
+      "id": "memrestore",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 372,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "76bc152f400f0c53a40bf21ea124eaf05179a2328443535e04479016a3723f60",
+      "linked_sha256": "488adb415cea738af81ca4432e5f1004fd8cc87d0bfb8580192abe0c147caadf"
     }
   ],
   "code_map": {
@@ -37826,25 +37908,6 @@
             "size": 360,
             "kind": "function",
             "name": "MEM_resize",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8014faf4",
-            "size": 136,
-            "kind": "function",
-            "name": "MEM_init",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8014fbcc",
-        "ranges": [
-          {
-            "address": "0x8014fbcc",
-            "size": 372,
-            "kind": "function",
-            "name": "MEM_restore",
             "evidence": "unknown-file"
           }
         ]

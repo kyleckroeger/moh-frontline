@@ -1,0 +1,73 @@
+{
+  "id": "meminit",
+  "source": "src/ea/meminit.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8014faf4",
+      "size": 136,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "MEM_init",
+      "address": "0x8014faf4",
+      "size": 136,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "MEM_initadr": "0x8014fb7c",
+    "MEM_restore": "0x8014fbcc",
+    "OSAllocFromHeap": "0x80111324",
+    "REAL_addexit": "0x801519b0",
+    "__OSCurrHeap": "0x8034e478",
+    "iGC_GetMaxOsMemory__Fv": "0x80150704",
+    "iGC_InitMem__Fv": "0x80150760",
+    "memclass": "0x8033ee20"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "__OSCurrHeap"
+  ],
+  "original_file": "meminit.cpp",
+  "original_file_index": 12378
+}

@@ -204,7 +204,9 @@
     "memunused.json",
     "memlist.json",
     "memblock.json",
-    "memstd.json"
+    "memstd.json",
+    "meminit.json",
+    "memrestore.json"
   ],
   "progress": {
     "code_bytes": 1414572,

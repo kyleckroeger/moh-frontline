@@ -1,0 +1,69 @@
+{
+  "id": "memrestore",
+  "source": "src/ea/memrestore.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8014fbcc",
+      "size": 372,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "MEM_restore",
+      "address": "0x8014fbcc",
+      "size": 372,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "MEMCLASS_remove": "0x8014f438",
+    "OSFreeToHeap": "0x80111420",
+    "__OSCurrHeap": "0x8034e478",
+    "memclass": "0x8033ee20"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "__OSCurrHeap"
+  ],
+  "original_file": "memrestore.cpp",
+  "original_file_index": 12386
+}
