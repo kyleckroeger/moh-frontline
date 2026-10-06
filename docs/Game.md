@@ -79,7 +79,7 @@ and layouts it marks as descriptive stay descriptive here.
 | File | Functions | Bytes | Reference | Notes |
 | --- | ---: | ---: | --- | --- |
 | `bstimer.cpp` | 6 | 2,020 | Rising Sun `src/script/timer_*.cpp` | `BSObject` is a view (`queueIdentity` at `+16`); `BSTimerEvent_struct.ownsEventMemory` is a byte, `DoWeOwnThisMemory` returns `bool`; `BSInitTimer` links events forward |
-| `propdat.cpp` (fragment) | 11 | 5,124 | Rising Sun `src/bpd/endian.cpp` | The `EndianSwap` conversions at `0x80040c6c`-`0x80042070` only; the rest of the file stays original context (see "Endian conversions") |
+| `propdat.cpp` (fragment) | 14 | 5,492 | Rising Sun `src/bpd/endian.cpp` | `0x80040c6c`-`0x800421e0`: the `EndianSwap` conversions (see "Endian conversions") and the machine-gun lookups (`SearchForClosestMachineGun`, `IsMGUsed`, `MarkMGAsUsed`) with the file's first four `.sdata2` constants. `sqrtf` is the SDK `math.h` `extern inline` form (volatile result). `CVector3` behaves as 8-byte aligned. The rest of the file stays original context |
 
 ## Endian conversions
 

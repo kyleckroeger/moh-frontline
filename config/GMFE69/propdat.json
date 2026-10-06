@@ -31,26 +31,34 @@
     "-fp_contract",
     "on"
   ],
-  "include_dirs": [],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
   "strip_unused": false,
   "source_root": "src/game",
   "sections": [
     {
       "name": ".text",
       "address": "0x80040c6c",
-      "size": 5124,
+      "size": 5492,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000a544",
-      "size": 88,
+      "size": 96,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80011594",
-      "size": 132,
+      "size": 144,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x8034f7d0",
+      "size": 24,
       "type": 1
     }
   ],
@@ -120,9 +128,29 @@
       "address": "0x80041e54",
       "size": 540,
       "binding": 1
+    },
+    {
+      "name": "SearchForClosestMachineGun__FP10ISceneNodef",
+      "address": "0x80042070",
+      "size": 316,
+      "binding": 1
+    },
+    {
+      "name": "IsMGUsed__FP20TriggerObject_struct",
+      "address": "0x800421ac",
+      "size": 12,
+      "binding": 1
+    },
+    {
+      "name": "MarkMGAsUsed__FP20TriggerObject_structb",
+      "address": "0x800421b8",
+      "size": 40,
+      "binding": 1
     }
   ],
-  "externals": {},
+  "externals": {
+    "g_pMGTriggerObject": "0x801a70c0"
+  },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},

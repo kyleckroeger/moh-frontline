@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 194428,
+    "matching_code_bytes": 194796,
     "total_executable_code_bytes": 1414572,
-    "percent": 13.744652092647105,
+    "percent": 13.770667028613602,
     "categories": {
-      "reconstructed_game": 7144,
+      "reconstructed_game": 7512,
       "restored_library": 187284
     },
-    "matching_functions": 816
+    "matching_functions": 819
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -139,7 +139,7 @@
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/project.json": "f47e86c976a7d95993e4180a09468b5a5d983f8d9eab961c773c138bde96e8cc",
-    "config/GMFE69/propdat.json": "72b9a9113f314781edcf86c6d5584e1d81d2bf2b94533c7facec5861a9870436",
+    "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
     "config/GMFE69/rand.json": "958d1564ced02e430faca2258c920c5b7f36bd3ba70f168d2cbb54dace181f59",
@@ -922,7 +922,7 @@
     "src/dolsdk2001/vi/initphilips.c": "bf8d8b1159c56f722022dfd599ba84d7e9b898b81369f29de8e25d35434912f3",
     "src/dolsdk2001/vi/vi.c": "55aeca6a29fb85b0d8b30bec9a53c777bad20ef331521ef496cd2f53c2a20256",
     "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
-    "src/game/propdat.cpp": "9e525b8029461d7010404dd4066ea22d385be9c89e277b37589bd788b4317d42",
+    "src/game/propdat.cpp": "b1e26b00f10be619cc409432f6748e200a0064248119fafa81774718c305885d",
     "src/prime/LICENSE.PrimeDecomp": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
     "src/prime/NOTICE": "2304a8d6a92dae039b32a3eb93b1ef80b3b4c205dc03fa134d023a526ab81cdd",
     "src/prime/runtime/CPlusLibPPC.cpp": "44a5aa781055458140830b5cb32c0fbb92a277ef67d59be7e85fb5e9ee08825b",
@@ -8344,8 +8344,8 @@
     {
       "id": "propdat",
       "category": "reconstructed_game",
-      "functions": 11,
-      "code_bytes": 5124,
+      "functions": 14,
+      "code_bytes": 5492,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -8377,8 +8377,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "0ece754412c19595cbbd7a042c3cda6a659cab5b2a520bb6c6862714939ee9a9",
-      "linked_sha256": "1ce96ea63bb358cbda5e0fdc5fe98a711887cf3b2fb688765c05d7c225b8858e"
+      "object_sha256": "fab03c6b27be5fe149e35aa4d6a66650b13f1097af1ee6a246f17dd7fa406f90",
+      "linked_sha256": "2015dd43e06f3feaf051f6d92dba1ba10f78ad6191c084d428f7ddc8d1c34607"
     }
   ],
   "code_map": {
@@ -13427,27 +13427,6 @@
         "file_record": 22,
         "file_name": "propdat.cpp",
         "ranges": [
-          {
-            "address": "0x80042070",
-            "size": 316,
-            "kind": "function",
-            "name": "SearchForClosestMachineGun__FP10ISceneNodef",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800421ac",
-            "size": 12,
-            "kind": "function",
-            "name": "IsMGUsed__FP20TriggerObject_struct",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800421b8",
-            "size": 40,
-            "kind": "function",
-            "name": "MarkMGAsUsed__FP20TriggerObject_structb",
-            "evidence": "between-same-file"
-          },
           {
             "address": "0x800421e0",
             "size": 484,

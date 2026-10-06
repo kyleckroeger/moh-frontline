@@ -1,9 +1,11 @@
 // Fragment of propdat.cpp: the property-record byte-order conversions
-// (0x80040c6c-0x80042070). The rest of the original file is still original
+// (0x80040c6c-0x80042070) and the machine-gun lookups (to 0x800421e0). The rest of the original file is still original
 // context. Structure follows Rising Sun's src/bpd/endian.cpp (CC0): every field
 // is converted with ChangeEndian. Field types and names are views: offsets are
 // established by the loads, and types by how each conversion is inlined (see
 // docs/Game.md, "Endian conversions").
+
+#include <math.h>
 
 // Conversion helpers. Frontline inlines all of them. The scalar overloads swap
 // bytes in a local copy; other 32-bit types go through the template, and floats
@@ -60,10 +62,12 @@ inline void ChangeEndian(float& value) {
     EndianSwap(f, true);
 }
 
-// Only the converted fields are declared. Field types at +0x40..+0x68 follow
-// Rising Sun's view; the rest of the record is opaque here.
+// Only the converted fields and the position are declared. Field types at
+// +0x40..+0x68 follow Rising Sun's view; the rest of the record is opaque here.
 struct MOH_core_Struct {
-    unsigned char unknown00[44];
+    unsigned char unknown00[16];
+    float position[3];
+    unsigned char unknown1c[16];
     short field2c;
     short field2e;
     short field30;
@@ -375,4 +379,127 @@ void EndianSwap(xyzProperty_Struct& value) {
     ChangeEndian(value.field20);
     ChangeEndian(value.field24);
     ChangeEndian(value.field28);
+}
+
+// The vector, scene-node and trigger declarations below are views: only what
+// these functions use is declared. CVector3 is 16 bytes and 8-byte aligned
+// (its stack slots and doubleword copies); ISceneNode's virtual slots follow
+// Frontline's ISceneNode table (GetPosition at +0x40).
+class CVector3 {
+public:
+    float x, y, z, w;
+    CVector3() {}
+} __attribute__((aligned(8)));
+
+
+class CMatrix;
+class CCollision;
+class CDrawContext;
+class CBullet;
+class CLight;
+enum EClsnId { ClsnIdUnknown = 0 };
+
+class ISceneNode {
+public:
+    enum EVolumeType { VolumeTypeUnknown = 0 };
+    virtual void MarkForDestruction(int);
+    virtual ~ISceneNode();
+    virtual void Destroy();
+    virtual void BeginUpdate(float);
+    virtual void UpdateAI(float);
+    virtual void CommitAI();
+    virtual void ConstrainVelocity();
+    virtual void AttemptUpdate(float);
+    virtual void OnCollision(const CCollision&);
+    virtual void CommitUpdate();
+    virtual void Draw(CDrawContext&);
+    virtual int GetLocalBoundingVolume(EVolumeType) const;
+    virtual int GetWorldBoundingVolume(EVolumeType) const;
+    virtual void GetTMLocalToWorld(CMatrix&) const;
+    virtual void GetPosition(CVector3&) const;
+    virtual void GetRightward(CVector3&) const;
+    virtual void GetForward(CVector3&) const;
+    virtual void GetUpward(CVector3&) const;
+    virtual int IsVisible(CDrawContext&) const;
+    virtual int IsDrawEnabled() const;
+    virtual EClsnId GetCollisionId() const;
+    virtual void SetCollisionId(EClsnId);
+    virtual int GetScriptObject() const;
+    virtual void TriggerScriptEvent(int, void*, bool);
+    virtual void HandleBulletCollision(CBullet*, const CCollision&);
+    virtual void* AsMovingNode();
+    virtual const void* AsMovingNode() const;
+    virtual void* AsStaticObject();
+    virtual const void* AsStaticObject() const;
+    virtual void* AsHierObject();
+    virtual const void* AsHierObject() const;
+    virtual void* AsWorldObject();
+    virtual const void* AsWorldObject() const;
+    virtual void* AsAnimObject();
+    virtual const void* AsAnimObject() const;
+    virtual void* AsSoldierObject();
+    virtual const void* AsSoldierObject() const;
+    virtual void* AsPlayerObject();
+    virtual const void* AsPlayerObject() const;
+    virtual void* AsPlayerWeaponObject();
+    virtual const void* AsPlayerWeaponObject() const;
+    virtual void* AsAnimatedPlayerObject();
+    virtual const void* AsAnimatedPlayerObject() const;
+    virtual CLight* AsLight();
+    virtual const CLight* AsLight() const;
+    virtual CBullet* AsBullet();
+    virtual const CBullet* AsBullet() const;
+    virtual void* AsCollisionVolume();
+    virtual const void* AsCollisionVolume() const;
+    virtual void* GetAIDoodad();
+    virtual const void* GetAIDoodad() const;
+    virtual void SetAttachedLight(CLight*, CVector3);
+    virtual CLight* GetAttachedLight() const;
+};
+
+
+struct TriggerObject_struct {
+    unsigned int flags;
+    MOH_core_Struct* core;
+};
+
+// g_pMGTriggerObject holds 32 of these; only the trigger at +4 is read here.
+struct MGTriggerObjectView {
+    TriggerObject_struct* waypoint;
+    TriggerObject_struct* mechanic;
+    unsigned char unknown08[4];
+};
+
+extern MGTriggerObjectView g_pMGTriggerObject[32];
+
+int SearchForClosestMachineGun(ISceneNode* node, float maxDistance) {
+    float closest = 10000.0f;
+    int found = -1;
+    for (unsigned int i = 0; i < 32; i++) {
+        TriggerObject_struct* mechanic = g_pMGTriggerObject[i].mechanic;
+        if (mechanic) {
+            CVector3 position;
+            node->GetPosition(position);
+            float dx = position.x - mechanic->core->position[0];
+            float dy = position.y - mechanic->core->position[1];
+            float dz = position.z - mechanic->core->position[2];
+            float distance = sqrtf(dx * dx + dy * dy + dz * dz);
+            if (distance < closest && distance < maxDistance) {
+                closest = distance;
+                found = i;
+            }
+        }
+    }
+    return found;
+}
+
+bool IsMGUsed(TriggerObject_struct* trigger) {
+    return trigger->flags & 1;
+}
+
+void MarkMGAsUsed(TriggerObject_struct* trigger, bool used) {
+    if (used)
+        trigger->flags |= 1;
+    else
+        trigger->flags &= ~1;
 }
