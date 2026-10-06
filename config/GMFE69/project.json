@@ -340,7 +340,8 @@
     "bsschedule.json",
     "dolphin_trk_glue.json",
     "MathFun.json",
-    "ssysinit.json"
+    "ssysinit.json",
+    "bsutil.json"
   ],
   "progress": {
     "code_bytes": 1414572,
