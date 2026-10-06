@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 226588,
+    "matching_code_bytes": 227164,
     "total_executable_code_bytes": 1414572,
-    "percent": 16.018131279284475,
+    "percent": 16.058850309492907,
     "categories": {
-      "reconstructed_game": 35568,
+      "reconstructed_game": 36144,
       "restored_library": 191020
     },
-    "matching_functions": 1108
+    "matching_functions": 1110
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -189,7 +189,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "750d52a63fbeafed48c338839cbab61e1e7272401033f768374329e592b51edf",
+    "config/GMFE69/project.json": "20ea76462645144ecb4897448108346bc2a8eb6f1b916eb6502dc8b26e0e210b",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -210,6 +210,7 @@
     "config/GMFE69/s_tan.json": "4d4245a72ecbda130924076021f01024ffa5f912437d596842d21aa4b2ac1390",
     "config/GMFE69/sattrdef.json": "2062535254eee3ac4100a4a8a86e83bf872f5c8bad922fe3e395962696444769",
     "config/GMFE69/sautovol.json": "3e768a8b8dd848c78836821a40fafb446f97d5c43f920bb0b2ded4e0447bbec1",
+    "config/GMFE69/sbadd.json": "3d47e29fb40aec9bad911cdf5af60d5c48f47803b14d7d7899982f14990c87c6",
     "config/GMFE69/sballoc.json": "c710d08ff3a534d065a2257587529ab3e3996c6a7e5597b4e160c4d16ca758a6",
     "config/GMFE69/sbhdrcpy.json": "a124c56d3d1e9b76c5f648c662f3929182d90631c0d7a1ffcdd3bd3a52cc1bdf",
     "config/GMFE69/sbhdrsze.json": "875048bfff47c9b8f5d6f70895e104cb76711f6cba65e11dd917abf7ae80960c",
@@ -1106,6 +1107,7 @@
     "src/ea/s3dlow.c": "b79405b9175ff0299ba213a824c1599ebc4384af549addcc8725867ebc0390ce",
     "src/ea/sattrdef.c": "5e55d42f497ca48214b54fe67659d8ed3943f33e3491bdc4832a83938bf10363",
     "src/ea/sautovol.c": "4a573f376ca2d42262ef525803125fff38c6da2c74ef17423cf1ef7ec4c75ced",
+    "src/ea/sbadd.c": "8dbc07da9088f51739d434558ceda3edc5294a47309d8d8be1c7454956aac65f",
     "src/ea/sballoc.c": "fa7832fbe895db18346753891610d230d2511a774d549f4a667e12200f8162da",
     "src/ea/sbhdrcpy.c": "b917b8156ab6900a1602c4c07ebb9ff4020b6b3cd8e7761ae6ce7c2a2f033ccb",
     "src/ea/sbhdrsze.c": "5770084b7e371a108e779fe2a9ce477bc0b926fdf847ffd289d38597d768151a",
@@ -14473,6 +14475,45 @@
       "discarded_functions": [],
       "object_sha256": "e9e23f90dc3cca4cc0664fd7c881dc2fcb30600855d4aad4dfd91158717f2dbc",
       "linked_sha256": "69cee1d2418952d06a4c2b6a14d59ce0a0c39359e5b568b877df9818ee4001b0"
+    },
+    {
+      "id": "sbadd",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 576,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "4326fd70e20013fa0cb693c2468068527d711a23709653f5834127ffb2dde905",
+      "linked_sha256": "6f339894f6c48ab3488040c025107b2740a512bcd3538f1ede776e9904402700"
     }
   ],
   "code_map": {
@@ -42066,25 +42107,6 @@
             "size": 180,
             "kind": "function",
             "name": "iSNDdivu64__F6SINT64i",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 801593c0",
-        "ranges": [
-          {
-            "address": "0x801593c0",
-            "size": 180,
-            "kind": "function",
-            "name": "SNDBANKI_userdatacallback__FP15SNDIPATCHHEADERi",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80159474",
-            "size": 396,
-            "kind": "function",
-            "name": "SNDbankadd",
             "evidence": "unknown-file"
           }
         ]

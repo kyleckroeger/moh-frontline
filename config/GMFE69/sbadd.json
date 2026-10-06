@@ -1,0 +1,78 @@
+{
+  "id": "sbadd",
+  "source": "src/ea/sbadd.c",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x801593c0",
+      "size": 576,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SNDBANKI_userdatacallback__FP15SNDIPATCHHEADERi",
+      "address": "0x801593c0",
+      "size": 180,
+      "binding": 1
+    },
+    {
+      "name": "SNDbankadd",
+      "address": "0x80159474",
+      "size": 396,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "SNDBANKI_alloc__Fv": "0x8015933c",
+    "SNDBANKI_asyncresolvepatch__FiP11TAGGEDPATCHPcPi": "0x80159954",
+    "SNDPLATFORM_download__FiPvPvi": "0x8016c698",
+    "SNDPLATFORM_downloadcomplete__Fi": "0x8016c868",
+    "SNDPLATFORM_memalloc__Fii": "0x8016c600",
+    "SNDbankremove": "0x80159600",
+    "_restgpr_27": "0x80138a5c",
+    "_savegpr_27": "0x80138a10",
+    "sndgs": "0x80340860"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "sbadd.c",
+  "original_file_index": 12675
+}
