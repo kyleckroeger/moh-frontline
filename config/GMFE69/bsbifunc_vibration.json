@@ -1,0 +1,116 @@
+{
+  "id": "bsbifunc_vibration",
+  "source": "src/game/bsbifunc_vibration.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80020d88",
+      "size": 952,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x80009a44",
+      "size": 40,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x8001055c",
+      "size": 60,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "BIFunc_FadeOut__FPPiPv",
+      "address": "0x80020d88",
+      "size": 124,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_BlockNewVibrations__FPPiPv",
+      "address": "0x80020e04",
+      "size": 212,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_PlayVibrationEvent__FPPiPv",
+      "address": "0x80020ed8",
+      "size": 320,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_MechSetFlag__FPPiPv",
+      "address": "0x80021018",
+      "size": 204,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_MovingMechForceUpdateTrigger__FPPiPv",
+      "address": "0x800210e4",
+      "size": 92,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "FadeOut__14CSoldierObjectFf": "0x800a9bd8",
+    "ForceUpdateProximityTriggerStatus__FP10BSGO_Basicb": "0x8004618c",
+    "GetPlayer__6CSceneCFi": "0x800d8274",
+    "SetFeedback__13CInputManagerFUlllff": "0x80084a6c",
+    "g_bInMultiplayerMode": "0x8034eca5",
+    "g_iCurrentBIFIndex": "0x8034e77c",
+    "g_inputMgr": "0x801ec80c",
+    "g_pBSObject": "0x8034e7e0",
+    "g_pBuiltInFunctions": "0x8034e778",
+    "g_scene": "0x8019484c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "g_bInMultiplayerMode",
+    "g_iCurrentBIFIndex",
+    "g_pBSObject",
+    "g_pBuiltInFunctions"
+  ],
+  "original_file": "bsbifunc.cpp",
+  "original_file_index": 443
+}

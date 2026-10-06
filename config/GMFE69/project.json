@@ -563,7 +563,8 @@
     "bsbifunc_shake.json",
     "bsbifunc_particle.json",
     "bsbifunc_attach.json",
-    "bsbifunc_grenade.json"
+    "bsbifunc_grenade.json",
+    "bsbifunc_vibration.json"
   ],
   "progress": {
     "code_bytes": 1414572,
