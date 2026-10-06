@@ -297,7 +297,8 @@
     "sbadd.json",
     "vector.json",
     "smixc.json",
-    "sfxrev.json"
+    "sfxrev.json",
+    "sdfx.json"
   ],
   "progress": {
     "code_bytes": 1414572,

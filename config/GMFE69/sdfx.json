@@ -1,0 +1,94 @@
+{
+  "id": "sdfx",
+  "source": "src/ea/sdfx.c",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8016dc64",
+      "size": 732,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x80351ca8",
+      "size": 16,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SNDDRV_setfx__Fi",
+      "address": "0x8016dc64",
+      "size": 128,
+      "binding": 1
+    },
+    {
+      "name": "SNDPLATFORM_fxinit__Fii",
+      "address": "0x8016dce4",
+      "size": 188,
+      "binding": 1
+    },
+    {
+      "name": "SNDPLATFORM_setfxlevel__Fii",
+      "address": "0x8016dda0",
+      "size": 416,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "MIX_initreverb": "0x80168398",
+    "MIX_restorereverb": "0x80168624",
+    "SNDDRV_DSPMixerSetAuxBus__FP6_AXVPBUsi": "0x8016d064",
+    "SNDDRV_initmixer__Fv": "0x801695ec",
+    "SNDMIX_setwetgain": "0x8016095c",
+    "SNDSYS_entercritical": "0x80153554",
+    "SNDSYS_leavecritical": "0x80153588",
+    "_restgpr_27": "0x80138a5c",
+    "_savegpr_27": "0x80138a10",
+    "fxdefault": "0x80194818",
+    "snddrv": "0x80341a20",
+    "sndgs": "0x80340860",
+    "sndmix": "0x80340eb0"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "sdfx.c",
+  "original_file_index": 13307
+}
