@@ -417,7 +417,11 @@
     "bulletfactory.json",
     "IStudioFuncs.json",
     "hwvideodisplaylist.json",
-    "weaponfactory.json"
+    "weaponfactory.json",
+    "weapon.json",
+    "bsbifunc.json",
+    "publisher.json",
+    "hierobject.json"
   ],
   "progress": {
     "code_bytes": 1414572,
