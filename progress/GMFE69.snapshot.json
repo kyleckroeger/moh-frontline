@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 325952,
+    "matching_code_bytes": 327196,
     "total_executable_code_bytes": 1414572,
-    "percent": 23.04244676128186,
+    "percent": 23.13038855569034,
     "categories": {
       "reconstructed_game": 91828,
-      "restored_library": 234124
+      "restored_library": 235368
     },
-    "matching_functions": 2173
+    "matching_functions": 2185
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -150,6 +150,7 @@
     "config/GMFE69/animated.json": "287709fae92d1f2bc9baa748743d62ba1a49a85cf0e889096e17c7c94c0d6984",
     "config/GMFE69/animated_bind.json": "dee52a19edbd1f8128ebc351614e32eac6452d22afea9afaf1aaa84bff3b3bf7",
     "config/GMFE69/animated_volume.json": "7d1c85b24d6774d0fda4ac1fcae8f10f8f1689c5af247d311403d1602def7bb4",
+    "config/GMFE69/animated_volume_dispatch.json": "465283bedc53bb8fdb6ec24f63b370bbbe03c3405732c00cf1ac71c8d95f0571",
     "config/GMFE69/animchan.json": "6342a434b5e2b62c447c6545e0b905bc97dfb3e202fb456a6608dfe74f9cd25b",
     "config/GMFE69/animdb.json": "bb5f95b38785b1dbd10de555e7a48050f9187bed1d9ce716634786e1f809c851",
     "config/GMFE69/animemot.json": "c7d83591715a7a509a95952392cf6b2629a0b42fb7129ab7cd01172398e19c97",
@@ -168,6 +169,7 @@
     "config/GMFE69/avplayer.json": "1dd4c7ce3d8016cb494ef850799ccbe37cc48b554c916404cbc17e965d4bc2cd",
     "config/GMFE69/baseline.json": "36a2b85cf4193e53afac79bdd2a8fdbf8dfb1880cae89e119463f2c81461b42f",
     "config/GMFE69/bmem.json": "6f2cc24cb578401f28e36031abc716a23a3beb45bf6c43c10ede6c273e9070b2",
+    "config/GMFE69/box_dispatch.json": "8f169a6ef7dce7c570a1347cd4ba0e66234087d1e91eb53338c0d5374cad4edb",
     "config/GMFE69/bsbifunc.json": "99035bd878c2fcf4e987350d7ca79bc34027217d39dbc8637bac1b4862dbc343",
     "config/GMFE69/bsearch.json": "dd287b9523a5f289e22dc32f273d0f9756b610c9280ec41b84aac1d7ea50912b",
     "config/GMFE69/bsevents.json": "4d5e6958dc99d81cad43c900fad33dc5196739566f1e0212d9186c0a693aa6c3",
@@ -183,6 +185,7 @@
     "config/GMFE69/bulletfactory.json": "d5681576011cf8586569a65fdaa27b8149000509d5401766546e9c9fea821227",
     "config/GMFE69/bulletfactory_init.json": "95364ca24eaf8d42ac2a150ceaac3ef4bc82344f196150364c9d1a8a995cbf86",
     "config/GMFE69/camera_rows.json": "d795a8bf509e2f625d002ab8269d584cb2a889ba72f63569bebde227edb6b428",
+    "config/GMFE69/capsule_dispatch.json": "bd28cd2ba126eea2466163c48f3877ee562fe38ee8ac69f116f8f1598cf94ff5",
     "config/GMFE69/cdbgeom.json": "5a109535b401c445086faf5c376577d4b6f060dae9fd6a6071fdfecf36255cdf",
     "config/GMFE69/cdbobject.json": "05d0a5d951c8fd3d451e360560441b26335e47a75eac59645e9848879f9b01b8",
     "config/GMFE69/coda.json": "ed79629f16e36603a2a74fe3bfd2db4c7043efb597de702316a222bcbb355440",
@@ -326,7 +329,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "00a4886d8affb9607e5e3e246496fdad7ebad1604d95c19f297256c2a2c3f26e",
+    "config/GMFE69/project.json": "74ff484a166b57a5fb9437e83d46e933fd604b7e6644da9d7dc8c6cd83ee77b2",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -1514,6 +1517,7 @@
     "src/game/animated.cpp": "7201a9c7fc7443902e3ff26bebada1970237b53aeeb9d6727209e4572908d76d",
     "src/game/animated_bind.cpp": "5c7f27d8c16f48699357c6a82127be85e2cf77f366f009d14e3e0003438dfa1b",
     "src/game/animated_volume.cpp": "f62030622d9d9f6dfe61d463a94a3ecc33d2b6dedb85bb42aa8040c5ff0d85db",
+    "src/game/animated_volume_dispatch.cpp": "56ca407de011d2a8ba47f800f5498e2d24f750d394b635d63c942151b3cb5d1f",
     "src/game/animchan.cpp": "221d21b6310330f8d36e7a5735a51dcfdb4f162c8d5651ef577e1ee2c9ca6030",
     "src/game/animdb.cpp": "2ad9555c6c6df924ebfa81b4d627ee1284c7634ec8c91330edafca9d2753c2ac",
     "src/game/animemot.cpp": "5cc0324f67d1e2382a71ff9718e51aa98cf08b875326f70fcf8b590829164231",
@@ -1525,6 +1529,7 @@
     "src/game/attachobject.cpp": "4673630148754115f5bc19cdccedd73d5772e8051016beda8375be6e0cdd9f91",
     "src/game/audioplayer.cpp": "a2e2f459fef6730ca450a002f0477bd921b671f94c1d81818cf1602d21b1d414",
     "src/game/avplayer.cpp": "612c21793f01d00fe148342e32ad3e0b1633df02be55549985df158de5c4b0f6",
+    "src/game/box_dispatch.cpp": "88b78a2489699abfeb7d2ab98bdd34f4494c87c1b5c362c518a6782ff954a113",
     "src/game/bsbifunc.cpp": "abbee92185d42ea8e772df0ae5fb025a838fdd370ca35082b92394e29467abe3",
     "src/game/bsevents.cpp": "1b5e58c1b9e2c631a8d1f8ac7839f9c533133df991df9974c5d73760c3af352b",
     "src/game/bsfile.cpp": "af375447dad6c73a39950974ef6a4ac7c892bbbb7541fba3b32587c6d1c69cab",
@@ -1538,6 +1543,7 @@
     "src/game/bulletfactory.cpp": "d6ee2336a34566955cb6050fa4d9fe885b64ee577b00c606ce91fbd748bc3f4a",
     "src/game/bulletfactory_init.cpp": "0ebf18ed93f90155ea51cb32053bf74d60a670c1688dd9c97e0b52ac45080c09",
     "src/game/camera_rows.cpp": "ad6da75e4f2269b17a88cd8f54e5e65003cd57b25bb284dce60bf13894115962",
+    "src/game/capsule_dispatch.cpp": "8e22f3ac4fd707a45c49a10d1b265abfa71ac1ca61c991807b38b9439b4a2baa",
     "src/game/cdbgeom.cpp": "dbb319b1ba8edc52c87f565f57a506fb7e3934a7195ac17ae7d79e86ac4e8c06",
     "src/game/cdbobject.cpp": "8d9ba3051b730eaceb1df207075b6d193ad9ee06b403ef50da260ff8821c0e51",
     "src/game/collisionvolume.cpp": "43ba2b786b6016be28ed111443666151b7721d434b959794c048a582f6b8b826",
@@ -24048,6 +24054,123 @@
       "discarded_functions": [],
       "object_sha256": "e480394fb92e616d5f136930e9c7a4fa23188b8aea021d1f18af2861d863ddb9",
       "linked_sha256": "9ddd093735a1c5c69fb7b595f570f1febaa45d5cf78a5ac647ffb0a8407925e6"
+    },
+    {
+      "id": "capsule_dispatch",
+      "category": "restored_library",
+      "functions": 5,
+      "code_bytes": 512,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "1cb1e117e31e9eeba954863fda143db9d8f3f231ee65476cbaf4a2c6b1055df6",
+      "linked_sha256": "3ac561c68d9842e8e11f446a440029e52ec85a9764429b24b785d299d2397b6b"
+    },
+    {
+      "id": "animated_volume_dispatch",
+      "category": "restored_library",
+      "functions": 4,
+      "code_bytes": 384,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "2069f26aeb4935311d7bf805736b7b5ad39c74396fee9ee25cf0f58dfb2f31da",
+      "linked_sha256": "2748cf1f8a6bb01d4f267f1d747fa42a1cfd77b8e37253c3e3b84f21ea1c429d"
+    },
+    {
+      "id": "box_dispatch",
+      "category": "restored_library",
+      "functions": 3,
+      "code_bytes": 348,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "51ca7f134746bf796bbd613ab55f13ce76534bf366fdbb09d17bbd35f07da2b0",
+      "linked_sha256": "d30e24cfc045a072cc77a4a8a5f3cd805d7fbfee0038163f362ce9066b705dc1"
     }
   ],
   "code_map": {
@@ -37118,34 +37241,6 @@
             "evidence": "exception-index"
           },
           {
-            "address": "0x800bfb28",
-            "size": 32,
-            "kind": "function",
-            "name": "TestCollision__15CAnimatedVolumeCFRC15CAnimatedVolumeR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800bfb48",
-            "size": 116,
-            "kind": "function",
-            "name": "TestCollision__15CAnimatedVolumeCFRC10CCSGVolumeR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800bfbbc",
-            "size": 116,
-            "kind": "function",
-            "name": "TestCollision__15CAnimatedVolumeCFRC12CWorldVolumeR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800bfc30",
-            "size": 120,
-            "kind": "function",
-            "name": "TestCollision__15CAnimatedVolumeCFRC9CVolFiberR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
             "address": "0x800bfe64",
             "size": 932,
             "kind": "function",
@@ -37269,27 +37364,6 @@
             "size": 148,
             "kind": "function",
             "name": "TestCollision__7CVolBoxCF8CVector3R10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800c27b0",
-            "size": 116,
-            "kind": "function",
-            "name": "TestCollision__7CVolBoxCFRC10CCSGVolumeR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800c2824",
-            "size": 116,
-            "kind": "function",
-            "name": "TestCollision__7CVolBoxCFRC12CWorldVolumeR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800c2898",
-            "size": 116,
-            "kind": "function",
-            "name": "TestCollision__7CVolBoxCFRC10CCDBObjectR10CCollisionb",
             "evidence": "exception-index"
           },
           {
@@ -37486,41 +37560,6 @@
             "size": 720,
             "kind": "function",
             "name": "TestCollision__11CVolCapsuleCF8CVector3R10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800c67b0",
-            "size": 116,
-            "kind": "function",
-            "name": "TestCollision__11CVolCapsuleCFRC12CWorldVolumeR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800c6824",
-            "size": 116,
-            "kind": "function",
-            "name": "TestCollision__11CVolCapsuleCFRC10CCSGVolumeR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800c6898",
-            "size": 44,
-            "kind": "function",
-            "name": "TestCollision__11CVolCapsuleCFRC15CAnimatedVolumeR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800c68c4",
-            "size": 120,
-            "kind": "function",
-            "name": "TestCollision__11CVolCapsuleCFRC9CVolFiberR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800c693c",
-            "size": 116,
-            "kind": "function",
-            "name": "TestCollision__11CVolCapsuleCFRC10CCDBObjectR10CCollisionb",
             "evidence": "exception-index"
           },
           {

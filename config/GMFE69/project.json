@@ -517,7 +517,10 @@
     "anim_obj_volumes.json",
     "AIFilter_astar.json",
     "ShellMenu_levels.json",
-    "sphere_dispatch.json"
+    "sphere_dispatch.json",
+    "capsule_dispatch.json",
+    "animated_volume_dispatch.json",
+    "box_dispatch.json"
   ],
   "progress": {
     "code_bytes": 1414572,

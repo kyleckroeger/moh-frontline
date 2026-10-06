@@ -1,0 +1,98 @@
+{
+  "id": "animated_volume_dispatch",
+  "source": "src/game/animated_volume_dispatch.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800bfb28",
+      "size": 384,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000dc44",
+      "size": 32,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80014ae0",
+      "size": 48,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "TestCollision__15CAnimatedVolumeCFRC9CVolFiberR10CCollisionb",
+      "address": "0x800bfc30",
+      "size": 120,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__15CAnimatedVolumeCFRC12CWorldVolumeR10CCollisionb",
+      "address": "0x800bfbbc",
+      "size": 116,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__15CAnimatedVolumeCFRC15CAnimatedVolumeR10CCollisionb",
+      "address": "0x800bfb28",
+      "size": 32,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__15CAnimatedVolumeCFRC10CCSGVolumeR10CCollisionb",
+      "address": "0x800bfb48",
+      "size": 116,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "GetLine__9CVolFiberCFv": "0x800ca2f4",
+    "SwapOrder__10CCollisionFv": "0x800c79c4",
+    "TestCollision__10CVolSphereCFRC10CVolSphereR10CCollisionb": "0x800cb764"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "animated_volume.cpp",
+  "original_file_index": 7412
+}
