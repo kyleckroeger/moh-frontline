@@ -458,7 +458,8 @@
     "soundschedule.json",
     "AIStatus.json",
     "svol.json",
-    "SearchNode.json"
+    "SearchNode.json",
+    "sprite.json"
   ],
   "progress": {
     "code_bytes": 1414572,
