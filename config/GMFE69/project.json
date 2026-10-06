@@ -428,7 +428,8 @@
     "AISplinePath.json",
     "csg_volume.json",
     "quaternion.json",
-    "AnimObjFactory.json"
+    "AnimObjFactory.json",
+    "anim_callback.json"
   ],
   "progress": {
     "code_bytes": 1414572,
