@@ -2,12 +2,14 @@
 #include "MWCPlusLib.h"
 
 typedef void (*unexpected_handler)();
+typedef void (*terminate_handler)();
+
+namespace std {
 unexpected_handler set_unexpected(unexpected_handler handler);
 void unexpected();
-
-typedef void (*terminate_handler)();
 terminate_handler set_terminate(terminate_handler handler);
 void terminate();
+} // namespace std
 
 #define ARRAY_HEADER_SIZE 16
 
@@ -41,7 +43,7 @@ extern unexpected_handler set_unexpected(unexpected_handler handler) {
 extern void unexpected() { uhandler(); }
 } // namespace std
 
-extern char __throw_catch_compare(const char* throwtype, const char* catchtype, long* offset_result) {
+extern "C" char __throw_catch_compare(const char* throwtype, const char* catchtype, long* offset_result) {
 	const char *cptr1, *cptr2;
 
 	*offset_result = 0;

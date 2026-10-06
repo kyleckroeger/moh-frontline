@@ -25,6 +25,7 @@ ASM void __mod2i(void);
 ASM void __shl2i(void);
 ASM void __shr2u(void);
 ASM void __shr2i(void);
+ASM void __cvt_sll_flt(void);
 ASM void __cvt_dbl_usll(void);
 
 void SAVE_FPR(14)(void);
@@ -672,6 +673,59 @@ around:
 	sraw    r3, r3, r5
 	blr
 #endif // clang-format on
+}
+
+ASM void __cvt_sll_flt(void) {
+  nofralloc
+  stwu r1, -0x10(r1)
+  rlwinm. r5, r3, 0, 0, 0
+  beq lbl_80389F78
+  subfic r4, r4, 0
+  subfze r3, r3
+lbl_80389F78:
+  or. r7, r3, r4
+  li r6, 0
+  beq lbl_8038A000
+  cntlzw r7, r3
+  cntlzw r8, r4
+  rlwinm r9, r7, 0x1a, 0, 4
+  srawi r9, r9, 0x1f
+  and r9, r9, r8
+  add r7, r7, r9
+  subfic r8, r7, 0x20
+  addic r9, r7, -32
+  slw r3, r3, r7
+  srw r10, r4, r8
+  or r3, r3, r10
+  slw r10, r4, r9
+  or r3, r3, r10
+  slw r4, r4, r7
+  subf r6, r7, r6
+  clrlwi r7, r4, 0x15
+  cmpwi r7, 0x400
+  addi r6, r6, 0x43e
+  blt lbl_80389FE8
+  bgt lbl_80389FDC
+  rlwinm. r7, r4, 0, 0x14, 0x14
+  beq lbl_80389FE8
+lbl_80389FDC:
+  addic r4, r4, 0x800
+  addze r3, r3
+  addze r6, r6
+lbl_80389FE8:
+  rotlwi r4, r4, 0x15
+  rlwimi r4, r3, 0x15, 0, 0xa
+  rlwinm r3, r3, 0x15, 0xc, 0x1f
+  slwi r6, r6, 0x14
+  or r3, r6, r3
+  or r3, r5, r3
+lbl_8038A000:
+  stw r3, 8(r1)
+  stw r4, 0xc(r1)
+  lfd f1, 8(r1)
+  frsp f1, f1
+  addi r1, r1, 0x10
+  blr
 }
 
 ASM void __cvt_dbl_usll(void)

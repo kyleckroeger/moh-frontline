@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 180448,
+    "matching_code_bytes": 184220,
     "total_executable_code_bytes": 1414572,
-    "percent": 12.756367296963322,
+    "percent": 13.02302039061992,
     "categories": {
       "reconstructed_game": 0,
-      "restored_library": 180448
+      "restored_library": 184220
     },
-    "matching_functions": 745
+    "matching_functions": 771
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -59,6 +59,7 @@
     "config/GMFE69/GXTexture.json": "fee53b58bcc52dee50e933340ae77066267452c98410a66575d8acd6d920c0bc",
     "config/GMFE69/GXTransform.json": "38225301a6fd0d656301839a81128f2235b7fbe70c809990d1beeb45d8a5182b",
     "config/GMFE69/Gecko_ExceptionPPC.json": "40e29a739fe917c560f5eb9768fcab768f7b2d6fafcf2e45c14439d96526b39e",
+    "config/GMFE69/NMWException.json": "993919adc03819f768ac97f37687a067894f1324f0097fa28477b34baf8f9157",
     "config/GMFE69/OS.json": "c3796d6fcdd2a8f7d11c7060245d5ab1b85316fc6251876d2bbf7e93469f11a8",
     "config/GMFE69/OSAlarm.json": "1e86d7d9e28dd6c2d842af34882125cb9181ba4a9c4adca999722390b2e59824",
     "config/GMFE69/OSAlloc.json": "67106699292772ba5d4d82046fe0693ce5131eb6185ba3ef8965019d65fa6948",
@@ -112,6 +113,7 @@
     "config/GMFE69/e_rem_pio2.json": "9a217bc41cbc7dbd160fd9b8170c55fb494d44d9f79f1a2cc3cecf82078e7391",
     "config/GMFE69/file_io.json": "9d737a74c74cec09092f5f2fe98942c67c235f62b404b17bbc55dd04abba5ebc",
     "config/GMFE69/fstload.json": "c101975fb01250bc8f0325effbe643330b62ccd00eac41e24aff682c06866309",
+    "config/GMFE69/global_destructor_chain.json": "0fe0a3698440cd1f1bff61944bd62409272132d09eb6b5c82b9745b82413e6fa",
     "config/GMFE69/k_cos.json": "db8492c041a6d2c074f54a05f37f23f647f9007d1ddfb016ac1b68ef92f560eb",
     "config/GMFE69/k_rem_pio2.json": "98e7c06d536b5d074d8001e65314d859cc90af96052300f3d60796c07912caec",
     "config/GMFE69/k_sin.json": "83303a92dec0945bbc9e8d29698030d3fed1d722b341f4dfd5c163705e01f806",
@@ -127,9 +129,11 @@
     "config/GMFE69/mtxvec.json": "bb6a4f09ca854ab9a727be34f0a20df7f53e0e081e1b83581418b88de9987009",
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "07565387add9e346b57935f75ac46ac6631a5d5ce3998b5b4ad4066544fbe65c",
+    "config/GMFE69/project.json": "7258e70beca85f708132958fe67c467e8d358d4a723ad1899174f55aeaab2228",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
+    "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
     "config/GMFE69/rand.json": "958d1564ced02e430faca2258c920c5b7f36bd3ba70f168d2cbb54dace181f59",
+    "config/GMFE69/runtime.json": "a141c730e48954adb12802ec9b1ab64c4b3ac71f37caeb7ea3af62616adf28e6",
     "config/GMFE69/s_atan.json": "b6130d2ccba797fa29836d3fa3f07fbc4da188446df024ff3de704580ddde5e0",
     "config/GMFE69/s_copysign.json": "a549fbe76f6b278012ec447d49c0d13bd3f1911426f10964b9ccd2e6dbdbe719",
     "config/GMFE69/s_cos.json": "839bd5b0634b8a831ec10f3109a4f20d6c6d40eddf2b5e863a37f2a011645e35",
@@ -1081,13 +1085,13 @@
     "src/tww/PowerPC_EABI_Support/Runtime/Src/CPlusLibPPC.cp": "23411ea7f525366426c6c4f2b11d2e191887765637a96d989c6538ed92ade92a",
     "src/tww/PowerPC_EABI_Support/Runtime/Src/GCN_mem_alloc.c": "616dd9e893904938dabfc075211d7fa0d93175e7c96766724401b7bb4f48aa51",
     "src/tww/PowerPC_EABI_Support/Runtime/Src/Gecko_ExceptionPPC.cp": "72fe031ece77eebe3632326d0d8c703ebc426f504f3889a5afaed390f50f40ce",
-    "src/tww/PowerPC_EABI_Support/Runtime/Src/NMWException.cp": "ef7139d892f5cc5d519cb575b66ae553e43bb463126397b2f122577324d177b4",
+    "src/tww/PowerPC_EABI_Support/Runtime/Src/NMWException.cp": "88e04d1708e83dea645a7b664122d84b29b078aa13b0bba7e00ca8acc344fd04",
     "src/tww/PowerPC_EABI_Support/Runtime/Src/__init_cpp_exceptions.cpp": "f14bad9c6cc4b1b7241f9877eb51627f66751e439a30495c528e0287654e9042",
     "src/tww/PowerPC_EABI_Support/Runtime/Src/__mem.c": "62696fa6a2328b67cb7dcd169e4d6a6ca40f2c9797be92b5c5072b1b689eb580",
     "src/tww/PowerPC_EABI_Support/Runtime/Src/__va_arg.c": "e887bd78939f2cc12cfbff52e7942b7634788192d4f8e6cf46895e3bb4736a59",
     "src/tww/PowerPC_EABI_Support/Runtime/Src/global_destructor_chain.c": "6327332552ff7c3863f7b1c00c4ec7eef784244fdbe49075c35a74668604e1cb",
     "src/tww/PowerPC_EABI_Support/Runtime/Src/ptmf.c": "dc8bee1d1f78cf1a69b8a38f43e9f70e9520c71e8770c27a8908758681d7afeb",
-    "src/tww/PowerPC_EABI_Support/Runtime/Src/runtime.c": "4e728886aef15299d8a80a3875dc0e998ed78f50c8a103328e0bfab1abc7a4aa",
+    "src/tww/PowerPC_EABI_Support/Runtime/Src/runtime.c": "9c88825db7eb271cfcad6657bba2233147519488c679e921b5b0a97e8502c066",
     "src/tww/TRK_MINNOW_DOLPHIN/MetroTRK/Export/mslsupp.c": "df9f98f6da0f77a326451b05cd961a373ef9dcdee7466c9fffe89fb60850777e",
     "src/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/dolphin_trk.c": "fd40c608e57d13be458263a46e4ac98f53a25815232b9e092b9b56061971f521",
     "src/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/dolphin_trk_glue.c": "2a437e8c8cb94af6fee4b93a8d2c98e9200ea9c851ab8707fe0ea7bede9c2b0c",
@@ -1126,7 +1130,7 @@
     "tools/objdiff_config.py": "4133276adf513df6f4aad3d70df298f0bb0f8ced4ae1abc72703e8e0dc9bb13a",
     "tools/port_unit.py": "faaa09c9b11e8c68a6ac5c2fdb09541da7ccffa104ccaeea9117e6589e900de0",
     "tools/progress_report.py": "18f16a51268af84afa8c58e6be719abd94f5ffba16592ed0adcdbd94b9c67b9d",
-    "tools/project_build.py": "38245a06d332b9009c135bd09b61b1ecce51143d00a6291fc9f3753ff1cd548f",
+    "tools/project_build.py": "6a95a2bcb7ba8d7790e8d511a3c97b5a97056730382152ae64485401736a90a1",
     "tools/reconstruct.py": "ae713fceeb3eef9f113af483ad5e3d5d6f1123fc424d0595099247e3e07a4cf2",
     "tools/sdk_build.py": "cff29a4f5465e49f7ee95483c25a200b6d0c025f428cae6064a67d297872369f",
     "tools/setup.py": "99f9d6bf69d36a45530565f597d0bdc926da68d96515bfdd1ec011719b8ebe84",
@@ -1945,7 +1949,7 @@
         "OSSetInterruptMask"
       ],
       "object_sha256": "ad9207ee793579a33ed04628f371493274e28ac4aeff99381201573a68840f77",
-      "linked_sha256": "49b24e7135cc8f7444202139ff344b7d302248a4be5e2020f4aa7204a52dc226"
+      "linked_sha256": "d3f62b7b6d9eb1fccc8189e8fd9ebdfa0e45c45a236df5e22461292e8e2fc912"
     },
     {
       "id": "OSReset",
@@ -3604,7 +3608,7 @@
         "__OSInitFPRs"
       ],
       "object_sha256": "2f14e1b1be6b1d63d6ab72c1b157e09c1f52274c58456d7dc14743ce344e9f2e",
-      "linked_sha256": "70ba1bf880ab95a19cf6bc2b0ba2fd2bc74bb510fa286caf572fba9fa50f1200"
+      "linked_sha256": "2a8198d9cfc153ebc369bfdce33f0ca6efb22a59756826baba614e8aabe323a6"
     },
     {
       "id": "CARDMount",
@@ -7498,6 +7502,230 @@
       "discarded_functions": [],
       "object_sha256": "0194b0e913c0705f86baa51c8f3e3507f49408f9fc0bdac99513fa1f5a2565b7",
       "linked_sha256": "819b1dbd76d4ba9128c37adcde5c5c9ef0c33ed69853e4ba74fe2c58c30833fb"
+    },
+    {
+      "id": "runtime",
+      "category": "restored_library",
+      "functions": 13,
+      "code_bytes": 1668,
+      "compiler_family": "GC",
+      "compiler_version": "1.3",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-pragma",
+        "warn_notinlined off",
+        "-maxerrors",
+        "1",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-fp_contract",
+        "on",
+        "-str",
+        "reuse",
+        "-multibyte",
+        "-DVERSION=0",
+        "-DNDEBUG=1",
+        "-O4,p",
+        "-use_lmw_stmw",
+        "on",
+        "-str",
+        "reuse,pool,readonly",
+        "-common",
+        "off",
+        "-inline",
+        "deferred,auto",
+        "-char",
+        "signed"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "__mod2i"
+      ],
+      "object_sha256": "848879d55f27c57097debd017e296fb4dfca1295575d76913237d9c636436333",
+      "linked_sha256": "008f1beeb48873bc5d3c35b03ee24189b86cc4fc8ff0a991ff37994d023649b0"
+    },
+    {
+      "id": "NMWException",
+      "category": "restored_library",
+      "functions": 10,
+      "code_bytes": 1640,
+      "compiler_family": "GC",
+      "compiler_version": "1.3",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-pragma",
+        "warn_notinlined off",
+        "-maxerrors",
+        "1",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-fp_contract",
+        "on",
+        "-str",
+        "reuse",
+        "-multibyte",
+        "-DVERSION=0",
+        "-DNDEBUG=1",
+        "-O4,p",
+        "-use_lmw_stmw",
+        "on",
+        "-str",
+        "reuse,pool,readonly",
+        "-common",
+        "off",
+        "-inline",
+        "deferred,auto",
+        "-char",
+        "signed",
+        "-Cpp_exceptions",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "__destroy_new_array3",
+        "__destroy_new_array2",
+        "set_unexpected__3stdFPFv_v",
+        "set_terminate__3stdFPFv_v"
+      ],
+      "object_sha256": "54115d0a89be32d4e28a0902b605cde6d85763a0ed36d419d789b768a54c3355",
+      "linked_sha256": "6fb7aaa6a4a9515d14265dfb04bd746870c523e3a2f675dfa5694573fd06a83d"
+    },
+    {
+      "id": "qsort",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 368,
+      "compiler_family": "GC",
+      "compiler_version": "1.3",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-pragma",
+        "warn_notinlined off",
+        "-maxerrors",
+        "1",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-fp_contract",
+        "on",
+        "-str",
+        "reuse",
+        "-DVERSION=0",
+        "-use_lmw_stmw",
+        "on",
+        "-str",
+        "reuse,pool,readonly",
+        "-gccinc",
+        "-common",
+        "off",
+        "-char",
+        "signed",
+        "-inline",
+        "deferred,auto"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "e5697dd9708d49e40141daad305e34fe508a6bcdab9d818837a729921ced61a2",
+      "linked_sha256": "b4465dee659da180924b5fdf871b9bc90789717d52bb3a47e8309af6d3d00844"
+    },
+    {
+      "id": "global_destructor_chain",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 96,
+      "compiler_family": "GC",
+      "compiler_version": "1.3",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-pragma",
+        "warn_notinlined off",
+        "-maxerrors",
+        "1",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-fp_contract",
+        "on",
+        "-str",
+        "reuse",
+        "-multibyte",
+        "-DVERSION=0",
+        "-DNDEBUG=1",
+        "-O4,p",
+        "-use_lmw_stmw",
+        "on",
+        "-str",
+        "reuse,pool,readonly",
+        "-common",
+        "off",
+        "-inline",
+        "deferred,auto",
+        "-char",
+        "signed"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "8b553550cfba0720431355d85282cf7852a2dd4ba4d71beff97d58b925bf49c1",
+      "linked_sha256": "313f20daf62ee4321981889856e9e6df482b1d73d3781f42adab1c991be12127"
     }
   ],
   "code_map": {
@@ -34305,25 +34533,6 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 80138174",
-        "ranges": [
-          {
-            "address": "0x80138174",
-            "size": 72,
-            "kind": "function",
-            "name": "__destroy_global_chain",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801381bc",
-            "size": 24,
-            "kind": "function",
-            "name": "__register_global_object",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/NewMore.cp [symbol evidence]",
         "file_record": 299,
         "file_name": "NewMore.cp",
@@ -34341,186 +34550,6 @@
             "kind": "function",
             "name": "what__Q23std9exceptionCFv",
             "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/NMWException.cp [symbol evidence]",
-        "file_record": 300,
-        "file_name": "NMWException.cp",
-        "ranges": [
-          {
-            "address": "0x80138258",
-            "size": 124,
-            "kind": "function",
-            "name": "__destroy_new_array",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x801382d4",
-            "size": 120,
-            "kind": "function",
-            "name": "__destroy_arr",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8013834c",
-            "size": 248,
-            "kind": "function",
-            "name": "__construct_array",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80138444",
-            "size": 184,
-            "kind": "function",
-            "name": "__dt__26__partial_array_destructorFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x801384fc",
-            "size": 256,
-            "kind": "function",
-            "name": "__construct_new_array",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x801385fc",
-            "size": 556,
-            "kind": "function",
-            "name": "__throw_catch_compare",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80138828",
-            "size": 40,
-            "kind": "function",
-            "name": "unexpected__3stdFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80138850",
-            "size": 40,
-            "kind": "function",
-            "name": "terminate__3stdFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80138878",
-            "size": 40,
-            "kind": "function",
-            "name": "duhandler__3stdFv",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801388a0",
-            "size": 32,
-            "kind": "function",
-            "name": "dthandler__3stdFv",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/runtime.c [symbol evidence]",
-        "file_record": 302,
-        "file_name": "runtime.c",
-        "ranges": [
-          {
-            "address": "0x801388e8",
-            "size": 92,
-            "kind": "function",
-            "name": "__cvt_fp2unsigned",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80138944",
-            "size": 76,
-            "kind": "function",
-            "name": "__save_fpr",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80138990",
-            "size": 76,
-            "kind": "function",
-            "name": "__restore_fpr",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801389dc",
-            "size": 76,
-            "kind": "function",
-            "name": "__save_gpr",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80138a28",
-            "size": 76,
-            "kind": "function",
-            "name": "__restore_gpr",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80138a74",
-        "ranges": [
-          {
-            "address": "0x80138a74",
-            "size": 236,
-            "kind": "function",
-            "name": "__div2u",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80138b60",
-            "size": 312,
-            "kind": "function",
-            "name": "__div2i",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80138c98",
-            "size": 228,
-            "kind": "function",
-            "name": "__mod2u",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80138d7c",
-            "size": 36,
-            "kind": "function",
-            "name": "__shl2i",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80138da0",
-            "size": 36,
-            "kind": "function",
-            "name": "__shr2u",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80138dc4",
-            "size": 40,
-            "kind": "function",
-            "name": "__shr2i",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80138dec",
-            "size": 180,
-            "kind": "function",
-            "name": "__cvt_sll_flt",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80138ea0",
-            "size": 204,
-            "kind": "function",
-            "name": "__cvt_dbl_usll",
-            "evidence": "unknown-file"
           }
         ]
       },
@@ -34741,18 +34770,6 @@
             "size": 16,
             "kind": "function",
             "name": "clearerr",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8013fadc",
-        "ranges": [
-          {
-            "address": "0x8013fadc",
-            "size": 368,
-            "kind": "function",
-            "name": "qsort",
             "evidence": "unknown-file"
           }
         ]

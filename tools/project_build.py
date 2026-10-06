@@ -459,8 +459,17 @@ def build_project():
             script = "SECTIONS {\n" + "".join(f"{s['name']} {s['address']} : {{ *({s['name']}) }}\n" for s in unit["sections"])
             script += "".join(f"{name} = {address};\n" for name, address in unit["externals"].items()) + "}\n"
         (work / "source.ld").write_text(script)
-        strip_args = ["--strip-unused"] + [arg for f in unit["functions"] if f["binding"]
-                                            for arg in ("--undefined", f["name"])] if unit["strip_unused"] else []
+        # Global labels inside kept code (asm entry points such as _savegpr_14)
+        # are roots too: other files reach the code only through them.
+        kept_text = [(f["address"], f["address"] + f["size"]) for f in obj.symbols()
+                     if f["type"] == 2 and f["name"] not in unit["discarded_functions"]
+                     and obj.sections[f["section"]]["name"] == ".text"] if unit["strip_unused"] else []
+        roots = [f["name"] for f in unit["functions"] if f["binding"]] + sorted(
+            {s["name"] for s in obj.symbols() if s["binding"] and s["type"] == 0 and s["section"]
+             and s["section"] < 0xFF00 and obj.sections[s["section"]]["name"] == ".text"
+             and any(a <= s["address"] < b for a, b in kept_text)})
+        strip_args = ["--strip-unused"] + [arg for name in roots
+                                            for arg in ("--undefined", name)] if unit["strip_unused"] else []
         if unit.get("retain_function_symbols", False):
             # Preserve local entry points and their verification symbols without
             # creating unresolved global symbols through --undefined.

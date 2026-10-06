@@ -1,0 +1,165 @@
+{
+  "id": "NMWException",
+  "source": "src/tww/PowerPC_EABI_Support/Runtime/Src/NMWException.cp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-pragma",
+    "warn_notinlined off",
+    "-maxerrors",
+    "1",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-fp_contract",
+    "on",
+    "-str",
+    "reuse",
+    "-multibyte",
+    "-DVERSION=0",
+    "-DNDEBUG=1",
+    "-O4,p",
+    "-use_lmw_stmw",
+    "on",
+    "-str",
+    "reuse,pool,readonly",
+    "-common",
+    "off",
+    "-inline",
+    "deferred,auto",
+    "-char",
+    "signed",
+    "-Cpp_exceptions",
+    "on"
+  ],
+  "include_dirs": [
+    "include/tww",
+    "src/tww",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Include",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/PPC_EABI/Include",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C++/MSL_Common/Include",
+    "src/tww/PowerPC_EABI_Support/Runtime/Inc",
+    "src/tww/PowerPC_EABI_Support/MetroTRK"
+  ],
+  "strip_unused": true,
+  "source_root": "src/tww",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80138258",
+      "size": 1640,
+      "type": 1
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034e558",
+      "size": 8,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "dthandler__3stdFv",
+      "address": "0x801388a0",
+      "size": 32,
+      "binding": 0
+    },
+    {
+      "name": "duhandler__3stdFv",
+      "address": "0x80138878",
+      "size": 40,
+      "binding": 0
+    },
+    {
+      "name": "__destroy_new_array",
+      "address": "0x80138258",
+      "size": 124,
+      "binding": 1
+    },
+    {
+      "name": "__destroy_arr",
+      "address": "0x801382d4",
+      "size": 120,
+      "binding": 1
+    },
+    {
+      "name": "__construct_array",
+      "address": "0x8013834c",
+      "size": 248,
+      "binding": 1
+    },
+    {
+      "name": "__dt__26__partial_array_destructorFv",
+      "address": "0x80138444",
+      "size": 184,
+      "binding": 2
+    },
+    {
+      "name": "__construct_new_array",
+      "address": "0x801384fc",
+      "size": 256,
+      "binding": 1
+    },
+    {
+      "name": "__throw_catch_compare",
+      "address": "0x801385fc",
+      "size": 556,
+      "binding": 1
+    },
+    {
+      "name": "unexpected__3stdFv",
+      "address": "0x80138828",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "terminate__3stdFv",
+      "address": "0x80138850",
+      "size": 40,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "__dl__FPv": "0x8001ca2c",
+    "__dla__FPv": "0x8001c9e8",
+    "abort": "0x8013a4ec"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "__destroy_new_array3",
+    "__destroy_new_array2",
+    "set_unexpected__3stdFPFv_v",
+    "set_terminate__3stdFPFv_v"
+  ],
+  "upstream": {
+    "repository": "https://github.com/zeldaret/tww",
+    "commit": "a1854d47ce5aa9d0f21c7fb5a71aaade63659693",
+    "path": ""
+  },
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "NMWException.cp",
+  "original_file_index": 11567,
+  "stripped_sections": [
+    "extab",
+    "extabindex"
+  ]
+}

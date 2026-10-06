@@ -131,7 +131,11 @@
     "s_copysign.json",
     "s_modf.json",
     "scanf.json",
-    "odenotstub.json"
+    "odenotstub.json",
+    "runtime.json",
+    "NMWException.json",
+    "qsort.json",
+    "global_destructor_chain.json"
   ],
   "progress": {
     "code_bytes": 1414572,
