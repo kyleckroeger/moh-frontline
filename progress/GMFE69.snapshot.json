@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 351832,
+    "matching_code_bytes": 352240,
     "total_executable_code_bytes": 1414572,
-    "percent": 24.871975410230093,
+    "percent": 24.900818056627728,
     "categories": {
       "reconstructed_game": 91828,
-      "restored_library": 260004
+      "restored_library": 260412
     },
-    "matching_functions": 2352
+    "matching_functions": 2353
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -177,6 +177,7 @@
     "config/GMFE69/bsbifunc.json": "99035bd878c2fcf4e987350d7ca79bc34027217d39dbc8637bac1b4862dbc343",
     "config/GMFE69/bsbifunc_ai.json": "dd9a8545038743d777be978246665facec3f0b5331ba3659d422b2e1d740c974",
     "config/GMFE69/bsbifunc_aim.json": "82233aca4b85707846947350b3c59a6872bf4c5f1616901c623d164184543f59",
+    "config/GMFE69/bsbifunc_ammo.json": "8f7356d6e0349c93c6e8e50bad4112a6dc614183762315553832491959a8cb1b",
     "config/GMFE69/bsbifunc_astar.json": "ba9d242ccddcab5732110c8cde2ff4799672a0cdc1ec39e6ef86d4367048f277",
     "config/GMFE69/bsbifunc_attach.json": "ec3b62600d067ab294cab2233dfcfd21f45a2ae31d55efce481d1372adfaf099",
     "config/GMFE69/bsbifunc_choosetarget.json": "7c60091c37163d512a63a67a51e44f465b39a2667c2fe34f58ec451a2b7c5295",
@@ -373,7 +374,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "981e1e822682cf39e4ff21999da79b92f3b9ccd310cfcae7a7295539efc79fd7",
+    "config/GMFE69/project.json": "aec855d1099d0fbaa53a88e4bf2fce80bd2762ceff45d34c96eef8bd80ab90a9",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -1581,6 +1582,7 @@
     "src/game/bsbifunc.cpp": "abbee92185d42ea8e772df0ae5fb025a838fdd370ca35082b92394e29467abe3",
     "src/game/bsbifunc_ai.cpp": "b077a8f2a8a176a60431d371cca196c7a7d05e9d078bb1e2a4e2d4716d6857e2",
     "src/game/bsbifunc_aim.cpp": "d768b13aa9600c7ce9db211f5e474e238474a993c5bbc09f68b270c68dec2e90",
+    "src/game/bsbifunc_ammo.cpp": "af3dac33b90125ecc7dc9de89117921583f806d335c9708f3c59aca5ffc4ed6c",
     "src/game/bsbifunc_astar.cpp": "46da81738b36a76fca2ca1e1b59c3cbbc091a5b091be1cd5d552c63725b640e1",
     "src/game/bsbifunc_attach.cpp": "e374b79bdaac2f534479eff4a63fb830fd369c6855df1cd8d87584b38c6e3cc6",
     "src/game/bsbifunc_choosetarget.cpp": "b3650ed3fc89e4c5b57347903dd8aaf8a10b237426768593faf723a1504c715d",
@@ -25975,6 +25977,45 @@
       "discarded_functions": [],
       "object_sha256": "7f39851ffdfa0a00ce8320599e9e448010eb52942284cf2d704b83aaf69eb9a6",
       "linked_sha256": "6da44d0cf3357bb37bf2f40f805dab546390401a272a864f64fc2de4b35d9494"
+    },
+    {
+      "id": "bsbifunc_ammo",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 408,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "1d2ae21036c3e966350228a17dd48436229f2ae576c8f4240fd6180c864aff80",
+      "linked_sha256": "ac7cc944d6f35110bd72b5563d09b3ca819326fe53ee5316bf4fa384c6da5cc8"
     }
   ],
   "code_map": {
@@ -27325,13 +27366,6 @@
             "size": 1028,
             "kind": "function",
             "name": "BIFunc_AddPlayerAmmo__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80027280",
-            "size": 408,
-            "kind": "function",
-            "name": "BIFunc_GetPlayerAmmo__FPPiPv",
             "evidence": "exception-index"
           },
           {
