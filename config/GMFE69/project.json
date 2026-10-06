@@ -332,7 +332,8 @@
     "eaxadecf.json",
     "configfile.json",
     "animwgt.json",
-    "animchan.json"
+    "animchan.json",
+    "animseq.json"
   ],
   "progress": {
     "code_bytes": 1414572,

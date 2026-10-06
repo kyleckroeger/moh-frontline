@@ -1,0 +1,113 @@
+{
+  "id": "animseq",
+  "source": "src/game/animseq.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80066094",
+      "size": 484,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000b4a8",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800125fc",
+      "size": 36,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x8034fcc0",
+      "size": 16,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "AnimSeqGetOpcodeParameter",
+      "address": "0x80066094",
+      "size": 100,
+      "binding": 1
+    },
+    {
+      "name": "AnimSeqScaleDuration",
+      "address": "0x800660f8",
+      "size": 232,
+      "binding": 1
+    },
+    {
+      "name": "AnimSeqSetRate",
+      "address": "0x800661e0",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "AnimSeqGetFrameCount",
+      "address": "0x80066210",
+      "size": 52,
+      "binding": 1
+    },
+    {
+      "name": "AnimSeqGetLife",
+      "address": "0x80066244",
+      "size": 52,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "_AnimSeqParseToEnd__FP17AnimSeqAnimInfo_tP18AnimSeqFrameList_tUs": "0x80066484",
+    "_AnimSeq_CurrentInfo": "0x8034e960"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [
+    "_AnimSeqParseToEnd__FP17AnimSeqAnimInfo_tP18AnimSeqFrameList_tUs"
+  ],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "_AnimSeq_CurrentInfo"
+  ],
+  "original_file": "animseq.cpp",
+  "original_file_index": 3040
+}
