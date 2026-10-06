@@ -1,0 +1,105 @@
+{
+  "id": "AISoldierDoodad",
+  "source": "src/game/AISoldierDoodad.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80059570",
+      "size": 340,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000ae2c",
+      "size": 32,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80011f18",
+      "size": 48,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "Update__16CAISoldierDoodadFf",
+      "address": "0x80059570",
+      "size": 108,
+      "binding": 1
+    },
+    {
+      "name": "PreUpdate__16CAISoldierDoodadFv",
+      "address": "0x800595dc",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "CleanUp__16CAISoldierDoodadFv",
+      "address": "0x80059600",
+      "size": 60,
+      "binding": 1
+    },
+    {
+      "name": "Init__16CAISoldierDoodadFP14CSoldierObject",
+      "address": "0x8005963c",
+      "size": 136,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "BSObjectTriggerEvent__FP8BSObjectUsPvP8BSObjectb": "0x8003a46c",
+    "Init__16CAISoldierObjectFv": "0x8004f830",
+    "Init__9CAIDoodadFv": "0x800590f4",
+    "LinkGameObject__15CAIFilterObjectFPv": "0x8005be40",
+    "PreUpdate__22CAIFilterSoldierObjectFv": "0x8005b90c",
+    "SetOneTimeVars__22CAIFilterSoldierObjectFv": "0x8005bb00",
+    "UpdateManualUpdateVars__22CAIFilterSoldierObjectFv": "0x8005ba1c",
+    "Update__22CAIFilterSoldierObjectFf": "0x8005b894",
+    "__ct__22CAIFilterSoldierObjectFv": "0x8005bda4",
+    "__nw__22CAIFilterSoldierObjectFUlPv": "0x8005bd2c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "AISoldierDoodad.cpp",
+  "original_file_index": 2484
+}
