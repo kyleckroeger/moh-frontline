@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 245028,
+    "matching_code_bytes": 245288,
     "total_executable_code_bytes": 1414572,
-    "percent": 17.321705788040482,
+    "percent": 17.340085905842898,
     "categories": {
-      "reconstructed_game": 48296,
+      "reconstructed_game": 48556,
       "restored_library": 196732
     },
-    "matching_functions": 1238
+    "matching_functions": 1239
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -127,6 +127,7 @@
     "config/GMFE69/dispatch.json": "9785b3256f8baf02b4d894ff082a1103522e7730d2bea7f05c504b418b5a462f",
     "config/GMFE69/dmgeom.json": "9829feea0b00aad311216a345cb671d1c82c01af17c198cd9ecea52129f159fa",
     "config/GMFE69/dolphin_trk.json": "9f66a923f4f6e4103cb15c12022e534d623c661d7ace9cc644364dfd361c06b7",
+    "config/GMFE69/draw_context.json": "982726912b09ce3e360e31108753cc5cd578e2c0267a2268454edfd80816387a",
     "config/GMFE69/dsp.json": "6c4ba9a2f66c0ef3e23283c2ae295edd31558a47efcff76f281c5ba678f4d74d",
     "config/GMFE69/dsp_debug.json": "abb1bf69b26be3567a5e3a22a729922f11d7a3b8c74ed938895798d0072114a0",
     "config/GMFE69/dsp_task.json": "23fad1688cbbe0178fb9b445cc0d319c557ace917f657fe4d2e1b34efa7c90b7",
@@ -201,7 +202,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "d34fd85a76e5788a02ad864954ff0776beb0d89d5f66cd57969dc2f0151a4a58",
+    "config/GMFE69/project.json": "72d0433867277f7925fe2a1b57ed772f628bef7aa0df66b61fbe57735e909c63",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1239,6 +1240,7 @@
     "src/game/bsmachin.cpp": "29ef7c9c19942e3dc51d97c49266ac9b237c8658ffef55d4536c8968e7d44b1e",
     "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
     "src/game/dmgeom.cpp": "6f176541b44727ce39e90fbc33d60d1c7cd572e20cde4bc86401f647cd9f7f14",
+    "src/game/draw_context.cpp": "261589cc092b9c8c7b80605255eefc78641468141f4d33264252696f62c9782b",
     "src/game/framework.cpp": "8cebad26aba8fe4a9a9ece0492c0bf7bb34882a1eec7dd48a1b3b93d0830914f",
     "src/game/gcSystem.cpp": "e97d4933fe4ba1c46e72d853db6ff53b0c8136020bef2237c66ad38a0d1e1068",
     "src/game/isShellGroup.cpp": "a276f86c558cbb5460692a1b2ae338e44366b0b6f9b45abc5406e266afaf1835",
@@ -15751,6 +15753,45 @@
       "discarded_functions": [],
       "object_sha256": "38686d1f5c675c0843bee3722479ab40837f7dda026659ece8b1ed52bb6ce219",
       "linked_sha256": "5556c203038b738175c91ac4122fa007f6799b7917d5e713d491c420b6f3dad3"
+    },
+    {
+      "id": "draw_context",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 260,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "557b44cdacb2a06ffc36c56755ec8a54cc5b762156e8e566918f05eb8ce0178f",
+      "linked_sha256": "2eb344fc6537ca33471e4410b5f4f1f6ffa7db21275e1c970dbd03a23381277b"
     }
   ],
   "code_map": {
@@ -25294,20 +25335,6 @@
             "size": 60,
             "kind": "function",
             "name": "__dt__9CSPRStackFv",
-            "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/draw_context.cpp [symbol evidence]",
-        "file_record": 65,
-        "file_name": "draw_context.cpp",
-        "ranges": [
-          {
-            "address": "0x8007761c",
-            "size": 260,
-            "kind": "function",
-            "name": "__ct__12CDrawContextFRC7CMatrixRC7CMatrixRC7CMatrixRC7CMatrixi",
             "evidence": "exception-index"
           }
         ]

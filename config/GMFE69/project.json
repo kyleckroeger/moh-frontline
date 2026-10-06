@@ -321,7 +321,8 @@
     "notify.json",
     "serpoll.json",
     "smixlowp.json",
-    "sresopat.json"
+    "sresopat.json",
+    "draw_context.json"
   ],
   "progress": {
     "code_bytes": 1414572,

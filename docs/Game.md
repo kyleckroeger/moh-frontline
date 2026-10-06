@@ -93,6 +93,7 @@ and layouts it marks as descriptive stay descriptive here.
 | `orient.cpp` | 2 | 300 | — | Fixed-point (one turn = 0x1000000) shortest-way angle interpolation, `extern "C"` names; the 64-bit product shape fixes where the difference is taken |
 | `memory.cpp` | 7 | 748 | `DWI_alloc`/`DWI_allocalign` and the global `operator new`/`new[]`/`delete`/`delete[]` on the REAL heap; `DWI_alloc` is inlined into the `new` forms (hence two `memset` calls), and the `throw()` deletes keep their exception-spec frames |
 | `vector.cpp` | 2 | 440 | `CVector3::Constrain` (spherical interpolation toward a target; Frontline's version takes a const target and has no opposite-vector case, unlike Rising Sun's) and `CVector2::Rotate`; the scaled target is an inline `float * CVector3` temporary |
+| `draw_context.cpp` | 1 | 260 | — | `CDrawContext`'s constructor: three `CMatrix` members (whose inline constructor calls `CMatrix::InitClass` once), references to the four source matrices, cleared state and three 1.0 scales; it multiplies the matrices and loads the projection and view into GX. Both class layouts are inferred views |
 | `framework.cpp` | 2 | 8 | Empty `FRAMEWORK::Init`/`Restore` |
 | `isexportdefs.cpp` | 1 | 16 | `NullifyScreenAndLibrary` |
 | `isShellGroup.cpp`, `ispausegroup.cpp`, `isShellLibrary.cpp`, `ispauselibrary.cpp` (fragments) | 4 | 56 | One-line selectors of the shell/pause screen and library tables; the files' string data is not reconstructed |
