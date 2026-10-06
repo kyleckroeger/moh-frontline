@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 259992,
+    "matching_code_bytes": 260232,
     "total_executable_code_bytes": 1414572,
-    "percent": 18.379552260330332,
+    "percent": 18.39651852291718,
     "categories": {
-      "reconstructed_game": 62988,
+      "reconstructed_game": 63228,
       "restored_library": 197004
     },
-    "matching_functions": 1421
+    "matching_functions": 1423
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -223,8 +223,9 @@
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
+    "config/GMFE69/pathxSND.json": "711dcdf3a5a5a7b4124ae70e377c5e863dc39c8de8a0de785b3dc3921c685fa0",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "ffd3f1ba01eadeb9d74efdbe846a5c4b294de8f566544af21fc2758561d952f4",
+    "config/GMFE69/project.json": "e2cec91471fba02e3530240b27c9c9028d16395e44c408c395c4d3b98e47b910",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1170,6 +1171,7 @@
     "src/ea/memunused.cpp": "8891e09cb882120333548c62aa2245dc6205bfa7122c8a65fa14a06e6b129fee",
     "src/ea/mutex2.cpp": "84bb5fd9e59595a55eadbe25b9bac7a9262faf5c40f7bb0cc9d23e6b0e8fbf9b",
     "src/ea/pad.cpp": "5f1c88e95616a21d9851f07b5f33cca5179f38b95ccc83e0b3335de21e816dc3",
+    "src/ea/pathxSND.c": "f41cae88d965e8b7d18f31e14a637dacad3642c3cf929fc249ae80d3e1588980",
     "src/ea/rcmp2real.cpp": "1d046950eca9f279ad901b132d22290eb4f44d42d4605181f63b1b097122ac25",
     "src/ea/rcmp_mpc_codec_chunk_types.cpp": "b996231c1c402b6ecdd813bb69df3ae8a3580e537b71dd9fa91e238690bb3635",
     "src/ea/s3dlow.c": "b79405b9175ff0299ba213a824c1599ebc4384af549addcc8725867ebc0390ce",
@@ -17252,6 +17254,45 @@
       "discarded_functions": [],
       "object_sha256": "376fa71490040bd33cfb5294bd36ccc5478f9eba6deb1eb31d96f596edd492dd",
       "linked_sha256": "20c2267bc51aed6d28e74f8fd716d0c3df7443b20a2718563b9c2bae205f420f"
+    },
+    {
+      "id": "pathxSND",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 240,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "2a2c00a249370a94b251a92dde14318eb6118d3fe98fb2d9e01796400a9644ca",
+      "linked_sha256": "54490324cd3cdd4cfdc1007135b496f8aab6e296dd313b11bf3327900e1cb882"
     }
   ],
   "code_map": {
@@ -37482,20 +37523,6 @@
             "size": 108,
             "kind": "function",
             "name": "PATHX_milliseconds",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800e9ab8",
-            "size": 52,
-            "kind": "function",
-            "name": "PATHX_isynctask__Fii",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800e9aec",
-            "size": 188,
-            "kind": "function",
-            "name": "PATHX_ifade__Fiiic",
             "evidence": "exception-index"
           }
         ]

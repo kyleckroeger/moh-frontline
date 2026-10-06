@@ -357,7 +357,8 @@
     "soundtable.json",
     "animst.json",
     "input.json",
-    "bsevents.json"
+    "bsevents.json",
+    "pathxSND.json"
   ],
   "progress": {
     "code_bytes": 1414572,
