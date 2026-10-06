@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x8002b064",
-      "size": 432,
+      "size": 776,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009d54",
-      "size": 16,
+      "size": 24,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x800109c4",
-      "size": 24,
+      "size": 36,
       "type": 1
     }
   ],
@@ -74,9 +74,17 @@
       "address": "0x8002b178",
       "size": 156,
       "binding": 1
+    },
+    {
+      "name": "BIFunc_AIGetClosestCoverPoint__FPPiPv",
+      "address": "0x8002b214",
+      "size": 344,
+      "binding": 1
     }
   ],
   "externals": {
+    "GetAvailablePeekPosition__11CCoverPointCFv": "0x800533a8",
+    "GetClosestWaypointByType__15CAIFilterGlobalCFPC12_PropBSPLeafRC21CAIFilterRealPosition19DWI_OBJECT_CRC_ENUMbf": "0x8005c6b8",
     "GetPlayer__6CSceneCFi": "0x800d8274",
     "Get_currentMission__10CShellMenuFv": "0x800e6ebc",
     "Get_currentStage__10CShellMenuFv": "0x800e6eb4",
@@ -85,9 +93,12 @@
     "g_CurrentMission": "0x8034da00",
     "g_CurrentSoundBank": "0x8034da08",
     "g_Shell": "0x80195090",
+    "g_aigAIFilterGlobalObject": "0x801c6cd4",
     "g_bInMultiplayerMode": "0x8034eca5",
     "g_iCurrentBIFIndex": "0x8034e77c",
+    "g_pBSObject": "0x8034e7e0",
     "g_pBuiltInFunctions": "0x8034e778",
+    "g_pTriggerObjects": "0x801a1300",
     "g_scene": "0x8019484c"
   },
   "undefined_in_discarded_code": [],
@@ -101,6 +112,7 @@
     "g_CurrentSoundBank",
     "g_bInMultiplayerMode",
     "g_iCurrentBIFIndex",
+    "g_pBSObject",
     "g_pBuiltInFunctions"
   ],
   "original_file": "bsbifunc.cpp",

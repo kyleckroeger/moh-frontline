@@ -1,13 +1,141 @@
 // A fragment of bsbifunc.cpp (0x8002b064): script built-ins that initialise
 // debugging from a trigger (no effect), load a one-shot sound bank (for the
 // multiplayer mission and level stored in the shell, otherwise the shell's
-// current mission and stage) and remember the bank, mission and level, and
-// show or hide the first player's letterbox. Each reads its argument below the
-// script stack top and pops the built-in's arguments. The file name is this
-// project's; the original record is bsbifunc.cpp and the built-ins around these
-// are not reconstructed. The functions, classes and globals are named by the
-// mangled symbols; the shell, scene and player views are inferred (members at
-// their offsets, names not original), as is the built-in record view.
+// current mission and stage) and remember the bank, mission and level, show or
+// hide the first player's letterbox, and return the index of the closest cover
+// point with a free peek position (searched from the script object's position
+// in its proximity leaf, within the given radius; -1 when none). Each reads its
+// argument below the script stack top and pops the built-in's arguments. The
+// file name is this project's; the original record is bsbifunc.cpp and the
+// built-ins around these are not reconstructed. The functions, classes and
+// globals are named by the mangled symbols; ISceneNode is declared with its
+// virtual functions in the order of __vt__10ISceneNode (GetPosition at +64) and
+// BSGO_Basic in the order of __vt__10BSGO_Basic; the shell, scene, player,
+// proximity-data and trigger-object views are inferred (members at their
+// offsets, names not original), as are the built-in record view, the 16-byte,
+// 8-byte aligned position view passed as the filter position, and the waypoint
+// CRC value (0x9101c906, the enumerator's name unknown).
+enum EClsnId {};
+class CCollision;
+class CDrawContext;
+class CMatrix;
+class CVector3;
+class CBullet;
+class CLight;
+class CPlayerObject;
+struct AIDoodadView;
+
+class ISceneNode {
+public:
+    enum EVolumeType {};
+    virtual void MarkForDestruction(int);
+    virtual ~ISceneNode();
+    virtual void Destroy();
+    virtual void BeginUpdate(float);
+    virtual void UpdateAI(float);
+    virtual void CommitAI();
+    virtual void ConstrainVelocity();
+    virtual void AttemptUpdate(float);
+    virtual void OnCollision(const CCollision&);
+    virtual void CommitUpdate();
+    virtual void Draw(CDrawContext&);
+    virtual int GetLocalBoundingVolume(EVolumeType) const;
+    virtual int GetWorldBoundingVolume(EVolumeType) const;
+    virtual void GetTMLocalToWorld(CMatrix&) const;
+    virtual void GetPosition(CVector3&) const;
+    virtual void GetRightward(CVector3&) const;
+    virtual void GetForward(CVector3&) const;
+    virtual void GetUpward(CVector3&) const;
+    virtual int IsVisible(CDrawContext&) const;
+    virtual int IsDrawEnabled() const;
+    virtual EClsnId GetCollisionId() const;
+    virtual void SetCollisionId(EClsnId);
+    virtual int GetScriptObject() const;
+    virtual void TriggerScriptEvent(int, void*, bool);
+    virtual void HandleBulletCollision(CBullet*, const CCollision&);
+    virtual void* AsMovingNode();
+    virtual const void* AsMovingNode() const;
+    virtual void* AsStaticObject();
+    virtual const void* AsStaticObject() const;
+    virtual void* AsHierObject();
+    virtual const void* AsHierObject() const;
+    virtual void* AsWorldObject();
+    virtual const void* AsWorldObject() const;
+    virtual void* AsAnimObject();
+    virtual const void* AsAnimObject() const;
+    virtual void* AsSoldierObject();
+    virtual const void* AsSoldierObject() const;
+    virtual CPlayerObject* AsPlayerObject();
+    virtual const void* AsPlayerObject() const;
+    virtual void* AsPlayerWeaponObject();
+    virtual const void* AsPlayerWeaponObject() const;
+    virtual void* AsAnimatedPlayerObject();
+    virtual const void* AsAnimatedPlayerObject() const;
+    virtual CLight* AsLight();
+    virtual const CLight* AsLight() const;
+    virtual CBullet* AsBullet();
+    virtual const CBullet* AsBullet() const;
+    virtual void* AsCollisionVolume();
+    virtual const void* AsCollisionVolume() const;
+    virtual AIDoodadView* GetAIDoodad();
+    virtual const void* GetAIDoodad() const;
+    virtual void SetAttachedLight(CLight*, CVector3);
+    virtual CLight* GetAttachedLight() const;
+};
+
+
+class CVector3 {
+public:
+    float x;
+    float y;
+    float z;
+    float w;
+} __attribute__((aligned(8)));
+
+class CAIFilterRealPosition;
+struct _PropBSPLeaf;
+enum DWI_OBJECT_CRC_ENUM {};
+
+struct ProximityDataView {
+    unsigned char unknown00[12];
+    _PropBSPLeaf* leaf;
+};
+
+class BSGO_Basic {
+    unsigned char unknown00[12];
+
+public:
+    virtual void Destroy();
+    virtual int GetScriptData();
+    virtual ISceneNode* GetSceneNode();
+    virtual ProximityDataView* GetProximityData();
+};
+
+struct BSObjectView {
+    unsigned char unknown00[12];
+    BSGO_Basic* user;
+};
+
+struct TriggerObject_struct {
+    unsigned char unknown00[12];
+};
+
+class CCoverPoint {
+public:
+    int GetAvailablePeekPosition() const;
+};
+
+class CAIFilterGlobal {
+public:
+    CCoverPoint* GetClosestWaypointByType(const _PropBSPLeaf*, const CAIFilterRealPosition&, DWI_OBJECT_CRC_ENUM, bool, float) const;
+
+    unsigned char unknown00[24];
+};
+
+extern BSObjectView* g_pBSObject;
+extern TriggerObject_struct g_pTriggerObjects[2000];
+extern CAIFilterGlobal g_aigAIFilterGlobalObject;
+
 class CShellMenu {
 public:
     int Get_currentMission();
@@ -77,4 +205,20 @@ void BIFunc_DisplayLetterbox(int** stack, void*) {
     bool show = *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1)) != 0;
     g_scene.GetPlayer(0)->m_letterbox = show;
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+void BIFunc_AIGetClosestCoverPoint(int** stack, void*) {
+    int index = -1;
+    float radius = *(float*)(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1));
+    ProximityDataView* proximity = g_pBSObject->user->GetProximityData();
+    if (proximity->leaf) {
+        CVector3 position;
+        g_pBSObject->user->GetSceneNode()->GetPosition(position);
+        radius *= radius;
+        CCoverPoint* point = g_aigAIFilterGlobalObject.GetClosestWaypointByType(proximity->leaf, (const CAIFilterRealPosition&)position, (DWI_OBJECT_CRC_ENUM)0x9101c906, true, radius);
+        if (point && point->GetAvailablePeekPosition())
+            index = (TriggerObject_struct*)point - g_pTriggerObjects;
+    }
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    **stack = *(int*)&index;
 }
