@@ -1,0 +1,137 @@
+{
+  "id": "bsbifunc_events",
+  "source": "src/game/bsbifunc_events.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80030db8",
+      "size": 1320,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x80009f84",
+      "size": 72,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80010d0c",
+      "size": 108,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "BIFunc_SetPlayerWielding__FPPiPv",
+      "address": "0x80030e44",
+      "size": 156,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_PlayerFireMyWeapon__FPPiPv",
+      "address": "0x80030db8",
+      "size": 140,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_PlayerIsMyWeaponAProjectile__FPPiPv",
+      "address": "0x80030ee0",
+      "size": 128,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_SendMessage__FPPiPv",
+      "address": "0x80030f60",
+      "size": 152,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_SendEventDelayed__FPPiPv",
+      "address": "0x80030ff8",
+      "size": 176,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_SendEventImmediate__FPPiPv",
+      "address": "0x800310a8",
+      "size": 164,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_SendEventParent__FPPiPv",
+      "address": "0x80031204",
+      "size": 112,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_SendEventSelf__FPPiPv",
+      "address": "0x80031274",
+      "size": 108,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_SendEvent__FPPiPv",
+      "address": "0x8003114c",
+      "size": 184,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "BSObjectTriggerEvent__FP8BSObjectUsPvP8BSObjectb": "0x8003a46c",
+    "BSRegisterTimerEvent__FiUsP8BSObjectPv19ETimerReplaceMethod": "0x8003ae40",
+    "BSSendMessage__FUsP8BSObjectP20TriggerObject_structP8BSObjectPv": "0x80039f10",
+    "FireMyWeapon__13CPlayerObjectFf": "0x8009e888",
+    "GetCurrentWeapon__13CPlayerObjectCFv": "0x8009fb78",
+    "g_iCurrentBIFIndex": "0x8034e77c",
+    "g_pBSObject": "0x8034e7e0",
+    "g_pBuiltInFunctions": "0x8034e778"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "g_iCurrentBIFIndex",
+    "g_pBSObject",
+    "g_pBuiltInFunctions"
+  ],
+  "original_file": "bsbifunc.cpp",
+  "original_file_index": 443
+}
