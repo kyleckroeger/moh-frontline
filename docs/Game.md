@@ -204,6 +204,7 @@ establish a type, the source comments say so.
 | `sx87d16.c` | 1 | 392 | `decode16x87`: 16-bit PCM to float |
 | `supmutf.c`, `supmutpf.c`, `suppf.c` | 7 | 1,424 | MicroTalk unpackers (in memory and through the packet player, 432-sample blocks) and the packet-player 16-bit PCM unpacker |
 | `suplf.c` | 3 | 276 | Looping 16-bit PCM unpacker (the converter's base is taken into a local before the loop) |
+| `saramman.c` (fragment) | 3 | 256 | ARAM manager set-up, pool bounds in 32-byte units (the end is masked with `~4` exactly as compiled) and teardown; `SNDARAM_alloc`/`SNDARAM_free` are not reconstructed |
 | More sound files: `sbvalid.c`, `sst3dpos.c`, `ssthold.c`, `sctlfilt.c`, `shipass.c`, `slowpass.c`, `sstgetrp.c`, `sstopall.c`, `sstautov.c`, `sattrdef.c`, `scalcfx.c`, `sballoc.c`, `sbhdrcpy.c`, `sctrldry.cpp`, `stimemul.c` | 17 | 1,768 | Bank slots, voice controls applied to each platform voice (`iSNDpatchkey` loop), stream setters and defaults; record members are inferred views |
 | `memblock.cpp` | 1 | 44 | `MEM_initblock` writes a block header ('BM', flags, size, neighbour links); the name and tail-size arguments are not stored |
 | `memlist.cpp` | 5 | 464 | Address-ordered circular free list (`FREE_find`, `FREE_findlargest`, `FREE_gettotalfree`, `FREE_add`, `FREE_remove`) with the class's 'BS' sentinel; `FREE_findlargest` needs the operand order of `0 > size - 1 ? 0 : size - 1` for its branchless max |
