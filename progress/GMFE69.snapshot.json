@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 265976,
+    "matching_code_bytes": 266248,
     "total_executable_code_bytes": 1414572,
-    "percent": 18.80257774082903,
+    "percent": 18.821806171760787,
     "categories": {
       "reconstructed_game": 66368,
-      "restored_library": 199608
+      "restored_library": 199880
     },
-    "matching_functions": 1473
+    "matching_functions": 1476
   },
   "input_sha256": {
     "config/GMFE69/AIPlayerDoodad.json": "5ab45909efeb94b828331a8b68a46467e9cb19518255f572f32340c24b98dff2",
@@ -203,6 +203,7 @@
     "config/GMFE69/matstack.json": "10a9ddc9f124f5d96294b44dcac09baaf301ff5e39713633638d67e7fe600ba4",
     "config/GMFE69/mbstring.json": "9de9f46cc9601517195f1c54fab48fb7e78bb2f47d69f7aa83c76823aea418d9",
     "config/GMFE69/mem.json": "ca3c317259aa8b4ae29fb186b81dae2190665955e0af421cfa574e77be7bb350",
+    "config/GMFE69/mem_TRK.json": "82b5639f357bff0171c140ac4e8673074ecd259a7578e9dd2cc0fa8f032114aa",
     "config/GMFE69/mem_funcs.json": "cdc21eee7ec690a2964eff60bc9e230f0115ca0eb200b536179c0a35c292ae7a",
     "config/GMFE69/memblock.json": "a977671a106b065e421ed7ba52dc1c546f6602d88af2d8e96e5715cccc8ebbb8",
     "config/GMFE69/memclass.json": "bd3eb85f748a024917f020168820322686ed77df1d9b1825791bcc04a15eddf5",
@@ -233,7 +234,7 @@
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/pathxSND.json": "711dcdf3a5a5a7b4124ae70e377c5e863dc39c8de8a0de785b3dc3921c685fa0",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "223e756b1bf71152eef7c705ae45f878aa909a31834ba8bd5dc490cd5c925b9a",
+    "config/GMFE69/project.json": "52a1471b0f02f5a8c8c2ad7d90a19b669ad101b8a0a97f1987ca4dd4e41dd8c0",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -749,7 +750,7 @@
     "include/tww/TRK_MINNOW_DOLPHIN/MetroTRK/Portable/dispatch.h": "6fb1da2ff57ea4e4685c3b15a124e9cbd6a44f5a1ee4c0b3c53d77ef39bdb544",
     "include/tww/TRK_MINNOW_DOLPHIN/MetroTRK/Portable/main_TRK.h": "54dbc911ce14579b2f6ba551f4df8e9522e7832620b141b188fa92112535b0c6",
     "include/tww/TRK_MINNOW_DOLPHIN/MetroTRK/Portable/mainloop.h": "2496556a1db2e0387af52b0b71bce88586ad76ce865f6f2505f2b9e071c45235",
-    "include/tww/TRK_MINNOW_DOLPHIN/MetroTRK/Portable/mem_TRK.h": "57861279910b9af8292ce516661b775d95d7c227410d5fdf63dcd32472bbc36e",
+    "include/tww/TRK_MINNOW_DOLPHIN/MetroTRK/Portable/mem_TRK.h": "de6b2b7b3c76558cad2bb302ed93bf0e152792a9dedb7b767d7bcbac475b94c8",
     "include/tww/TRK_MINNOW_DOLPHIN/MetroTRK/Portable/msg.h": "1d881d6c831144d4671979f7692221628dc236e3f268c1e59707f424ff0d3ea9",
     "include/tww/TRK_MINNOW_DOLPHIN/MetroTRK/Portable/msgbuf.h": "84b022560049dc7f1726c1ff16707386b7724871ee8cb135b97cf762a8d95532",
     "include/tww/TRK_MINNOW_DOLPHIN/MetroTRK/Portable/msghndlr.h": "6b4d01ad475d6e079ae5704ba5419d2b7be783f52b8270f75aad6437ba2c7ead",
@@ -1540,7 +1541,7 @@
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/dispatch.c": "f98fda592d9a9861c62de0ec0d7c306ae34635d23f141a9482cf0be509b334e6",
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/main_TRK.c": "29c042f0763c8ff4b74d8036072f275d42573a21011946b60ff7fbf1c4f21f34",
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/mainloop.c": "39374ceb31f00b28683e0dca2f90efc1d72a33cf6c42857e4545cd5e5ad4ce5f",
-    "src/tww/TRK_MINNOW_DOLPHIN/Portable/mem_TRK.c": "0340148ee51126c65c36f73b17252b95f441227e5f49cfee0caa34c48c8dd3a4",
+    "src/tww/TRK_MINNOW_DOLPHIN/Portable/mem_TRK.c": "8ef981e0879e91fab70c685cf56dc7fa2a625b7c0a2eb9e31fede345b1a93c9b",
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/msg.c": "745e16b23179c67cbd18a940083a6b05a9e8b5bd015b0e05eadf3ed448464aa3",
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/msgbuf.c": "540c9e544d0a01abc222936a23e4a1bc4dcbecc0a45a17640750c43d89f80c06",
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/msghndlr.c": "e6358bca5057139bf168180d5123bcfaf058948dfbd35630db299c3210022c68",
@@ -17643,6 +17644,65 @@
       ],
       "object_sha256": "69fc121c1a10d56deb08ace4225c9043c9781862d488f98ab1392f86ed2c2e39",
       "linked_sha256": "d9d0011a0a34333d11f2c85c6013d36efb180707e749690dd3dcc7ebdfe5ed95"
+    },
+    {
+      "id": "mem_TRK",
+      "category": "restored_library",
+      "functions": 3,
+      "code_bytes": 272,
+      "compiler_family": "GC",
+      "compiler_version": "1.3",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-pragma",
+        "warn_notinlined off",
+        "-maxerrors",
+        "1",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-fp_contract",
+        "on",
+        "-str",
+        "reuse",
+        "-multibyte",
+        "-DVERSION=0",
+        "-DNDEBUG=1",
+        "-O4,p",
+        "-use_lmw_stmw",
+        "on",
+        "-rostr",
+        "-str",
+        "reuse",
+        "-common",
+        "off",
+        "-inline",
+        "deferred,auto",
+        "-char",
+        "signed",
+        "-sdata",
+        "0",
+        "-sdata2",
+        "0"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "5063d3f26e65729ab347e18358943c74fcdc96af92961f15f8abea57751d62fc",
+      "linked_sha256": "efcd2181856e4206ae6f9a6a91978bc1f769a0475f6b1b5c59423ac23bb25dd3"
     }
   ],
   "code_map": {
@@ -17660,39 +17720,6 @@
       }
     ],
     "units": [
-      {
-        "name": "Unmatched files/mem_TRK.c [symbol evidence]",
-        "file_record": 284,
-        "file_name": "mem_TRK.c",
-        "ranges": [
-          {
-            "address": "0x80007384",
-            "size": 48,
-            "kind": "function",
-            "name": "TRK_memset",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80135710",
-            "size": 188,
-            "kind": "function",
-            "name": "TRK_fill_mem",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.init @ 800073b4",
-        "ranges": [
-          {
-            "address": "0x800073b4",
-            "size": 36,
-            "kind": "function",
-            "name": "TRK_memcpy",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
       {
         "name": "Unmatched files/Moh2.cpp [inferred file group]",
         "file_record": 0,
