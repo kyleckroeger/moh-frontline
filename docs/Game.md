@@ -173,7 +173,7 @@ establish a type, the source comments say so.
 | `timerthread.cpp` | 4 | 352 | The timer thread's message loop and its queue, stack and thread objects |
 | `exit.cpp` | 4 | 488 | REAL exit handlers: a 64-entry table run in reverse on restore; `REAL_exit` inlines `REAL_restore` |
 | `ssysreal.c` | 3 | 172 | Hooks the sound system into REAL (system task, abort hook, exit handler); its local static gets a run-time guard (`init$`) |
-| `initosalloc.cpp` | 3 | 312 | OS heap set-up with the Dolphin arena-rounding idiom, and MSL's `__sys_alloc` on the REAL allocator |
+| `initosalloc.cpp` | 4 | 380 | OS heap set-up with the Dolphin arena-rounding idiom, and MSL's `__sys_alloc`/`__sys_free` on the REAL allocator |
 | `abortmsg.cpp` | 2 | 400 | `REAL_abortmessage` / `SYSTEM_abortmessage`: format into a 512-byte buffer with CodeWarrior's `__builtin_va_info`, then the abort hook or print plus `REAL_exit` |
 | `memclass.cpp` | 2 | 592 | `MEMCLASS_create` lays out the LOW/free/HIGH blocks of a REAL memory class, plus `MEMCLASS_remove`; built like the sound library (`-use_lmw_stmw off`, `_savegpr_21`). `MEMBLOCK`/`MEMCLASS` members are inferred from offsets |
 | `memunused.cpp` | 1 | 64 | `MEM_totalunused` (its own file record starts at 0x8014f4b8, between `memclass.cpp` and `memalloc.cpp`) |

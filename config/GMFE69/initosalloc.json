@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x80150704",
-      "size": 312,
+      "size": 380,
       "type": 1
     },
     {
@@ -78,10 +78,17 @@
       "address": "0x801507ec",
       "size": 80,
       "binding": 1
+    },
+    {
+      "name": "__sys_free",
+      "address": "0x8015083c",
+      "size": 68,
+      "binding": 1
     }
   ],
   "externals": {
     "MEM_alloc": "0x8014f7dc",
+    "MEM_free": "0x8014f83c",
     "MEM_init": "0x8014faf4",
     "OSCreateHeap": "0x8011151c",
     "OSGetArenaHi": "0x80111588",

@@ -9,6 +9,7 @@ int OSCreateHeap(void*, void*);
 int OSSetCurrentHeap(int);
 void MEM_init(void);
 void* MEM_alloc(const char*, unsigned long, int);
+int MEM_free(void*);
 extern unsigned int memclass[64];
 
 int iGC_OsMemory = 0x2000;
@@ -45,4 +46,10 @@ extern "C" void* __sys_alloc(unsigned long size) {
     if (memclass[0] == 0)
         MEM_init();
     return MEM_alloc("malloc pool", size, 0);
+}
+
+extern "C" void __sys_free(void* block) {
+    if (memclass[0] == 0)
+        MEM_init();
+    MEM_free(block);
 }
