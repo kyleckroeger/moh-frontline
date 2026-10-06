@@ -344,7 +344,8 @@
     "bsutil.json",
     "sst.json",
     "filedev.json",
-    "rcmpbase.json"
+    "rcmpbase.json",
+    "matstack.json"
   ],
   "progress": {
     "code_bytes": 1414572,

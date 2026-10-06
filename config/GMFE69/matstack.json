@@ -1,0 +1,167 @@
+{
+  "id": "matstack",
+  "source": "src/game/matstack.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80090c84",
+      "size": 1020,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000c6b8",
+      "size": 80,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80013730",
+      "size": 120,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034eab8",
+      "size": 8,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "ScaleRow__12CMatrixStackF8CVector3",
+      "address": "0x80090c84",
+      "size": 164,
+      "binding": 1
+    },
+    {
+      "name": "Store__12CMatrixStackFP7CMatrix",
+      "address": "0x80090d28",
+      "size": 56,
+      "binding": 1
+    },
+    {
+      "name": "Load__12CMatrixStackFPC7CMatrix",
+      "address": "0x80090d60",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "Ident__12CMatrixStackFv",
+      "address": "0x80090d90",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "Pop__12CMatrixStackFv",
+      "address": "0x80090dc0",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "PushUnit__12CMatrixStackFv",
+      "address": "0x80090dd0",
+      "size": 104,
+      "binding": 1
+    },
+    {
+      "name": "Push__12CMatrixStackFv",
+      "address": "0x80090e38",
+      "size": 84,
+      "binding": 1
+    },
+    {
+      "name": "Reset__12CMatrixStackFv",
+      "address": "0x80090e8c",
+      "size": 56,
+      "binding": 1
+    },
+    {
+      "name": "SetCurrent__12CMatrixStackFv",
+      "address": "0x80090ec4",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "Allocate__12CMatrixStackFUl",
+      "address": "0x80090ed8",
+      "size": 76,
+      "binding": 1
+    },
+    {
+      "name": "__dt__12CMatrixStackFv",
+      "address": "0x80090f24",
+      "size": 108,
+      "binding": 1
+    },
+    {
+      "name": "__ct__12CMatrixStackFv",
+      "address": "0x80090f90",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "EndClass__12CMatrixStackFv",
+      "address": "0x80090fa4",
+      "size": 88,
+      "binding": 1
+    },
+    {
+      "name": "InitClass__12CMatrixStackFv",
+      "address": "0x80090ffc",
+      "size": 132,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DWI_allocalign__FPCciii": "0x8001c8ec",
+    "Ident__7CMatrixFv": "0x8008f1b0",
+    "MEM_free": "0x8014f83c",
+    "__as__7CMatrixFRC7CMatrix": "0x80090b34",
+    "__dl__FPv": "0x8001ca2c",
+    "__nw__FUl": "0x8001cb60"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "matstack.cpp",
+  "original_file_index": 5446
+}
