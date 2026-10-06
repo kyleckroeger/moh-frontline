@@ -68,22 +68,24 @@ linked comparison then treats weak and global alike.
   with the default handler returns 0 instead of exiting.
 - `uart_console_io.c`: the Wind Waker source with `__init_uart_console`
   inlined, `__write_console` weak and no `__close_console`.
+- `bsearch.c`: checks its arguments, compares element 0, then binary-searches
+  elements 1 to `num - 1`.
 - `NewMore.cp`: `std::exception`'s destructor and `what()`, both weak (as
   header-inline members emitted with the vtable); built with RTTI on.
 
 Functions added to Wind Waker copies (absent upstream, reconstructed from the
 disassembly): `clearerr` in `misc_io.c` (placed before `__stdio_atexit`),
-`strstr` in `string.c` and `atoi` in `strtoul.c` (`strtol(str, NULL, 10)`,
-with `strtol` inlined).
+`strstr` in `string.c`, `atoi` in `strtoul.c` (`strtol(str, NULL, 10)`,
+with `strtol` inlined), and `__load_buffer` and `setvbuf` in `buffer_io.c`
+(source order reversed relative to the target).
 
 ## Open work
 
 - No reference links these, so they need reconstruction from the
   disassembly: the C++ throw/unwind code of `Gecko_ExceptionPPC.cp`
   (`__throw`, `ExPPC_*`, about 5 KB), `mslsupp.c`'s file hooks (`__open_file`
-  and the rest; Pikmin 2 has only placeholder stubs), `buffer_io.c`'s
-  `__load_buffer` and `setvbuf`, `ansi_files.c`'s file-table helpers,
-  `fopen`/`freopen`/`fread`, `bsearch`, and the
+  and the rest; Pikmin 2 has only placeholder stubs), `ansi_files.c`'s file-table helpers,
+  `fopen`/`freopen`/`fread`, and the
   `pow`/`cosf` wrappers.
 - MetroTRK: Frontline links the Wind Waker's revision (117 of 118 function
   sizes agree), but the Wind Waker decompilation marks most TRK files

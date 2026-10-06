@@ -173,7 +173,9 @@
     "SNDI_findprime.json",
     "signal.json",
     "uart_console_io.json",
-    "NewMore.json"
+    "NewMore.json",
+    "buffer_io.json",
+    "bsearch.json"
   ],
   "progress": {
     "code_bytes": 1414572,
