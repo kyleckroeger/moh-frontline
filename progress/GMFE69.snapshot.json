@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 305428,
+    "matching_code_bytes": 305916,
     "total_executable_code_bytes": 1414572,
-    "percent": 21.591548539063407,
+    "percent": 21.626046606323325,
     "categories": {
-      "reconstructed_game": 92128,
+      "reconstructed_game": 92616,
       "restored_library": 213300
     },
-    "matching_functions": 1931
+    "matching_functions": 1932
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -288,7 +288,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/particlesystem.json": "98edc553a287ab99c6e76a41c0f22717e008066ccd38b84d19a1a30aba7b2246",
-    "config/GMFE69/path.json": "445bd4633776fd8a5962999ec7b21f72e0bbffa399014fb5e25372b66f2c72b8",
+    "config/GMFE69/path.json": "a130e3f795d3112c351a4623a4f8499a6f136708db1fbba95b835f98112bf65c",
     "config/GMFE69/pathxSND.json": "711dcdf3a5a5a7b4124ae70e377c5e863dc39c8de8a0de785b3dc3921c685fa0",
     "config/GMFE69/player.json": "3da0c4cee17b1719306604f17cd111a3daf02a1570b02b9e882d2a8f93852850",
     "config/GMFE69/player_weapon_object.json": "2c451ab555672599946bb97ca631b2a316350d8f99e8e9b77cf7f8f648d219df",
@@ -1285,7 +1285,7 @@
     "src/ea/memunused.cpp": "8891e09cb882120333548c62aa2245dc6205bfa7122c8a65fa14a06e6b129fee",
     "src/ea/mutex2.cpp": "84bb5fd9e59595a55eadbe25b9bac7a9262faf5c40f7bb0cc9d23e6b0e8fbf9b",
     "src/ea/pad.cpp": "5f1c88e95616a21d9851f07b5f33cca5179f38b95ccc83e0b3335de21e816dc3",
-    "src/ea/path.c": "ae021012429aa6e8d5fb96614977643413ae0af11fa6241f5b5b4d2434465868",
+    "src/ea/path.c": "384941ad44700eb82d908c51db0ad8b90c05a4bcd8916a06cbc498128f595306",
     "src/ea/pathxSND.c": "f41cae88d965e8b7d18f31e14a637dacad3642c3cf929fc249ae80d3e1588980",
     "src/ea/printstr.cpp": "2c1c6b33e96dbf7dc958d521d28061da022a21ef0c80e3bfe2fd1ae6d4c07186",
     "src/ea/rcmp2real.cpp": "1d046950eca9f279ad901b132d22290eb4f44d42d4605181f63b1b097122ac25",
@@ -21827,8 +21827,8 @@
     {
       "id": "path",
       "category": "reconstructed_game",
-      "functions": 2,
-      "code_bytes": 260,
+      "functions": 3,
+      "code_bytes": 748,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -21862,8 +21862,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "e3439224cac41e5a569a6e5c816e8aa4749a7cbb0739f38bbe65f38ae546e0eb",
-      "linked_sha256": "44363cc691320bdd8949bc0366e19a35165f12487cc3f5a25ca88926db5a0d39"
+      "object_sha256": "a5c98933356bb72b8666284535f25c34cf1fc14f157e83a16f0dc06f80efc342",
+      "linked_sha256": "4309973f7e8808d242363ebdb9203ac036b64e57af5dd2c4e429284d6164f410"
     }
   ],
   "code_map": {
@@ -42158,13 +42158,6 @@
             "kind": "function",
             "name": "PATH_event",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x8010c098",
-            "size": 488,
-            "kind": "function",
-            "name": "PATH_control",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x8010c384",

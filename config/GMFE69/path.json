@@ -39,12 +39,18 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8010c280",
-      "size": 260,
+      "address": "0x8010c098",
+      "size": 748,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "PATH_control",
+      "address": "0x8010c098",
+      "size": 488,
+      "binding": 1
+    },
     {
       "name": "PATH_latency",
       "address": "0x8010c280",
@@ -60,6 +66,9 @@
   ],
   "externals": {
     "PATHX_overheadtrack": "0x800e99f0",
+    "inited": "0x8034ef70",
+    "pfactive": "0x8034ef74",
+    "pfstate": "0x8034ef68",
     "pfstates": "0x80316920"
   },
   "undefined_in_discarded_code": [],
@@ -67,7 +76,11 @@
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": [],
+  "sda_externals": [
+    "inited",
+    "pfactive",
+    "pfstate"
+  ],
   "original_file": "path.c",
   "original_file_index": 10551
 }
