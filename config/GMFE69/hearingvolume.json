@@ -1,0 +1,92 @@
+{
+  "id": "hearingvolume",
+  "source": "src/game/hearingvolume.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80098360",
+      "size": 168,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000cba0",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80013c94",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SetCollisionId__14CHearingVolumeF7EClsnId",
+      "address": "0x80098368",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "GetCollisionId__14CHearingVolumeCFv",
+      "address": "0x80098360",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "PlayBulletWhizBys__FP16IMovingSceneNodeP7CBullet",
+      "address": "0x80098370",
+      "size": 152,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "GetPlayer__6CSceneCFi": "0x800d8274",
+    "PlayBulletWhiz__F8CVector38CVector3P13CPlayerObject": "0x800ea76c",
+    "g_scene": "0x8019484c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "hearingvolume.cpp",
+  "original_file_index": 5913
+}

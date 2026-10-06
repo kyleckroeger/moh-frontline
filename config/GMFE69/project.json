@@ -376,7 +376,8 @@
     "ipad.json",
     "SearchNodeList.json",
     "audioplayer.json",
-    "sbasync.json"
+    "sbasync.json",
+    "hearingvolume.json"
   ],
   "progress": {
     "code_bytes": 1414572,
