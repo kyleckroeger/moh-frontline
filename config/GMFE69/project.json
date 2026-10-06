@@ -467,7 +467,8 @@
     "saemsbnk.json",
     "satospkr.json",
     "sfrsf.json",
-    "path.json"
+    "path.json",
+    "path_stop.json"
   ],
   "progress": {
     "code_bytes": 1414572,
