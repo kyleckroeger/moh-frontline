@@ -1,0 +1,95 @@
+{
+  "id": "filedev",
+  "source": "src/ea/filedev.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8014817c",
+      "size": 368,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "readfile__FP10HANDLE_defPvii",
+      "address": "0x8014817c",
+      "size": 80,
+      "binding": 1
+    },
+    {
+      "name": "writefile__FP10HANDLE_defPvii",
+      "address": "0x801481cc",
+      "size": 124,
+      "binding": 1
+    },
+    {
+      "name": "getfilesize__FP10HANDLE_def",
+      "address": "0x80148248",
+      "size": 152,
+      "binding": 1
+    },
+    {
+      "name": "stopreadfile__FP10HANDLE_def",
+      "address": "0x801482e0",
+      "size": 4,
+      "binding": 1
+    },
+    {
+      "name": "deletefile__FPCc",
+      "address": "0x801482e4",
+      "size": 8,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "OSSendMessage": "0x80113eac",
+    "ReadFileThreadMsgQ": "0x80336c50",
+    "fseek": "0x8013d234",
+    "ftell": "0x8013d490",
+    "fwrite": "0x8013c99c",
+    "gCurRead": "0x80336d00"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [
+    "gCurRead"
+  ],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "filedev.cpp",
+  "original_file_index": 12087
+}

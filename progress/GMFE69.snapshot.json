@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 253492,
+    "matching_code_bytes": 253860,
     "total_executable_code_bytes": 1414572,
-    "percent": 17.920049315269917,
+    "percent": 17.946064251236418,
     "categories": {
-      "reconstructed_game": 56488,
+      "reconstructed_game": 56856,
       "restored_library": 197004
     },
-    "matching_functions": 1323
+    "matching_functions": 1328
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -155,6 +155,7 @@
     "config/GMFE69/eaxadecf.json": "e095322fde507f7d6d85b9294940f8c4af5079fd98e5f52618a059d444cb4aff",
     "config/GMFE69/exit.json": "3b07cadf08ece16c20653f652a53f18b61ca67f91a03125fec625b819e229da3",
     "config/GMFE69/file_io.json": "1f7376a3e1cbacd1b77840e0eae4b3069ae28a805f71eb751ebf19dcd296e710",
+    "config/GMFE69/filedev.json": "345d10da83f1a2011e5fc4b9278fee1b53e1cdef4497f8fe2b0ee38ca1bafa48",
     "config/GMFE69/flush_cache.json": "aa1c08f24f7fa7ce6bf2cfa32e6ae398b7b93fea2374de2a6120d5e28e6b9578",
     "config/GMFE69/fontchar.json": "52d15cdb73d5c697247c5e96fc9c264304ab2e315365308ab6d0f47d0d6364d8",
     "config/GMFE69/fontcreate.json": "8eae282aa690a9f53df0acd27ccc63183d4e34168a62224a70720500e604ea54",
@@ -213,7 +214,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "9aeefe3a989e834f9afcb0362ee35d7a7e0fa2c7939de91e4372c550fa144c72",
+    "config/GMFE69/project.json": "33262be1cd77e5d014318f8616d3bf247f3ab9b71f0f60bb9f464640c139d66c",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1129,6 +1130,7 @@
     "src/ea/debugger.cpp": "b0711b163c768b8390ea6365a85df7956af716b54562db26832d845fcf84421b",
     "src/ea/eaxadecf.cpp": "0f0479301f8ee5e4c8dd76563e3baae9003cbc9503e21289a559dd3161583ccf",
     "src/ea/exit.cpp": "74497f5488a200cd082a1769249e659f5cd17b94ee5c7e6b2b4f3b240c9f1923",
+    "src/ea/filedev.cpp": "cb36b6354374cee49383e978a2f329ab48bddca0107bf61a0453c99ecec7735d",
     "src/ea/fontchar.cpp": "2980d56dfbdbbeb46cba293f7c2397b7518079ba32d510118510c9301ee15a47",
     "src/ea/fontcreate.cpp": "fb846d119db1a373f03387cc09f0db8bf0c80ede2c1efb305914580be2630def",
     "src/ea/fontdriver.cpp": "799464786df81aa82291f1d18699c4c4d2283338c1e6c75e4e508bc368470f9c",
@@ -16631,6 +16633,45 @@
       "discarded_functions": [],
       "object_sha256": "a8b9504199870f14e764d744c294c43c11169915856f50b797fded62c1b954a4",
       "linked_sha256": "c506b5b6e497e696b571587fef84cda8987563b7cea2489bd3412618179dc003"
+    },
+    {
+      "id": "filedev",
+      "category": "reconstructed_game",
+      "functions": 5,
+      "code_bytes": 368,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "95b5f462eff6f382d88f4d745f08f35cb78d72a831165e407c76c79a357e9c29",
+      "linked_sha256": "790dce6900e8b13ab6958d471e27b6e24522338b714c63234074c60d2b388ba1"
     }
   ],
   "code_map": {
@@ -41425,46 +41466,6 @@
             "kind": "function",
             "name": "ReadFileThreadFunc__FPv",
             "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8014817c",
-            "size": 80,
-            "kind": "function",
-            "name": "readfile__FP10HANDLE_defPvii",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 801481cc",
-        "ranges": [
-          {
-            "address": "0x801481cc",
-            "size": 124,
-            "kind": "function",
-            "name": "writefile__FP10HANDLE_defPvii",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80148248",
-            "size": 152,
-            "kind": "function",
-            "name": "getfilesize__FP10HANDLE_def",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801482e0",
-            "size": 4,
-            "kind": "function",
-            "name": "stopreadfile__FP10HANDLE_def",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801482e4",
-            "size": 8,
-            "kind": "function",
-            "name": "deletefile__FPCc",
-            "evidence": "unknown-file"
           }
         ]
       },
