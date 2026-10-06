@@ -7,52 +7,29 @@ static TRKFramingState gTRKFramingState;
 void* gTRKInputPendingPtr;
 
 extern int TRKPollUART(void);
+MessageBufferID TRKTestForPacket(void);
+void TRKProcessInput(int bufferIdx);
 
-MessageBufferID TRKTestForPacket() {
-    u8 payloadBuf[0x880];
-    u8 packetBuf[0x40];
-    int bufID;
-    TRKBuffer* msg;
-    MessageBufferID result;
-
-    if (TRKPollUART() <= 0) {
-        return -1;
-    }
-
-    result = TRKGetFreeBuffer(&bufID, &msg);
-
-    TRKSetBufferPosition(msg, 0);
-    if (TRKReadUARTN(packetBuf, 0x40) == UART_NoError) {
-        int readSize;
-
-        TRKAppendBuffer_ui8(msg, packetBuf, 0x40);
-        readSize = ((u32*)packetBuf)[0] - 0x40;
-        result = bufID;
-        if (readSize > 0) {
-            if (TRKReadUARTN(payloadBuf, ((u32*)packetBuf)[0] - 0x40) == UART_NoError) {
-                TRKAppendBuffer_ui8(msg, payloadBuf, ((u32*)packetBuf)[0]);
-            } else {
-                TRKReleaseBuffer(result);
-                result = -1;
-            }
-        }
-    } else {
-        TRKReleaseBuffer(result);
-        result = -1;
-    }
-
-    return result;
-}
+// TRKTestForPacket follows in the original file. Frontline's revision is
+// an HDLC-style framing state machine (0x7E/0x7D, TRKReadUARTPoll) that
+// is not reconstructed yet, so this unit covers only the functions before it.
 
 void TRKGetInput(void) {
-    MessageBufferID id = TRKTestForPacket();
-    if (id != -1) {
-        TRKEvent event;
-        TRKGetBuffer(id);
-        TRKConstructEvent(&event, NUBEVENT_Request);
-        event.msgBufID = id;
-        gTRKFramingState.msgBufID = -1;
-        TRKPostEvent(&event);
+    TRKBuffer* msgbuffer;
+    int bufID;
+    u8 command;
+
+    bufID = TRKTestForPacket();
+
+    if (bufID != -1) {
+        msgbuffer = TRKGetBuffer(bufID);
+        TRKSetBufferPosition(msgbuffer, 0);
+        TRKReadBuffer1_ui8(msgbuffer, &command);
+        if (command < 0x80) {
+            TRKProcessInput(bufID);
+        } else {
+            TRKReleaseBuffer(bufID);
+        }
     }
 }
 

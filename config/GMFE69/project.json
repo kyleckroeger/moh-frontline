@@ -318,7 +318,8 @@
     "PPCArch.json",
     "dolphin_trk.json",
     "dispatch.json",
-    "notify.json"
+    "notify.json",
+    "serpoll.json"
   ],
   "progress": {
     "code_bytes": 1414572,

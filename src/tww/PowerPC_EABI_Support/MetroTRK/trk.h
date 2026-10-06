@@ -211,7 +211,7 @@ typedef struct TRKBuffer {
 typedef struct TRKFramingState {
     MessageBufferID msgBufID;    // _00
     TRKBuffer* buffer;           // _04
-    ReceiverState receiveState;  // _08
+    u8 receiveState;             // _08
     BOOL isEscape;               // _0C
     u8 fcsType;                  // _10
 } TRKFramingState;
