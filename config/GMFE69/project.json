@@ -549,7 +549,10 @@
     "bsbifunc_mpweapons.json",
     "bsbifunc_objective.json",
     "bsbifunc_mgflag.json",
-    "bsbifunc_collision.json"
+    "bsbifunc_collision.json",
+    "bsbifunc_mmg.json",
+    "bsbifunc_ground.json",
+    "bsbifunc_respawn.json"
   ],
   "progress": {
     "code_bytes": 1414572,
