@@ -431,7 +431,8 @@
     "AnimObjFactory.json",
     "anim_callback.json",
     "printstr.json",
-    "sphere.json"
+    "sphere.json",
+    "UserInterface.json"
   ],
   "progress": {
     "code_bytes": 1414572,

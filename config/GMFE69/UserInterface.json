@@ -1,0 +1,93 @@
+{
+  "id": "UserInterface",
+  "source": "src/game/UserInterface.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800bf2d4",
+      "size": 280,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000dbe8",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80014a80",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "__dt__13UserInterfaceFv",
+      "address": "0x800bf2d4",
+      "size": 280,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "__dl__FPv": "0x8001ca2c",
+    "blackSprite__13UserInterface": "0x8034ebd4",
+    "bulletText__13UserInterface": "0x8034ebe8",
+    "compassEdgeSprite__13UserInterface": "0x8034ebcc",
+    "compassSprite__13UserInterface": "0x8034ebc4",
+    "g_bInMultiplayerMode": "0x8034eca5",
+    "healthSprite__13UserInterface": "0x8034ebc0",
+    "hitMeterSprite__13UserInterface": "0x8034ebd0"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "blackSprite__13UserInterface",
+    "bulletText__13UserInterface",
+    "compassEdgeSprite__13UserInterface",
+    "compassSprite__13UserInterface",
+    "g_bInMultiplayerMode",
+    "healthSprite__13UserInterface",
+    "hitMeterSprite__13UserInterface"
+  ],
+  "original_file": "UserInterface.cpp",
+  "original_file_index": 7237
+}
