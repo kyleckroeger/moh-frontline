@@ -582,7 +582,9 @@
     "bsbifunc_coverleave.json",
     "bsbifunc_obstacle.json",
     "bsbifunc_aistatus.json",
-    "bsbifunc_debug.json"
+    "bsbifunc_debug.json",
+    "bsbifunc_hierfire.json",
+    "bsbifunc_hiermap.json"
   ],
   "progress": {
     "code_bytes": 1414572,
