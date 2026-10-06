@@ -1,0 +1,100 @@
+{
+  "id": "weapon_bullet",
+  "source": "src/game/weapon_bullet.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800d4fac",
+      "size": 172,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000e778",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80015500",
+      "size": 24,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SetInfiniteAmo__7CWeaponFb",
+      "address": "0x800d4fac",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "CanCook__7CWeaponCFv",
+      "address": "0x800d4fbc",
+      "size": 60,
+      "binding": 1
+    },
+    {
+      "name": "GetWeaponSoundType__7CWeaponCFv",
+      "address": "0x800d4ff8",
+      "size": 12,
+      "binding": 1
+    },
+    {
+      "name": "GetBulletSpeed__7CWeaponCFv",
+      "address": "0x800d5004",
+      "size": 84,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "CanBulletTypeCook__14CBulletFactoryFbi": "0x800cd7ac",
+    "GetBulletWeight__14CBulletFactoryFbi": "0x800ccda8",
+    "g_pBulletFactory": "0x8034e9e0"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "g_pBulletFactory"
+  ],
+  "original_file": "weapon.cpp",
+  "original_file_index": 8261
+}

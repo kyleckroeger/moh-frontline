@@ -508,7 +508,9 @@
     "sound_music.json",
     "player_weapon.json",
     "animated_bind.json",
-    "objcreate_volumes.json"
+    "objcreate_volumes.json",
+    "weapon_head.json",
+    "weapon_bullet.json"
   ],
   "progress": {
     "code_bytes": 1414572,
