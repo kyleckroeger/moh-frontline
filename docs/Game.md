@@ -87,6 +87,7 @@ and layouts it marks as descriptive stay descriptive here.
 | `gcSystem.cpp` | 5 | 232 | — | Critical sections over `MUTEX_create`/`MUTEX_destroy` (a 28-byte mutex, owner thread and count) and `SysInitDependent` (`OSInit`, `DVDInit`) |
 | `dmgeom.cpp` (fragment) | 1 | 44 | — | `DMGeomSetNodeState` only; `DMGeomResetState` is drafted but not matched |
 | `LinkedList.cpp` | 8 | 424 | — | Singly linked list (head, tail, count) and its element |
+| `texpack.cpp` | 6 | 428 | — | Texture pack lookup (`bsearch` over 16-byte names) and offset fix-up; with its weak `offsetPtr` instantiations. Its own copy of `offsetPtr<void>` was dropped by the linker in favour of propdat's, so the source declares that specialisation instead of instantiating it |
 
 ## Endian conversions
 
@@ -163,4 +164,5 @@ establish a type, the source comments say so.
 | `idct.cpp` | 1 | 232 | Clip-table set-up of the MPEG-2 reference decoder's fast IDCT (`iclp[i]` clamped to -256..255) |
 | `inittmr.cpp` | 5 | 524 | REAL timer set-up: a periodic OS alarm at `bus clock / 4 / hz` posts to the timer thread, which runs eight handler slots; the tick counters are volatile |
 | `timerthread.cpp` | 4 | 352 | The timer thread's message loop and its queue, stack and thread objects |
+| `exit.cpp` | 4 | 488 | REAL exit handlers: a 64-entry table run in reverse on restore; `REAL_exit` inlines `REAL_restore` |
 

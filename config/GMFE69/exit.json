@@ -1,0 +1,88 @@
+{
+  "id": "exit",
+  "source": "src/ea/exit.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x801518d0",
+      "size": 488,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80193250",
+      "size": 256,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "REAL_restore",
+      "address": "0x801518d0",
+      "size": 108,
+      "binding": 1
+    },
+    {
+      "name": "REAL_exit",
+      "address": "0x8015193c",
+      "size": 116,
+      "binding": 1
+    },
+    {
+      "name": "REAL_addexit",
+      "address": "0x801519b0",
+      "size": 192,
+      "binding": 1
+    },
+    {
+      "name": "REAL_removeexit",
+      "address": "0x80151a70",
+      "size": 72,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "exit": "0x8013a420"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "exit.cpp",
+  "original_file_index": 12507
+}

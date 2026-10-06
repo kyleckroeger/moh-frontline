@@ -1,4 +1,5 @@
 """CodeWarrior compilation and shared SN linking with typed small-data externals."""
+import re
 import struct
 from functools import lru_cache
 
@@ -71,7 +72,9 @@ def sdk_link_script(unit, obj, original, tools, work, execute):
     originals = list(original.symbols())
     for index, (name, address) in enumerate(unit["externals"].items()):
         if name not in small:
-            script.append(f"{name} = {address};")
+            # Template names such as offsetPtr<v>__FRPvi need quoting in the script.
+            symbol = f'"{name}"' if not re.fullmatch(r"[A-Za-z0-9_.$@]+", name) else name
+            script.append(f"{symbol} = {address};")
             continue
         target = resolve_external(original, unit, name)
         section = original.sections[target["section"]]

@@ -187,7 +187,9 @@
     "dmgeom.json",
     "LinkedList.json",
     "timerthread.json",
-    "inittmr.json"
+    "inittmr.json",
+    "exit.json",
+    "texpack.json"
   ],
   "progress": {
     "code_bytes": 1414572,
