@@ -1,0 +1,145 @@
+{
+  "id": "animdb",
+  "source": "src/game/animdb.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80061ce4",
+      "size": 1264,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000b388",
+      "size": 56,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x8001244c",
+      "size": 84,
+      "type": 1
+    },
+    {
+      "name": ".rodata",
+      "address": "0x80170500",
+      "size": 39,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034e930",
+      "size": 16,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "GetTransList__13CAnimDatabaseFUlUlP24AnimTranTransListArray_t",
+      "address": "0x80061ce4",
+      "size": 180,
+      "binding": 1
+    },
+    {
+      "name": "GetStateAnimList__13CAnimDatabaseFUlUlP23AnimFileStateAnimList_t",
+      "address": "0x80061d98",
+      "size": 176,
+      "binding": 1
+    },
+    {
+      "name": "GetStateInfo__13CAnimDatabaseFUlUs",
+      "address": "0x80061e48",
+      "size": 188,
+      "binding": 1
+    },
+    {
+      "name": "GetStateCallbackID__13CAnimDatabaseFUlUs",
+      "address": "0x80061f04",
+      "size": 188,
+      "binding": 1
+    },
+    {
+      "name": "AddFile__13CAnimDatabaseFP16AnimFileFormat_tP14CAnimDebugFile",
+      "address": "0x80061fc0",
+      "size": 268,
+      "binding": 1
+    },
+    {
+      "name": "Init__13CAnimDatabaseFv",
+      "address": "0x800620cc",
+      "size": 200,
+      "binding": 1
+    },
+    {
+      "name": "__dt__13CAnimDatabaseFv",
+      "address": "0x80062194",
+      "size": 60,
+      "binding": 1
+    },
+    {
+      "name": "__ct__13CAnimDatabaseFv",
+      "address": "0x800621d0",
+      "size": 4,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "ARAM_NEW_pool": "0x80150260",
+    "ARAM_NEW_poolmanager": "0x801501ec",
+    "ARCheckInit": "0x8011e7cc",
+    "ARInit": "0x8011e7d4",
+    "ARQInit": "0x8011f3f4",
+    "AnimFileGetObjectType": "0x8006374c",
+    "AnimFileGetStateAnimList": "0x800635f0",
+    "AnimFileGetStateCallbackID": "0x800636e0",
+    "AnimFileGetStateInfo": "0x800634e8",
+    "AnimFileGetStateTransList": "0x80063538",
+    "CopyAnimFileFormatStructureToDynMem__FP16AnimFileFormat_t": "0x800621d4",
+    "UploadFramesToARAM__FP16AnimFileFormat_tPUcPUc": "0x80063334",
+    "__dl__FPv": "0x8001ca2c",
+    "memset": "0x80009410"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "animdb.cpp",
+  "original_file_index": 2883
+}

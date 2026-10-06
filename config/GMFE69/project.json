@@ -333,7 +333,8 @@
     "configfile.json",
     "animwgt.json",
     "animchan.json",
-    "animseq.json"
+    "animseq.json",
+    "animdb.json"
   ],
   "progress": {
     "code_bytes": 1414572,
