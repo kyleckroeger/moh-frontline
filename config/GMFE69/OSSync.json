@@ -40,12 +40,18 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80115950",
-      "size": 100,
+      "address": "0x80115930",
+      "size": 132,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "SystemCallVector",
+      "address": "0x80115930",
+      "size": 32,
+      "binding": 0
+    },
     {
       "name": "__OSInitSystemCall",
       "address": "0x80115950",
@@ -56,8 +62,6 @@
   "externals": {
     "DCFlushRangeNoSync": "0x801118e8",
     "ICInvalidateRange": "0x80111948",
-    "__OSSystemCallVectorEnd": "0x8011594c",
-    "__OSSystemCallVectorStart": "0x80115930",
     "__flush_cache": "0x80007350",
     "__init_hardware": "0x80007330",
     "__start": "0x80007140",

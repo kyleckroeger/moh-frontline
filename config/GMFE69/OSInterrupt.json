@@ -40,8 +40,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80113618",
-      "size": 2000,
+      "address": "0x801135cc",
+      "size": 2152,
       "type": 1
     },
     {
@@ -59,10 +59,34 @@
   ],
   "functions": [
     {
+      "name": "ExternalInterruptHandler",
+      "address": "0x80113de8",
+      "size": 76,
+      "binding": 0
+    },
+    {
       "name": "SetInterruptMask",
       "address": "0x801136bc",
       "size": 728,
       "binding": 0
+    },
+    {
+      "name": "OSDisableInterrupts",
+      "address": "0x801135cc",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "OSEnableInterrupts",
+      "address": "0x801135e0",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "OSRestoreInterrupts",
+      "address": "0x801135f4",
+      "size": 36,
+      "binding": 1
     },
     {
       "name": "__OSSetInterruptHandler",
@@ -102,13 +126,10 @@
     }
   ],
   "externals": {
-    "ExternalInterruptHandler": "0x80113de8",
-    "OSDisableInterrupts": "0x801135cc",
     "OSDisableScheduler": "0x80115af8",
     "OSEnableScheduler": "0x80115b38",
     "OSGetTime": "0x80116a40",
     "OSLoadContext": "0x80111fec",
-    "OSRestoreInterrupts": "0x801135f4",
     "__OSReschedule": "0x8011602c",
     "__OSSetExceptionHandler": "0x801109e8",
     "__flush_cache": "0x80007350",
@@ -133,9 +154,7 @@
   },
   "original_file": "OSInterrupt.c",
   "original_file_index": 10760,
-  "local_externals": [
-    "ExternalInterruptHandler"
-  ],
+  "local_externals": [],
   "discarded_local_functions": [],
   "sda_externals": [],
   "adapted_from": {

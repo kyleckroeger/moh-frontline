@@ -1,0 +1,136 @@
+{
+  "id": "mtx",
+  "source": "src/dolphin/mtx/mtx.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80116bb0",
+      "size": 284,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x80351420",
+      "size": 8,
+      "type": 1,
+      "linked_offset": 32,
+      "linked_size": 64
+    }
+  ],
+  "functions": [
+    {
+      "name": "PSMTXIdentity",
+      "address": "0x80116bb0",
+      "size": 44,
+      "binding": 1
+    },
+    {
+      "name": "PSMTXInvXpose",
+      "address": "0x80116bdc",
+      "size": 200,
+      "binding": 1
+    },
+    {
+      "name": "PSMTXScale",
+      "address": "0x80116ca4",
+      "size": 40,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "cosf": "0x80143980"
+  },
+  "undefined_in_discarded_code": [
+    "C_VECDotProduct",
+    "C_VECNormalize",
+    "PSVECCrossProduct",
+    "PSVECNormalize",
+    "sinf",
+    "tanf"
+  ],
+  "discarded_functions": [
+    "C_MTXIdentity",
+    "C_MTXCopy",
+    "PSMTXCopy",
+    "C_MTXConcat",
+    "PSMTXConcat",
+    "C_MTXConcatArray",
+    "PSMTXConcatArray",
+    "C_MTXTranspose",
+    "PSMTXTranspose",
+    "C_MTXInverse",
+    "PSMTXInverse",
+    "C_MTXInvXpose",
+    "C_MTXRotRad",
+    "PSMTXRotRad",
+    "C_MTXRotTrig",
+    "PSMTXRotTrig",
+    "__PSMTXRotAxisRadInternal",
+    "PSMTXRotAxisRad",
+    "C_MTXRotAxisRad",
+    "C_MTXTrans",
+    "PSMTXTrans",
+    "C_MTXTransApply",
+    "PSMTXTransApply",
+    "C_MTXScale",
+    "C_MTXScaleApply",
+    "PSMTXScaleApply",
+    "C_MTXQuat",
+    "PSMTXQuat",
+    "C_MTXReflect",
+    "PSMTXReflect",
+    "C_MTXLookAt",
+    "C_MTXLightFrustum",
+    "C_MTXLightPerspective",
+    "C_MTXLightOrtho"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/mtx/mtx.c"
+  },
+  "original_file": "mtx.c",
+  "original_file_index": 10844,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "__PSMTXRotAxisRadInternal"
+  ],
+  "sda_externals": [],
+  "stripped_sections": [
+    ".sdata"
+  ]
+}

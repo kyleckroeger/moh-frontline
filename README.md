@@ -58,7 +58,7 @@ Run the scripts from any directory; all outputs remain inside this checkout. `ba
 ## Next work
 
 1. **Resolve the remaining file boundaries.** `tools/file_map.py` places most symbols in their source files from symbols, relocations and link order, and the per-file split relinks identically. About 1,200 symbols near file boundaries remain unresolved (see the [audit](docs/initial-audit.md#per-file-splits)); verified units settle them.
-2. **More Dolphin SDK units.** 78 SDK units are verified (76 with CodeWarrior `GC/1.2.5n`, 2 with `GC/1.2.5`); the [open problems](docs/Dolphin.md#open-problems) list what blocks the rest.
+2. **More Dolphin SDK units.** 80 SDK units are verified (78 with CodeWarrior `GC/1.2.5n`, 2 with `GC/1.2.5`); the [open problems](docs/Dolphin.md#open-problems) list what blocks the rest.
 3. **Mutation tests** for accepted units (see `tests/test_reconstruction.py`), then MSL, MetroTRK and game code.
 4. Register the project on decomp.dev (see [Progress.md](docs/Progress.md)).
 

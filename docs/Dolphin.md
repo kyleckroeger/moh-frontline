@@ -69,7 +69,8 @@ Upstream is commit `eb1234c` of dolsdk2001.
 ## Local modifications to the 2004 tree
 
 Other units are verified from `src/dolphin/` (the 2004 adaptation).
-`mtx44.c` and `dsp_task.c` need no change. The files below keep behaviour that the 2004 source
+`mtx44.c`, `dsp_task.c` and `mtx.c` need no change; `mtx.c` and `OSMemory.c` were imported
+from upstream at the pinned commit, because the local copies lacked them. The files below keep behaviour that the 2004 source
 later changed (the `card` units, `pad/Padclamp.c`'s Dec 2001 `PADClampRegion`,
 `exi/EXIUart.c`), so they are edited against the original bytes.
 
@@ -115,6 +116,9 @@ later changed (the `card` units, `pad/Padclamp.c`'s Dec 2001 `PADClampRegion`,
 | `dvd/dvd.c` | `DVDCancelAsync` and `DVDCheckDisk` drop later-2004 additions | `DVDCancelAsync` has no `executing = &DummyCommandBlock` in the cover/motor case (624 bytes); `DVDCheckDisk` has no `ResumeFromHere` test in the END/PAUSING case (228 bytes) |
 | `ar/ar.c` | Drop `__ARVersion` and its `OSRegisterVersion` call | `ARInit` at `0x8011e7d4` is 188 bytes; the 2004 body with the call is 196 |
 | `ar/ar.c` | Dec 2001 `__ARChecksize`: the 2004 preamble (wait for the controller, fixed 16 MB internal size, `__AR_ExpansionSize`) without the 2004 ARAM save/restore buffers; five dummy writes, then one test write and read, then the expansion probes, each read followed by `PPCSync` and no invalidate. The mode bits keep the 2004 spellings (`ARAM_mode \|= 0 << 1`, `4 << 1`, ...), which the final register write's code depends on. Reconstructed from the disassembly | `__ARChecksize` at `0x8011e910` is 2,324 bytes with a 312-byte frame (three 63-byte pads; 2004 builds 6,132, 2001 3,788); inlined `__ARWriteDMA`/`__ARReadDMA` with the 2004 `__ARClearInterrupt` sequence (`li -137`/`ori 32`); stores to `__AR_InternalSize` (`-26544(r13)`) and `__AR_ExpansionSize` (`-26540`) |
+| `os/OSInterrupt.c` | Restore `OSDisableInterrupts`, `OSEnableInterrupts`, `OSRestoreInterrupts` and the `static` `ExternalInterruptHandler` (`asm`, copied from dolsdk2001), which the local copy had left out | Functions at `0x801135cc` (20 bytes), `0x801135e0` (20), `0x801135f4` (36), and file-local `ExternalInterruptHandler` at `0x80113de8` (76) in the `OSInterrupt.c` record; `__RAS_OSDisableInterrupts_begin`/`_end` labels at `0x801135cc`/`0x801135dc` |
+| `os/OSSync.c` | Restore the `static asm` `SystemCallVector` from dolsdk2001, which the local copy had left out | File-local `SystemCallVector` at `0x80115930` (32 bytes) in the `OSSync.c` record, bracketed by `__OSSystemCallVectorStart`/`End` |
+| `os/OSMemory.c` | `__OSErrorTable` is `extern`. `__OSInitMemoryProtection` selects `Config24MB`/`Config48MB` right after disabling interrupts, before the MEM register setup, and its 24 MB test sets `__MEMRegs[20]` without `DCInvalidateRange` | `__OSErrorTable` belongs to `OSError.c`; `__OSInitMemoryProtection` at `0x80114210` is 288 bytes (upstream builds 280) with the `RealMode` calls before `sth` to `__MEMRegs[16]`, and no `DCInvalidateRange` relocation |
 
 ## Porting workflow
 

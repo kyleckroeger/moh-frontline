@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 139968,
+    "matching_code_bytes": 142928,
     "total_executable_code_bytes": 1414572,
-    "percent": 9.89472434064862,
+    "percent": 10.103974912553054,
     "categories": {
       "reconstructed_game": 0,
-      "restored_library": 139968
+      "restored_library": 142928
     },
-    "matching_functions": 598
+    "matching_functions": 630
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -64,21 +64,22 @@
     "config/GMFE69/OSContext.json": "678a14c04297999d61b92b1c85c5aeaad341181b6a9ff0c80c62d12e87b562e6",
     "config/GMFE69/OSError.json": "c7b0ad34648538e94301b0bc8c5c6fe4b4bbea81546b42cb56b10e3af1a7655f",
     "config/GMFE69/OSFont.json": "afbd3ddd9f77cfc60e058845924cb05046468d2e3bba5c4b7180be9faa38f8d7",
-    "config/GMFE69/OSInterrupt.json": "f5c05cf460a925e69e0498258555ab02f61bfef7f808494ed08197b834b4410e",
+    "config/GMFE69/OSInterrupt.json": "f18f974e2e3e2e6ad625ee1e07ec1fd14b5929cb24cbc08c28e9a5ebade3fd85",
     "config/GMFE69/OSLink.json": "3f8bb6e15dbdb60dadeba4a00dd5534d0695c81ba10c4c94662697437dd7bea1",
+    "config/GMFE69/OSMemory.json": "3b2f8cb0712628f20ecc069102b8e6cbc19bc1023947743446d2ea6d0502dc93",
     "config/GMFE69/OSMessage.json": "28f4ca013eb889f29452ce4b60a40bb32e49647ac513ed167fb959d48d32f37e",
     "config/GMFE69/OSMutex.json": "73821799678006005768465d02abed822ac63d97c863f28923bb68efacc692ab",
     "config/GMFE69/OSReset.json": "77625b94ecae7bcd0bab3364c46eb2b225853b5c4b4799e9d23e634962621119",
     "config/GMFE69/OSResetSW.json": "448c1b07ffd33631e830f0aad1595aad417cad2159f0b897410bae4027a16f14",
     "config/GMFE69/OSRtc.json": "2b3f59e100a488b914b76173a7bf9182eb89539f5a156a569a2e3743451c22b8",
-    "config/GMFE69/OSSync.json": "27c30f37b10db00a3b25b1f38ff69d7c33ab7870f9727aa1bdf9be17332991c8",
+    "config/GMFE69/OSSync.json": "06255b0aaf96ae8e5c7cf3b363d66e1b7b7a7ba742a870e2256f7705d5eb2a14",
     "config/GMFE69/OSThread.json": "38638c5451250dd068469a8b6b609d98e9aabad647ceb265a4cfd78f3d497cca",
     "config/GMFE69/OSTime.json": "eb335b6100ab9c431f68433844f0426983bb54d3574ead92ee3aa46d5f83ffa6",
     "config/GMFE69/Pad.json": "0b2c4b221832a5e352c0236d90c02e9938bb4a00392741832f1510da07a7770d",
     "config/GMFE69/Padclamp.json": "570f443e7a228e96a9e869248c68a59a1d9e68052c20523d1c9a482772bfe76b",
     "config/GMFE69/SIBios.json": "ef42fc4b95402bef0544ec5fe1a10c75781171f56afba7954318d42020fd6c1a",
     "config/GMFE69/SISamplingRate.json": "e4def7467ec8d82fdb9730412721675a9ea0e7ce572d5b8b63e89c3bdfe1eb84",
-    "config/GMFE69/ai_src.json": "f0c8725cb5fed0ec6bbd3940f8c439dc47168cfd29a94c4b891cf592973d7e1a",
+    "config/GMFE69/ai.json": "57c30f25d932fdeb3f89033a5520f9d2de67dc88142e1f33a09be06723837827",
     "config/GMFE69/ar.json": "f7bf6b4079ed418edeb4c95ff15f08f4450ac1e184d58dd1af945665137df3c2",
     "config/GMFE69/arq.json": "53c9d956d7cd2b69c858816128443494613f46b3ad680d5056ae00227df49900",
     "config/GMFE69/baseline.json": "36a2b85cf4193e53afac79bdd2a8fdbf8dfb1880cae89e119463f2c81461b42f",
@@ -92,9 +93,10 @@
     "config/GMFE69/dvdlow.json": "42a078d56dcdf064392e009265a8acb918851c6a9ad5459e2b9adf8dd8c891e9",
     "config/GMFE69/dvdqueue.json": "3972551d2dea13e4955e0652398d4423a1ecfbf913abb2f4a0d352a2d558c905",
     "config/GMFE69/fstload.json": "c101975fb01250bc8f0325effbe643330b62ccd00eac41e24aff682c06866309",
+    "config/GMFE69/mtx.json": "61ba8caa4839c1bb759b694d83cff465e9a2e293d606c43603098ae206217583",
     "config/GMFE69/mtx44.json": "6ec8c80e78a896f985eb769ac01b97ff684e2d83116660d2c740123270c0ddf5",
     "config/GMFE69/mtxvec.json": "bb6a4f09ca854ab9a727be34f0a20df7f53e0e081e1b83581418b88de9987009",
-    "config/GMFE69/project.json": "f014839b0610d127638bc8419e79b2dce4856d24f7ffb23694e7bae3e4016425",
+    "config/GMFE69/project.json": "16c65aea64d238de520be8b020579a99a9e429a2aff8ed6a416ce7891f8c42e2",
     "config/GMFE69/target.json": "f7e8d7b660fd35f21cdc13385271d7b73fabda6669a0d112db63b3b1f3e8b3b2",
     "config/GMFE69/vi.json": "3341dbca41fdd83ec556de88bdc9cedb4cbd6a7c397486637cd9b6ed88713655",
     "include/dolphin-sdk/charPipeline/fileCache.h": "9fc5bbfba874376ec1d239271cda99d84c256b2bd07f884d1177bee6b705b985",
@@ -348,7 +350,6 @@
     "src/dolphin/NETWORK_NOTICE": "bb4c39371835c344ec608a98b06c3c44d39b0df7060c37ae1c200a4d48471b16",
     "src/dolphin/NOTICE": "0d179cb87cd8a7bfb706069a1d5e618f425bbe25885b61fc4d5223e724fddad3",
     "src/dolphin/ai/ai.c": "e491df5610ef1f48b432dfed87993a98d4265ddd169da880449aad4845e1a3c2",
-    "src/dolphin/ai/ai_src.c": "8172e0fb8f2e5e2396a537286911aa6dcbbd5d5a19925c13d917d161a64f4684",
     "src/dolphin/am/__am.h": "137f11f4b674b6092eb50d6c758b3dd3992d4061d35e4a291c9119e5637ec11e",
     "src/dolphin/amcstubs/AmcExi2Stubs.c": "ce733638d79f518a95c170728fb8ed670ffdfaf693a33ff7ef72a8f039cbc1ca",
     "src/dolphin/ar/__ar.h": "17242784988ea0273bcf5d7d4bbca91e4e65ceb73330694dd5b531150584c102",
@@ -438,6 +439,7 @@
     "src/dolphin/ip/TCPTransport.c": "81b566ef3453567feb05d82fef724f9b418db6931b28ca215de6fcb40b9aa616",
     "src/dolphin/ip/TCPUser.c": "56ac1f304f2b050e7beb15f2d6238cb27cfc7158b07a06ed0f44263035c71b23",
     "src/dolphin/ip/UDPTransport.c": "072293a2c4773c4e7eec45a7500bb8545b41678c6f2be0224000d0c16f81f625",
+    "src/dolphin/mtx/mtx.c": "32b7a996496d986f736f3eaf6c423a132c3867cf5df52a30e2080b78a85729c3",
     "src/dolphin/mtx/mtx44.c": "7e0525518b6d66fb81116b920c97b3dd1d888c2dbbce844f520606cbc140ee34",
     "src/dolphin/os/OS.c": "bef87476a6b40543ba86c2b96ceeac7905236169c14d16b401c4e2f0bfccda0f",
     "src/dolphin/os/OSAlarm.c": "34697e9fef0b467d5787cdc78a9445a237f7e9f08724e0c0b495a6da049878b6",
@@ -449,15 +451,15 @@
     "src/dolphin/os/OSError.c": "5e03f95da7a21b9b9de8de421a9611006e9bd16212a6207c2bc63e29297f3b00",
     "src/dolphin/os/OSFatalScreen.c": "d8b538649b7ed51598bc17fc825ae4a3191f4370c2b44de8f36c1bcbcee64ee0",
     "src/dolphin/os/OSFont.c": "4603da6e76f803cae7ee93ec2a8b6f3b619437f2e2d60f3d062911d8d6275d19",
-    "src/dolphin/os/OSInterrupt.c": "f51a271244764616a50f9c833505664bce7a08e888e978236495b9ac40cc0942",
+    "src/dolphin/os/OSInterrupt.c": "a2be720d24ca6589c79117321fdb38ed0bcb501b39ceb3018ad2be29a4645139",
     "src/dolphin/os/OSLink.c": "d16d1bb119b4f64183077edaaf849555e275e5152bf59ffc36ee7e9f94e14da8",
-    "src/dolphin/os/OSMemory.c": "69d5e2f37ddc944022d40b729203959bd701b02812b8362e79d6942346d98947",
+    "src/dolphin/os/OSMemory.c": "6e048e6ca0c1a39e7045b57f4091e157f54ba1ea022467fe43fd06944d920705",
     "src/dolphin/os/OSMessage.c": "9bb48fe1a23cd3921bdaf5695af91ca39bc6aaa271d3057a11220349467464b0",
     "src/dolphin/os/OSMutex.c": "4e604e4f34cbea5246aff955fd852e988cc1a784b6d0fcdabf85326baa50f37e",
     "src/dolphin/os/OSReset.c": "7ab5d656c32b63ed41216b706d8e5f42e4b789c0c15ce633cd2fce3d22c29e47",
     "src/dolphin/os/OSResetSW.c": "788867f6d5feb79c50dea0457ab8bd254968011393c5b15f8c320ac758342686",
     "src/dolphin/os/OSRtc.c": "6df2bbe5ee8665e14185fb345bc971ce3a948f32a27beac43019c98a436bfc9b",
-    "src/dolphin/os/OSSync.c": "93ac4dd7435d3885065ed2e895eeb56e0c0515453b9b4c60d043d4e3ca0d9745",
+    "src/dolphin/os/OSSync.c": "8bf8d449fb45c92ca95f8a2ee64cd3b26afc33d5df90781f040df72ca086810b",
     "src/dolphin/os/OSThread.c": "0cb186937e515974a464a69d2d579dc2dd0e84d4df5884c64b95d6ce5c126e57",
     "src/dolphin/os/OSTime.c": "9a52461f409da4409445534abbb68d52f7c44635ea4e4a753a63d50e67250aca",
     "src/dolphin/os/__os.h": "d2f66ca0cc016fa0684da5b96179a0eebbdcd8cdc7f7b7f0f4ac27230e5d8772",
@@ -1419,8 +1421,8 @@
     {
       "id": "OSInterrupt",
       "category": "restored_library",
-      "functions": 7,
-      "code_bytes": 2000,
+      "functions": 11,
+      "code_bytes": 2152,
       "compiler_family": "GC",
       "compiler_version": "1.2.5n",
       "compiler_flags": [
@@ -1456,8 +1458,8 @@
         "OSGetInterruptMask",
         "OSSetInterruptMask"
       ],
-      "object_sha256": "4307707a9ee5a5116c989dd727396eda42885c2246f399f2ac20dd68185f49a6",
-      "linked_sha256": "0b8329ad8f5c5181d9f05fb1a1c90b8ab5e091dba69e955d788fd7e521ccbb00"
+      "object_sha256": "ad9207ee793579a33ed04628f371493274e28ac4aeff99381201573a68840f77",
+      "linked_sha256": "49b24e7135cc8f7444202139ff344b7d302248a4be5e2020f4aa7204a52dc226"
     },
     {
       "id": "OSReset",
@@ -1503,8 +1505,8 @@
     {
       "id": "OSSync",
       "category": "restored_library",
-      "functions": 1,
-      "code_bytes": 100,
+      "functions": 2,
+      "code_bytes": 132,
       "compiler_family": "GC",
       "compiler_version": "1.2.5n",
       "compiler_flags": [
@@ -1537,8 +1539,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "cabd2636052fcb9e55ffaf4bc7f7c86747191351e4a95f4959399102701987e4",
-      "linked_sha256": "64e0fb48821000ed933eb67d97a138947988a507c989e380a9f1888849efb43b"
+      "object_sha256": "dd41388ad00674cd53c65edb2fd90c7c4e8a3ce5b976ca6bd76fa023b9612840",
+      "linked_sha256": "e57a9eea7146a60c7f95708df1668d6e4cd20c39077c9ed3139aa732f9c75e9e"
     },
     {
       "id": "AX",
@@ -1973,15 +1975,15 @@
       "linked_sha256": "15833a624cac7695b3181f63d688a08fa9bbd848ae1ce0419faf4b1f6b21be23"
     },
     {
-      "id": "ai_src",
+      "id": "ai",
       "category": "restored_library",
-      "functions": 1,
-      "code_bytes": 484,
+      "functions": 19,
+      "code_bytes": 2240,
       "compiler_family": "GC",
       "compiler_version": "1.2.5n",
       "compiler_flags": [
         "-char",
-        "unsigned",
+        "signed",
         "-O4,p",
         "-inline",
         "auto",
@@ -2001,16 +2003,27 @@
         "-requireprotos",
         "-pragma",
         "cats off",
-        "-D__GEKKO__",
-        "-DSDK_REVISION=1",
-        "-DRELEASE",
-        "-opt",
-        "nopeep"
+        "-DRELEASE"
       ],
-      "strip_unused": false,
-      "discarded_functions": [],
-      "object_sha256": "0d805270539ee20571bab0165ba8df60c8594f6849dbcb1f5a8e7a18154d4ec1",
-      "linked_sha256": "40d792df22ff53e07079d8e04faa963830db2feeff8f5eaf2916175f7c475b26"
+      "strip_unused": true,
+      "discarded_functions": [
+        "AIGetDMAEnableFlag",
+        "AIGetDMABytesLeft",
+        "AIGetDMAStartAddr",
+        "AIGetDMALength",
+        "AICheckInit",
+        "AIRegisterStreamCallback",
+        "AIGetStreamSampleCount",
+        "AIResetStreamSampleCount",
+        "AISetStreamTrigger",
+        "AIGetStreamTrigger",
+        "AISetStreamSampleRate",
+        "__AI_DEBUG_set_stream_sample_rate",
+        "AIReset",
+        "__ai_src_get_time"
+      ],
+      "object_sha256": "53ea32637d06efa6ddb1250b810813d5149195364371533badd5ed664f69d248",
+      "linked_sha256": "8e44df496db39b93bb971ebe65f9f74eaf89585c4b7c2fc8fea72e82debbbf96"
     },
     {
       "id": "GXGeometry",
@@ -4072,6 +4085,121 @@
       ],
       "object_sha256": "d330eeba9c65ea5767966dcc8ef40c86145c7380b3a02087ec0ca3a40a4bc370",
       "linked_sha256": "2fa9dd4796a2de3eb676f2da1794ea256f7d3fc7c6ddab8fea6043526918dd1c"
+    },
+    {
+      "id": "mtx",
+      "category": "restored_library",
+      "functions": 3,
+      "code_bytes": 284,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "C_MTXIdentity",
+        "C_MTXCopy",
+        "PSMTXCopy",
+        "C_MTXConcat",
+        "PSMTXConcat",
+        "C_MTXConcatArray",
+        "PSMTXConcatArray",
+        "C_MTXTranspose",
+        "PSMTXTranspose",
+        "C_MTXInverse",
+        "PSMTXInverse",
+        "C_MTXInvXpose",
+        "C_MTXRotRad",
+        "PSMTXRotRad",
+        "C_MTXRotTrig",
+        "PSMTXRotTrig",
+        "__PSMTXRotAxisRadInternal",
+        "PSMTXRotAxisRad",
+        "C_MTXRotAxisRad",
+        "C_MTXTrans",
+        "PSMTXTrans",
+        "C_MTXTransApply",
+        "PSMTXTransApply",
+        "C_MTXScale",
+        "C_MTXScaleApply",
+        "PSMTXScaleApply",
+        "C_MTXQuat",
+        "PSMTXQuat",
+        "C_MTXReflect",
+        "PSMTXReflect",
+        "C_MTXLookAt",
+        "C_MTXLightFrustum",
+        "C_MTXLightPerspective",
+        "C_MTXLightOrtho"
+      ],
+      "object_sha256": "5713fb0f9d3f0a305755727a2bbafe5707ab8f515fee70cd8ce13871aeff0c82",
+      "linked_sha256": "ecbb82ec77022108d8dc48d6b75e1304617fb45f4db7255148ef5d9a0affd7a1"
+    },
+    {
+      "id": "OSMemory",
+      "category": "restored_library",
+      "functions": 6,
+      "code_bytes": 736,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "OSGetPhysicalMemSize",
+        "OSGetConsoleSimulatedMemSize",
+        "OSProtectRange"
+      ],
+      "object_sha256": "5cdef6cee37950588a1e1290961d9e3d67adef929f99f4b6116dc86a546ec3c2",
+      "linked_sha256": "c692f2da66b6a3800643471eacc24c0a6f55c450458b593fda704c6024440995"
     }
   ],
   "code_map": {
@@ -29704,95 +29832,6 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 801135cc",
-        "ranges": [
-          {
-            "address": "0x801135cc",
-            "size": 20,
-            "kind": "function",
-            "name": "OSDisableInterrupts",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801135e0",
-            "size": 20,
-            "kind": "function",
-            "name": "OSEnableInterrupts",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801135f4",
-            "size": 36,
-            "kind": "function",
-            "name": "OSRestoreInterrupts",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/OSInterrupt.c [local symbols only]",
-        "file_record": 199,
-        "file_name": "OSInterrupt.c",
-        "ranges": [
-          {
-            "address": "0x80113de8",
-            "size": 76,
-            "kind": "function",
-            "name": "ExternalInterruptHandler",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/OSMemory.c [symbol evidence]",
-        "file_record": 202,
-        "file_name": "OSMemory.c",
-        "ranges": [
-          {
-            "address": "0x80114050",
-            "size": 60,
-            "kind": "function",
-            "name": "OnReset",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011408c",
-            "size": 108,
-            "kind": "function",
-            "name": "MEMIntrruptHandler",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801140f8",
-            "size": 128,
-            "kind": "function",
-            "name": "Config24MB",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80114178",
-            "size": 128,
-            "kind": "function",
-            "name": "Config48MB",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801141f8",
-            "size": 24,
-            "kind": "function",
-            "name": "RealMode",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80114210",
-            "size": 288,
-            "kind": "function",
-            "name": "__OSInitMemoryProtection",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/OSReboot.c [symbol evidence]",
         "file_record": 204,
         "file_name": "OSReboot.c",
@@ -29861,20 +29900,6 @@
         ]
       },
       {
-        "name": "Unmatched files/OSSync.c [local symbols only]",
-        "file_record": 208,
-        "file_name": "OSSync.c",
-        "ranges": [
-          {
-            "address": "0x80115930",
-            "size": 32,
-            "kind": "function",
-            "name": "SystemCallVector",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
         "name": "Unknown file/.text @ 80116ac4",
         "ranges": [
           {
@@ -29916,167 +29941,6 @@
             "kind": "function",
             "name": "_ExitProcess",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/mtx.c [symbol evidence]",
-        "file_record": 213,
-        "file_name": "mtx.c",
-        "ranges": [
-          {
-            "address": "0x80116bb0",
-            "size": 44,
-            "kind": "function",
-            "name": "PSMTXIdentity",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80116bdc",
-            "size": 200,
-            "kind": "function",
-            "name": "PSMTXInvXpose",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80116ca4",
-            "size": 40,
-            "kind": "function",
-            "name": "PSMTXScale",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/ai.c [symbol evidence]",
-        "file_record": 225,
-        "file_name": "ai.c",
-        "ranges": [
-          {
-            "address": "0x8011ddd8",
-            "size": 68,
-            "kind": "function",
-            "name": "AIRegisterDMACallback",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8011de1c",
-            "size": 136,
-            "kind": "function",
-            "name": "AIInitDMA",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011dea4",
-            "size": 24,
-            "kind": "function",
-            "name": "AIStartDMA",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011debc",
-            "size": 24,
-            "kind": "function",
-            "name": "AIStopDMA",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011ded4",
-            "size": 216,
-            "kind": "function",
-            "name": "AISetStreamPlayState",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011dfac",
-            "size": 16,
-            "kind": "function",
-            "name": "AIGetStreamPlayState",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011dfbc",
-            "size": 224,
-            "kind": "function",
-            "name": "AISetDSPSampleRate",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011e09c",
-            "size": 20,
-            "kind": "function",
-            "name": "AIGetDSPSampleRate",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011e0b0",
-            "size": 212,
-            "kind": "function",
-            "name": "__AI_set_stream_sample_rate",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011e184",
-            "size": 16,
-            "kind": "function",
-            "name": "AIGetStreamSampleRate",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011e194",
-            "size": 28,
-            "kind": "function",
-            "name": "AISetStreamVolLeft",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011e1b0",
-            "size": 16,
-            "kind": "function",
-            "name": "AIGetStreamVolLeft",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011e1c0",
-            "size": 28,
-            "kind": "function",
-            "name": "AISetStreamVolRight",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011e1dc",
-            "size": 16,
-            "kind": "function",
-            "name": "AIGetStreamVolRight",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011e1ec",
-            "size": 356,
-            "kind": "function",
-            "name": "AIInit",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011e350",
-            "size": 124,
-            "kind": "function",
-            "name": "__AISHandler",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011e3cc",
-            "size": 144,
-            "kind": "function",
-            "name": "__AIDHandler",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011e45c",
-            "size": 88,
-            "kind": "function",
-            "name": "__AICallbackStackSwitch",
-            "evidence": "local-file-symbol"
           }
         ]
       },

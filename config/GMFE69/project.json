@@ -33,7 +33,7 @@
     "db.json",
     "mtxvec.json",
     "OSContext.json",
-    "ai_src.json",
+    "ai.json",
     "GXGeometry.json",
     "GXDisplayList.json",
     "GXTransform.json",
@@ -78,7 +78,9 @@
     "dsp.json",
     "GXAttr.json",
     "GXTexture.json",
-    "ar.json"
+    "ar.json",
+    "mtx.json",
+    "OSMemory.json"
   ],
   "progress": {
     "code_bytes": 1414572,

@@ -1,0 +1,125 @@
+{
+  "id": "OSMemory",
+  "source": "src/dolphin/os/OSMemory.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80114050",
+      "size": 736,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018dc20",
+      "size": 16,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "OnReset",
+      "address": "0x80114050",
+      "size": 60,
+      "binding": 0
+    },
+    {
+      "name": "MEMIntrruptHandler",
+      "address": "0x8011408c",
+      "size": 108,
+      "binding": 0
+    },
+    {
+      "name": "Config24MB",
+      "address": "0x801140f8",
+      "size": 128,
+      "binding": 0
+    },
+    {
+      "name": "Config48MB",
+      "address": "0x80114178",
+      "size": 128,
+      "binding": 0
+    },
+    {
+      "name": "RealMode",
+      "address": "0x801141f8",
+      "size": 24,
+      "binding": 0
+    },
+    {
+      "name": "__OSInitMemoryProtection",
+      "address": "0x80114210",
+      "size": 288,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DCFlushRange": "0x80111880",
+    "OSDisableInterrupts": "0x801135cc",
+    "OSRegisterResetFunction": "0x80114794",
+    "OSRestoreInterrupts": "0x801135f4",
+    "__OSErrorTable": "0x80316fc0",
+    "__OSMaskInterrupts": "0x80113994",
+    "__OSSetInterruptHandler": "0x80113618",
+    "__OSUnhandledException": "0x801126e8",
+    "__OSUnmaskInterrupts": "0x80113a1c",
+    "__flush_cache": "0x80007350",
+    "__init_hardware": "0x80007330",
+    "__start": "0x80007140"
+  },
+  "undefined_in_discarded_code": [
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers"
+  ],
+  "discarded_functions": [
+    "OSGetPhysicalMemSize",
+    "OSGetConsoleSimulatedMemSize",
+    "OSProtectRange"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/os/OSMemory.c"
+  },
+  "original_file": "OSMemory.c",
+  "original_file_index": 10772,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": []
+}
