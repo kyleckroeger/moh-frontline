@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x8003163c",
-      "size": 476,
+      "size": 964,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009fec",
-      "size": 24,
+      "size": 40,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80010da8",
-      "size": 36,
+      "size": 60,
       "type": 1
     }
   ],
@@ -61,6 +61,12 @@
       "name": "BIFunc_SetInShadow__FPPiPv",
       "address": "0x800316b0",
       "size": 184,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_SetCollisionToPlayer__FPPiPv",
+      "address": "0x80031818",
+      "size": 208,
       "binding": 1
     },
     {
@@ -73,6 +79,12 @@
       "name": "BIFunc_DisableCollision__FPPiPv",
       "address": "0x8003163c",
       "size": 116,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_SetHDCollision__FPPiPv",
+      "address": "0x800318e8",
+      "size": 280,
       "binding": 1
     }
   ],

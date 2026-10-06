@@ -1,14 +1,17 @@
 // A fragment of bsbifunc.cpp (0x8003163c): built-ins that disable a scene
-// node's collision (its animated object's collision id set to -1), mark its
-// AI object as in shadow, and set whether its animated object can be pushed
-// (each only when the node and the reached object exist). Each reads its
-// argument below the script stack top and pops the built-in's arguments. The
-// file name is this project's; the original record is bsbifunc.cpp and the
-// built-ins around these are not reconstructed. The functions, classes and
-// globals are named by the mangled symbols; ISceneNode is declared with its
-// virtual functions in the order of __vt__10ISceneNode (AsAnimObject at +140,
-// GetAIDoodad at +204, SetCollisionId at +92), CAnimObject derives from it,
-// and the doodad, filter, AI object and animated object fields are inferred.
+// node's collision (its animated object's collision id set to -1), mark its AI
+// object as in shadow, and set whether its animated object can be pushed (each
+// only when the node and the reached object exist), set its collision id for
+// the player (2, otherwise 25), and switch between the high-detail and player
+// collision ids (13 and 2) when it has one of them. Each reads its argument
+// below the script stack top and pops the built-in's arguments. The file name
+// is this project's; the original record is bsbifunc.cpp and the built-ins
+// around these are not reconstructed. The functions, classes and globals are
+// named by the mangled symbols; ISceneNode is declared with its virtual
+// functions in the order of __vt__10ISceneNode (AsAnimObject at +140,
+// GetAIDoodad at +204, GetCollisionId at +88, SetCollisionId at +92),
+// CAnimObject derives from it, and the doodad, filter, AI object and animated
+// object fields are inferred.
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
@@ -132,6 +135,28 @@ void BIFunc_SetCanBePushed(int** stack, void* object) {
         CAnimObject* anim = ((ISceneNode*)object)->AsAnimObject();
         if (anim)
             anim->m_canBePushed = canBePushed;
+    }
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+void BIFunc_SetCollisionToPlayer(int** stack, void* object) {
+    bool player = *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1)) != 0;
+    CAnimObject* anim = ((ISceneNode*)object)->AsAnimObject();
+    if (player)
+        anim->SetCollisionId((EClsnId)2);
+    else
+        anim->SetCollisionId((EClsnId)25);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+void BIFunc_SetHDCollision(int** stack, void* object) {
+    bool enable = *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1)) != 0;
+    CAnimObject* anim = ((ISceneNode*)object)->AsAnimObject();
+    if (anim->GetCollisionId() == 13 || anim->GetCollisionId() == 2) {
+        if (enable)
+            anim->SetCollisionId((EClsnId)13);
+        else
+            anim->SetCollisionId((EClsnId)2);
     }
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
 }
