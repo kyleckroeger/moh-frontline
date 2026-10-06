@@ -459,7 +459,8 @@
     "AIStatus.json",
     "svol.json",
     "SearchNode.json",
-    "sprite.json"
+    "sprite.json",
+    "AITankObject.json"
   ],
   "progress": {
     "code_bytes": 1414572,
