@@ -80,6 +80,10 @@ and layouts it marks as descriptive stay descriptive here.
 | --- | ---: | ---: | --- | --- |
 | `bstimer.cpp` | 6 | 2,020 | Rising Sun `src/script/timer_*.cpp` | `BSObject` is a view (`queueIdentity` at `+16`); `BSTimerEvent_struct.ownsEventMemory` is a byte, `DoWeOwnThisMemory` returns `bool`; `BSInitTimer` links events forward |
 | `propdat.cpp` (fragment) | 14 | 5,492 | Rising Sun `src/bpd/endian.cpp` | `0x80040c6c`-`0x800421e0`: the `EndianSwap` conversions (see "Endian conversions") and the machine-gun lookups (`SearchForClosestMachineGun`, `IsMGUsed`, `MarkMGAsUsed`) with the file's first four `.sdata2` constants. `sqrtf` is the SDK `math.h` `extern inline` form (volatile result). `CVector3` behaves as 8-byte aligned. The rest of the file stays original context |
+| `surfacetype.cpp` | 5 | 116 | — | Lookups into the collision database's 12-byte surface table (`CDB +0x34`); the shoot-through flag is a one-bit field |
+| `MallocInit.cpp` | 1 | 144 | — | Heap set-up from the OS arena (less 24 MB above that size) |
+| `real_bridge.cpp` | 3 | 196 | — | REAL runtime start-up, update and shutdown calls |
+| `system.cpp` | 3 | 208 | — | `SysInit`/`SysShutdown` with the module-active flag and a 36-byte critical section |
 
 ## Endian conversions
 

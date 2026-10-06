@@ -1,0 +1,94 @@
+{
+  "id": "surfacetype",
+  "source": "src/game/surfacetype.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8001bfbc",
+      "size": 116,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034e730",
+      "size": 4,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "IsShootThru__12CSurfaceTypeFi",
+      "address": "0x8001bfbc",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "GetSoundIndex__12CSurfaceTypeFi",
+      "address": "0x8001bfe0",
+      "size": 24,
+      "binding": 1
+    },
+    {
+      "name": "GetParticleCRC__12CSurfaceTypeFi",
+      "address": "0x8001bff8",
+      "size": 24,
+      "binding": 1
+    },
+    {
+      "name": "GetDecalIndex__12CSurfaceTypeFi",
+      "address": "0x8001c010",
+      "size": 24,
+      "binding": 1
+    },
+    {
+      "name": "InitClass__12CSurfaceTypeFP3CDB",
+      "address": "0x8001c028",
+      "size": 8,
+      "binding": 1
+    }
+  ],
+  "externals": {},
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "surfacetype.cpp",
+  "original_file_index": 256
+}

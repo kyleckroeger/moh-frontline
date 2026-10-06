@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 203504,
+    "matching_code_bytes": 204168,
     "total_executable_code_bytes": 1414572,
-    "percent": 14.386259589473,
+    "percent": 14.43319958262994,
     "categories": {
-      "reconstructed_game": 12484,
+      "reconstructed_game": 13148,
       "restored_library": 191020
     },
-    "matching_functions": 885
+    "matching_functions": 897
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -59,6 +59,7 @@
     "config/GMFE69/GXTexture.json": "fee53b58bcc52dee50e933340ae77066267452c98410a66575d8acd6d920c0bc",
     "config/GMFE69/GXTransform.json": "38225301a6fd0d656301839a81128f2235b7fbe70c809990d1beeb45d8a5182b",
     "config/GMFE69/Gecko_ExceptionPPC.json": "40e29a739fe917c560f5eb9768fcab768f7b2d6fafcf2e45c14439d96526b39e",
+    "config/GMFE69/MallocInit.json": "8084909a7be143dbe22e68d1ec13bf2de5447a3ce15fc2023dff212530d007d1",
     "config/GMFE69/NMWException.json": "993919adc03819f768ac97f37687a067894f1324f0097fa28477b34baf8f9157",
     "config/GMFE69/NewMore.json": "a73fc17ffb36c223ebeace7005486781fe8461b7cdeead36cec2f2532fdd9aea",
     "config/GMFE69/OS.json": "c3796d6fcdd2a8f7d11c7060245d5ab1b85316fc6251876d2bbf7e93469f11a8",
@@ -150,12 +151,13 @@
     "config/GMFE69/nubevent.json": "d6afc4bc3a93eb5ab6fc791d166d4243a4fee57863e76656a656235d2e20e0f2",
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "6326f60ceed28bb87881a1c9e8b1a3497fe20667f703067dec107ba9a661140d",
+    "config/GMFE69/project.json": "4d9fd0294da19e7e1c7abf4b02eac0409a4fd3f435458a2cd5dd6f829855f57b",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
     "config/GMFE69/rand.json": "958d1564ced02e430faca2258c920c5b7f36bd3ba70f168d2cbb54dace181f59",
     "config/GMFE69/rcmp_mpc_codec_chunk_types.json": "42f8600fb47568b4635edb3182a0d6d788bb94c0419a514e14604d564197d33d",
+    "config/GMFE69/real_bridge.json": "fb24361e052cc387b259a75299cf4cd5cac5657115be7c0281dad09bdf4242ab",
     "config/GMFE69/runtime.json": "a141c730e48954adb12802ec9b1ab64c4b3ac71f37caeb7ea3af62616adf28e6",
     "config/GMFE69/s_atan.json": "b6130d2ccba797fa29836d3fa3f07fbc4da188446df024ff3de704580ddde5e0",
     "config/GMFE69/s_copysign.json": "a549fbe76f6b278012ec447d49c0d13bd3f1911426f10964b9ccd2e6dbdbe719",
@@ -184,6 +186,8 @@
     "config/GMFE69/ssine.json": "ab1e72c303f947cc940dd1d39e24614bd8f638dd228ea71235c2d724f37d0729",
     "config/GMFE69/string.json": "dfcf9ebcd504cab3afb3e06b74c7e218ecadac89ebde48c40659fcaeb0a01628",
     "config/GMFE69/strtoul.json": "96027a37123019cd24fdaf9c4ec6caa8228464cf8362a2b3ba7e36acdb35dad5",
+    "config/GMFE69/surfacetype.json": "86dc7dabf78f07ec11a9d5eca99eb78762ddd2392826818716ae3082c324a362",
+    "config/GMFE69/system.json": "9394480cdf8454b27c4fa4f94aba62c452a439fc1c1cde6698ff33bbcf26375f",
     "config/GMFE69/targcont.json": "b2ca2a623eb919a56e51a2a987564851f0820315980336f1c08791bf38a03769",
     "config/GMFE69/target.json": "f7e8d7b660fd35f21cdc13385271d7b73fabda6669a0d112db63b3b1f3e8b3b2",
     "config/GMFE69/target_options.json": "89566eaeb8524e74b697e212fd6b56f53c2276681df67bd4ab9ac2fdf4761b95",
@@ -974,8 +978,12 @@
     "src/ea/slinkmix.c": "3cf4c749e4f9caf67c6276ed5df5b66b07e13be40dc7192b1d952b35fd5225f5",
     "src/ea/spantoaz.c": "e31c00ca71938e75d62f7465384c809d31a6bd0daa4b46f9d2576df1cbe2775c",
     "src/ea/ssine.c": "93302d8c4f67ab20ec7e2ead484fb1726b447d5e118755a655f69a2b8479136c",
+    "src/game/MallocInit.cpp": "ba35f4c9ac530c717f81930ab9aa3a203ea81844e4776914ae6b51acf4188a74",
     "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
     "src/game/propdat.cpp": "b1e26b00f10be619cc409432f6748e200a0064248119fafa81774718c305885d",
+    "src/game/real_bridge.cpp": "3528e557dcb6116823246402f1003e63fd82246a624dcbc2f18e5ee8b9bf8e41",
+    "src/game/surfacetype.cpp": "3499ce5dc7d066f093e39c158e9b096e37683df4d6b6d234eb9b08395d411390",
+    "src/game/system.cpp": "a6b1bce950e974ebaf7e6c7afc31ecab8f41566550163428c632534bc8f78b83",
     "src/msl/NewMore.cp": "cb60e70e586609256a8ff5c7a4b0efbdf7586b7fa7e3cb43b7f84e309e87c1be",
     "src/msl/bsearch.c": "e18222caa9298644a58b0d497c283f472396491e6297b39abb4865632978533a",
     "src/msl/mslsupp.c": "b218ce6eb031f2b74fc27abb2c18cfe43e63a47161ada8703531fd06c18964b0",
@@ -9717,6 +9725,162 @@
       "discarded_functions": [],
       "object_sha256": "a1e1d471a28ea40dbea888b2f6921cfd6c0d6765666c8285a4523d1f2d3dc3c7",
       "linked_sha256": "4940dce2f28fc7b76597e9b845a4f1222628b1095b5bbf158c0ea36cb70b26de"
+    },
+    {
+      "id": "surfacetype",
+      "category": "reconstructed_game",
+      "functions": 5,
+      "code_bytes": 116,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "8d9a4296cc769299ee7652fc15b763494c5e9525f89ccac1a48c4504a2d34ef3",
+      "linked_sha256": "a0a39574eed5632499467dc91b777f869142c383756b0a669651e94fe97980f2"
+    },
+    {
+      "id": "MallocInit",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 144,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "214ee9e339e3fb4ebfa61342a4ba5576875823adb8a32c676343e9f4f3c6c43b",
+      "linked_sha256": "a40d8413622cabe83fa00a02686a8241b1ed88b75f8d88223df5876ea5b6bef2"
+    },
+    {
+      "id": "real_bridge",
+      "category": "reconstructed_game",
+      "functions": 3,
+      "code_bytes": 196,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "af2b9114b4f465851e5fdfed26750592acd67de58f843a4f061abcb636fab712",
+      "linked_sha256": "11daf6cc9d6a9b8d2ebac2a756edc10f84ed391d83b583e1b3b1cae04d314ac2"
+    },
+    {
+      "id": "system",
+      "category": "reconstructed_game",
+      "functions": 3,
+      "code_bytes": 208,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "40e6be992b75022d3131158d00eb0b5e9ed26c45e1bc18c5389b6f04c6de8c00",
+      "linked_sha256": "62338d879c37977dcbff74c4dae18f0c7b92f53a541d1bfcf82e6a1f249b7087"
     }
   ],
   "code_map": {
@@ -10454,34 +10618,6 @@
         ]
       },
       {
-        "name": "Unmatched files/real_bridge.cpp [symbol evidence]",
-        "file_record": 1,
-        "file_name": "real_bridge.cpp",
-        "ranges": [
-          {
-            "address": "0x8001b068",
-            "size": 48,
-            "kind": "function",
-            "name": "ShutdownREAL__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001b098",
-            "size": 36,
-            "kind": "function",
-            "name": "UpdateREAL__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001b0bc",
-            "size": 112,
-            "kind": "function",
-            "name": "InitREAL__Fi",
-            "evidence": "exception-index"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/Screen.cpp [inferred file group]",
         "file_record": 2,
         "file_name": "Screen.cpp",
@@ -10716,48 +10852,6 @@
             "kind": "function",
             "name": "VBlankHandler__7CScreenFUl",
             "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/surfacetype.cpp [symbol evidence]",
-        "file_record": 3,
-        "file_name": "surfacetype.cpp",
-        "ranges": [
-          {
-            "address": "0x8001bfbc",
-            "size": 36,
-            "kind": "function",
-            "name": "IsShootThru__12CSurfaceTypeFi",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8001bfe0",
-            "size": 24,
-            "kind": "function",
-            "name": "GetSoundIndex__12CSurfaceTypeFi",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8001bff8",
-            "size": 24,
-            "kind": "function",
-            "name": "GetParticleCRC__12CSurfaceTypeFi",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8001c010",
-            "size": 24,
-            "kind": "function",
-            "name": "GetDecalIndex__12CSurfaceTypeFi",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8001c028",
-            "size": 8,
-            "kind": "function",
-            "name": "InitClass__12CSurfaceTypeFP3CDB",
-            "evidence": "private-reference"
           }
         ]
       },
@@ -11003,20 +11097,6 @@
         ]
       },
       {
-        "name": "Unmatched files/MallocInit.cpp [symbol evidence]",
-        "file_record": 8,
-        "file_name": "MallocInit.cpp",
-        "ranges": [
-          {
-            "address": "0x8001c85c",
-            "size": 144,
-            "kind": "function",
-            "name": "mallocinit",
-            "evidence": "exception-index"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/memory.cpp [symbol evidence]",
         "file_record": 9,
         "file_name": "memory.cpp",
@@ -11068,34 +11148,6 @@
             "size": 120,
             "kind": "function",
             "name": "__nw__FUl",
-            "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/system.cpp [symbol evidence]",
-        "file_record": 10,
-        "file_name": "system.cpp",
-        "ranges": [
-          {
-            "address": "0x8001cbd8",
-            "size": 8,
-            "kind": "function",
-            "name": "SysSetLastErrorFunc",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8001cbe0",
-            "size": 100,
-            "kind": "function",
-            "name": "SysShutdown",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001cc44",
-            "size": 100,
-            "kind": "function",
-            "name": "SysInit",
             "evidence": "exception-index"
           }
         ]

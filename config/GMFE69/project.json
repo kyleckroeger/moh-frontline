@@ -177,7 +177,11 @@
     "buffer_io.json",
     "bsearch.json",
     "math_ppc.json",
-    "w_pow.json"
+    "w_pow.json",
+    "surfacetype.json",
+    "MallocInit.json",
+    "real_bridge.json",
+    "system.json"
   ],
   "progress": {
     "code_bytes": 1414572,

@@ -1,0 +1,105 @@
+{
+  "id": "system",
+  "source": "src/game/system.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8001cbd8",
+      "size": 208,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000984c",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80010268",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x80197430",
+      "size": 36,
+      "type": 8
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034e748",
+      "size": 8,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "SysSetLastErrorFunc",
+      "address": "0x8001cbd8",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "SysShutdown",
+      "address": "0x8001cbe0",
+      "size": 100,
+      "binding": 1
+    },
+    {
+      "name": "SysInit",
+      "address": "0x8001cc44",
+      "size": 100,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "SysInitCriticalSectionFunc": "0x800f0af4",
+    "SysInitDependent__FPC14SysInitParms_t": "0x800f0b58",
+    "SysShutdownCriticalSectionFunc": "0x800f0a98",
+    "SysShutdownDependent__Fv": "0x800f0ae8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "system.cpp",
+  "original_file_index": 354
+}
