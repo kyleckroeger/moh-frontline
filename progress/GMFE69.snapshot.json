@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 263372,
+    "matching_code_bytes": 265976,
     "total_executable_code_bytes": 1414572,
-    "percent": 18.618493791761747,
+    "percent": 18.80257774082903,
     "categories": {
       "reconstructed_game": 66368,
-      "restored_library": 197004
+      "restored_library": 199608
     },
-    "matching_functions": 1454
+    "matching_functions": 1473
   },
   "input_sha256": {
     "config/GMFE69/AIPlayerDoodad.json": "5ab45909efeb94b828331a8b68a46467e9cb19518255f572f32340c24b98dff2",
@@ -219,6 +219,7 @@
     "config/GMFE69/memunused.json": "3d7f29fa1955bab00027cdd115e8a829932fafb9008b4328198cc302b14f4a5f",
     "config/GMFE69/misc_io.json": "ce7d57c797416feb92a3a89e4ce5412b18b2a322ecac1667ffdca9c454e2e8f1",
     "config/GMFE69/mpc_7xx_603e.json": "815f349dc1383d438a3836cb5ba5bd2db4279c6d017721a52804a4fd42e85507",
+    "config/GMFE69/msgbuf.json": "4057c312515bc36142e33114903cf3cec341e73b5ff36b077de86fed725eb38b",
     "config/GMFE69/mslsupp.json": "3356ce84580021d5df9f41c0ada4620bbb19bda532f75c8dd505f99f4f229da3",
     "config/GMFE69/mtx.json": "61ba8caa4839c1bb759b694d83cff465e9a2e293d606c43603098ae206217583",
     "config/GMFE69/mtx44.json": "6ec8c80e78a896f985eb769ac01b97ff684e2d83116660d2c740123270c0ddf5",
@@ -232,7 +233,7 @@
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/pathxSND.json": "711dcdf3a5a5a7b4124ae70e377c5e863dc39c8de8a0de785b3dc3921c685fa0",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "51838611743137d4280c541030cd822eafa3bf97e730f59f4300b33d24f6aa8a",
+    "config/GMFE69/project.json": "223e756b1bf71152eef7c705ae45f878aa909a31834ba8bd5dc490cd5c925b9a",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1541,7 +1542,7 @@
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/mainloop.c": "39374ceb31f00b28683e0dca2f90efc1d72a33cf6c42857e4545cd5e5ad4ce5f",
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/mem_TRK.c": "0340148ee51126c65c36f73b17252b95f441227e5f49cfee0caa34c48c8dd3a4",
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/msg.c": "745e16b23179c67cbd18a940083a6b05a9e8b5bd015b0e05eadf3ed448464aa3",
-    "src/tww/TRK_MINNOW_DOLPHIN/Portable/msgbuf.c": "14cc278b4f83985def929946a7c15c13d07d4dcb9ea540406cef9da87b673af1",
+    "src/tww/TRK_MINNOW_DOLPHIN/Portable/msgbuf.c": "540c9e544d0a01abc222936a23e4a1bc4dcbecc0a45a17640750c43d89f80c06",
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/msghndlr.c": "e6358bca5057139bf168180d5123bcfaf058948dfbd35630db299c3210022c68",
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/mutex_TRK.c": "1c3bd477483b9971d23dd6a767bc643ebdc8242c0ed33881f8b2e45e0b66db90",
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/notify.c": "c9cd381f7ce38f51999c7978e6641155895d782110da437c6456fd73ece6414c",
@@ -17580,6 +17581,68 @@
       "discarded_functions": [],
       "object_sha256": "28b4c7a081ea0fdb33ac6d446b546e9c90dcd47978217f078247e6f051c51af5",
       "linked_sha256": "3bb9db62af46ed05da91ba37e6454ba003640d5632d79541cecdbe0d1097775f"
+    },
+    {
+      "id": "msgbuf",
+      "category": "restored_library",
+      "functions": 19,
+      "code_bytes": 2604,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-pragma",
+        "warn_notinlined off",
+        "-maxerrors",
+        "1",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-fp_contract",
+        "on",
+        "-str",
+        "reuse",
+        "-multibyte",
+        "-DVERSION=0",
+        "-DNDEBUG=1",
+        "-O4,p",
+        "-use_lmw_stmw",
+        "on",
+        "-rostr",
+        "-str",
+        "reuse",
+        "-common",
+        "off",
+        "-inline",
+        "deferred,auto",
+        "-char",
+        "signed",
+        "-sdata",
+        "0",
+        "-sdata2",
+        "0"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "TRKAppendBuffer1_ui8",
+        "TRKSetBufferUsed"
+      ],
+      "object_sha256": "69fc121c1a10d56deb08ace4225c9043c9781862d488f98ab1392f86ed2c2e39",
+      "linked_sha256": "d9d0011a0a34333d11f2c85c6013d36efb180707e749690dd3dcc7ebdfe5ed95"
     }
   ],
   "code_map": {
@@ -40673,151 +40736,6 @@
             "size": 476,
             "kind": "function",
             "name": "TRKMessageSend",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801315a8",
-            "size": 240,
-            "kind": "function",
-            "name": "TRKReadBuffer_ui32",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80131698",
-            "size": 152,
-            "kind": "function",
-            "name": "TRKReadBuffer_ui8",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80131730",
-            "size": 232,
-            "kind": "function",
-            "name": "TRKReadBuffer1_ui64",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80131818",
-            "size": 200,
-            "kind": "function",
-            "name": "TRKReadBuffer1_ui32",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801318e0",
-            "size": 184,
-            "kind": "function",
-            "name": "TRKReadBuffer1_ui16",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80131998",
-            "size": 128,
-            "kind": "function",
-            "name": "TRKReadBuffer1_ui8",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80131a18",
-            "size": 168,
-            "kind": "function",
-            "name": "TRKAppendBuffer_ui32",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80131ac0",
-            "size": 104,
-            "kind": "function",
-            "name": "TRKAppendBuffer_ui8",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80131b28",
-            "size": 136,
-            "kind": "function",
-            "name": "TRKAppendBuffer1_ui64",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80131bb0",
-            "size": 100,
-            "kind": "function",
-            "name": "TRKAppendBuffer1_ui32",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80131c14",
-            "size": 84,
-            "kind": "function",
-            "name": "TRKAppendBuffer1_ui16",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80131c68",
-            "size": 140,
-            "kind": "function",
-            "name": "TRKReadBuffer",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80131cf4",
-            "size": 164,
-            "kind": "function",
-            "name": "TRKAppendBuffer",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80131d98",
-            "size": 48,
-            "kind": "function",
-            "name": "TRKSetBufferPosition",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80131dc8",
-            "size": 64,
-            "kind": "function",
-            "name": "TRKResetBuffer",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80131e08",
-            "size": 100,
-            "kind": "function",
-            "name": "TRKReleaseBuffer",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80131e6c",
-            "size": 44,
-            "kind": "function",
-            "name": "TRKGetBuffer",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/msgbuf.c [symbol evidence]",
-        "file_record": 275,
-        "file_name": "msgbuf.c",
-        "ranges": [
-          {
-            "address": "0x80131e98",
-            "size": 200,
-            "kind": "function",
-            "name": "TRKGetFreeBuffer",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80131f60",
-        "ranges": [
-          {
-            "address": "0x80131f60",
-            "size": 116,
-            "kind": "function",
-            "name": "TRKInitializeMessageBuffers",
             "evidence": "unknown-file"
           }
         ]

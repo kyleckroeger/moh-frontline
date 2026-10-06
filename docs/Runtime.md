@@ -49,6 +49,7 @@ drafted with `port_unit.py --no-file-record` and their manifests carry no
 | `tww/TRK_MINNOW_DOLPHIN/Portable/serpoll.c`, `tww/PowerPC_EABI_Support/MetroTRK/trk.h` | `TRKFramingState.receiveState` is a `u8`, as in [Pikmin's](https://github.com/doldecomp/pikmin) CC0 `trktypes.h`. `TRKGetInput` reads the command byte and passes commands below `0x80` to `TRKProcessInput` (inlined) or releases the buffer, as in Pikmin's `serpoll.c`. The unit is a fragment: Frontline's `TRKTestForPacket` is a 696-byte framing state machine (`TRKReadUARTPoll`, `0x7E`/`0x7D` escapes) that neither reference has, so the TWW body was removed and the function is declared only | `TRKInitializeSerialHandler` stores `receiveState` with `stb` at `+8`; `TRKGetInput` at `0x80132050` calls `TRKTestForPacket`, `TRKGetBuffer`, `TRKSetBufferPosition`, `TRKReadBuffer1_ui8`, compares with `0x80`, then builds and posts the event in place. The fragment covers `0x80131fd4`–`0x801320e8` (276 bytes) and all of the file's `.bss`; `TRKTestForPacket` (`0x801320e8`, 696 bytes) remains |
 | `tww/TRK_MINNOW_DOLPHIN/Portable/notify.c` | `TRKDoNotifyStopped` takes a `u8` command, appends it to the message before adding the stop or exception information, and declares its locals in the order that gives the target's stack slots. The structure follows [Pikmin's](https://github.com/doldecomp/pikmin) CC0 `notify.c` with the append in place of `TRKWaitForACK`. The append is an `inline` definition of `TRKAppendBuffer1_ui8` (msgbuf.c's body) in this file; where the original defines that inline copy is unknown | `TRKDoNotifyStopped` at `0x80135600` (216 bytes) checks `position >= 0x880` (error `0x301`), stores the byte at `data[position]` and increments `position` and `length` inline, then compares `(u8)cmd` with `0x90`; `msg` is at `8(r1)` and `bufIdx` at `12(r1)` |
 | `tww/TRK_MINNOW_DOLPHIN/Portable/dispatch.c` | `TRKDispatchMessage` masks the command byte (`command &= 0xFF`, as in [Pikmin's](https://github.com/doldecomp/pikmin) CC0 `dispatch.c`), and `gTRKDispatchTable[23]` is `TRKDoSetOption` instead of `TRKDoUnsupported` | `clrlwi r3,r4,24` before the size compare in `TRKDispatchMessage` at `0x8013242c`; the `.data` relocation at `gTRKDispatchTable+0x5c` (`0x80190404`) is `TRKDoSetOption` |
+| `tww/TRK_MINNOW_DOLPHIN/Portable/msgbuf.c` | `TRKAppendBuffer` is wrapped in `#pragma dont_inline on`/`reset` and `TRKReadBuffer1_ui16` is added before `TRKReadBuffer1_ui32`, both as in [Pikmin's](https://github.com/doldecomp/pikmin) CC0 `msgbuf.c` | The appenders call `TRKAppendBuffer` out of line (`TRKAppendBuffer1_ui16` is 84 bytes); global `TRKReadBuffer1_ui16` at `0x801318e0` (184 bytes) |
 | `tww/TRK_MINNOW_DOLPHIN/Os/dolphin/dolphin_trk.c` | `__TRK_reset` calls `__TRK_copy_vectors` instead of `OSResetSystem`, and `__TRK_copy_vectors` takes the exception mask through `TRKTargetTranslate(0x44)` and copies every enabled vector (no skip of vector 4). Both follow [Pikmin's](https://github.com/doldecomp/pikmin) CC0 `dolphin_trk.c` | `__TRK_reset` at `0x8000930c` in `.init` (260 bytes) inlines `__TRK_copy_vectors`, `TRK_copy_vector` and `TRKTargetTranslate`; its loop tests `1 << i` for `i` 0 to 14 with no `i != 4` compare. The four `.text` functions at `0x80137080` (320 bytes) are unchanged |
 | `tww/dolphin/os/OSReboot.c` | Frontline's older revision: `Run` is a `fralloc` `asm` function that calls `OSDisableInterrupts` and `ICFlashInvalidate` itself, the form of [Pikmin's](https://github.com/doldecomp/pikmin) CC0 `OSReboot.c`, so `__OSReboot` no longer calls them; `__OSReboot` stores `resetCode` (not 0) at `0x817FFFFC`. Built with the SDK compiler (1.2.5n) and SDK flags | `Run`, `Callback` and `__OSReboot` at `0x8011457c` (536 bytes); `__OSReboot` writes `r29` (the first argument) to `-4(0x81800000)` and calls `Run`, which has a frame and both calls. `ReadApploader` is inlined and `OSSetSaveRegion` is not linked |
 | `prime/runtime/alloc.c` | Add `malloc` (a `__pool_alloc` wrapper, MSL's form) and move `__pool_alloc` before it, after `deallocate_from_fixed_pools` | Global `malloc` at `0x8013a6a8` (152 bytes) between `free` and `deallocate_from_fixed_pools`; Prime omits `malloc` because Prime never links it |
@@ -104,14 +105,14 @@ with `strtol` inlined), and `__load_buffer` and `setvbuf` in `buffer_io.c`
   sizes agree), but the Wind Waker decompilation marks most TRK files
   non-matching. The matching files (`mainloop`, `nubevent`, `usr_put`,
   `mutex_TRK`, `flush_cache`, `mpc_7xx_603e`, `targcont`, `main_TRK`,
-  `target_options`, `dolphin_trk`, `dispatch`, `notify`) are verified. The rest needs decompilation work: for
+  `target_options`, `dolphin_trk`, `dispatch`, `notify`, `msgbuf`) are verified. The rest needs decompilation work: for
   example `TRKMessageSend` is a 40-byte stub in the reference and 476 bytes in
   the target (`msg.c`, `support.c`, `nubinit.c`,
-  `msgbuf.c`, `serpoll.c` (`TRKTestForPacket`), `msghndlr.c`, `targimpl.c`,
+  `serpoll.c` (`TRKTestForPacket`), `msghndlr.c`, `targimpl.c`,
   `dolphin_trk_glue.c` (from `TRKReadUARTPoll`), `mem_TRK.c`), plus the assembly `targsupp.s`.
-- `msgbuf.c` is an inlining puzzle: the target's readers inline `TRKReadBuffer`
-  while its appenders call `TRKAppendBuffer` out of line (`TRKAppendBuffer1_ui16`
-  is 84 bytes). With `-inline deferred,auto` both are inlined; with plain
-  `-inline auto` and source in address order, neither is. Compiler releases
-  GC/1.1 to 2.0 do not change this, and Sunshine's settings (no auto-inlining)
-  break the readers. The Wind Waker's own build has the same mismatch.
+- `msgbuf.c` was an inlining puzzle: under `-inline deferred,auto` the
+  appenders inlined `TRKAppendBuffer`, which the target calls out of line.
+  [Pikmin's](https://github.com/doldecomp/pikmin) CC0 `msgbuf.c` wraps
+  `TRKAppendBuffer` in `#pragma dont_inline on`/`reset`; with that and
+  Frontline's `TRKReadBuffer1_ui16` (absent from the Wind Waker's file) all 19
+  functions match.

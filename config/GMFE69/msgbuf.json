@@ -1,0 +1,226 @@
+{
+  "id": "msgbuf",
+  "source": "src/tww/TRK_MINNOW_DOLPHIN/Portable/msgbuf.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-pragma",
+    "warn_notinlined off",
+    "-maxerrors",
+    "1",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-fp_contract",
+    "on",
+    "-str",
+    "reuse",
+    "-multibyte",
+    "-DVERSION=0",
+    "-DNDEBUG=1",
+    "-O4,p",
+    "-use_lmw_stmw",
+    "on",
+    "-rostr",
+    "-str",
+    "reuse",
+    "-common",
+    "off",
+    "-inline",
+    "deferred,auto",
+    "-char",
+    "signed",
+    "-sdata",
+    "0",
+    "-sdata2",
+    "0"
+  ],
+  "include_dirs": [
+    "include/tww",
+    "src/tww",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Include",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/PPC_EABI/Include",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C++/MSL_Common/Include",
+    "src/tww/PowerPC_EABI_Support/Runtime/Inc",
+    "src/tww/PowerPC_EABI_Support/MetroTRK"
+  ],
+  "strip_unused": true,
+  "source_root": "src/tww",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x801315a8",
+      "size": 2604,
+      "type": 1
+    },
+    {
+      "name": ".rodata",
+      "address": "0x8017b178",
+      "size": 29,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x80330088",
+      "size": 6576,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "TRKReadBuffer1_ui64",
+      "address": "0x80131730",
+      "size": 232,
+      "binding": 1
+    },
+    {
+      "name": "TRKReadBuffer_ui32",
+      "address": "0x801315a8",
+      "size": 240,
+      "binding": 1
+    },
+    {
+      "name": "TRKReadBuffer_ui8",
+      "address": "0x80131698",
+      "size": 152,
+      "binding": 1
+    },
+    {
+      "name": "TRKReadBuffer1_ui32",
+      "address": "0x80131818",
+      "size": 200,
+      "binding": 1
+    },
+    {
+      "name": "TRKReadBuffer1_ui16",
+      "address": "0x801318e0",
+      "size": 184,
+      "binding": 1
+    },
+    {
+      "name": "TRKReadBuffer1_ui8",
+      "address": "0x80131998",
+      "size": 128,
+      "binding": 1
+    },
+    {
+      "name": "TRKAppendBuffer",
+      "address": "0x80131cf4",
+      "size": 164,
+      "binding": 1
+    },
+    {
+      "name": "TRKAppendBuffer_ui32",
+      "address": "0x80131a18",
+      "size": 168,
+      "binding": 1
+    },
+    {
+      "name": "TRKAppendBuffer_ui8",
+      "address": "0x80131ac0",
+      "size": 104,
+      "binding": 1
+    },
+    {
+      "name": "TRKAppendBuffer1_ui64",
+      "address": "0x80131b28",
+      "size": 136,
+      "binding": 1
+    },
+    {
+      "name": "TRKAppendBuffer1_ui32",
+      "address": "0x80131bb0",
+      "size": 100,
+      "binding": 1
+    },
+    {
+      "name": "TRKAppendBuffer1_ui16",
+      "address": "0x80131c14",
+      "size": 84,
+      "binding": 1
+    },
+    {
+      "name": "TRKReadBuffer",
+      "address": "0x80131c68",
+      "size": 140,
+      "binding": 1
+    },
+    {
+      "name": "TRKSetBufferPosition",
+      "address": "0x80131d98",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "TRKResetBuffer",
+      "address": "0x80131dc8",
+      "size": 64,
+      "binding": 1
+    },
+    {
+      "name": "TRKReleaseBuffer",
+      "address": "0x80131e08",
+      "size": 100,
+      "binding": 1
+    },
+    {
+      "name": "TRKGetBuffer",
+      "address": "0x80131e6c",
+      "size": 44,
+      "binding": 1
+    },
+    {
+      "name": "TRKGetFreeBuffer",
+      "address": "0x80131e98",
+      "size": 200,
+      "binding": 1
+    },
+    {
+      "name": "TRKInitializeMessageBuffers",
+      "address": "0x80131f60",
+      "size": 116,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "TRKAcquireMutex": "0x801355f0",
+    "TRKInitializeMutex": "0x801355f8",
+    "TRKReleaseMutex": "0x801355e8",
+    "TRK_memcpy": "0x800073b4",
+    "TRK_memset": "0x80007384",
+    "gTRKBigEndian": "0x80330080",
+    "usr_puts_serial": "0x801323a4"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "TRKAppendBuffer1_ui8",
+    "TRKSetBufferUsed"
+  ],
+  "upstream": {
+    "repository": "https://github.com/zeldaret/tww",
+    "commit": "a1854d47ce5aa9d0f21c7fb5a71aaade63659693",
+    "path": "src/TRK_MINNOW_DOLPHIN/Portable/msgbuf.c"
+  },
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "msgbuf.c",
+  "original_file_index": 11457
+}
