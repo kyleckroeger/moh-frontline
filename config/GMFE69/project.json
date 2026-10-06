@@ -569,7 +569,8 @@
     "bsbifunc_explosion.json",
     "bsbifunc_translate.json",
     "bsbifunc_mountedmg.json",
-    "bsbifunc_mpprompt.json"
+    "bsbifunc_mpprompt.json",
+    "bsbifunc_floatingbone.json"
   ],
   "progress": {
     "code_bytes": 1414572,
