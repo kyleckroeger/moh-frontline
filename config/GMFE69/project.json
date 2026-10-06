@@ -462,7 +462,8 @@
     "sprite.json",
     "AITankObject.json",
     "sfecho.json",
-    "saemsmbf.json"
+    "saemsmbf.json",
+    "sfreson.json"
   ],
   "progress": {
     "code_bytes": 1414572,
