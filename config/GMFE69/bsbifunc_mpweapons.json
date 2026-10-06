@@ -39,24 +39,30 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8001f0dc",
-      "size": 1864,
+      "address": "0x8001f000",
+      "size": 2084,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x80009944",
-      "size": 64,
+      "address": "0x8000993c",
+      "size": 72,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x800103dc",
-      "size": 96,
+      "address": "0x800103d0",
+      "size": 108,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "BIFunc_MPAddPlayerAmmo__FPPiPv",
+      "address": "0x8001f000",
+      "size": 220,
+      "binding": 1
+    },
     {
       "name": "BIFunc_MPGetWeaponTypeFromWeaponSetID__FPPiPv",
       "address": "0x8001f0dc",
@@ -107,6 +113,7 @@
     }
   ],
   "externals": {
+    "AddAmmoOrWeapon__13CPlayerObjectFiiPv": "0x800a1770",
     "CreateObject__FP20TriggerObject_structiPv": "0x8004029c",
     "GetMatrix__11CQuaternionCFR7CMatrix": "0x80091c9c",
     "GetWeaponInfoByCRC__13CPlayerObjectFiPiPi": "0x8009f58c",

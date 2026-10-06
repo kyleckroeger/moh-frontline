@@ -1,26 +1,28 @@
-// A fragment of bsbifunc.cpp (0x8001f0dc): multiplayer weapon-set built-ins.
-// The weapon type and the ammo and weapon pickup prompts come from the player
-// weapon table for the CRC in the given weapon-set slot; creating ammo or a
-// weapon by type looks the script object's trigger CRC up in the set (the ammo
-// entries 19 slots on, the weapons one slot on) and creates the object from the
-// first match, returning it (or 0); creating ammo or a weapon by weapon-set id
-// (1-based, checked against the set's count) sets the trigger's CRC from that
-// slot (ammo 18 slots on) and creates the object; resetting a mounted machine
-// gun finds the scene node (a static object in the box list or a hierarchy
-// object in the tank list) whose script object has the given script object's
-// trigger and sets its transform from the trigger's rotation and position. Each
-// reads its argument below the script stack top, pops the built-in's arguments
-// and writes the result to the new top through an integer union. The file name
-// is this project's; the original record is bsbifunc.cpp and the built-ins
-// around these are not reconstructed. The functions, classes and globals are
-// named by the mangled symbols; ISceneNode is declared with its virtual
-// functions in the order of __vt__10ISceneNode and IMovingSceneNode's after
-// them in the order of __vt__13CStaticObject (SetTMLocalToWorld at +232),
-// BSGO_Basic in the order of __vt__10BSGO_Basic (the list link at +4),
-// CMatrix's constructor is an inline view (initialising the class once), the
-// node search is an inferred inline helper, and the weapon-set, trigger and
-// built-in record views are inferred (members at their offsets, names not
-// original).
+// A fragment of bsbifunc.cpp (0x8001f000): multiplayer weapon-set built-ins.
+// Adding ammunition or a weapon gives the given script object's player the
+// script trigger's item CRC and amount, returning whether it was taken (kept in
+// memory before it is written). The weapon type and the ammo and weapon pickup
+// prompts come from the player weapon table for the CRC in the given weapon-set
+// slot; creating ammo or a weapon by type looks the script object's trigger CRC
+// up in the set (the ammo entries 19 slots on, the weapons one slot on) and
+// creates the object from the first match, returning it (or 0); creating ammo
+// or a weapon by weapon-set id (1-based, checked against the set's count) sets
+// the trigger's CRC from that slot (ammo 18 slots on) and creates the object;
+// resetting a mounted machine gun finds the scene node (a static object in the
+// box list or a hierarchy object in the tank list) whose script object has the
+// given script object's trigger and sets its transform from the trigger's
+// rotation and position. Each reads its argument below the script stack top,
+// pops the built-in's arguments and writes the result to the new top through an
+// integer union. The file name is this project's; the original record is
+// bsbifunc.cpp and the built-ins around these are not reconstructed. The
+// functions, classes and globals are named by the mangled symbols; ISceneNode
+// is declared with its virtual functions in the order of __vt__10ISceneNode and
+// IMovingSceneNode's after them in the order of __vt__13CStaticObject
+// (SetTMLocalToWorld at +232), BSGO_Basic in the order of __vt__10BSGO_Basic
+// (the list link at +4), CMatrix's constructor is an inline view (initialising
+// the class once), the node search is an inferred inline helper, and the
+// weapon-set, trigger, script-object and built-in record views and the argument
+// helper are inferred (members at their offsets, names not original).
 class CVector3 {
 public:
     CVector3(float ax, float ay, float az) : x(ax), y(ay), z(az) {}
@@ -174,9 +176,12 @@ struct TriggerObject_struct {
     TriggerCoreView* core;
 };
 
+class BSGO_Basic;
+
 struct BSObjectView {
     unsigned char unknown00[8];
     TriggerObject_struct* trigger;
+    BSGO_Basic* user;
 };
 
 class BSGO_Basic {
@@ -196,6 +201,7 @@ extern BSGO_Basic* g_pTankList;
 class CPlayerObject {
 public:
     static int GetWeaponInfoByCRC(int, int*, int*);
+    bool AddAmmoOrWeapon(int, int, void*);
 };
 
 int* CreateObject(TriggerObject_struct*, int, void*);
@@ -213,6 +219,19 @@ struct BSBuiltinView {
 
 extern BSBuiltinView* g_pBuiltInFunctions;
 extern int g_iCurrentBIFIndex;
+
+inline int BSArgInt(int** stack, int index) {
+    return *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - index));
+}
+
+void BIFunc_MPAddPlayerAmmo(int** stack, void*) {
+    BSObjectView* other = (BSObjectView*)BSArgInt(stack, 1);
+    int amount = BSArgInt(stack, 2);
+    CPlayerObject* player = other->user->GetSceneNode()->AsPlayerObject();
+    int result = player->AddAmmoOrWeapon(g_pBSObject->trigger->core->crc, amount, 0);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    **stack = *(int*)&result;
+}
 
 void BIFunc_MPGetWeaponTypeFromWeaponSetID(int** stack, void*) {
     BSValueView value;
