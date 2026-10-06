@@ -406,7 +406,12 @@
     "matrix.json",
     "smixer.json",
     "rcmp_main.json",
-    "IStudio.json"
+    "IStudio.json",
+    "avplayer.json",
+    "animemot.json",
+    "fontdraw.json",
+    "rcmp_mpc_codec.json",
+    "swvideodisplaylist.json"
   ],
   "progress": {
     "code_bytes": 1414572,

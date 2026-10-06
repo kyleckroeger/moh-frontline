@@ -1,0 +1,93 @@
+{
+  "id": "rcmp_mpc_codec",
+  "source": "src/game/rcmp_mpc_codec.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "on",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80104d00",
+      "size": 68,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000fcdc",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80016a48",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "GetFrameRate__18MPC_CODEC_INTERNALFv",
+      "address": "0x80104d30",
+      "size": 12,
+      "binding": 1
+    },
+    {
+      "name": "GetCurrentFrameNumber__18MPC_CODEC_INTERNALFv",
+      "address": "0x80104d3c",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "__dl__9MPC_FRAMEFPv",
+      "address": "0x80104d00",
+      "size": 48,
+      "binding": 2
+    }
+  ],
+  "externals": {
+    "MPDframe_rate": "0x8034ee20",
+    "rcmp_sys__4RCMP": "0x803158ac"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "MPDframe_rate"
+  ],
+  "original_file": "rcmp_mpc_codec.cpp",
+  "original_file_index": 10240
+}

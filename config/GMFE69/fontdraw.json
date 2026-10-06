@@ -1,0 +1,71 @@
+{
+  "id": "fontdraw",
+  "source": "src/ea/fontdraw.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8014e518",
+      "size": 68,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "FONT_drawtexta",
+      "address": "0x8014e518",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "FONT_getrecta",
+      "address": "0x8014e53c",
+      "size": 32,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "FONT_drawtextx<Uc>__FP4FONTffPCUcPv": "0x8014e9b0",
+    "FONT_getrectx<Uc>__FP4FONTPCUcPfPfPfPf": "0x8014e55c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "fontdraw.cpp",
+  "original_file_index": 12203
+}
