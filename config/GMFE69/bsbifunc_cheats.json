@@ -1,0 +1,91 @@
+{
+  "id": "bsbifunc_cheats",
+  "source": "src/game/bsbifunc_cheats.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80026da0",
+      "size": 220,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x80009be4",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x8001079c",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "BIFunc_PlayerSuperAimMode__FPPiPv",
+      "address": "0x80026dd8",
+      "size": 164,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_IsPlayerInvincible__FPPiPv",
+      "address": "0x80026da0",
+      "size": 56,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "GetPlayer__6CSceneCFi": "0x800d8274",
+    "g_cheats": "0x80196a94",
+    "g_iCurrentBIFIndex": "0x8034e77c",
+    "g_pBuiltInFunctions": "0x8034e778",
+    "g_scene": "0x8019484c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "g_iCurrentBIFIndex",
+    "g_pBuiltInFunctions"
+  ],
+  "original_file": "bsbifunc.cpp",
+  "original_file_index": 443
+}
