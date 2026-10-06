@@ -541,7 +541,9 @@
     "bsbifunc_events.json",
     "bsbifunc_cover.json",
     "bsbifunc_coverstart.json",
-    "bsbifunc_astar.json"
+    "bsbifunc_astar.json",
+    "bsbifunc_stop.json",
+    "bsbifunc_level.json"
   ],
   "progress": {
     "code_bytes": 1414572,

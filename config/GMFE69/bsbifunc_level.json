@@ -1,0 +1,112 @@
+{
+  "id": "bsbifunc_level",
+  "source": "src/game/bsbifunc_level.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80021b60",
+      "size": 692,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x80009aa4",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800105ec",
+      "size": 36,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "BIFunc_TogglePlayerVsTriggerChecks__FPPiPv",
+      "address": "0x80021cb4",
+      "size": 164,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_ChangePlayersTeam__FPPiPv",
+      "address": "0x80021d58",
+      "size": 180,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_EndLevel__FPPiPv",
+      "address": "0x80021b60",
+      "size": 156,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_AddHint__FPPiPv",
+      "address": "0x80021bfc",
+      "size": 184,
+      "binding": 1
+    },
+    {
+      "name": "GetAIDoodad__13CPlayerObjectFv",
+      "address": "0x80021e0c",
+      "size": 8,
+      "binding": 2
+    }
+  ],
+  "externals": {
+    "DestroyBuddyDataStructures__Fv": "0x80058ccc",
+    "g_HintTextArray": "0x80197ef8",
+    "g_Shell": "0x80195090",
+    "g_iCurrentBIFIndex": "0x8034e77c",
+    "g_pBuiltInFunctions": "0x8034e778",
+    "g_uiGameState": "0x8034e6a0",
+    "umTable": "0x801ef3ec"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "g_iCurrentBIFIndex",
+    "g_pBuiltInFunctions",
+    "g_uiGameState"
+  ],
+  "original_file": "bsbifunc.cpp",
+  "original_file_index": 443
+}
