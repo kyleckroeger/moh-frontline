@@ -555,7 +555,10 @@
     "bsbifunc_respawn.json",
     "bsbifunc_mpplayer.json",
     "bsbifunc_choosetarget.json",
-    "bsbifunc_death.json"
+    "bsbifunc_death.json",
+    "bsbifunc_hier.json",
+    "bsbifunc_playercoll.json",
+    "bsbifunc_coverpoint.json"
   ],
   "progress": {
     "code_bytes": 1414572,

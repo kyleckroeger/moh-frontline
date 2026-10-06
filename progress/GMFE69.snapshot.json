@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 341568,
+    "matching_code_bytes": 342912,
     "total_executable_code_bytes": 1414572,
-    "percent": 24.14638491359931,
+    "percent": 24.241395984085646,
     "categories": {
       "reconstructed_game": 91828,
-      "restored_library": 249740
+      "restored_library": 251084
     },
-    "matching_functions": 2302
+    "matching_functions": 2311
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -182,10 +182,12 @@
     "config/GMFE69/bsbifunc_collision.json": "11fea5b28f4b82eba931c8d7b3706734b8ebc48df85852623df29f481c3a7959",
     "config/GMFE69/bsbifunc_cook.json": "fc96dc222172898996a846b1249582e62d5a0b23dc6d5ad2a4f4b11bc2ce59c2",
     "config/GMFE69/bsbifunc_cover.json": "8b3d80b957d24acadaa598f56ba5b2687f9fe310a9c0c2e54e383b256eabd04c",
+    "config/GMFE69/bsbifunc_coverpoint.json": "c839982adeb32d8e95f44f97fada1ec19b8fa506327ea3d661ee99f90cecf2a2",
     "config/GMFE69/bsbifunc_coverstart.json": "2ddcf4293c0e7b464e5d32d525808a54576faddc080db889bc83b85df86512c6",
     "config/GMFE69/bsbifunc_death.json": "b301dddfc308e8ee8cc0413f170eed7732e56ff5d72448bb543a3600d972ba93",
     "config/GMFE69/bsbifunc_events.json": "b2f16a9bc355aafda621a09ce2eff5084ecf9736dff6658b13b007163f962605",
     "config/GMFE69/bsbifunc_ground.json": "1cdd0ac57227f0d501abbb388167193e0102957016ca1fd2cf81e8766b9e9608",
+    "config/GMFE69/bsbifunc_hier.json": "eec9a4a5e95b0806e35e26510737ef56dcdf6e3576fba76ad5b5f17968b76b19",
     "config/GMFE69/bsbifunc_holdtime.json": "5d36b2d3f489647d046ece8ab2f4ab8b8f41f62df65c79a1f41a3c5ea3f00705",
     "config/GMFE69/bsbifunc_level.json": "36ea43830e71952d16fffea156280dfa96d022af68ddcd7478191516c08e2c24",
     "config/GMFE69/bsbifunc_melee.json": "94ac9f32878c827e8f0441ba116377436e67591f072223369f3dae554c758e1a",
@@ -196,6 +198,7 @@
     "config/GMFE69/bsbifunc_mpplayer.json": "954a9cf601c7bc1558ae303fe4920353ea2917d2530651e782d4231707204a16",
     "config/GMFE69/bsbifunc_mpweapons.json": "18b890eaf98a0a1b15dde33035a19aa85c501ceb8a3398072d2e5dcbf17113d8",
     "config/GMFE69/bsbifunc_objective.json": "bffc4e275e62a0a525e381743951cc8862a0a76a78197d15b8ec885eb1316e37",
+    "config/GMFE69/bsbifunc_playercoll.json": "ab884f11a2ebc69a27c57dadc40a247943e24f6dfb9e7457c21d205f49e1434a",
     "config/GMFE69/bsbifunc_random.json": "260441a8650cc9bb1e8c04e38c433d458916db15f62b52232900d13d8453d553",
     "config/GMFE69/bsbifunc_reload.json": "1c4cf3f68706004ff73e659afe9c7255f813e3d12749c7e3a02f0f9983ff7472",
     "config/GMFE69/bsbifunc_respawn.json": "f9d0ebd47f3c2d3a974a5f747e7ba21a5064635736279118dc0f8b2704a8ba1b",
@@ -364,7 +367,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "75aa5dcb64e71111d5ea9b0a7daf37ebe68ab9ed7241d93a10fee3e17cd4e844",
+    "config/GMFE69/project.json": "f2ef0bd02632e6e46c24686f63e4359a5bf493950e945008f41bc0bc1b9e29f5",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -1577,10 +1580,12 @@
     "src/game/bsbifunc_collision.cpp": "84ab48d2a716c3e394dcd4c06eab4f3afd6498eb97077e4bfe71e21cc2e7dcae",
     "src/game/bsbifunc_cook.cpp": "41de8182e849cb310bcc5c97e3f2d237f0581a51aa81f2a54b235ef43c776741",
     "src/game/bsbifunc_cover.cpp": "3d6b80c8f329ec9c74249e9e598582a363031511da2944f930cfcd6a1d4edca2",
+    "src/game/bsbifunc_coverpoint.cpp": "e6bac18c1124b3f1950bb1192287e784b52e744a06ecc1b151f8790b8314e3a6",
     "src/game/bsbifunc_coverstart.cpp": "6f5427353191b42651995dfc0e90c622ac6c09f3711813d76e43dc48e851fb3c",
     "src/game/bsbifunc_death.cpp": "05e80b30143870d31a49289b63c702e6bbb9b2e7920162c63110e6df20eb508a",
     "src/game/bsbifunc_events.cpp": "248e55cb6f27566b5621e9965f9ef6f1cd70685c687c071d17e4ee1ddf46832a",
     "src/game/bsbifunc_ground.cpp": "66788db093b932478b7f56325762cb374c7d12d4bb6c88c98dbc85ba1fb88358",
+    "src/game/bsbifunc_hier.cpp": "20c71a9df28d2504155e3caaf660dea8519485c0fc3ca8d4db4261a6c3d89695",
     "src/game/bsbifunc_holdtime.cpp": "6e9fc66483be188cf10247ea9c15de21174873c14d5668e2dfc46e4e8362ed11",
     "src/game/bsbifunc_level.cpp": "3ae751495d401fc542363db77a378e029c21bcca4b2d0d5db76e4656135c9a2b",
     "src/game/bsbifunc_melee.cpp": "93088fb52d8094a0f403ca30591b06f24627eac9ac946e672c83fa18404c3774",
@@ -1591,6 +1596,7 @@
     "src/game/bsbifunc_mpplayer.cpp": "163a34d3170b06d3fc48c48495bdc0939633b0e053a311dfdcd3520331b5c699",
     "src/game/bsbifunc_mpweapons.cpp": "2992bce1a4e5fef1e893940e1d081c67cc1cd769685b6c88bb97de340ca76e85",
     "src/game/bsbifunc_objective.cpp": "d33f6c2c69abefe5709022ad49bb8cdc7a468d1ff2f80168cafd6cc9089edde4",
+    "src/game/bsbifunc_playercoll.cpp": "2bdfafe8b7c97bbf568dfb1e44de1041676b75d8dc62ed48d1fb9f806acdae52",
     "src/game/bsbifunc_random.cpp": "c03a2a5c9c702e88e884d1e2dfbc9f60078b981aa383df7d745b4ae7ae5bdd55",
     "src/game/bsbifunc_reload.cpp": "346efa2193b56f60aaa41ae94192172fbee3d6251aab2a68b18ab83aa91f4a7b",
     "src/game/bsbifunc_respawn.cpp": "e996fdfd6f7a94c0fc9ffdc464e8ac2e77c7f8a4acbc911e6d756c6a56e9d65b",
@@ -25606,6 +25612,123 @@
       "discarded_functions": [],
       "object_sha256": "48dc1187ddf55f2edcbbe5398d5e92cef7248a3bbeca7997b3b46ac62f8139dd",
       "linked_sha256": "a4a41dea7ff4b3c74b19821f32db8667e365be4d24ceaf0fd15db7bc1375fbb9"
+    },
+    {
+      "id": "bsbifunc_hier",
+      "category": "restored_library",
+      "functions": 3,
+      "code_bytes": 564,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "cb226cb9c8b01b7dab2a42aad6704d40d7eb24474c3ebf45d5b1a535626ada32",
+      "linked_sha256": "457e8b10a326f304eedb1acef5f808067c183750bd885e1225a3433a63c4e2aa"
+    },
+    {
+      "id": "bsbifunc_playercoll",
+      "category": "restored_library",
+      "functions": 3,
+      "code_bytes": 312,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "73c57d841073a74ac164b6103dd0af11e6d30d9d859406886572acb3ec6313e4",
+      "linked_sha256": "ed5299c1ca4eb37ac8036b9ca162f9c1a677cc3879e6afe2199e0aa7a353f953"
+    },
+    {
+      "id": "bsbifunc_coverpoint",
+      "category": "restored_library",
+      "functions": 3,
+      "code_bytes": 468,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "46439d522f9422286fdbbf9a49fedec08d4f82d5796ed8b3f67333b892531d50",
+      "linked_sha256": "f4bf0a30bde67e3109838de546d61db8e93ed7ffcd30ffebe76c0c5246e0f375"
     }
   ],
   "code_map": {
@@ -27575,27 +27698,6 @@
             "evidence": "exception-index"
           },
           {
-            "address": "0x8002f298",
-            "size": 176,
-            "kind": "function",
-            "name": "BIFunc_DestroySubHierObject__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8002f348",
-            "size": 180,
-            "kind": "function",
-            "name": "BIFunc_SwapHierObject__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8002f3fc",
-            "size": 208,
-            "kind": "function",
-            "name": "BIFunc_CreateChildSubHierObject__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
             "address": "0x8002f824",
             "size": 184,
             "kind": "function",
@@ -27705,27 +27807,6 @@
             "size": 220,
             "kind": "function",
             "name": "BIFunc_SetPlayerCollision__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800313bc",
-            "size": 8,
-            "kind": "function",
-            "name": "SetCollisionId__13CPlayerObjectF7EClsnId",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800313c4",
-            "size": 136,
-            "kind": "function",
-            "name": "BIFunc_SetHeadAsRoot__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8003144c",
-            "size": 168,
-            "kind": "function",
-            "name": "BIFunc_PathMechAllowCollisionDamage__FPPiPv",
             "evidence": "exception-index"
           },
           {
@@ -27880,27 +27961,6 @@
             "size": 152,
             "kind": "function",
             "name": "BIFunc_AIStoreBestCoverPoint__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80033110",
-            "size": 220,
-            "kind": "function",
-            "name": "BIFunc_AIArrivedAtCoverpoint__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800331ec",
-            "size": 112,
-            "kind": "function",
-            "name": "BIFunc_AIContinueCoverPointWalk__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8003325c",
-            "size": 136,
-            "kind": "function",
-            "name": "BIFunc_AIInvalidateCoverPointByID__FPPiPv",
             "evidence": "exception-index"
           },
           {

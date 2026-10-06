@@ -1,0 +1,97 @@
+{
+  "id": "bsbifunc_coverpoint",
+  "source": "src/game/bsbifunc_coverpoint.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80033110",
+      "size": 468,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000a0c4",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80010eec",
+      "size": 36,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "BIFunc_AIInvalidateCoverPointByID__FPPiPv",
+      "address": "0x8003325c",
+      "size": 136,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_AIArrivedAtCoverpoint__FPPiPv",
+      "address": "0x80033110",
+      "size": 220,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_AIContinueCoverPointWalk__FPPiPv",
+      "address": "0x800331ec",
+      "size": 112,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "GetCoverPointByIndex__15CAIFilterGlobalCFi": "0x8005d498",
+    "InvalidateCoverPointByID__15CAIFilterGlobalFi": "0x8005d4ac",
+    "g_aigAIFilterGlobalObject": "0x801c6cd4",
+    "g_iCurrentBIFIndex": "0x8034e77c",
+    "g_pBuiltInFunctions": "0x8034e778"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "g_iCurrentBIFIndex",
+    "g_pBuiltInFunctions"
+  ],
+  "original_file": "bsbifunc.cpp",
+  "original_file_index": 443
+}
