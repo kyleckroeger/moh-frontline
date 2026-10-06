@@ -515,7 +515,8 @@
     "particlesystem_emit.json",
     "particlesystem_color.json",
     "anim_obj_volumes.json",
-    "AIFilter_astar.json"
+    "AIFilter_astar.json",
+    "ShellMenu_levels.json"
   ],
   "progress": {
     "code_bytes": 1414572,
