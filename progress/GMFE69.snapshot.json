@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 323400,
+    "matching_code_bytes": 323808,
     "total_executable_code_bytes": 1414572,
-    "percent": 22.86203883577506,
+    "percent": 22.8908814821727,
     "categories": {
-      "reconstructed_game": 91944,
-      "restored_library": 231456
+      "reconstructed_game": 91828,
+      "restored_library": 231980
     },
-    "matching_functions": 2123
+    "matching_functions": 2133
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -307,7 +307,9 @@
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
-    "config/GMFE69/particlesystem.json": "98edc553a287ab99c6e76a41c0f22717e008066ccd38b84d19a1a30aba7b2246",
+    "config/GMFE69/particlesystem.json": "b569bf8f52d767b86791dc435151062a1ce17ebe0c8082f03fc8d83a0e6ada84",
+    "config/GMFE69/particlesystem_color.json": "2016048c4efb40e1def481ff7597c8257c3c53d7b499f6d092eb42293455b11f",
+    "config/GMFE69/particlesystem_emit.json": "0cb991a0983aacad9257700e050257c4674f214d50b46c94e9ab6add14337ab3",
     "config/GMFE69/path.json": "a130e3f795d3112c351a4623a4f8499a6f136708db1fbba95b835f98112bf65c",
     "config/GMFE69/path_stop.json": "ea39677943098a390aa61caf7768cf3ecf8344a7686ce2005a80f2484b7ccfc9",
     "config/GMFE69/pathxSND.json": "711dcdf3a5a5a7b4124ae70e377c5e863dc39c8de8a0de785b3dc3921c685fa0",
@@ -321,7 +323,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "f4b9b721fe7c552b8007c291b690a757fa390e5c3c5e536abcd3a6535084f2eb",
+    "config/GMFE69/project.json": "04e78e450ac203262055a187a4adc2e334f25b93b2317aba11f6f8433861fe58",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -1570,7 +1572,9 @@
     "src/game/objcreate.cpp": "a8ec01efb52c079a05a8d23f4da6a48069b76b8f72381051618d38351aee33c9",
     "src/game/objcreate_volumes.cpp": "3e46b56b5e76f2426a12d0bebc6a022380252dfcc1ad4e0f898ffee9b73993bb",
     "src/game/orient.cpp": "031b0d870db82013b99a554649dfe99038d03705b3309d14909ed0094ee43304",
-    "src/game/particlesystem.cpp": "607e86d3b543cf145f040775529ad9b026329e27b0d8a9fdb6a25f9739288e61",
+    "src/game/particlesystem.cpp": "cc912deeef03a0935210f5a16ddd271c4d0e6a5ed29958913c9df9e801f9dabc",
+    "src/game/particlesystem_color.cpp": "b3a7950c1f018d0e8efa758614019408614b2c78ba36849eb486eb3bc84f8cfc",
+    "src/game/particlesystem_emit.cpp": "b675fea2c5bba5fe47abf2d29eea6837b9e6fa9cd43964889929cc1522536222",
     "src/game/player.cpp": "5d6de79298166b94651df7f614dd61e0fd190ffe6084abb5575e5f6212fb19fc",
     "src/game/player_move.cpp": "5e2eb4b450bcab05f2a04c415cc6aba5d9359bdbc9cd2591040e1cfaee5d39de",
     "src/game/player_rows.cpp": "68d9a49c41d34e6d53ff2e8edd324694a0a4c1340a8e398a943915ffbf5ccbc7",
@@ -18615,9 +18619,9 @@
     },
     {
       "id": "particlesystem",
-      "category": "reconstructed_game",
-      "functions": 7,
-      "code_bytes": 116,
+      "category": "restored_library",
+      "functions": 10,
+      "code_bytes": 184,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -18649,8 +18653,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "3e08446abe125add52b1540f3eefef58f701070531db0f0699fdb54335a16270",
-      "linked_sha256": "49c6c17a8c7ed861d36968bb4a1fad7485685c85bbb99794ab6c23e964799fa1"
+      "object_sha256": "ab3778347294984e3c89047d383d4fcca421de20023674f7e14b7d07aa5c308c",
+      "linked_sha256": "d7386d1ef93c86d2d50314797bce5a78de9277d3f11e61ea799a0da1ffc64a25"
     },
     {
       "id": "ShellMenu",
@@ -23802,6 +23806,84 @@
       "discarded_functions": [],
       "object_sha256": "aec073fc14efbce91b952ca178d47b7e84fc2c28ecb2276e3e46282ca8491dc1",
       "linked_sha256": "4f658c9d6d194b63f77e71a0e5713f4f519f59a89bff27e5e86afcddb92cde80"
+    },
+    {
+      "id": "particlesystem_emit",
+      "category": "restored_library",
+      "functions": 5,
+      "code_bytes": 168,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "cfa4ebd03abdb4fc5e8321bcb572e986876eca1898de80903644c99fc15055cd",
+      "linked_sha256": "67972bda2517d889d37ec92a766fab6821259626c2e9e9d441c66c0ef3732ddf"
+    },
+    {
+      "id": "particlesystem_color",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 172,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "6f405e623db749d8397d8e0c88825ccf5b0cffb4d14f153ec2c128e1374b3e97",
+      "linked_sha256": "ba844bd77066672fd2ede04752fd939c856baf0dfb8106800efed3a98b18236a"
     }
   ],
   "code_map": {
@@ -32246,59 +32328,10 @@
             "evidence": "exception-index"
           },
           {
-            "address": "0x8007f0ac",
-            "size": 4,
-            "kind": "function",
-            "name": "SetLocalToWorld__23CPropertyParticleSystemFRC7CMatrix",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007f0b0",
-            "size": 12,
-            "kind": "function",
-            "name": "SetSeed__23CPropertyParticleSystemFi",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007f0bc",
-            "size": 32,
-            "kind": "function",
-            "name": "GetParticleAcceleration__23CPropertyParticleSystemCFR8CVector3",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007f0dc",
-            "size": 60,
-            "kind": "function",
-            "name": "GetParticleVelocity__23CPropertyParticleSystemCFR8CVector3R8CVector3",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007f118",
-            "size": 60,
-            "kind": "function",
-            "name": "GetParticlePosition__23CPropertyParticleSystemCFR8CVector3R8CVector3",
-            "evidence": "between-same-file"
-          },
-          {
             "address": "0x8007f154",
             "size": 68,
             "kind": "function",
             "name": "GetParticleSize__23CPropertyParticleSystemCFR8CVector3R8CVector3Rf",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007f198",
-            "size": 148,
-            "kind": "function",
-            "name": "GetParticleColor__23CPropertyParticleSystemCFR6CColorR6CColorR6CColorR6CColor",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007f22c",
-            "size": 24,
-            "kind": "function",
-            "name": "GetFogEnable__23CPropertyParticleSystemCFv",
             "evidence": "between-same-file"
           },
           {
@@ -32307,27 +32340,6 @@
             "kind": "function",
             "name": "GetParticleAlpha__23CPropertyParticleSystemCFRfRfRf",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007f2ac",
-            "size": 28,
-            "kind": "function",
-            "name": "GetParticleRotation__23CPropertyParticleSystemCFRfRf",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007f2c8",
-            "size": 20,
-            "kind": "function",
-            "name": "GetSystemAcceleration__23CPropertyParticleSystemCFR8CVector3",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007f2dc",
-            "size": 20,
-            "kind": "function",
-            "name": "GetSystemInitialVelocity__23CPropertyParticleSystemCFR8CVector3",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x8007f364",
