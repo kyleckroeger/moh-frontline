@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 283708,
+    "matching_code_bytes": 284184,
     "total_executable_code_bytes": 1414572,
-    "percent": 20.056101774953838,
+    "percent": 20.089751529084417,
     "categories": {
-      "reconstructed_game": 83828,
+      "reconstructed_game": 84304,
       "restored_library": 199880
     },
-    "matching_functions": 1833
+    "matching_functions": 1835
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -177,7 +177,7 @@
     "config/GMFE69/db.json": "f5cdac8d1b6ec28c05d82995e2918679665f81055beaea75273deb9b2bb4a458",
     "config/GMFE69/debugger.json": "b4812b86753209416cae697106b949c189ef985bbe634aca332ff006abd18fdb",
     "config/GMFE69/destructor_queue.json": "2350cf976029cd809d15a75f5f5d41195d68c7984d9c637caabbf8766be0ddd5",
-    "config/GMFE69/devicemgr.json": "1a68b9b3166a8dc32f21a3b30dfd783a16a741d56b768118cc985fbbcd2d873c",
+    "config/GMFE69/devicemgr.json": "10f2721824edfcdffcf31106d2c358bfa4faef3f1b172aa3fb212dcf84859bd1",
     "config/GMFE69/direct_io.json": "6bc91b9814ea8394c4fb8292d3c0f477dd5841c089e81e92061adaca275f77ab",
     "config/GMFE69/dispatch.json": "9785b3256f8baf02b4d894ff082a1103522e7730d2bea7f05c504b418b5a462f",
     "config/GMFE69/dmgeom.json": "9829feea0b00aad311216a345cb671d1c82c01af17c198cd9ecea52129f159fa",
@@ -1429,7 +1429,7 @@
     "src/game/configfile.cpp": "d7e5f7aff38b5ab2c1744e81f1a3469c55b6e00a561d1f5cd43f49ccf6b6d2ec",
     "src/game/csg_volume.cpp": "f25cc67d8eb3b8f7878f9b091457fd541542c87d7ac50c96a7672781e668484c",
     "src/game/destructor_queue.cpp": "96832ec7b1265822d1e18a69dea9302e793bb1a399694519922f360dbfc5c361",
-    "src/game/devicemgr.cpp": "6c722b6c1a7fca3a5975e6772be5f38de9d6e6a80f19a3b1dcb7e3eb4953794c",
+    "src/game/devicemgr.cpp": "8e6a3c45bc811693b9e025c82952ae10e5b41aaa87683eca70c28ff647b85f97",
     "src/game/dmgeom.cpp": "6f176541b44727ce39e90fbc33d60d1c7cd572e20cde4bc86401f647cd9f7f14",
     "src/game/dmmorph.cpp": "bd3896c6b9956acda3fe9efaa958a3ae4ae04e95a706b93e0a682241354a77f3",
     "src/game/dmrender.cpp": "7b92ea9bad0f52f4ba4728f8386f4da6fd4a3b93b5293dd87d1fdcf6bc6c3ec8",
@@ -20542,8 +20542,8 @@
     {
       "id": "devicemgr",
       "category": "reconstructed_game",
-      "functions": 7,
-      "code_bytes": 388,
+      "functions": 9,
+      "code_bytes": 864,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -20575,8 +20575,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "4d85e3ccb988ed19c19bad1262c8e2d119cf7da4ef144fd7afac23f205fef97d",
-      "linked_sha256": "fc9d8d31e8e4c720e0cc3588ec7e06196f2c2155f16127eb9ffcd3bd6ee6b27d"
+      "object_sha256": "fe65bb55d88e7d6821950a6e20dab489a169ff5f657facf93caa5d8a135cd3e3",
+      "linked_sha256": "ff0fb316e99439e8dd1ca598b8e3b4767fb40f8787719540498f7538cb7186b5"
     },
     {
       "id": "MemoryCardGC",
@@ -30404,20 +30404,6 @@
         "file_record": 80,
         "file_name": "devicemgr.cpp",
         "ranges": [
-          {
-            "address": "0x80083f7c",
-            "size": 92,
-            "kind": "function",
-            "name": "UpdateActuators__14CDeviceManagerFf",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80083fd8",
-            "size": 384,
-            "kind": "function",
-            "name": "SetActuatorState__14CDeviceManagerFillff",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x800842dc",
             "size": 784,

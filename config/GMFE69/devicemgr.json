@@ -39,24 +39,48 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80084158",
-      "size": 388,
+      "address": "0x80083f7c",
+      "size": 864,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000c308",
-      "size": 32,
+      "address": "0x8000c2f8",
+      "size": 48,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x800132f8",
-      "size": 48,
+      "address": "0x800132e0",
+      "size": 72,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80184fa8",
+      "size": 56,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x803500e8",
+      "size": 24,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "UpdateActuators__14CDeviceManagerFf",
+      "address": "0x80083f7c",
+      "size": 92,
+      "binding": 1
+    },
+    {
+      "name": "SetActuatorState__14CDeviceManagerFillff",
+      "address": "0x80083fd8",
+      "size": 384,
+      "binding": 1
+    },
     {
       "name": "GetDeviceState__14CDeviceManagerFUl",
       "address": "0x80084158",
@@ -103,7 +127,9 @@
   "externals": {
     "PAD_getdataptr": "0x8014eec4",
     "PAD_update": "0x8014eed8",
+    "UpdateActuators__9CGCDeviceFf": "0x800842dc",
     "Update__9CGCDeviceFv": "0x800845ec",
+    "__cvt_fp2unsigned": "0x801388e8",
     "__dl__FPv": "0x8001ca2c",
     "masterEventTable": "0x80184fe0",
     "memcpy": "0x800094f8",
