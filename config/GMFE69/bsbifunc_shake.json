@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800307dc",
-      "size": 704,
+      "size": 1072,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009f44",
-      "size": 24,
+      "size": 32,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80010cac",
-      "size": 36,
+      "size": 48,
       "type": 1
     }
   ],
@@ -74,11 +74,18 @@
       "address": "0x80030950",
       "size": 332,
       "binding": 1
+    },
+    {
+      "name": "BIFunc_PlayerStartCameraShake__FPPiPv",
+      "address": "0x80030a9c",
+      "size": 368,
+      "binding": 1
     }
   ],
   "externals": {
     "DoMotionShake__13CPlayerObjectFff": "0x8009f394",
     "GetPlayer__6CSceneCFi": "0x800d8274",
+    "StartCameraShake__13CPlayerObjectFff": "0x8009f41c",
     "StopCameraShake__13CPlayerObjectFf": "0x8009f3d4",
     "g_bInMultiplayerMode": "0x8034eca5",
     "g_iCurrentBIFIndex": "0x8034e77c",

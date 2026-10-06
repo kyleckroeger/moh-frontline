@@ -1,6 +1,6 @@
-// A fragment of bsbifunc.cpp (0x800307dc): player built-ins that start a
-// motion shake, allow or forbid crouching (a flag bit of the player) and stop a
-// camera shake (on the script object's player in multiplayer, otherwise the
+// A fragment of bsbifunc.cpp (0x800307dc): player built-ins that start a motion
+// shake, allow or forbid crouching (a flag bit of the player) and stop or start
+// a camera shake (on the script object's player in multiplayer, otherwise the
 // first player). Each reads its arguments below the script stack top and pops
 // the built-in's arguments. The file name is this project's; the original
 // record is bsbifunc.cpp; PlayerScreenFlash before these uses pooled constants
@@ -96,6 +96,7 @@ class CPlayerObject {
 public:
     void DoMotionShake(float, float);
     void StopCameraShake(float);
+    void StartCameraShake(float, float);
 
     unsigned char unknown000[919];
     unsigned char unknown397 : 4;
@@ -150,5 +151,17 @@ void BIFunc_PlayerStopCameraShake(int** stack, void*) {
         player = g_pBSObject->user->GetSceneNode()->AsPlayerObject();
     if (player)
         player->StopCameraShake(time);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+void BIFunc_PlayerStartCameraShake(int** stack, void*) {
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    float strength = *(float*)(*stack - (count - 1));
+    float time = *(float*)(*stack - (count - 2));
+    CPlayerObject* player = g_scene.GetPlayer(0);
+    if (g_bInMultiplayerMode && g_pBSObject && g_pBSObject->user && g_pBSObject->user->GetSceneNode() && g_pBSObject->user->GetSceneNode()->AsPlayerObject())
+        player = g_pBSObject->user->GetSceneNode()->AsPlayerObject();
+    if (player)
+        player->StartCameraShake(strength, time);
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
 }
