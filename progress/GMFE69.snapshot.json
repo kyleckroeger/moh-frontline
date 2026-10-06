@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 365492,
+    "matching_code_bytes": 365700,
     "total_executable_code_bytes": 1414572,
-    "percent": 25.837638522464747,
+    "percent": 25.85234261670668,
     "categories": {
       "reconstructed_game": 91828,
-      "restored_library": 273664
+      "restored_library": 273872
     },
-    "matching_functions": 2421
+    "matching_functions": 2422
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -228,6 +228,7 @@
     "config/GMFE69/bsbifunc_respawn.json": "f9d0ebd47f3c2d3a974a5f747e7ba21a5064635736279118dc0f8b2704a8ba1b",
     "config/GMFE69/bsbifunc_shake.json": "9af46b055f38bd105bfbcb4ead37d7ec0eb5c4a82d9e3cd72e861962920e021a",
     "config/GMFE69/bsbifunc_soundbank.json": "953f79f6ae04f00170c9e5245a5581db89aa85bef02d2cbd9ed36da433695690",
+    "config/GMFE69/bsbifunc_soundinfo.json": "3465cb516f1e9d1253d41d0498e284b9941ba9c209efbcdb2765863ed48c8fdc",
     "config/GMFE69/bsbifunc_soundoffset.json": "709678d0ed2c2d95d746761c510c8cd0f929455caad7894e1c5516e0df32b2f6",
     "config/GMFE69/bsbifunc_stop.json": "8f7fb238dfd5d8d55d8b8728ff38039a116982a0d6415c5624f5a9f55beb5c65",
     "config/GMFE69/bsbifunc_translate.json": "8ad52cc399317cae040e568745ec73b6612182f345e479ebf44a2d9a191a884b",
@@ -396,7 +397,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "a9d390678542a87a966e5ff3dab3e7320b180da15df7e9b919f5c1267261e6eb",
+    "config/GMFE69/project.json": "89cbc9c302416c1ed4ade83f0da2dc66455fb1419a28777d44a3f1725c1a0ada",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -1655,6 +1656,7 @@
     "src/game/bsbifunc_respawn.cpp": "e996fdfd6f7a94c0fc9ffdc464e8ac2e77c7f8a4acbc911e6d756c6a56e9d65b",
     "src/game/bsbifunc_shake.cpp": "24364ceeefd9b2d4dc0004d49a1f4d758381ddb8101515ccb30fae9ae0a469cf",
     "src/game/bsbifunc_soundbank.cpp": "bf3d972cc013dc2178064dd14e14ea34351993e32fa3c868a9d1a1f6771d43e9",
+    "src/game/bsbifunc_soundinfo.cpp": "0023474fa9fffff7a8047144d4464b788743b091cddd546a435ef4b82db39bdd",
     "src/game/bsbifunc_soundoffset.cpp": "61a054ee0cbb2341a1b1f2c0bf65d0a3fe56981c35615ed2b4ac0e1023134af2",
     "src/game/bsbifunc_stop.cpp": "39ec02ecb5fb86d764ba39b6565aa769334d211a5698ee23ba1cd0e205df2316",
     "src/game/bsbifunc_translate.cpp": "d1915d1a5106223f684829156d43feab4702a6fdc447b2532addd9941ddc195e",
@@ -26918,6 +26920,45 @@
       "discarded_functions": [],
       "object_sha256": "fc703bf73525fc5a62c486fe51ea936869b1cbd732963f72638a2b9945e4d26e",
       "linked_sha256": "6f5c6516534c327a80f26ed1dda06f09d16f25e653230c30bd34509d18c39dc9"
+    },
+    {
+      "id": "bsbifunc_soundinfo",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 208,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "fd8d34564bfd12601f4b59497d0baf4b97cf39d4ec434f7b59198ad76a5f8644",
+      "linked_sha256": "e43b493057c1e1ec74a1257533ba45acae20d41d3b2d3f971598063c951aaab1"
     }
   ],
   "code_map": {
@@ -27827,13 +27868,6 @@
             "size": 276,
             "kind": "function",
             "name": "BIFunc_GetNoiseInfo__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001fbb0",
-            "size": 208,
-            "kind": "function",
-            "name": "BIFunc_SetMySoundInfoStruct__FPPiPv",
             "evidence": "exception-index"
           },
           {

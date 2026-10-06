@@ -587,7 +587,8 @@
     "bsbifunc_hiermap.json",
     "bsbifunc_pathfinder.json",
     "bsbifunc_endsound.json",
-    "bsbifunc_soundoffset.json"
+    "bsbifunc_soundoffset.json",
+    "bsbifunc_soundinfo.json"
   ],
   "progress": {
     "code_bytes": 1414572,
