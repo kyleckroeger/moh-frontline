@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 304120,
+    "matching_code_bytes": 304248,
     "total_executable_code_bytes": 1414572,
-    "percent": 21.499082407965094,
+    "percent": 21.508131081344747,
     "categories": {
-      "reconstructed_game": 90820,
+      "reconstructed_game": 90948,
       "restored_library": 213300
     },
-    "matching_functions": 1914
+    "matching_functions": 1917
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -115,6 +115,7 @@
     "config/GMFE69/SNDI_root1x.json": "ea826a27a8d9e2588fd750844842c1e363c3555078469ac393e6172f6aedada7",
     "config/GMFE69/SNDI_sin.json": "0b60fa9265dea81e4c4dc40bdaf11377f21325b62ab47bfd58ada88b7602fee2",
     "config/GMFE69/Screen.json": "2aa83342b878e16d3db95e22f1ed2c049d64dc5cfde3c14badbc7f4b82ce6869",
+    "config/GMFE69/SearchNode.json": "2c7114d770c452c5de63f622ad4584807bd0b1ca57c24e32d8c7f24281651762",
     "config/GMFE69/SearchNodeList.json": "94a6f88f4b8062b0b71ee5f431cf4a7f102d07ca517660d3fe098a7fd2a44a2c",
     "config/GMFE69/ShellMenu.json": "12334fab8c5ecec10bece4423a6da6effac2cfef65c1450ff865a6ca968239dd",
     "config/GMFE69/Soldier_object.json": "d625d33bbfdcbd4ae922099756d0a2525feb495afdd309517e996dc20e2f2aff",
@@ -292,7 +293,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "cd311e1edfc31933eefffa86fef5ac2bf4dd568c4a6de8f559bcf0ac4a17b4be",
+    "config/GMFE69/project.json": "5abdd7ef0e0d8f91e5511b8cd3adb3a7db77a7bd2a0afbaf6a4d2f993d4f339f",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
@@ -1415,6 +1416,7 @@
     "src/game/Moh2.cpp": "de6c92093366f02578f9e8b8d2f69e0de0bece31142f95b7a51ed02dd533c3fb",
     "src/game/Pause.cpp": "8cb08efb80ca5f837f5fe7e9f2755ec247d10282133bd0f6d5229a573779951e",
     "src/game/Screen.cpp": "7ee74460c46aef1832de0e8aad39f65a7b2dedad15386f1ed8f1657a47566cae",
+    "src/game/SearchNode.cpp": "6b76164fd42a19131dcf90f9fe0ec86b20e0ef3d9c948defd80b5441bde9d333",
     "src/game/SearchNodeList.cpp": "738d75054ffdc5c611f06f3c0f8d330d60226794efc3684079e2280494a4d65c",
     "src/game/ShellMenu.cpp": "bdd9fe66a5c610b53fff1f0b46b076a733010fac633e7d3a1794e35757d22b44",
     "src/game/Soldier_object.cpp": "92bf858d3c8b06c691309b702079f4c10d3da7935ed4b50d4e27764fa7eeca41",
@@ -21452,6 +21454,45 @@
       "discarded_functions": [],
       "object_sha256": "ef84dd57414e167a5be9820e574e0b42d29e855c00f45c050813f043250f3b53",
       "linked_sha256": "38b204eb2be1128b98917cd16b2e52da13a6c964f8e1e6b727ee471dd8c92a97"
+    },
+    {
+      "id": "SearchNode",
+      "category": "reconstructed_game",
+      "functions": 3,
+      "code_bytes": 128,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "33ed99ddde087367266c69b35eaaaed40984cf549cdbe8acaaa955b76834b4c9",
+      "linked_sha256": "aefd1bf482d05c854fada857fd495a1c4a4ffac2f4104bc0e074beb24f5f4bdd"
     }
   ],
   "code_map": {
@@ -26648,27 +26689,6 @@
             "kind": "function",
             "name": "Reset__11CSearchNodeFv",
             "evidence": "private-reference"
-          },
-          {
-            "address": "0x8005606c",
-            "size": 16,
-            "kind": "function",
-            "name": "__dl__11CSearchNodeFPvUl",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8005607c",
-            "size": 16,
-            "kind": "function",
-            "name": "__nw__11CSearchNodeFUl",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8005608c",
-            "size": 96,
-            "kind": "function",
-            "name": "GetCostValue__11CSearchNodeFPC11CSearchNode",
-            "evidence": "exception-index"
           },
           {
             "address": "0x800560ec",
