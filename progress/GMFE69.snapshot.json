@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 246744,
+    "matching_code_bytes": 246912,
     "total_executable_code_bytes": 1414572,
-    "percent": 17.44301456553643,
+    "percent": 17.454890949347224,
     "categories": {
-      "reconstructed_game": 50012,
+      "reconstructed_game": 50180,
       "restored_library": 196732
     },
-    "matching_functions": 1253
+    "matching_functions": 1257
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -142,6 +142,7 @@
     "config/GMFE69/e_fmod.json": "7056afd90d65651c8d1c0c35cf144127d16df527dcd0fa643641609aaa37097a",
     "config/GMFE69/e_pow.json": "e6c83f5e3be5e99bc505061239912ce9f8fa394c9f37a38034ece7786dea460d",
     "config/GMFE69/e_rem_pio2.json": "9a217bc41cbc7dbd160fd9b8170c55fb494d44d9f79f1a2cc3cecf82078e7391",
+    "config/GMFE69/eaxadecf.json": "e095322fde507f7d6d85b9294940f8c4af5079fd98e5f52618a059d444cb4aff",
     "config/GMFE69/exit.json": "3b07cadf08ece16c20653f652a53f18b61ca67f91a03125fec625b819e229da3",
     "config/GMFE69/file_io.json": "1f7376a3e1cbacd1b77840e0eae4b3069ae28a805f71eb751ebf19dcd296e710",
     "config/GMFE69/flush_cache.json": "aa1c08f24f7fa7ce6bf2cfa32e6ae398b7b93fea2374de2a6120d5e28e6b9578",
@@ -202,7 +203,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "7560a0ae38253038867f7f44ebe5414dd92b63c58c238e3cd9bb38626565b022",
+    "config/GMFE69/project.json": "825aab092ef5315b5b4ca6ff360b971366035213305fd5639bf134ccdfdbdb6c",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1113,6 +1114,7 @@
     "src/ea/coda.cpp": "74b5cc425b4854acc7492acc32278c5de4dd9d9f0508a4905040ab1d94425884",
     "src/ea/cpudetect.cpp": "82ad74ceba8d5dcd8eda8284a31e54ca3a660ce35f0909967bfb80204e8081e7",
     "src/ea/debugger.cpp": "b0711b163c768b8390ea6365a85df7956af716b54562db26832d845fcf84421b",
+    "src/ea/eaxadecf.cpp": "0f0479301f8ee5e4c8dd76563e3baae9003cbc9503e21289a559dd3161583ccf",
     "src/ea/exit.cpp": "74497f5488a200cd082a1769249e659f5cd17b94ee5c7e6b2b4f3b240c9f1923",
     "src/ea/fontchar.cpp": "2980d56dfbdbbeb46cba293f7c2397b7518079ba32d510118510c9301ee15a47",
     "src/ea/fontcreate.cpp": "fb846d119db1a373f03387cc09f0db8bf0c80ede2c1efb305914580be2630def",
@@ -16038,6 +16040,45 @@
       "discarded_functions": [],
       "object_sha256": "8efc21d1793e94a4a8461cd5f55c520d8e946258d36221928bc2c1b6b3db9851",
       "linked_sha256": "c7b552d587d210ce7b833cb9bc6dbd5f8a93f8a60f38f1ded522d457477ef978"
+    },
+    {
+      "id": "eaxadecf",
+      "category": "reconstructed_game",
+      "functions": 4,
+      "code_bytes": 168,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "7e37411c1d09e76c62602d36842387828d4207bb88bec43d8917a08e3b5a39b1",
+      "linked_sha256": "24c03af07c3abd87fdb002c821811436ff02ed36fc1ce31fde04ead7ce159fe5"
     }
   ],
   "code_map": {
@@ -43639,43 +43680,10 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 801689b8",
-        "ranges": [
-          {
-            "address": "0x801689b8",
-            "size": 40,
-            "kind": "function",
-            "name": "__nw__Q23SND12CEAXABLKDecfFUl",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801689e0",
-            "size": 40,
-            "kind": "function",
-            "name": "__dl__Q23SND12CEAXABLKDecfFPv",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/eaxadecf.cpp [inferred file group]",
         "file_record": 551,
         "file_name": "eaxadecf.cpp",
         "ranges": [
-          {
-            "address": "0x80168a08",
-            "size": 32,
-            "kind": "function",
-            "name": "__ct__Q23SND12CEAXABLKDecfFv",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80168a28",
-            "size": 56,
-            "kind": "function",
-            "name": "Feed__Q23SND12CEAXABLKDecfFPvii",
-            "evidence": "same-class (inferred)"
-          },
           {
             "address": "0x80168a60",
             "size": 1088,
