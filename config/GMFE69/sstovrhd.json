@@ -1,0 +1,71 @@
+{
+  "id": "sstovrhd",
+  "source": "src/ea/sstovrhd.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8015c1f4",
+      "size": 148,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SNDSTRM_overheadtap",
+      "address": "0x8015c1f4",
+      "size": 60,
+      "binding": 1
+    },
+    {
+      "name": "SNDSTRM_overhead",
+      "address": "0x8015c230",
+      "size": 88,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "SNDPKTPLAY_overhead": "0x8015a6d8",
+    "STREAM_overhead": "0x8014c5bc"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "sstovrhd.c",
+  "original_file_index": 12722
+}

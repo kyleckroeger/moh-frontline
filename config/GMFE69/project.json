@@ -262,7 +262,18 @@
     "sballoc.json",
     "sbhdrcpy.json",
     "sctrldry.json",
-    "stimemul.json"
+    "stimemul.json",
+    "signals.json",
+    "mutex2.json",
+    "memmove.json",
+    "spatkey.json",
+    "spktctoh.json",
+    "sstovrhd.json",
+    "smasterv.json",
+    "spitch.json",
+    "sfxlevel.json",
+    "sbplay.json",
+    "sautovol.json"
   ],
   "progress": {
     "code_bytes": 1414572,
