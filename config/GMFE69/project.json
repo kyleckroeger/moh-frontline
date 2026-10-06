@@ -289,7 +289,8 @@
     "sstrstat.json",
     "sfilter.json",
     "supf.json",
-    "sbremove.json"
+    "sbremove.json",
+    "memfill.json"
   ],
   "progress": {
     "code_bytes": 1414572,
