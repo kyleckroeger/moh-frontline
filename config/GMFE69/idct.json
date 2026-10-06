@@ -65,7 +65,11 @@
   "externals": {},
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
-  "upstream": {},
+  "upstream": {
+    "name": "MPEG Software Simulation Group mpeg2decode",
+    "path": "idct.c",
+    "reference_copy": "https://github.com/dzavalishin/phantomuserland/blob/0fa666cb50e6ca13dd048d67d397485266c0e814/phantom/apps/mpeg/idct.c"
+  },
   "local_externals": [],
   "discarded_local_functions": [],
   "sda_externals": [],
