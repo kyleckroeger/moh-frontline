@@ -1,7 +1,7 @@
 {
   "id": "sphere",
   "source": "src/game/sphere.cpp",
-  "category": "reconstructed_game",
+  "category": "restored_library",
   "compiler_family": "GC",
   "compiler_version": "1.3.2",
   "compiler_flags": [
@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800cb940",
-      "size": 240,
+      "size": 380,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000e194",
-      "size": 16,
+      "size": 24,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80014fc0",
-      "size": 24,
+      "size": 36,
       "type": 1
     }
   ],
@@ -70,14 +70,39 @@
       "binding": 1
     },
     {
+      "name": "TransformedCopy__10CVolSphereFRC7IVolumeRC7CMatrix",
+      "address": "0x800cba60",
+      "size": 92,
+      "binding": 1
+    },
+    {
       "name": "GetRadius__10CVolSphereCFv",
       "address": "0x800cba28",
       "size": 8,
       "binding": 1
+    },
+    {
+      "name": "GetCenter__10CVolSphereCFv",
+      "address": "0x800cba30",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "SetRadius__10CVolSphereFf",
+      "address": "0x800cba44",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "SetCenter__10CVolSphereF8CVector3",
+      "address": "0x800cba4c",
+      "size": 20,
+      "binding": 1
     }
   ],
   "externals": {
-    "SwapOrder__10CCollisionFv": "0x800c79c4"
+    "SwapOrder__10CCollisionFv": "0x800c79c4",
+    "TransformPoint__7CMatrixCFR8CVector38CVector3": "0x8008fab0"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
