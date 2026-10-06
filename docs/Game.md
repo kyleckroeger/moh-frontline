@@ -172,7 +172,8 @@ establish a type, the source comments say so.
 | `ssysreal.c` | 3 | 172 | Hooks the sound system into REAL (system task, abort hook, exit handler); its local static gets a run-time guard (`init$`) |
 | `initosalloc.cpp` | 3 | 312 | OS heap set-up with the Dolphin arena-rounding idiom, and MSL's `__sys_alloc` on the REAL allocator |
 | `abortmsg.cpp` | 2 | 400 | `REAL_abortmessage` / `SYSTEM_abortmessage`: format into a 512-byte buffer with CodeWarrior's `__builtin_va_info`, then the abort hook or print plus `REAL_exit` |
-| `memclass.cpp` | 3 | 656 | `MEMCLASS_create` lays out the LOW/free/HIGH blocks of a REAL memory class, plus `MEMCLASS_remove` and `MEM_totalunused`; built like the sound library (`-use_lmw_stmw off`, `_savegpr_21`). `MEMBLOCK`/`MEMCLASS` members are inferred from offsets |
+| `memclass.cpp` | 2 | 592 | `MEMCLASS_create` lays out the LOW/free/HIGH blocks of a REAL memory class, plus `MEMCLASS_remove`; built like the sound library (`-use_lmw_stmw off`, `_savegpr_21`). `MEMBLOCK`/`MEMCLASS` members are inferred from offsets |
+| `memunused.cpp` | 1 | 64 | `MEM_totalunused` (its own file record starts at 0x8014f4b8, between `memclass.cpp` and `memalloc.cpp`) |
 | `systask.cpp` | 4 | 772 | `SYNCTASK_*`: a 16-entry table of tick-scheduled callbacks with guarded local statics; entry layout inferred |
 | `bmem.cpp` | 4 | 680 | Block pools (`BPoolMan`): pool chain and circular free list; the static `AddNewPool` is defined last so it is not inlined. Members inferred |
 | `syncfile.cpp` | 4 | 612 | Synchronous FILESYS open/read: chunked (0x8000) block IO driven by a completion callback; the context's polled fields are volatile, and `#pragma dont_inline` keeps `syncblockio` out of `FILESYS_readsync` as in the original |

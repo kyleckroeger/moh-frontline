@@ -38,12 +38,8 @@ extern "C" char* strcpy(char*, const char*);
 extern "C" void MEM_fill(void*, int, int);
 extern "C" void MUTEX_create(void*);
 extern "C" void MUTEX_destroy(void*);
-extern "C" {
-extern int mb_default;
-}
 int MEM_initblock(MEMBLOCK*, const char*, int, int, int, MEMBLOCK*, MEMBLOCK*);
 void FREE_add(MEMCLASS*, MEMBLOCK*);
-int FREE_gettotalfree(MEMCLASS*, int);
 
 extern "C" int MEMCLASS_create(int index, const char* name, void* address, int size, int arg4, int alignment,
                                int arg6, bool sentinel, bool named, bool locked) {
@@ -102,10 +98,4 @@ extern "C" int MEMCLASS_remove(int index) {
         result = 1;
     }
     return result;
-}
-
-extern "C" int MEM_totalunused(int flags) {
-    if (!flags)
-        flags = mb_default;
-    return FREE_gettotalfree(memclass[flags & 0x3f], 0);
 }

@@ -200,7 +200,8 @@
     "trig.json",
     "bmem.json",
     "syncfile.json",
-    "memory.json"
+    "memory.json",
+    "memunused.json"
   ],
   "progress": {
     "code_bytes": 1414572,
