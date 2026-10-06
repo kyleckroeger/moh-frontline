@@ -473,7 +473,8 @@
     "targimpl_head.json",
     "propdat_bsp.json",
     "propdat_core.json",
-    "saems_counter.json"
+    "saems_counter.json",
+    "soundschedule_shutdown.json"
   ],
   "progress": {
     "code_bytes": 1414572,
