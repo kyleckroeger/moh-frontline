@@ -1,0 +1,87 @@
+{
+  "id": "bsbifunc_mountedmg",
+  "source": "src/game/bsbifunc_mountedmg.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800218d4",
+      "size": 416,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x80009a94",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800105d4",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "BIFunc_AttachPlayerToMountedMachineGun__FPPiPv",
+      "address": "0x800218d4",
+      "size": 416,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "SetUsingMountedMachineGun__13CPlayerObjectFbP13CStaticObject": "0x8009dab4",
+    "g_iCurrentBIFIndex": "0x8034e77c",
+    "g_pBoxList": "0x8034e890",
+    "g_pBuiltInFunctions": "0x8034e778",
+    "g_pTankList": "0x8034e898"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "g_iCurrentBIFIndex",
+    "g_pBoxList",
+    "g_pBuiltInFunctions",
+    "g_pTankList"
+  ],
+  "original_file": "bsbifunc.cpp",
+  "original_file_index": 443
+}

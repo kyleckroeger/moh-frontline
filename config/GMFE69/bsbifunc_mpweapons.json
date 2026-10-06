@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x8001f0dc",
-      "size": 1328,
+      "size": 1864,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009944",
-      "size": 56,
+      "size": 64,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x800103dc",
-      "size": 84,
+      "size": 96,
       "type": 1
     }
   ],
@@ -98,15 +98,27 @@
       "address": "0x8001f52c",
       "size": 224,
       "binding": 1
+    },
+    {
+      "name": "BIFunc_ResetMMG__FPPiPv",
+      "address": "0x8001f60c",
+      "size": 536,
+      "binding": 1
     }
   ],
   "externals": {
     "CreateObject__FP20TriggerObject_structiPv": "0x8004029c",
+    "GetMatrix__11CQuaternionCFR7CMatrix": "0x80091c9c",
     "GetWeaponInfoByCRC__13CPlayerObjectFiPiPi": "0x8009f58c",
+    "InitClass__7CMatrixFv": "0x80090b78",
+    "SetPos__7CMatrixF8CVector3": "0x80090728",
     "g_iCurrentBIFIndex": "0x8034e77c",
     "g_pBSObject": "0x8034e7e0",
+    "g_pBoxList": "0x8034e890",
     "g_pBuiltInFunctions": "0x8034e778",
-    "g_pMPWeaponSet": "0x8034e79c"
+    "g_pMPWeaponSet": "0x8034e79c",
+    "g_pTankList": "0x8034e898",
+    "s_ClassInit__7CMatrix": "0x8034eab0"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -118,8 +130,11 @@
   "sda_externals": [
     "g_iCurrentBIFIndex",
     "g_pBSObject",
+    "g_pBoxList",
     "g_pBuiltInFunctions",
-    "g_pMPWeaponSet"
+    "g_pMPWeaponSet",
+    "g_pTankList",
+    "s_ClassInit__7CMatrix"
   ],
   "original_file": "bsbifunc.cpp",
   "original_file_index": 443
