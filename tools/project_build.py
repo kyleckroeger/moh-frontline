@@ -16,6 +16,10 @@ from data_strip import c_identifier, strip_objects
 from sdk_build import compile_sdk, resolve_external, sdk_link_script, stripped_address
 
 
+# Executable sections a unit may cover. Each must be tiled by its functions.
+CODE_SECTIONS = (".text", ".init")
+
+
 def allocated(elf):
     return [s for s in elf.sections if s["flags"] & 2 and s["size"]]
 
@@ -101,18 +105,21 @@ def validate_units(original, units):
         if (not local_externals <= set(unit["externals"])
                 or (local_externals and not unit.get("original_file"))):
             raise ValueError("Private external dependency scope is missing")
-        text = next(s for s in unit["sections"] if s["name"] == ".text")
-        start, end = int(text["address"], 16), int(text["address"], 16) + text["size"]
+        code = [(int(c["address"], 16), int(c["address"], 16) + c["size"])
+                for c in unit["sections"] if c["name"] in CODE_SECTIONS]
+        if not code or len({c["name"] for c in unit["sections"] if c["name"] in CODE_SECTIONS}) != len(code):
+            raise ValueError("A unit needs one section of each covered code kind")
         functions = manifest_functions(unit)
-        if functions != [f for f in original_functions if start <= f[1] < end]:
+        if functions != [f for f in original_functions if any(a <= f[1] < b for a, b in code)]:
             raise ValueError(f"Original function coverage differs: {unit['id']}")
-        cursor = start
-        for _, address, size, _ in sorted(functions, key=lambda f: f[1]):
-            if address != cursor or size <= 0:
-                raise ValueError("Code coverage has gaps or overlaps")
-            cursor += size
-        if cursor != end:
-            raise ValueError("Code coverage excludes part of a function")
+        for start, end in code:
+            cursor = start
+            for _, address, size, _ in sorted((f for f in functions if start <= f[1] < end), key=lambda f: f[1]):
+                if address != cursor or size <= 0:
+                    raise ValueError("Code coverage has gaps or overlaps")
+                cursor += size
+            if cursor != end:
+                raise ValueError("Code coverage excludes part of a function")
         for section in unit["sections"]:
             address, size = int(section["address"], 16), section["size"]
             matches = [s for s in original.sections if s["name"] == target_section(section) and
@@ -127,7 +134,7 @@ def validate_units(original, units):
             intervals.append((address, address + size, unit["id"], section["name"]))
         for name, address in unit["externals"].items():
             resolve_external(original, unit, name)
-            if start <= int(address, 16) < end:
+            if any(a <= int(address, 16) < b for a, b in code):
                 raise ValueError(f"External is not an original definition: {name}")
         local_discards = set(unit.get("discarded_local_functions", []))
         if not local_discards <= set(unit["discarded_functions"]) or (local_discards and not unit.get("original_file")):
@@ -153,9 +160,13 @@ def validate_units(original, units):
             if (name in present and not name.startswith("@")) or len(stripped_objects) != len(set(stripped_objects)):
                 raise ValueError(f"Cannot strip an object present in the target: {name}")
         # MW emits unreferenced declarations as undefined symbols. A target
-        # symbol may share the name only as another source file's private one.
+        # symbol may share the name only as another source file's private one,
+        # or as a file-local function this unit itself defines (an `extern`
+        # header declaration of a `static` definition, as in __start.c).
+        global_names = {s["name"] for s in symbols if s["binding"] and s["section"]}
+        own_locals = {f["name"] for f in unit["functions"] if f["binding"] == 0} | local_discards
         for name in unit["undefined_in_discarded_code"]:
-            if name in linkable:
+            if name in global_names or (name in linkable and name not in own_locals):
                 raise ValueError(f"Cannot discard a symbol present in the target: {name}")
     intervals.sort()
     for a, b in zip(intervals, intervals[1:]):
@@ -180,30 +191,33 @@ def validate_object(obj, unit):
     if (len(output) != len(allocated(obj)) or set(output) != kept | stripped or kept & stripped
             or (stripped and not unit["strip_unused"])):
         raise ValueError("Unexpected allocated compiler output")
-    text = output[".text"]
-    if text["flags"] != 6 or text["type"] != 1 or text["address"] != 0:
+    code = {output[n]["index"]: output[n] for n in CODE_SECTIONS if n in kept}
+    if not code or any(c["flags"] != 6 or c["type"] != 1 or c["address"] != 0 for c in code.values()):
         raise ValueError("Unexpected compiler text")
     # SN's linker emits weak definitions as global, so the original binding
     # (weak, global or local) is checked here, before linking.
     compiled_binding = {s["name"]: s["binding"] for s in functions}
     if any(compiled_binding[f["name"]] != f["binding"] for f in unit["functions"]):
         raise ValueError("Compiled function binding differs from original")
-    cursor = 0
-    for f in sorted(functions, key=lambda s: s["address"]):
-        if f["section"] != text["index"] or f["address"] != cursor or f["size"] <= 0:
-            raise ValueError("Unaccounted compiler code")
-        cursor += f["size"]
-    if cursor != text["size"]:
-        raise ValueError("Unaccounted compiler text bytes")
+    if any(f["section"] not in code for f in functions):
+        raise ValueError("Unaccounted compiler code")
+    for index, section in code.items():
+        cursor = 0
+        for f in sorted((f for f in functions if f["section"] == index), key=lambda s: s["address"]):
+            if f["address"] != cursor or f["size"] <= 0:
+                raise ValueError("Unaccounted compiler code")
+            cursor += f["size"]
+        if cursor != section["size"]:
+            raise ValueError("Unaccounted compiler text bytes")
     trimmed = {}
     for section in unit["sections"]:
         actual = output[section["name"]]
         start, end = kept_slice(section)
         if (actual["type"] != section.get("type", 1) or
-                (section["name"] != ".text" and actual["size"] != section.get("linked_size", section["size"])) or
-                (section["name"] == ".text" and "linked_offset" in section)):
+                (section["name"] not in CODE_SECTIONS and actual["size"] != section.get("linked_size", section["size"])) or
+                (section["name"] in CODE_SECTIONS and "linked_offset" in section)):
             raise ValueError("Compiler data layout differs from manifest")
-        if section["name"] != ".text" and (start, end) != (0, actual["size"]):
+        if section["name"] not in CODE_SECTIONS and (start, end) != (0, actual["size"]):
             if not unit["strip_unused"]:
                 raise ValueError("Trimmed data requires native unused-code stripping")
             objects = [(s["address"], s["address"] + s["size"]) for s in symbols
@@ -246,15 +260,17 @@ def validate_object(obj, unit):
             if symbol["section"] in trimmed:
                 _, _, addend = struct.unpack_from(">IIi", obj.contents(section), offset)
                 start, end = trimmed[symbol["section"]]
-                retained = (not any(f["address"] <= location < f["address"] + f["size"] for f in discarded)
-                            if section["info"] == text["index"] else
+                retained = (not any(f["section"] == section["info"] and f["address"] <= location < f["address"] + f["size"]
+                                    for f in discarded)
+                            if section["info"] in code else
                             section["info"] not in trimmed or
                             trimmed[section["info"]][0] <= location < trimmed[section["info"]][1])
                 if retained and not start <= symbol["address"] + addend < end:
                     raise ValueError("Retained code or data references trimmed data")
-            if symbol["name"] in absent:
-                if section["info"] != text["index"] or not any(
-                        f["address"] <= location < f["address"] + f["size"] for f in discarded):
+            if symbol["name"] in absent and not symbol["section"]:
+                if section["info"] not in code or not any(
+                        f["section"] == section["info"] and f["address"] <= location < f["address"] + f["size"]
+                        for f in discarded):
                     raise ValueError("Retained code or data references an absent dependency")
     if small_externals != set(unit.get("sda_externals", [])):
         raise ValueError("Small-data external dependencies differ")
@@ -461,13 +477,13 @@ def build_project():
         (work / "source.ld").write_text(script)
         # Global labels inside kept code (asm entry points such as _savegpr_14)
         # are roots too: other files reach the code only through them.
-        kept_text = [(f["address"], f["address"] + f["size"]) for f in obj.symbols()
+        kept_text = [(f["section"], f["address"], f["address"] + f["size"]) for f in obj.symbols()
                      if f["type"] == 2 and f["name"] not in unit["discarded_functions"]
-                     and obj.sections[f["section"]]["name"] == ".text"] if unit["strip_unused"] else []
+                     and obj.sections[f["section"]]["name"] in CODE_SECTIONS] if unit["strip_unused"] else []
         roots = [f["name"] for f in unit["functions"] if f["binding"]] + sorted(
             {s["name"] for s in obj.symbols() if s["binding"] and s["type"] == 0 and s["section"]
-             and s["section"] < 0xFF00 and obj.sections[s["section"]]["name"] == ".text"
-             and any(a <= s["address"] < b for a, b in kept_text)})
+             and s["section"] < 0xFF00 and obj.sections[s["section"]]["name"] in CODE_SECTIONS
+             and any(i == s["section"] and a <= s["address"] < b for i, a, b in kept_text)})
         strip_args = ["--strip-unused"] + [arg for name in roots
                                             for arg in ("--undefined", name)] if unit["strip_unused"] else []
         if unit.get("retain_function_symbols", False):
@@ -515,7 +531,7 @@ def build_project():
     report = dict(status="identical", target=original_path.name, original_elf_sha256=sha256(original_path),
                   comparison="complete ELF-derived DOL and every allocated ELF byte, entry point and BSS extent",
                   progress=progress(original, units, project), units=reports,
-                  source_data_bytes=sum(b["size"] for b in blobs if b["section"] != ".text" and b["type"] != 8),
+                  source_data_bytes=sum(b["size"] for b in blobs if b["section"] not in CODE_SECTIONS and b["type"] != 8),
                   source_bss_bytes=sum(b["size"] for b in blobs if b["type"] == 8),
                   source_blobs=[dict(b, sha256=sha256(Path(b["path"]))) if "path" in b else b for b in blobs],
                   input_sha256={str(p.relative_to(ROOT)): sha256(p) for p in sorted(inputs)},

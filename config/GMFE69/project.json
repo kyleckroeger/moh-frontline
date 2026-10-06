@@ -135,7 +135,17 @@
     "runtime.json",
     "NMWException.json",
     "qsort.json",
-    "global_destructor_chain.json"
+    "global_destructor_chain.json",
+    "__start.json",
+    "__mem.json",
+    "__ppc_eabi_init.json",
+    "mainloop.json",
+    "nubevent.json",
+    "usr_put.json",
+    "mutex_TRK.json",
+    "flush_cache.json",
+    "mpc_7xx_603e.json",
+    "targcont.json"
   ],
   "progress": {
     "code_bytes": 1414572,

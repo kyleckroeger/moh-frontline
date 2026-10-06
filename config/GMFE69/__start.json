@@ -1,0 +1,111 @@
+{
+  "id": "__start",
+  "source": "src/dolsdk2001/os/__start.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "signed",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".init",
+      "address": "0x80007100",
+      "size": 560,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "__check_pad3",
+      "address": "0x80007100",
+      "size": 64,
+      "binding": 0
+    },
+    {
+      "name": "__init_registers",
+      "address": "0x80007254",
+      "size": 28,
+      "binding": 0
+    },
+    {
+      "name": "__init_data",
+      "address": "0x80007270",
+      "size": 192,
+      "binding": 0
+    },
+    {
+      "name": "__start",
+      "address": "0x80007140",
+      "size": 276,
+      "binding": 2
+    }
+  ],
+  "externals": {
+    "DBInit": "0x801101d0",
+    "InitMetroTRK": "0x80137080",
+    "OSInit": "0x801103f0",
+    "OSResetSystem": "0x801148d0",
+    "_SDA2_BASE_": "0x80357520",
+    "_SDA_BASE_": "0x80355960",
+    "__flush_cache": "0x80007350",
+    "__init_hardware": "0x80007330",
+    "__init_user": "0x80116b1c",
+    "_bss_init_info": "0x800095cc",
+    "_rom_copy_info": "0x80009548",
+    "_stack_addr": "0x80361cd0",
+    "exit": "0x8013a420",
+    "main": "0x80017e68",
+    "memcpy": "0x800094f8",
+    "memset": "0x80009410"
+  },
+  "undefined_in_discarded_code": [
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers"
+  ],
+  "discarded_functions": [
+    "__copy_rom_section",
+    "__init_bss_section"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8"
+  },
+  "local_externals": [],
+  "discarded_local_functions": [
+    "__copy_rom_section",
+    "__init_bss_section"
+  ],
+  "sda_externals": [],
+  "original_file": "__start.c",
+  "original_file_index": 10835
+}

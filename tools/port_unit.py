@@ -81,23 +81,32 @@ def find(symbol, original, locals_):
     return candidates[0] if len(candidates) == 1 else None
 
 
+CODE_SECTIONS = (".text", ".init")
+
+
 def text_layout(obj, original, locals_):
-    """Keep functions the original has; discard absent ones; reject size changes."""
-    text = next(s for s in obj.sections if s["name"] == ".text")
-    functions = sorted((s for s in obj.symbols() if s["type"] == 2 and s["section"] == text["index"]),
-                       key=lambda s: s["address"])
-    kept, discarded, packed = [], [], 0
-    for function in functions:
-        target = find(function, original, locals_)
-        absent = not (locals_.get(function["name"]) if function["binding"] == 0 else original.globals(function["name"]))
-        if target is not None and target["size"] == function["size"]:
-            kept.append((function, packed))
-            packed += function["size"]
-        elif absent:
-            discarded.append(function)
-        else:
-            raise ValueError(f"Function differs from the original: {function['name']}")
-    return text["index"], kept, discarded, packed
+    """Keep functions the original has; discard absent ones; reject size changes.
+
+    Returns, per compiled code section index, its kept functions with their
+    packed offsets, the discarded functions and the packed size.
+    """
+    layout, discarded = {}, []
+    for code in (s for s in obj.sections if s["name"] in CODE_SECTIONS and s["size"]):
+        functions = sorted((s for s in obj.symbols() if s["type"] == 2 and s["section"] == code["index"]),
+                           key=lambda s: s["address"])
+        kept, packed = [], 0
+        for function in functions:
+            target = find(function, original, locals_)
+            absent = not (locals_.get(function["name"]) if function["binding"] == 0 else original.globals(function["name"]))
+            if target is not None and target["size"] == function["size"]:
+                kept.append((function, packed))
+                packed += function["size"]
+            elif absent:
+                discarded.append(function)
+            else:
+                raise ValueError(f"Function differs from the original: {function['name']}")
+        layout[code["index"]] = (kept, packed)
+    return layout, discarded
 
 
 def match(obj, original, file_index):
@@ -106,13 +115,13 @@ def match(obj, original, file_index):
     locals_ = original.locals_of(file_index)
     names = {s["index"]: s["name"] for s in obj.sections}
     addresses, externals = {}, {}
-    text_index, kept, discarded, text_size = text_layout(obj, original, locals_)
+    layout, discarded = text_layout(obj, original, locals_)
 
     def position(section, offset):
         """Offset after stripping: discarded code has no position."""
-        if section != text_index:
+        if section not in layout:
             return offset
-        for function, packed in kept:
+        for function, packed in layout[section][0]:
             if function["address"] <= offset < function["address"] + function["size"]:
                 return packed + offset - function["address"]
         return None
@@ -124,7 +133,7 @@ def match(obj, original, file_index):
             offset = position(symbol["section"], symbol["address"])
             if target is not None and target["size"] == symbol["size"] and offset is not None:
                 anchor(addresses, names[symbol["section"]], target["address"] - offset)
-    if ".text" not in addresses:
+    if not any(names[i] in addresses for i in layout):
         raise ValueError("No compiled function was found in the original file record"
                          if file_index is not None else "No compiled global function was found in the original")
     # Relocations pin the rest; repeat until no new section is placed.
@@ -148,26 +157,26 @@ def match(obj, original, file_index):
             elif symbol["section"] < 0xFF00:
                 offset = position(symbol["section"], symbol["address"] + addend)
                 if offset is None:
-                    if section == text_index:
+                    if section in layout:
                         raise ValueError(f"Kept code references discarded code at {base + where:#x}")
                     continue  # data of discarded code (e.g. a jump table), trimmed later
                 name = names[symbol["section"]]
                 if name not in addresses:
                     changed = True
                 anchor(addresses, name, target - offset)
-    return addresses, externals, kept, discarded, text_size
+    return addresses, externals, layout, discarded
 
 
 def referenced(obj, index, kept, addresses):
     """Whether retained code, or a placed section, refers into a section."""
     names = {s["index"]: s["name"] for s in obj.sections}
-    text = next(s["index"] for s in obj.sections if s["name"] == ".text")
     for section, where, _, symbol, _ in relocations(obj):
         if symbol["section"] != index:
             continue
-        if section == text and any(f["address"] <= where < f["address"] + f["size"] for f, _ in kept):
-            return True
-        if section != text and names[section] in addresses:
+        if names[section] in CODE_SECTIONS:
+            if any(f["section"] == section and f["address"] <= where < f["address"] + f["size"] for f, _ in kept):
+                return True
+        elif names[section] in addresses:
             return True
     return False
 
@@ -176,10 +185,9 @@ def kept_span(obj, index, kept, original, locals_):
     """Compiled [start, end) of objects the original kept, if MW trimmed the ends."""
     symbols = list(obj.symbols())
     objects = [s for s in symbols if s["section"] == index and s["type"] == 1 and s["size"]]
-    text = next(s["index"] for s in obj.sections if s["name"] == ".text")
     keep = {(s["address"], s["size"]) for s in objects
             if not s["name"].startswith("@") and find(s, original, locals_) is not None}
-    roots = [(text, f["address"], f["address"] + f["size"]) for f, _ in kept]
+    roots = [(f["section"], f["address"], f["address"] + f["size"]) for f, _ in kept]
     while roots:
         section, start, end = roots.pop()
         for where_section, where, _, symbol, addend in relocations(obj):
@@ -228,7 +236,8 @@ def draft(args):
     compile_sdk(unit, compiler, wrapper, work, lambda stage, *a: run(a, work, work / f"{stage}.log"))
     obj = Elf32((work / "compiled.o").read_bytes())
     try:
-        addresses, externals, kept, discarded, text_size = match(obj, original, file_index)
+        addresses, externals, layout, discarded = match(obj, original, file_index)
+        kept = [k for kept_, _ in layout.values() for k in kept_]
     except ValueError:
         compare_functions(obj, original, file_index)
         raise
@@ -241,8 +250,11 @@ def draft(args):
                 stripped.append(section["name"])
                 continue
             raise ValueError(f"Could not place compiled section {section['name']}")
-        if section["name"] == ".text":
-            sections.append({"name": ".text", "address": hex(addresses[".text"]), "size": text_size, "type": 1})
+        if section["index"] in layout:
+            if not layout[section["index"]][0]:
+                raise ValueError(f"Code section {section['name']} has no original function")
+            sections.append({"name": section["name"], "address": hex(addresses[section["name"]]),
+                             "size": layout[section["index"]][1], "type": 1})
             continue
         span = kept_span(obj, section["index"], kept, original, original.locals_of(file_index))
         if span is None and discarded:
@@ -254,11 +266,10 @@ def draft(args):
         if (start, end) != (0, section["size"]):
             entry.update(linked_offset=start, linked_size=section["size"])
         sections.append(entry)
-    text = next(s for s in sections if s["name"] == ".text")
-    start = int(text["address"], 16)
+    code = [(int(c["address"], 16), int(c["address"], 16) + c["size"]) for c in sections if c["name"] in CODE_SECTIONS]
     functions = [{"name": s["name"], "address": hex(s["address"]), "size": s["size"], "binding": s["binding"]}
                  for s in original.symbols if s["type"] == 2 and s["section"]
-                 and start <= s["address"] < start + text["size"]]
+                 and any(a <= s["address"] < b for a, b in code)]
     obj_symbols = list(obj.symbols())
     undefined = sorted({s["name"] for s in obj_symbols if s["binding"] and not s["section"] and s["name"]})
     for name in undefined:
@@ -286,7 +297,8 @@ def draft(args):
                                 "manifest": Path(args.like).name}
     output = CONFIG / f"{args.id}.json"
     output.write_text(json.dumps(unit, indent=2) + "\n")
-    print(f"Drafted {output.relative_to(ROOT)}: {len(functions)} functions, {text['size']} code bytes at {text['address']}")
+    print(f"Drafted {output.relative_to(ROOT)}: {len(functions)} functions, "
+          f"{sum(f['size'] for f in functions)} code bytes at " + ", ".join(hex(a) for a, _ in code))
 
 
 if __name__ == "__main__":

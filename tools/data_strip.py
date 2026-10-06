@@ -76,7 +76,7 @@ def strip_objects(data, unit):
         names = manifest.get("stripped_objects", [])
         section = by_name[manifest["name"]]
         if names:
-            if not unit["strip_unused"] or manifest["name"] == ".text":
+            if not unit["strip_unused"] or manifest["name"] in (".text", ".init"):
                 raise ValueError("Object stripping requires native unused-code stripping of data")
             bounds, stripped = section_chunks(obj, section, names)
             order, remap = offset_map(bounds, stripped, section["size"])
@@ -86,7 +86,7 @@ def strip_objects(data, unit):
                 out[section["offset"]:section["offset"] + section["size"]] = b"".join(
                     old[bounds[i][0]:bounds[i][1]] for i in order)
         start = manifest.get("linked_offset", 0)
-        if manifest["name"] != ".text":
+        if manifest["name"] not in (".text", ".init"):
             dead[section["index"]] = [(0, start), (start + manifest["size"], section["size"])]
     for name in unit.get("stripped_sections", []):
         dead[by_name[name]["index"]] = [(0, by_name[name]["size"])]

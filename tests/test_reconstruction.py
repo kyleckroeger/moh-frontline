@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
 from audit import load_target
-from project_build import progress
+from project_build import progress, validate_units
 from setup import CONFIG
 
 
@@ -41,6 +41,30 @@ class SourceVerification(unittest.TestCase):
         project['progress']['code_bytes'] -= 4
         with self.assertRaisesRegex(ValueError, 'denominator'):
             progress(self.original, self.units, project)
+
+
+class CodeSectionCoverage(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        if not (ROOT / 'build/reconstruction/report.json').exists():
+            raise unittest.SkipTest('Run reconstruct.py first')
+        cls.original_path, cls.original = load_target()
+        cls.unit = json.loads((CONFIG / '__start.json').read_text())
+
+    def test_init_unit_is_valid(self):
+        validate_units(self.original, [self.unit])
+
+    def test_init_coverage_must_include_whole_functions(self):
+        unit = json.loads(json.dumps(self.unit))
+        next(s for s in unit['sections'] if s['name'] == '.init')['size'] -= 4
+        with self.assertRaisesRegex(ValueError, 'Code coverage excludes part of a function'):
+            validate_units(self.original, [unit])
+
+    def test_init_coverage_cannot_skip_a_function(self):
+        unit = json.loads(json.dumps(self.unit))
+        unit['functions'] = unit['functions'][1:]
+        with self.assertRaisesRegex(ValueError, 'Original function coverage differs'):
+            validate_units(self.original, [unit])
 
 
 if __name__ == '__main__':

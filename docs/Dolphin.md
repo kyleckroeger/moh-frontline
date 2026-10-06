@@ -65,6 +65,7 @@ Upstream is commit `eb1234c` of dolsdk2001.
 | `dsp/dsp.c` | `__DSP_first_task`, `__DSP_last_task`, `__DSP_curr_task` and `__DSP_tmp_task` are `extern`: Dec 2001 defines them in `dsp_task.c`, as the 2004 tree does. `BUILD_DATE`/`BUILD_TIME` are `Dec 17 2001`/`18:25:00` | dsp.c's `.sbss` is only `__DSP_init_flag` (`0x8034f2a8`, 4 bytes); the four globals lie at `0x8034f2b8`-`0x8034f2c4` inside the verified `dsp_task` unit, compiled from the unmodified 2004 file. `.data` at `0x8018fc80` holds `Dec 17 2001` and `18:25:00` |
 | `gx/GXAttr.c` | `SETVCDATTR`'s `GX_VA_NRM`/`GX_VA_NBT` cases set both normal flags in each branch (2004 form) | `0x8012b1e4`: `cmpwi r4,0`/`beq`, then `stb` of 1 to `hasNrms` (`1052`), 0 to `hasBiNrms` (`1053`) and `stw` of `nrmType`; the else branch stores 0 to `hasNrms`. `GXSetVtxDesc` at `0x8012b08c` is 864 bytes. The dead jump tables of the discarded `*v`/`GXGetVtxDesc` functions are `stripped_objects` |
 | `gx/GXTexture.c` | `GXInitTexObj` picks the mipmap min filter by format (`0xA0` for formats 8/9/10, else `0xC0`); `__GXSetSUTexRegs` also tests `gx->tevTcEnab & (1 << i)`. Both are the 2004 code | `GXInitTexObj` at `0x8012da0c` is 628 bytes (2001 builds 596); `__GXSetSUTexRegs` at `0x8012e408` is 380 bytes (2001 builds 364); both compare byte-identical |
+| `os/__start.c` | Add `__check_pad3` (from the 2004 file) and its call after `OSInit` when the device-code test passes; `Pad3Button` is a 2001-style absolute variable at `0x800030E4` | File-local `__check_pad3` at `0x80007100` (64 bytes) in the `__start.c` record; `__start` at `0x80007140` is 276 bytes and tests `lhz 0(0x800030E6)` before `bl __check_pad3` (2001 builds 240). The 2004 file's BBA debug code is absent |
 
 ## Local modifications to the 2004 tree
 
@@ -175,7 +176,12 @@ The original was linked by the MW linker, unlike Rising Sun's ProDG link:
   `__os.h` make MW emit unreferenced undefined symbols (`__init_data`, …). In
   Frontline some exist only as `static` functions of `__start.c`. A name in
   `undefined_in_discarded_code` may exist in the target only as another source
-  file's private symbol.
+  file's private symbol, or as a file-local function the unit itself defines;
+  relocations to such a name must use the local definition.
+- **Code in `.init`.** A unit may cover `.init` as well as, or instead of,
+  `.text` (`__start.c`, `__mem.c`, `__ppc_eabi_init.cpp`). Each code section
+  must be tiled exactly by original functions, and discarded functions may sit
+  anywhere in it.
 
 ## Open problems
 

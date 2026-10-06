@@ -17,12 +17,14 @@ in files it lacks or links in a different revision. Both are CC0; see
 
 | Tree | Upstream | Used for |
 | --- | --- | --- |
-| `src/tww/` | [zeldaret/tww](https://github.com/zeldaret/tww) `a1854d4` | MSL C, math, runtime, `DebuggerDriver.c`, `odenotstub.c` |
+| `src/tww/` | [zeldaret/tww](https://github.com/zeldaret/tww) `a1854d4` | MSL C, math, runtime, MetroTRK, `__ppc_eabi_init.cpp`, `DebuggerDriver.c`, `odenotstub.c` |
 | `src/prime/runtime/` | [PrimeDecomp/prime](https://github.com/PrimeDecomp/prime) `32020a0` | `alloc.c`, `ansi_fp.c`, `ctype.c`, `qsort.c`, `rand.c`, and `__cvt_sll_flt` |
 
 Units use the reference's own compiler profile: the Wind Waker's
 `cflags_runtime` with GC/1.3 for MSL and the runtime, GC/1.2.5n for
-`DebuggerDriver.c`, and GC/1.3.2 with `cflags_dolphin` for `odenotstub.c`;
+`DebuggerDriver.c`, GC/1.3.2 with `cflags_trk` for MetroTRK, GC/1.3.2 with
+`cflags_dolphin` for `odenotstub.c`, and GC/1.2.5n with `cflags_dolphin` for
+`__ppc_eabi_init.cpp`;
 Prime's `cflags_runtime` (with `-gccinc`) and GC/1.3 for Prime files. Per-file
 extra flags follow the reference's `configure.py` (for example `-inline noauto`
 for `alloc.c`). `-DVERSION=0` selects the Wind Waker demo variants, whose map
@@ -42,6 +44,7 @@ drafted with `port_unit.py --no-file-record` and their manifests carry no
 | `tww/.../MSL_Common/Src/abort_exit.c` | `__aborting` and `__console_exit` are global, not `static` | Global `.sbss` objects at `0x8034f318` and `0x8034f324`; `__atexit_curr_func` stays file-local as in the target |
 | `tww/.../Runtime/Src/runtime.c` | Add `__cvt_sll_flt` (`asm`, copied from Prime's `runtime.c`) between `__shr2i` and `__cvt_dbl_usll` | Global `__cvt_sll_flt` at `0x80138dec` (180 bytes) between them; Prime's whole file does not fit, because its `__save_fpr`-family helpers are global where the target's are file-local |
 | `tww/.../Runtime/Src/NMWException.cp` | Declare `terminate`, `unexpected` and their setters in namespace `std` (the file declared them at global scope), and give `__throw_catch_compare` C linkage | `duhandler__3stdFv` at `0x80138878` is 40 bytes and calls through `thandler` (`lwz r12,-29704(r13)`), so it inlines `std::terminate`; the global-scope declaration made it call an external `::terminate`. Global `__throw_catch_compare` at `0x801385fc` is unmangled |
+| `tww/dolphin/os/__ppc_eabi_init.cpp` | Add the `.init` functions `__init_hardware` and `__flush_cache` (`asm`, from dolsdk2001's `__ppc_eabi_init.c`, with C declarations of `__OSPSInit`/`__OSCacheInit`), and make `__init_cpp` `static` | `__init_hardware` (`0x80007330`) and `__flush_cache` (`0x80007350`) belong to the `__ppc_eabi_init.cpp` record with `__init_user`, file-local `__init_cpp` and `_ExitProcess`; the 2001 `.c` file also defines `abort`/`exit`, which Frontline takes from MSL |
 | `prime/runtime/alloc.c` | Add `malloc` (a `__pool_alloc` wrapper, MSL's form) and move `__pool_alloc` before it, after `deallocate_from_fixed_pools` | Global `malloc` at `0x8013a6a8` (152 bytes) between `free` and `deallocate_from_fixed_pools`; Prime omits `malloc` because Prime never links it |
 
 `ctype.c` comes from Prime because Frontline's `tolower` is a weak definition
@@ -69,7 +72,12 @@ linked comparison then treats weak and global alike.
   `fopen`/`freopen`/`fread`, `bsearch`, `strstr`, `atoi`, `raise`, `abort`,
   `clearerr`, `NewMore.cp`, `uart_console_io.c`'s `__write_console`, and the
   `pow`/`cosf` wrappers.
-- MetroTRK differs from the Wind Waker's revision in most functions
-  (`msghndlr.c`, `targimpl.c`, `serpoll.c`, `msgbuf.c`, `nubinit.c`,
-  `dolphin_trk_glue.c`); `dolphin_trk.c` and `mem_TRK.c` also need `.init`
-  code units, like `__start.c`.
+- MetroTRK: Frontline links the Wind Waker's revision (117 of 118 function
+  sizes agree), but the Wind Waker decompilation marks most TRK files
+  non-matching. The matching files (`mainloop`, `nubevent`, `usr_put`,
+  `mutex_TRK`, `flush_cache`, `mpc_7xx_603e`, `targcont`, `main_TRK`,
+  `target_options`) are verified. The rest needs decompilation work: for
+  example `TRKMessageSend` is a 40-byte stub in the reference and 476 bytes in
+  the target (`msg.c`, `dispatch.c`, `notify.c`, `support.c`, `nubinit.c`,
+  `msgbuf.c`, `serpoll.c`, `msghndlr.c`, `targimpl.c`, `dolphin_trk.c`,
+  `dolphin_trk_glue.c`, `mem_TRK.c`), plus the assembly `targsupp.s`.

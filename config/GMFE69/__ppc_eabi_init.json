@@ -1,0 +1,117 @@
+{
+  "id": "__ppc_eabi_init",
+  "source": "src/tww/dolphin/os/__ppc_eabi_init.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-pragma",
+    "warn_notinlined off",
+    "-maxerrors",
+    "1",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-fp_contract",
+    "on",
+    "-str",
+    "reuse",
+    "-multibyte",
+    "-DVERSION=0",
+    "-DNDEBUG=1",
+    "-O4,p",
+    "-fp_contract",
+    "off"
+  ],
+  "include_dirs": [
+    "include/tww",
+    "src/tww",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Include",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/PPC_EABI/Include",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C++/MSL_Common/Include",
+    "src/tww/PowerPC_EABI_Support/Runtime/Inc",
+    "src/tww/PowerPC_EABI_Support/MetroTRK"
+  ],
+  "strip_unused": false,
+  "source_root": "src/tww",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80116b1c",
+      "size": 148,
+      "type": 1
+    },
+    {
+      "name": ".init",
+      "address": "0x80007330",
+      "size": 84,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "__init_cpp",
+      "address": "0x80116b3c",
+      "size": 84,
+      "binding": 0
+    },
+    {
+      "name": "__init_hardware",
+      "address": "0x80007330",
+      "size": 32,
+      "binding": 1
+    },
+    {
+      "name": "__flush_cache",
+      "address": "0x80007350",
+      "size": 52,
+      "binding": 1
+    },
+    {
+      "name": "__init_user",
+      "address": "0x80116b1c",
+      "size": 32,
+      "binding": 1
+    },
+    {
+      "name": "_ExitProcess",
+      "address": "0x80116b90",
+      "size": 32,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "PPCHalt": "0x80110198",
+    "__OSCacheInit": "0x80111bc4",
+    "__OSPSInit": "0x80110b08",
+    "_ctors": "0x8016df40"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {
+    "repository": "https://github.com/zeldaret/tww",
+    "commit": "a1854d47ce5aa9d0f21c7fb5a71aaade63659693",
+    "path": "src/dolphin/os/__ppc_eabi_init.cpp"
+  },
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "__ppc_eabi_init.cpp",
+  "original_file_index": 10840
+}
