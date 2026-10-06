@@ -331,7 +331,8 @@
     "supxapf.json",
     "eaxadecf.json",
     "configfile.json",
-    "animwgt.json"
+    "animwgt.json",
+    "animchan.json"
   ],
   "progress": {
     "code_bytes": 1414572,
