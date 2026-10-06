@@ -352,7 +352,8 @@
     "sserver.json",
     "sdspmix.json",
     "UISEvent.json",
-    "UISActionProcess.json"
+    "UISActionProcess.json",
+    "UISUtils.json"
   ],
   "progress": {
     "code_bytes": 1414572,
