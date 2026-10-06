@@ -40,19 +40,25 @@
     {
       "name": ".text",
       "address": "0x800341c0",
-      "size": 368,
+      "size": 500,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000a18c",
-      "size": 24,
+      "size": 32,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80011018",
-      "size": 36,
+      "size": 48,
+      "type": 1
+    },
+    {
+      "name": ".rodata",
+      "address": "0x8016ea18",
+      "size": 142,
       "type": 1
     }
   ],
@@ -74,9 +80,16 @@
       "address": "0x800341c0",
       "size": 124,
       "binding": 1
+    },
+    {
+      "name": "BSBifuncInvalid__FPPiPv",
+      "address": "0x80034330",
+      "size": 132,
+      "binding": 1
     }
   ],
   "externals": {
+    "DebugMsg__FPCce": "0x80018c88",
     "GetPosition__7CCameraCFR8CVector3": "0x8007a2e0",
     "SetMoveTarget__11CAnimObjectFRC8CVector3": "0x800952c8",
     "g_camera": "0x801949a0",

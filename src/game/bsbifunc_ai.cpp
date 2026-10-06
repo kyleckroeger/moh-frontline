@@ -1,13 +1,16 @@
 // A fragment of bsbifunc.cpp (0x800341c0): the AI built-ins that reset the
 // target match list and set the target mode of the script object's AI filter
 // (through the scene node's AI doodad; the mode is the first argument), and
-// DoSomethingInteresting, which sends the object towards the camera's
-// position. Each pops the built-in's arguments. The file name is this
-// project's; the original record is bsbifunc.cpp and the built-ins around these
-// are not reconstructed. ISceneNode is declared with its virtual functions in
-// the order of __vt__10ISceneNode (GetAIDoodad at +204); CAIFilterObject with
-// the first virtual functions of __vt__15CAIFilterObject; the doodad view (its
-// filter at +4) is inferred, as is the built-in record view.
+// DoSomethingInteresting, which sends the object towards the camera's position,
+// followed by BSBifuncInvalid, the handler for built-ins without an
+// implementation (two debug messages with the built-in's CRC; the second names
+// the header source\ai_script\bsbifunc.h). Each pops the built-in's arguments.
+// The file name is this project's; the original record is bsbifunc.cpp and the
+// built-ins around these are not reconstructed. ISceneNode is declared with its
+// virtual functions in the order of __vt__10ISceneNode (GetAIDoodad at +204);
+// CAIFilterObject with the first virtual functions of __vt__15CAIFilterObject;
+// the doodad view (its filter at +4) is inferred, as is the built-in record
+// view (its CRC at +4).
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
@@ -115,11 +118,14 @@ extern CCamera g_camera;
 
 struct BSBuiltinView {
     void (*function)(int**, void*);
-    unsigned char unknown04[6];
+    unsigned int crc;
+    unsigned char unknown08[2];
     short argumentCount;
     short parameterCount;
     unsigned char unknown0e[2];
 };
+
+void DebugMsg(const char*, ...);
 
 extern BSBuiltinView* g_pBuiltInFunctions;
 extern int g_iCurrentBIFIndex;
@@ -138,5 +144,11 @@ void BIFunc_DoSomethingInteresting(int** stack, void* object) {
     CVector3 position;
     g_camera.GetPosition(position);
     ((CAnimObject*)object)->SetMoveTarget(position);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+void BSBifuncInvalid(int** stack, void*) {
+    DebugMsg("WARNING: Your engine has no implementation for BIF CRC 0x%x\n...ignoring\n", g_pBuiltInFunctions[g_iCurrentBIFIndex].crc);
+    DebugMsg("  look in source\\ai_script\\bsbifunc.h for string name of BIF CRC\n");
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
 }
