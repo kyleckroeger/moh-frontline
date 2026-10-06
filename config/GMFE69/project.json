@@ -505,7 +505,8 @@
     "static_obj_setpos.json",
     "anim_obj_tm.json",
     "player_tm.json",
-    "sound_music.json"
+    "sound_music.json",
+    "player_weapon.json"
   ],
   "progress": {
     "code_bytes": 1414572,
