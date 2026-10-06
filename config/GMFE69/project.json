@@ -379,7 +379,8 @@
     "sbasync.json",
     "hearingvolume.json",
     "player_weapon_object.json",
-    "Pause.json"
+    "Pause.json",
+    "objcreate.json"
   ],
   "progress": {
     "code_bytes": 1414572,

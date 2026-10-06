@@ -1,0 +1,151 @@
+{
+  "id": "objcreate",
+  "source": "src/game/objcreate.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80040aa0",
+      "size": 188,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000a52c",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80011570",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "__dt__20CDumpObjectContainerFv",
+      "address": "0x80040aa0",
+      "size": 92,
+      "binding": 1
+    },
+    {
+      "name": "GetProximityData__10BSGO_DummyFv",
+      "address": "0x80040b04",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "GetSceneNode__10BSGO_DummyFv",
+      "address": "0x80040afc",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "GetProximityData__17BSGO_DestructableFv",
+      "address": "0x80040b1c",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "GetSceneNode__17BSGO_DestructableFv",
+      "address": "0x80040b14",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "GetScriptData__17BSGO_DestructableFv",
+      "address": "0x80040b0c",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "GetProximityData__9BSGO_TankFv",
+      "address": "0x80040b34",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "GetSceneNode__9BSGO_TankFv",
+      "address": "0x80040b2c",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "GetScriptData__9BSGO_TankFv",
+      "address": "0x80040b24",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "GetEmbeddedHitReactionInfo__12BSGO_SoldierFv",
+      "address": "0x80040b54",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "GetProximityData__12BSGO_SoldierFv",
+      "address": "0x80040b4c",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "GetSceneNode__12BSGO_SoldierFv",
+      "address": "0x80040b44",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "GetScriptData__12BSGO_SoldierFv",
+      "address": "0x80040b3c",
+      "size": 8,
+      "binding": 2
+    }
+  ],
+  "externals": {
+    "__dl__FPv": "0x8001ca2c",
+    "__dla__FPv": "0x8001c9e8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "objcreate.cpp",
+  "original_file_index": 1440
+}
