@@ -61,8 +61,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8013fe1c",
-      "size": 760,
+      "address": "0x8013fdb4",
+      "size": 864,
       "type": 1
     }
   ],
@@ -71,6 +71,12 @@
       "name": "strcpy",
       "address": "0x80140040",
       "size": 184,
+      "binding": 1
+    },
+    {
+      "name": "strstr",
+      "address": "0x8013fdb4",
+      "size": 104,
       "binding": 1
     },
     {
@@ -122,5 +128,7 @@
   },
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": []
+  "sda_externals": [],
+  "original_file": "string.c",
+  "original_file_index": 11757
 }

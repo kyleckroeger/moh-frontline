@@ -172,7 +172,8 @@
     "slinkmix.json",
     "SNDI_findprime.json",
     "signal.json",
-    "uart_console_io.json"
+    "uart_console_io.json",
+    "NewMore.json"
   ],
   "progress": {
     "code_bytes": 1414572,

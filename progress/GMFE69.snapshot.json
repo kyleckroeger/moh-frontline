@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 200276,
+    "matching_code_bytes": 200672,
     "total_executable_code_bytes": 1414572,
-    "percent": 14.15806335767992,
+    "percent": 14.186057690948216,
     "categories": {
       "reconstructed_game": 12484,
-      "restored_library": 187792
+      "restored_library": 188188
     },
-    "matching_functions": 863
+    "matching_functions": 868
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -60,6 +60,7 @@
     "config/GMFE69/GXTransform.json": "38225301a6fd0d656301839a81128f2235b7fbe70c809990d1beeb45d8a5182b",
     "config/GMFE69/Gecko_ExceptionPPC.json": "40e29a739fe917c560f5eb9768fcab768f7b2d6fafcf2e45c14439d96526b39e",
     "config/GMFE69/NMWException.json": "993919adc03819f768ac97f37687a067894f1324f0097fa28477b34baf8f9157",
+    "config/GMFE69/NewMore.json": "a73fc17ffb36c223ebeace7005486781fe8461b7cdeead36cec2f2532fdd9aea",
     "config/GMFE69/OS.json": "c3796d6fcdd2a8f7d11c7060245d5ab1b85316fc6251876d2bbf7e93469f11a8",
     "config/GMFE69/OSAlarm.json": "1e86d7d9e28dd6c2d842af34882125cb9181ba4a9c4adca999722390b2e59824",
     "config/GMFE69/OSAlloc.json": "67106699292772ba5d4d82046fe0693ce5131eb6185ba3ef8965019d65fa6948",
@@ -136,7 +137,7 @@
     "config/GMFE69/mem.json": "ca3c317259aa8b4ae29fb186b81dae2190665955e0af421cfa574e77be7bb350",
     "config/GMFE69/mem_funcs.json": "cdc21eee7ec690a2964eff60bc9e230f0115ca0eb200b536179c0a35c292ae7a",
     "config/GMFE69/meminitadr.json": "381fcfbcbb6c274bbc1966d84f43a5ba64175efe3e51b4f0b3824230aa348172",
-    "config/GMFE69/misc_io.json": "e39e7fba76d1f21b4fb96170ded69a7452c3171401394b070a9a1504678c7486",
+    "config/GMFE69/misc_io.json": "ce7d57c797416feb92a3a89e4ce5412b18b2a322ecac1667ffdca9c454e2e8f1",
     "config/GMFE69/mpc_7xx_603e.json": "815f349dc1383d438a3836cb5ba5bd2db4279c6d017721a52804a4fd42e85507",
     "config/GMFE69/mslsupp.json": "a8c2e182d3fd7c6fbbf31466bc4091b837c9b9fe2b2d626115c78941e63d6a4d",
     "config/GMFE69/mtx.json": "61ba8caa4839c1bb759b694d83cff465e9a2e293d606c43603098ae206217583",
@@ -146,7 +147,7 @@
     "config/GMFE69/nubevent.json": "d6afc4bc3a93eb5ab6fc791d166d4243a4fee57863e76656a656235d2e20e0f2",
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "ead10d598a908d2951eef93cde67c964b6bd48489166e6a4b3c8a25c4ef4d6ba",
+    "config/GMFE69/project.json": "7c56169481dc52c944c43dd42db4a907eb926111294eded375c35f0a8906c860",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -178,8 +179,8 @@
     "config/GMFE69/slinkmix.json": "0d66b0e0297a0e7e7bf0c13cc7f212971c66ee4114cf017c282deb2b452f6755",
     "config/GMFE69/spantoaz.json": "0e3c799ee99a0820131c59ca50dbae62300eb93899d8495888384884db8c42db",
     "config/GMFE69/ssine.json": "ab1e72c303f947cc940dd1d39e24614bd8f638dd228ea71235c2d724f37d0729",
-    "config/GMFE69/string.json": "e6454998be307b09afe6355ffe0a3db4e36e82f2473bdf518fff7c7e67e776ff",
-    "config/GMFE69/strtoul.json": "f78ce35bf10a20248e7ba6a255fc9a431224cd5abdcd08160729e3ec87d1ce09",
+    "config/GMFE69/string.json": "dfcf9ebcd504cab3afb3e06b74c7e218ecadac89ebde48c40659fcaeb0a01628",
+    "config/GMFE69/strtoul.json": "96027a37123019cd24fdaf9c4ec6caa8228464cf8362a2b3ba7e36acdb35dad5",
     "config/GMFE69/targcont.json": "b2ca2a623eb919a56e51a2a987564851f0820315980336f1c08791bf38a03769",
     "config/GMFE69/target.json": "f7e8d7b660fd35f21cdc13385271d7b73fabda6669a0d112db63b3b1f3e8b3b2",
     "config/GMFE69/target_options.json": "89566eaeb8524e74b697e212fd6b56f53c2276681df67bd4ab9ac2fdf4761b95",
@@ -971,6 +972,7 @@
     "src/ea/ssine.c": "93302d8c4f67ab20ec7e2ead484fb1726b447d5e118755a655f69a2b8479136c",
     "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
     "src/game/propdat.cpp": "b1e26b00f10be619cc409432f6748e200a0064248119fafa81774718c305885d",
+    "src/msl/NewMore.cp": "cb60e70e586609256a8ff5c7a4b0efbdf7586b7fa7e3cb43b7f84e309e87c1be",
     "src/msl/signal.c": "38550f6b4c1ab95b94663077e5a4135fbeb15f00b541dbc5d9aad91e3c2e7e9e",
     "src/msl/uart_console_io.c": "ebc3c2826a594fe07935597a55732f43f6f5fb0cd8f25d8b4e99b56bb3ce0900",
     "src/prime/LICENSE.PrimeDecomp": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
@@ -1089,11 +1091,11 @@
     "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mbstring.c": "e360518a103f9c928201b5c68c61d57a1cc83b2197416c282412eef091ae94d4",
     "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mem.c": "9b2d20fd10da8b94096c455ab5e200e697570b26510263aeacf2ee4ddafd9ca3",
     "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/mem_funcs.c": "db4b27c1a3873ffcbad3999498438ceaa4601470b1a31876bcaa5c2c0d7d6e48",
-    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/misc_io.c": "b720d98a43c99fe24b142fd4cb49ab77103164071140d17173a3d300accb8902",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/misc_io.c": "4f24671a32a31ef4b46dc4628837ff257fdf1be3ccd66210f0710a2b61727cc2",
     "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/printf.c": "834740613d57c9b0887c2bc171dfa92f93ea64fa61ffb94894dab5d5c66488a2",
     "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/scanf.c": "af859e1d6713220bf604e884948548e744df982c45245cb39a8d67c6ed587d13",
-    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/string.c": "26d76747a21b59708dbf49a1ff77b1f3340434140c63e382b28e8ed682a446ab",
-    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/strtoul.c": "61c82eafac7bbeded1e9a3b4875a0df597c747098b5f97f4f4012802516a51f9",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/string.c": "8963489faa5a1f799759aaac77974e5723487541dc35115bce42414dbd409054",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/strtoul.c": "2bb3831da00ed202570fddd8016f4bae4e8deef7c7c8d18353d14a6f3329a39f",
     "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/wchar_io.c": "45e053142536d8e028250805917ab859e76ffe16085d9923f9dab37bee73d22b",
     "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_acos.c": "83e8e5ba0eb3a3c00478beb4accd6d8d0abc2162aa165711df7b59ec76bfa717",
     "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Double_precision/e_asin.c": "9f376634e31e063a005fe466d3528b6ee875c9501040296e6c9e2b0f3aaecb55",
@@ -6198,8 +6200,8 @@
     {
       "id": "strtoul",
       "category": "restored_library",
-      "functions": 1,
-      "code_bytes": 888,
+      "functions": 2,
+      "code_bytes": 1080,
       "compiler_family": "GC",
       "compiler_version": "1.3",
       "compiler_flags": [
@@ -6249,8 +6251,8 @@
         "strtol",
         "strtoul"
       ],
-      "object_sha256": "8c18ec133476f29a8210ca14eaa804a24f0ef2af54c0f345b8e86268077b480e",
-      "linked_sha256": "0d7bde8186b33f37ac454ab84f40096e4456d0915eda919d53c836cdedb538b0"
+      "object_sha256": "bc78b036513d0a9b5bcaea3137acf5792efc7a8caaa73934c36f4f9553b5da11",
+      "linked_sha256": "b4945ec3459651c674d014e50725fbdcfcc61cbd6bd5727f36349c6d3433eba5"
     },
     {
       "id": "alloc",
@@ -6533,8 +6535,8 @@
     {
       "id": "misc_io",
       "category": "restored_library",
-      "functions": 1,
-      "code_bytes": 16,
+      "functions": 2,
+      "code_bytes": 32,
       "compiler_family": "GC",
       "compiler_version": "1.3",
       "compiler_flags": [
@@ -6581,14 +6583,14 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "57e95071fa6b20ad4a600282b891a68f85cccfb1a8138df5f1b21995878399b9",
-      "linked_sha256": "ca69092f5782e98e19d8ca6ea071adc923ea6d3757d25bd672f29bc8ed4791d7"
+      "object_sha256": "6fd0484fc0467512e92dc128689e9def29213373f30ab1b3376cfe60d394f7c6",
+      "linked_sha256": "32d877b29e00eb6c57d71ac7dbe6abac6783fc3eff85b0d811e093097554b66e"
     },
     {
       "id": "string",
       "category": "restored_library",
-      "functions": 7,
-      "code_bytes": 760,
+      "functions": 8,
+      "code_bytes": 864,
       "compiler_family": "GC",
       "compiler_version": "1.3",
       "compiler_flags": [
@@ -6637,8 +6639,8 @@
       "discarded_functions": [
         "strcat"
       ],
-      "object_sha256": "7f3df6a15c9ec57203a20d6c46dced9658642b95d395026a2672e86845de4fc0",
-      "linked_sha256": "dcad34dfa682debeef8ec0bbed5285197f8ec2e33e91dbc5332589bb205db0bb"
+      "object_sha256": "3a4457996d60f9c94d21c09c6012d31f8be6f9194665140b41a94bec476b6a27",
+      "linked_sha256": "d7ffc1ebceb48971a1575c770aafc04f8181eedf92ecdd3b8766fd689cf20fa2"
     },
     {
       "id": "direct_io",
@@ -9434,6 +9436,62 @@
       "discarded_functions": [],
       "object_sha256": "f468d840369b110c69aa0308e4aa6d0f948eab9c64302037023c22bcf2c560a4",
       "linked_sha256": "1d3b5d4c0bdd8ef2a321642c5b4e452ff621bb10a57aed97599c73057760f3f5"
+    },
+    {
+      "id": "NewMore",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 84,
+      "compiler_family": "GC",
+      "compiler_version": "1.3",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-pragma",
+        "warn_notinlined off",
+        "-maxerrors",
+        "1",
+        "-nosyspath",
+        "-RTTI",
+        "on",
+        "-fp_contract",
+        "on",
+        "-str",
+        "reuse",
+        "-multibyte",
+        "-DVERSION=0",
+        "-DNDEBUG=1",
+        "-O4,p",
+        "-use_lmw_stmw",
+        "on",
+        "-str",
+        "reuse,pool,readonly",
+        "-common",
+        "off",
+        "-inline",
+        "deferred,auto",
+        "-char",
+        "signed",
+        "-Cpp_exceptions",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "3e52462a711fcb8cb1e5cb6134cee3031cf2c0e8efbafcd8396e24e2e942d4f1",
+      "linked_sha256": "11527cb636de9678564f6afe3b4ee21a2137d036159d10b140a2288e0a55adab"
     }
   ],
   "code_map": {
@@ -35845,27 +35903,6 @@
         ]
       },
       {
-        "name": "Unmatched files/NewMore.cp [symbol evidence]",
-        "file_record": 299,
-        "file_name": "NewMore.cp",
-        "ranges": [
-          {
-            "address": "0x80138204",
-            "size": 72,
-            "kind": "function",
-            "name": "__dt__Q23std9exceptionFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8013824c",
-            "size": 12,
-            "kind": "function",
-            "name": "what__Q23std9exceptionCFv",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/Gecko_ExceptionPPC.cp [symbol evidence]",
         "file_record": 304,
         "file_name": "Gecko_ExceptionPPC.cp",
@@ -36056,42 +36093,6 @@
             "size": 72,
             "kind": "function",
             "name": "fopen",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8013daa4",
-        "ranges": [
-          {
-            "address": "0x8013daa4",
-            "size": 16,
-            "kind": "function",
-            "name": "clearerr",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8013fdb4",
-        "ranges": [
-          {
-            "address": "0x8013fdb4",
-            "size": 104,
-            "kind": "function",
-            "name": "strstr",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80140114",
-        "ranges": [
-          {
-            "address": "0x80140114",
-            "size": 192,
-            "kind": "function",
-            "name": "atoi",
             "evidence": "unknown-file"
           }
         ]

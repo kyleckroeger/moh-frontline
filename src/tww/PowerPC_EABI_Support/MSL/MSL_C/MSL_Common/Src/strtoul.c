@@ -198,3 +198,8 @@ long strtol(const char* str, char** end, int base) {
 
     return svalue;
 }
+
+// Frontline also links atoi (not in the upstream file): strtol inlined.
+int atoi(const char* str) {
+    return strtol(str, NULL, 10);
+}

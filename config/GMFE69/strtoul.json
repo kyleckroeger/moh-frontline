@@ -61,8 +61,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x801401d4",
-      "size": 888,
+      "address": "0x80140114",
+      "size": 1080,
       "type": 1
     },
     {
@@ -77,6 +77,12 @@
       "name": "__strtoul",
       "address": "0x801401d4",
       "size": 888,
+      "binding": 1
+    },
+    {
+      "name": "atoi",
+      "address": "0x80140114",
+      "size": 192,
       "binding": 1
     }
   ],
@@ -96,11 +102,11 @@
     "commit": "a1854d47ce5aa9d0f21c7fb5a71aaade63659693",
     "path": "src/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/strtoul.c"
   },
-  "original_file": "strtoul.c",
-  "original_file_index": 11759,
   "local_externals": [],
   "discarded_local_functions": [],
   "sda_externals": [
     "errno"
-  ]
+  ],
+  "original_file": "strtoul.c",
+  "original_file_index": 11759
 }

@@ -62,7 +62,7 @@
     {
       "name": ".text",
       "address": "0x8013da94",
-      "size": 16,
+      "size": 32,
       "type": 1
     }
   ],
@@ -70,6 +70,12 @@
     {
       "name": "__stdio_atexit",
       "address": "0x8013da94",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "clearerr",
+      "address": "0x8013daa4",
       "size": 16,
       "binding": 1
     }
@@ -89,5 +95,7 @@
   "discarded_local_functions": [],
   "sda_externals": [
     "__stdio_exit"
-  ]
+  ],
+  "original_file": "misc_io.c",
+  "original_file_index": 11723
 }

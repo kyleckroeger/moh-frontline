@@ -68,6 +68,13 @@ linked comparison then treats weak and global alike.
   with the default handler returns 0 instead of exiting.
 - `uart_console_io.c`: the Wind Waker source with `__init_uart_console`
   inlined, `__write_console` weak and no `__close_console`.
+- `NewMore.cp`: `std::exception`'s destructor and `what()`, both weak (as
+  header-inline members emitted with the vtable); built with RTTI on.
+
+Functions added to Wind Waker copies (absent upstream, reconstructed from the
+disassembly): `clearerr` in `misc_io.c` (placed before `__stdio_atexit`),
+`strstr` in `string.c` and `atoi` in `strtoul.c` (`strtol(str, NULL, 10)`,
+with `strtol` inlined).
 
 ## Open work
 
@@ -76,8 +83,7 @@ linked comparison then treats weak and global alike.
   (`__throw`, `ExPPC_*`, about 5 KB), `mslsupp.c`'s file hooks (`__open_file`
   and the rest; Pikmin 2 has only placeholder stubs), `buffer_io.c`'s
   `__load_buffer` and `setvbuf`, `ansi_files.c`'s file-table helpers,
-  `fopen`/`freopen`/`fread`, `bsearch`, `strstr`, `atoi`, `clearerr`,
-  `NewMore.cp`, and the
+  `fopen`/`freopen`/`fread`, `bsearch`, and the
   `pow`/`cosf` wrappers.
 - MetroTRK: Frontline links the Wind Waker's revision (117 of 118 function
   sizes agree), but the Wind Waker decompilation marks most TRK files

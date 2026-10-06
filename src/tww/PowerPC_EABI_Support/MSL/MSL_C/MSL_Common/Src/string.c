@@ -236,3 +236,29 @@ char* strrchr(const char* str, int c) {
 
     return chr ? NULL : (char*)p;
 }
+
+// Frontline also links strstr (not in the upstream file); reconstructed from
+// the disassembly.
+char* strstr(const char* str, const char* pat) {
+    unsigned char* s1 = (unsigned char*)str - 1;
+    unsigned char* p1 = (unsigned char*)pat;
+    unsigned long firstc, c1, c2;
+
+    if (pat == NULL || !(firstc = *p1))
+        return (char*)str;
+
+    while ((c1 = *++s1) != 0) {
+        if (c1 == firstc) {
+            const unsigned char* s2 = s1 - 1;
+            const unsigned char* p2 = p1 - 1;
+
+            while ((c1 = *++s2) == (c2 = *++p2) && c1)
+                ;
+
+            if (!c2)
+                return (char*)s1;
+        }
+    }
+
+    return NULL;
+}
