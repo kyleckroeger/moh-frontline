@@ -199,5 +199,5 @@ establish a type, the source comments say so.
 | `memstd.cpp` | 1 | 8 | `MEM_size` |
 | `systask.cpp` | 4 | 772 | `SYNCTASK_*`: a 16-entry table of tick-scheduled callbacks with guarded local statics; entry layout inferred |
 | `bmem.cpp` | 4 | 680 | Block pools (`BPoolMan`): pool chain and circular free list; the static `AddNewPool` is defined last so it is not inlined. Members inferred |
-| `syncfile.cpp` | 4 | 612 | Synchronous FILESYS open/read: chunked (0x8000) block IO driven by a completion callback; the context's polled fields are volatile, and `#pragma dont_inline` keeps `syncblockio` out of `FILESYS_readsync` as in the original |
+| `syncfile.cpp` | 9 | 1,100 | Synchronous FILESYS open/read/close/size/addbig/delbig/exists: chunked (0x8000) block IO driven by a completion callback; the context's polled fields are volatile, and `#pragma dont_inline` keeps `syncblockio` out of `FILESYS_readsync` as in the original |
 

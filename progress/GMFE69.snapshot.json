@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 223536,
+    "matching_code_bytes": 224024,
     "total_executable_code_bytes": 1414572,
-    "percent": 15.802376973388418,
+    "percent": 15.836875040648337,
     "categories": {
       "reconstructed_game": 18288,
-      "restored_library": 205248
+      "restored_library": 205736
     },
-    "matching_functions": 1096
+    "matching_functions": 1101
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -289,7 +289,7 @@
     "config/GMFE69/supf.json": "bf560ecc1ce84bbb1af12534eecfe2a9a079cf1294dd7a4774f0d90979c09a7c",
     "config/GMFE69/surfacetype.json": "86dc7dabf78f07ec11a9d5eca99eb78762ddd2392826818716ae3082c324a362",
     "config/GMFE69/susercb.json": "cfe0cb8c83a1d25b67412441a4d8fcb885ec29c9b5593b42698f7051169ccef4",
-    "config/GMFE69/syncfile.json": "0a601a047c3ef1e55684fc94e096855bc89a99764e9b90ce44d685d8c3bc467a",
+    "config/GMFE69/syncfile.json": "73ac8a67260c8f9f2442a35b9584048e4936e20f0133c2cbc94c4e6d068e305c",
     "config/GMFE69/systask.json": "72ab78a87c62946f502623a9bc8fad993fcddee8643de447770dd905097bc03f",
     "config/GMFE69/system.json": "9394480cdf8454b27c4fa4f94aba62c452a439fc1c1cde6698ff33bbcf26375f",
     "config/GMFE69/targcont.json": "b2ca2a623eb919a56e51a2a987564851f0820315980336f1c08791bf38a03769",
@@ -1176,7 +1176,7 @@
     "src/ea/stimemul.c": "fe4a33747721800f1d82a72032bc415a12b399b6a6ebdc8bed634faeb2ed7494",
     "src/ea/supf.c": "6887947b6223d085d1b4ae151937fb4107e5f1338b36fe73fd37bb15718a7cf9",
     "src/ea/susercb.c": "1481568dd7d17c637e274529b8e41784ff435133c690f7158a53f8428c6e997a",
-    "src/ea/syncfile.cpp": "2bd70dddb756dbb86b8eb75d2dd8a7c706d2c9decc0cde7d6b27f95383d8ca56",
+    "src/ea/syncfile.cpp": "1124a93e16dfa598b23ce2eb2fce4d0e31b5609a4ad58910f0fc836dbe9891f3",
     "src/ea/systask.cpp": "064e88a22a3eb4ce2abeccd180f0df17d49e86028b44b3fc0a54e8cf7365d4bb",
     "src/ea/timer.cpp": "5fbb8bd406632aa10e62ca1c8523eee1e88d3fcd17e3edcdf1b3d7cfd0f19708",
     "src/ea/timerthread.cpp": "e2ee2dfbb74893029f0693bb5b76212bdd70223c892d9fd963984794c6193628",
@@ -10764,8 +10764,8 @@
     {
       "id": "syncfile",
       "category": "restored_library",
-      "functions": 4,
-      "code_bytes": 612,
+      "functions": 9,
+      "code_bytes": 1100,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -10797,8 +10797,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "55a92972194104cab76204083aaf1b0c85b32cc1c7f67d89d2d47de60272d6e0",
-      "linked_sha256": "e036520922f1c437d672110e2e00a82dfe7eee4e7943fe2683d1b72c8e7ad195"
+      "object_sha256": "19101b495701b27ef8294075b92d71d605509af3e198f6238d518f8a96dd5506",
+      "linked_sha256": "c3c80fe53e89552aa040eed25f1418b78ca6fe70abebdab0f12c9f95cf218f92"
     },
     {
       "id": "memory",
@@ -40590,43 +40590,8 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 8014a130",
+        "name": "Unknown file/.text @ 8014a318",
         "ranges": [
-          {
-            "address": "0x8014a130",
-            "size": 92,
-            "kind": "function",
-            "name": "FILESYS_closesync",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8014a18c",
-            "size": 84,
-            "kind": "function",
-            "name": "FILESYS_sizesync",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8014a1e0",
-            "size": 128,
-            "kind": "function",
-            "name": "FILESYS_addbigsync",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8014a260",
-            "size": 92,
-            "kind": "function",
-            "name": "FILESYS_delbigsync",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8014a2bc",
-            "size": 92,
-            "kind": "function",
-            "name": "FILESYS_existssync",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x8014a318",
             "size": 76,

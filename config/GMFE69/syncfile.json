@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x80149ecc",
-      "size": 612,
+      "size": 1100,
       "type": 1
     }
   ],
@@ -66,14 +66,49 @@
       "address": "0x8014a108",
       "size": 40,
       "binding": 1
+    },
+    {
+      "name": "FILESYS_closesync",
+      "address": "0x8014a130",
+      "size": 92,
+      "binding": 1
+    },
+    {
+      "name": "FILESYS_sizesync",
+      "address": "0x8014a18c",
+      "size": 84,
+      "binding": 1
+    },
+    {
+      "name": "FILESYS_addbigsync",
+      "address": "0x8014a1e0",
+      "size": 128,
+      "binding": 1
+    },
+    {
+      "name": "FILESYS_delbigsync",
+      "address": "0x8014a260",
+      "size": 92,
+      "binding": 1
+    },
+    {
+      "name": "FILESYS_existssync",
+      "address": "0x8014a2bc",
+      "size": 92,
+      "binding": 1
     }
   ],
   "externals": {
+    "FILESYS_addbig": "0x80149208",
     "FILESYS_callbackop": "0x80148624",
+    "FILESYS_close": "0x80148cd0",
     "FILESYS_completeop": "0x80148a84",
+    "FILESYS_delbig": "0x801494e8",
+    "FILESYS_exists": "0x80148b90",
     "FILESYS_open": "0x80148c38",
     "FILESYS_opstatus": "0x801485b0",
     "FILESYS_read": "0x80148d7c",
+    "FILESYS_size": "0x80148e20",
     "FILESYS_waitop": "0x80148980"
   },
   "undefined_in_discarded_code": [],

@@ -24,6 +24,11 @@ int FILESYS_waitop(int);
 int FILESYS_opstatus(int);
 int FILESYS_open(const char*, int, int, int);
 int FILESYS_read(int, int, void*, int, int, void*);
+int FILESYS_close(int, int, int);
+int FILESYS_size(int, int, int);
+int FILESYS_addbig(const char*, int, int, int);
+int FILESYS_delbig(const char*, int, int);
+int FILESYS_exists(const char*, int, int);
 }
 
 static void synccallback(int op, int status, void* data) {
@@ -95,5 +100,63 @@ extern "C" bool FILESYS_opensync(const char* name, int mode, int priority, int* 
 #pragma dont_inline on
 extern "C" int FILESYS_readsync(int handle, int offset, void* buffer, int size, int priority) {
     return syncblockio(handle, offset, buffer, size, priority, FILESYS_read);
+}
+
+extern "C" bool FILESYS_closesync(int handle, int priority) {
+    bool result = false;
+    int op = FILESYS_close(handle, priority, 0);
+
+    if (op) {
+        FILESYS_waitop(op);
+        result = FILESYS_completeop(op) != 0;
+    }
+    return result;
+}
+
+extern "C" int FILESYS_sizesync(int handle, int priority) {
+    int result = 0;
+    int op = FILESYS_size(handle, priority, 0);
+
+    if (op) {
+        FILESYS_waitop(op);
+        result = FILESYS_completeop(op);
+    }
+    return result;
+}
+
+extern "C" bool FILESYS_addbigsync(const char* name, int mode, int priority, int* handle) {
+    bool result = false;
+    int op = FILESYS_addbig(name, mode, priority, 0);
+
+    if (op) {
+        FILESYS_waitop(op);
+        result = FILESYS_opstatus(op) == 1;
+        *handle = FILESYS_completeop(op);
+    } else {
+        *handle = 0;
+    }
+    return result;
+}
+
+extern "C" bool FILESYS_delbigsync(const char* name, int priority) {
+    bool result = false;
+    int op = FILESYS_delbig(name, priority, 0);
+
+    if (op) {
+        FILESYS_waitop(op);
+        result = FILESYS_completeop(op) != 0;
+    }
+    return result;
+}
+
+extern "C" bool FILESYS_existssync(const char* name, int priority) {
+    bool result = false;
+    int op = FILESYS_exists(name, priority, 0);
+
+    if (op) {
+        FILESYS_waitop(op);
+        result = FILESYS_completeop(op) != 0;
+    }
+    return result;
 }
 #pragma dont_inline reset
