@@ -317,7 +317,8 @@
     "OSReboot.json",
     "PPCArch.json",
     "dolphin_trk.json",
-    "dispatch.json"
+    "dispatch.json",
+    "notify.json"
   ],
   "progress": {
     "code_bytes": 1414572,
