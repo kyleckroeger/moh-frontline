@@ -298,7 +298,8 @@
     "vector.json",
     "smixc.json",
     "sfxrev.json",
-    "sdfx.json"
+    "sdfx.json",
+    "sx87d16.json"
   ],
   "progress": {
     "code_bytes": 1414572,
