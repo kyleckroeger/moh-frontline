@@ -1,0 +1,102 @@
+{
+  "id": "filesys",
+  "source": "src/game/filesys.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8001c60c",
+      "size": 100,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x800097bc",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800101f0",
+      "size": 12,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x80196c30",
+      "size": 2048,
+      "type": 8
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034e738",
+      "size": 8,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "File_Seek__Fii11ESeekOrigin",
+      "address": "0x8001c60c",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "File_Write__FiPvi",
+      "address": "0x8001c614",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "File_Close__Fi",
+      "address": "0x8001c61c",
+      "size": 84,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DVDClose": "0x80118110"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "filesys.cpp",
+  "original_file_index": 307
+}

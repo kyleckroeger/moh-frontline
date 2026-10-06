@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 284184,
+    "matching_code_bytes": 284284,
     "total_executable_code_bytes": 1414572,
-    "percent": 20.089751529084417,
+    "percent": 20.096820805162267,
     "categories": {
-      "reconstructed_game": 84304,
+      "reconstructed_game": 84404,
       "restored_library": 199880
     },
-    "matching_functions": 1835
+    "matching_functions": 1838
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -205,6 +205,7 @@
     "config/GMFE69/fader.json": "2f6cb9bb69c2af087ea1d104d2a440645a4f409908fa987aef0750a6273d4297",
     "config/GMFE69/file_io.json": "1f7376a3e1cbacd1b77840e0eae4b3069ae28a805f71eb751ebf19dcd296e710",
     "config/GMFE69/filedev.json": "345d10da83f1a2011e5fc4b9278fee1b53e1cdef4497f8fe2b0ee38ca1bafa48",
+    "config/GMFE69/filesys.json": "185bee362e44b4d8a0be93e758de9cb622c834a7c6a82b890eb815e6cdd71280",
     "config/GMFE69/flush_cache.json": "aa1c08f24f7fa7ce6bf2cfa32e6ae398b7b93fea2374de2a6120d5e28e6b9578",
     "config/GMFE69/font.json": "192da369bd9089ea5ff935965a96644b66682a28b77c07194c7d7bc62b3539e8",
     "config/GMFE69/fontchar.json": "52d15cdb73d5c697247c5e96fc9c264304ab2e315365308ab6d0f47d0d6364d8",
@@ -283,7 +284,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "8c029331258970d039163d81958e873a956f3e2518b80734001531e8a795dc6c",
+    "config/GMFE69/project.json": "54bf86aef26d303abd14842b4d5799a7685877ab40c1d4b1ed3213522e286edf",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
@@ -1435,6 +1436,7 @@
     "src/game/dmrender.cpp": "7b92ea9bad0f52f4ba4728f8386f4da6fd4a3b93b5293dd87d1fdcf6bc6c3ec8",
     "src/game/draw_context.cpp": "261589cc092b9c8c7b80605255eefc78641468141f4d33264252696f62c9782b",
     "src/game/fader.cpp": "fcc29dce43a0cf9eca978df224fba99596b634584e886a18cb434749daf4a4e0",
+    "src/game/filesys.cpp": "8fdd3ea9a027af66497e1cf6ff4940e891bac735989af8ca5ff5616b9286b2ad",
     "src/game/font.cpp": "20dc282ade8622a6477d4a787b1df38aa6a0af7c35078543606bbd3b26152cf1",
     "src/game/framework.cpp": "8cebad26aba8fe4a9a9ece0492c0bf7bb34882a1eec7dd48a1b3b93d0830914f",
     "src/game/gcSystem.cpp": "e97d4933fe4ba1c46e72d853db6ff53b0c8136020bef2237c66ad38a0d1e1068",
@@ -20616,6 +20618,45 @@
       "discarded_functions": [],
       "object_sha256": "4da648d71e59436e1a0220d03efa92687138da5918025b2081f323d2e9e237ae",
       "linked_sha256": "ba0faf802cd26cb15cd1e5c4d255af67e09c80d5fc3d625d248cf7b8148ac44c"
+    },
+    {
+      "id": "filesys",
+      "category": "reconstructed_game",
+      "functions": 3,
+      "code_bytes": 100,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "959577d063b87c8fe4c2e58290135dda275ff23184c25b157a26504bff44e6b1",
+      "linked_sha256": "b4918e8ca5f0e2e2c2cdc98c3a4e1d6f7c1d9c316190e385fcabec1f08743197"
     }
   ],
   "code_map": {
@@ -21306,36 +21347,10 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 8001c60c",
-        "ranges": [
-          {
-            "address": "0x8001c60c",
-            "size": 8,
-            "kind": "function",
-            "name": "File_Seek__Fii11ESeekOrigin",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8001c614",
-            "size": 8,
-            "kind": "function",
-            "name": "File_Write__FiPvi",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/filesys.cpp [file record 7] [symbol evidence]",
         "file_record": 7,
         "file_name": "filesys.cpp",
         "ranges": [
-          {
-            "address": "0x8001c61c",
-            "size": 84,
-            "kind": "function",
-            "name": "File_Close__Fi",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x8001c670",
             "size": 492,

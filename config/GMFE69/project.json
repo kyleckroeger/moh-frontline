@@ -438,7 +438,8 @@
     "saems.json",
     "snddrv.json",
     "devicemgr.json",
-    "MemoryCardGC.json"
+    "MemoryCardGC.json",
+    "filesys.json"
   ],
   "progress": {
     "code_bytes": 1414572,
