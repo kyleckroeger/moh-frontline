@@ -1,15 +1,16 @@
-// A fragment of bsbifunc.cpp (0x80032208): AI built-ins that continue (walk
-// state 8) or stop (walk state 0) a move-point walk, and start a walk to the
-// move point held in the script object's script data. Each reaches the script
-// object's AI object through the scene node's AI doodad and its filter, and
-// pops the built-in's arguments. The file name is this project's; the original
-// record is bsbifunc.cpp; AISnapToMovePoint before these is 8 instructions off
-// (a register swap in its three-float copy). The functions, classes and globals
-// are named by the mangled symbols; ISceneNode is declared with its virtual
-// functions in the order of __vt__10ISceneNode (GetScriptObject at +96,
-// GetAIDoodad at +204), and the doodad, filter, CAIObject, script object and
-// instance data views are inferred (members at their offsets, names not
-// original).
+// A fragment of bsbifunc.cpp (0x80028f8c): built-ins that add an objective
+// (and raise the highest objective number), return the script object's
+// embedded hit-reaction info, followed by BSGO_Basic's weak default for it
+// (none), return an event-system memory block of 32 bytes, and destroy a
+// light (marking it for destruction). Each reads its arguments below the
+// script stack top, pops the built-in's arguments and writes a result to the
+// new top through an integer union. The file name is this project's; the
+// original record is bsbifunc.cpp and the built-ins around these are not
+// reconstructed. The functions, classes and globals are named by the mangled
+// symbols; BSGO_Basic's virtual functions are declared in the order of
+// __vt__10BSGO_Basic (its virtual table pointer follows 12 bytes of
+// members), ISceneNode in the order of __vt__10ISceneNode, and the built-in
+// record and value views are inferred.
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
@@ -18,8 +19,6 @@ class CVector3;
 class CBullet;
 class CLight;
 class CPlayerObject;
-struct AIDoodadView;
-struct BSObjectView;
 struct AIDoodadView;
 
 class ISceneNode {
@@ -47,7 +46,7 @@ public:
     virtual int IsDrawEnabled() const;
     virtual EClsnId GetCollisionId() const;
     virtual void SetCollisionId(EClsnId);
-    virtual BSObjectView* GetScriptObject() const;
+    virtual int GetScriptObject() const;
     virtual void TriggerScriptEvent(int, void*, bool);
     virtual void HandleBulletCollision(CBullet*, const CCollision&);
     virtual void* AsMovingNode();
@@ -80,31 +79,20 @@ public:
     virtual CLight* GetAttachedLight() const;
 };
 
-class CAIFilterRealPosition {
-public:
-    CAIFilterRealPosition(float x_, float y_, float z_) : x(x_), y(y_), z(z_) {}
-
-    float x;
-    float y;
-    float z;
+union BSValueView {
+    int i;
+    float f;
 };
 
-struct MovePointInstanceView {
-    unsigned char unknown00[172];
-    float x;
-    float y;
-    float z;
-};
-
-// BSGO_Basic, the object at BSObject+12: 12 bytes of members, then its
-// virtual table pointer; the virtual functions it needs, in the order of
-// __vt__10BSGO_Basic.
 class BSGO_Basic {
     unsigned char unknown00[12];
 
 public:
     virtual void Destroy();
-    virtual MovePointInstanceView* GetScriptData();
+    virtual void* GetScriptData();
+    virtual void* GetSceneNode();
+    virtual void* GetProximityData();
+    virtual void* GetEmbeddedHitReactionInfo();
 };
 
 struct BSObjectView {
@@ -112,33 +100,11 @@ struct BSObjectView {
     BSGO_Basic* user;
 };
 
-class CAIObject {
-public:
-    void StartWalkToArbitraryPoint(CAIFilterRealPosition&);
+extern BSObjectView* g_pBSObject;
+extern int g_iHighestObjectiveNumber;
 
-    unsigned char unknown000[56];
-    CAIFilterRealPosition m_position;
-    unsigned char unknown044[8];
-    bool m_flag4c;
-    unsigned char unknown04d[347];
-    unsigned int m_flags;
-    unsigned char unknown1ac[108];
-    int m_walkState;
-    unsigned char unknown21c[172];
-    float m_storedX;
-    float m_storedY;
-    float m_storedZ;
-};
-
-struct CAIFilterView {
-    unsigned char unknown00[8];
-    CAIObject* object;
-};
-
-struct AIDoodadView {
-    void* unknown00;
-    CAIFilterView* filter;
-};
+void AddObjective(unsigned int, unsigned int);
+void* BSEventGetEventMemoryBlock(unsigned int);
 
 struct BSBuiltinView {
     void (*function)(int**, void*);
@@ -151,27 +117,34 @@ struct BSBuiltinView {
 extern BSBuiltinView* g_pBuiltInFunctions;
 extern int g_iCurrentBIFIndex;
 
-inline CAIObject* GetAIObject(void* object) {
-    return ((ISceneNode*)object)->GetAIDoodad()->filter->object;
-}
-
-void BIFunc_AISnapToMovePoint(int** stack, void* object);
-
-void BIFunc_AIContinueMovePointWalk(int** stack, void* object) {
-    GetAIObject(object)->m_walkState = 8;
+void BIFunc_AddObjective(int** stack, void*) {
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    int objective = *(*stack - (count - 1));
+    AddObjective(objective, *(*stack - (count - 2)));
+    if (objective > g_iHighestObjectiveNumber)
+        g_iHighestObjectiveNumber = objective;
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
 }
 
-void BIFunc_AIStopMovePointWalk(int** stack, void* object) {
-    GetAIObject(object)->m_walkState = 0;
+void BIFunc_GetEmbeddedHitReactionInfo(int** stack, void*) {
+    void* info = 0;
+    info = g_pBSObject->user->GetEmbeddedHitReactionInfo();
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    **stack = *(int*)&info;
 }
 
-void BIFunc_AIStartMovePointWalk(int** stack, void* object) {
-    CAIFilterView* filter = ((ISceneNode*)object)->GetAIDoodad()->filter;
-    MovePointInstanceView* data = ((ISceneNode*)object)->GetScriptObject()->user->GetScriptData();
-    CAIFilterRealPosition point(data->x, data->y, data->z);
-    filter->object->StartWalkToArbitraryPoint(point);
-    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+__declspec(weak) void* BSGO_Basic::GetEmbeddedHitReactionInfo() {
+    return 0;
 }
 
+void BIFunc_GetEventSystemMemBlock(int** stack, void*) {
+    BSValueView value;
+    value.i = (int)BSEventGetEventMemoryBlock(32);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    *(BSValueView*)*stack = value;
+}
+
+void BIFunc_DestroyLight(int** stack, void*) {
+    ((ISceneNode*)*(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1)))->MarkForDestruction(0);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}

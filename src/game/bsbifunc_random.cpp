@@ -1,13 +1,17 @@
-// A fragment of bsbifunc.cpp (0x8002f564): script built-ins for instance data,
-// random numbers and switching the player's weapon. Each reads its arguments
-// below the script stack top (by the built-in's parameter count), pops the
-// arguments and, for a result, writes it to the new top. The file name is this
-// project's; the original record is bsbifunc.cpp and the built-ins around these
-// are not reconstructed. The functions, classes and globals are named by the
-// mangled symbols; ISceneNode is declared with its virtual functions in the
-// order of __vt__10ISceneNode, the shell, player, weapon and soldier views are
-// inferred (members at their offsets, names not original), as are the built-in
-// record view, the integer/float value union and the random-range helpers.
+// A fragment of bsbifunc.cpp (0x8002f4cc): script built-ins that create a child
+// root hierarchy object (for the script object's trigger), return the script
+// data, return a random float or integer in a range, and switch the player's
+// weapon or test whether the player can. Each reads its arguments below the
+// script stack top (by the built-in's parameter count), pops the arguments and,
+// for a result, writes it to the new top (through its address where the
+// original keeps the value in memory). The file name is this project's; the
+// original record is bsbifunc.cpp and PlayerCanCookGrenades after these is 8
+// instructions off. The functions, classes and globals are named by the mangled
+// symbols; ISceneNode is declared with its virtual functions in the order of
+// __vt__10ISceneNode and BSGO_Basic in the order of __vt__10BSGO_Basic; the
+// player and weapon views are inferred (members at their offsets, names not
+// original), as are the built-in record view, the integer/float value union and
+// the random-range helpers.
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
@@ -85,20 +89,21 @@ union BSValueView {
     float f;
 };
 
-// The object at BSObject+12: 12 bytes of members, then its virtual table
-// pointer; the second virtual function returns the instance data.
-class BSObjectUserView {
+// BSGO_Basic, the object at BSObject+12: 12 bytes of members, then its
+// virtual table pointer; the virtual functions it needs, in the order of
+// __vt__10BSGO_Basic.
+class BSGO_Basic {
     unsigned char unknown00[12];
 
 public:
-    virtual void unknownVirtual0();
-    virtual int GetInstanceData();
+    virtual void Destroy();
+    virtual int GetScriptData();
 };
 
 struct BSObjectView {
     unsigned char unknown00[8];
     TriggerObject_struct* trigger;
-    BSObjectUserView* user;
+    BSGO_Basic* user;
 };
 
 class CWeapon {
@@ -172,11 +177,16 @@ struct BSBuiltinView {
 extern BSBuiltinView* g_pBuiltInFunctions;
 extern int g_iCurrentBIFIndex;
 
-void BIFunc_CreateChildRootHierObject(int** stack, void*);
+void BIFunc_CreateChildRootHierObject(int** stack, void*) {
+    int object = 0;
+    object = *CreateRootHierObject(g_pBSObject->trigger, *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1)));
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    **stack = *(int*)&object;
+}
 
 void BIFunc_GetMyInstanceData(int** stack, void*) {
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
-    **stack = g_pBSObject->user->GetInstanceData();
+    **stack = g_pBSObject->user->GetScriptData();
 }
 
 void BIFunc_GetRandomFloat(int** stack, void*) {

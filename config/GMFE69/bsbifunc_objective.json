@@ -1,6 +1,6 @@
 {
-  "id": "bsbifunc_random",
-  "source": "src/game/bsbifunc_random.cpp",
+  "id": "bsbifunc_objective",
+  "source": "src/game/bsbifunc_objective.cpp",
   "category": "restored_library",
   "compiler_family": "GC",
   "compiler_version": "1.3.2",
@@ -39,68 +39,60 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8002f4cc",
-      "size": 856,
+      "address": "0x80028f8c",
+      "size": 524,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x80009e7c",
-      "size": 48,
+      "address": "0x80009c7c",
+      "size": 32,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80010b80",
-      "size": 72,
+      "address": "0x80010880",
+      "size": 48,
       "type": 1
     }
   ],
   "functions": [
     {
-      "name": "BIFunc_PlayerCanSwitchWeapon__FPPiPv",
-      "address": "0x8002f7b4",
-      "size": 112,
+      "name": "BIFunc_DestroyLight__FPPiPv",
+      "address": "0x80029110",
+      "size": 136,
       "binding": 1
     },
     {
-      "name": "BIFunc_PlayerSwitchWeapons__FPPiPv",
-      "address": "0x8002f718",
-      "size": 156,
-      "binding": 1
-    },
-    {
-      "name": "BIFunc_CreateChildRootHierObject__FPPiPv",
-      "address": "0x8002f4cc",
-      "size": 152,
-      "binding": 1
-    },
-    {
-      "name": "BIFunc_GetRandomFloat__FPPiPv",
-      "address": "0x8002f5d0",
+      "name": "BIFunc_AddObjective__FPPiPv",
+      "address": "0x80028f8c",
       "size": 164,
       "binding": 1
     },
     {
-      "name": "BIFunc_GetRandomInteger__FPPiPv",
-      "address": "0x8002f674",
-      "size": 164,
+      "name": "BIFunc_GetEmbeddedHitReactionInfo__FPPiPv",
+      "address": "0x80029030",
+      "size": 120,
       "binding": 1
     },
     {
-      "name": "BIFunc_GetMyInstanceData__FPPiPv",
-      "address": "0x8002f564",
-      "size": 108,
+      "name": "BIFunc_GetEventSystemMemBlock__FPPiPv",
+      "address": "0x800290b0",
+      "size": 96,
       "binding": 1
+    },
+    {
+      "name": "GetEmbeddedHitReactionInfo__10BSGO_BasicFv",
+      "address": "0x800290a8",
+      "size": 8,
+      "binding": 2
     }
   ],
   "externals": {
-    "CanPlayerSwitchWeapon__13CPlayerObjectFv": "0x800a74a8",
-    "CreateRootHierObject__FP20TriggerObject_structi": "0x8003dde8",
-    "CycleWeapon__13CPlayerObjectFii": "0x8009fbec",
-    "MathFunRandomI64__Fxx": "0x80092dd4",
-    "MathFunRandomReal__Fff": "0x80092d60",
+    "AddObjective__FUiUi": "0x800dd6d4",
+    "BSEventGetEventMemoryBlock__FUi": "0x80034dbc",
     "g_iCurrentBIFIndex": "0x8034e77c",
+    "g_iHighestObjectiveNumber": "0x8034e798",
     "g_pBSObject": "0x8034e7e0",
     "g_pBuiltInFunctions": "0x8034e778"
   },
@@ -111,6 +103,7 @@
   "discarded_local_functions": [],
   "sda_externals": [
     "g_iCurrentBIFIndex",
+    "g_iHighestObjectiveNumber",
     "g_pBSObject",
     "g_pBuiltInFunctions"
   ],
