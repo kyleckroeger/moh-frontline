@@ -181,7 +181,9 @@
     "surfacetype.json",
     "MallocInit.json",
     "real_bridge.json",
-    "system.json"
+    "system.json",
+    "gcSystem.json",
+    "idct.json"
   ],
   "progress": {
     "code_bytes": 1414572,

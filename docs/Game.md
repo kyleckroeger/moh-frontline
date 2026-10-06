@@ -84,6 +84,7 @@ and layouts it marks as descriptive stay descriptive here.
 | `MallocInit.cpp` | 1 | 144 | — | Heap set-up from the OS arena (less 24 MB above that size) |
 | `real_bridge.cpp` | 3 | 196 | — | REAL runtime start-up, update and shutdown calls |
 | `system.cpp` | 3 | 208 | — | `SysInit`/`SysShutdown` with the module-active flag and a 36-byte critical section |
+| `gcSystem.cpp` | 5 | 232 | — | Critical sections over `MUTEX_create`/`MUTEX_destroy` (a 28-byte mutex, owner thread and count) and `SysInitDependent` (`OSInit`, `DVDInit`) |
 
 ## Endian conversions
 
@@ -157,4 +158,5 @@ establish a type, the source comments say so.
 | `SNDI_mult16.c` | 1 | 44 | `SNDI_findprime(a, b / 16) * 16` |
 | `sexithndl.c` | 1 | 32 | Calls `SNDSYS_restore` |
 | `slinkmix.c` | 1 | 88 | Installs the seven main-CPU mixer entry points |
+| `idct.cpp` | 1 | 232 | Clip-table set-up of the MPEG-2 reference decoder's fast IDCT (`iclp[i]` clamped to -256..255) |
 
