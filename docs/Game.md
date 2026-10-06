@@ -188,6 +188,7 @@ establish a type, the source comments say so.
 | `fontcreate.cpp`, `fontinit.cpp` | 4 | 252 | Font creation through the current driver's hooks; the standard font is created once and destroyed at exit |
 | `signals.cpp`, `mutex2.cpp`, `memmove.cpp` | 8 | 480 | REAL signals (one-slot OS message queue) and mutexes (`MUTEX_destroy` poisons the record with 0xdeadbeef); `MEM_move` copies backwards on overlap |
 | `memfill.cpp` | 1 | 492 | `MEM_fill`: align with byte/halfword/word stores, `while (size >= 32)` block stores (the compiler turns it into a counted, unrolled loop), then the tail |
+| `initvblt.cpp` | 1 | 104 | `ttDoVTimerMsg`: vertical-blank tick and its eight subscribers |
 | Sound voice and bank files: `spatkey.c`, `spktctoh.c`, `sstovrhd.c`, `smasterv.c`, `spitch.c`, `sfxlevel.c`, `sbplay.c`, `sautovol.c` | 9 | 1,300 | `iSNDpatchkey` (the per-patch voice iterator), master volume, pitch/effect/fade controls, bank playback |
 | `s3dlow.c`, `slib.c`, `smixptch.c` | 3 | 604 | `SND3dpos`; `iSNDcalcvol` (four volumes out of 127, divided by 127³, then optional key-scale and curve tables); `MIX_setpitch` creates the channel's resampler on first use |
 | `smixhip.c`, `sbpatinf.c`, `susercb.c`, `sclnt100.c`, `sgetdata.c`, `sststat.c` | 9 | 1,410 | High-pass stage, patch info, the user-data and 100 Hz client lists (`sndgs` viewed through an inferred struct), big-endian sample reads, stream status |
