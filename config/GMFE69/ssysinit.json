@@ -1,0 +1,78 @@
+{
+  "id": "ssysinit",
+  "source": "src/ea/ssysinit.c",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80152f68",
+      "size": 380,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SNDSYS_inited",
+      "address": "0x801530d0",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "SNDSYS_restore",
+      "address": "0x80152f68",
+      "size": 360,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "SNDI_mutexfree__Fv": "0x8016cb5c",
+    "SNDMEMI_free__FPv": "0x80158ff0",
+    "SNDMEMI_restore__Fv": "0x80158d44",
+    "SNDPLATFORM_restore__Fv": "0x8016ac84",
+    "SNDSYS_entercritical": "0x80153554",
+    "SNDSYS_leavecritical": "0x80153588",
+    "SNDfxinitbus": "0x8015ca58",
+    "SNDstopall": "0x8015d1a4",
+    "sndgs": "0x80340860"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "ssysinit.c",
+  "original_file_index": 12591
+}

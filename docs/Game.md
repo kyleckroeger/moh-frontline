@@ -229,6 +229,7 @@ establish a type, the source comments say so.
 | `supxalf.cpp` (fragment) | 3 | 216 | Looping EA-XA unpacker set-up (loop bounds from the init parameters, no initial `Feed`), frame getter and restore; the looping decode step before them is not reconstructed |
 | `supxapf.cpp` (fragment) | 2 | 200 | Packet-player EA-XA unpacker set-up (packet handle and sample channel of the voice's master voice) and restore; the decode step before them is not reconstructed |
 | `eaxadecf.cpp` (fragment) | 4 | 168 | `SND::CEAXABLKDecf` allocation through the CODA hooks, its constructor and `Feed` (refused while a block is pending); `decodexac`, `Decode`, `GetState` and `SetState` are not reconstructed |
+| `ssysinit.c` (fragment) | 2 | 380 | `SNDSYS_restore` (module shutdown hooks in `sndgs`, stop all, platform restore, free the voice and bank tables, memory restore, clear the initialised flag) and `SNDSYS_inited` (that flag read as a signed byte). `SNDSYS_getopts`, `SNDSYS_setopts` and `SNDSYSI_init` come first and are not reconstructed |
 | `memblock.cpp` | 1 | 44 | `MEM_initblock` writes a block header ('BM', flags, size, neighbour links); the name and tail-size arguments are not stored |
 | `memlist.cpp` | 5 | 464 | Address-ordered circular free list (`FREE_find`, `FREE_findlargest`, `FREE_gettotalfree`, `FREE_add`, `FREE_remove`) with the class's 'BS' sentinel; `FREE_findlargest` needs the operand order of `0 > size - 1 ? 0 : size - 1` for its branchless max |
 | `memstd.cpp` | 1 | 8 | `MEM_size` |

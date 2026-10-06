@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 252808,
+    "matching_code_bytes": 253188,
     "total_executable_code_bytes": 1414572,
-    "percent": 17.871695466897407,
+    "percent": 17.898558715993246,
     "categories": {
-      "reconstructed_game": 55804,
+      "reconstructed_game": 56184,
       "restored_library": 197004
     },
-    "matching_functions": 1316
+    "matching_functions": 1318
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -212,7 +212,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "b07a1ce6eebef12c02358b719c8fcc182e2f8f0b4b86a46f230d32db7d054cc3",
+    "config/GMFE69/project.json": "cf249fde0b596de5bfa37ccc8ffc285e17d367084cc75cfcc4f6932d8a4fbc5c",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -320,6 +320,7 @@
     "config/GMFE69/sststat.json": "21f38aa0216661eddc5481564741da83217294e4f4d9c7e2e6090efe9101b362",
     "config/GMFE69/ssttmul.json": "78e88e3e43a4bbe702ff7ba3e27b23b38f9b04fe9ca359380c30a0eb841a4b3c",
     "config/GMFE69/sstvol.json": "37522fdb7eac982dea029b6fcdddc4a9b232ed1ff5b0919c519cf77f6f70b758",
+    "config/GMFE69/ssysinit.json": "bc5cc6f00077822fc429b11faedcdcc3313e5befafecc1981d8ef797cb9cbfc6",
     "config/GMFE69/ssysreal.json": "3b9fb3ecf4cd22c2c1d2c57eab822d87cdfdb5e946081517b26a19ceb8db67e1",
     "config/GMFE69/ssysserv.json": "49f2852bbf809fe6219540041d9217ec9f6389f59e15723314a1482fc110739b",
     "config/GMFE69/stimemul.json": "8daf6f44288a9589aaf8719ff8e636e2f4d7d00296603d9d8ce6bcbc2ff41088",
@@ -1239,6 +1240,7 @@
     "src/ea/sststat.c": "47c02090cc05a79cc457c90879c2aae2893bacf16e54156c5d1b975271c4d361",
     "src/ea/ssttmul.c": "e38c7d8ea9f8511ce44b80b4ea0e0884fa1ed85241d6fcd6c83cd56efcba0643",
     "src/ea/sstvol.c": "a2619b5183147baa7733cfc2f9c582057754591f7f13f984c3725bd89629aa8c",
+    "src/ea/ssysinit.c": "ce0f0fef85896056ef8ef4beeecfd8316036da5567484386c6dc21481811c693",
     "src/ea/ssysreal.c": "08872d0af87f62ff0a9c5171fb908b629202f85e585ef45923d546f90b77f4f8",
     "src/ea/ssysserv.c": "c652ea041a804d456cc780e25f0ecfa648623be37c1c1bd170e18555761ec31d",
     "src/ea/stimemul.c": "fe4a33747721800f1d82a72032bc415a12b399b6a6ebdc8bed634faeb2ed7494",
@@ -16508,6 +16510,45 @@
       "discarded_functions": [],
       "object_sha256": "0245f33fbdb5e8ca4e8073fdd0514fa6010accb812b7802400d50c95a997c7af",
       "linked_sha256": "1e9ebc2f26ef736a8d47fab8e0a0dac6f196ff7844a5218bf5c6c71c541e6353"
+    },
+    {
+      "id": "ssysinit",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 380,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "a64d73b1e3ae1cf4ac5b1b2c223d98ca1c0dc6af1ecc85626361211ef1b5cf11",
+      "linked_sha256": "60343479a64524d7a54452a089047897b8d6f75cea72d918a3cacea40a47076a"
     }
   ],
   "code_map": {
@@ -42199,39 +42240,20 @@
             "kind": "function",
             "name": "SNDSYS_getopts",
             "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 801528c8",
-        "ranges": [
+          },
           {
             "address": "0x801528c8",
             "size": 1232,
             "kind": "function",
             "name": "SNDSYS_setopts",
-            "evidence": "unknown-file"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x80152d98",
             "size": 464,
             "kind": "function",
             "name": "SNDSYSI_init",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80152f68",
-            "size": 360,
-            "kind": "function",
-            "name": "SNDSYS_restore",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801530d0",
-            "size": 20,
-            "kind": "function",
-            "name": "SNDSYS_inited",
-            "evidence": "unknown-file"
+            "evidence": "between-same-file"
           }
         ]
       },
