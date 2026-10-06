@@ -377,7 +377,8 @@
     "SearchNodeList.json",
     "audioplayer.json",
     "sbasync.json",
-    "hearingvolume.json"
+    "hearingvolume.json",
+    "player_weapon_object.json"
   ],
   "progress": {
     "code_bytes": 1414572,
