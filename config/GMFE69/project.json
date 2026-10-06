@@ -561,7 +561,8 @@
     "bsbifunc_coverpoint.json",
     "bsbifunc_soundbank.json",
     "bsbifunc_shake.json",
-    "bsbifunc_particle.json"
+    "bsbifunc_particle.json",
+    "bsbifunc_attach.json"
   ],
   "progress": {
     "code_bytes": 1414572,
