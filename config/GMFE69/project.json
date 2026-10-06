@@ -447,7 +447,8 @@
     "support.json",
     "targimpl.json",
     "renderlist.json",
-    "debug_prof.json"
+    "debug_prof.json",
+    "alarm.json"
   ],
   "progress": {
     "code_bytes": 1414572,

@@ -1,0 +1,78 @@
+{
+  "id": "alarm",
+  "source": "src/game/alarm.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80059974",
+      "size": 132,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "BIFunc_SetAlarmActivated__FPPiPv",
+      "address": "0x80059974",
+      "size": 80,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_IsAlarmActivated__FPPiPv",
+      "address": "0x800599c4",
+      "size": 52,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "g_alarm_activated": "0x8034e920",
+    "g_iCurrentBIFIndex": "0x8034e77c",
+    "g_pBuiltInFunctions": "0x8034e778"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "g_alarm_activated",
+    "g_iCurrentBIFIndex",
+    "g_pBuiltInFunctions"
+  ],
+  "original_file": "alarm.cpp",
+  "original_file_index": 2538
+}
