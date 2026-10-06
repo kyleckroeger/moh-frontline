@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 324900,
+    "matching_code_bytes": 325324,
     "total_executable_code_bytes": 1414572,
-    "percent": 22.968077976942848,
+    "percent": 22.998051707512943,
     "categories": {
       "reconstructed_game": 91828,
-      "restored_library": 233072
+      "restored_library": 233496
     },
-    "matching_functions": 2159
+    "matching_functions": 2167
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -534,7 +534,7 @@
     "config/GMFE69/weapon_head.json": "079d906c68db45019c92abee6a5f0248b4113b1ea04a32b5fda507ad3da1fda7",
     "config/GMFE69/weaponfactory.json": "20cd24f59303b1482f3445e5292fea0c1d91d58faa58adf58b2ae313e9df2245",
     "config/GMFE69/world_object.json": "46e604664d2f764f1b3787b6ecbed9aa0bf28e87e278326e9f7f8372d8321857",
-    "config/GMFE69/world_volume.json": "8d3bbe5e5b885bc03833f6920da4ed1bdf798ef6e958c4c69b0be980fa752b43",
+    "config/GMFE69/world_volume.json": "9bdfec8446ef99deb55561b7eec9744d6bb55df3972cb97ed28ea1ec7e4c49c9",
     "include/dolphin-sdk/charPipeline/fileCache.h": "9fc5bbfba874376ec1d239271cda99d84c256b2bd07f884d1177bee6b705b985",
     "include/dolphin-sdk/charPipeline/structures/HTable.h": "e1e36439d044200512635bc37470f318258d75767fad9ec2d9c407f9c0ee1af8",
     "include/dolphin-sdk/charPipeline/structures/List.h": "5646f12d28166b80aa7ad18711a2a01b1b1e836f4f509c25a03b2220adcc3c58",
@@ -1632,7 +1632,7 @@
     "src/game/weapon_head.cpp": "0f55a1d7228ce98cefad1bc3177ba3e71822ff7f4d3624958341c6cefee00760",
     "src/game/weaponfactory.cpp": "918057846d18e297a460e23fc2153ee2dcd97d2c042c6f6b71658c9fcdecb0f9",
     "src/game/world_object.cpp": "fb23848a360e439658289be801ce9a3893c571554861f742698a693af8d600e5",
-    "src/game/world_volume.cpp": "064d5095c3daaabb50dd06295a2c6e7873828a8ff376d0be65dd7a51875c5ced",
+    "src/game/world_volume.cpp": "f6615e2f32df0c136d86133089d3957929a83d826a0294df1b6e0e21e25a4949",
     "src/msl/NewMore.cp": "cb60e70e586609256a8ff5c7a4b0efbdf7586b7fa7e3cb43b7f84e309e87c1be",
     "src/msl/bsearch.c": "e18222caa9298644a58b0d497c283f472396491e6297b39abb4865632978533a",
     "src/msl/mslsupp.c": "dd035227b8e683320b6147ec006a50b26ba14f315be2755a3d573476e16eb2e8",
@@ -18821,8 +18821,8 @@
     {
       "id": "world_volume",
       "category": "restored_library",
-      "functions": 6,
-      "code_bytes": 76,
+      "functions": 14,
+      "code_bytes": 500,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -18854,8 +18854,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "53110536a9fb03c656e57b904cce980cdd151f70b4eb3d74fe6b32c7ca618ada",
-      "linked_sha256": "8c9f6ff3c5e6dc2c9a30a4f98dc5770c20317de391cf91ef07fd497829bdfb66"
+      "object_sha256": "33c4b997fe895a10c63e10604dd5c63e0bf763e9864ccdbbb93d23a057031212",
+      "linked_sha256": "dff8b7f8de3dbda345486ff8f8b32761169d67b4a474fde46f3c79ddb8abf6c9"
     },
     {
       "id": "cdbobject",
@@ -38047,62 +38047,6 @@
         "file_record": 134,
         "file_name": "world_volume.cpp",
         "ranges": [
-          {
-            "address": "0x800cbbcc",
-            "size": 116,
-            "kind": "function",
-            "name": "TestCollision__12CWorldVolumeCFRC10CCSGVolumeR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cbc40",
-            "size": 32,
-            "kind": "function",
-            "name": "TestCollision__12CWorldVolumeCFRC15CAnimatedVolumeR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cbc60",
-            "size": 32,
-            "kind": "function",
-            "name": "TestCollision__12CWorldVolumeCFRC9CVolFiberR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cbc80",
-            "size": 32,
-            "kind": "function",
-            "name": "TestCollision__12CWorldVolumeCFRC6CLine3R10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cbca0",
-            "size": 32,
-            "kind": "function",
-            "name": "TestCollision__12CWorldVolumeCFRC11CVolCapsuleR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cbcc0",
-            "size": 32,
-            "kind": "function",
-            "name": "TestCollision__12CWorldVolumeCFRC10CVolSphereR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cbce0",
-            "size": 32,
-            "kind": "function",
-            "name": "TestCollision__12CWorldVolumeCFRC7CVolBoxR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cbd00",
-            "size": 116,
-            "kind": "function",
-            "name": "TestCollision__12CWorldVolumeCFRC7IVolumeR10CCollisionb",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x800cbd74",
             "size": 424,

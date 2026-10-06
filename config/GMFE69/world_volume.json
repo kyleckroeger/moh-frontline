@@ -40,7 +40,19 @@
     {
       "name": ".text",
       "address": "0x800cbb80",
-      "size": 76,
+      "size": 500,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000e1bc",
+      "size": 64,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80014ffc",
+      "size": 96,
       "type": 1
     }
   ],
@@ -49,6 +61,30 @@
       "name": "GetExtents__12CWorldVolumeCFR8CVector3R8CVector3",
       "address": "0x800cbba8",
       "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__12CWorldVolumeCFRC7IVolumeR10CCollisionb",
+      "address": "0x800cbd00",
+      "size": 116,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__12CWorldVolumeCFRC7CVolBoxR10CCollisionb",
+      "address": "0x800cbce0",
+      "size": 32,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__12CWorldVolumeCFRC10CVolSphereR10CCollisionb",
+      "address": "0x800cbcc0",
+      "size": 32,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__12CWorldVolumeCFRC11CVolCapsuleR10CCollisionb",
+      "address": "0x800cbca0",
+      "size": 32,
       "binding": 1
     },
     {
@@ -64,10 +100,34 @@
       "binding": 2
     },
     {
+      "name": "TestCollision__12CWorldVolumeCFRC9CVolFiberR10CCollisionb",
+      "address": "0x800cbc60",
+      "size": 32,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__12CWorldVolumeCFRC15CAnimatedVolumeR10CCollisionb",
+      "address": "0x800cbc40",
+      "size": 32,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__12CWorldVolumeCFRC10CCSGVolumeR10CCollisionb",
+      "address": "0x800cbbcc",
+      "size": 116,
+      "binding": 1
+    },
+    {
       "name": "TestCollision__12CWorldVolumeCF8CVector3R10CCollisionb",
       "address": "0x800cbb90",
       "size": 8,
       "binding": 2
+    },
+    {
+      "name": "TestCollision__12CWorldVolumeCFRC6CLine3R10CCollisionb",
+      "address": "0x800cbc80",
+      "size": 32,
+      "binding": 1
     },
     {
       "name": "TestCollision__12CWorldVolumeCFRC6CPlaneR10CCollisionb",
@@ -82,7 +142,15 @@
       "binding": 2
     }
   ],
-  "externals": {},
+  "externals": {
+    "SwapOrder__10CCollisionFv": "0x800c79c4",
+    "TestCollisionWithSubVolumes<10CVolSphere>__12CWorldVolumeCFRC10CVolSphereR10CCollisionb": "0x800cc984",
+    "TestCollisionWithSubVolumes<11CVolCapsule>__12CWorldVolumeCFRC11CVolCapsuleR10CCollisionb": "0x800cc888",
+    "TestCollisionWithSubVolumes<15CAnimatedVolume>__12CWorldVolumeCFRC15CAnimatedVolumeR10CCollisionb": "0x800cc594",
+    "TestCollisionWithSubVolumes<6CLine3>__12CWorldVolumeCFRC6CLine3R10CCollisionb": "0x800cc78c",
+    "TestCollisionWithSubVolumes<7CVolBox>__12CWorldVolumeCFRC7CVolBoxR10CCollisionb": "0x800cca80",
+    "TestCollisionWithSubVolumes<9CVolFiber>__12CWorldVolumeCFRC9CVolFiberR10CCollisionb": "0x800cc690"
+  },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
