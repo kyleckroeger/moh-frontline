@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 272372,
+    "matching_code_bytes": 272768,
     "total_executable_code_bytes": 1414572,
-    "percent": 19.254728638768476,
+    "percent": 19.282722972036773,
     "categories": {
-      "reconstructed_game": 72492,
+      "reconstructed_game": 72888,
       "restored_library": 199880
     },
-    "matching_functions": 1696
+    "matching_functions": 1706
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -257,7 +257,7 @@
     "config/GMFE69/player_weapon_object.json": "2c451ab555672599946bb97ca631b2a316350d8f99e8e9b77cf7f8f648d219df",
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "4d1e3afa0fa1681bd3201e8baddb7d201e6fa4b62afbad887b33a8bfbc6d1c86",
+    "config/GMFE69/project.json": "9b358ce9305fd20d104f65c3478eb813ebebd93606accc2c0df9c5519480afca",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
@@ -337,6 +337,7 @@
     "config/GMFE69/smixlowp.json": "d53e5c31fe798368a255f83acad448258398036638284e3bc62c00683bf6796a",
     "config/GMFE69/smixptch.json": "3ee346a2468c72ab7527f27bcf6828417178cbb8b0f2d6e04fbe0403fd87e159",
     "config/GMFE69/smixtmul.json": "37f93dd19460569e21edd1a0a60fc37651d392a42d8313b9ac31b49488492459",
+    "config/GMFE69/sound.json": "d74b722d4e85fbb126fd03a4f58be228d5cb31fbc8a7baed7337cefc70b15328",
     "config/GMFE69/soundtable.json": "cdb4630125f80a582ec8b2e1da94b8535275157bb21eb768aee80687fed4dfcc",
     "config/GMFE69/sover.json": "e93f0bef0e81124940f9ca940effc94a8b0c69c04f988f2ffaa1b34c25494e48",
     "config/GMFE69/spantoaz.json": "0e3c799ee99a0820131c59ca50dbae62300eb93899d8495888384884db8c42db",
@@ -1395,6 +1396,7 @@
     "src/game/real_bridge.cpp": "3528e557dcb6116823246402f1003e63fd82246a624dcbc2f18e5ee8b9bf8e41",
     "src/game/skeleton.cpp": "f1a961b5edcb8f9e4a8a629f364c914daf4e193f68348fbe81cceee12d774959",
     "src/game/skybox.cpp": "51c0fbd12e9ef49c313bcc7055d61c7ad7fcd8c243abaea7ef80bb1dc8b33da8",
+    "src/game/sound.cpp": "09a7a15e802021a5756266ba749fc363a337c930203b4df623cd125f3c1541a8",
     "src/game/soundtable.cpp": "a871dc12cd0c9ada5788da7883313efc873ddbe60f7cc1a31746e95f6eafff08",
     "src/game/staticmesh.cpp": "3a8bd609a8efecaa00960dcdd8fdfc554ba8f0d50b782532f6cbb7243d255224",
     "src/game/surfacetype.cpp": "3499ce5dc7d066f093e39c158e9b096e37683df4d6b6d234eb9b08395d411390",
@@ -19017,6 +19019,45 @@
       "discarded_functions": [],
       "object_sha256": "10250ecff7ae6b1ab958af3dcd33e7f758eb9ebe94402a4df8fcf86f223c1ae8",
       "linked_sha256": "86044f6c42e9f93f944640461b219bd024fd5e6c86b89b08fb98c4b3cdb811de"
+    },
+    {
+      "id": "sound",
+      "category": "reconstructed_game",
+      "functions": 10,
+      "code_bytes": 396,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "09ecb44ce7c6b42a158dc6f85b025edbf2f4ea17004f35956f80e5f2da8bfa1e",
+      "linked_sha256": "d193dbd8f496b054800f0f8e6310bc83d59d509438e4053cb0a7073b7035f286"
     }
   ],
   "code_map": {
@@ -37786,76 +37827,6 @@
             "size": 80,
             "kind": "function",
             "name": "__dt__13CSoundSysLockFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800ecbf8",
-            "size": 48,
-            "kind": "function",
-            "name": "__ct__13CSoundSysLockFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800ecc28",
-            "size": 40,
-            "kind": "function",
-            "name": "Unpause__12CSoundStreamFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800ecc50",
-            "size": 40,
-            "kind": "function",
-            "name": "Pause__12CSoundStreamFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800ecc78",
-            "size": 36,
-            "kind": "function",
-            "name": "FadeVolume__12CSoundStreamFii",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800ecc9c",
-            "size": 36,
-            "kind": "function",
-            "name": "GetVolume__12CSoundStreamCFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800eccc0",
-            "size": 40,
-            "kind": "function",
-            "name": "GetRequestStatus__12CSoundStreamCFiR21SSndStrmRequestStatus",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800ecce8",
-            "size": 36,
-            "kind": "function",
-            "name": "GetStatus__12CSoundStreamCFR16SSndStreamStatus",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800ecd0c",
-            "size": 36,
-            "kind": "function",
-            "name": "SetVolume__12CSoundStreamFi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800ecd30",
-            "size": 36,
-            "kind": "function",
-            "name": "PurgeQueue__12CSoundStreamFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800ecd54",
-            "size": 48,
-            "kind": "function",
-            "name": "QueueFile__12CSoundStreamFPCcii",
             "evidence": "exception-index"
           },
           {

@@ -399,7 +399,8 @@
     "compartment.json",
     "Tank_object.json",
     "player.json",
-    "UIStudio.json"
+    "UIStudio.json",
+    "sound.json"
   ],
   "progress": {
     "code_bytes": 1414572,
