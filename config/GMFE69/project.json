@@ -358,7 +358,8 @@
     "animst.json",
     "input.json",
     "bsevents.json",
-    "pathxSND.json"
+    "pathxSND.json",
+    "destructor_queue.json"
   ],
   "progress": {
     "code_bytes": 1414572,

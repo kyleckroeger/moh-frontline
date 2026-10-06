@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 260232,
+    "matching_code_bytes": 260616,
     "total_executable_code_bytes": 1414572,
-    "percent": 18.39651852291718,
+    "percent": 18.423664543056134,
     "categories": {
-      "reconstructed_game": 63228,
+      "reconstructed_game": 63612,
       "restored_library": 197004
     },
-    "matching_functions": 1423
+    "matching_functions": 1427
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -138,6 +138,7 @@
     "config/GMFE69/ctype.json": "204f2baf71f1c77a57c8bb685dba45f7583994fc6c39201224cb2a0ed20eb580",
     "config/GMFE69/db.json": "f5cdac8d1b6ec28c05d82995e2918679665f81055beaea75273deb9b2bb4a458",
     "config/GMFE69/debugger.json": "b4812b86753209416cae697106b949c189ef985bbe634aca332ff006abd18fdb",
+    "config/GMFE69/destructor_queue.json": "2350cf976029cd809d15a75f5f5d41195d68c7984d9c637caabbf8766be0ddd5",
     "config/GMFE69/direct_io.json": "6bc91b9814ea8394c4fb8292d3c0f477dd5841c089e81e92061adaca275f77ab",
     "config/GMFE69/dispatch.json": "9785b3256f8baf02b4d894ff082a1103522e7730d2bea7f05c504b418b5a462f",
     "config/GMFE69/dmgeom.json": "9829feea0b00aad311216a345cb671d1c82c01af17c198cd9ecea52129f159fa",
@@ -225,7 +226,7 @@
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/pathxSND.json": "711dcdf3a5a5a7b4124ae70e377c5e863dc39c8de8a0de785b3dc3921c685fa0",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "e2cec91471fba02e3530240b27c9c9028d16395e44c408c395c4d3b98e47b910",
+    "config/GMFE69/project.json": "f5e1deaf8eb5a1c1b5aa8727394660af08e0c9bf28cdd96778fbf5ce413c3638",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1302,6 +1303,7 @@
     "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
     "src/game/bsutil.cpp": "f03c5b5ec3e47256dacde20a490fde3a873782516ee578d6fd469ab5025e49a2",
     "src/game/configfile.cpp": "d7e5f7aff38b5ab2c1744e81f1a3469c55b6e00a561d1f5cd43f49ccf6b6d2ec",
+    "src/game/destructor_queue.cpp": "96832ec7b1265822d1e18a69dea9302e793bb1a399694519922f360dbfc5c361",
     "src/game/dmgeom.cpp": "6f176541b44727ce39e90fbc33d60d1c7cd572e20cde4bc86401f647cd9f7f14",
     "src/game/dmrender.cpp": "7b92ea9bad0f52f4ba4728f8386f4da6fd4a3b93b5293dd87d1fdcf6bc6c3ec8",
     "src/game/draw_context.cpp": "261589cc092b9c8c7b80605255eefc78641468141f4d33264252696f62c9782b",
@@ -17293,6 +17295,45 @@
       "discarded_functions": [],
       "object_sha256": "2a2c00a249370a94b251a92dde14318eb6118d3fe98fb2d9e01796400a9644ca",
       "linked_sha256": "54490324cd3cdd4cfdc1007135b496f8aab6e296dd313b11bf3327900e1cb882"
+    },
+    {
+      "id": "destructor_queue",
+      "category": "reconstructed_game",
+      "functions": 4,
+      "code_bytes": 384,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "7c67deded2929f057fd756a5e0859ec950412f89a74c34c6d5704d099cd7f91e",
+      "linked_sha256": "e44dcdaa2deb0f3133cd05a274405328312b93b825dd5d617ef2329136920f10"
     }
   ],
   "code_map": {
@@ -36307,34 +36348,6 @@
         "file_record": 145,
         "file_name": "destructor_queue.cpp",
         "ranges": [
-          {
-            "address": "0x800dd3a4",
-            "size": 176,
-            "kind": "function",
-            "name": "Execute__16CDestructorQueueFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800dd454",
-            "size": 88,
-            "kind": "function",
-            "name": "Shutdown__16CDestructorQueueFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800dd4ac",
-            "size": 16,
-            "kind": "function",
-            "name": "Reset__16CDestructorQueueFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800dd4bc",
-            "size": 104,
-            "kind": "function",
-            "name": "Init__16CDestructorQueueFi",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x800dd524",
             "size": 132,
