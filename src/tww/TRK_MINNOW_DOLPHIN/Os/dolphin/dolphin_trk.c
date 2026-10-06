@@ -32,7 +32,9 @@ static u32 TRK_ISR_OFFSETS[15] = {PPC_SystemReset,
                                   PPC_ThermalManagementInterrupt};
 
 void __TRK_copy_vectors(void);
-__declspec(section ".init") void __TRK_reset(void) { OSResetSystem(FALSE, 0, FALSE); }
+// Frontline's revision copies the exception vectors here, as Pikmin's
+// dolphin_trk.c does, instead of resetting the system.
+__declspec(section ".init") void __TRK_reset(void) { __TRK_copy_vectors(); }
 
 void EnableMetroTRKInterrupts(void) {
     EnableEXI2Interrupts();
@@ -55,29 +57,19 @@ __declspec(section ".init") void TRK_copy_vector(u32 offset) {
     TRK_flush_cache(destPtr, 0x100);
 }
 
+// Frontline's revision (as in Pikmin's dolphin_trk.c) has no exception for
+// the external interrupt vector.
 void __TRK_copy_vectors(void) {
-    u32 r3 = lc_base;
-    u32* isrOffsetPtr;
     int i;
-    u32 r29;
+    u32 mask;
 
-    if (r3 <= 0x44 && r3 + 0x4000 > 0x44 && gTRKCPUState.Extended1.DBAT3U & 3) {
-        r3 = 0x44;
-    } else {
-        r3 = EXCEPTIONMASK_ADDR;
-    }
+    mask = *(u32*)TRKTargetTranslate(0x44);
 
-    i = 0;
-    r29 = *(u32*)r3;
-    isrOffsetPtr = TRK_ISR_OFFSETS;
-
-    do {
-        if ((r29 & (1 << i)) && i != 4) {
-            TRK_copy_vector(isrOffsetPtr[i]);
+    for (i = 0; i <= 14; ++i) {
+        if (mask & (1 << i)) {
+            TRK_copy_vector(TRK_ISR_OFFSETS[i]);
         }
-
-        i++;
-    } while (i <= 14);
+    }
 }
 
 DSError TRKInitializeTarget() {

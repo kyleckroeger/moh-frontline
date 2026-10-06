@@ -45,6 +45,7 @@ drafted with `port_unit.py --no-file-record` and their manifests carry no
 | `tww/.../Runtime/Src/runtime.c` | Add `__cvt_sll_flt` (`asm`, copied from Prime's `runtime.c`) between `__shr2i` and `__cvt_dbl_usll` | Global `__cvt_sll_flt` at `0x80138dec` (180 bytes) between them; Prime's whole file does not fit, because its `__save_fpr`-family helpers are global where the target's are file-local |
 | `tww/.../Runtime/Src/NMWException.cp` | Declare `terminate`, `unexpected` and their setters in namespace `std` (the file declared them at global scope), and give `__throw_catch_compare` C linkage | `duhandler__3stdFv` at `0x80138878` is 40 bytes and calls through `thandler` (`lwz r12,-29704(r13)`), so it inlines `std::terminate`; the global-scope declaration made it call an external `::terminate`. Global `__throw_catch_compare` at `0x801385fc` is unmangled |
 | `tww/dolphin/os/__ppc_eabi_init.cpp` | Add the `.init` functions `__init_hardware` and `__flush_cache` (`asm`, from dolsdk2001's `__ppc_eabi_init.c`, with C declarations of `__OSPSInit`/`__OSCacheInit`), and make `__init_cpp` `static` | `__init_hardware` (`0x80007330`) and `__flush_cache` (`0x80007350`) belong to the `__ppc_eabi_init.cpp` record with `__init_user`, file-local `__init_cpp` and `_ExitProcess`; the 2001 `.c` file also defines `abort`/`exit`, which Frontline takes from MSL |
+| `tww/TRK_MINNOW_DOLPHIN/Os/dolphin/dolphin_trk.c` | `__TRK_reset` calls `__TRK_copy_vectors` instead of `OSResetSystem`, and `__TRK_copy_vectors` takes the exception mask through `TRKTargetTranslate(0x44)` and copies every enabled vector (no skip of vector 4). Both follow [Pikmin's](https://github.com/doldecomp/pikmin) CC0 `dolphin_trk.c` | `__TRK_reset` at `0x8000930c` in `.init` (260 bytes) inlines `__TRK_copy_vectors`, `TRK_copy_vector` and `TRKTargetTranslate`; its loop tests `1 << i` for `i` 0 to 14 with no `i != 4` compare. The four `.text` functions at `0x80137080` (320 bytes) are unchanged |
 | `tww/dolphin/os/OSReboot.c` | Frontline's older revision: `Run` is a `fralloc` `asm` function that calls `OSDisableInterrupts` and `ICFlashInvalidate` itself, the form of [Pikmin's](https://github.com/doldecomp/pikmin) CC0 `OSReboot.c`, so `__OSReboot` no longer calls them; `__OSReboot` stores `resetCode` (not 0) at `0x817FFFFC`. Built with the SDK compiler (1.2.5n) and SDK flags | `Run`, `Callback` and `__OSReboot` at `0x8011457c` (536 bytes); `__OSReboot` writes `r29` (the first argument) to `-4(0x81800000)` and calls `Run`, which has a frame and both calls. `ReadApploader` is inlined and `OSSetSaveRegion` is not linked |
 | `prime/runtime/alloc.c` | Add `malloc` (a `__pool_alloc` wrapper, MSL's form) and move `__pool_alloc` before it, after `deallocate_from_fixed_pools` | Global `malloc` at `0x8013a6a8` (152 bytes) between `free` and `deallocate_from_fixed_pools`; Prime omits `malloc` because Prime never links it |
 
@@ -99,10 +100,10 @@ with `strtol` inlined), and `__load_buffer` and `setvbuf` in `buffer_io.c`
   sizes agree), but the Wind Waker decompilation marks most TRK files
   non-matching. The matching files (`mainloop`, `nubevent`, `usr_put`,
   `mutex_TRK`, `flush_cache`, `mpc_7xx_603e`, `targcont`, `main_TRK`,
-  `target_options`) are verified. The rest needs decompilation work: for
+  `target_options`, `dolphin_trk`) are verified. The rest needs decompilation work: for
   example `TRKMessageSend` is a 40-byte stub in the reference and 476 bytes in
   the target (`msg.c`, `dispatch.c`, `notify.c`, `support.c`, `nubinit.c`,
-  `msgbuf.c`, `serpoll.c`, `msghndlr.c`, `targimpl.c`, `dolphin_trk.c`,
+  `msgbuf.c`, `serpoll.c`, `msghndlr.c`, `targimpl.c`,
   `dolphin_trk_glue.c`, `mem_TRK.c`), plus the assembly `targsupp.s`.
 - `msgbuf.c` is an inlining puzzle: the target's readers inline `TRKReadBuffer`
   while its appenders call `TRKAppendBuffer` out of line (`TRKAppendBuffer1_ui16`
