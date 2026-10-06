@@ -334,7 +334,8 @@
     "animwgt.json",
     "animchan.json",
     "animseq.json",
-    "animdb.json"
+    "animdb.json",
+    "skeleton.json"
   ],
   "progress": {
     "code_bytes": 1414572,

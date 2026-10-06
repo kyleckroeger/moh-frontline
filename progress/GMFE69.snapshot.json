@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 250852,
+    "matching_code_bytes": 250992,
     "total_executable_code_bytes": 1414572,
-    "percent": 17.73342042681461,
+    "percent": 17.743317413323606,
     "categories": {
-      "reconstructed_game": 54120,
+      "reconstructed_game": 54260,
       "restored_library": 196732
     },
-    "matching_functions": 1289
+    "matching_functions": 1290
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -208,7 +208,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "a5e4a6e3961639f9f1ebccaa846113adb317aaea6bf12db9ea41504d60a78acd",
+    "config/GMFE69/project.json": "7bb86884108f50ababc2f01fa29f610d1aebf16ffa19bbf2f5cfeeabd3bcb7e0",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -270,6 +270,7 @@
     "config/GMFE69/sinit16.json": "1fe69c7afc1922b89561c7e175f2611fc832431c8e7e07ebbae6e0e54c202a2e",
     "config/GMFE69/sinitut.json": "689b9132782994796219ad392cc3a0133827537356591f4c93adb2e384e70366",
     "config/GMFE69/sinitxa.json": "411b577b864a696f54ca6f728819538a238b294030608ccd59f1af782b46221e",
+    "config/GMFE69/skeleton.json": "59eb5bbcdb9201ab638e9f6d0758948e988ed6bb213887caf66e66cccbe9be70",
     "config/GMFE69/slib.json": "175b59682d7176e6914e303e81ec26cb60fcb86ab08f884e84a2df96c09626de",
     "config/GMFE69/slinklst.json": "b628536bfbcd9772b6a89f60c30663cca9adb8dbca84452a261ea3f0b3c42c60",
     "config/GMFE69/slinkmix.json": "0d66b0e0297a0e7e7bf0c13cc7f212971c66ee4114cf017c282deb2b452f6755",
@@ -1275,6 +1276,7 @@
     "src/game/orient.cpp": "031b0d870db82013b99a554649dfe99038d03705b3309d14909ed0094ee43304",
     "src/game/propdat.cpp": "b1e26b00f10be619cc409432f6748e200a0064248119fafa81774718c305885d",
     "src/game/real_bridge.cpp": "3528e557dcb6116823246402f1003e63fd82246a624dcbc2f18e5ee8b9bf8e41",
+    "src/game/skeleton.cpp": "f1a961b5edcb8f9e4a8a629f364c914daf4e193f68348fbe81cceee12d774959",
     "src/game/surfacetype.cpp": "3499ce5dc7d066f093e39c158e9b096e37683df4d6b6d234eb9b08395d411390",
     "src/game/system.cpp": "a6b1bce950e974ebaf7e6c7afc31ecab8f41566550163428c632534bc8f78b83",
     "src/game/texpack.cpp": "170a3a9592cbea2d199a09aba976cc93963f0104100915e1f5d9d23eaf30f61a",
@@ -16284,6 +16286,45 @@
       "discarded_functions": [],
       "object_sha256": "046ffd227ea2958baeac1a7b6034a75507cb0fbb1d61eaa13a70bfb8c7bb832c",
       "linked_sha256": "5040118104818a46cccfbef75776ec0966ab55602f6a8078c5b6f62b263637a7"
+    },
+    {
+      "id": "skeleton",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 140,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "c793f8b3640a21bff6b2d1ddbf7adf22267d1d19e72b7c89cfd5cc7d1b84b2ac",
+      "linked_sha256": "3d21c38c13fa0d4c8827493cf35a58c7807a7272aa3c3d1c0bd13fac1a782e09"
     }
   ],
   "code_map": {
@@ -24482,13 +24523,6 @@
         "file_record": 58,
         "file_name": "skeleton.cpp",
         "ranges": [
-          {
-            "address": "0x800693dc",
-            "size": 140,
-            "kind": "function",
-            "name": "CharSkelGetJointByName__FP10CharSkel_tPc",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x80069468",
             "size": 416,
