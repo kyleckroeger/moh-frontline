@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 241256,
+    "matching_code_bytes": 242716,
     "total_executable_code_bytes": 1414572,
-    "percent": 17.055052694383885,
+    "percent": 17.15826412512053,
     "categories": {
       "reconstructed_game": 47860,
-      "restored_library": 193396
+      "restored_library": 194856
     },
-    "matching_functions": 1201
+    "matching_functions": 1209
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -34,6 +34,7 @@
     "config/GMFE69/CARDFormat.json": "07cdbc24fc5f0880fdbd38f2a28eb06cc3661b6c3a399647b24065059d98f4e6",
     "config/GMFE69/CARDMount.json": "2f318403c174ab16edbc6ebec314453e4a1d7de4c1ed0a10d8e7aca413f790e8",
     "config/GMFE69/CARDNet.json": "668b0317266cd5d2eb031b105d11e11ffe65dc5e71d9d7a4bcbee49fa4323dab",
+    "config/GMFE69/CARDOpen.json": "b93d17de018fb840b3423b9b0c8454ab1bccf070c549eec443ef8ad985fc39bf",
     "config/GMFE69/CARDRdwr.json": "f6823e5de5ee80dc52792b3137627ea5401106745a584bc344d54eeed63855b0",
     "config/GMFE69/CARDRead.json": "0613bbc21efae2d73ad3beb886b984a4e89b8a7163ab6ded75f0c2c5748f0262",
     "config/GMFE69/CARDStat.json": "e03bf32bdb249914a02454fa9671d8eb663e5d56997d8c6fc727fbaa6265d8b4",
@@ -195,7 +196,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "4dac16a48e987b4d864f34afc64bf24a0b531349bcac5d3802dcd1773a190683",
+    "config/GMFE69/project.json": "94ead23244bfcd56bfb861cf69a32086b6f7e3a29f2f3f6e1fb3ac453a7ba9fd",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -832,7 +833,7 @@
     "src/dolphin/card/CARDFormat.c": "c428840947d3498635415387a116b6129e64584fc9bc5b5d9eb1b6e51446a236",
     "src/dolphin/card/CARDMount.c": "de444915dbd54bcde9fe5cc0d4a1b5ebc197d62d37391f7bdb05c006cc70e900",
     "src/dolphin/card/CARDNet.c": "6ff9972c83b3f5a461574d3aec6765d54fe912eab16be90a04089e03121dab74",
-    "src/dolphin/card/CARDOpen.c": "666a8119c9431235014123743e37b7ecbe10996d3bc326de39469b52ca215a1f",
+    "src/dolphin/card/CARDOpen.c": "f898003bf740eeeec7d8a7a577216ce9dd3109589005718bedf6fe336507a526",
     "src/dolphin/card/CARDRdwr.c": "15ad63595114cd30c9b43fb142495af1036d8d144753cd6c746323344329a451",
     "src/dolphin/card/CARDRead.c": "e2c80995d24c987b9483f6ad7b6375595c28f24315eec1b7a8e52a5f71f5a999",
     "src/dolphin/card/CARDRename.c": "670bcf09749f19d6a28adf2ff1e4140b3a52a088d7ce4568ce734d7c574f8805",
@@ -15280,6 +15281,44 @@
       ],
       "object_sha256": "008a80b0d80d6a5f99a479e49d9a806333b4194a4459ee187e463070c4036e7e",
       "linked_sha256": "2ab520cb2678c7a37ebc117a8ead6005ff6cc16ed0ea8d3dc19bb2cd3303a3a4"
+    },
+    {
+      "id": "CARDOpen",
+      "category": "restored_library",
+      "functions": 8,
+      "code_bytes": 1460,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "signed",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "0e97e44081a825a814038b1212d17553899c9246e2e13202b49b7a3cb1a756fb",
+      "linked_sha256": "7924fee07d0630d24c6364a9ca4a91a5c09bd56725010e6a0e77d57090652e32"
     }
   ],
   "code_map": {
@@ -39827,67 +39866,6 @@
             "size": 48,
             "kind": "function",
             "name": "OSGetResetCode",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80127a50",
-        "ranges": [
-          {
-            "address": "0x80127a50",
-            "size": 104,
-            "kind": "function",
-            "name": "__CARDCompareFileName",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80127ab8",
-            "size": 152,
-            "kind": "function",
-            "name": "__CARDAccess",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80127b50",
-            "size": 48,
-            "kind": "function",
-            "name": "__CARDIsPublic",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80127b80",
-            "size": 336,
-            "kind": "function",
-            "name": "__CARDGetFileNo",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80127cd0",
-            "size": 352,
-            "kind": "function",
-            "name": "CARDFastOpen",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80127e30",
-            "size": 376,
-            "kind": "function",
-            "name": "CARDOpen",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80127fa8",
-            "size": 84,
-            "kind": "function",
-            "name": "CARDClose",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80127ffc",
-            "size": 8,
-            "kind": "function",
-            "name": "__CARDIsOpened",
             "evidence": "unknown-file"
           }
         ]

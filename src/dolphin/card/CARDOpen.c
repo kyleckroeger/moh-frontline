@@ -21,48 +21,23 @@ BOOL __CARDCompareFileName(CARDDir* ent, const char* fileName) {
 }
 
 s32 __CARDAccess(CARDControl* card, CARDDir* ent) {
-    const DVDDiskID* diskID = card->diskID;
-
     if (ent->gameName[0] == 0xFF)
         return CARD_RESULT_NOFILE;
 
-    if (diskID == &__CARDDiskNone
-     || (memcmp(ent->gameName, diskID->gameName, sizeof(ent->gameName)) == 0
-      && memcmp(ent->company, diskID->company, sizeof(ent->company)) == 0))
+    if (card->diskID == &__CARDDiskNone
+     || (memcmp(ent->gameName, card->diskID->gameName, sizeof(ent->gameName)) == 0
+      && memcmp(ent->company, card->diskID->company, sizeof(ent->company)) == 0))
         return CARD_RESULT_READY;
 
     return CARD_RESULT_NOPERM;
 }
 
-s32 __CARDIsWritable(CARDControl* card, CARDDir* ent) {
-    const DVDDiskID* diskID = card->diskID;
-    s32 result;
-    u8 perm;
-
-    result = __CARDAccess(card, ent);
-    if (result == CARD_RESULT_NOPERM) {
-        perm = ent->permission & __CARDPermMask;
-        if (perm & 0x20 && (memcmp(ent->gameName, __CARDDiskNone.gameName, sizeof(ent->gameName)) == 0 &&
-                            memcmp(ent->company, __CARDDiskNone.company, sizeof(ent->company)) == 0))
-        {
-            return CARD_RESULT_READY;
-        } else if (perm & 0x40 && (memcmp(ent->gameName, __CARDDiskNone.gameName, sizeof(ent->gameName)) == 0 &&
-                                  memcmp(ent->company, diskID->company, sizeof(ent->company)) == 0))
-        {
-            return CARD_RESULT_READY;
-        }
-    }
-
-    return result;
-}
-
-s32 __CARDIsReadable(CARDControl* card, CARDDir* ent) {
-    s32 result = __CARDIsWritable(card, ent);
-    if (result == CARD_RESULT_NOPERM && (ent->permission & 0x4)) {
-        return CARD_RESULT_READY;
-    }
-
-    return result;
+s32 __CARDIsPublic(CARDDir* ent) {
+    if (ent->gameName[0] == 0xFF)
+        return CARD_RESULT_NOFILE;
+    if (ent->permission & CARD_ATTR_PUBLIC)
+        return 0;
+    return CARD_RESULT_NOPERM;
 }
 
 s32 __CARDGetFileNo(CARDControl* card, const char* fileName, s32* pfileNo) {
@@ -109,8 +84,10 @@ s32 CARDFastOpen(s32 chan, s32 fileNo, CARDFileInfo* fileInfo) {
 
     dir = __CARDGetDirBlock(card);
     ent = &dir[fileNo];
-    result = __CARDIsReadable(card, ent);
-    if (0 <= result) {
+    result = __CARDAccess(card, ent);
+    if (result == CARD_RESULT_NOPERM)
+        result = __CARDIsPublic(ent);
+    if (result >= 0) {
         if (!CARDIsValidBlockNo(card, ent->startBlock))
             result = CARD_RESULT_BROKEN;
         else {

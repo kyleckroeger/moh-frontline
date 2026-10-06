@@ -312,7 +312,8 @@
     "aramalloc.json",
     "bsmachin.json",
     "CARDNet.json",
-    "CARDStatEx.json"
+    "CARDStatEx.json",
+    "CARDOpen.json"
   ],
   "progress": {
     "code_bytes": 1414572,

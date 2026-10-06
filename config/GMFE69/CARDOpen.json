@@ -1,0 +1,115 @@
+{
+  "id": "CARDOpen",
+  "source": "src/dolphin/card/CARDOpen.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "signed",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80127a50",
+      "size": 1460,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "__CARDCompareFileName",
+      "address": "0x80127a50",
+      "size": 104,
+      "binding": 1
+    },
+    {
+      "name": "__CARDAccess",
+      "address": "0x80127ab8",
+      "size": 152,
+      "binding": 1
+    },
+    {
+      "name": "__CARDIsPublic",
+      "address": "0x80127b50",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "__CARDGetFileNo",
+      "address": "0x80127b80",
+      "size": 336,
+      "binding": 1
+    },
+    {
+      "name": "CARDFastOpen",
+      "address": "0x80127cd0",
+      "size": 352,
+      "binding": 1
+    },
+    {
+      "name": "CARDOpen",
+      "address": "0x80127e30",
+      "size": 376,
+      "binding": 1
+    },
+    {
+      "name": "CARDClose",
+      "address": "0x80127fa8",
+      "size": 84,
+      "binding": 1
+    },
+    {
+      "name": "__CARDIsOpened",
+      "address": "0x80127ffc",
+      "size": 8,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "__CARDDiskNone": "0x8032fac0",
+    "__CARDGetControlBlock": "0x801239c4",
+    "__CARDGetDirBlock": "0x80125664",
+    "__CARDPutControlBlock": "0x80123a7c",
+    "memcmp": "0x8013d644"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/card/CARDOpen.c"
+  },
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "CARDOpen.c",
+  "original_file_index": 11287
+}
