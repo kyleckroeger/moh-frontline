@@ -1,0 +1,111 @@
+{
+  "id": "filesys_ea",
+  "source": "src/ea/filesys.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x801482ec",
+      "size": 708,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80190f70",
+      "size": 153,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x8033ed60",
+      "size": 64,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "DefaultFILE_malloc__FPCcii",
+      "address": "0x801482ec",
+      "size": 48,
+      "binding": 0
+    },
+    {
+      "name": "DefaultFILE_mfree__FPv",
+      "address": "0x8014831c",
+      "size": 48,
+      "binding": 0
+    },
+    {
+      "name": "FILESYS_overhead",
+      "address": "0x8014852c",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "FILESYS_initadr",
+      "address": "0x8014841c",
+      "size": 272,
+      "binding": 1
+    },
+    {
+      "name": "FILESYS_init",
+      "address": "0x8014834c",
+      "size": 208,
+      "binding": 1
+    },
+    {
+      "name": "FILESYS_restore",
+      "address": "0x80148554",
+      "size": 92,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "MEM_fill": "0x80150db4",
+    "OSInitMutex": "0x80114330",
+    "REAL_abortmessage": "0x80151078",
+    "gFileSysOpts": "0x80190f38",
+    "initfiledev__Fv": "0x801478a0",
+    "killfiledev__Fv": "0x8014790c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "filesys.cpp",
+  "original_file_index": 12109
+}
