@@ -143,4 +143,8 @@ establish a type, the source comments say so.
 | `sfft24.c` | 2 | 112 | Float to integer conversion clamped to +/-32767 |
 | `sfsplit.c` | 3 | 384 | Splitter: alternately pulls from its input (keeping a copy) and replays the copy |
 | `sfmixer.c` | 3 | 632 | Mixer: adds a second input's output into the first's |
+| `sflpf.c` | 3 | 836 | One-pole low-pass: `y = y * feedback + gain * in` |
+| `SNDI_sin.c` | 1 | 124 | Taylor series to x^13 after reducing below 2*pi |
+| `SNDI_cos.c` | 1 | 124 | Taylor series to x^12 after reducing below 2*pi |
+| `SNDI_root1x.c` | 1 | 116 | Binomial series for sqrt(1 + x); terms are separate variables summed in one expression |
 

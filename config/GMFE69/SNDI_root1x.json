@@ -1,0 +1,68 @@
+{
+  "id": "SNDI_root1x",
+  "source": "src/ea/SNDI_root1x.c",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8015fb80",
+      "size": 116,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x80351a20",
+      "size": 32,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SNDI_rootof1plusx__Ff",
+      "address": "0x8015fb80",
+      "size": 116,
+      "binding": 1
+    }
+  ],
+  "externals": {},
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "SNDI_root1x.c",
+  "original_file_index": 12944
+}

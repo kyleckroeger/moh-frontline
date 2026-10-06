@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 198108,
+    "matching_code_bytes": 199308,
     "total_executable_code_bytes": 1414572,
-    "percent": 14.004801452312078,
+    "percent": 14.089632765246307,
     "categories": {
-      "reconstructed_game": 10824,
+      "reconstructed_game": 12024,
       "restored_library": 187284
     },
-    "matching_functions": 848
+    "matching_functions": 854
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -84,6 +84,9 @@
     "config/GMFE69/Padclamp.json": "570f443e7a228e96a9e869248c68a59a1d9e68052c20523d1c9a482772bfe76b",
     "config/GMFE69/SIBios.json": "ef42fc4b95402bef0544ec5fe1a10c75781171f56afba7954318d42020fd6c1a",
     "config/GMFE69/SISamplingRate.json": "e4def7467ec8d82fdb9730412721675a9ea0e7ce572d5b8b63e89c3bdfe1eb84",
+    "config/GMFE69/SNDI_cos.json": "d5c3aefe8e26c1df224218b53070a0f6cfec997ed7abca69e4c32fdf3cdcbe3a",
+    "config/GMFE69/SNDI_root1x.json": "ea826a27a8d9e2588fd750844842c1e363c3555078469ac393e6172f6aedada7",
+    "config/GMFE69/SNDI_sin.json": "0b60fa9265dea81e4c4dc40bdaf11377f21325b62ab47bfd58ada88b7602fee2",
     "config/GMFE69/__init_cpp_exceptions.json": "473fc79adada2d4f4716f9dfb8db2454052cf439f5333b1078f4ff68cc1e87da",
     "config/GMFE69/__mem.json": "7b371c8954f9a6801abb4e67faa0ee57a68e5dc8ed0859a4f409105a4f523615",
     "config/GMFE69/__ppc_eabi_init.json": "973012ebb5fce40c866227e3e304f684705c3c16ffb3935048ed846a020e3f0b",
@@ -141,7 +144,7 @@
     "config/GMFE69/nubevent.json": "d6afc4bc3a93eb5ab6fc791d166d4243a4fee57863e76656a656235d2e20e0f2",
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "5117570c9b2849e18de2beda8018260f33e61914376c29e7de13d496d68d75ee",
+    "config/GMFE69/project.json": "520dbcf37e40d23163c409feaec56fe0b32c5667696b8f8d12efb94084c61a7c",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -163,6 +166,7 @@
     "config/GMFE69/sfft24.json": "383d709b9312b9b1311cf29e375c38156d2a6926bdee8cf0e3fc4d0ac00eb2f2",
     "config/GMFE69/sfhpffir8.json": "0de039c6c7577c72d832a0dceb11b703944101be6ce6c5d6add9fb0722524428",
     "config/GMFE69/sfir8.json": "268884d5ba279d614e87ad8865c407840eecc59e661fc4e26bfbe30263992699",
+    "config/GMFE69/sflpf.json": "d11e70f713cbf69dd2bf7689ca49dae8586cf28b1c967e21c92770791c5919d8",
     "config/GMFE69/sflpffir8.json": "28488407555fa3ef73b53efae8384ffe65ba16751b5217cfdfc1266e4f918ca4",
     "config/GMFE69/sfmixer.json": "4d0d491f26ed08d9b8ae2279f2e06d5da6cec1d677f4475c494bd811fbf7db49",
     "config/GMFE69/sfsplit.json": "38efa1f83aa3e5f039e7829ec2e0453d864e51267b2a7aa615b5f99bb815a122",
@@ -934,6 +938,9 @@
     "src/dolsdk2001/vi/i2c.c": "4e62553f4b64678fac11d28b6a7617e3034d5192dc8ea6be4d9bd322edf215ce",
     "src/dolsdk2001/vi/initphilips.c": "bf8d8b1159c56f722022dfd599ba84d7e9b898b81369f29de8e25d35434912f3",
     "src/dolsdk2001/vi/vi.c": "55aeca6a29fb85b0d8b30bec9a53c777bad20ef331521ef496cd2f53c2a20256",
+    "src/ea/SNDI_cos.c": "72690a8d4e8046df60fcbf65a0f8cf759006a2a6e459284d1116b65ed4479957",
+    "src/ea/SNDI_root1x.c": "7f9b7d5d12060bfbf3592c216c854befc5946190765109b0ca053b8aaea27759",
+    "src/ea/SNDI_sin.c": "b60cf7dd7e0f9c570a0b4a2a6dd05db4729472fec2d2beb6e8fe4063c5010cd2",
     "src/ea/cpudetect.cpp": "82ad74ceba8d5dcd8eda8284a31e54ca3a660ce35f0909967bfb80204e8081e7",
     "src/ea/fontnull.cpp": "f5c2dfb2e21956fc5d3a1b11c46ae763d9b5cd956badc5e3db912b1e59a9d641",
     "src/ea/meminitadr.cpp": "95eed033a03deab2f0918e8b1a92183e8cf0a9bb94d793f3558d6aa13d112d8d",
@@ -943,6 +950,7 @@
     "src/ea/sfft24.c": "a277333a5f74e1e1cd30160d1dd6900e8db09a82013bbe9545075bad419dbe69",
     "src/ea/sfhpffir8.c": "253d942492a6d7fd4c680a08d9c929ad43e5d9bb03c0397f0308ec3d3789ccef",
     "src/ea/sfir8.c": "e7544d735da8b84858b4f6482b7faf33a4ba9c68b62c19e3f643b3ded0d24f94",
+    "src/ea/sflpf.c": "4115c133d52903fcedbcd8394b88d9af196c20cd95f8e5dd0b131dfd4fe7a06d",
     "src/ea/sflpffir8.c": "66da37d2d522d216ce36f088a120823f4758713896b7f1a29b96d0c106767080",
     "src/ea/sfmixer.c": "14b17cb1759d7c475ceaaa51442e10f1d44c3c0eb6de4f88e507757f95d9ae67",
     "src/ea/sfsplit.c": "c646089a4b40c6be760e9f276a65a43aa37c75b467b1fcc77fcdea8095e653df",
@@ -8912,6 +8920,162 @@
       "discarded_functions": [],
       "object_sha256": "9b85a3d1ae0dcb51394b33de9a1ca3e5952fedb6cb9ed30c7de5c9de1df0717d",
       "linked_sha256": "fa6bc33aa8510aabeb52056b4931a2d2df40b877d0d1cf77e90d78cbc4ad81d8"
+    },
+    {
+      "id": "sflpf",
+      "category": "reconstructed_game",
+      "functions": 3,
+      "code_bytes": 836,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "0b3ce89a2e091a2dbbb2be2dfd55134eb83b1b46b46086c61836e0e3b47a903c",
+      "linked_sha256": "2363506b180fa768d99ac4d785ce698a97fc6150618cac4277a625b907c44155"
+    },
+    {
+      "id": "SNDI_sin",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 124,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "a900a022533d84873d7fbd7876480dc5f07785963c49ad06ee8bb17d1350aa99",
+      "linked_sha256": "f8c5979b5d94500dd3df8f77622745a636e5574669ddfe9488d0b71b77f43e67"
+    },
+    {
+      "id": "SNDI_cos",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 124,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "d2d57189ff0b969174f7c27587f623edf264dc7cc205ac46ae29df11d4f98bfa",
+      "linked_sha256": "fe99add4c0467b79e775d1b288e00bfb3ade628f650a63e1ab15d1a5555993aa"
+    },
+    {
+      "id": "SNDI_root1x",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 116,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "3b5e3a9babd779544ebd0b2fd61d983023fca1a20b1693114c659210431adcb2",
+      "linked_sha256": "0141193401cc3626a1097c00469bad8b35824b525fd38feaf669838043efb626"
     }
   ],
   "code_map": {
@@ -38811,48 +38975,6 @@
         ]
       },
       {
-        "name": "Unmatched files/SNDI_sin.c [symbol evidence]",
-        "file_record": 502,
-        "file_name": "SNDI_sin.c",
-        "ranges": [
-          {
-            "address": "0x8015fa88",
-            "size": 124,
-            "kind": "function",
-            "name": "SNDI_sin__Ff",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/SNDI_cos.c [symbol evidence]",
-        "file_record": 503,
-        "file_name": "SNDI_cos.c",
-        "ranges": [
-          {
-            "address": "0x8015fb04",
-            "size": 124,
-            "kind": "function",
-            "name": "SNDI_cos__Ff",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/SNDI_root1x.c [symbol evidence]",
-        "file_record": 504,
-        "file_name": "SNDI_root1x.c",
-        "ranges": [
-          {
-            "address": "0x8015fb80",
-            "size": 116,
-            "kind": "function",
-            "name": "SNDI_rootof1plusx__Ff",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
         "name": "Unknown file/.text @ 8015fbf4",
         "ranges": [
           {
@@ -39369,39 +39491,6 @@
             "kind": "function",
             "name": "SFILTER_unpackxapfinit__FPvP16UNPACKINITPARAMS",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80164908",
-        "ranges": [
-          {
-            "address": "0x80164908",
-            "size": 596,
-            "kind": "function",
-            "name": "SFILTER_lpfRC__FPviPvPvi",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/sflpf.c [symbol evidence]",
-        "file_record": 532,
-        "file_name": "sflpf.c",
-        "ranges": [
-          {
-            "address": "0x80164b5c",
-            "size": 56,
-            "kind": "function",
-            "name": "SFILTER_createLPFRC__FP10LPFRCSTATE",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80164b94",
-            "size": 184,
-            "kind": "function",
-            "name": "SFILTER_modifyLPFRC__FP10LPFRCSTATEPi",
-            "evidence": "private-reference"
           }
         ]
       },

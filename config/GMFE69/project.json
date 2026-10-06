@@ -160,7 +160,11 @@
     "sfsrc.json",
     "sfft24.json",
     "sfsplit.json",
-    "sfmixer.json"
+    "sfmixer.json",
+    "sflpf.json",
+    "SNDI_sin.json",
+    "SNDI_cos.json",
+    "SNDI_root1x.json"
   ],
   "progress": {
     "code_bytes": 1414572,
