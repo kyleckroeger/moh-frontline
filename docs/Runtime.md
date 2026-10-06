@@ -90,7 +90,7 @@ with `strtol` inlined), and `__load_buffer` and `setvbuf` in `buffer_io.c`
 - No reference links these, so they need reconstruction from the
   disassembly: the C++ throw/unwind code of `Gecko_ExceptionPPC.cp`
   (`__throw`, `ExPPC_*`, about 5 KB), `ansi_files.c`'s file-table helpers,
-  `fopen`/`freopen`/`fread` (`cosf` now comes from the Wind Waker `math_ppc.c`).
+  and `fopen`/`freopen`/`fread`.
 - MetroTRK: Frontline links the Wind Waker's revision (117 of 118 function
   sizes agree), but the Wind Waker decompilation marks most TRK files
   non-matching. The matching files (`mainloop`, `nubevent`, `usr_put`,
