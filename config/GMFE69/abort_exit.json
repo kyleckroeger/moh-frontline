@@ -62,7 +62,7 @@
     {
       "name": ".text",
       "address": "0x8013a420",
-      "size": 204,
+      "size": 340,
       "type": 1
     },
     {
@@ -84,12 +84,19 @@
       "address": "0x8013a420",
       "size": 204,
       "binding": 1
+    },
+    {
+      "name": "abort",
+      "address": "0x8013a4ec",
+      "size": 136,
+      "binding": 1
     }
   ],
   "externals": {
     "_ExitProcess": "0x80116b90",
     "__destroy_global_chain": "0x80138174",
-    "_dtors": "0x8016e020"
+    "_dtors": "0x8016e020",
+    "raise": "0x8013fd04"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -98,9 +105,9 @@
     "commit": "a1854d47ce5aa9d0f21c7fb5a71aaade63659693",
     "path": "src/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/abort_exit.c"
   },
-  "original_file": "abort_exit.c",
-  "original_file_index": 11657,
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": []
+  "sda_externals": [],
+  "original_file": "abort_exit.c",
+  "original_file_index": 11657
 }

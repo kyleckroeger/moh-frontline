@@ -1,6 +1,7 @@
 #include "abort_exit.h"
 #include "stddef.h"
 #include "NMWException.h"
+#include "signal.h"
 
 void _ExitProcess();
 
@@ -15,6 +16,24 @@ void (*__stdio_exit)(void);
 static int __atexit_curr_func;
 
 int __aborting;
+
+// Frontline also links abort (not in the upstream file): raise(SIGABRT),
+// then the part of exit that still runs once __aborting is set. It is placed
+// before exit because -inline deferred emits functions in reverse order.
+void abort(void) {
+    raise(1);
+    __aborting = 1;
+
+    while (__atexit_curr_func > 0)
+        __atexit_funcs[--__atexit_curr_func]();
+
+    if (__console_exit != NULL) {
+        __console_exit();
+        __console_exit = NULL;
+    }
+
+    _ExitProcess();
+}
 
 void exit(int status) {
     int i;

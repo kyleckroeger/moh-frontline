@@ -41,7 +41,7 @@ drafted with `port_unit.py --no-file-record` and their manifests carry no
 | --- | --- | --- |
 | `tww/.../MSL_Common/Src/printf.c` | Add `vsprintf` (a `vsnprintf` wrapper) before `sprintf`, as the older MSL in Pikmin and Prime defines it | Global `vsprintf` at `0x8013db94` (120 bytes) between `sprintf` and `vprintf`; with `-inline deferred` functions are emitted in reverse source order |
 | `tww/.../MSL_Common/Src/printf.c` | `__StringWrite` and `__FileWrite` are global, not `static` | Global symbols at `0x8013dd54` and `0x8013ddc0` |
-| `tww/.../MSL_Common/Src/abort_exit.c` | `__aborting` and `__console_exit` are global, not `static` | Global `.sbss` objects at `0x8034f318` and `0x8034f324`; `__atexit_curr_func` stays file-local as in the target |
+| `tww/.../MSL_Common/Src/abort_exit.c` | `__aborting` and `__console_exit` are global, not `static`. Adds `abort` (absent upstream): `raise(SIGABRT)`, then the atexit/console part of `exit`; it precedes `exit` in the source because `-inline deferred` emits functions in reverse order | Global `.sbss` objects at `0x8034f318` and `0x8034f324`; `__atexit_curr_func` stays file-local as in the target |
 | `tww/.../Runtime/Src/runtime.c` | Add `__cvt_sll_flt` (`asm`, copied from Prime's `runtime.c`) between `__shr2i` and `__cvt_dbl_usll` | Global `__cvt_sll_flt` at `0x80138dec` (180 bytes) between them; Prime's whole file does not fit, because its `__save_fpr`-family helpers are global where the target's are file-local |
 | `tww/.../Runtime/Src/NMWException.cp` | Declare `terminate`, `unexpected` and their setters in namespace `std` (the file declared them at global scope), and give `__throw_catch_compare` C linkage | `duhandler__3stdFv` at `0x80138878` is 40 bytes and calls through `thandler` (`lwz r12,-29704(r13)`), so it inlines `std::terminate`; the global-scope declaration made it call an external `::terminate`. Global `__throw_catch_compare` at `0x801385fc` is unmangled |
 | `tww/dolphin/os/__ppc_eabi_init.cpp` | Add the `.init` functions `__init_hardware` and `__flush_cache` (`asm`, from dolsdk2001's `__ppc_eabi_init.c`, with C declarations of `__OSPSInit`/`__OSCacheInit`), and make `__init_cpp` `static` | `__init_hardware` (`0x80007330`) and `__flush_cache` (`0x80007350`) belong to the `__ppc_eabi_init.cpp` record with `__init_user`, file-local `__init_cpp` and `_ExitProcess`; the 2001 `.c` file also defines `abort`/`exit`, which Frontline takes from MSL |
@@ -69,7 +69,7 @@ linked comparison then treats weak and global alike.
   (`__throw`, `ExPPC_*`, about 5 KB), `mslsupp.c`'s file hooks (`__open_file`
   and the rest; Pikmin 2 has only placeholder stubs), `buffer_io.c`'s
   `__load_buffer` and `setvbuf`, `ansi_files.c`'s file-table helpers,
-  `fopen`/`freopen`/`fread`, `bsearch`, `strstr`, `atoi`, `raise`, `abort`,
+  `fopen`/`freopen`/`fread`, `bsearch`, `strstr`, `atoi`, `raise`,
   `clearerr`, `NewMore.cp`, `uart_console_io.c`'s `__write_console`, and the
   `pow`/`cosf` wrappers.
 - MetroTRK: Frontline links the Wind Waker's revision (117 of 118 function
