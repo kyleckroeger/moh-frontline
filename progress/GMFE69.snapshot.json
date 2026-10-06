@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 256484,
+    "matching_code_bytes": 257324,
     "total_executable_code_bytes": 1414572,
-    "percent": 18.131562055519268,
+    "percent": 18.190943974573226,
     "categories": {
-      "reconstructed_game": 59480,
+      "reconstructed_game": 60320,
       "restored_library": 197004
     },
-    "matching_functions": 1387
+    "matching_functions": 1392
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -98,6 +98,7 @@
     "config/GMFE69/SNDI_mult16.json": "833732210b2687248ee9e85d7d585acc47190e661085eec78d0ddad969eb0951",
     "config/GMFE69/SNDI_root1x.json": "ea826a27a8d9e2588fd750844842c1e363c3555078469ac393e6172f6aedada7",
     "config/GMFE69/SNDI_sin.json": "0b60fa9265dea81e4c4dc40bdaf11377f21325b62ab47bfd58ada88b7602fee2",
+    "config/GMFE69/UISEvent.json": "494508d3a1bc6ee076038b4f42906c60c3d009f45520a50f128c75aed4f00631",
     "config/GMFE69/__init_cpp_exceptions.json": "473fc79adada2d4f4716f9dfb8db2454052cf439f5333b1078f4ff68cc1e87da",
     "config/GMFE69/__mem.json": "7b371c8954f9a6801abb4e67faa0ee57a68e5dc8ed0859a4f409105a4f523615",
     "config/GMFE69/__ppc_eabi_init.json": "973012ebb5fce40c866227e3e304f684705c3c16ffb3935048ed846a020e3f0b",
@@ -218,7 +219,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "7a8f7de9b02d4a51811ecbd81fed165be7fdaee9763d5ff49903dc6a4c6827b8",
+    "config/GMFE69/project.json": "d0fd5e53de64b48cbe7749023a246addf4a678c2e7254a6091499badaa1bdef8",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1276,6 +1277,7 @@
     "src/game/LinkedList.cpp": "3007b79180a5844b8b799dc4fc11618f6b5da77679e6c73c6f388fec501beb2a",
     "src/game/MallocInit.cpp": "ba35f4c9ac530c717f81930ab9aa3a203ea81844e4776914ae6b51acf4188a74",
     "src/game/MathFun.cpp": "5a60cf13aeb557c033e5adb906365756165d8401c8d9f239c72e95a9c96b96df",
+    "src/game/UISEvent.c": "a9b324a04b57cdf40fbb819827d2073be6fa1b9fa1be2f1c0757e46dd3747a82",
     "src/game/anim.cpp": "9e086af4631ac941623f4e90cc4d858d9a4a1ddde96c1433e494b2f9411978d3",
     "src/game/anim_obj.cpp": "725abd73fe56c11fd2c8b08a127d30cfc73d5b6527fc15d9000668ac993e7dd7",
     "src/game/animchan.cpp": "221d21b6310330f8d36e7a5735a51dcfdb4f162c8d5651ef577e1ee2c9ca6030",
@@ -16959,6 +16961,47 @@
       "discarded_functions": [],
       "object_sha256": "05b3fa33b0ca31ef9084df05cc78b8f139d6c1619499234d53bfc3cef0dccb23",
       "linked_sha256": "15274c953b0432dba09ceb358dfd96fbc3cd934e655a724cbfbd7464ca30f1d4"
+    },
+    {
+      "id": "UISEvent",
+      "category": "reconstructed_game",
+      "functions": 5,
+      "code_bytes": 840,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "deferred,auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "6b745388e4d928b3499e7f0208af39aa34adb523c2e9671fbc3b1be1d8fb21b3",
+      "linked_sha256": "14065597487228aba1a8727c96143ff9c18ab1fa3f683590ebba767b1a5082fb"
     }
   ],
   "code_map": {
@@ -28193,53 +28236,6 @@
             "size": 204,
             "kind": "function",
             "name": "UISAddThreadAction__FP9UISInfo_t16UISThreadActionTP19UISThreadGroupInfoTlP10UISParam_t",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/UISEvent.c [symbol evidence]",
-        "file_record": 85,
-        "file_name": "UISEvent.c",
-        "ranges": [
-          {
-            "address": "0x80085744",
-            "size": 184,
-            "kind": "function",
-            "name": "UISRemoveUnNessaryRateFncs__FP9UISInfo_t",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800857fc",
-            "size": 100,
-            "kind": "function",
-            "name": "UISUnloadRateFnc__FP9UISInfo_tP16UISControlInfo_tUl",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80085860",
-            "size": 156,
-            "kind": "function",
-            "name": "UISLoadRateFnc__FP9UISInfo_tP11UISScreen_tP16UISControlInfo_tUlPUcUl",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800858fc",
-            "size": 324,
-            "kind": "function",
-            "name": "UISLoadAdvRateFnc__FP9UISInfo_tP11UISScreen_tP16UISControlInfo_tP16UISControlInfo_tUlPUcPUcUlfUl",
-            "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80085a40",
-        "ranges": [
-          {
-            "address": "0x80085a40",
-            "size": 76,
-            "kind": "function",
-            "name": "UISFindRateFnc__FP9UISInfo_tP16UISControlInfo_tUl",
             "evidence": "unknown-file"
           }
         ]

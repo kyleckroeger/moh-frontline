@@ -350,7 +350,8 @@
     "fader.json",
     "dmrender.json",
     "sserver.json",
-    "sdspmix.json"
+    "sdspmix.json",
+    "UISEvent.json"
   ],
   "progress": {
     "code_bytes": 1414572,
