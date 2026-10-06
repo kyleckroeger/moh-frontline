@@ -1,0 +1,72 @@
+{
+  "id": "fontcreate",
+  "source": "src/ea/fontcreate.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8014e3b8",
+      "size": 120,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "FONT_create",
+      "address": "0x8014e3b8",
+      "size": 68,
+      "binding": 1
+    },
+    {
+      "name": "FONT_destroy",
+      "address": "0x8014e3fc",
+      "size": 52,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "FONTcurrentdriver": "0x8034e5b8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "FONTcurrentdriver"
+  ],
+  "original_file": "fontcreate.cpp",
+  "original_file_index": 12189
+}

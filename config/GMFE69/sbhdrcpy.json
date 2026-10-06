@@ -1,0 +1,66 @@
+{
+  "id": "sbhdrcpy",
+  "source": "src/ea/sbhdrcpy.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x801597e8",
+      "size": 136,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SNDbankheadercopy",
+      "address": "0x801597e8",
+      "size": 136,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "SNDbankheadersize": "0x801597cc",
+    "memmove": "0x8013d6e8",
+    "sndgs": "0x80340860"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "sbhdrcpy.c",
+  "original_file_index": 12687
+}

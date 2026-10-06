@@ -1,0 +1,70 @@
+{
+  "id": "sballoc",
+  "source": "src/ea/sballoc.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8015933c",
+      "size": 132,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SNDBANKI_alloc__Fv",
+      "address": "0x8015933c",
+      "size": 64,
+      "binding": 1
+    },
+    {
+      "name": "SNDBANKI_getppatch__FP8BANKVER5i",
+      "address": "0x8015937c",
+      "size": 68,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "sndgs": "0x80340860"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "sballoc.c",
+  "original_file_index": 12672
+}
