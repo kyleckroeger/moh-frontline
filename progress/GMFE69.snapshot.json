@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 221280,
+    "matching_code_bytes": 222456,
     "total_executable_code_bytes": 1414572,
-    "percent": 15.642894105072065,
+    "percent": 15.72602879174761,
     "categories": {
       "reconstructed_game": 18288,
-      "restored_library": 202992
+      "restored_library": 204168
     },
-    "matching_functions": 1079
+    "matching_functions": 1089
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -186,7 +186,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "0a5e602da423b4d30c35b387e0e3a137972323f638a30e82a0a1098dc0146bbe",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "ed726f128d6ae96258d493f4680bb6af893f5114f33e588d490c687e7a7d20bf",
+    "config/GMFE69/project.json": "e22f1cbc7a335455cfd9cbb0a05675fb7a4d44219a126a7e5cdcacdcd52e819b",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -232,6 +232,7 @@
     "config/GMFE69/sfxlevel.json": "2e0004dbc05a63f1b7963e5942d0703c30f55f09f9be470043df9764d00c88bc",
     "config/GMFE69/sgetdata.json": "963cbad17e201ea4a1dc5ea4f0256d553e3932a6d90cd5d3d054b7ed0a073484",
     "config/GMFE69/sgetpvol.json": "05e258f33b7eb68c2d9ba157d866beb317ae54b3f1466747c80f08a88b73f99c",
+    "config/GMFE69/sgettag.json": "f3f68396469118cfdf44282091dbccca4c5a37556dda18af352c63b3fe76d967",
     "config/GMFE69/shipass.json": "01ec928626fba3987dcd824b9658199fb113b169bace2fbb9fbb64a077b392bc",
     "config/GMFE69/signal.json": "11e4665069a531c20eb3bf1455bab453a4193e7fcc258de91c6db16275813b7f",
     "config/GMFE69/signals.json": "bac4c436ac1ac571659273190855cda0734f8889e200f64e671ec3efd4dc1a00",
@@ -239,6 +240,7 @@
     "config/GMFE69/sinitut.json": "00cc6e6ce17e96e0416ac7a844955447ed135bad3389aee181eb171e7ace6889",
     "config/GMFE69/sinitxa.json": "bae05556cc5a1e534ae63850e0dd494048095ea71ae5fba42ea3309fe39baf92",
     "config/GMFE69/slib.json": "4b9575650eb22914e107702f366a113a714f3c1eff45edf7ed107418b85be2bf",
+    "config/GMFE69/slinklst.json": "8f3309944ba08e70c3210330eaf4621bb75ac23c1b5323848e64af72655661cd",
     "config/GMFE69/slinkmix.json": "0d66b0e0297a0e7e7bf0c13cc7f212971c66ee4114cf017c282deb2b452f6755",
     "config/GMFE69/slowpass.json": "7f6738dc53296d348dfd5b3a82912c067addd7ed28f09087f217d590bc248830",
     "config/GMFE69/smasterv.json": "811991797ed3eb223d2a3b75a5a05b09aa41d1128d832ef55e4178c8c49a1d4c",
@@ -272,11 +274,13 @@
     "config/GMFE69/sstqmem.json": "133ce067dc87885539fc3fa419e7c5ac6cc5831ea5c88e5e8699fc55acd77637",
     "config/GMFE69/sstqreqi.json": "7d6ec034a51da5d3ccd3a5ef8531e1de37fae511c915151374c100a953436571",
     "config/GMFE69/sstrmdry.json": "edfdd6bc958f5b7da2cc389e86c65096d861bfb2231ef576582e6440d798e4bf",
+    "config/GMFE69/sstrstat.json": "1d5ca5141fa168c95a765b40c89cffdc7041f87977bbb17f3dbf067e02985c11",
     "config/GMFE69/sstsetgl.json": "f06a24a5476b0418878180ee871384538aa54fef7561048fcac378f7ad1acc93",
     "config/GMFE69/sststat.json": "d294e4342f34e7900d8a1842fea23a8957202b23d48c1faf1ae9911d94416dc8",
     "config/GMFE69/ssttmul.json": "8dca36a80a780e2fd064be703aa253d610b75ce3f3d711cfb11a2e7f8269e6f1",
     "config/GMFE69/sstvol.json": "83363331d1058d6736c0d4b7d8900868ec13c7e6abcb22b1cee109b3cfad09e7",
     "config/GMFE69/ssysreal.json": "3b9fb3ecf4cd22c2c1d2c57eab822d87cdfdb5e946081517b26a19ceb8db67e1",
+    "config/GMFE69/ssysserv.json": "6cd67a88a48a32a37289553da4bc2011d8906ce377411022fd70704343673049",
     "config/GMFE69/stimemul.json": "53b4738f2600244527ab8e1035bbcf34ab3a2dfdddb6474b6200020bc5febb58",
     "config/GMFE69/string.json": "dfcf9ebcd504cab3afb3e06b74c7e218ecadac89ebde48c40659fcaeb0a01628",
     "config/GMFE69/strtoul.json": "96027a37123019cd24fdaf9c4ec6caa8228464cf8362a2b3ba7e36acdb35dad5",
@@ -1116,12 +1120,14 @@
     "src/ea/sfxlevel.c": "d5cc428d31c9b52511b7f1d89cc4f71b91b5d211dd371c967a25db2c13e3d5cf",
     "src/ea/sgetdata.c": "096ddd2dc98110c34425bdb3de01ab682d37bd2e9742004166afaa1627ae5f89",
     "src/ea/sgetpvol.c": "01014858d4c5a5b4d701b63b2de5fe2371ec80bc3743918050253bb49a21382e",
+    "src/ea/sgettag.c": "87aac6e484c3dad29d22f0042085ddcd0cdc61b350f4cc33646fb8e706143860",
     "src/ea/shipass.c": "b3560e370e4db81bb573212199f7550e798834618963ffa68c308eab0f9b9e88",
     "src/ea/signals.cpp": "bbbc0bffb36932f5eb6cf92dc7b48e2c4b20623375a214da115ef76eacd1fcee",
     "src/ea/sinit16.c": "8c2fbac00ea3352891c4ff3634b9ad9e1cd99da8a1341c63f80b57587ee91ea6",
     "src/ea/sinitut.c": "f0c0dfcb5f4485ce2cade109eea1f912602bb6fc6cc8c8872feb1ee87a080895",
     "src/ea/sinitxa.c": "fcffafa5258c6cef1b0fc935b34c896adcd4ad7f56a4f338f399a3e20dcf5726",
     "src/ea/slib.c": "df89cfa054d43334b82e427721e86eb1f8db7d85c5d1181f7510172d7a231e2f",
+    "src/ea/slinklst.c": "7d0eed82063720c8424d4e5e54c681608a3c9dec7dc9427f3f99393408aff307",
     "src/ea/slinkmix.c": "3cf4c749e4f9caf67c6276ed5df5b66b07e13be40dc7192b1d952b35fd5225f5",
     "src/ea/slowpass.c": "50974ba23d1b0adf20b719306eb2457171fdbc979b397a59ed0865bbf60fcb38",
     "src/ea/smasterv.c": "8dd6bc618f934b245a33bf94dd6adda38c24ac8858394d3ce088a96f525f0232",
@@ -1155,11 +1161,13 @@
     "src/ea/sstqmem.c": "c66c344cf92613406dce9b8cfb847c9065ba6e4a978a904e8871973a6e0fe00e",
     "src/ea/sstqreqi.c": "acb9b3704ad1832746da5ed04cdc8709c583585454184c335132aa806287c190",
     "src/ea/sstrmdry.cpp": "3addaf2590c50ebd877feabcaa79ab3c011f0828bb75de6d06f2c55eb7f45855",
+    "src/ea/sstrstat.c": "700922eb729fc88e0336cd3d69bb7a395c1237f5f1ed800bd27cc56c3a04eed8",
     "src/ea/sstsetgl.c": "d0fbcf99e259b9f92ef921cfd7ed594a4d6414f1a79b4cd3ef8e770ddb74aba7",
     "src/ea/sststat.c": "47c02090cc05a79cc457c90879c2aae2893bacf16e54156c5d1b975271c4d361",
     "src/ea/ssttmul.c": "e38c7d8ea9f8511ce44b80b4ea0e0884fa1ed85241d6fcd6c83cd56efcba0643",
     "src/ea/sstvol.c": "a2619b5183147baa7733cfc2f9c582057754591f7f13f984c3725bd89629aa8c",
     "src/ea/ssysreal.c": "08872d0af87f62ff0a9c5171fb908b629202f85e585ef45923d546f90b77f4f8",
+    "src/ea/ssysserv.c": "c652ea041a804d456cc780e25f0ecfa648623be37c1c1bd170e18555761ec31d",
     "src/ea/stimemul.c": "fe4a33747721800f1d82a72032bc415a12b399b6a6ebdc8bed634faeb2ed7494",
     "src/ea/susercb.c": "1481568dd7d17c637e274529b8e41784ff435133c690f7158a53f8428c6e997a",
     "src/ea/syncfile.cpp": "2bd70dddb756dbb86b8eb75d2dd8a7c706d2c9decc0cde7d6b27f95383d8ca56",
@@ -14022,6 +14030,162 @@
       "discarded_functions": [],
       "object_sha256": "bdaa82fb08849b083e894f0aff5d0a33d618c23d1e18e17b54ba22617a3a1584",
       "linked_sha256": "0f95d20e7f711349ae2c245935031775f2eb02a3a396cbb22e8fe34def8cc95b"
+    },
+    {
+      "id": "slinklst",
+      "category": "restored_library",
+      "functions": 5,
+      "code_bytes": 312,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "53923551feb208a6bd91bdd9028b8a9c753f8c61810d84f393b3f96a749f2d09",
+      "linked_sha256": "5261bf8ab9ebe1e36fcb8ebad215f07b2ba4fe171f1018569bcbda4fb068a723"
+    },
+    {
+      "id": "ssysserv",
+      "category": "restored_library",
+      "functions": 3,
+      "code_bytes": 292,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "f6037af005f84edfcc1db73a55b8be45ba02cb28b1781b9ee3cd857c735e0016",
+      "linked_sha256": "ca85e726e7996c99955060844d1bb05bf9202ed52db5e6609490dc2a1acc805c"
+    },
+    {
+      "id": "sgettag",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 264,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "4b190599a118e95f9c87a8c531e63cf9b1526cd9b5be71d62b2321e44c0af5fe",
+      "linked_sha256": "e8627d7d47a870e8289825eccd9b09bae00ad683dfa347c35438d4c2f3e49509"
+    },
+    {
+      "id": "sstrstat",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 308,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "d3d3b0f70caa3c57ec8dc11bfabc3aaa00979597324aa19afe1684f54d2e3b9e",
+      "linked_sha256": "5da06ce65528ddce977a3ce44e1cb4d69f9def3674e1a451e7a0b4772d181da5"
     }
   ],
   "code_map": {
@@ -41153,27 +41317,6 @@
             "kind": "function",
             "name": "SNDSYS_inited",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801530e4",
-            "size": 44,
-            "kind": "function",
-            "name": "iSNDserveraddclient__FPFv_v",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80153110",
-            "size": 128,
-            "kind": "function",
-            "name": "iSNDserverremoveclient__FPFv_v",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80153190",
-            "size": 120,
-            "kind": "function",
-            "name": "SNDSYS_service",
-            "evidence": "unknown-file"
           }
         ]
       },
@@ -41691,42 +41834,12 @@
             "kind": "function",
             "name": "SNDMEMI_free__FPv",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801590a4",
-            "size": 20,
-            "kind": "function",
-            "name": "SNDLINKI_init__FP11SNDLINKLIST",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801590b8",
-            "size": 60,
-            "kind": "function",
-            "name": "SNDLINKI_push__FP11SNDLINKLISTP11SNDLINKNODE",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801590f4",
-            "size": 60,
-            "kind": "function",
-            "name": "SNDLINKI_pushtail__FP11SNDLINKLISTP11SNDLINKNODE",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80159130",
-            "size": 76,
-            "kind": "function",
-            "name": "SNDLINKI_pop__FP11SNDLINKLIST",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8015917c",
-            "size": 96,
-            "kind": "function",
-            "name": "SNDLINKI_remove__FP11SNDLINKLISTP11SNDLINKNODE",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 801591dc",
+        "ranges": [
           {
             "address": "0x801591dc",
             "size": 112,
@@ -42030,18 +42143,6 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 8015c37c",
-        "ranges": [
-          {
-            "address": "0x8015c37c",
-            "size": 308,
-            "kind": "function",
-            "name": "SNDSTRM_requeststatus",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
         "name": "Unknown file/.text @ 8015ca04",
         "ranges": [
           {
@@ -42139,18 +42240,6 @@
             "size": 212,
             "kind": "function",
             "name": "iSNDcalcpitch__Fi",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8015e29c",
-        "ranges": [
-          {
-            "address": "0x8015e29c",
-            "size": 264,
-            "kind": "function",
-            "name": "SNDI_gettag__FP10SNDTAGINFO",
             "evidence": "unknown-file"
           }
         ]

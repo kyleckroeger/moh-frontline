@@ -282,7 +282,11 @@
     "susercb.json",
     "sclnt100.json",
     "sgetdata.json",
-    "sststat.json"
+    "sststat.json",
+    "slinklst.json",
+    "ssysserv.json",
+    "sgettag.json",
+    "sstrstat.json"
   ],
   "progress": {
     "code_bytes": 1414572,
