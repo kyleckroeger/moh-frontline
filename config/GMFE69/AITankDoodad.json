@@ -1,0 +1,110 @@
+{
+  "id": "AITankDoodad",
+  "source": "src/game/AITankDoodad.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80059784",
+      "size": 296,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000ae5c",
+      "size": 32,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80011f60",
+      "size": 48,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "GetSceneNode__13CAITankDoodadCFv",
+      "address": "0x80059784",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "Update__13CAITankDoodadFf",
+      "address": "0x8005978c",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "PreUpdate__13CAITankDoodadFv",
+      "address": "0x800597b0",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "CleanUp__13CAITankDoodadFv",
+      "address": "0x800597d4",
+      "size": 80,
+      "binding": 1
+    },
+    {
+      "name": "Init__13CAITankDoodadFP11CTankObject",
+      "address": "0x80059824",
+      "size": 136,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "Init__13CAITankObjectFv": "0x80052174",
+    "Init__9CAIDoodadFv": "0x800590f4",
+    "LinkGameObject__15CAIFilterObjectFPv": "0x8005be40",
+    "PreUpdate__19CAIFilterTankObjectFv": "0x8005b068",
+    "SetOneTimeVars__19CAIFilterTankObjectFv": "0x8005b160",
+    "UpdateManualUpdateVars__19CAIFilterTankObjectFv": "0x8005b15c",
+    "Update__19CAIFilterTankObjectFf": "0x8005af98",
+    "__ct__19CAIFilterTankObjectFv": "0x8005b408",
+    "__nw__19CAIFilterTankObjectFUlPv": "0x8005b390"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "AITankDoodad.cpp",
+  "original_file_index": 2513
+}

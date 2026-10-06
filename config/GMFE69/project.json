@@ -359,7 +359,8 @@
     "input.json",
     "bsevents.json",
     "pathxSND.json",
-    "destructor_queue.json"
+    "destructor_queue.json",
+    "AITankDoodad.json"
   ],
   "progress": {
     "code_bytes": 1414572,
