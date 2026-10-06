@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 276080,
+    "matching_code_bytes": 276332,
     "total_executable_code_bytes": 1414572,
-    "percent": 19.516857395735247,
+    "percent": 19.534671971451434,
     "categories": {
-      "reconstructed_game": 76200,
+      "reconstructed_game": 76452,
       "restored_library": 199880
     },
-    "matching_functions": 1781
+    "matching_functions": 1783
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -22,6 +22,7 @@
     "config/GMFE69/AIPlayerObject.json": "89824370512e8f14345d260f39b95516cf337b026e7e61b8d6013d4d3664516a",
     "config/GMFE69/AISoldierDoodad.json": "2ff63fd49039400e569490a49c8f89bc08ec427340dabd46764dc1812cdf00c9",
     "config/GMFE69/AISoldierObject.json": "bde29b93a98591169c5884afc12a23f7dee83bb6d226314d53000d98899235cb",
+    "config/GMFE69/AISplinePath.json": "1c74a6525471caf1cb13b2fe967be1a1bf475b3ff54eb31f3481afd4c20d4b49",
     "config/GMFE69/AITankDoodad.json": "733dd452ed553547b1c19276c94ec192493fdac622dc9fe66b677e200a12a55a",
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
     "config/GMFE69/AXAlloc.json": "b51afdb5cb97132361ccd2fe3e018cda2e215277e2c457b6ff35b3a9cd352f47",
@@ -274,7 +275,7 @@
     "config/GMFE69/player_weapon_object.json": "2c451ab555672599946bb97ca631b2a316350d8f99e8e9b77cf7f8f648d219df",
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "86fa5e169847bca7811fd95ef449d12881772ddfa0f765c43865efdb4471366e",
+    "config/GMFE69/project.json": "e68b261b3f32b6d4fc8c7250d1c6f5ce7c11b44699f2f70398b04d4f5250545a",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
@@ -1359,6 +1360,7 @@
     "src/game/AIPlayerObject.cpp": "b1e57451819617f12a53f7185419f09b4ece3035859b25fcedb2752ec9d226bf",
     "src/game/AISoldierDoodad.cpp": "a70f1395b35f9773c7b6bbcd36e3da76824a4604449b9d8b5472447931a9754a",
     "src/game/AISoldierObject.cpp": "670780c34e55d056ab53a6ecf42b96b56496c1f16bd69979e9ce05d8253583f9",
+    "src/game/AISplinePath.cpp": "add4c235edc4c831ad4a130df34d27367a7806edc416fa12cfdf29421fb3ecf5",
     "src/game/AITankDoodad.cpp": "35252fb5c75740ecddc982a39bfecfc3c4a046a4e75046679eff1050fd598da9",
     "src/game/IStudio.cpp": "02443b5cf9cd73ad24c7e1e4525f498ca333a0f93d0975a8c293d41d0335cf7a",
     "src/game/IStudioFuncs.cpp": "b165a33f98e96f81832733bc9c7f57c198951e7c5297b42486c1184a62b9a756",
@@ -20042,6 +20044,45 @@
       "discarded_functions": [],
       "object_sha256": "2e96543ea6df309ed58e28d3695a80d6e65b25ee61a003bab3d8d79cd53154a5",
       "linked_sha256": "3dfd586bef112bb2a3140d2dd0c7ae3f6e0e0d7f595fc2252c205b906839a0db"
+    },
+    {
+      "id": "AISplinePath",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 252,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "4cae4b6f83b5a7555884f64602469c52bde8726c0d10a9a05bd791767d8a08fb",
+      "linked_sha256": "dd7abde5aa0c8f64aabbd95e57f43ab2e4133d48d29565f3922f821f22f71727"
     }
   ],
   "code_map": {
@@ -24861,20 +24902,6 @@
         "file_record": 28,
         "file_name": "AISplinePath.cpp",
         "ranges": [
-          {
-            "address": "0x8004fa94",
-            "size": 160,
-            "kind": "function",
-            "name": "GenerateSplinePath__20CAISplinePathManagerFUlUlUlPC19_aifilter_simple_v3",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8004fb34",
-            "size": 92,
-            "kind": "function",
-            "name": "FreeGenerateBuffers__20CAISplinePathManagerFv",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x8004fb90",
             "size": 136,

@@ -424,7 +424,8 @@
     "hierobject.json",
     "motionblur.json",
     "bsfile.json",
-    "dmmorph.json"
+    "dmmorph.json",
+    "AISplinePath.json"
   ],
   "progress": {
     "code_bytes": 1414572,
