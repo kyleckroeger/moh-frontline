@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 308160,
+    "matching_code_bytes": 308424,
     "total_executable_code_bytes": 1414572,
-    "percent": 21.78468116151034,
+    "percent": 21.803344050355868,
     "categories": {
       "reconstructed_game": 92616,
-      "restored_library": 215544
+      "restored_library": 215808
     },
-    "matching_functions": 1936
+    "matching_functions": 1938
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -108,6 +108,7 @@
     "config/GMFE69/Pad.json": "0b2c4b221832a5e352c0236d90c02e9938bb4a00392741832f1510da07a7770d",
     "config/GMFE69/Padclamp.json": "570f443e7a228e96a9e869248c68a59a1d9e68052c20523d1c9a482772bfe76b",
     "config/GMFE69/Pause.json": "b063c4ce574ebecceddfcb098ea0b9243fef9f018ff3caefa44c49a24eb1f7cd",
+    "config/GMFE69/Pause_tail.json": "7670b3a23bc160583fe237cf93b382fc533a2b76160c8bf7970aa20e168a5fc6",
     "config/GMFE69/SIBios.json": "ef42fc4b95402bef0544ec5fe1a10c75781171f56afba7954318d42020fd6c1a",
     "config/GMFE69/SISamplingRate.json": "e4def7467ec8d82fdb9730412721675a9ea0e7ce572d5b8b63e89c3bdfe1eb84",
     "config/GMFE69/SNDI_cos.json": "d5c3aefe8e26c1df224218b53070a0f6cfec997ed7abca69e4c32fdf3cdcbe3a",
@@ -296,7 +297,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "df5c304ebcf0ae1b38527eea689f0085af0c400582181b3f2ed7964807cff2ea",
+    "config/GMFE69/project.json": "a0a6f424985564f887d515acd73f25d83c6cd7dbe757c98180f612d17c4a5904",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
@@ -1434,6 +1435,7 @@
     "src/game/MemoryCardGC.cpp": "3b9c68f90347302a19fd207c3797546ee6df1cd8df7bf097885b335a0e882f77",
     "src/game/Moh2.cpp": "de6c92093366f02578f9e8b8d2f69e0de0bece31142f95b7a51ed02dd533c3fb",
     "src/game/Pause.cpp": "8cb08efb80ca5f837f5fe7e9f2755ec247d10282133bd0f6d5229a573779951e",
+    "src/game/Pause_tail.cpp": "310007d04a15e06e5d13ad63bc14571c9fafd2fb56d66851af547fb37e6c1e27",
     "src/game/Screen.cpp": "7ee74460c46aef1832de0e8aad39f65a7b2dedad15386f1ed8f1657a47566cae",
     "src/game/SearchNode.cpp": "6b76164fd42a19131dcf90f9fe0ec86b20e0ef3d9c948defd80b5441bde9d333",
     "src/game/SearchNodeList.cpp": "738d75054ffdc5c611f06f3c0f8d330d60226794efc3684079e2280494a4d65c",
@@ -21907,6 +21909,45 @@
       "discarded_functions": [],
       "object_sha256": "e28d56646b90d17e850d80d208e1c0d80de7b5572d1b9e543c8b8855d01fe4e5",
       "linked_sha256": "5ed1fa03dc4922749c6ec04ce08a976fa1ad9363c927f808ead6174da2214f3c"
+    },
+    {
+      "id": "Pause_tail",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 264,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "150d2601150aab6925a8c1aa24f3551e9669d61aa975401eb4d5ca0be525905d",
+      "linked_sha256": "a0224a0d89a1998a9edbcce885a4f322736082f3c88807dcdac54f11d0a85eb8"
     }
   ],
   "code_map": {
@@ -38633,20 +38674,6 @@
             "size": 692,
             "kind": "function",
             "name": "PauseInit__5PauseFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800de22c",
-            "size": 184,
-            "kind": "function",
-            "name": "__dt__5PauseFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800de2e4",
-            "size": 80,
-            "kind": "function",
-            "name": "__ct__5PauseFv",
             "evidence": "exception-index"
           }
         ]

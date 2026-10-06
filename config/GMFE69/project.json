@@ -468,7 +468,8 @@
     "satospkr.json",
     "sfrsf.json",
     "path.json",
-    "path_stop.json"
+    "path_stop.json",
+    "Pause_tail.json"
   ],
   "progress": {
     "code_bytes": 1414572,
