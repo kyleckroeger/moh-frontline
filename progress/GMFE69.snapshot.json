@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 320148,
+    "matching_code_bytes": 320280,
     "total_executable_code_bytes": 1414572,
-    "percent": 22.632145977723297,
+    "percent": 22.641477422146064,
     "categories": {
       "reconstructed_game": 92272,
-      "restored_library": 227876
+      "restored_library": 228008
     },
-    "matching_functions": 2062
+    "matching_functions": 2065
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -143,6 +143,7 @@
     "config/GMFE69/anim.json": "6c0f7deb10acc52b25def57dae0a0ea6329965cecfc7a591ba086eda441dd7a8",
     "config/GMFE69/anim_callback.json": "937a9409585d7e6813853da0dbdb6b7057a2f32bc4255a1bf44c4d988be46098",
     "config/GMFE69/anim_obj.json": "862944e635516c08e9b4b0d42ab0f294f5027a145025da15ea502e4ea25a17d0",
+    "config/GMFE69/anim_obj_tm.json": "c4efe164a005eb0f64daedfd3e7c15189b8a53a9746a9510ed4af6b364187112",
     "config/GMFE69/animated.json": "287709fae92d1f2bc9baa748743d62ba1a49a85cf0e889096e17c7c94c0d6984",
     "config/GMFE69/animated_volume.json": "7d1c85b24d6774d0fda4ac1fcae8f10f8f1689c5af247d311403d1602def7bb4",
     "config/GMFE69/animchan.json": "6342a434b5e2b62c447c6545e0b905bc97dfb3e202fb456a6608dfe74f9cd25b",
@@ -174,7 +175,7 @@
     "config/GMFE69/bsutil.json": "13765752a33dc76e39372b30249944a615461f0ea3f9a39a276cc311ffbc3ea4",
     "config/GMFE69/bsutil_size.json": "74e98bf707bb5f16d6e9502e4744e94e53de85da90cd17cd917077bff0ca2361",
     "config/GMFE69/buffer_io.json": "9a997068c0c387e86e9609ec66493e7caa8d98ea675676441eb2ff729f5d4186",
-    "config/GMFE69/bullet_rows.json": "4d2f355467adcff7705308699653183f3280ba4726affc81caa2d87411fccd60",
+    "config/GMFE69/bullet_rows.json": "d2da7985a64af7ee40f71f59a1522e765ad247016d67640dc5667b96a36fc254",
     "config/GMFE69/bulletfactory.json": "d5681576011cf8586569a65fdaa27b8149000509d5401766546e9c9fea821227",
     "config/GMFE69/camera_rows.json": "c0d70de291df3643c72de96b2beb64dc2290c5f5c09e2de8c95673fc7d21201f",
     "config/GMFE69/cdbgeom.json": "5a109535b401c445086faf5c376577d4b6f060dae9fd6a6071fdfecf36255cdf",
@@ -310,12 +311,13 @@
     "config/GMFE69/player.json": "3da0c4cee17b1719306604f17cd111a3daf02a1570b02b9e882d2a8f93852850",
     "config/GMFE69/player_move.json": "d60dc4d33138d282609289741c3424eb26840287de1ea2961cc1c73c5d3e1260",
     "config/GMFE69/player_rows.json": "83cd7d26e4ed41b3e84003c53cec28c94332a64565bf0f6f6b2db068df9bb866",
+    "config/GMFE69/player_tm.json": "581fc5d3a0f29e7792d188285887fa22e41beba9e3f7696d9a024aaa3235049a",
     "config/GMFE69/player_transform.json": "85cde8b775b0a9a98a2ff816fc68e35d5e619c7bae3bcdace0a2d40e9a0d7b87",
     "config/GMFE69/player_weapon_object.json": "2c451ab555672599946bb97ca631b2a316350d8f99e8e9b77cf7f8f648d219df",
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "2af3f014c7e2bb731abad0b7b9ef501afc35a31ac44075499b0dc7152356ed43",
+    "config/GMFE69/project.json": "af735885b81df0190873ff9ad2e1a4011a509a822ddda26b551e57481f9b46a5",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -1492,6 +1494,7 @@
     "src/game/anim.cpp": "9e086af4631ac941623f4e90cc4d858d9a4a1ddde96c1433e494b2f9411978d3",
     "src/game/anim_callback.cpp": "6364e30e1a95c04cf9b0da29fc29dddb3a3b2d334fdedb52b88d73ac2c3b574b",
     "src/game/anim_obj.cpp": "ca336169e7cdb5755f8952375422821a18473cbf364a37934f31da14d57fef84",
+    "src/game/anim_obj_tm.cpp": "7ca90c996a6d5604ac8032713ac4dd5e20aa85f51caf9502884eb5ba6a68063a",
     "src/game/animated.cpp": "7201a9c7fc7443902e3ff26bebada1970237b53aeeb9d6727209e4572908d76d",
     "src/game/animated_volume.cpp": "f62030622d9d9f6dfe61d463a94a3ecc33d2b6dedb85bb42aa8040c5ff0d85db",
     "src/game/animchan.cpp": "221d21b6310330f8d36e7a5735a51dcfdb4f162c8d5651ef577e1ee2c9ca6030",
@@ -1514,7 +1517,7 @@
     "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
     "src/game/bsutil.cpp": "f03c5b5ec3e47256dacde20a490fde3a873782516ee578d6fd469ab5025e49a2",
     "src/game/bsutil_size.cpp": "79519dc3d1158664204a44a09651f4eb839da7ec06fa1d830eeece172595c74c",
-    "src/game/bullet_rows.cpp": "dca369ca22fe6f04ad8bc5b8a9470015b6c0f863c0fbb4584f620fc73d9f399c",
+    "src/game/bullet_rows.cpp": "61a2169543f0cd466b957ceddfb3f97973bfa5e73bf310829732a37229a1f0a2",
     "src/game/bulletfactory.cpp": "d6ee2336a34566955cb6050fa4d9fe885b64ee577b00c606ce91fbd748bc3f4a",
     "src/game/camera_rows.cpp": "f76a03e6166f7f2afa6d28d66506030df416a02c44b54e8b583a7c6238d64e45",
     "src/game/cdbgeom.cpp": "dbb319b1ba8edc52c87f565f57a506fb7e3934a7195ac17ae7d79e86ac4e8c06",
@@ -1561,6 +1564,7 @@
     "src/game/player.cpp": "5d6de79298166b94651df7f614dd61e0fd190ffe6084abb5575e5f6212fb19fc",
     "src/game/player_move.cpp": "5e2eb4b450bcab05f2a04c415cc6aba5d9359bdbc9cd2591040e1cfaee5d39de",
     "src/game/player_rows.cpp": "68d9a49c41d34e6d53ff2e8edd324694a0a4c1340a8e398a943915ffbf5ccbc7",
+    "src/game/player_tm.cpp": "eb1002a3f05b9982e2cfb3302dd6dcd20081bdb2f87d8e26ea2f35865b7b9cd1",
     "src/game/player_transform.cpp": "454f1e45aa73d68416d93734f198e0141bc17f9c57cb769be949e3a726da345e",
     "src/game/player_weapon_object.cpp": "1fd752be827cdffac6452a0457941d3237b13d77dec02900a4a7dac4c597d1fa",
     "src/game/popup.cpp": "64e2a7db93328be02cadb3f465f1cd9936b3f19d0b6ca82315d38ea6681b4133",
@@ -23281,8 +23285,8 @@
     {
       "id": "bullet_rows",
       "category": "restored_library",
-      "functions": 2,
-      "code_bytes": 72,
+      "functions": 3,
+      "code_bytes": 116,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -23314,8 +23318,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "f5a7d27d83cb6b56341e4fc698b6ee1be419224782569f805f6c98342f5ae394",
-      "linked_sha256": "be960c952ca7e2a613bca1f8f9ec701f2166ef5367f24a541d4400b8d33f2a8e"
+      "object_sha256": "e214ec6a5d0aa841a2deaca4c249bcfef1efcb9a014df58005a9cfeadc3ef983",
+      "linked_sha256": "d0378c52c5a0db2b1110c01e62a808e946cdff2e16c221081c56483179aba7cf"
     },
     {
       "id": "player_move",
@@ -23433,6 +23437,84 @@
       "discarded_functions": [],
       "object_sha256": "57cb6732afbc431f06a65d40e48757f54d5430fc1838c5130e6bd5ef0c51571e",
       "linked_sha256": "34406e3a0fac19598f5f3ce2588f7d2e240aee99dc7734c92cc227ca40b3bbb0"
+    },
+    {
+      "id": "anim_obj_tm",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 44,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "92404aede68d54edf0e723bfab7730c6be06710aeb6bbb588908fdf928266d71",
+      "linked_sha256": "63e529f7d405b6e566790bb3aae4dbaf7669ee673fa3f48f9b17e62a3b4b8369"
+    },
+    {
+      "id": "player_tm",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 44,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "1736c4353df2bd80cf8047340431771e28577cce8a0a1870915f18f3609a864c",
+      "linked_sha256": "ddf14028f3f80c40cf19560901df465650c3eb29e0dffb3f2dc767096cd39903"
     }
   ],
   "code_map": {
@@ -33812,13 +33894,6 @@
             "evidence": "exception-index"
           },
           {
-            "address": "0x80093a6c",
-            "size": 44,
-            "kind": "function",
-            "name": "GetTMLocalToWorld__11CAnimObjectCFR7CMatrix",
-            "evidence": "exception-index"
-          },
-          {
             "address": "0x80093a98",
             "size": 264,
             "kind": "function",
@@ -35046,13 +35121,6 @@
             "size": 92,
             "kind": "function",
             "name": "IsVisible__13CPlayerObjectCFR12CDrawContext",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800a0530",
-            "size": 44,
-            "kind": "function",
-            "name": "GetTMLocalToWorld__13CPlayerObjectCFR7CMatrix",
             "evidence": "exception-index"
           },
           {
@@ -38095,13 +38163,6 @@
             "kind": "function",
             "name": "IsDrawEnabled__7CBulletCFv",
             "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x800ccbcc",
-            "size": 44,
-            "kind": "function",
-            "name": "GetTMLocalToWorld__7CBulletCFR7CMatrix",
-            "evidence": "exception-index"
           },
           {
             "address": "0x800ccbf8",

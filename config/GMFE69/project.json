@@ -502,7 +502,9 @@
     "bullet_rows.json",
     "player_move.json",
     "player_transform.json",
-    "static_obj_setpos.json"
+    "static_obj_setpos.json",
+    "anim_obj_tm.json",
+    "player_tm.json"
   ],
   "progress": {
     "code_bytes": 1414572,
