@@ -343,7 +343,8 @@
     "ssysinit.json",
     "bsutil.json",
     "sst.json",
-    "filedev.json"
+    "filedev.json",
+    "rcmpbase.json"
   ],
   "progress": {
     "code_bytes": 1414572,
