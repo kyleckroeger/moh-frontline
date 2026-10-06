@@ -538,7 +538,10 @@
     "bsbifunc_misc.json",
     "bsbifunc_random.json",
     "bsbifunc_melee.json",
-    "bsbifunc_events.json"
+    "bsbifunc_events.json",
+    "bsbifunc_cover.json",
+    "bsbifunc_coverstart.json",
+    "bsbifunc_astar.json"
   ],
   "progress": {
     "code_bytes": 1414572,
