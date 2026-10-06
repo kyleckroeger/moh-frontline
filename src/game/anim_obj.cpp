@@ -27,6 +27,9 @@ public:
     CMatrix& operator=(const CMatrix&);
     void Orthonormalize();
     void RotateZ(float);
+    void Translate(CVector3);
+    void SetPos(CVector3);
+    void Ident();
 
     CVector3 right;
     CVector3 forward;
@@ -96,6 +99,11 @@ public:
     void SetYaw(float);
     float GetYaw() const;
     void Yaw(float);
+    void Move(CVector3);
+    void SetPosition(CVector3);
+    void Reset();
+    int GetCollisionId() const;
+    bool IsDrawEnabled() const;
 
     CVector3 GetUp() const { return m_tm.up; }
     CVector3 GetFwd() const { return m_tm.forward; }
@@ -104,11 +112,15 @@ public:
 
     char field0000[9024];
     CMatrix m_tm;
-    char field2380[48];
+    char field2380[20];
+    int m_collisionId;
+    char field2398[24];
     int m_yaw;
     char field23B4[56];
     int m_field23EC;
-    char field23F0[106];
+    char field23F0[100];
+    bool m_field2454;
+    char field2455[5];
     bool m_attached;
     bool m_attachedToLocation;
     char field245C[4];
@@ -232,4 +244,26 @@ float CAnimObject::GetYaw() const {
 void CAnimObject::Yaw(float angle) {
     m_tm.RotateZ(angle);
     m_yaw = (m_yaw + (int)(2670176.75f * angle)) & 0xFFFFFF;
+}
+
+void CAnimObject::Move(CVector3 delta) {
+    m_tm.Translate(delta);
+}
+
+void CAnimObject::SetPosition(CVector3 position) {
+    m_tm.SetPos(position);
+}
+
+void CAnimObject::Reset() {
+    m_tm.Ident();
+    m_yaw = 0;
+    m_field2454 = false;
+}
+
+int CAnimObject::GetCollisionId() const {
+    return m_collisionId;
+}
+
+bool CAnimObject::IsDrawEnabled() const {
+    return true;
 }

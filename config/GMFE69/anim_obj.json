@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x8009361c",
-      "size": 736,
+      "size": 924,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000c7f8",
-      "size": 112,
+      "size": 136,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80013910",
-      "size": 168,
+      "size": 204,
       "type": 1
     },
     {
@@ -160,9 +160,27 @@
       "binding": 1
     },
     {
+      "name": "SetPosition__11CAnimObjectF8CVector3",
+      "address": "0x80093934",
+      "size": 56,
+      "binding": 1
+    },
+    {
       "name": "Yaw__11CAnimObjectFf",
       "address": "0x80093894",
       "size": 104,
+      "binding": 1
+    },
+    {
+      "name": "Move__11CAnimObjectF8CVector3",
+      "address": "0x800938fc",
+      "size": 56,
+      "binding": 1
+    },
+    {
+      "name": "Reset__11CAnimObjectFv",
+      "address": "0x8009396c",
+      "size": 60,
       "binding": 1
     },
     {
@@ -176,6 +194,18 @@
       "address": "0x80093620",
       "size": 4,
       "binding": 2
+    },
+    {
+      "name": "GetCollisionId__11CAnimObjectCFv",
+      "address": "0x800939a8",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "IsDrawEnabled__11CAnimObjectCFv",
+      "address": "0x800939b0",
+      "size": 8,
+      "binding": 1
     },
     {
       "name": "GetUpward__11CAnimObjectCFR8CVector3",
@@ -247,11 +277,14 @@
   "externals": {
     "AddVolume__19CLightVolumeManagerFP14BPDLightVolume": "0x80078ee4",
     "GetVolume__19CLightVolumeManagerFv": "0x80078a3c",
+    "Ident__7CMatrixFv": "0x8008f1b0",
     "MarkForDestruction__8ISubjectFi": "0x800d8148",
     "Orthonormalize__7CMatrixFv": "0x8008f1e8",
     "RemoveVolume__19CLightVolumeManagerFP14BPDLightVolume": "0x80078df8",
     "Remove__6CSceneFR10ISceneNode": "0x800dc190",
     "RotateZ__7CMatrixFf": "0x80090194",
+    "SetPos__7CMatrixF8CVector3": "0x80090728",
+    "Translate__7CMatrixF8CVector3": "0x80090660",
     "__as__7CMatrixFRC7CMatrix": "0x80090b34",
     "g_scene": "0x8019484c"
   },
