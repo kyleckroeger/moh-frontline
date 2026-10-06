@@ -348,7 +348,8 @@
     "matstack.json",
     "anim_obj.json",
     "fader.json",
-    "dmrender.json"
+    "dmrender.json",
+    "sserver.json"
   ],
   "progress": {
     "code_bytes": 1414572,
