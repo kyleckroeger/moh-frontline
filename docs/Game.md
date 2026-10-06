@@ -119,9 +119,10 @@ two differences, both shown by the verified units:
   (`"Gekko PowerPC"`, `"RAM"`).
 
 The sound library (`SNDI_*`, `SFILTER_*`) never fuses multiply-adds, so its
-units are built without `-fp_contract on`. A sound filter starts with its
-process function and an optional input filter (`+0x8`) that is run first; the
-filter files share that layout.
+units are built without `-fp_contract on`, and with `-use_lmw_stmw off`
+(`SFILTER_splitter` saves five registers through `_savegpr_27`). A sound filter starts with its
+process function, a restore function (`+0x4`, where present) and an optional
+input filter (`+0x8`) that is run first; the filter files share that layout.
 
 Some files are named `.c` but have C++-mangled names (`sfir8.c`); they are built
 with `-lang c++`. Struct and parameter types are views; where the code does not
@@ -138,3 +139,8 @@ establish a type, the source comments say so.
 | `sflpffir8.c` | 3 | 356 | Low-pass FIR; its process filters the requested count after the input filter succeeds (the other two use the input's returned count). Modify: `2 * (p0 >> 8) / (p1 >> 8)` |
 | `sfhpffir8.c` | 3 | 348 | High-pass FIR. Modify: `(p0 >> 7) / (p1 >> 8)` |
 | `sfbpffir8.c` | 3 | 400 | Band-pass FIR; modify reads its parameters into locals before either store |
+| `sfsrc.c` | 3 | 152 | Source filter: copies from a caller buffer and advances it |
+| `sfft24.c` | 2 | 112 | Float to integer conversion clamped to +/-32767 |
+| `sfsplit.c` | 3 | 384 | Splitter: alternately pulls from its input (keeping a copy) and replays the copy |
+| `sfmixer.c` | 3 | 632 | Mixer: adds a second input's output into the first's |
+

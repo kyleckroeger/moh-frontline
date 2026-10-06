@@ -27,7 +27,7 @@
     "-str",
     "reuse",
     "-use_lmw_stmw",
-    "on",
+    "off",
     "-lang",
     "c++"
   ],

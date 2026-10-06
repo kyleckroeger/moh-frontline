@@ -1,6 +1,6 @@
 {
-  "id": "sflpffir8",
-  "source": "src/ea/sflpffir8.c",
+  "id": "sfsrc",
+  "source": "src/ea/sfsrc.c",
   "category": "reconstructed_game",
   "compiler_family": "GC",
   "compiler_version": "1.3.2",
@@ -37,41 +37,33 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x801650f8",
-      "size": 356,
-      "type": 1
-    },
-    {
-      "name": ".sdata2",
-      "address": "0x80351b98",
-      "size": 16,
+      "address": "0x801661ec",
+      "size": 152,
       "type": 1
     }
   ],
   "functions": [
     {
-      "name": "SFILTER_lpfFIR8__FPviPvPvi",
-      "address": "0x801650f8",
-      "size": 148,
+      "name": "SFILTER_src__FPviPvPvi",
+      "address": "0x801661ec",
+      "size": 88,
       "binding": 1
     },
     {
-      "name": "SFILTER_createLPFFIR8__FP8LPFSTATE",
-      "address": "0x8016518c",
-      "size": 84,
+      "name": "SFILTER_initSOURCE__FP8SRCSTATEPv",
+      "address": "0x80166244",
+      "size": 28,
       "binding": 1
     },
     {
-      "name": "SFILTER_modifyLPFFIR8__FP8LPFSTATEPi",
-      "address": "0x801651e0",
-      "size": 124,
+      "name": "SFILTER_createSOURCE__FP8SRCSTATE",
+      "address": "0x80166260",
+      "size": 36,
       "binding": 1
     }
   ],
   "externals": {
-    "SNDI_fir8__FP11SNDFIRSTATEiPvPv": "0x8016502c",
-    "SNDI_fir8init__FP11SNDFIRSTATE": "0x80165004",
-    "calcFIRCoeffs__FP11SNDFIRSTATEi": "0x80164c4c"
+    "SNDI_memcpy": "0x8016d730"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -79,6 +71,6 @@
   "local_externals": [],
   "discarded_local_functions": [],
   "sda_externals": [],
-  "original_file": "sflpffir8.c",
-  "original_file_index": 13151
+  "original_file": "sfsrc.c",
+  "original_file_index": 13192
 }

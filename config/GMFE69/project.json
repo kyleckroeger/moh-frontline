@@ -156,7 +156,11 @@
     "sfamplf.json",
     "sfhpffir8.json",
     "sflpffir8.json",
-    "sfbpffir8.json"
+    "sfbpffir8.json",
+    "sfsrc.json",
+    "sfft24.json",
+    "sfsplit.json",
+    "sfmixer.json"
   ],
   "progress": {
     "code_bytes": 1414572,
