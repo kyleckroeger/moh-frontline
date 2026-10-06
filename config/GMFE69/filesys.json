@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x8001c60c",
-      "size": 100,
+      "size": 592,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x800097bc",
-      "size": 8,
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x800101f0",
-      "size": 12,
+      "size": 24,
       "type": 1
     },
     {
@@ -86,10 +86,18 @@
       "address": "0x8001c61c",
       "size": 84,
       "binding": 1
+    },
+    {
+      "name": "File_Open__FPCc9EOpenMode",
+      "address": "0x8001c670",
+      "size": 492,
+      "binding": 1
     }
   ],
   "externals": {
-    "DVDClose": "0x80118110"
+    "DVDClose": "0x80118110",
+    "DVDInit": "0x80118448",
+    "DVDOpen": "0x80118048"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],

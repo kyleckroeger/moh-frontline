@@ -1,17 +1,23 @@
-// The game's file layer over the Dolphin DVD library, the functions at the
-// start of the file: seeking and writing are not supported (they fail), and
-// closing a file closes its DVD handle, frees its slot and counts it out.
-// The function names and ESeekOrigin come from the mangled symbols and the
-// statics from their symbols; the open-file slot layout (an in-use flag and
-// the DVD file information, 64 bytes) is inferred. File_Open follows and is
-// not part of the unit.
+// The game's file layer over the Dolphin DVD library: seeking and writing
+// are not supported (they fail); closing a file closes its DVD handle, frees
+// its slot and counts it out; opening initialises the DVD library and clears
+// the slots while s_bInitialized is unset (the target never sets it), then
+// opens the file in the first free slot. The function names, ESeekOrigin and
+// EOpenMode come from the mangled symbols and the statics from their symbols;
+// the open-file slot layout (an in-use flag and the DVD file information, 64
+// bytes) is inferred.
 struct DVDFileInfo {
     unsigned char unknown00[60];
 };
 
-extern "C" int DVDClose(DVDFileInfo*);
+extern "C" {
+void DVDInit();
+int DVDOpen(const char*, DVDFileInfo*);
+int DVDClose(DVDFileInfo*);
+}
 
 enum ESeekOrigin {};
+enum EOpenMode {};
 
 struct OpenFileView {
     bool used;
@@ -37,4 +43,28 @@ int File_Close(int file) {
     open->used = false;
     g_iNumOpenFiles--;
     return 0;
+}
+
+int File_Open(const char* name, EOpenMode) {
+    OpenFileView* open;
+    int slot;
+    int i;
+    if (!s_bInitialized) {
+        DVDInit();
+        for (i = 0; i < 32; i++)
+            g_openFiles[i].used = false;
+    }
+    slot = -1;
+    for (i = 0; i < 32; i++) {
+        if (!g_openFiles[i].used) {
+            slot = i;
+            break;
+        }
+    }
+    open = &g_openFiles[slot];
+    if (!DVDOpen(name, &open->info))
+        return -1;
+    open->used = true;
+    g_iNumOpenFiles++;
+    return slot;
 }

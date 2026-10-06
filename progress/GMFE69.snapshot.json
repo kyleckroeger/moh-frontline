@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 284284,
+    "matching_code_bytes": 284776,
     "total_executable_code_bytes": 1414572,
-    "percent": 20.096820805162267,
+    "percent": 20.131601643465302,
     "categories": {
-      "reconstructed_game": 84404,
+      "reconstructed_game": 84896,
       "restored_library": 199880
     },
-    "matching_functions": 1838
+    "matching_functions": 1839
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -205,7 +205,7 @@
     "config/GMFE69/fader.json": "2f6cb9bb69c2af087ea1d104d2a440645a4f409908fa987aef0750a6273d4297",
     "config/GMFE69/file_io.json": "1f7376a3e1cbacd1b77840e0eae4b3069ae28a805f71eb751ebf19dcd296e710",
     "config/GMFE69/filedev.json": "345d10da83f1a2011e5fc4b9278fee1b53e1cdef4497f8fe2b0ee38ca1bafa48",
-    "config/GMFE69/filesys.json": "185bee362e44b4d8a0be93e758de9cb622c834a7c6a82b890eb815e6cdd71280",
+    "config/GMFE69/filesys.json": "44b6dc891dbe5026fb75d626e4ab6648c303868b80655aa336dfdd5b4bb5f062",
     "config/GMFE69/flush_cache.json": "aa1c08f24f7fa7ce6bf2cfa32e6ae398b7b93fea2374de2a6120d5e28e6b9578",
     "config/GMFE69/font.json": "192da369bd9089ea5ff935965a96644b66682a28b77c07194c7d7bc62b3539e8",
     "config/GMFE69/fontchar.json": "52d15cdb73d5c697247c5e96fc9c264304ab2e315365308ab6d0f47d0d6364d8",
@@ -1436,7 +1436,7 @@
     "src/game/dmrender.cpp": "7b92ea9bad0f52f4ba4728f8386f4da6fd4a3b93b5293dd87d1fdcf6bc6c3ec8",
     "src/game/draw_context.cpp": "261589cc092b9c8c7b80605255eefc78641468141f4d33264252696f62c9782b",
     "src/game/fader.cpp": "fcc29dce43a0cf9eca978df224fba99596b634584e886a18cb434749daf4a4e0",
-    "src/game/filesys.cpp": "8fdd3ea9a027af66497e1cf6ff4940e891bac735989af8ca5ff5616b9286b2ad",
+    "src/game/filesys.cpp": "edc914b77e55cfec7501ffc2150c34cefc432d28c3e9aa1eceea55a4cbe755ad",
     "src/game/font.cpp": "20dc282ade8622a6477d4a787b1df38aa6a0af7c35078543606bbd3b26152cf1",
     "src/game/framework.cpp": "8cebad26aba8fe4a9a9ece0492c0bf7bb34882a1eec7dd48a1b3b93d0830914f",
     "src/game/gcSystem.cpp": "e97d4933fe4ba1c46e72d853db6ff53b0c8136020bef2237c66ad38a0d1e1068",
@@ -20622,8 +20622,8 @@
     {
       "id": "filesys",
       "category": "reconstructed_game",
-      "functions": 3,
-      "code_bytes": 100,
+      "functions": 4,
+      "code_bytes": 592,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -20655,8 +20655,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "959577d063b87c8fe4c2e58290135dda275ff23184c25b157a26504bff44e6b1",
-      "linked_sha256": "b4918e8ca5f0e2e2c2cdc98c3a4e1d6f7c1d9c316190e385fcabec1f08743197"
+      "object_sha256": "fadd863ca8aa47fb236b637bfdfc115f35ada2bf2bedee8646162395db677231",
+      "linked_sha256": "2a0b22e0f11d48f0c26228972751b964a54a63bd02efc7292c47b688aa7d3de5"
     }
   ],
   "code_map": {
@@ -21342,20 +21342,6 @@
             "size": 60,
             "kind": "function",
             "name": "__dt__6CLine3Fv",
-            "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/filesys.cpp [file record 7] [symbol evidence]",
-        "file_record": 7,
-        "file_name": "filesys.cpp",
-        "ranges": [
-          {
-            "address": "0x8001c670",
-            "size": 492,
-            "kind": "function",
-            "name": "File_Open__FPCc9EOpenMode",
             "evidence": "exception-index"
           }
         ]
