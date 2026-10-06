@@ -1,0 +1,78 @@
+{
+  "id": "threads",
+  "source": "src/ea/threads.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80151f70",
+      "size": 76,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f400",
+      "size": 4,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "AlarmHandler__FP7OSAlarmP9OSContext",
+      "address": "0x80151f98",
+      "size": 36,
+      "binding": 0
+    },
+    {
+      "name": "THREAD_init",
+      "address": "0x80151f70",
+      "size": 40,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "InitAlarm__Fv": "0x80151b8c",
+    "OSGetCurrentThread": "0x80115aec",
+    "SIGNAL_set": "0x801524ac"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "threads.cpp",
+  "original_file_index": 12559
+}
