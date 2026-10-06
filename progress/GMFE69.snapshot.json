@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 223176,
+    "matching_code_bytes": 223536,
     "total_executable_code_bytes": 1414572,
-    "percent": 15.776927579508149,
+    "percent": 15.802376973388418,
     "categories": {
       "reconstructed_game": 18288,
-      "restored_library": 204888
+      "restored_library": 205248
     },
-    "matching_functions": 1095
+    "matching_functions": 1096
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -186,7 +186,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "0a5e602da423b4d30c35b387e0e3a137972323f638a30e82a0a1098dc0146bbe",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "b59a2c6820b3bd23f6caa911a2fd324137cee58343993ae97274350ebc40a3e8",
+    "config/GMFE69/project.json": "1c3e2fc18a12b097c64e5ed7232280534198613e960ce0d0c71f058e8611092a",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -212,6 +212,7 @@
     "config/GMFE69/sbhdrsze.json": "56b712e4a476e2b1ee42819959ee17eb15138b1352f2e8dfc531e9134ace0871",
     "config/GMFE69/sbpatinf.json": "8863e325e7b37945c5a1d6e4a85398bea52d1e58ff0427aa1e97c65fd32b9601",
     "config/GMFE69/sbplay.json": "52fd379839e253f154e5be2b4324ca7680b0b7a9525bd4573d7ccae0979e104d",
+    "config/GMFE69/sbremove.json": "6cb27751ae3bcb50f543a6c2950a34340b6e9d6191e9ba05972927bb780ec4dd",
     "config/GMFE69/sbvalid.json": "1f635211904486d00525a8ef49b5f8dd2308cfd199d0d77496e5f4e36201193c",
     "config/GMFE69/scalcfx.json": "8c08ef5c5f9b4c692daa37ea6bc6795b488ebba4553fee1e47797be0af276609",
     "config/GMFE69/scanf.json": "8b6c8c106b3e30ef33cf95e2b2598aa1fa8faba019ccbe4cde367c2c19efc736",
@@ -1103,6 +1104,7 @@
     "src/ea/sbhdrsze.c": "5770084b7e371a108e779fe2a9ce477bc0b926fdf847ffd289d38597d768151a",
     "src/ea/sbpatinf.c": "4c3fd80b271a046a9f298d8e4b7bf03db72427f6065e7f061d5de13a5e107d89",
     "src/ea/sbplay.c": "cbb790c4f16359b4ddd1248a0e7b915d69f1b52d8b826ff1c8c9710856b4efcf",
+    "src/ea/sbremove.c": "26dd4db3e8b310787ea3f1d6aa09605f2eebf0c64908a3ee8408d15d29e3da9b",
     "src/ea/sbvalid.c": "9ee5cfd72307b1db2bed61b641eadeebcfc1650a951751ace625be64ec24c10f",
     "src/ea/scalcfx.c": "85fda0fc3ffdc7563b22f679957d60cf1299536991c8cb699928150067286be5",
     "src/ea/sclnt100.c": "b66db7c5dd3ac2f356f6d1a28160a54beae4ba3a0b9c96c20bce6ef6d59fddca",
@@ -14268,6 +14270,45 @@
       "discarded_functions": [],
       "object_sha256": "a23243d24ac6208d100bfdd94bfc64d5fefdd98eacc8b6fdf9c332f0ba20b562",
       "linked_sha256": "90d27864f8d6105569fad744a6405660702b8763ad594f968c2b862b0241094e"
+    },
+    {
+      "id": "sbremove",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 360,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "21726e21aa53169c462418373bb7dee75993bca6cb4a20b8a5288fa216c3d1f0",
+      "linked_sha256": "6fd667c56ddbe26c3443cd5356216964ee2163c2f900d548eefcaefc784f7602"
     }
   ],
   "code_map": {
@@ -41953,13 +41994,6 @@
             "size": 396,
             "kind": "function",
             "name": "SNDbankadd",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80159600",
-            "size": 360,
-            "kind": "function",
-            "name": "SNDbankremove",
             "evidence": "unknown-file"
           }
         ]

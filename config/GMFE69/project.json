@@ -288,7 +288,8 @@
     "sgettag.json",
     "sstrstat.json",
     "sfilter.json",
-    "supf.json"
+    "supf.json",
+    "sbremove.json"
   ],
   "progress": {
     "code_bytes": 1414572,
