@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 255636,
+    "matching_code_bytes": 256184,
     "total_executable_code_bytes": 1414572,
-    "percent": 18.071614594379078,
+    "percent": 18.110354227285708,
     "categories": {
-      "reconstructed_game": 58632,
+      "reconstructed_game": 59180,
       "restored_library": 197004
     },
-    "matching_functions": 1369
+    "matching_functions": 1383
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -136,6 +136,7 @@
     "config/GMFE69/direct_io.json": "6bc91b9814ea8394c4fb8292d3c0f477dd5841c089e81e92061adaca275f77ab",
     "config/GMFE69/dispatch.json": "9785b3256f8baf02b4d894ff082a1103522e7730d2bea7f05c504b418b5a462f",
     "config/GMFE69/dmgeom.json": "9829feea0b00aad311216a345cb671d1c82c01af17c198cd9ecea52129f159fa",
+    "config/GMFE69/dmrender.json": "a4e5a155bcb40cefc60608fed6f7359cea5bc51b9fec0b9f80c0e4dbac97ac56",
     "config/GMFE69/dolphin_trk.json": "9f66a923f4f6e4103cb15c12022e534d623c661d7ace9cc644364dfd361c06b7",
     "config/GMFE69/dolphin_trk_glue.json": "35632428fdcb95c68c3d34d0e84c498fdf35a8a1150c9c0bfb433defb9d187d4",
     "config/GMFE69/draw_context.json": "982726912b09ce3e360e31108753cc5cd578e2c0267a2268454edfd80816387a",
@@ -217,7 +218,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "aa7c2f6579e0e8ce12e0bb253468f53230823304d1061f4d8c88e6a355512281",
+    "config/GMFE69/project.json": "f7335e193c4ca3afe61f46bda2e23d2b57b0b47f6f413f5fe2797ef5b95866c0",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1284,6 +1285,7 @@
     "src/game/bsutil.cpp": "f03c5b5ec3e47256dacde20a490fde3a873782516ee578d6fd469ab5025e49a2",
     "src/game/configfile.cpp": "d7e5f7aff38b5ab2c1744e81f1a3469c55b6e00a561d1f5cd43f49ccf6b6d2ec",
     "src/game/dmgeom.cpp": "6f176541b44727ce39e90fbc33d60d1c7cd572e20cde4bc86401f647cd9f7f14",
+    "src/game/dmrender.cpp": "7b92ea9bad0f52f4ba4728f8386f4da6fd4a3b93b5293dd87d1fdcf6bc6c3ec8",
     "src/game/draw_context.cpp": "261589cc092b9c8c7b80605255eefc78641468141f4d33264252696f62c9782b",
     "src/game/fader.cpp": "fcc29dce43a0cf9eca978df224fba99596b634584e886a18cb434749daf4a4e0",
     "src/game/framework.cpp": "8cebad26aba8fe4a9a9ece0492c0bf7bb34882a1eec7dd48a1b3b93d0830914f",
@@ -16836,6 +16838,45 @@
       "discarded_functions": [],
       "object_sha256": "41d5808ac3cb012399e90d75ff7a3a0d2735727a57192852de4a5a4a82a565c3",
       "linked_sha256": "ffb00e36ea1e52d5fbf7b0bb34be0a1a48df2af53555c431f1af24ffd67874cd"
+    },
+    {
+      "id": "dmrender",
+      "category": "reconstructed_game",
+      "functions": 14,
+      "code_bytes": 548,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "b9d3702b10aa3288973b3890bd9c2695523e391f242b9cfc88ee12c91f1591d6",
+      "linked_sha256": "6619e1b725c1965dc0ed855a86027b181b91553ba8d5db99ad4d08c3367df7d3"
     }
   ],
   "code_map": {
@@ -38554,104 +38595,6 @@
             "size": 460,
             "kind": "function",
             "name": "DMLightingUpdate__FP16DMRenderObject_TP12DMLighting_T",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f4c74",
-            "size": 8,
-            "kind": "function",
-            "name": "DMRenderSetClusterMatrices__FP16DMRenderObject_TPA3_A4_f",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800f4c7c",
-            "size": 8,
-            "kind": "function",
-            "name": "DMRenderBindMorphObj__FP16DMRenderObject_TP15DMMorphObject_T",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800f4c84",
-            "size": 8,
-            "kind": "function",
-            "name": "DMRenderBindClusterObj__FP16DMRenderObject_TP17DMClusterObject_T",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800f4c8c",
-            "size": 88,
-            "kind": "function",
-            "name": "DMRenderUpdateParts__FP16DMRenderObject_T",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f4ce4",
-            "size": 16,
-            "kind": "function",
-            "name": "DMRenderSetScale__FP16DMRenderObject_Tfff",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800f4cf4",
-            "size": 36,
-            "kind": "function",
-            "name": "DMRenderSetLocalToCamera__FP16DMRenderObject_TP7CMatrixP7CMatrix",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f4d18",
-            "size": 36,
-            "kind": "function",
-            "name": "DMRenderSetViewProj__FP16DMRenderObject_TP7CMatrix",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f4d3c",
-            "size": 20,
-            "kind": "function",
-            "name": "DMRenderSet2dReject__FP16DMRenderObject_TUl",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800f4d50",
-            "size": 72,
-            "kind": "function",
-            "name": "DMRenderResetState__FP16DMRenderObject_T",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f4d98",
-            "size": 52,
-            "kind": "function",
-            "name": "DMRenderBindModel__FP16DMRenderObject_TP6CDMesh",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800f4dcc",
-            "size": 112,
-            "kind": "function",
-            "name": "DMRenderInitObject__FP16DMRenderObject_TP8TUInt128P8TUInt128Ul",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f4e3c",
-            "size": 28,
-            "kind": "function",
-            "name": "DMRenderSetFlags__FP16DMRenderObject_TUl",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800f4e58",
-            "size": 32,
-            "kind": "function",
-            "name": "DMRenderShutdown__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f4e78",
-            "size": 32,
-            "kind": "function",
-            "name": "DMRenderInit__Fv",
             "evidence": "exception-index"
           }
         ]

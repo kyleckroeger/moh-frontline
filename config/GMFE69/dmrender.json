@@ -1,0 +1,167 @@
+{
+  "id": "dmrender",
+  "source": "src/game/dmrender.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800f4c74",
+      "size": 548,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000f7e0",
+      "size": 56,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80016490",
+      "size": 84,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x80351178",
+      "size": 4,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "DMRenderSetClusterMatrices__FP16DMRenderObject_TPA3_A4_f",
+      "address": "0x800f4c74",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "DMRenderBindMorphObj__FP16DMRenderObject_TP15DMMorphObject_T",
+      "address": "0x800f4c7c",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "DMRenderBindClusterObj__FP16DMRenderObject_TP17DMClusterObject_T",
+      "address": "0x800f4c84",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "DMRenderUpdateParts__FP16DMRenderObject_T",
+      "address": "0x800f4c8c",
+      "size": 88,
+      "binding": 1
+    },
+    {
+      "name": "DMRenderSetScale__FP16DMRenderObject_Tfff",
+      "address": "0x800f4ce4",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "DMRenderSetLocalToCamera__FP16DMRenderObject_TP7CMatrixP7CMatrix",
+      "address": "0x800f4cf4",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "DMRenderSetViewProj__FP16DMRenderObject_TP7CMatrix",
+      "address": "0x800f4d18",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "DMRenderSet2dReject__FP16DMRenderObject_TUl",
+      "address": "0x800f4d3c",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "DMRenderResetState__FP16DMRenderObject_T",
+      "address": "0x800f4d50",
+      "size": 72,
+      "binding": 1
+    },
+    {
+      "name": "DMRenderBindModel__FP16DMRenderObject_TP6CDMesh",
+      "address": "0x800f4d98",
+      "size": 52,
+      "binding": 1
+    },
+    {
+      "name": "DMRenderInitObject__FP16DMRenderObject_TP8TUInt128P8TUInt128Ul",
+      "address": "0x800f4dcc",
+      "size": 112,
+      "binding": 1
+    },
+    {
+      "name": "DMRenderSetFlags__FP16DMRenderObject_TUl",
+      "address": "0x800f4e3c",
+      "size": 28,
+      "binding": 1
+    },
+    {
+      "name": "DMRenderShutdown__Fv",
+      "address": "0x800f4e58",
+      "size": 32,
+      "binding": 1
+    },
+    {
+      "name": "DMRenderInit__Fv",
+      "address": "0x800f4e78",
+      "size": 32,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DMClusterInit__Fv": "0x800f57dc",
+    "DMClusterShutdown__Fv": "0x800f57b4",
+    "DMGeomBuildPartList__FP16DMGeomPartData_TP6CDMeshP17DMGeometryState_T": "0x800f6edc",
+    "DMGeomResetState__FP17DMGeometryState_T": "0x800f6de4",
+    "__as__7CMatrixFRC7CMatrix": "0x80090b34",
+    "memset": "0x80009410"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "dmrender.cpp",
+  "original_file_index": 9632
+}
