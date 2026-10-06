@@ -1,0 +1,93 @@
+{
+  "id": "animintf",
+  "source": "src/game/animintf.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80064508",
+      "size": 104,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000b420",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80012530",
+      "size": 24,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "AnimSystem_Shutdown",
+      "address": "0x80064508",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "AnimSystem_Init",
+      "address": "0x80064530",
+      "size": 64,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "AnimCallback_Init__Fv": "0x800608b4",
+    "AnimInit": "0x8006923c",
+    "AnimSetUserOpcodeCallbacks": "0x800691c8",
+    "AnimShutdown": "0x800691e4",
+    "AnimStInit": "0x80067c9c",
+    "AnimStShutdown": "0x80067c80",
+    "AnimWgtInit": "0x80069010",
+    "AnimWgtShutdown": "0x80069008",
+    "_AnimIntfOpcodeProcess__14CAnimCallbacksFPvUsUl": "0x800646c8",
+    "_AnimIntfOpcodeSkip__14CAnimCallbacksFPvUsUl": "0x80064570"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "animintf.cpp",
+  "original_file_index": 2957
+}
