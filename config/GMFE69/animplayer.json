@@ -1,0 +1,82 @@
+{
+  "id": "animplayer",
+  "source": "src/game/animplayer.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8010a00c",
+      "size": 168,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "GetWorldBoundingVolume__15CAnimatedPlayerCFQ210ISceneNode11EVolumeType",
+      "address": "0x8010a00c",
+      "size": 68,
+      "binding": 1
+    },
+    {
+      "name": "GetLocalBoundingVolume__15CAnimatedPlayerCFQ210ISceneNode11EVolumeType",
+      "address": "0x8010a050",
+      "size": 68,
+      "binding": 1
+    },
+    {
+      "name": "GetFlocoParams__15CAnimatedPlayerFRfRl",
+      "address": "0x8010a094",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "SetFlocoParams__15CAnimatedPlayerFfl",
+      "address": "0x8010a0a8",
+      "size": 12,
+      "binding": 1
+    }
+  ],
+  "externals": {},
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "animplayer.cpp",
+  "original_file_index": 10481
+}

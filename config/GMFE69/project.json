@@ -441,7 +441,8 @@
     "MemoryCardGC.json",
     "filesys.json",
     "filesys_ea.json",
-    "dmcluster.json"
+    "dmcluster.json",
+    "animplayer.json"
   ],
   "progress": {
     "code_bytes": 1414572,
