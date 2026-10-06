@@ -201,7 +201,10 @@
     "bmem.json",
     "syncfile.json",
     "memory.json",
-    "memunused.json"
+    "memunused.json",
+    "memlist.json",
+    "memblock.json",
+    "memstd.json"
   ],
   "progress": {
     "code_bytes": 1414572,

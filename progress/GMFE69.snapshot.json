@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 212348,
+    "matching_code_bytes": 212864,
     "total_executable_code_bytes": 1414572,
-    "percent": 15.011466365798277,
+    "percent": 15.047943830359996,
     "categories": {
       "reconstructed_game": 18208,
-      "restored_library": 194140
+      "restored_library": 194656
     },
-    "matching_functions": 978
+    "matching_functions": 985
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -150,9 +150,12 @@
     "config/GMFE69/mbstring.json": "9de9f46cc9601517195f1c54fab48fb7e78bb2f47d69f7aa83c76823aea418d9",
     "config/GMFE69/mem.json": "ca3c317259aa8b4ae29fb186b81dae2190665955e0af421cfa574e77be7bb350",
     "config/GMFE69/mem_funcs.json": "cdc21eee7ec690a2964eff60bc9e230f0115ca0eb200b536179c0a35c292ae7a",
+    "config/GMFE69/memblock.json": "32f964dc6ae072dcfc2a752964f9304b621e72e36d0d41e6463aae738d4e2ca7",
     "config/GMFE69/memclass.json": "3440558f5e682e0cbb84289712ac7e9950349a169f3d77b9a8afa66479c43f7d",
     "config/GMFE69/meminitadr.json": "381fcfbcbb6c274bbc1966d84f43a5ba64175efe3e51b4f0b3824230aa348172",
+    "config/GMFE69/memlist.json": "ef56fcfd94d677ce15d3530d16d7ee9bc277d85e763a35d5a8a41e94649b5d67",
     "config/GMFE69/memory.json": "fe888334b7e0b723c25eefadb3445d72d0b6a47eb84f7b32d253937403302a75",
+    "config/GMFE69/memstd.json": "8dc1ab83ee6aaaf08f7ce309512df0f4df90e48b7aeb282d89e5d3a4826019e2",
     "config/GMFE69/memunused.json": "1ce6252c58d5f863e0dc9d1092d5432896bc8b3cc203e541f3dc6d282eb7f80b",
     "config/GMFE69/misc_io.json": "ce7d57c797416feb92a3a89e4ce5412b18b2a322ecac1667ffdca9c454e2e8f1",
     "config/GMFE69/mpc_7xx_603e.json": "815f349dc1383d438a3836cb5ba5bd2db4279c6d017721a52804a4fd42e85507",
@@ -165,7 +168,7 @@
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "cf38ac834998cd2f6cf5004c29f2d9067aaa0a5939451532ee6feba0689f09d7",
+    "config/GMFE69/project.json": "c0881aff84f2d2c71db96845b147dc417cdc380f502e58c50ef74125bac96678",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -988,8 +991,11 @@
     "src/ea/idct.cpp": "b3f69a37bb85fc0cad5293848e9add29eb184e02082723c04d1ab7aec557a8a4",
     "src/ea/initosalloc.cpp": "de7adefcde275593a6ed8ebcae40eef5f82e0fcd932e4569270e2bad4db8fe64",
     "src/ea/inittmr.cpp": "2b8bc47a5536adecefaedb4c74d54e5a0509db63fdfef428e0975b1dcabababa",
-    "src/ea/memclass.cpp": "277252c65ea17e21c534a49eb46a7367d843f787264c8015ae9b73aa8bc6e98c",
+    "src/ea/memblock.cpp": "9c22c07fb0234fb28e395fc44ebaa5d07b2ae93122bdbfb90b8e1b0da347e3ef",
+    "src/ea/memclass.cpp": "a4eb43ad53e833f091a4ae51184503b05c3e24aa61a702e685f1358fe820fdc2",
     "src/ea/meminitadr.cpp": "95eed033a03deab2f0918e8b1a92183e8cf0a9bb94d793f3558d6aa13d112d8d",
+    "src/ea/memlist.cpp": "af06183e742ee289773e18004a7f251be79665847c496d5baad08faba2fff294",
+    "src/ea/memstd.cpp": "bdd831ad24f47d71d66682d7b32eb55077754f05d022543a80cbca4e4d4e884d",
     "src/ea/memunused.cpp": "8891e09cb882120333548c62aa2245dc6205bfa7122c8a65fa14a06e6b129fee",
     "src/ea/rcmp_mpc_codec_chunk_types.cpp": "b996231c1c402b6ecdd813bb69df3ae8a3580e537b71dd9fa91e238690bb3635",
     "src/ea/sexithndl.c": "b5dc86e69a579d07c16f0ef7558d5928fb5c5271c2748f3833c203e624a60019",
@@ -10701,6 +10707,123 @@
       "discarded_functions": [],
       "object_sha256": "d467c6baabe554d39272a2594762917730f1b70c602c1e20c2ed8fb60c84c03f",
       "linked_sha256": "e5ee71043ea03af0b53335e342e228197f205aa8c9647d163f8e6c207f4e6e20"
+    },
+    {
+      "id": "memlist",
+      "category": "restored_library",
+      "functions": 5,
+      "code_bytes": 464,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "e5a6041af0ec13ea9a3d1706f5e34e930d047c790bbf64e1fb6f52d59e3bfd2b",
+      "linked_sha256": "5810fa02f102d957fc5fbe9739a20210c11f94cb50d7a785b21e575cbb4b99ab"
+    },
+    {
+      "id": "memblock",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 44,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "911c1d89ff1b1c007e68f044c02b8c08813583d7af968402eb173cb59e56e3a7",
+      "linked_sha256": "f42c24adfcfa330e59f979cbe7abef3c097e9cee499d0bdb684b5dff84b95d3e"
+    },
+    {
+      "id": "memstd",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 8,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "76ed4b227cb7700ca1e306506e7171f6c1583c3bd7436fb03ecbb2d58e792076",
+      "linked_sha256": "4dfd12bb6c5bbfe5a8232bf5c36c2d1ef8f16c64b041b05ec9190ee7283dcb3f"
     }
   ],
   "code_map": {
@@ -37722,67 +37845,6 @@
             "size": 372,
             "kind": "function",
             "name": "MEM_restore",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8014fd40",
-            "size": 44,
-            "kind": "function",
-            "name": "MEM_initblock__FP8MEMBLOCKPCciiiP8MEMBLOCKP8MEMBLOCK",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8014fd6c",
-            "size": 68,
-            "kind": "function",
-            "name": "FREE_find__FP8MEMCLASSii",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8014fdb0",
-            "size": 136,
-            "kind": "function",
-            "name": "FREE_findlargest__FP8MEMCLASSii",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8014fe38",
-            "size": 84,
-            "kind": "function",
-            "name": "FREE_gettotalfree__FP8MEMCLASSi",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/memlist.cpp [symbol evidence]",
-        "file_record": 392,
-        "file_name": "memlist.cpp",
-        "ranges": [
-          {
-            "address": "0x8014fe8c",
-            "size": 136,
-            "kind": "function",
-            "name": "FREE_add__FP8MEMCLASSP8MEMBLOCK",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8014ff14",
-        "ranges": [
-          {
-            "address": "0x8014ff14",
-            "size": 40,
-            "kind": "function",
-            "name": "FREE_remove__FP8MEMBLOCK",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8014ff3c",
-            "size": 8,
-            "kind": "function",
-            "name": "MEM_size",
             "evidence": "unknown-file"
           }
         ]

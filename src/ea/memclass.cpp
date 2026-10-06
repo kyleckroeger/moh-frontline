@@ -4,13 +4,15 @@
 //
 // MEMBLOCK and MEMCLASS are named by the mangled symbols; their members are
 // inferred from offsets (MEM_initblock stores magic, flags, size, next and
-// prev) and their names are not original.
+// prev; the free list links follow) and their names are not original.
 struct MEMBLOCK {
     unsigned short magic;
     unsigned short flags;
     int size;
     MEMBLOCK* next;
     MEMBLOCK* prev;
+    MEMBLOCK* freenext;
+    MEMBLOCK* freeprev;
 };
 
 struct MEMCLASS {
@@ -18,8 +20,6 @@ struct MEMCLASS {
     MEMBLOCK* low;
     MEMBLOCK* high;
     MEMBLOCK free;
-    MEMBLOCK* field20;
-    MEMBLOCK* field24;
     int field28;
     int alignment;
     int field30;
@@ -56,7 +56,7 @@ extern "C" int MEMCLASS_create(int index, const char* name, void* address, int s
         flags |= MB_NAME;
     block = (MEMBLOCK*)(((unsigned int)((char*)low + arg6 + 156) + (alignment - 1) & (unsigned int)~(alignment - 1)) - 16);
     high = (MEMBLOCK*)((int)low + size - 48 - arg6);
-    cls = (MEMCLASS*)(low + 1);
+    cls = (MEMCLASS*)((char*)low + 16);
     sprintf(buffer, "%s LOW", name);
     MEM_initblock(low, buffer, 92, arg6, flags | 0x8000, 0, block);
     MEM_initblock(block, 0, (int)high - (int)block - 16, arg6, flags, low, high);
@@ -70,8 +70,8 @@ extern "C" int MEMCLASS_create(int index, const char* name, void* address, int s
     cls->low->magic = 0x4253;
     cls->high->magic = 0x4253;
     cls->free.magic = 0x4253;
-    cls->field20 = &cls->free;
-    cls->field24 = &cls->free;
+    cls->free.freenext = &cls->free;
+    cls->free.freeprev = &cls->free;
     cls->free.size = 0x7fffffff;
     cls->field28 = arg4;
     cls->alignment = alignment;
