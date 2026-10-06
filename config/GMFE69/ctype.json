@@ -1,0 +1,102 @@
+{
+  "id": "ctype",
+  "source": "src/prime/runtime/ctype.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-pragma",
+    "warn_notinlined off",
+    "-maxerrors",
+    "1",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-fp_contract",
+    "on",
+    "-str",
+    "reuse",
+    "-DVERSION=0",
+    "-use_lmw_stmw",
+    "on",
+    "-str",
+    "reuse,pool,readonly",
+    "-gccinc",
+    "-common",
+    "off",
+    "-char",
+    "signed",
+    "-inline",
+    "deferred,auto"
+  ],
+  "include_dirs": [
+    "include/prime/libc",
+    "include/prime/sdk",
+    "src/prime/runtime"
+  ],
+  "strip_unused": true,
+  "source_root": "src/prime",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8013c66c",
+      "size": 36,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80190858",
+      "size": 768,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "tolower",
+      "address": "0x8013c66c",
+      "size": 36,
+      "binding": 2
+    }
+  ],
+  "externals": {},
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "iswblank",
+    "toupper",
+    "isxdigit",
+    "isupper",
+    "isspace",
+    "ispunct",
+    "isprint",
+    "islower",
+    "isgraph",
+    "isdigit",
+    "iscntrl",
+    "isalpha",
+    "isalnum"
+  ],
+  "upstream": {
+    "repository": "https://github.com/PrimeDecomp/prime",
+    "commit": "32020a07e571ccf6fa42329b4c09c4514daed449",
+    "path": "extern/sdk/runtime/ctype.c"
+  },
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": []
+}

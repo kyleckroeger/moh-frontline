@@ -1,0 +1,204 @@
+{
+  "id": "printf",
+  "source": "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/printf.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-pragma",
+    "warn_notinlined off",
+    "-maxerrors",
+    "1",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-fp_contract",
+    "on",
+    "-str",
+    "reuse",
+    "-multibyte",
+    "-DVERSION=0",
+    "-DNDEBUG=1",
+    "-O4,p",
+    "-use_lmw_stmw",
+    "on",
+    "-str",
+    "reuse,pool,readonly",
+    "-common",
+    "off",
+    "-inline",
+    "deferred,auto",
+    "-char",
+    "signed"
+  ],
+  "include_dirs": [
+    "include/tww",
+    "src/tww",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Include",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/PPC_EABI/Include",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C++/MSL_Common/Include",
+    "src/tww/PowerPC_EABI_Support/Runtime/Inc",
+    "src/tww/PowerPC_EABI_Support/MetroTRK"
+  ],
+  "strip_unused": true,
+  "source_root": "src/tww",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8013dab4",
+      "size": 8232,
+      "type": 1
+    },
+    {
+      "name": ".rodata",
+      "address": "0x8017b430",
+      "size": 37,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80190b58",
+      "size": 556,
+      "type": 1
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034e578",
+      "size": 2,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x80351530",
+      "size": 8,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "__pformatter",
+      "address": "0x8013de18",
+      "size": 1908,
+      "binding": 0
+    },
+    {
+      "name": "parse_format",
+      "address": "0x8013f5d8",
+      "size": 1284,
+      "binding": 0
+    },
+    {
+      "name": "longlong2str",
+      "address": "0x8013f0dc",
+      "size": 732,
+      "binding": 0
+    },
+    {
+      "name": "long2str",
+      "address": "0x8013f3b8",
+      "size": 544,
+      "binding": 0
+    },
+    {
+      "name": "float2str",
+      "address": "0x8013e58c",
+      "size": 1772,
+      "binding": 0
+    },
+    {
+      "name": "double2hex",
+      "address": "0x8013eda4",
+      "size": 824,
+      "binding": 0
+    },
+    {
+      "name": "round_decimal",
+      "address": "0x8013ec78",
+      "size": 300,
+      "binding": 0
+    },
+    {
+      "name": "__StringWrite",
+      "address": "0x8013dd54",
+      "size": 108,
+      "binding": 1
+    },
+    {
+      "name": "sprintf",
+      "address": "0x8013dab4",
+      "size": 224,
+      "binding": 1
+    },
+    {
+      "name": "vsprintf",
+      "address": "0x8013db94",
+      "size": 120,
+      "binding": 1
+    },
+    {
+      "name": "__FileWrite",
+      "address": "0x8013ddc0",
+      "size": 88,
+      "binding": 1
+    },
+    {
+      "name": "vprintf",
+      "address": "0x8013dc0c",
+      "size": 124,
+      "binding": 1
+    },
+    {
+      "name": "printf",
+      "address": "0x8013dc88",
+      "size": 204,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "__ctype_map": "0x80190858",
+    "__div2u": "0x80138a74",
+    "__files": "0x801905f0",
+    "__mod2u": "0x80138c98",
+    "__num2dec": "0x8013b65c",
+    "__va_arg": "0x801380ac",
+    "fwide": "0x80140610",
+    "fwrite": "0x8013c99c",
+    "memchr": "0x8013d6bc",
+    "memcpy": "0x800094f8",
+    "strchr": "0x8013fe64",
+    "strcpy": "0x80140040",
+    "strlen": "0x801400f8",
+    "wcstombs": "0x8013d500"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "snprintf",
+    "vsnprintf"
+  ],
+  "upstream": {
+    "repository": "https://github.com/zeldaret/tww",
+    "commit": "a1854d47ce5aa9d0f21c7fb5a71aaade63659693",
+    "path": "src/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/printf.c"
+  },
+  "original_file": "printf.c",
+  "original_file_index": 11725,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": []
+}

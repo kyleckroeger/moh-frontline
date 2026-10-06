@@ -183,6 +183,11 @@ def validate_object(obj, unit):
     text = output[".text"]
     if text["flags"] != 6 or text["type"] != 1 or text["address"] != 0:
         raise ValueError("Unexpected compiler text")
+    # SN's linker emits weak definitions as global, so the original binding
+    # (weak, global or local) is checked here, before linking.
+    compiled_binding = {s["name"]: s["binding"] for s in functions}
+    if any(compiled_binding[f["name"]] != f["binding"] for f in unit["functions"]):
+        raise ValueError("Compiled function binding differs from original")
     cursor = 0
     for f in sorted(functions, key=lambda s: s["address"]):
         if f["section"] != text["index"] or f["address"] != cursor or f["size"] <= 0:
@@ -273,7 +278,10 @@ def verify_unit(original, linked, unit):
     actual_sections = [dict(s, address=s["address"] + kept_slice(manifest_sections[s["name"]])[0],
                             offset=s["offset"] + kept_slice(manifest_sections[s["name"]])[0],
                             size=manifest_sections[s["name"]]["size"]) for s in actual_sections]
-    if function_records(linked) != manifest_functions(unit):
+    def linked_binding(records):
+        return [(name, address, size, min(binding, 1)) for name, address, size, binding in records]
+
+    if linked_binding(function_records(linked)) != linked_binding(manifest_functions(unit)):
         raise ValueError("Linked source functions differ from original")
     if any(s["type"] in (4, 9) and s["size"] for s in linked.sections):
         raise ValueError("Linked source still has relocations")

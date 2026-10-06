@@ -1,0 +1,17 @@
+Metroid Prime runtime library reconstruction attribution
+
+The sources in src/prime/runtime, and the headers under include/prime, are
+copied from the community decompilation of Metroid Prime:
+
+  https://github.com/PrimeDecomp/prime
+  commit 32020a07e571ccf6fa42329b4c09c4514daed449
+  (extern/sdk/runtime, extern/sdk/libc, extern/sdk/include, and
+  include/types.h, GameVersions.h, ByteOrder.hpp, static_assert.hpp)
+
+That project is dedicated to the public domain under CC0 1.0; its license text
+is kept here as LICENSE.PrimeDecomp. Credit belongs to its contributors and to
+the original Metrowerks and Nintendo authors. These are public reconstructions,
+not an original source release. Preserve upstream notices and comments.
+
+They are used where the Wind Waker reference (src/tww) lacks a file or links a
+different revision. Local changes are listed in docs/Runtime.md.

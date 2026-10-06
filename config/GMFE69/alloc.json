@@ -1,0 +1,162 @@
+{
+  "id": "alloc",
+  "source": "src/prime/runtime/alloc.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-pragma",
+    "warn_notinlined off",
+    "-maxerrors",
+    "1",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-fp_contract",
+    "on",
+    "-str",
+    "reuse",
+    "-DVERSION=0",
+    "-use_lmw_stmw",
+    "on",
+    "-str",
+    "reuse,pool,readonly",
+    "-gccinc",
+    "-common",
+    "off",
+    "-char",
+    "signed",
+    "-inline",
+    "deferred,auto"
+  ],
+  "include_dirs": [
+    "include/prime/libc",
+    "include/prime/sdk",
+    "src/prime/runtime"
+  ],
+  "strip_unused": true,
+  "source_root": "src/prime",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8013a574",
+      "size": 3560,
+      "type": 1
+    },
+    {
+      "name": ".rodata",
+      "address": "0x8017b338",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x80334330",
+      "size": 56,
+      "type": 8
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f328",
+      "size": 1,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "allocate_from_var_pools",
+      "address": "0x8013ad00",
+      "size": 584,
+      "binding": 0
+    },
+    {
+      "name": "Block_link",
+      "address": "0x8013b004",
+      "size": 380,
+      "binding": 0
+    },
+    {
+      "name": "SubBlock_merge_next",
+      "address": "0x8013af48",
+      "size": 188,
+      "binding": 0
+    },
+    {
+      "name": "soft_allocate_from_var_pools",
+      "address": "0x8013ac28",
+      "size": 216,
+      "binding": 0
+    },
+    {
+      "name": "FixBlock_construct",
+      "address": "0x8013ab00",
+      "size": 296,
+      "binding": 0
+    },
+    {
+      "name": "Block_subBlock",
+      "address": "0x8013b180",
+      "size": 476,
+      "binding": 0
+    },
+    {
+      "name": "allocate_from_fixed_pools",
+      "address": "0x8013a93c",
+      "size": 452,
+      "binding": 1
+    },
+    {
+      "name": "deallocate_from_fixed_pools",
+      "address": "0x8013a740",
+      "size": 508,
+      "binding": 1
+    },
+    {
+      "name": "free",
+      "address": "0x8013a574",
+      "size": 308,
+      "binding": 1
+    },
+    {
+      "name": "malloc",
+      "address": "0x8013a6a8",
+      "size": 152,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "__sys_alloc": "0x801507ec",
+    "__sys_free": "0x8015083c",
+    "memset": "0x80009410"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "calloc"
+  ],
+  "upstream": {
+    "repository": "https://github.com/PrimeDecomp/prime",
+    "commit": "32020a07e571ccf6fa42329b4c09c4514daed449",
+    "path": "extern/sdk/runtime/alloc.c"
+  },
+  "original_file": "alloc.c",
+  "original_file_index": 11663,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": []
+}

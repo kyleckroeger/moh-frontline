@@ -1,0 +1,18 @@
+The Wind Waker runtime library reconstruction attribution
+
+The sources in this directory (PowerPC_EABI_Support, TRK_MINNOW_DOLPHIN,
+OdemuExi2, odenotstub, amcstubs), and the headers under include/tww, are copied
+from the community decompilation of The Legend of Zelda: The Wind Waker:
+
+  https://github.com/zeldaret/tww
+  commit a1854d47ce5aa9d0f21c7fb5a71aaade63659693
+
+That project is dedicated to the public domain under CC0 1.0; its license text
+is kept here as LICENSE.tww. Credit belongs to its contributors and to the
+original Metrowerks and Nintendo authors. These are public reconstructions of
+the Metrowerks Standard Library, runtime and debugger libraries, not an
+original source release. Preserve upstream notices and comments.
+
+Local changes reproduce the library versions linked into Medal of Honor:
+Frontline. They were made with AI assistance; every modified file and the
+evidence for each change are listed in docs/Runtime.md.

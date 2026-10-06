@@ -1,4 +1,4 @@
-"""Mutations of per-object data stripping; skipped until reconstruct.py has run."""
+"""Mutations of per-object data stripping and binding checks; skipped until reconstruct.py has run."""
 import json
 import struct
 import sys
@@ -66,6 +66,15 @@ class DataStripping(unittest.TestCase):
         unit = self.mutated('.sbss', ['__PADSpec'])
         with self.assertRaisesRegex(ValueError, 'Cannot strip an object present in the target'):
             validate_units(self.original, [unit])
+
+    def test_weak_binding_is_checked_before_linking(self):
+        compiled = (self.build / 'units/ctype/compiled.o').read_bytes()
+        unit = json.loads((CONFIG / 'ctype.json').read_text())
+        self.assertEqual(unit['functions'][0]['binding'], 2)
+        validate_object(Elf32(strip_objects(compiled, unit)), unit)
+        unit['functions'][0]['binding'] = 1
+        with self.assertRaisesRegex(ValueError, 'Compiled function binding differs'):
+            validate_object(Elf32(strip_objects(compiled, unit)), unit)
 
     def test_unknown_object_fails(self):
         with self.assertRaisesRegex(ValueError, 'not one compiler object'):

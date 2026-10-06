@@ -53,6 +53,8 @@ class Original:
 
     def locals_of(self, file_index):
         result = {}
+        if file_index is None:
+            return result  # A file with only global symbols has no record.
         for symbol in self.symbols[file_index + 1:]:
             if symbol["type"] == 4:
                 break
@@ -123,7 +125,8 @@ def match(obj, original, file_index):
             if target is not None and target["size"] == symbol["size"] and offset is not None:
                 anchor(addresses, names[symbol["section"]], target["address"] - offset)
     if ".text" not in addresses:
-        raise ValueError("No compiled function was found in the original file record")
+        raise ValueError("No compiled function was found in the original file record"
+                         if file_index is not None else "No compiled global function was found in the original")
     # Relocations pin the rest; repeat until no new section is placed.
     changed = True
     while changed:
@@ -218,7 +221,7 @@ def draft(args):
         unit["compiler_flags"] += [f"-D{d}" for d in args.define]
     _, elf = load_target()
     original = Original(elf)
-    file_index = original.file_index(args.original_file or Path(args.source).name, args.file_index)
+    file_index = None if args.no_file_record else original.file_index(args.original_file or Path(args.source).name, args.file_index)
     work = ROOT / "scratch/port" / args.id
     work.mkdir(parents=True, exist_ok=True)
     compiler, wrapper = setup_compiler(unit["compiler_version"], "GC")
@@ -270,9 +273,12 @@ def draft(args):
         undefined_in_discarded_code=[name for name in undefined if name not in externals],
         discarded_functions=[f["name"] for f in discarded],
         upstream=dict(reference.get("upstream", {}), **({"path": args.upstream_path} if args.upstream_path else {})),
-        original_file=original.symbols[file_index]["name"], original_file_index=file_index,
         local_externals=sorted(n for n in externals if n in undefined and n in locals_ and not original.globals(n)),
         discarded_local_functions=[f["name"] for f in discarded if f["binding"] == 0], sda_externals=sda)
+    if file_index is not None:
+        unit.update(original_file=original.symbols[file_index]["name"], original_file_index=file_index)
+    else:
+        unit["discarded_local_functions"] = []
     if stripped:
         unit["stripped_sections"] = stripped
     if args.like and "id" in reference:
@@ -290,6 +296,8 @@ if __name__ == "__main__":
     parser.add_argument("--like", help="Existing manifest to copy compiler settings and provenance from")
     parser.add_argument("--original-file", help="Original file-record name (default: source basename)")
     parser.add_argument("--file-index", type=int)
+    parser.add_argument("--no-file-record", action="store_true",
+                        help="The original has no file record for this source (only global symbols)")
     parser.add_argument("--compiler")
     parser.add_argument("--define", action="append", help="Replace or add a -D definition, e.g. SDK_REVISION=0")
     parser.add_argument("--category", default="restored_library")

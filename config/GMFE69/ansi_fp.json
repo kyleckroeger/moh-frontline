@@ -1,0 +1,174 @@
+{
+  "id": "ansi_fp",
+  "source": "src/prime/runtime/ansi_fp.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-pragma",
+    "warn_notinlined off",
+    "-maxerrors",
+    "1",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-fp_contract",
+    "on",
+    "-str",
+    "reuse",
+    "-DVERSION=0",
+    "-use_lmw_stmw",
+    "on",
+    "-str",
+    "reuse,pool,readonly",
+    "-gccinc",
+    "-common",
+    "off",
+    "-char",
+    "signed",
+    "-inline",
+    "deferred,auto"
+  ],
+  "include_dirs": [
+    "include/prime/libc",
+    "include/prime/sdk",
+    "src/prime/runtime"
+  ],
+  "strip_unused": true,
+  "source_root": "src/prime",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8013b65c",
+      "size": 3096,
+      "type": 1
+    },
+    {
+      "name": ".rodata",
+      "address": "0x8017b350",
+      "size": 221,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80190730",
+      "size": 292,
+      "type": 1,
+      "linked_offset": 64,
+      "linked_size": 356
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x80351520",
+      "size": 8,
+      "type": 1,
+      "linked_offset": 16,
+      "linked_size": 64
+    }
+  ],
+  "functions": [
+    {
+      "name": "__str2dec",
+      "address": "0x8013bd7c",
+      "size": 236,
+      "binding": 0
+    },
+    {
+      "name": "__num2dec_internal",
+      "address": "0x8013b800",
+      "size": 572,
+      "binding": 0
+    },
+    {
+      "name": "__count_trailing_zerol",
+      "address": "0x8013c204",
+      "size": 112,
+      "binding": 0
+    },
+    {
+      "name": "__two_exp",
+      "address": "0x8013ba3c",
+      "size": 832,
+      "binding": 0
+    },
+    {
+      "name": "__ull2dec",
+      "address": "0x8013c0f4",
+      "size": 272,
+      "binding": 0
+    },
+    {
+      "name": "__timesdec",
+      "address": "0x8013be68",
+      "size": 652,
+      "binding": 0
+    },
+    {
+      "name": "__num2dec",
+      "address": "0x8013b65c",
+      "size": 420,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "__ctype_map": "0x80190858",
+    "__cvt_dbl_usll": "0x80138ea0",
+    "__div2u": "0x80138a74",
+    "__float_huge": "0x8034e58c",
+    "__lower_map": "0x80190958",
+    "__mod2u": "0x80138c98",
+    "copysign": "0x80143200",
+    "frexp": "0x80143444",
+    "ldexp": "0x801434d0",
+    "modf": "0x80143694",
+    "pow": "0x80143960"
+  },
+  "undefined_in_discarded_code": [
+    "__double_max",
+    "nextafter"
+  ],
+  "discarded_functions": [
+    "__dec2num",
+    "__minus_dec",
+    "__less_dec",
+    "__equals_dec",
+    "__rounddec",
+    "__dorounddecup",
+    "__must_round",
+    "__count_trailing_zero"
+  ],
+  "upstream": {
+    "repository": "https://github.com/PrimeDecomp/prime",
+    "commit": "32020a07e571ccf6fa42329b4c09c4514daed449",
+    "path": "extern/sdk/runtime/ansi_fp.c"
+  },
+  "original_file": "ansi_fp.c",
+  "original_file_index": 11685,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "__minus_dec",
+    "__less_dec",
+    "__equals_dec",
+    "__rounddec",
+    "__dorounddecup",
+    "__must_round",
+    "__count_trailing_zero"
+  ],
+  "sda_externals": []
+}
