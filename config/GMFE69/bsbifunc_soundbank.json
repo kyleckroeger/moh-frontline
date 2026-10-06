@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x8002b064",
-      "size": 776,
+      "size": 1448,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009d54",
-      "size": 24,
+      "size": 48,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x800109c4",
-      "size": 36,
+      "size": 72,
       "type": 1
     }
   ],
@@ -70,9 +70,27 @@
       "binding": 1
     },
     {
+      "name": "BIFunc_StopCurrentVoice__FPPiPv",
+      "address": "0x8002b4ec",
+      "size": 156,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_GetVoiceHandle__FPPiPv",
+      "address": "0x8002b588",
+      "size": 132,
+      "binding": 1
+    },
+    {
       "name": "BIFunc_DisplayLetterbox__FPPiPv",
       "address": "0x8002b178",
       "size": 156,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_GetClosestValidWaypoint__FPPiPv",
+      "address": "0x8002b374",
+      "size": 376,
       "binding": 1
     },
     {
@@ -80,6 +98,12 @@
       "address": "0x8002b214",
       "size": 344,
       "binding": 1
+    },
+    {
+      "name": "GetProximityData__10BSGO_BasicFv",
+      "address": "0x8002b36c",
+      "size": 8,
+      "binding": 2
     }
   ],
   "externals": {
@@ -89,10 +113,12 @@
     "Get_currentMission__10CShellMenuFv": "0x800e6ebc",
     "Get_currentStage__10CShellMenuFv": "0x800e6eb4",
     "LoadOneShotSound__Fiii": "0x800ec754",
+    "RemoveSound__13SoundScheduleFib": "0x8004736c",
     "g_CurrentLevel": "0x8034da04",
     "g_CurrentMission": "0x8034da00",
     "g_CurrentSoundBank": "0x8034da08",
     "g_Shell": "0x80195090",
+    "g_SoundSchedule": "0x8034e784",
     "g_aigAIFilterGlobalObject": "0x801c6cd4",
     "g_bInMultiplayerMode": "0x8034eca5",
     "g_iCurrentBIFIndex": "0x8034e77c",
@@ -110,6 +136,7 @@
     "g_CurrentLevel",
     "g_CurrentMission",
     "g_CurrentSoundBank",
+    "g_SoundSchedule",
     "g_bInMultiplayerMode",
     "g_iCurrentBIFIndex",
     "g_pBSObject",

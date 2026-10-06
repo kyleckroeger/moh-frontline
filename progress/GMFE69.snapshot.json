@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 361936,
+    "matching_code_bytes": 362608,
     "total_executable_code_bytes": 1414572,
-    "percent": 25.58625506513631,
+    "percent": 25.63376060037948,
     "categories": {
       "reconstructed_game": 91828,
-      "restored_library": 270108
+      "restored_library": 270780
     },
-    "matching_functions": 2398
+    "matching_functions": 2402
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -222,7 +222,7 @@
     "config/GMFE69/bsbifunc_reload.json": "1c4cf3f68706004ff73e659afe9c7255f813e3d12749c7e3a02f0f9983ff7472",
     "config/GMFE69/bsbifunc_respawn.json": "f9d0ebd47f3c2d3a974a5f747e7ba21a5064635736279118dc0f8b2704a8ba1b",
     "config/GMFE69/bsbifunc_shake.json": "9af46b055f38bd105bfbcb4ead37d7ec0eb5c4a82d9e3cd72e861962920e021a",
-    "config/GMFE69/bsbifunc_soundbank.json": "7f77f59eea466b689cbd7e612d33fdfcc8d162dc187b4a5441cebe3a6b29a904",
+    "config/GMFE69/bsbifunc_soundbank.json": "953f79f6ae04f00170c9e5245a5581db89aa85bef02d2cbd9ed36da433695690",
     "config/GMFE69/bsbifunc_stop.json": "8f7fb238dfd5d8d55d8b8728ff38039a116982a0d6415c5624f5a9f55beb5c65",
     "config/GMFE69/bsbifunc_translate.json": "8ad52cc399317cae040e568745ec73b6612182f345e479ebf44a2d9a191a884b",
     "config/GMFE69/bsbifunc_vibration.json": "265edf7233487928d89153abf3226c1ead2fce219f81ea95edaf5767999cbaac",
@@ -1643,7 +1643,7 @@
     "src/game/bsbifunc_reload.cpp": "346efa2193b56f60aaa41ae94192172fbee3d6251aab2a68b18ab83aa91f4a7b",
     "src/game/bsbifunc_respawn.cpp": "e996fdfd6f7a94c0fc9ffdc464e8ac2e77c7f8a4acbc911e6d756c6a56e9d65b",
     "src/game/bsbifunc_shake.cpp": "24364ceeefd9b2d4dc0004d49a1f4d758381ddb8101515ccb30fae9ae0a469cf",
-    "src/game/bsbifunc_soundbank.cpp": "b87b5a6d71a2911bdb0d17df14125ade5016530a19742435620c92d6045f74c5",
+    "src/game/bsbifunc_soundbank.cpp": "bf3d972cc013dc2178064dd14e14ea34351993e32fa3c868a9d1a1f6771d43e9",
     "src/game/bsbifunc_stop.cpp": "39ec02ecb5fb86d764ba39b6565aa769334d211a5698ee23ba1cd0e205df2316",
     "src/game/bsbifunc_translate.cpp": "d1915d1a5106223f684829156d43feab4702a6fdc447b2532addd9941ddc195e",
     "src/game/bsbifunc_vibration.cpp": "43ba02afe369628880a3cfa0c998d04397a1cc2ca9bec847caf3b60f5b910065",
@@ -25779,8 +25779,8 @@
     {
       "id": "bsbifunc_soundbank",
       "category": "restored_library",
-      "functions": 4,
-      "code_bytes": 776,
+      "functions": 8,
+      "code_bytes": 1448,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -25812,8 +25812,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "dd4f0d84d87fc779af28971628cedc610b5acfab04b45481ec6d01e106d34d06",
-      "linked_sha256": "e30761b5f3c2d5f26c90f534ec379ee49c0488e660ef254c308a2a19018a5b49"
+      "object_sha256": "d5d70bef650fd0fab65bdb3b9bc0aca57c353490f764d720c86789de76661006",
+      "linked_sha256": "72c8f6d4b6e5965918c81d39f1514c9cadb272e3c0656bad42dcff54779ee25a"
     },
     {
       "id": "bsbifunc_shake",
@@ -28057,34 +28057,6 @@
             "size": 408,
             "kind": "function",
             "name": "displayPromptBuffer__Fi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8002b36c",
-            "size": 8,
-            "kind": "function",
-            "name": "GetProximityData__10BSGO_BasicFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8002b374",
-            "size": 376,
-            "kind": "function",
-            "name": "BIFunc_GetClosestValidWaypoint__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8002b4ec",
-            "size": 156,
-            "kind": "function",
-            "name": "BIFunc_StopCurrentVoice__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8002b588",
-            "size": 132,
-            "kind": "function",
-            "name": "BIFunc_GetVoiceHandle__FPPiPv",
             "evidence": "exception-index"
           },
           {

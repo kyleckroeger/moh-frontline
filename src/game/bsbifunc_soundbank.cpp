@@ -4,17 +4,23 @@
 // current mission and stage) and remember the bank, mission and level, show or
 // hide the first player's letterbox, and return the index of the closest cover
 // point with a free peek position (searched from the script object's position
-// in its proximity leaf, within the given radius; -1 when none). Each reads its
-// argument below the script stack top and pops the built-in's arguments. The
-// file name is this project's; the original record is bsbifunc.cpp and the
-// built-ins around these are not reconstructed. The functions, classes and
-// globals are named by the mangled symbols; ISceneNode is declared with its
-// virtual functions in the order of __vt__10ISceneNode (GetPosition at +64) and
-// BSGO_Basic in the order of __vt__10BSGO_Basic; the shell, scene, player,
-// proximity-data and trigger-object views are inferred (members at their
-// offsets, names not original), as are the built-in record view, the 16-byte,
-// 8-byte aligned position view passed as the filter position, and the waypoint
-// CRC value (0x9101c906, the enumerator's name unknown).
+// in its proximity leaf, within the given radius; -1 when none), followed by
+// the weak BSGO_Basic::GetProximityData (0); then return the id of the closest
+// valid waypoint of a type (searched the same way, any or only free ones; -1
+// when none), stop the calling soldier's current voice (removing it from the
+// sound schedule and returning 1) and return its voice handle (-1 without a
+// soldier). Each reads its arguments below the script stack top and pops the
+// built-in's arguments. The file name is this project's; the original record is
+// bsbifunc.cpp and the built-ins around these are not reconstructed. The
+// functions, classes and globals are named by the mangled symbols; ISceneNode
+// is declared with its virtual functions in the order of __vt__10ISceneNode
+// (GetPosition at +64) and BSGO_Basic in the order of __vt__10BSGO_Basic; the
+// shell, scene, player, soldier (the voice handle at +17312), proximity-data,
+// waypoint and trigger-object views and the argument helpers are inferred
+// (members at their offsets, names not original), as are the built-in record
+// view, the 16-byte, 8-byte aligned position view passed as the filter
+// position, and the waypoint CRC value (0x9101c906, the enumerator's name
+// unknown).
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
@@ -23,6 +29,7 @@ class CVector3;
 class CBullet;
 class CLight;
 class CPlayerObject;
+class CSoldierObject;
 struct AIDoodadView;
 
 class ISceneNode {
@@ -63,7 +70,7 @@ public:
     virtual const void* AsWorldObject() const;
     virtual void* AsAnimObject();
     virtual const void* AsAnimObject() const;
-    virtual void* AsSoldierObject();
+    virtual CSoldierObject* AsSoldierObject();
     virtual const void* AsSoldierObject() const;
     virtual CPlayerObject* AsPlayerObject();
     virtual const void* AsPlayerObject() const;
@@ -120,6 +127,11 @@ struct TriggerObject_struct {
     unsigned char unknown00[12];
 };
 
+struct WaypointView {
+    unsigned char unknown00[8];
+    int id;
+};
+
 class CCoverPoint {
 public:
     int GetAvailablePeekPosition() const;
@@ -152,6 +164,19 @@ public:
     bool m_letterbox;
 };
 
+class CSoldierObject {
+public:
+    unsigned char unknown0000[17312];
+    int m_voice;
+};
+
+class SoundSchedule {
+public:
+    void RemoveSound(int, bool);
+};
+
+extern SoundSchedule g_SoundSchedule;
+
 class CScene {
 public:
     CPlayerObject* GetPlayer(int) const;
@@ -178,6 +203,18 @@ struct BSBuiltinView {
 
 extern BSBuiltinView* g_pBuiltInFunctions;
 extern int g_iCurrentBIFIndex;
+
+inline int BSArgInt(int** stack, int index) {
+    return *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - index));
+}
+
+inline int BSArgBool(int** stack, int index) {
+    return *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - index)) != 0;
+}
+
+inline float BSArgFloat(int** stack, int index) {
+    return *(float*)(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - index));
+}
 
 void BIFunc_DebugInitFromTrigger(int** stack, void*) {
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
@@ -221,4 +258,49 @@ void BIFunc_AIGetClosestCoverPoint(int** stack, void*) {
     }
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
     **stack = *(int*)&index;
+}
+
+__declspec(weak) ProximityDataView* BSGO_Basic::GetProximityData() {
+    return 0;
+}
+
+void BIFunc_GetClosestValidWaypoint(int** stack, void*) {
+    int value;
+    DWI_OBJECT_CRC_ENUM type = (DWI_OBJECT_CRC_ENUM)BSArgInt(stack, 1);
+    float radius = *(float*)(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 3));
+    bool any = BSArgBool(stack, 5);
+    ProximityDataView* proximity = g_pBSObject->user->GetProximityData();
+    if (proximity->leaf) {
+        CVector3 position;
+        g_pBSObject->user->GetSceneNode()->GetPosition(position);
+        radius *= radius;
+        WaypointView* waypoint = (WaypointView*)g_aigAIFilterGlobalObject.GetClosestWaypointByType(proximity->leaf, (const CAIFilterRealPosition&)position, type, !any, radius);
+        if (waypoint)
+            value = waypoint->id;
+        else
+            value = -1;
+    } else {
+        value = -1;
+    }
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    **stack = *(int*)&value;
+}
+
+void BIFunc_StopCurrentVoice(int** stack, void* object) {
+    CSoldierObject* soldier = ((ISceneNode*)object)->AsSoldierObject();
+    if (soldier && soldier->m_voice != -1) {
+        g_SoundSchedule.RemoveSound(soldier->m_voice, true);
+        soldier->m_voice = -1;
+    }
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    **stack = 1;
+}
+
+void BIFunc_GetVoiceHandle(int** stack, void* object) {
+    int value = -1;
+    CSoldierObject* soldier = ((ISceneNode*)object)->AsSoldierObject();
+    if (soldier)
+        value = soldier->m_voice;
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    **stack = *(int*)&value;
 }
