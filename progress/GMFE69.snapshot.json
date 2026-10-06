@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 258004,
+    "matching_code_bytes": 258812,
     "total_executable_code_bytes": 1414572,
-    "percent": 18.239015051902626,
+    "percent": 18.29613480261167,
     "categories": {
-      "reconstructed_game": 61000,
+      "reconstructed_game": 61808,
       "restored_library": 197004
     },
-    "matching_functions": 1401
+    "matching_functions": 1407
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -116,6 +116,7 @@
     "config/GMFE69/animdb.json": "bb5f95b38785b1dbd10de555e7a48050f9187bed1d9ce716634786e1f809c851",
     "config/GMFE69/animintf.json": "e91af6bf29eeff53f9eebe801ede9cf93426f363777b7aeba4ab4fbbfc53a675",
     "config/GMFE69/animseq.json": "a95b2f2e7ccd61f0b10abfb3da323a97765e9028204bfa193457dad4a01ba62f",
+    "config/GMFE69/animst.json": "ed01cfba2082686177f18f2e8f306e58d6b6b797cd3f572474fabc933f234556",
     "config/GMFE69/animwgt.json": "6752f49abd311539d80c2042212297e15578259526dd08924450d1f72306cb0f",
     "config/GMFE69/ansi_files.json": "fd2d4cda0d125e73920f67f3d75171b2abd9967c8c4e9fcc3f024baba54e119e",
     "config/GMFE69/ansi_fp.json": "a0ef64e95f9c4bdc4bb31bbfa57bd7af88bd31f24fec8fad5c9aef7cfcfc2427",
@@ -221,7 +222,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "bdc2809c357ae589ad7bf6f939c3fece7bf466f5d90a64b6ea25f3f2bb78c4a1",
+    "config/GMFE69/project.json": "09917ccae3fd84e54ae8138b5a100840bbfeffaa87149b2328b5cfd1405f3b4f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1289,6 +1290,7 @@
     "src/game/animdb.cpp": "2ad9555c6c6df924ebfa81b4d627ee1284c7634ec8c91330edafca9d2753c2ac",
     "src/game/animintf.cpp": "30da38919557e3702eab8683fdc04613b8d4720da1b24216908f957e8ce63ca5",
     "src/game/animseq.cpp": "41ae1e334e9a48b7d9b8fa506401aa98bb74422f5ff869e6865e116682792658",
+    "src/game/animst.cpp": "c21b2120a38a43ccf28537b31f9f22c5b5d21d59cf2d48951276464a65bf4bf9",
     "src/game/animwgt.cpp": "001c05d29d185c0a4f21712270ddb62c29fc3808bede837c4acdb3ad1c63af1c",
     "src/game/bsmachin.cpp": "29ef7c9c19942e3dc51d97c49266ac9b237c8658ffef55d4536c8968e7d44b1e",
     "src/game/bsschedule.cpp": "03573e4203501782b94b4ed70853989b43110a29ecee0af5d0eed5e4baf9919c",
@@ -17129,6 +17131,45 @@
       "discarded_functions": [],
       "object_sha256": "1f3e99d8a84e7407ffac56dcd59aa6384b57e9fe4a902fa5eacb24230fb9ba51",
       "linked_sha256": "0f6cfc6388eafce1dce2a77811425d2ae077b491b6ab00a60ee2335ff9943a0b"
+    },
+    {
+      "id": "animst",
+      "category": "reconstructed_game",
+      "functions": 6,
+      "code_bytes": 808,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "63499412c646c66020616a292c4531b4a8a57dd82228446ef2126847ee00aae7",
+      "linked_sha256": "9005124ff593f43050382e5af3e5c1351b32bdff7f3f87d5239cabb0a9565cac"
     }
   ],
   "code_map": {
@@ -25075,57 +25116,10 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 80066f9c",
-        "ranges": [
-          {
-            "address": "0x80066f9c",
-            "size": 120,
-            "kind": "function",
-            "name": "AnimStSetStateDelay",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80067014",
-            "size": 152,
-            "kind": "function",
-            "name": "AnimStSetStateFlags",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x800670ac",
-            "size": 84,
-            "kind": "function",
-            "name": "AnimStGetCurrentState",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80067100",
-            "size": 192,
-            "kind": "function",
-            "name": "AnimStGetStateUserMemory",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/animst.cpp [symbol evidence]",
         "file_record": 54,
         "file_name": "animst.cpp",
         "ranges": [
-          {
-            "address": "0x800671c0",
-            "size": 188,
-            "kind": "function",
-            "name": "AnimStGetStateWeight",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8006727c",
-            "size": 72,
-            "kind": "function",
-            "name": "AnimStGetCallbackIndexFromID",
-            "evidence": "between-same-file"
-          },
           {
             "address": "0x800672c4",
             "size": 1044,
