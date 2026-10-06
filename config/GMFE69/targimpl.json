@@ -1,0 +1,151 @@
+{
+  "id": "targimpl",
+  "source": "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-pragma",
+    "warn_notinlined off",
+    "-maxerrors",
+    "1",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-fp_contract",
+    "on",
+    "-str",
+    "reuse",
+    "-multibyte",
+    "-DVERSION=0",
+    "-DNDEBUG=1",
+    "-O4,p",
+    "-use_lmw_stmw",
+    "on",
+    "-rostr",
+    "-str",
+    "reuse",
+    "-common",
+    "off",
+    "-inline",
+    "deferred,auto",
+    "-char",
+    "signed",
+    "-sdata",
+    "0",
+    "-sdata2",
+    "0"
+  ],
+  "include_dirs": [
+    "include/tww",
+    "src/tww",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Include",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/PPC_EABI/Include",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C++/MSL_Common/Include",
+    "src/tww/PowerPC_EABI_Support/Runtime/Inc",
+    "src/tww/PowerPC_EABI_Support/MetroTRK"
+  ],
+  "strip_unused": false,
+  "source_root": "src/tww",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80136a4c",
+      "size": 1552,
+      "type": 1
+    },
+    {
+      "name": ".rodata",
+      "address": "0x8017b198",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80190468",
+      "size": 48,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x80331a60",
+      "size": 2,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "TRKTargetAccessMemory",
+      "address": "0x80136dec",
+      "size": 332,
+      "binding": 1
+    },
+    {
+      "name": "TRKTargetAccessExtended1",
+      "address": "0x80136a4c",
+      "size": 368,
+      "binding": 1
+    },
+    {
+      "name": "TRKTargetAccessFP",
+      "address": "0x80136bbc",
+      "size": 316,
+      "binding": 1
+    },
+    {
+      "name": "TRKTargetAccessDefault",
+      "address": "0x80136cf8",
+      "size": 244,
+      "binding": 1
+    },
+    {
+      "name": "TRKValidMemory32",
+      "address": "0x80136f38",
+      "size": 292,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "TRKAppendBuffer1_ui64": "0x80131b28",
+    "TRKAppendBuffer_ui32": "0x80131a18",
+    "TRKPPCAccessFPRegister": "0x80135b70",
+    "TRKReadBuffer1_ui64": "0x80131730",
+    "TRKReadBuffer_ui32": "0x801315a8",
+    "TRKTargetTranslate": "0x80137160",
+    "TRK_flush_cache": "0x801356d8",
+    "TRK_ppc_memcpy": "0x801357dc",
+    "__TRK_get_MSR": "0x801357cc",
+    "__TRK_set_MSR": "0x801357d4",
+    "gTRKCPUState": "0x80331b08"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {
+    "repository": "https://github.com/zeldaret/tww",
+    "commit": "a1854d47ce5aa9d0f21c7fb5a71aaade63659693",
+    "path": "src/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl.c"
+  },
+  "local_externals": [
+    "TRK_ppc_memcpy"
+  ],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "targimpl.c",
+  "original_file_index": 11493
+}

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 297632,
+    "matching_code_bytes": 299184,
     "total_executable_code_bytes": 1414572,
-    "percent": 21.040427776034022,
+    "percent": 21.150142940762294,
     "categories": {
       "reconstructed_game": 85884,
-      "restored_library": 211748
+      "restored_library": 213300
     },
-    "matching_functions": 1874
+    "matching_functions": 1879
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -288,7 +288,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "2024f7c5794be8a5f063fc1fe6d58ce6764002d1205b528cd0c096448e52ee32",
+    "config/GMFE69/project.json": "b3a5de4b9945016668635eb38223ace4be64697d42052aa7f55fb78431acbe10",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
@@ -440,6 +440,7 @@
     "config/GMFE69/targcont.json": "b2ca2a623eb919a56e51a2a987564851f0820315980336f1c08791bf38a03769",
     "config/GMFE69/target.json": "f7e8d7b660fd35f21cdc13385271d7b73fabda6669a0d112db63b3b1f3e8b3b2",
     "config/GMFE69/target_options.json": "89566eaeb8524e74b697e212fd6b56f53c2276681df67bd4ab9ac2fdf4761b95",
+    "config/GMFE69/targimpl.json": "120a97ca8bf81e79090544d6935262508da24826ee73745aa959cfdc8ea80201",
     "config/GMFE69/texpack.json": "e72b98cff12a06a8815f3de46a2dddeaaff0a28ea13a88b19df4444349d53607",
     "config/GMFE69/threads.json": "d264cbc64f178174ef4e3e782c684e2b008abf5eb3ac641e9bd1236e522459c8",
     "config/GMFE69/thrown_obj.json": "2e05e03f89462f90a97d8301f1940df2da43d84d733f141d5c565df688c3d04d",
@@ -1708,7 +1709,7 @@
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/exception.s": "362944d0842db00a4192be6747cb9a21acf08acd04ee48e5a58b0ad615e59a97",
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/flush_cache.c": "74d00b1ce946e215e802d49076d72718cba3299ed46d59a8103ea3c157a091eb",
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/mpc_7xx_603e.c": "f01b0d4b9eb846a5d367fd2c1b6749a53174232a01e693a3674bf5551fbc328c",
-    "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl.c": "d0db4d34ff415b11c6fb6e470960c6cde9d43d51c724000cd8637dca716768e3",
+    "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl.c": "0c9ed2d452c46deecc84f37c671ced989b92e7822e6f950359db06cb37e0f37f",
     "src/tww/amcstubs/AmcExi2Stubs.c": "b03f8845bf930e4846506376b0a81d97bab493ce8d394868a38d3626403fb9a3",
     "src/tww/dolphin/os/OSReboot.c": "feae9cfa95a2a8b82339c8864bb2ad99e1fb5c20b683c238f3e90375b0a12322",
     "src/tww/dolphin/os/__ppc_eabi_init.cpp": "9b2f7361cf36a889a13870ca382642eb33333e4a0432674235218b23f94ac4b3",
@@ -20900,6 +20901,65 @@
       "discarded_functions": [],
       "object_sha256": "fdf26243d9231be6721011e65052d30044e03970b9a19fbb549dec224134d85f",
       "linked_sha256": "105eb09f12b1fbb33622b2c0d94d3695b24d83361c3cb1f30a125ef0197e40ad"
+    },
+    {
+      "id": "targimpl",
+      "category": "restored_library",
+      "functions": 5,
+      "code_bytes": 1552,
+      "compiler_family": "GC",
+      "compiler_version": "1.3",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-pragma",
+        "warn_notinlined off",
+        "-maxerrors",
+        "1",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-fp_contract",
+        "on",
+        "-str",
+        "reuse",
+        "-multibyte",
+        "-DVERSION=0",
+        "-DNDEBUG=1",
+        "-O4,p",
+        "-use_lmw_stmw",
+        "on",
+        "-rostr",
+        "-str",
+        "reuse",
+        "-common",
+        "off",
+        "-inline",
+        "deferred,auto",
+        "-char",
+        "signed",
+        "-sdata",
+        "0",
+        "-sdata2",
+        "0"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "7708cd5adb6fcd2fdaaebc97a6ce1f95e2796adeedb5761da634d95a5864440b",
+      "linked_sha256": "3b7412ec2261a9eb4e40de37c955248c367c55e8daadb8b92cacaf97067a4738"
     }
   ],
   "code_map": {
@@ -41671,21 +41731,21 @@
             "size": 404,
             "kind": "function",
             "name": "TRKInterruptHandler",
-            "evidence": "private-reference"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x801359ac",
             "size": 156,
             "kind": "function",
             "name": "TRKExceptionHandler",
-            "evidence": "private-reference"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x80135a48",
             "size": 196,
             "kind": "function",
             "name": "TRKSwapAndGo",
-            "evidence": "private-reference"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x80135b0c",
@@ -41706,7 +41766,7 @@
             "size": 540,
             "kind": "function",
             "name": "TRKPPCAccessFPRegister",
-            "evidence": "private-reference"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x80135d8c",
@@ -41755,14 +41815,14 @@
             "size": 124,
             "kind": "function",
             "name": "TRKTargetStepOutOfRange",
-            "evidence": "private-reference"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x80136094",
             "size": 108,
             "kind": "function",
             "name": "TRKTargetSingleStep",
-            "evidence": "private-reference"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x80136100",
@@ -41819,46 +41879,6 @@
             "kind": "function",
             "name": "TRKTargetAccessExtended2",
             "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80136a4c",
-            "size": 368,
-            "kind": "function",
-            "name": "TRKTargetAccessExtended1",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80136bbc",
-            "size": 316,
-            "kind": "function",
-            "name": "TRKTargetAccessFP",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80136cf8",
-            "size": 244,
-            "kind": "function",
-            "name": "TRKTargetAccessDefault",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80136dec",
-            "size": 332,
-            "kind": "function",
-            "name": "TRKTargetAccessMemory",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80136f38",
-        "ranges": [
-          {
-            "address": "0x80136f38",
-            "size": 292,
-            "kind": "function",
-            "name": "TRKValidMemory32",
-            "evidence": "unknown-file"
           }
         ]
       },

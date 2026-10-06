@@ -444,7 +444,8 @@
     "dmcluster.json",
     "animplayer.json",
     "msghndlr.json",
-    "support.json"
+    "support.json",
+    "targimpl.json"
   ],
   "progress": {
     "code_bytes": 1414572,
