@@ -1,278 +1,198 @@
+/* Frontline's file-support requests, the functions at the start of the
+   file record. TRKRequestSend follows Pikmin's CC0 support.c
+   (https://github.com/doldecomp/pikmin) with its two reply bytes declared in
+   the other order; the one-byte append is inlined (local inline copy of
+   msgbuf.c's TRKAppendBuffer1_ui8). The open, close and position requests are
+   Frontline's older protocol, written from the target: the command and
+   arguments are appended one by one (no CommandReply header), the I/O result
+   is a byte, and the reply is read from position 2. Functions are emitted in
+   reverse source order (-inline deferred). TRKSuppAccessFile, the last
+   function in the target, is not part of the unit (its read flag and byte
+   count are allocated to each other's registers; draft in
+   scratch/lib/support_wip.c). */
 #include "TRK_MINNOW_DOLPHIN/MetroTRK/Portable/support.h"
 #include "TRK_MINNOW_DOLPHIN/utils/common/MWTrace.h"
 #include "TRK_MINNOW_DOLPHIN/MetroTRK/Portable/msgbuf.h"
 #include "string.h"
 
-DSError TRKSuppAccessFile(u32 file_handle, u8* data, size_t* count, DSIOResult* io_result,
-                          BOOL need_reply, BOOL read) {
-    DSError error;
-    int replyBufferId;
-    TRKBuffer* replyBuffer;
-    u32 length;
-    int bufferId;
-    TRKBuffer* buffer;
-    u32 i;
-    u8 replyIOResult;
-    u32 replyLength;
-    BOOL exit;
-    CommandReply reply;
-
-    if (data == NULL || *count == 0) {
-        return DS_ParameterError;
+/* The append is inlined, as in Pikmin's trk.h (msgbuf.c's body). */
+inline DSError TRKAppendBuffer1_ui8(TRKBuffer* buffer, const u8 data) {
+    if (buffer->position >= 0x880) {
+        return DS_MessageBufferOverflow;
     }
 
-    exit = FALSE;
-    *io_result = DS_IONoError;
-    i = 0;
-    error = DS_NoError;
-    while (!exit && i < *count && error == DS_NoError && *io_result == 0) {
-        memset(&reply, 0, sizeof(CommandReply));
-
-        if (*count - i <= 0x800) {
-            length = *count - i;
-        } else {
-            length = 0x800;
-        }
-
-        reply.commandID.b = read ? DSMSG_ReadFile : DSMSG_WriteFile;
-
-        if (read) {
-            reply._00 = 0x40;
-        } else {
-            reply._00 = length + 0x40;
-        }
-
-        reply.replyError.r = file_handle;
-        *(u16*)&reply._0C = length;
-
-        TRKGetFreeBuffer(&bufferId, &buffer);
-        error = TRKAppendBuffer_ui8(buffer, (u8*)&reply, 0x40);
-
-        if (!read && error == DS_NoError) {
-            error = TRKAppendBuffer_ui8(buffer, data + i, length);
-        }
-
-        if (error == DS_NoError) {
-            if (need_reply) {
-                BOOL b = read && file_handle == 0;
-
-                error = TRKRequestSend(buffer, &replyBufferId, read ? 5 : 5, 3, !b);
-                if (error == DS_NoError) {
-                    replyBuffer = (TRKBuffer*)TRKGetBuffer(replyBufferId);
-                }
-                replyIOResult = *(u32*)(replyBuffer->data + 0x10);
-                replyLength = *(u16*)(replyBuffer->data + 0x14);
-                if (read && error == DS_NoError && replyLength <= length) {
-                    TRKSetBufferPosition(replyBuffer, 0x40);
-                    error = TRKReadBuffer_ui8(replyBuffer, data + i, replyLength);
-                    if (error == DS_MessageBufferReadError) {
-                        error = DS_NoError;
-                    }
-                }
-
-                if (replyLength != length) {
-                    length = replyLength;
-                    exit = TRUE;
-                }
-
-                *io_result = (DSIOResult)replyIOResult;
-                TRKReleaseBuffer(replyBufferId);
-            } else {
-                error = TRKMessageSend(buffer);
-            }
-        }
-
-        TRKReleaseBuffer(bufferId);
-        i += length;
-    }
-
-    *count = i;
-    return error;
+    buffer->data[buffer->position++] = data;
+    buffer->length++;
+    return DS_NoError;
 }
 
-DSError TRKRequestSend(TRKBuffer* msgBuf, int* bufferId, u32 p1, u32 p2, int p3) {
-    int error = DS_NoError;
-    TRKBuffer* buffer;
-    u32 counter;
-    int count;
-    u8 msgCmd;
-    int msgReplyError;
-    BOOL badReply = TRUE;
 
-    *bufferId = -1;
+DSError TRKRequestSend(TRKBuffer* msgBuf, int* bufferId, u32 p1, u32 p2, int p3)
+{
+	int error = DS_NoError;
+	TRKBuffer* buffer;
+	u32 timer;
+	int tries;
+	u8 msg_command;
+	u8 msg_error;
+	BOOL badReply = TRUE;
 
-    for (count = p2 + 1; count != 0 && *bufferId == -1 && error == DS_NoError; count--) {
-        error = TRKMessageSend(msgBuf);
-        if (error == DS_NoError) {
-            if (p3) {
-                counter = 0;
-            }
+	*bufferId = -1;
 
-            while (TRUE) {
-                do {
-                    *bufferId = TRKTestForPacket();
-                    if (*bufferId != -1)
-                        break;
-                } while (!p3 || ++counter < 79999980);
+	for (tries = p2 + 1; tries != 0 && *bufferId == -1 && error == DS_NoError; tries--) {
+		error = TRKMessageSend(msgBuf);
+		if (error == DS_NoError) {
+			if (p3) {
+				timer = 0;
+			}
 
-                if (*bufferId == -1)
-                    break;
+			while (TRUE) {
+				do {
+					*bufferId = TRKTestForPacket();
+					if (*bufferId != -1)
+						break;
+				} while (!p3 || ++timer < 79999980);
 
-                badReply = 0;
+				if (*bufferId == -1)
+					break;
 
-                buffer = TRKGetBuffer(*bufferId);
-                TRKSetBufferPosition(buffer, 0);
-                OutputData(&buffer->data[0], buffer->length);
-                msgCmd = buffer->data[4];
+				badReply = FALSE;
 
-                if (msgCmd >= DSMSG_ReplyACK)
-                    break;
+				buffer = TRKGetBuffer(*bufferId);
+				TRKSetBufferPosition(buffer, 0);
 
-                TRKProcessInput(*bufferId);
-                *bufferId = -1;
-            }
+				if ((error = TRKReadBuffer1_ui8(buffer, &msg_command)) != DS_NoError)
+					break;
 
-            if (*bufferId != -1) {
-                if (buffer->length < 0x40) {
-                    // OSReport("MetroTRK - bad reply size %ld\n", buffer->length);
-                    badReply = TRUE;
-                }
-                if (error == DS_NoError && !badReply) {
-                    msgReplyError = buffer->data[8];
-                }
-                if (error == DS_NoError && !badReply) {
-                    if ((int)msgCmd != DSMSG_ReplyACK || msgReplyError != DSREPLY_NoError) {
-                        badReply = TRUE;
-                    }
-                }
-                if (error != DS_NoError || badReply) {
-                    TRKReleaseBuffer(*bufferId);
-                    *bufferId = -1;
-                }
-            }
-        }
-    }
+				if (msg_command >= DSMSG_ReplyACK)
+					break;
 
-    if (*bufferId == -1) {
-        error = DS_Error800;
-    }
+				TRKProcessInput(*bufferId);
+				*bufferId = -1;
+			}
 
-    return error;
+			if (*bufferId != -1) {
+				if (buffer->length < p1) {
+					badReply = TRUE;
+				}
+				if (error == DS_NoError && !badReply) {
+					error = TRKReadBuffer1_ui8(buffer, &msg_error);
+				}
+				if (error == DS_NoError && !badReply) {
+					if (msg_command != DSMSG_ReplyACK || msg_error != DSREPLY_NoError) {
+						badReply = TRUE;
+					}
+				}
+				if (error != DS_NoError || badReply) {
+					TRKReleaseBuffer(*bufferId);
+					*bufferId = -1;
+				}
+			}
+		}
+	}
+
+	if (*bufferId == -1) {
+		error = DS_Error800;
+	}
+
+	return error;
 }
 
-DSError HandleOpenFileSupportRequest(const char* path, u8 replyError, u32* param_3,
-                                     DSIOResult* ioResult) {
-    DSError error;
-    int bufferId2;
-    int bufferId1;
-    TRKBuffer* tempBuffer;
-    TRKBuffer* buffer;
-    CommandReply reply;
+DSError HandleOpenFileSupportRequest(const char* path, u8 mode, u32* handle, u8* ioResult)
+{
+	DSError error;
+	int replyBufferId;
+	int bufferId;
+	TRKBuffer* buffer;
+	TRKBuffer* replyBuffer;
 
-    memset(&reply, 0, sizeof(CommandReply));
-    *param_3 = 0;
-    reply.commandID.b = DSMSG_OpenFile;
-    reply._00 = strlen(path) + 0x40 + 1;
-    reply.replyError.b = replyError;
-    *(u16*)&reply._0C = strlen(path) + 1;
-    TRKGetFreeBuffer(&bufferId1, &buffer);
-    error = TRKAppendBuffer_ui8(buffer, (u8*)&reply, 0x40);
-
-    if (error == DS_NoError) {
-        error = TRKAppendBuffer_ui8(buffer, (u8*)path, strlen(path) + 1);
-    }
-
-    if (error == DS_NoError) {
-        *ioResult = DS_IONoError;
-        error = TRKRequestSend(buffer, &bufferId2, 7, 3, 0);
-
-        if (error == DS_NoError) {
-            tempBuffer = TRKGetBuffer(bufferId2);
-        }
-
-        *ioResult = *(u32*)(tempBuffer->data + 0x10);
-        *param_3 = *(u32*)(tempBuffer->data + 0x8);
-        TRKReleaseBuffer(bufferId2);
-    }
-    TRKReleaseBuffer(bufferId1);
-    return error;
+	*handle = 0;
+	error = TRKGetFreeBuffer(&bufferId, &buffer);
+	if (error == DS_NoError)
+		error = TRKAppendBuffer1_ui8(buffer, DSMSG_OpenFile);
+	if (error == DS_NoError)
+		error = TRKAppendBuffer1_ui8(buffer, mode);
+	if (error == DS_NoError)
+		error = TRKAppendBuffer1_ui16(buffer, strlen(path) + 1);
+	if (error == DS_NoError)
+		error = TRKAppendBuffer_ui8(buffer, (u8*)path, strlen(path) + 1);
+	if (error == DS_NoError) {
+		*ioResult = 0;
+		error = TRKRequestSend(buffer, &replyBufferId, 7, 3, 0);
+		if (error == DS_NoError) {
+			replyBuffer = TRKGetBuffer(replyBufferId);
+			TRKSetBufferPosition(replyBuffer, 2);
+		}
+		if (error == DS_NoError)
+			error = TRKReadBuffer1_ui8(replyBuffer, ioResult);
+		if (error == DS_NoError)
+			error = TRKReadBuffer1_ui32(replyBuffer, handle);
+		TRKReleaseBuffer(replyBufferId);
+	}
+	TRKReleaseBuffer(bufferId);
+	return error;
 }
 
-DSError HandleCloseFileSupportRequest(int replyError, DSIOResult* ioResult) {
-    DSError error;
-    int replyBufferId;
-    int bufferId;
-    TRKBuffer* buffer1;
-    TRKBuffer* buffer2;
-    CommandReply reply;
+DSError HandleCloseFileSupportRequest(u32 handle, u8* ioResult)
+{
+	DSError error;
+	int replyBufferId;
+	int bufferId;
+	TRKBuffer* buffer;
+	TRKBuffer* replyBuffer;
 
-    memset(&reply, 0, sizeof(CommandReply));
-    reply.commandID.b = DSMSG_CloseFile;
-    reply._00 = 0x40;
-    reply.replyError.r = replyError;
-    error = TRKGetFreeBuffer(&bufferId, &buffer1);
-
-    if (error == DS_NoError) {
-        error = TRKAppendBuffer_ui8(buffer1, (u8*)&reply, sizeof(CommandReply));
-    }
-
-    if (error == DS_NoError) {
-        *ioResult = DS_IONoError;
-        error = TRKRequestSend(buffer1, &replyBufferId, 3, 3, 0);
-
-        if (error == DS_NoError) {
-            buffer2 = TRKGetBuffer(replyBufferId);
-        }
-
-        if (error == DS_NoError) {
-            *ioResult = *(u32*)(buffer2->data + 0x10);
-        }
-
-        TRKReleaseBuffer(replyBufferId);
-    }
-
-    TRKReleaseBuffer(bufferId);
-    return error;
+	error = TRKGetFreeBuffer(&bufferId, &buffer);
+	if (error == DS_NoError)
+		error = TRKAppendBuffer1_ui8(buffer, DSMSG_CloseFile);
+	if (error == DS_NoError)
+		error = TRKAppendBuffer1_ui32(buffer, handle);
+	if (error == DS_NoError) {
+		*ioResult = 0;
+		error = TRKRequestSend(buffer, &replyBufferId, 3, 3, 0);
+		if (error == DS_NoError) {
+			replyBuffer = TRKGetBuffer(replyBufferId);
+			TRKSetBufferPosition(replyBuffer, 2);
+		}
+		if (error == DS_NoError)
+			error = TRKReadBuffer1_ui8(replyBuffer, ioResult);
+		TRKReleaseBuffer(replyBufferId);
+	}
+	TRKReleaseBuffer(bufferId);
+	return error;
 }
 
-DSError HandlePositionFileSupportRequest(DSReplyError replyErr, u32* param_2, u8 param_3,
-                                         DSIOResult* ioResult) {
-    DSError error;
-    int bufferId2;
-    int bufferId1;
-    TRKBuffer* buffer1;
-    TRKBuffer* buffer2;
-    CommandReply reply;
+DSError HandlePositionFileSupportRequest(DSFileHandle handle, u32* position, u8 mode, u8* ioResult)
+{
+	DSError error;
+	int replyBufferId;
+	int bufferId;
+	TRKBuffer* buffer;
+	TRKBuffer* replyBuffer;
 
-    memset(&reply, 0, sizeof(CommandReply));
-    reply.commandID.b = DSMSG_PositionFile;
-    reply._00 = 0x40;
-    reply.replyError.r = replyErr;
-    reply._0C = *param_2;
-    reply._10[0] = param_3;
-    error = TRKGetFreeBuffer(&bufferId1, &buffer1);
-
-    if (error == DS_NoError) {
-        error = TRKAppendBuffer_ui8(buffer1, (u8*)&reply, sizeof(CommandReply));
-    }
-
-    if (error == DS_NoError) {
-        *ioResult = DS_IONoError;
-        *param_2 = -1;
-        error = TRKRequestSend(buffer1, &bufferId2, 3, 3, 0);
-
-        if (error == DS_NoError) {
-            buffer2 = TRKGetBuffer(bufferId2);
-
-            if (buffer2 != NULL) {
-                *ioResult = *(u32*)(buffer2->data + 0x10);
-                *param_2 = *(u32*)(buffer2->data + 0x18);
-            }
-        }
-
-        TRKReleaseBuffer(bufferId2);
-    }
-
-    TRKReleaseBuffer(bufferId1);
-    return error;
+	error = TRKGetFreeBuffer(&bufferId, &buffer);
+	if (error == DS_NoError)
+		error = TRKAppendBuffer1_ui8(buffer, DSMSG_PositionFile);
+	if (error == DS_NoError)
+		error = TRKAppendBuffer1_ui32(buffer, handle);
+	if (error == DS_NoError)
+		error = TRKAppendBuffer1_ui32(buffer, *position);
+	if (error == DS_NoError)
+		error = TRKAppendBuffer1_ui8(buffer, mode);
+	if (error == DS_NoError) {
+		*ioResult = 0;
+		error = TRKRequestSend(buffer, &replyBufferId, 3, 3, 0);
+		if (error == DS_NoError) {
+			replyBuffer = TRKGetBuffer(replyBufferId);
+			TRKSetBufferPosition(replyBuffer, 2);
+		}
+		if (error == DS_NoError)
+			error = TRKReadBuffer1_ui8(replyBuffer, ioResult);
+		if (error == DS_NoError)
+			error = TRKReadBuffer1_ui32(replyBuffer, position);
+		else
+			*position = -1;
+		TRKReleaseBuffer(replyBufferId);
+	}
+	TRKReleaseBuffer(bufferId);
+	return error;
 }
