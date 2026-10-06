@@ -216,7 +216,18 @@
     "isShellGroup.json",
     "ispausegroup.json",
     "isShellLibrary.json",
-    "ispauselibrary.json"
+    "ispauselibrary.json",
+    "sbhdrsze.json",
+    "smemhigh.json",
+    "sover.json",
+    "sstqmem.json",
+    "sstqreqi.json",
+    "sinitut.json",
+    "spoutlat.json",
+    "smixtmul.json",
+    "sstcrtap.json",
+    "memclear.json",
+    "rcmp2real.json"
   ],
   "progress": {
     "code_bytes": 1414572,

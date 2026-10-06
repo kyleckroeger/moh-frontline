@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 213496,
+    "matching_code_bytes": 214000,
     "total_executable_code_bytes": 1414572,
-    "percent": 15.092621655172024,
+    "percent": 15.1282508066044,
     "categories": {
       "reconstructed_game": 18288,
-      "restored_library": 195208
+      "restored_library": 195712
     },
-    "matching_functions": 1000
+    "matching_functions": 1011
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -161,6 +161,7 @@
     "config/GMFE69/mem_funcs.json": "cdc21eee7ec690a2964eff60bc9e230f0115ca0eb200b536179c0a35c292ae7a",
     "config/GMFE69/memblock.json": "32f964dc6ae072dcfc2a752964f9304b621e72e36d0d41e6463aae738d4e2ca7",
     "config/GMFE69/memclass.json": "3440558f5e682e0cbb84289712ac7e9950349a169f3d77b9a8afa66479c43f7d",
+    "config/GMFE69/memclear.json": "4a689d2fff424c02797768878de95e702940009f770391b6486a68a02a90b10b",
     "config/GMFE69/meminit.json": "e998bb69f335eef024a826392ec7db8c1e3ab91980b8fa54e524fae07d1504d0",
     "config/GMFE69/meminitadr.json": "381fcfbcbb6c274bbc1966d84f43a5ba64175efe3e51b4f0b3824230aa348172",
     "config/GMFE69/memlist.json": "ef56fcfd94d677ce15d3530d16d7ee9bc277d85e763a35d5a8a41e94649b5d67",
@@ -179,11 +180,12 @@
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "2127dc23332744b73d2c133aa73248ea8bfc7a0babeb56db237c0b083a075ff5",
+    "config/GMFE69/project.json": "54d6a39ecd7271e68bd85e6e8da320613725ea3eb4febfe2739bd8e5d59d74b2",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
     "config/GMFE69/rand.json": "958d1564ced02e430faca2258c920c5b7f36bd3ba70f168d2cbb54dace181f59",
+    "config/GMFE69/rcmp2real.json": "82df0a3260df64d5c8728681d2e9df2c98aef37f7a32cb82f120b74298ffd8ac",
     "config/GMFE69/rcmp_mpc_codec_chunk_types.json": "42f8600fb47568b4635edb3182a0d6d788bb94c0419a514e14604d564197d33d",
     "config/GMFE69/real_bridge.json": "fb24361e052cc387b259a75299cf4cd5cac5657115be7c0281dad09bdf4242ab",
     "config/GMFE69/runtime.json": "a141c730e48954adb12802ec9b1ab64c4b3ac71f37caeb7ea3af62616adf28e6",
@@ -196,6 +198,7 @@
     "config/GMFE69/s_modf.json": "19c80bbeaa8c51ee3125929c7519ced093a1c194a026b3ab10541bbaafda3e7a",
     "config/GMFE69/s_sin.json": "72a9c31b228d23acc079c9dd985ac8f6cdb2115b9df2cf5acd29882938696942",
     "config/GMFE69/s_tan.json": "4d4245a72ecbda130924076021f01024ffa5f912437d596842d21aa4b2ac1390",
+    "config/GMFE69/sbhdrsze.json": "56b712e4a476e2b1ee42819959ee17eb15138b1352f2e8dfc531e9134ace0871",
     "config/GMFE69/scanf.json": "8b6c8c106b3e30ef33cf95e2b2598aa1fa8faba019ccbe4cde367c2c19efc736",
     "config/GMFE69/sexithndl.json": "6c5ce5b1a58d2ddb2c89bc93ff456205622350a9281cc71a3231093184cedeff",
     "config/GMFE69/sfamplf.json": "b13155860911dd0c0ff3c10fca722f704b10c707b79e2b42f2eb5c58404709ed",
@@ -209,9 +212,17 @@
     "config/GMFE69/sfsplit.json": "38efa1f83aa3e5f039e7829ec2e0453d864e51267b2a7aa615b5f99bb815a122",
     "config/GMFE69/sfsrc.json": "ec214b854de58ec9d4a94738f7e2d01b63142489e2a6767301f1d19df63708bf",
     "config/GMFE69/signal.json": "11e4665069a531c20eb3bf1455bab453a4193e7fcc258de91c6db16275813b7f",
+    "config/GMFE69/sinitut.json": "00cc6e6ce17e96e0416ac7a844955447ed135bad3389aee181eb171e7ace6889",
     "config/GMFE69/slinkmix.json": "0d66b0e0297a0e7e7bf0c13cc7f212971c66ee4114cf017c282deb2b452f6755",
+    "config/GMFE69/smemhigh.json": "30c189fe76ffb256b7150078a4e21a3332faaf6adc511ff46f6be78d07e7ac6f",
+    "config/GMFE69/smixtmul.json": "bdabaea2d94c9578d3e7646d6cd7908b460a917cc7b78ef94c437314e6935ec8",
+    "config/GMFE69/sover.json": "3839268248f94b0431b48aa15746306337730ae92cbb86a3f8d8b94960f49375",
     "config/GMFE69/spantoaz.json": "0e3c799ee99a0820131c59ca50dbae62300eb93899d8495888384884db8c42db",
+    "config/GMFE69/spoutlat.json": "4c1a89fb601fa19899787388d0d48a88035ec48e2b1aa0fd3918be80ed62df4b",
     "config/GMFE69/ssine.json": "ab1e72c303f947cc940dd1d39e24614bd8f638dd228ea71235c2d724f37d0729",
+    "config/GMFE69/sstcrtap.json": "58839bb193e370113cd41d91e2e4604b363b986972822b2b637d8395b6a42088",
+    "config/GMFE69/sstqmem.json": "133ce067dc87885539fc3fa419e7c5ac6cc5831ea5c88e5e8699fc55acd77637",
+    "config/GMFE69/sstqreqi.json": "7d6ec034a51da5d3ccd3a5ef8531e1de37fae511c915151374c100a953436571",
     "config/GMFE69/ssysreal.json": "3b9fb3ecf4cd22c2c1d2c57eab822d87cdfdb5e946081517b26a19ceb8db67e1",
     "config/GMFE69/string.json": "dfcf9ebcd504cab3afb3e06b74c7e218ecadac89ebde48c40659fcaeb0a01628",
     "config/GMFE69/strtoul.json": "96027a37123019cd24fdaf9c4ec6caa8228464cf8362a2b3ba7e36acdb35dad5",
@@ -1008,13 +1019,16 @@
     "src/ea/inittmr.cpp": "2b8bc47a5536adecefaedb4c74d54e5a0509db63fdfef428e0975b1dcabababa",
     "src/ea/memblock.cpp": "9c22c07fb0234fb28e395fc44ebaa5d07b2ae93122bdbfb90b8e1b0da347e3ef",
     "src/ea/memclass.cpp": "a4eb43ad53e833f091a4ae51184503b05c3e24aa61a702e685f1358fe820fdc2",
+    "src/ea/memclear.cpp": "8533b60f48b86f07d120cb308bc5018b0275144d78c0cdeaa4bbf265d98c4d9e",
     "src/ea/meminit.cpp": "6f4b58a238cdb1b45a57d44204b6f524eb6a0e3468a4c5007b6b87891252a75f",
     "src/ea/meminitadr.cpp": "95eed033a03deab2f0918e8b1a92183e8cf0a9bb94d793f3558d6aa13d112d8d",
     "src/ea/memlist.cpp": "af06183e742ee289773e18004a7f251be79665847c496d5baad08faba2fff294",
     "src/ea/memrestore.cpp": "8abce98c790304dcbcda3aa59341f3ff3e19d0cfcb70505d022ea920572e4f76",
     "src/ea/memstd.cpp": "bdd831ad24f47d71d66682d7b32eb55077754f05d022543a80cbca4e4d4e884d",
     "src/ea/memunused.cpp": "8891e09cb882120333548c62aa2245dc6205bfa7122c8a65fa14a06e6b129fee",
+    "src/ea/rcmp2real.cpp": "1d046950eca9f279ad901b132d22290eb4f44d42d4605181f63b1b097122ac25",
     "src/ea/rcmp_mpc_codec_chunk_types.cpp": "b996231c1c402b6ecdd813bb69df3ae8a3580e537b71dd9fa91e238690bb3635",
+    "src/ea/sbhdrsze.c": "5770084b7e371a108e779fe2a9ce477bc0b926fdf847ffd289d38597d768151a",
     "src/ea/sexithndl.c": "b5dc86e69a579d07c16f0ef7558d5928fb5c5271c2748f3833c203e624a60019",
     "src/ea/sfamplf.c": "b5e0e1378b6b933600349577efcd46e525d10547f4a340f22efb78ac6441dde6",
     "src/ea/sfbpffir8.c": "a4457cb5938c1c4e76a760d9b00756685d20a9ca3deedba3b0888b403e21d137",
@@ -1026,9 +1040,17 @@
     "src/ea/sfmixer.c": "14b17cb1759d7c475ceaaa51442e10f1d44c3c0eb6de4f88e507757f95d9ae67",
     "src/ea/sfsplit.c": "c646089a4b40c6be760e9f276a65a43aa37c75b467b1fcc77fcdea8095e653df",
     "src/ea/sfsrc.c": "45a8e856a1ed709b59d651d51f19953d9ea89dfcf997a63da0a14576e32ae00f",
+    "src/ea/sinitut.c": "f0c0dfcb5f4485ce2cade109eea1f912602bb6fc6cc8c8872feb1ee87a080895",
     "src/ea/slinkmix.c": "3cf4c749e4f9caf67c6276ed5df5b66b07e13be40dc7192b1d952b35fd5225f5",
+    "src/ea/smemhigh.cpp": "19480b666796ebdee8028af12b3caa2477681e1d6cc63303029e78a56649d1c4",
+    "src/ea/smixtmul.c": "904c72fe015bac10ded57e46ac9f7fc9a4acb0218e25e3cbe4091b750336d11f",
+    "src/ea/sover.c": "195a5eb257fd99eb0337c24b3f263591fc147eb5c4d343a039faaf66c2cbd950",
     "src/ea/spantoaz.c": "e31c00ca71938e75d62f7465384c809d31a6bd0daa4b46f9d2576df1cbe2775c",
+    "src/ea/spoutlat.c": "a1d7da3e55226f65c8871111fb1c3c281232dcaefa174cf0551e91a99e313408",
     "src/ea/ssine.c": "93302d8c4f67ab20ec7e2ead484fb1726b447d5e118755a655f69a2b8479136c",
+    "src/ea/sstcrtap.c": "51537579f7489225dc62a5a98466afe8c2a8b06a46f8d27119b04505f3d9ea2e",
+    "src/ea/sstqmem.c": "c66c344cf92613406dce9b8cfb847c9065ba6e4a978a904e8871973a6e0fe00e",
+    "src/ea/sstqreqi.c": "acb9b3704ad1832746da5ed04cdc8709c583585454184c335132aa806287c190",
     "src/ea/ssysreal.c": "08872d0af87f62ff0a9c5171fb908b629202f85e585ef45923d546f90b77f4f8",
     "src/ea/syncfile.cpp": "2bd70dddb756dbb86b8eb75d2dd8a7c706d2c9decc0cde7d6b27f95383d8ca56",
     "src/ea/systask.cpp": "064e88a22a3eb4ce2abeccd180f0df17d49e86028b44b3fc0a54e8cf7365d4bb",
@@ -11316,6 +11338,435 @@
       "discarded_functions": [],
       "object_sha256": "6ffdb8f77247b7726bfe79aebc0f5ce40d4e862bc0f36cb92c8bbc094131b2f3",
       "linked_sha256": "60e3f34ba8424eafb7c979ab85ca1e788342cbc34b9679e86b1ca7bec72afc71"
+    },
+    {
+      "id": "sbhdrsze",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 28,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "edcd4e9590a95ddf7444ecf676903c03653a4b0edfe86172bbc14f242f20dff1",
+      "linked_sha256": "0688cb129d714bb8da78cd2a8e1c98180cf5c669968bfb54768918b28e3a4e41"
+    },
+    {
+      "id": "smemhigh",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 36,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "f09257a6702eb857d922794536f0b95e8ceb5ab3d48dc2e02c4a830cf938a519",
+      "linked_sha256": "0317534b3a146b95de84889add6654fcb280258a6ba84c9763dc9e4437bd47da"
+    },
+    {
+      "id": "sover",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 36,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "89b07b51f77c18abfcc299650ff43ed0db7b3fef10d4bfae65b827719e3afedd",
+      "linked_sha256": "0c909030e782daf28961c8737ac0ce6a7036a06a767ab5c75f70ef32d1f3055e"
+    },
+    {
+      "id": "sstqmem",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 44,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "5cc31f9311badf15908fe1b619a0520d652ed495afaac6fc33413a599f0ff6fc",
+      "linked_sha256": "7d353fd35ed5a6589c93a46d9d9347695f9eb4bee6d6ef0189031eedd261a0db"
+    },
+    {
+      "id": "sstqreqi",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 44,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "ae85fa72d372b337b4668731f85c9d75f2442a4667b52f5f4a017e13ed0c8df3",
+      "linked_sha256": "66919bba1586707b011bbce08b3b4ab61040df8b57a3051d748524abbc2958ee"
+    },
+    {
+      "id": "sinitut",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 52,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "d0728b911466ba80ac43c6d5c241448a76317b2ac2871b7600cf0842d2735375",
+      "linked_sha256": "3b92a362025ca3da6c2b17ed41d7236948d765be6487fcbae2a483de85b0069f"
+    },
+    {
+      "id": "spoutlat",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 60,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "b360e0936ae2a974566d396215fac1d1c6898e7f3396b783123091e89fd8cb47",
+      "linked_sha256": "5bafb8a07f47de5142a140760b5222a228e6bd671b5c05149115723c8bcbf507"
+    },
+    {
+      "id": "smixtmul",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 64,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "b7f7e8e258a1bcd9e3d835e6266b1760dba2f9cfa00fc3a268b69a072ce0fd76",
+      "linked_sha256": "48e1c5003dad1163d74d0ad5bc1606e28983fbf19f89a2a26e413d7b03fabdbb"
+    },
+    {
+      "id": "sstcrtap",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 64,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "963b03f6eff921ded1c29391c722c0fa9d7d2465eca709cb45e86fa5a1d7fa62",
+      "linked_sha256": "9c5f1ef6d9f6cb2c6d78fafc87bb735124f1a4567caf11ffdcbdf45b2b09c72c"
+    },
+    {
+      "id": "memclear",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 40,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "30d02c01c3036f3e94b032979c9eebb01fd86a59bb669feff06dea45b0a2f940",
+      "linked_sha256": "3bf5ce87bd0019487a54f0a068bafef1e7987fad5c73635dc532c0aa8f718110"
+    },
+    {
+      "id": "rcmp2real",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 36,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "d65b5904a1c3e53ff38f919b61d257bbd053d10459e6202c19f2c3e8ac5cce75",
+      "linked_sha256": "ead869b91a2f5eb0449e4c263bad55c45073cf22a45941e1dbddc48ee88dfa51"
     }
   ],
   "code_map": {
@@ -35363,31 +35814,29 @@
         ]
       },
       {
-        "name": "Unmatched files/rcmpbase.cpp [inferred file group]",
-        "file_record": 180,
-        "file_name": "rcmpbase.cpp",
+        "name": "Unknown file/.text @ 80105258",
         "ranges": [
-          {
-            "address": "0x80105234",
-            "size": 36,
-            "kind": "function",
-            "name": "SetREALDefaults__Q24RCMP11RCMP_SYSTEMFv",
-            "evidence": "same-class (inferred)"
-          },
           {
             "address": "0x80105258",
             "size": 20,
             "kind": "function",
             "name": "__ct__Q24RCMP11CODEC_IDATAFPQ24RCMP8STREAMERPFPQ24RCMP7DECODERPQ24RCMP8STREAMERPPQ24RCMP5CHUNK_vPFPQ24RCMP7DECODERPQ24RCMP8STREAMERPQ24RCMP5CHUNK_vUi",
-            "evidence": "between-same-file (inferred)"
+            "evidence": "unknown-file"
           },
           {
             "address": "0x8010526c",
             "size": 20,
             "kind": "function",
             "name": "__ct__Q24RCMP5CHUNKFv",
-            "evidence": "between-same-file (inferred)"
-          },
+            "evidence": "unknown-file"
+          }
+        ]
+      },
+      {
+        "name": "Unmatched files/rcmpbase.cpp [symbol evidence]",
+        "file_record": 180,
+        "file_name": "rcmpbase.cpp",
+        "ranges": [
           {
             "address": "0x80105280",
             "size": 48,
@@ -38336,13 +38785,6 @@
             "kind": "function",
             "name": "MEM_move",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80151050",
-            "size": 40,
-            "kind": "function",
-            "name": "MEM_clear",
-            "evidence": "unknown-file"
           }
         ]
       },
@@ -39111,14 +39553,12 @@
             "kind": "function",
             "name": "SNDAEMS_asyncloadmodulebankdone",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80158cb8",
-            "size": 36,
-            "kind": "function",
-            "name": "SNDMEM_gethighwater",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 80158cdc",
+        "ranges": [
           {
             "address": "0x80158cdc",
             "size": 104,
@@ -39195,14 +39635,12 @@
             "kind": "function",
             "name": "iSNDdivu64__F6SINT64i",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80159300",
-            "size": 60,
-            "kind": "function",
-            "name": "SNDPROFILE_outputlatency",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 8015933c",
+        "ranges": [
           {
             "address": "0x8015933c",
             "size": 64,
@@ -39244,14 +39682,12 @@
             "kind": "function",
             "name": "SNDBANKI_valid__Fi",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801597cc",
-            "size": 28,
-            "kind": "function",
-            "name": "SNDbankheadersize",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 801597e8",
+        "ranges": [
           {
             "address": "0x801597e8",
             "size": 136,
@@ -39566,28 +40002,12 @@
             "kind": "function",
             "name": "SNDSTRM_modifyhold",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8015c518",
-            "size": 44,
-            "kind": "function",
-            "name": "SNDSTRM_queuerequestid",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8015c544",
-            "size": 44,
-            "kind": "function",
-            "name": "SNDSTRM_queuemem",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8015c570",
-            "size": 64,
-            "kind": "function",
-            "name": "SNDSTRM_createtap",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 8015c5b0",
+        "ranges": [
           {
             "address": "0x8015c5b0",
             "size": 80,
@@ -39769,14 +40189,12 @@
             "kind": "function",
             "name": "SNDstopall",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8015d214",
-            "size": 36,
-            "kind": "function",
-            "name": "SNDover",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 8015d238",
+        "ranges": [
           {
             "address": "0x8015d238",
             "size": 244,
@@ -40151,14 +40569,12 @@
             "kind": "function",
             "name": "MIX_setpitch",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80161304",
-            "size": 64,
-            "kind": "function",
-            "name": "MIX_settimemult",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 80161344",
+        "ranges": [
           {
             "address": "0x80161344",
             "size": 220,
@@ -40219,14 +40635,12 @@
             "kind": "function",
             "name": "MIXI_initunpackxa",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80161760",
-            "size": 52,
-            "kind": "function",
-            "name": "MIXI_initunpackmt",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 80161794",
+        "ranges": [
           {
             "address": "0x80161794",
             "size": 8,

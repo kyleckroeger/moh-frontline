@@ -181,6 +181,8 @@ establish a type, the source comments say so.
 | `memrestore.cpp` | 1 | 372 | `MEM_restore`: clears duplicate `memclass` entries, then removes the classes and frees their OS-heap blocks |
 | `debugger.cpp`, `fontdriver.cpp`, `timer.cpp` | 4 | 28 | `DEBUG_break` (empty), `FONT_installdriver`, `TIMER_gettick`/`TIMER_getfrequency` |
 | `coda.cpp` | 2 | 16 | `SND::CODASetNew`/`CODASetDelete` allocation hooks |
+| `memclear.cpp`, `rcmp2real.cpp` | 2 | 76 | `MEM_clear`; `RCMP::RCMP_SYSTEM::SetREALDefaults` routes RCMP allocation to `MEM_allocalign`/`MEM_free` |
+| Sound one-function files: `sbhdrsze.c`, `smemhigh.cpp`, `sover.c`, `sstqmem.c`, `sstqreqi.c`, `sinitut.c`, `spoutlat.c`, `smixtmul.c`, `sstcrtap.c` | 9 | 428 | Small API wrappers; fields of the `sndgs`/`sndmix` globals are read through inferred offsets because their layouts are unknown |
 | `memblock.cpp` | 1 | 44 | `MEM_initblock` writes a block header ('BM', flags, size, neighbour links); the name and tail-size arguments are not stored |
 | `memlist.cpp` | 5 | 464 | Address-ordered circular free list (`FREE_find`, `FREE_findlargest`, `FREE_gettotalfree`, `FREE_add`, `FREE_remove`) with the class's 'BS' sentinel; `FREE_findlargest` needs the operand order of `0 > size - 1 ? 0 : size - 1` for its branchless max |
 | `memstd.cpp` | 1 | 8 | `MEM_size` |
