@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 244592,
+    "matching_code_bytes": 244876,
     "total_executable_code_bytes": 1414572,
-    "percent": 17.290883744341045,
+    "percent": 17.310960488402145,
     "categories": {
-      "reconstructed_game": 47860,
+      "reconstructed_game": 48144,
       "restored_library": 196732
     },
-    "matching_functions": 1236
+    "matching_functions": 1237
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -201,7 +201,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "e1e99c5322b65a9951a722bb26c8ba54acd1a1c02359d4d3ae3fa264a77f194e",
+    "config/GMFE69/project.json": "190a16dd3b76e6b86281dca1813ae24473c5f0432e119bd9ff0a4d2df5ee91c6",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -272,6 +272,7 @@
     "config/GMFE69/smixc.json": "02df5e7acacf931ac3a7d7e050a3362b8bb65dabdaf1fcebe5bbea843ba2b101",
     "config/GMFE69/smixfram.json": "d51872b43a7c17cc24a25006ba590aa09cb544d5c2c3cf82734f9da270731eb7",
     "config/GMFE69/smixhip.json": "4a68e74acc78bdfaacebfbe6adad36c62e7fd215878203935887f97448739d71",
+    "config/GMFE69/smixlowp.json": "d53e5c31fe798368a255f83acad448258398036638284e3bc62c00683bf6796a",
     "config/GMFE69/smixptch.json": "3ee346a2468c72ab7527f27bcf6828417178cbb8b0f2d6e04fbe0403fd87e159",
     "config/GMFE69/smixtmul.json": "37f93dd19460569e21edd1a0a60fc37651d392a42d8313b9ac31b49488492459",
     "config/GMFE69/sover.json": "e93f0bef0e81124940f9ca940effc94a8b0c69c04f988f2ffaa1b34c25494e48",
@@ -1182,6 +1183,7 @@
     "src/ea/smixc.c": "d72ae89323bd6d4b639820f99931a5b3e179e87bad9466dd45091ab22f60f90d",
     "src/ea/smixfram.c": "f9b2f944adf9a8e1e4cfc3dd30ce49ba917154599824ac5c528febb47dff988a",
     "src/ea/smixhip.c": "9c4a7a18f876ffc3e83e6a7c36d95de022bcc5ad2e1324cf0d1981305d2d9a0c",
+    "src/ea/smixlowp.c": "3a30e12bbbc6bdbce38ef1897a4b0dbe9342d675ad94bd13908f6643525fe6c2",
     "src/ea/smixptch.c": "47a348d834dba9fe0175a712c545385b61ba841ff47a27dc7fb70381cc7723fb",
     "src/ea/smixtmul.c": "904c72fe015bac10ded57e46ac9f7fc9a4acb0218e25e3cbe4091b750336d11f",
     "src/ea/sover.c": "195a5eb257fd99eb0337c24b3f263591fc147eb5c4d343a039faaf66c2cbd950",
@@ -15669,6 +15671,45 @@
       "discarded_functions": [],
       "object_sha256": "5c041d669b645bd103fd5890e8699ca8930919087dc19c46b0ba15cb504b8393",
       "linked_sha256": "b64f6ff9411a1d59109b13c521ea06d9b3de14288ad7a111285037abcba7a7f1"
+    },
+    {
+      "id": "smixlowp",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 284,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "6640bb336df4f42ad4ace743a002bdb139e4bfae771cce5372bd83cc799f110b",
+      "linked_sha256": "177f3a3bd9d3f74fe75e70fb644a450ce4496be69376205d79bda2235c3ac71c"
     }
   ],
   "code_map": {
@@ -42994,20 +43035,6 @@
             "kind": "function",
             "name": "MIX_getwetbuffer",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/smixlowp.c [symbol evidence]",
-        "file_record": 516,
-        "file_name": "smixlowp.c",
-        "ranges": [
-          {
-            "address": "0x80161420",
-            "size": 284,
-            "kind": "function",
-            "name": "MIX_setlowpass",
-            "evidence": "private-reference"
           }
         ]
       },

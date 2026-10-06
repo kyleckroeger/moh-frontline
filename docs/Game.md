@@ -195,6 +195,7 @@ establish a type, the source comments say so.
 | Sound voice and bank files: `spatkey.c`, `spktctoh.c`, `sstovrhd.c`, `smasterv.c`, `spitch.c`, `sfxlevel.c`, `sbplay.c`, `sautovol.c` | 9 | 1,300 | `iSNDpatchkey` (the per-patch voice iterator), master volume, pitch/effect/fade controls, bank playback |
 | `s3dlow.c`, `slib.c`, `smixptch.c` | 3 | 604 | `SND3dpos`; `iSNDcalcvol` (four volumes out of 127, divided by 127³, then optional key-scale and curve tables); `MIX_setpitch` creates the channel's resampler on first use |
 | `smixhip.c`, `sbpatinf.c`, `susercb.c`, `sclnt100.c`, `sgetdata.c`, `sststat.c` | 9 | 1,410 | High-pass stage, patch info, the user-data and 100 Hz client lists (`sndgs` viewed through an inferred struct), big-endian sample reads, stream status |
+| `smixlowp.c` | 1 | 284 | `MIX_setlowpass`: RC low-pass stage created on first use (cutoff below 1.0, a fraction of the output rate, scaled `<< 7`), removed otherwise; the rate is shifted as `(unsigned short)` so the compiler masks it |
 | `slinklst.c`, `ssysserv.c`, `sgettag.c`, `sstrstat.c` | 10 | 1,316 | Doubly linked lists, sound server clients and `SNDSYS_service`, the header tag reader, request status (64-bit helpers return `SINT64` in r3/r4) |
 | `sfilter.c`, `supf.c` | 6 | 720 | Mixer filter chains (insert by priority, remove, connect ports) and the 16-bit PCM unpacker |
 | `sbremove.c` | 1 | 360 | `SNDbankremove`: stop the bank's voices, run user-data callbacks per timbre, free sample memory (recursive for -1) |

@@ -319,7 +319,8 @@
     "dolphin_trk.json",
     "dispatch.json",
     "notify.json",
-    "serpoll.json"
+    "serpoll.json",
+    "smixlowp.json"
   ],
   "progress": {
     "code_bytes": 1414572,
