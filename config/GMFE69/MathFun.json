@@ -1,0 +1,133 @@
+{
+  "id": "MathFun",
+  "source": "src/game/MathFun.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80092c54",
+      "size": 656,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000c798",
+      "size": 48,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80013880",
+      "size": 72,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034eac0",
+      "size": 1,
+      "type": 8
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x80350398",
+      "size": 24,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "MathFunTestPercent__Fxx",
+      "address": "0x80092c54",
+      "size": 32,
+      "binding": 1
+    },
+    {
+      "name": "MathFunGetRandomPercent__Fv",
+      "address": "0x80092c74",
+      "size": 72,
+      "binding": 1
+    },
+    {
+      "name": "MathFunRandomRealSigned__Fff",
+      "address": "0x80092cbc",
+      "size": 164,
+      "binding": 1
+    },
+    {
+      "name": "MathFunRandomReal__Fff",
+      "address": "0x80092d60",
+      "size": 116,
+      "binding": 1
+    },
+    {
+      "name": "MathFunRandomI64__Fxx",
+      "address": "0x80092dd4",
+      "size": 152,
+      "binding": 1
+    },
+    {
+      "name": "MathFunRandomUI32Raw__Fv",
+      "address": "0x80092e6c",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "MathFunSRandom__FUi",
+      "address": "0x80092e90",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "MathFunCloseToZero__Fff",
+      "address": "0x80092eb8",
+      "size": 44,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "random": "0x8014f114",
+    "srand": "0x8013fc4c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "MathFun.cpp",
+  "original_file_index": 5594
+}

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 252152,
+    "matching_code_bytes": 252808,
     "total_executable_code_bytes": 1414572,
-    "percent": 17.825321015826695,
+    "percent": 17.871695466897407,
     "categories": {
-      "reconstructed_game": 55148,
+      "reconstructed_game": 55804,
       "restored_library": 197004
     },
-    "matching_functions": 1308
+    "matching_functions": 1316
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -64,6 +64,7 @@
     "config/GMFE69/Gecko_ExceptionPPC.json": "40e29a739fe917c560f5eb9768fcab768f7b2d6fafcf2e45c14439d96526b39e",
     "config/GMFE69/LinkedList.json": "602f883f2de084765f8942b8e59f71e78eba4a2f6decd323bf7ba7b64498ec81",
     "config/GMFE69/MallocInit.json": "8084909a7be143dbe22e68d1ec13bf2de5447a3ce15fc2023dff212530d007d1",
+    "config/GMFE69/MathFun.json": "d1ab7afb2af9cadf02e249106d121c5a9d825d11e0c21945f3b10467862b5682",
     "config/GMFE69/NMWException.json": "993919adc03819f768ac97f37687a067894f1324f0097fa28477b34baf8f9157",
     "config/GMFE69/NewMore.json": "a73fc17ffb36c223ebeace7005486781fe8461b7cdeead36cec2f2532fdd9aea",
     "config/GMFE69/OS.json": "1545bcf993357bb6d3a55d38f18f89d1633c3ce0a893f0c196874fe2f0113f54",
@@ -211,7 +212,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "bebfe6090aadb9d622d60be7b21071157b8931f7f83f8588b7dd9e330a0f24e9",
+    "config/GMFE69/project.json": "b07a1ce6eebef12c02358b719c8fcc182e2f8f0b4b86a46f230d32db7d054cc3",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1258,6 +1259,7 @@
     "src/ea/timerthread.cpp": "e2ee2dfbb74893029f0693bb5b76212bdd70223c892d9fd963984794c6193628",
     "src/game/LinkedList.cpp": "3007b79180a5844b8b799dc4fc11618f6b5da77679e6c73c6f388fec501beb2a",
     "src/game/MallocInit.cpp": "ba35f4c9ac530c717f81930ab9aa3a203ea81844e4776914ae6b51acf4188a74",
+    "src/game/MathFun.cpp": "5a60cf13aeb557c033e5adb906365756165d8401c8d9f239c72e95a9c96b96df",
     "src/game/anim.cpp": "9e086af4631ac941623f4e90cc4d858d9a4a1ddde96c1433e494b2f9411978d3",
     "src/game/animchan.cpp": "221d21b6310330f8d36e7a5735a51dcfdb4f162c8d5651ef577e1ee2c9ca6030",
     "src/game/animdb.cpp": "2ad9555c6c6df924ebfa81b4d627ee1284c7634ec8c91330edafca9d2753c2ac",
@@ -16467,6 +16469,45 @@
       "discarded_functions": [],
       "object_sha256": "c8bb15aff5273652fe8f59d7c6964597957a4573a93c5302e00325a8ccd7d910",
       "linked_sha256": "cadfc5d82cca543c3d0fa3bb99f2ec0f75ab3be3c4ec3cc3e7acbc007f6c12ff"
+    },
+    {
+      "id": "MathFun",
+      "category": "reconstructed_game",
+      "functions": 8,
+      "code_bytes": 656,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "0245f33fbdb5e8ca4e8073fdd0514fa6010accb812b7802400d50c95a997c7af",
+      "linked_sha256": "1e9ebc2f26ef736a8d47fab8e0a0dac6f196ff7844a5218bf5c6c71c541e6353"
     }
   ],
   "code_map": {
@@ -28881,71 +28922,10 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 80092c54",
-        "ranges": [
-          {
-            "address": "0x80092c54",
-            "size": 32,
-            "kind": "function",
-            "name": "MathFunTestPercent__Fxx",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/MathFun.cpp [symbol evidence]",
         "file_record": 106,
         "file_name": "MathFun.cpp",
         "ranges": [
-          {
-            "address": "0x80092c74",
-            "size": 72,
-            "kind": "function",
-            "name": "MathFunGetRandomPercent__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80092cbc",
-            "size": 164,
-            "kind": "function",
-            "name": "MathFunRandomRealSigned__Fff",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80092d60",
-            "size": 116,
-            "kind": "function",
-            "name": "MathFunRandomReal__Fff",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80092dd4",
-            "size": 152,
-            "kind": "function",
-            "name": "MathFunRandomI64__Fxx",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80092e6c",
-            "size": 36,
-            "kind": "function",
-            "name": "MathFunRandomUI32Raw__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80092e90",
-            "size": 40,
-            "kind": "function",
-            "name": "MathFunSRandom__FUi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80092eb8",
-            "size": 44,
-            "kind": "function",
-            "name": "MathFunCloseToZero__Fff",
-            "evidence": "between-same-file"
-          },
           {
             "address": "0x80092ee4",
             "size": 868,
