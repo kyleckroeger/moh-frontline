@@ -123,7 +123,7 @@ Exit: faster iteration on functions that are close but not yet byte-exact.
 
 1. Broaden mutation tests.
 2. Test in Dolphin via its GDB stub; report runtime separately from matching.
-3. Register the project on decomp.dev (`docs/Progress.md`).
+3. ~~Register the project on decomp.dev~~ — done; see `docs/Progress.md`.
 
 Exit: runtime status is measured, not assumed.
 

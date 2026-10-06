@@ -58,10 +58,12 @@ Groups are labeled `[local symbols only]`, `[symbol evidence]` or
 "Unknown file". Data, BSS, linker tables and original
 context earn no code credit. No fuzzy partial-match credit is used. Runtime is untested.
 
-## Registering the project
+## decomp.dev
 
-Once a successful default-branch workflow has uploaded its report, a repository
-admin can add the repository at <https://decomp.dev/manage/new>, naming the game
-**Medal of Honor: Frontline** and platform **GameCube**. Repository creation and
-report publication do not themselves register a project on decomp.dev. Its GitHub
-app is optional for faster updates and PR comments; the site also polls reports.
+The project is registered on decomp.dev as **Medal of Honor: Frontline**
+(GameCube): <https://decomp.dev/kyleckroeger/moh-frontline-decomp>. The site reads
+the `GMFE69_report` artifact from successful default-branch workflow runs and
+polls for new reports, so its figures can trail the latest push until the next
+poll. The page shows the published snapshot, not a rebuild: its numbers are
+only as current as the last locally verified snapshot that was pushed. The
+decomp.dev GitHub app (faster updates and PR comments) is optional.
