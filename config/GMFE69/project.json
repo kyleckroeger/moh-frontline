@@ -530,7 +530,8 @@
     "fiber_ivolume.json",
     "cdbgeom_volbox.json",
     "ShellMenu_mp.json",
-    "ShellMenu_card.json"
+    "ShellMenu_card.json",
+    "bsbifunc_reload.json"
   ],
   "progress": {
     "code_bytes": 1414572,

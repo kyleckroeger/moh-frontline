@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 329820,
+    "matching_code_bytes": 330248,
     "total_executable_code_bytes": 1414572,
-    "percent": 23.31588635997319,
+    "percent": 23.3461428615864,
     "categories": {
       "reconstructed_game": 91828,
-      "restored_library": 237992
+      "restored_library": 238420
     },
-    "matching_functions": 2215
+    "matching_functions": 2219
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -175,6 +175,7 @@
     "config/GMFE69/box_dispatch2.json": "8db122f9b7d451d16aaf860ab99a9f109ad5b10ea6ffe595b2588209ff0fb9ef",
     "config/GMFE69/box_ivolume.json": "8755469a1c9aad8e8b965b2f6d0363c31c816fe37027e493f0cd5b66bf74c938",
     "config/GMFE69/bsbifunc.json": "99035bd878c2fcf4e987350d7ca79bc34027217d39dbc8637bac1b4862dbc343",
+    "config/GMFE69/bsbifunc_reload.json": "1c4cf3f68706004ff73e659afe9c7255f813e3d12749c7e3a02f0f9983ff7472",
     "config/GMFE69/bsearch.json": "dd287b9523a5f289e22dc32f273d0f9756b610c9280ec41b84aac1d7ea50912b",
     "config/GMFE69/bsevents.json": "4d5e6958dc99d81cad43c900fad33dc5196739566f1e0212d9186c0a693aa6c3",
     "config/GMFE69/bsfile.json": "f961138f149b308ce0811724b7e70892a6161a21bf25023f415870d3dd03c2f7",
@@ -339,7 +340,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "32ce5d9035da7311f9cb2278c08bbb8219d01cde25210522273637399a2f2dd8",
+    "config/GMFE69/project.json": "6ae1ed77632846cf5d982decd9ac5483cad1c9ccf248bc635f6a47e48580ad19",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -1545,6 +1546,7 @@
     "src/game/box_dispatch2.cpp": "888954d46749f3e6592367d08008ade43490124d8608f9489cf610e9c2fcc022",
     "src/game/box_ivolume.cpp": "8775c9e39d897b4b24642218e28181563a640270bf16eeae90d23dec8ef82624",
     "src/game/bsbifunc.cpp": "abbee92185d42ea8e772df0ae5fb025a838fdd370ca35082b92394e29467abe3",
+    "src/game/bsbifunc_reload.cpp": "346efa2193b56f60aaa41ae94192172fbee3d6251aab2a68b18ab83aa91f4a7b",
     "src/game/bsevents.cpp": "1b5e58c1b9e2c631a8d1f8ac7839f9c533133df991df9974c5d73760c3af352b",
     "src/game/bsfile.cpp": "af375447dad6c73a39950974ef6a4ac7c892bbbb7541fba3b32587c6d1c69cab",
     "src/game/bsmachin.cpp": "29ef7c9c19942e3dc51d97c49266ac9b237c8658ffef55d4536c8968e7d44b1e",
@@ -24581,6 +24583,45 @@
       "discarded_functions": [],
       "object_sha256": "318bb184b89de1803d80a21c0a889d50aa877306b52342202804f3861140bc7e",
       "linked_sha256": "92e8b937aa10fffd0e6624f848005eca45d0883c9d1090ec2a9d9e34e12755c8"
+    },
+    {
+      "id": "bsbifunc_reload",
+      "category": "restored_library",
+      "functions": 4,
+      "code_bytes": 428,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "f59cdee4e66c7f9e1b1eaa183140c60cf780ca6f36c80a0ebae2d02c9d39271a",
+      "linked_sha256": "c83ac5e588c33c5618922cb9e6b84ddac4da386e54ec079ca02c05858190bdcb"
     }
   ],
   "code_map": {
@@ -27016,34 +27057,6 @@
             "size": 368,
             "kind": "function",
             "name": "BIFunc_PlayerStartCameraShake__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80030c0c",
-            "size": 104,
-            "kind": "function",
-            "name": "BIFunc_PlayerFinishedReloading__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80030c74",
-            "size": 116,
-            "kind": "function",
-            "name": "BIFunc_PlayerClearReloading__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80030ce8",
-            "size": 104,
-            "kind": "function",
-            "name": "BIFunc_PlayerReloadSingle__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80030d50",
-            "size": 104,
-            "kind": "function",
-            "name": "BIFunc_PlayerStartReloading__FPPiPv",
             "evidence": "exception-index"
           },
           {
