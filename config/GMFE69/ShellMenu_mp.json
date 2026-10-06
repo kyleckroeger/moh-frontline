@@ -1,0 +1,153 @@
+{
+  "id": "ShellMenu_mp",
+  "source": "src/game/ShellMenu_mp.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800deb60",
+      "size": 968,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000ed40",
+      "size": 48,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800159b0",
+      "size": 72,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "Save_ActiveWindowsFromIStudio__10CShellMenuFPi",
+      "address": "0x800deb60",
+      "size": 108,
+      "binding": 1
+    },
+    {
+      "name": "SetActivePlayers__10CShellMenuFPi",
+      "address": "0x800debcc",
+      "size": 124,
+      "binding": 1
+    },
+    {
+      "name": "PassMultiPlayerLevelSettingsToIStudio__10CShellMenuFPi",
+      "address": "0x800dec48",
+      "size": 96,
+      "binding": 1
+    },
+    {
+      "name": "SetupMultiPlayerLevelSettings__10CShellMenuFPi",
+      "address": "0x800deca8",
+      "size": 116,
+      "binding": 1
+    },
+    {
+      "name": "PassPlayersMultiPlayerControllerValue__10CShellMenuFi",
+      "address": "0x800ded1c",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "SetupPlayersMultiPlayerControllerValue__10CShellMenuFii",
+      "address": "0x800ded2c",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "PassPlayersModelAndTeamColorSettingForMultiplayer__10CShellMenuFiPi",
+      "address": "0x800ded3c",
+      "size": 76,
+      "binding": 1
+    },
+    {
+      "name": "SetupPlayersModelAndTeamColorSettingForMultiplayer__10CShellMenuFiPi",
+      "address": "0x800ded88",
+      "size": 28,
+      "binding": 1
+    },
+    {
+      "name": "PassPlayersMultiPlayerName__10CShellMenuFiPc",
+      "address": "0x800deda4",
+      "size": 52,
+      "binding": 1
+    },
+    {
+      "name": "SetupPlayersMultiPlayerName__10CShellMenuFiPc",
+      "address": "0x800dedd8",
+      "size": 60,
+      "binding": 1
+    },
+    {
+      "name": "PassPlayersAdvancedMultiPlayerSettingToIStudio__10CShellMenuFiPi",
+      "address": "0x800dee14",
+      "size": 112,
+      "binding": 1
+    },
+    {
+      "name": "SetupPlayersAdvancedMultiPlayerSettings__10CShellMenuFiPi",
+      "address": "0x800dee84",
+      "size": 68,
+      "binding": 1
+    },
+    {
+      "name": "GetSoundModeValue__10CShellMenuFv",
+      "address": "0x800deec8",
+      "size": 96,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "IsReady__14CDeviceManagerFi": "0x800841b4",
+    "g_inputMgr": "0x801ec80c",
+    "memcpy": "0x800094f8",
+    "strcpy": "0x80140040"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "ShellMenu.cpp",
+  "original_file_index": 8612
+}
