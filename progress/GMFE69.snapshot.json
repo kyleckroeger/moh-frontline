@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 219264,
+    "matching_code_bytes": 219864,
     "total_executable_code_bytes": 1414572,
-    "percent": 15.500377499342557,
+    "percent": 15.542793155809672,
     "categories": {
       "reconstructed_game": 18288,
-      "restored_library": 200976
+      "restored_library": 201576
     },
-    "matching_functions": 1068
+    "matching_functions": 1071
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -186,7 +186,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "0a5e602da423b4d30c35b387e0e3a137972323f638a30e82a0a1098dc0146bbe",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "4c0967d6a2d762fe06fc5e20dd018ad77fcda1de445c4d9508aeb99573753665",
+    "config/GMFE69/project.json": "92dbc3340c33ceec79308a088cdc7bf35249dec29330a285fac1e1f5cd25c611",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -195,6 +195,7 @@
     "config/GMFE69/rcmp_mpc_codec_chunk_types.json": "42f8600fb47568b4635edb3182a0d6d788bb94c0419a514e14604d564197d33d",
     "config/GMFE69/real_bridge.json": "fb24361e052cc387b259a75299cf4cd5cac5657115be7c0281dad09bdf4242ab",
     "config/GMFE69/runtime.json": "a141c730e48954adb12802ec9b1ab64c4b3ac71f37caeb7ea3af62616adf28e6",
+    "config/GMFE69/s3dlow.json": "2ba6c0cbc29d451044f6c09afc0270509b8dc3ec36a019d02cdbc06a9abcfcf9",
     "config/GMFE69/s_atan.json": "b6130d2ccba797fa29836d3fa3f07fbc4da188446df024ff3de704580ddde5e0",
     "config/GMFE69/s_copysign.json": "a549fbe76f6b278012ec447d49c0d13bd3f1911426f10964b9ccd2e6dbdbe719",
     "config/GMFE69/s_cos.json": "839bd5b0634b8a831ec10f3109a4f20d6c6d40eddf2b5e863a37f2a011645e35",
@@ -234,11 +235,13 @@
     "config/GMFE69/sinit16.json": "c597fc76e8ebb7c117b00aa0e4a86124970ef77f155035056a1387b4b394781a",
     "config/GMFE69/sinitut.json": "00cc6e6ce17e96e0416ac7a844955447ed135bad3389aee181eb171e7ace6889",
     "config/GMFE69/sinitxa.json": "bae05556cc5a1e534ae63850e0dd494048095ea71ae5fba42ea3309fe39baf92",
+    "config/GMFE69/slib.json": "4b9575650eb22914e107702f366a113a714f3c1eff45edf7ed107418b85be2bf",
     "config/GMFE69/slinkmix.json": "0d66b0e0297a0e7e7bf0c13cc7f212971c66ee4114cf017c282deb2b452f6755",
     "config/GMFE69/slowpass.json": "7f6738dc53296d348dfd5b3a82912c067addd7ed28f09087f217d590bc248830",
     "config/GMFE69/smasterv.json": "811991797ed3eb223d2a3b75a5a05b09aa41d1128d832ef55e4178c8c49a1d4c",
     "config/GMFE69/smemhigh.json": "30c189fe76ffb256b7150078a4e21a3332faaf6adc511ff46f6be78d07e7ac6f",
     "config/GMFE69/smixfram.json": "075c79c3bfedd409057d323e148248c2326f19f9987d254c5432e4921d5e4821",
+    "config/GMFE69/smixptch.json": "0afea185fd2751911104d2f4de2ec0bdfb8967e1448f0407b0a754992ff920ef",
     "config/GMFE69/smixtmul.json": "bdabaea2d94c9578d3e7646d6cd7908b460a917cc7b78ef94c437314e6935ec8",
     "config/GMFE69/sover.json": "3839268248f94b0431b48aa15746306337730ae92cbb86a3f8d8b94960f49375",
     "config/GMFE69/spantoaz.json": "0e3c799ee99a0820131c59ca50dbae62300eb93899d8495888384884db8c42db",
@@ -1080,6 +1083,7 @@
     "src/ea/pad.cpp": "5f1c88e95616a21d9851f07b5f33cca5179f38b95ccc83e0b3335de21e816dc3",
     "src/ea/rcmp2real.cpp": "1d046950eca9f279ad901b132d22290eb4f44d42d4605181f63b1b097122ac25",
     "src/ea/rcmp_mpc_codec_chunk_types.cpp": "b996231c1c402b6ecdd813bb69df3ae8a3580e537b71dd9fa91e238690bb3635",
+    "src/ea/s3dlow.c": "b79405b9175ff0299ba213a824c1599ebc4384af549addcc8725867ebc0390ce",
     "src/ea/sattrdef.c": "5e55d42f497ca48214b54fe67659d8ed3943f33e3491bdc4832a83938bf10363",
     "src/ea/sautovol.c": "4a573f376ca2d42262ef525803125fff38c6da2c74ef17423cf1ef7ec4c75ced",
     "src/ea/sballoc.c": "fa7832fbe895db18346753891610d230d2511a774d549f4a667e12200f8162da",
@@ -1108,11 +1112,13 @@
     "src/ea/sinit16.c": "8c2fbac00ea3352891c4ff3634b9ad9e1cd99da8a1341c63f80b57587ee91ea6",
     "src/ea/sinitut.c": "f0c0dfcb5f4485ce2cade109eea1f912602bb6fc6cc8c8872feb1ee87a080895",
     "src/ea/sinitxa.c": "fcffafa5258c6cef1b0fc935b34c896adcd4ad7f56a4f338f399a3e20dcf5726",
+    "src/ea/slib.c": "df89cfa054d43334b82e427721e86eb1f8db7d85c5d1181f7510172d7a231e2f",
     "src/ea/slinkmix.c": "3cf4c749e4f9caf67c6276ed5df5b66b07e13be40dc7192b1d952b35fd5225f5",
     "src/ea/slowpass.c": "50974ba23d1b0adf20b719306eb2457171fdbc979b397a59ed0865bbf60fcb38",
     "src/ea/smasterv.c": "8dd6bc618f934b245a33bf94dd6adda38c24ac8858394d3ce088a96f525f0232",
     "src/ea/smemhigh.cpp": "19480b666796ebdee8028af12b3caa2477681e1d6cc63303029e78a56649d1c4",
     "src/ea/smixfram.c": "f9b2f944adf9a8e1e4cfc3dd30ce49ba917154599824ac5c528febb47dff988a",
+    "src/ea/smixptch.c": "47a348d834dba9fe0175a712c545385b61ba841ff47a27dc7fb70381cc7723fb",
     "src/ea/smixtmul.c": "904c72fe015bac10ded57e46ac9f7fc9a4acb0218e25e3cbe4091b750336d11f",
     "src/ea/sover.c": "195a5eb257fd99eb0337c24b3f263591fc147eb5c4d343a039faaf66c2cbd950",
     "src/ea/spantoaz.c": "e31c00ca71938e75d62f7465384c809d31a6bd0daa4b46f9d2576df1cbe2775c",
@@ -13653,6 +13659,123 @@
       "discarded_functions": [],
       "object_sha256": "cb64db01df01764f9684e37a6c38b903cb666bb6f4f2fd6bcbead855bfb87333",
       "linked_sha256": "b71c21a945401f49adc488504a308ac6ee9a9604e304a6192a14c7fed574d2c2"
+    },
+    {
+      "id": "s3dlow",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 192,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "2bad8c9cf3b016bc256718078ee01a2d177a8ffa5d1db0b9700a8ccb64eb7fa0",
+      "linked_sha256": "7c3edb8970ba6c4a32cd559deabebf256bf8e4d497c32b32dc95032e9ac8745c"
+    },
+    {
+      "id": "slib",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 192,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "3b51a112aa6ead43e2379161e85d08991dd1843d9e34468ecfcc83b342fbe7ca",
+      "linked_sha256": "35288793b6d0fd7b558797edf35aa7299e45173a75194d9f3d21291b096f88f5"
+    },
+    {
+      "id": "smixptch",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 216,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "ae52aa5f6d783c41211cc7f34473acdfa5f17f902ca6fa12e493bf457c757cf7",
+      "linked_sha256": "23c79a076bb4e59ad2f24b3d0b494a24a4ba8f95166be099e1b327cf9ca46181"
     }
   ],
   "code_map": {
@@ -41756,13 +41879,6 @@
             "kind": "function",
             "name": "SNDtimeremaining",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8015d32c",
-            "size": 192,
-            "kind": "function",
-            "name": "SND3dpos",
-            "evidence": "unknown-file"
           }
         ]
       },
@@ -41795,18 +41911,6 @@
             "size": 96,
             "kind": "function",
             "name": "SNDVOICEI_get__Fi",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8015de40",
-        "ranges": [
-          {
-            "address": "0x8015de40",
-            "size": 192,
-            "kind": "function",
-            "name": "iSNDcalcvol__Fi",
             "evidence": "unknown-file"
           }
         ]
@@ -42082,18 +42186,6 @@
             "size": 12,
             "kind": "function",
             "name": "MIX_getwetbuffer",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8016122c",
-        "ranges": [
-          {
-            "address": "0x8016122c",
-            "size": 216,
-            "kind": "function",
-            "name": "MIX_setpitch",
             "evidence": "unknown-file"
           }
         ]

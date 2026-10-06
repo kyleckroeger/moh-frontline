@@ -273,7 +273,10 @@
     "spitch.json",
     "sfxlevel.json",
     "sbplay.json",
-    "sautovol.json"
+    "sautovol.json",
+    "s3dlow.json",
+    "slib.json",
+    "smixptch.json"
   ],
   "progress": {
     "code_bytes": 1414572,
