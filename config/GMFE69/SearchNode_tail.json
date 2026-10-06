@@ -1,0 +1,83 @@
+{
+  "id": "SearchNode_tail",
+  "source": "src/game/SearchNode_tail.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80056210",
+      "size": 152,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000abf4",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80011d74",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "__dt__11CSearchNodeFv",
+      "address": "0x80056210",
+      "size": 152,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "__dt__18CLinkedListElementFv": "0x800536f0",
+    "s_rsnAStarSearchNodeFreeList": "0x8034e910"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [
+    "s_rsnAStarSearchNodeFreeList"
+  ],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "s_rsnAStarSearchNodeFreeList"
+  ],
+  "original_file": "SearchNode.cpp",
+  "original_file_index": 2327
+}

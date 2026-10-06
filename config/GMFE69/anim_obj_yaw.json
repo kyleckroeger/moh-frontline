@@ -1,0 +1,103 @@
+{
+  "id": "anim_obj_yaw",
+  "source": "src/game/anim_obj_yaw.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80093804",
+      "size": 248,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000c848",
+      "size": 32,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80013988",
+      "size": 48,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x803503c8",
+      "size": 24,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "Orthonormalize__11CAnimObjectFv",
+      "address": "0x80093804",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "Yaw__11CAnimObjectFf",
+      "address": "0x80093894",
+      "size": 104,
+      "binding": 1
+    },
+    {
+      "name": "SetYaw__11CAnimObjectFf",
+      "address": "0x80093828",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "GetYaw__11CAnimObjectCFv",
+      "address": "0x80093858",
+      "size": 60,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "Orthonormalize__7CMatrixFv": "0x8008f1e8",
+    "RotateZ__7CMatrixFf": "0x80090194"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "anim_obj.cpp",
+  "original_file_index": 5634
+}

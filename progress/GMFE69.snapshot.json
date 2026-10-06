@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 315696,
+    "matching_code_bytes": 316324,
     "total_executable_code_bytes": 1414572,
-    "percent": 22.317421806737304,
+    "percent": 22.361816860506217,
     "categories": {
       "reconstructed_game": 92616,
-      "restored_library": 223080
+      "restored_library": 223708
     },
-    "matching_functions": 1970
+    "matching_functions": 1977
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -119,6 +119,7 @@
     "config/GMFE69/Screen.json": "2aa83342b878e16d3db95e22f1ed2c049d64dc5cfde3c14badbc7f4b82ce6869",
     "config/GMFE69/SearchNode.json": "2c7114d770c452c5de63f622ad4584807bd0b1ca57c24e32d8c7f24281651762",
     "config/GMFE69/SearchNodeList.json": "94a6f88f4b8062b0b71ee5f431cf4a7f102d07ca517660d3fe098a7fd2a44a2c",
+    "config/GMFE69/SearchNode_tail.json": "776226b1df84ac789283ba0367ca13acd0df61805f62e384d87dcbdcd1f3af23",
     "config/GMFE69/ShellMenu.json": "12334fab8c5ecec10bece4423a6da6effac2cfef65c1450ff865a6ca968239dd",
     "config/GMFE69/Soldier_object.json": "d625d33bbfdcbd4ae922099756d0a2525feb495afdd309517e996dc20e2f2aff",
     "config/GMFE69/Tank_object.json": "fa415f3ca15d6b7facea57a6c0f6cfa35329f2386377df8d73bd4f8f6a8ad599",
@@ -140,6 +141,7 @@
     "config/GMFE69/anim.json": "6c0f7deb10acc52b25def57dae0a0ea6329965cecfc7a591ba086eda441dd7a8",
     "config/GMFE69/anim_callback.json": "937a9409585d7e6813853da0dbdb6b7057a2f32bc4255a1bf44c4d988be46098",
     "config/GMFE69/anim_obj.json": "1fb127f32bc123fbf0681c3a0ff716eced3621257c89eb83b7fac576055a52ef",
+    "config/GMFE69/anim_obj_yaw.json": "253f71f8f76e55f78e1193eaa61bada56eba21bd63e01acad2f58a04a079ec7c",
     "config/GMFE69/animated.json": "287709fae92d1f2bc9baa748743d62ba1a49a85cf0e889096e17c7c94c0d6984",
     "config/GMFE69/animated_volume.json": "7d1c85b24d6774d0fda4ac1fcae8f10f8f1689c5af247d311403d1602def7bb4",
     "config/GMFE69/animchan.json": "6342a434b5e2b62c447c6545e0b905bc97dfb3e202fb456a6608dfe74f9cd25b",
@@ -217,6 +219,7 @@
     "config/GMFE69/filesys_ea.json": "7e51193ccc1025e6b9df34deeefd419cca59531cfd901b40537150b9c41b623c",
     "config/GMFE69/flush_cache.json": "aa1c08f24f7fa7ce6bf2cfa32e6ae398b7b93fea2374de2a6120d5e28e6b9578",
     "config/GMFE69/font.json": "192da369bd9089ea5ff935965a96644b66682a28b77c07194c7d7bc62b3539e8",
+    "config/GMFE69/font_draw.json": "cdf566e54af97acbd315fbcb192a0ba2a81dca6d8bb997e8a91843211d66f2b6",
     "config/GMFE69/fontchar.json": "52d15cdb73d5c697247c5e96fc9c264304ab2e315365308ab6d0f47d0d6364d8",
     "config/GMFE69/fontcreate.json": "8eae282aa690a9f53df0acd27ccc63183d4e34168a62224a70720500e604ea54",
     "config/GMFE69/fontdraw.json": "0ecf075b4265723208d5cc7e420145978c0569a9478ee6df6827f7611eaf8f0e",
@@ -297,7 +300,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "715c64c7a2a9d470c8d38ab47af747d50470ee0d417fc04c7e994a83c58e108a",
+    "config/GMFE69/project.json": "1320475d39f783daa1095e9a43d0c5c410c19250590d34879e5d90a0174ca7df",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -1448,6 +1451,7 @@
     "src/game/Screen.cpp": "7ee74460c46aef1832de0e8aad39f65a7b2dedad15386f1ed8f1657a47566cae",
     "src/game/SearchNode.cpp": "6b76164fd42a19131dcf90f9fe0ec86b20e0ef3d9c948defd80b5441bde9d333",
     "src/game/SearchNodeList.cpp": "738d75054ffdc5c611f06f3c0f8d330d60226794efc3684079e2280494a4d65c",
+    "src/game/SearchNode_tail.cpp": "ac957dcb51976bf56af734d6ff8433a4bc34a95f066fdc0708034b825032e2e2",
     "src/game/ShellMenu.cpp": "bdd9fe66a5c610b53fff1f0b46b076a733010fac633e7d3a1794e35757d22b44",
     "src/game/Soldier_object.cpp": "92bf858d3c8b06c691309b702079f4c10d3da7935ed4b50d4e27764fa7eeca41",
     "src/game/Tank_object.cpp": "898b0122c0c2efaf7919e2f4c17241cd68d0733d4f8fda2f2473ec61eb2df9d5",
@@ -1460,6 +1464,7 @@
     "src/game/anim.cpp": "9e086af4631ac941623f4e90cc4d858d9a4a1ddde96c1433e494b2f9411978d3",
     "src/game/anim_callback.cpp": "6364e30e1a95c04cf9b0da29fc29dddb3a3b2d334fdedb52b88d73ac2c3b574b",
     "src/game/anim_obj.cpp": "725abd73fe56c11fd2c8b08a127d30cfc73d5b6527fc15d9000668ac993e7dd7",
+    "src/game/anim_obj_yaw.cpp": "b3d101977ab91356b2dfc723c602990e495379e5c09089fa244bbc274bf43047",
     "src/game/animated.cpp": "7201a9c7fc7443902e3ff26bebada1970237b53aeeb9d6727209e4572908d76d",
     "src/game/animated_volume.cpp": "f62030622d9d9f6dfe61d463a94a3ecc33d2b6dedb85bb42aa8040c5ff0d85db",
     "src/game/animchan.cpp": "221d21b6310330f8d36e7a5735a51dcfdb4f162c8d5651ef577e1ee2c9ca6030",
@@ -1499,6 +1504,7 @@
     "src/game/fader.cpp": "fcc29dce43a0cf9eca978df224fba99596b634584e886a18cb434749daf4a4e0",
     "src/game/filesys.cpp": "edc914b77e55cfec7501ffc2150c34cefc432d28c3e9aa1eceea55a4cbe755ad",
     "src/game/font.cpp": "20dc282ade8622a6477d4a787b1df38aa6a0af7c35078543606bbd3b26152cf1",
+    "src/game/font_draw.cpp": "6824755c9510e8f1d0475d587a33721ecc5a2e74c3ac05b02bc7f50b9dc5e7af",
     "src/game/framework.cpp": "8cebad26aba8fe4a9a9ece0492c0bf7bb34882a1eec7dd48a1b3b93d0830914f",
     "src/game/gcSystem.cpp": "e97d4933fe4ba1c46e72d853db6ff53b0c8136020bef2237c66ad38a0d1e1068",
     "src/game/hearingvolume.cpp": "60c5c156b6483fd8b538aec12fe17bfbe67f89d90750f57d4bf72ca6b9716d6b",
@@ -22368,6 +22374,123 @@
       ],
       "object_sha256": "eb777bfadf58b1ab42f47f66d05083fbd52026e6e7ac097551129623865b19ad",
       "linked_sha256": "851ecc1bdf0e8030a26da8ebd09c1867dbf04adcf8d441e6876d2c6241218fe8"
+    },
+    {
+      "id": "anim_obj_yaw",
+      "category": "restored_library",
+      "functions": 4,
+      "code_bytes": 248,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "6b2375f5fbdabd72f8f846992e3771bedd02c800bd0f96468148f7795f97a115",
+      "linked_sha256": "ed71c97941718a1b859866adb2c7edcc1a5d209042837f1151f325174bc94f6c"
+    },
+    {
+      "id": "font_draw",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 228,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "8724b7ef1f5abef6b20531986c36bd0a47a01843f6b8779f82b862313c7b647b",
+      "linked_sha256": "f83badab12401d50637a0f5d8cddcc335f5ceedb56970d29c8126a4370d34021"
+    },
+    {
+      "id": "SearchNode_tail",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 152,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "37db2d5823a2d71d796e53297a2be61b39c701cee4e7e584f826e174ad333335",
+      "linked_sha256": "c5d9eddca13a421a7ca561e41528c9f99d89bfba8d473df4b455a796200ebb63"
     }
   ],
   "code_map": {
@@ -27482,13 +27605,6 @@
             "evidence": "exception-index"
           },
           {
-            "address": "0x80056210",
-            "size": 152,
-            "kind": "function",
-            "name": "__dt__11CSearchNodeFv",
-            "evidence": "exception-index"
-          },
-          {
             "address": "0x800562a8",
             "size": 60,
             "kind": "function",
@@ -30917,20 +31033,6 @@
             "evidence": "exception-index"
           },
           {
-            "address": "0x8007c200",
-            "size": 16,
-            "kind": "function",
-            "name": "StartDraw__11CFontDriverFP4FONT",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007c210",
-            "size": 212,
-            "kind": "function",
-            "name": "Draw__11CFontDriverFP4FONTPC8FONTCHARff",
-            "evidence": "exception-index"
-          },
-          {
             "address": "0x8007c2e4",
             "size": 60,
             "kind": "function",
@@ -32968,34 +33070,6 @@
             "size": 36,
             "kind": "function",
             "name": "GetPosition__11CAnimObjectCFR8CVector3",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80093804",
-            "size": 36,
-            "kind": "function",
-            "name": "Orthonormalize__11CAnimObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80093828",
-            "size": 48,
-            "kind": "function",
-            "name": "SetYaw__11CAnimObjectFf",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80093858",
-            "size": 60,
-            "kind": "function",
-            "name": "GetYaw__11CAnimObjectCFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80093894",
-            "size": 104,
-            "kind": "function",
-            "name": "Yaw__11CAnimObjectFf",
             "evidence": "exception-index"
           },
           {

@@ -477,7 +477,10 @@
     "soundschedule_shutdown.json",
     "targimpl_stop.json",
     "targimpl_step.json",
-    "targimpl_post.json"
+    "targimpl_post.json",
+    "anim_obj_yaw.json",
+    "font_draw.json",
+    "SearchNode_tail.json"
   ],
   "progress": {
     "code_bytes": 1414572,
