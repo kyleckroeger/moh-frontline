@@ -39,24 +39,30 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80029370",
-      "size": 364,
+      "address": "0x80029198",
+      "size": 836,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x80009ca4",
-      "size": 16,
+      "address": "0x80009c9c",
+      "size": 24,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x800108bc",
-      "size": 24,
+      "address": "0x800108b0",
+      "size": 36,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "BIFunc_CreateLightByType__FPPiPv",
+      "address": "0x80029198",
+      "size": 472,
+      "binding": 1
+    },
     {
       "name": "BIFunc_DestroyParticleSystem__FPPiPv",
       "address": "0x80029370",
@@ -77,8 +83,15 @@
     }
   ],
   "externals": {
+    "Create__6CLightFUl": "0x80078648",
+    "GetMatrix__11CQuaternionCFR7CMatrix": "0x80091c9c",
+    "InitClass__7CMatrixFv": "0x80090b78",
+    "PreTranslate__7CMatrixF8CVector3": "0x80090694",
+    "SetPos__7CMatrixF8CVector3": "0x80090728",
     "g_iCurrentBIFIndex": "0x8034e77c",
-    "g_pBuiltInFunctions": "0x8034e778"
+    "g_pBSObject": "0x8034e7e0",
+    "g_pBuiltInFunctions": "0x8034e778",
+    "s_ClassInit__7CMatrix": "0x8034eab0"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -87,7 +100,9 @@
   "discarded_local_functions": [],
   "sda_externals": [
     "g_iCurrentBIFIndex",
-    "g_pBuiltInFunctions"
+    "g_pBSObject",
+    "g_pBuiltInFunctions",
+    "s_ClassInit__7CMatrix"
   ],
   "original_file": "bsbifunc.cpp",
   "original_file_index": 443
