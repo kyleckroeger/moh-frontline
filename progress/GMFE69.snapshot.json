@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 312336,
+    "matching_code_bytes": 313340,
     "total_executable_code_bytes": 1414572,
-    "percent": 22.07989413052146,
+    "percent": 22.150869662343098,
     "categories": {
       "reconstructed_game": 92616,
-      "restored_library": 219720
+      "restored_library": 220724
     },
-    "matching_functions": 1955
+    "matching_functions": 1956
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -297,10 +297,11 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "b94b31a2dc25ca8c4eab96198dc04ad2b7b59a53a71dbe55fc2a373f15a2492e",
+    "config/GMFE69/project.json": "89ac3af376d8970da9c3dbfe6850e97ac323015d02ea2123d473fee9876a0653",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "857595ee19e74821d4aca9af67d0a3c3401cc72a4c454ac0d2520c585890a02b",
+    "config/GMFE69/propdat_core.json": "3e1676dae09643578833054460471b20fa22eac9ecf8a4512a38712b3dc2b9c6",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/publisher.json": "89c7f107dc348d73abd19bedbaf5b7c4ad534145f63e8a71a9ab5646117cd718",
     "config/GMFE69/pumhandler.json": "6807ad331fe3446f44854a45813c1a5f2986c2ef63431ba845f359ae17aa3393",
@@ -1516,6 +1517,7 @@
     "src/game/projectilebullet.cpp": "cdac318e5bfe1930442fa86d43227ce01dc8c4d8c571ac800610814275ec44e2",
     "src/game/propdat.cpp": "b1e26b00f10be619cc409432f6748e200a0064248119fafa81774718c305885d",
     "src/game/propdat_bsp.cpp": "1433421b4435385d1bde79defe5895260b12b84328ae62750cf9b5db44d0b0ef",
+    "src/game/propdat_core.cpp": "7523e56194069cbb910b3aa8f1fe42a31a57936bcfd3358e1fe1f92a1122037f",
     "src/game/publisher.cpp": "87dc201dcba9b510e214728ce34a9be1e5464a58669450da2666ef90c33df968",
     "src/game/pumhandler.cpp": "e57974fbd64a054880e20417a2677e984dab9d510d6681e542f811b257cd123a",
     "src/game/quaternion.cpp": "fa8f9823686ae44292e048b786be96ff1c8631e9190d543b00864daaea7c2d53",
@@ -22050,6 +22052,45 @@
       "discarded_functions": [],
       "object_sha256": "e76a30fc5c2f6e2902f3ecc8cd7586e0262518db0eb5332846df72ab449f878e",
       "linked_sha256": "8ec1701811426bdd8b42aeffbdea93106f3acf12525099c57bfdcb47c92639e1"
+    },
+    {
+      "id": "propdat_core",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 1004,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "809de721e7e8b2da0841c0fc3a2212e1c8e7d5606ae0e152d5cab63f6d4efcb2",
+      "linked_sha256": "165dc11e38e2783a14dc88f6657936104b8a599abbe8a8a1ea9ae012988e15dc"
     }
   ],
   "code_map": {
@@ -25832,13 +25873,6 @@
             "size": 984,
             "kind": "function",
             "name": "RestartPlayer__Fi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80043340",
-            "size": 1004,
-            "kind": "function",
-            "name": "PatchUpCore__FP15MOH_core_Struct",
             "evidence": "exception-index"
           },
           {
