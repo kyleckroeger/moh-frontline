@@ -116,6 +116,7 @@ and layouts it marks as descriptive stay descriptive here.
 | `projectilebullet.cpp` (fragment) | 5 | 40 | — | `CProjectileBullet` weak bounding-volume, damage, fired-by and cast accessors |
 | `world_volume.cpp` (fragment) | 5 | 40 | — | Weak `CWorldVolume::TestCollision` defaults (no collision) for triangles, planes, points, world volumes and CDB objects |
 | `cdbobject.cpp` (fragment) | 5 | 40 | — | The same weak `TestCollision` defaults for `CCDBObject` |
+| `csg_volume.cpp` (fragment) | 2 | 296 | — | `CCSGVolume`: empty `TransformedCopy` and `GetExtents`, the union of the hierarchy object's sub-volume extents starting from `FLT_MAX`/`-FLT_MAX` (sub-volume `GetExtents` virtual in the order of `__vt__7IVolume`). `Create` (which stores the vtables) and the collision tests are not reconstructed |
 | `cdbgeom.cpp` (fragment) | 5 | 156 | — | Weak `CCDBVolBox` collision tests: none against world volumes, otherwise the `CVolBox` base tests (point by value, CDB object, box, generic volume) |
 | `animated_volume.cpp` (fragment) | 8 | 444 | — | `CAnimatedVolume` collision tests: the `CVolSphere` base tests for triangles, planes, points, capsules, spheres and boxes; against CDB objects and generic volumes it swaps the collision order and calls the other volume's test (virtual order of `__vt__7IVolume`) |
 | `Screen.cpp` (fragment) | 4 | 32 | — | `CScreen` depth and frame formats (by address) and width and height (inferred offsets) |

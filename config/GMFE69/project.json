@@ -425,7 +425,8 @@
     "motionblur.json",
     "bsfile.json",
     "dmmorph.json",
-    "AISplinePath.json"
+    "AISplinePath.json",
+    "csg_volume.json"
   ],
   "progress": {
     "code_bytes": 1414572,
