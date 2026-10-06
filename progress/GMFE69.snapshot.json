@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 354416,
+    "matching_code_bytes": 354664,
     "total_executable_code_bytes": 1414572,
-    "percent": 25.0546455040818,
+    "percent": 25.072177308754874,
     "categories": {
       "reconstructed_game": 91828,
-      "restored_library": 262588
+      "restored_library": 262836
     },
-    "matching_functions": 2359
+    "matching_functions": 2360
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -201,6 +201,7 @@
     "config/GMFE69/bsbifunc_mountedmg.json": "2062db51ae5cabc311122d7889af11788e5e469f89c1a5574153c1ad8efb88ac",
     "config/GMFE69/bsbifunc_movewalk.json": "336c99c87985acd294023a0fdeb4182ec9cafbcbe5cf87b13b90bb3f70af3ee2",
     "config/GMFE69/bsbifunc_mpplayer.json": "954a9cf601c7bc1558ae303fe4920353ea2917d2530651e782d4231707204a16",
+    "config/GMFE69/bsbifunc_mpprompt.json": "8acbe735b5730f5a5310015a324d991eff20e6c143ae79aa80b69c53b23b84f1",
     "config/GMFE69/bsbifunc_mpweapons.json": "ff51dece443b0d6f13c0fdcf8063dc043c13d82592d9665c887fbecf19dfb892",
     "config/GMFE69/bsbifunc_objective.json": "bffc4e275e62a0a525e381743951cc8862a0a76a78197d15b8ec885eb1316e37",
     "config/GMFE69/bsbifunc_particle.json": "30315f05ff3c6f09f8876e938632f77efc409775c5851e62c121e2a9d2ab8c6e",
@@ -377,7 +378,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "17c92b0535dd021c25932b89556aab6ee282d1553af3ea5e67da316e41c128c0",
+    "config/GMFE69/project.json": "5e470ec16d2dcec0f850b11d917af24b104baa980063cc24d21973c5ec69f80d",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -1609,6 +1610,7 @@
     "src/game/bsbifunc_mountedmg.cpp": "b1cb58cc907e651f34d4919e2f95ccdc07a39b3b1ccdf5fa2dbc5bc4d92b8942",
     "src/game/bsbifunc_movewalk.cpp": "f012b1b58b4e1cd6daada0f4fe2c91ebc0fa6d0bf96166ccd7fa07e0e9235418",
     "src/game/bsbifunc_mpplayer.cpp": "163a34d3170b06d3fc48c48495bdc0939633b0e053a311dfdcd3520331b5c699",
+    "src/game/bsbifunc_mpprompt.cpp": "bd54c25c24fd31460b15cc3782c3d8d8c3eb5c5a80626c59a083873ae8110066",
     "src/game/bsbifunc_mpweapons.cpp": "56d1c0304cc74eeb2a448ca566cc6e656f2e516c312933ce1c5bbd46ad00d783",
     "src/game/bsbifunc_objective.cpp": "d33f6c2c69abefe5709022ad49bb8cdc7a468d1ff2f80168cafd6cc9089edde4",
     "src/game/bsbifunc_particle.cpp": "9c9e22249a23f609249b5c6ca43ce4a83d7c00d92e4345de285fe5adccc5c23a",
@@ -26139,6 +26141,45 @@
       "discarded_functions": [],
       "object_sha256": "97088809c9448c8bf09025d10044c8443022ea211a577e3656b9dcd1b6a90e36",
       "linked_sha256": "340cf7c663ad1f248c3d6ce6e602627c30d83b399ed05835f77796f387c73265"
+    },
+    {
+      "id": "bsbifunc_mpprompt",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 248,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "4448e34a077d087ea241e43401c8ca263c748cb3ac467c47f9fd51e4dcef74c2",
+      "linked_sha256": "592721739f4eea9dd4cf0549434edc995e01177481e067ab3630dc3d64a8d750"
     }
   ],
   "code_map": {
@@ -27266,13 +27307,6 @@
             "kind": "function",
             "name": "BIFunc_UpdateFragCount__FPPiPv",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x80023048",
-            "size": 248,
-            "kind": "function",
-            "name": "GetMPWeaponPrompt__F17EScriptBulletType",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x80023140",
