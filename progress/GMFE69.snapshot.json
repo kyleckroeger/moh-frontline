@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 240472,
+    "matching_code_bytes": 241256,
     "total_executable_code_bytes": 1414572,
-    "percent": 16.99962956993352,
+    "percent": 17.055052694383885,
     "categories": {
       "reconstructed_game": 47860,
-      "restored_library": 192612
+      "restored_library": 193396
     },
-    "matching_functions": 1199
+    "matching_functions": 1201
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -37,6 +37,7 @@
     "config/GMFE69/CARDRdwr.json": "f6823e5de5ee80dc52792b3137627ea5401106745a584bc344d54eeed63855b0",
     "config/GMFE69/CARDRead.json": "0613bbc21efae2d73ad3beb886b984a4e89b8a7163ab6ded75f0c2c5748f0262",
     "config/GMFE69/CARDStat.json": "e03bf32bdb249914a02454fa9671d8eb663e5d56997d8c6fc727fbaa6265d8b4",
+    "config/GMFE69/CARDStatEx.json": "2a80c60c16acc35ea620d6bb96b1cce4d72a1c86e6a0a7a9b3a751a877c549dd",
     "config/GMFE69/CARDUnlock.json": "7716542ea7b19b3b01b0afaf41869f75a4772afefa61129b459ba5b420bc3285",
     "config/GMFE69/CARDWrite.json": "281660a172ac3b60419b0fb73f382239d55a0c22e81768890c98b0e0ca2bb817",
     "config/GMFE69/CPlusLibPPC.json": "7130e3e0ed13640ac092a923a5e6e634569f91e7222d5e00b557489223254e1d",
@@ -194,7 +195,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "152181aef1326726aca4307d12e4c28ccdcc879202b974a840db89220a884797",
+    "config/GMFE69/project.json": "4dac16a48e987b4d864f34afc64bf24a0b531349bcac5d3802dcd1773a190683",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -836,7 +837,7 @@
     "src/dolphin/card/CARDRead.c": "e2c80995d24c987b9483f6ad7b6375595c28f24315eec1b7a8e52a5f71f5a999",
     "src/dolphin/card/CARDRename.c": "670bcf09749f19d6a28adf2ff1e4140b3a52a088d7ce4568ce734d7c574f8805",
     "src/dolphin/card/CARDStat.c": "b2d84be88b453cd1b600f64e2a3a4feb4060ec258980c44d82099a0a1cf8c93d",
-    "src/dolphin/card/CARDStatEx.c": "1739cc582bece6fc3e160e4a7ea1bee65c7cd243f87b7b25a6373d5a4104b42b",
+    "src/dolphin/card/CARDStatEx.c": "98558f8afdf77fd9f69b0b4b8c9d2208ac23f9fc98d21c6a6c4cd822aef1eb63",
     "src/dolphin/card/CARDUnlock.c": "a1463f934bcab1b024e306875ff63e1176c48398d991b4ef2e2ca1095aa21815",
     "src/dolphin/card/CARDWrite.c": "7509f975c0f12ee0ca9077ddda135495e2310041bf4b463ed95a5724895a1518",
     "src/dolphin/card/__card.h": "816a5b93b6785e51d283d53d3b9e106d3a8951f4db22120e566b7df1c73ccfc7",
@@ -15239,6 +15240,46 @@
       ],
       "object_sha256": "ece96250d337f30401eac4c105ae97fca2d051c47389bc106403e1c6b85bbd88",
       "linked_sha256": "6cbbe130632d027f8e875b6d7a3f933b6fba122845ccffeb60893fd48c6c1521"
+    },
+    {
+      "id": "CARDStatEx",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 784,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "__CARDSetStatusEx"
+      ],
+      "object_sha256": "008a80b0d80d6a5f99a479e49d9a806333b4194a4459ee187e463070c4036e7e",
+      "linked_sha256": "2ab520cb2678c7a37ebc117a8ead6005ff6cc16ed0ea8d3dc19bb2cd3303a3a4"
     }
   ],
   "code_map": {
@@ -39847,25 +39888,6 @@
             "size": 8,
             "kind": "function",
             "name": "__CARDIsOpened",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 801291dc",
-        "ranges": [
-          {
-            "address": "0x801291dc",
-            "size": 188,
-            "kind": "function",
-            "name": "__CARDGetStatusEx",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80129298",
-            "size": 596,
-            "kind": "function",
-            "name": "__CARDSetStatusExAsync",
             "evidence": "unknown-file"
           }
         ]
