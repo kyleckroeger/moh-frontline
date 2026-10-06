@@ -364,7 +364,8 @@
     "AIPlayerDoodad.json",
     "AIPlayerObject.json",
     "AISoldierDoodad.json",
-    "AISoldierObject.json"
+    "AISoldierObject.json",
+    "bsobject.json"
   ],
   "progress": {
     "code_bytes": 1414572,
