@@ -305,7 +305,8 @@
     "suppf.json",
     "suplf.json",
     "saramman.json",
-    "hlsfile.json"
+    "hlsfile.json",
+    "locatbig.json"
   ],
   "progress": {
     "code_bytes": 1414572,

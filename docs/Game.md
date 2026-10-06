@@ -213,4 +213,5 @@ establish a type, the source comments say so.
 | `bmem.cpp` | 4 | 680 | Block pools (`BPoolMan`): pool chain and circular free list; the static `AddNewPool` is defined last so it is not inlined. Members inferred |
 | `syncfile.cpp` | 9 | 1,100 | Synchronous FILESYS open/read/close/size/addbig/delbig/exists: chunked (0x8000) block IO driven by a completion callback; the context's polled fields are volatile, and `#pragma dont_inline` keeps `syncblockio` out of `FILESYS_readsync` as in the original |
 | `hlsfile.cpp` | 10 | 1,384 | High-level file services (`FILE_exists`, `FILE_size(z)`, `FILE_loadz`, `FILE_loadsize`, `FILE_loadbigheader`) run as atomic FILESYS operations; buffers come from `gFileSysOpts` |
+| `locatbig.cpp` (fragment) | 3 | 504 | BIG archive header type (0xC0FB, "BIGF", "BIG\0"), size and the (static) debug-tag reader; the entry lookup that follows (`BIG_locateentryz`, ...) is not reconstructed |
 

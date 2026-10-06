@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 232704,
+    "matching_code_bytes": 233208,
     "total_executable_code_bytes": 1414572,
-    "percent": 16.450488204205936,
+    "percent": 16.486117355638314,
     "categories": {
-      "reconstructed_game": 41684,
+      "reconstructed_game": 42188,
       "restored_library": 191020
     },
-    "matching_functions": 1141
+    "matching_functions": 1144
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -158,6 +158,7 @@
     "config/GMFE69/k_rem_pio2.json": "98e7c06d536b5d074d8001e65314d859cc90af96052300f3d60796c07912caec",
     "config/GMFE69/k_sin.json": "83303a92dec0945bbc9e8d29698030d3fed1d722b341f4dfd5c163705e01f806",
     "config/GMFE69/k_tan.json": "5e836f5272de8311719911c6d828e87588e253e3c00bf27901135926e0aedd42",
+    "config/GMFE69/locatbig.json": "951de0b6c115be49b7755a129307e91c30deb6c630ba9c49821cf71f0db076f0",
     "config/GMFE69/main_TRK.json": "53a7c3f8fdc516d26210c5002897d55d0bb651015e4e46852c26248d117ade9b",
     "config/GMFE69/mainloop.json": "2994436609fef577d03fa3220d0c44d5933025297dcfae7a7880dded142e765a",
     "config/GMFE69/math_ppc.json": "b9333b4067895dff685beb9b33137457e747e7894562c6b8de8258785645b3f6",
@@ -190,7 +191,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "b8319767d417f4d04e812ea3cefc2cf1e507fd9ea1c786b4b8dcfaa44406299e",
+    "config/GMFE69/project.json": "54ac724599edeb09db82a70cbb8ecd6650f9cecaffba3b70246d9cc7683bfef3",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1100,6 +1101,7 @@
     "src/ea/initosalloc.cpp": "4947ccd21ff1ff25a35565783cff19911daddc3bebc8bd4b31e22056e208885a",
     "src/ea/inittmr.cpp": "2b8bc47a5536adecefaedb4c74d54e5a0509db63fdfef428e0975b1dcabababa",
     "src/ea/initvblt.cpp": "a3a42c3bc4407ed5a92562dcfa09205e537dab818b4a2eb4be90b5277c056da6",
+    "src/ea/locatbig.cpp": "ca45ed414f16861187ae9feb34372cec3e208f72a2f3123058e6f7b1dc395275",
     "src/ea/memblock.cpp": "9c22c07fb0234fb28e395fc44ebaa5d07b2ae93122bdbfb90b8e1b0da347e3ef",
     "src/ea/memclass.cpp": "a4eb43ad53e833f091a4ae51184503b05c3e24aa61a702e685f1358fe820fdc2",
     "src/ea/memclear.cpp": "8533b60f48b86f07d120cb308bc5018b0275144d78c0cdeaa4bbf265d98c4d9e",
@@ -14965,6 +14967,45 @@
       "discarded_functions": [],
       "object_sha256": "c0e64be69235aa3008fa145572cfb649f132186a91dc29653220bebf23ea37c8",
       "linked_sha256": "73cf2fee3926cd735f6e6b3e96bfd6ef75b63ef24aa37b13b9e0b79e71b81b78"
+    },
+    {
+      "id": "locatbig",
+      "category": "reconstructed_game",
+      "functions": 3,
+      "code_bytes": 504,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "ccfdedd0f8158d09e60b767ec69a6f084ef7ae66492fa15735f253d79a7d8ac6",
+      "linked_sha256": "e2ae1147a5b1e2023cdd37fadffb60bafc98af827ed49da45728861a365f6d2a"
     }
   ],
   "code_map": {
@@ -41225,36 +41266,10 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 8014a318",
-        "ranges": [
-          {
-            "address": "0x8014a318",
-            "size": 76,
-            "kind": "function",
-            "name": "BIG_typeofheader",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8014a364",
-            "size": 120,
-            "kind": "function",
-            "name": "BIG_sizeofheader",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/locatbig.cpp [symbol evidence]",
         "file_record": 366,
         "file_name": "locatbig.cpp",
         "ranges": [
-          {
-            "address": "0x8014a3dc",
-            "size": 308,
-            "kind": "function",
-            "name": "BIG_debuginfo__FPCvPiPUi",
-            "evidence": "local-file-symbol"
-          },
           {
             "address": "0x8014a510",
             "size": 1176,
