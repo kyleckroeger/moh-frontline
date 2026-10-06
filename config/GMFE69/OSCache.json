@@ -40,18 +40,80 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x801119cc",
-      "size": 748,
+      "address": "0x8011183c",
+      "size": 1148,
       "type": 1
     },
     {
       "name": ".data",
       "address": "0x8018c9b8",
-      "size": 554,
-      "type": 1
+      "size": 41,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 554
     }
   ],
   "functions": [
+    {
+      "name": "DCEnable",
+      "address": "0x8011183c",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "DCInvalidateRange",
+      "address": "0x80111850",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "DCFlushRange",
+      "address": "0x80111880",
+      "size": 52,
+      "binding": 1
+    },
+    {
+      "name": "DCStoreRange",
+      "address": "0x801118b4",
+      "size": 52,
+      "binding": 1
+    },
+    {
+      "name": "DCFlushRangeNoSync",
+      "address": "0x801118e8",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "DCStoreRangeNoSync",
+      "address": "0x80111918",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "ICInvalidateRange",
+      "address": "0x80111948",
+      "size": 56,
+      "binding": 1
+    },
+    {
+      "name": "ICFlashInvalidate",
+      "address": "0x80111980",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "ICEnable",
+      "address": "0x80111990",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "LCDisable",
+      "address": "0x801119a4",
+      "size": 40,
+      "binding": 1
+    },
     {
       "name": "L2GlobalInvalidate",
       "address": "0x801119cc",
@@ -73,10 +135,10 @@
   ],
   "externals": {
     "DBPrintf": "0x8011026c",
-    "DCEnable": "0x8011183c",
-    "ICEnable": "0x80111990",
+    "OSDisableInterrupts": "0x801135cc",
     "OSDumpContext": "0x801121ac",
     "OSReport": "0x80112520",
+    "OSRestoreInterrupts": "0x801135f4",
     "OSSetErrorHandler": "0x801126cc",
     "PPCHalt": "0x80110198",
     "PPCMfhid0": "0x80110170",
@@ -97,6 +159,24 @@
     "__init_registers"
   ],
   "discarded_functions": [
+    "DCFlashInvalidate",
+    "DCDisable",
+    "DCFreeze",
+    "DCUnfreeze",
+    "DCTouchLoad",
+    "DCBlockZero",
+    "DCBlockStore",
+    "DCBlockFlush",
+    "DCBlockInvalidate",
+    "DCZeroRange",
+    "DCTouchRange",
+    "ICDisable",
+    "ICFreeze",
+    "ICUnfreeze",
+    "ICBlockInvalidate",
+    "ICSync",
+    "__LCEnable",
+    "LCEnable",
     "L2Init",
     "L2Enable",
     "L2Disable",
@@ -108,13 +188,14 @@
     "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
     "path": "src/os/OSCache.c"
   },
-  "original_file": "OSCache.c",
-  "original_file_index": 10681,
   "local_externals": [],
   "discarded_local_functions": [
+    "__LCEnable",
     "L2Init"
   ],
   "sda_externals": [],
+  "original_file": "OSCache.c",
+  "original_file_index": 10681,
   "adapted_from": {
     "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
     "manifest": "OSCache.json"

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 239256,
+    "matching_code_bytes": 239656,
     "total_executable_code_bytes": 1414572,
-    "percent": 16.913667172826834,
+    "percent": 16.941944277138244,
     "categories": {
       "reconstructed_game": 47860,
-      "restored_library": 191396
+      "restored_library": 191796
     },
-    "matching_functions": 1185
+    "matching_functions": 1195
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -68,7 +68,7 @@
     "config/GMFE69/OSAlloc.json": "67106699292772ba5d4d82046fe0693ce5131eb6185ba3ef8965019d65fa6948",
     "config/GMFE69/OSArena.json": "fae99d1b18d3b3604cb8dcad5702e89f090e83b078590b613d5d496d404af0d5",
     "config/GMFE69/OSAudioSystem.json": "77cbfb9ab923faeba0d5cbf61bd83b1ad685fbb3e710b1bb5365c5d2767f00a0",
-    "config/GMFE69/OSCache.json": "1cde56786574eb0990fadff2d5a823908f12be8bb020c8b3454c124467adc1a3",
+    "config/GMFE69/OSCache.json": "4cbbcacaea33b82a38ee40f79e9d8c99dde6a2a1f06b355415c7812fab582a21",
     "config/GMFE69/OSContext.json": "678a14c04297999d61b92b1c85c5aeaad341181b6a9ff0c80c62d12e87b562e6",
     "config/GMFE69/OSError.json": "c7b0ad34648538e94301b0bc8c5c6fe4b4bbea81546b42cb56b10e3af1a7655f",
     "config/GMFE69/OSFont.json": "afbd3ddd9f77cfc60e058845924cb05046468d2e3bba5c4b7180be9faa38f8d7",
@@ -902,7 +902,7 @@
     "src/dolphin/os/OSAlloc.c": "973c896549d15693041f2c44817dddf62c054896adb8ecbe9352deee6aebc4f6",
     "src/dolphin/os/OSArena.c": "4d4dcb84cf0ff6e06c8a00c362993598033b5142bd352d8f7dc3997a62fbae2c",
     "src/dolphin/os/OSAudioSystem.c": "8825adcdecc52c81582f148ce7dbf654352dad4e0a7fcfd90c3adeebe0d86de3",
-    "src/dolphin/os/OSCache.c": "dd57866253c4175f6c5e3caa16fa9f5ee7a79bceaf737ae83be9646583e75379",
+    "src/dolphin/os/OSCache.c": "d648ebfbb305285ed9327f5a651540808e484a577c36f04e84ee88eea5332895",
     "src/dolphin/os/OSDumpContext.c": "682c5274579b82e67b399f379dec1016c04a07f95868269c53c77a78b5893805",
     "src/dolphin/os/OSError.c": "5e03f95da7a21b9b9de8de421a9611006e9bd16212a6207c2bc63e29297f3b00",
     "src/dolphin/os/OSFatalScreen.c": "d8b538649b7ed51598bc17fc825ae4a3191f4370c2b44de8f36c1bcbcee64ee0",
@@ -1484,8 +1484,8 @@
     {
       "id": "OSCache",
       "category": "restored_library",
-      "functions": 3,
-      "code_bytes": 748,
+      "functions": 13,
+      "code_bytes": 1148,
       "compiler_family": "GC",
       "compiler_version": "1.2.5n",
       "compiler_flags": [
@@ -1518,14 +1518,32 @@
       ],
       "strip_unused": true,
       "discarded_functions": [
+        "DCFlashInvalidate",
+        "DCDisable",
+        "DCFreeze",
+        "DCUnfreeze",
+        "DCTouchLoad",
+        "DCBlockZero",
+        "DCBlockStore",
+        "DCBlockFlush",
+        "DCBlockInvalidate",
+        "DCZeroRange",
+        "DCTouchRange",
+        "ICDisable",
+        "ICFreeze",
+        "ICUnfreeze",
+        "ICBlockInvalidate",
+        "ICSync",
+        "__LCEnable",
+        "LCEnable",
         "L2Init",
         "L2Enable",
         "L2Disable",
         "L2SetDataOnly",
         "L2SetWriteThrough"
       ],
-      "object_sha256": "3193e6b13233ff1d1486f6782c7d8831e9dc00b88da574c2ef631e0a0dc5effd",
-      "linked_sha256": "b4ee414010313aa9c5b08b123c8f7e8a508fd4fda991bf5899d13277aaa597c1"
+      "object_sha256": "51b332fd62d80967ac05cc1926042ed774aa51660921bb090b401da11ee02ded",
+      "linked_sha256": "a3e7f42bed378a62dd96e48472d1fa9cfc25b25a77d6e90e184b1e8c4cc53818"
     },
     {
       "id": "AXProf",
@@ -39663,81 +39681,6 @@
             "size": 20,
             "kind": "function",
             "name": "__OSGetDIConfig",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8011183c",
-        "ranges": [
-          {
-            "address": "0x8011183c",
-            "size": 20,
-            "kind": "function",
-            "name": "DCEnable",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80111850",
-            "size": 48,
-            "kind": "function",
-            "name": "DCInvalidateRange",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80111880",
-            "size": 52,
-            "kind": "function",
-            "name": "DCFlushRange",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801118b4",
-            "size": 52,
-            "kind": "function",
-            "name": "DCStoreRange",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801118e8",
-            "size": 48,
-            "kind": "function",
-            "name": "DCFlushRangeNoSync",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80111918",
-            "size": 48,
-            "kind": "function",
-            "name": "DCStoreRangeNoSync",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80111948",
-            "size": 56,
-            "kind": "function",
-            "name": "ICInvalidateRange",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80111980",
-            "size": 16,
-            "kind": "function",
-            "name": "ICFlashInvalidate",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80111990",
-            "size": 20,
-            "kind": "function",
-            "name": "ICEnable",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801119a4",
-            "size": 40,
-            "kind": "function",
-            "name": "LCDisable",
             "evidence": "unknown-file"
           }
         ]
