@@ -152,12 +152,24 @@ Exit: runtime status is measured, not assumed.
   research stay under ignored `orig/`, `build/` or `scratch/`.
 - **Report separately.** Original-image baseline, individual function matches,
   complete source-build result, and runtime tests are distinct claims.
-- **Model roles.** Use a frontier model for reconstruction and a cheap model for
-  orchestration, verification and commits; the gate, not the model, decides.
+- **Model roles.** Assign models by phase, not by task. Reference-backed work
+  (Phase A: Dolphin SDK, MSL and MW-runtime units ported from a published,
+  attributable source) may be done by a cheaper unattended worker model.
+  Reconstruction without a byte-match reference (Phases B and C) uses a frontier
+  model, because its main risk is invented types, names and boundaries, which no
+  byte comparison detects.
+- **No model verifies.** `tools/reconstruct.py`, the tests and a deterministic
+  policy check (worker scope, unchanged accepted units, no assembly substitution,
+  exact progress accounting) decide whether work is ready for review. A human or
+  frontier-model reviewer then decides whether to accept it, checking fidelity,
+  provenance and licensing. Scripts commit unreviewed work only to per-job
+  branches. Merging to `main` and `progress_report.py --capture` happen only
+  after review.
 
 ## Part 5 — Open decisions
 
-- Which model drives reconstruction versus orchestration.
+- Whether the unattended-worker policy check should become a committed tool
+  with tests, rather than a local script.
 - Whether to adopt dtk-template's `configure.py`/ninja/objdiff integration or
   keep the stricter custom verifier.
 - Ghidra scope and a naming policy for decompiler-derived leads.
