@@ -18,6 +18,32 @@ tables verify:
   source order and only earlier definitions are inlined), `-RTTI off`,
   `-str reuse`, `-enum int`, `-fp hardware`, default small-data thresholds.
 
+### Additional evidence from `propdat.cpp` (not yet verified as a unit)
+
+Per-function comparisons of a `propdat.cpp` candidate (38 of its 43 functions
+match; the unit is not accepted) add three observations. `bstimer.cpp` compiles
+identically with and without both flag changes, so its manifest is unaffected.
+
+- **`-fp_contract on`.** Float code uses fused `fmadds`/`fnmsub` (distance
+  sums, the inline `sqrtf` refinement steps). Without the flag the compiler emits
+  separate multiplies and adds.
+- **`-str reuse,readonly`.** The file's string literals (the MMG warnings,
+  `"Unknown property type\n"`) are in `.rodata`, after a 108-byte header-defined
+  `dwi::dwi_prime_list`. Without `readonly` they go to `.data`.
+- **Release.** GC/1.3 and GC/2.0p1 produce different code for this file;
+  GC/1.3.2, 1.3.2r, 2.0, 2.5, 2.6 and 2.7 produce identical code. This narrows the
+  candidate releases but still does not identify the original one.
+
+Other compiler behaviour that the source has to reproduce:
+
+- Templates not declared `inline` (`offsetPtr<T>`) are instantiated at the end of
+  the unit as weak functions and are never auto-inlined; `inline` templates are.
+- Stack slots for inlined temporaries are grouped by inline depth (deepest
+  lowest), in source order within a depth. In the endian-swap code this determines
+  the field types and which small inline wrappers exist.
+- A by-value parameter or a user-declared copy constructor keeps a `CVector3` in
+  memory, which changes both scheduling and whether multiply-adds are fused.
+
 ## References
 
 Rising Sun (GR8E69, [moh-rising-sun](https://github.com/lifewillbeokay/moh-rising-sun))
