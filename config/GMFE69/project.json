@@ -573,7 +573,10 @@
     "bsbifunc_floatingbone.json",
     "bsbifunc_objectives.json",
     "bsbifunc_cheats.json",
-    "bsbifunc_dump.json"
+    "bsbifunc_dump.json",
+    "bsbifunc_ambselect.json",
+    "bsbifunc_jaw.json",
+    "bsbifunc_mood.json"
   ],
   "progress": {
     "code_bytes": 1414572,
