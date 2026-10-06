@@ -437,7 +437,8 @@
     "pumhandler.json",
     "saems.json",
     "snddrv.json",
-    "devicemgr.json"
+    "devicemgr.json",
+    "MemoryCardGC.json"
   ],
   "progress": {
     "code_bytes": 1414572,

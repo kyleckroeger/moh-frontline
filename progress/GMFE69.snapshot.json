@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 283544,
+    "matching_code_bytes": 283708,
     "total_executable_code_bytes": 1414572,
-    "percent": 20.04450816218616,
+    "percent": 20.056101774953838,
     "categories": {
-      "reconstructed_game": 83664,
+      "reconstructed_game": 83828,
       "restored_library": 199880
     },
-    "matching_functions": 1830
+    "matching_functions": 1833
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -77,6 +77,7 @@
     "config/GMFE69/LinkedList.json": "602f883f2de084765f8942b8e59f71e78eba4a2f6decd323bf7ba7b64498ec81",
     "config/GMFE69/MallocInit.json": "8084909a7be143dbe22e68d1ec13bf2de5447a3ce15fc2023dff212530d007d1",
     "config/GMFE69/MathFun.json": "d1ab7afb2af9cadf02e249106d121c5a9d825d11e0c21945f3b10467862b5682",
+    "config/GMFE69/MemoryCardGC.json": "d0bdea9e1e237d1338465e25e2384eb2d002af15dcb4adc35a104a28e17d77e4",
     "config/GMFE69/Moh2.json": "5f1f093ff156a9f0b0641ede8edc5664e6e11dfc10ed0e6ad1e75fa8d857054d",
     "config/GMFE69/NMWException.json": "993919adc03819f768ac97f37687a067894f1324f0097fa28477b34baf8f9157",
     "config/GMFE69/NewMore.json": "a73fc17ffb36c223ebeace7005486781fe8461b7cdeead36cec2f2532fdd9aea",
@@ -282,7 +283,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "b9b2ea49e9fddbf61e129208fe9a94a3f2fd6c1ed9d70ce1d2b9a9e99b0cc37b",
+    "config/GMFE69/project.json": "8c029331258970d039163d81958e873a956f3e2518b80734001531e8a795dc6c",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
@@ -1384,6 +1385,7 @@
     "src/game/LinkedList.cpp": "3007b79180a5844b8b799dc4fc11618f6b5da77679e6c73c6f388fec501beb2a",
     "src/game/MallocInit.cpp": "ba35f4c9ac530c717f81930ab9aa3a203ea81844e4776914ae6b51acf4188a74",
     "src/game/MathFun.cpp": "5a60cf13aeb557c033e5adb906365756165d8401c8d9f239c72e95a9c96b96df",
+    "src/game/MemoryCardGC.cpp": "3b9c68f90347302a19fd207c3797546ee6df1cd8df7bf097885b335a0e882f77",
     "src/game/Moh2.cpp": "de6c92093366f02578f9e8b8d2f69e0de0bece31142f95b7a51ed02dd533c3fb",
     "src/game/Pause.cpp": "8cb08efb80ca5f837f5fe7e9f2755ec247d10282133bd0f6d5229a573779951e",
     "src/game/Screen.cpp": "7ee74460c46aef1832de0e8aad39f65a7b2dedad15386f1ed8f1657a47566cae",
@@ -20575,6 +20577,45 @@
       "discarded_functions": [],
       "object_sha256": "4d85e3ccb988ed19c19bad1262c8e2d119cf7da4ef144fd7afac23f205fef97d",
       "linked_sha256": "fc9d8d31e8e4c720e0cc3588ec7e06196f2c2155f16127eb9ffcd3bd6ee6b27d"
+    },
+    {
+      "id": "MemoryCardGC",
+      "category": "reconstructed_game",
+      "functions": 3,
+      "code_bytes": 164,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "4da648d71e59436e1a0220d03efa92687138da5918025b2081f323d2e9e237ae",
+      "linked_sha256": "ba0faf802cd26cb15cd1e5c4d255af67e09c80d5fc3d625d248cf7b8148ac44c"
     }
   ],
   "code_map": {
@@ -39185,27 +39226,6 @@
             "size": 204,
             "kind": "function",
             "name": "QuerySlot__11CMemoryCardFi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f09f4",
-            "size": 4,
-            "kind": "function",
-            "name": "Initialize__11CMemoryCardFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800f09f8",
-            "size": 60,
-            "kind": "function",
-            "name": "__dt__11CMemoryCardFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f0a34",
-            "size": 100,
-            "kind": "function",
-            "name": "__ct__11CMemoryCardFv",
             "evidence": "exception-index"
           }
         ]
