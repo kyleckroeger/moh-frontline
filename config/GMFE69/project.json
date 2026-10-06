@@ -456,7 +456,8 @@
     "scene.json",
     "hlafile.json",
     "soundschedule.json",
-    "AIStatus.json"
+    "AIStatus.json",
+    "svol.json"
   ],
   "progress": {
     "code_bytes": 1414572,
