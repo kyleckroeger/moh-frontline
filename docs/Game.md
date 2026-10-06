@@ -41,6 +41,12 @@ Other compiler behaviour that the source has to reproduce:
 - Stack slots for inlined temporaries are grouped by inline depth (deepest
   lowest), in source order within a depth. In the endian-swap code this determines
   the field types and which small inline wrappers exist.
+- Whole-vector copies that move a `CVector3` as two `lfd`/`stfd` pairs (row
+  accessors, some temporaries) are reproduced with a double-pair view: the
+  four floats in a union with `double pair[2]`, 8-byte aligned, so the
+  implicit copy goes through the doubles. The union is inferred from the
+  instructions (the original layout is four floats); it is used only in units
+  where the paired copies are observed.
 - A by-value parameter or a user-declared copy constructor keeps a `CVector3` in
   memory, which changes both scheduling and whether multiply-adds are fused.
 
@@ -199,8 +205,7 @@ and layouts it marks as descriptive stay descriptive here.
 | `animemot.cpp` (fragment) | 2 | 88 | — | ARAM transfer callbacks: record the completion tick in `end` and clear `g_bDMAToARAM` or `g_bDMAToMRAM` |
 | `sound.cpp` (fragment) | 10 | 396 | — | `CSoundSysLock` (enters the sound critical section) and the `CSoundStream` wrappers over the EA stream API: pause and unpause through the pitch multiplier (0 and 4096), fades, volume, request and stream status, purge and file queueing (stream handle at the start of the object, inferred) |
 | `matstack.cpp` (fragment) | 14 | 1,020 | — | `CMatrixStack`: push/pop/load/store/identity/row scaling on a stack of matrices allocated with `DWI_allocalign`, the current-stack pointer and the global `g_matStack` created by `InitClass` (which inlines the constructor, `Allocate(8)` and `SetCurrent`). Only `__sinit_matstack_cpp` is left out: it constructs an unidentified global `CMatrix` |
-| `anim_obj.cpp` (fragment) | 22 | 344 | — | The first `CAnimObject` functions: the empty overrides (weak in the image: inline in the class and emitted for its vtable, so `__declspec(weak)` here), `MarkForDestruction` (subject base, then removal from `g_scene`), attachment flags, `SetTMLocalToWorld` and the light-volume manager calls. The class is an inferred non-virtual view (members at their offsets in a ~9.4 KB object). The row accessors after them copy 16-byte vectors with `lfd`/`stfd` into the result, which no honest `CVector3` view reproduced (draft in `scratch/lib/anim_obj_wip.cpp`) |
-| `anim_obj_yaw.cpp` (fragment of `anim_obj.cpp`) | 4 | 248 | — | `0x80093804`: `CAnimObject::Orthonormalize`, `SetYaw`/`GetYaw` (yaw stored as a 24-bit fraction of a turn, 2670176.75 per radian) and `Yaw` (rotate the transform about Z, add to the stored yaw). A second unit of the record |
+| `anim_obj.cpp` (fragment) | 30 | 736 | — | The first `CAnimObject` functions, `0x8009361c`-`0x800938fc`: the empty overrides (weak in the image: inline in the class and emitted for its vtable, so `__declspec(weak)` here), `MarkForDestruction` (subject base, then removal from `g_scene`), attachment flags, `SetTMLocalToWorld`, the light-volume manager calls, the row accessors `GetUpward`/`GetForward`/`GetRightward`/`GetPosition` (16-byte rows copied as two `lfd`/`stfd` pairs, reproduced by the double-pair `CVector3` view), `Orthonormalize`, `SetYaw`/`GetYaw` (yaw as a 24-bit fraction of a turn, 2670176.75 per radian) and `Yaw`. The class is an inferred non-virtual view (members at their offsets in a ~9.4 KB object) |
 | `AnimObjFactory.cpp` (fragment) | 3 | 1,016 | — | Weak endian conversions of the object collision data (count and a second word, then each 128-byte box), each box (its `CVolBox`, then the word at +112) and `CVolBox` (width, depth, height, then three basis rows and the centre through an always-inlined `CVector3` swap, inferred) |
 | `fader.cpp` (fragment) | 2 | 120 | — | `CFaderControl::IsFading` and the constructor (its `CColor` members copied byte by byte, so `CColor` has a member-wise copy constructor; the vtable is external because `Update`, the key function, is outside the unit). The `CFader` functions after them are drafted with deferred inlining; `SetControl` is 30 lines off (it keeps two colour temporaries; draft in `scratch/lib/fader_wip.cpp`) |
 | `fader_color.cpp`, `fader_init.cpp` (fragments of `fader.cpp`) | 2 | 84 | — | `CFader::SetColor` (`0x8007bfa4`, stores the fade colour) and `CFader::Init` (`0x8007c024`, keeps the render list and registers the fader bin), each its own unit of the record |

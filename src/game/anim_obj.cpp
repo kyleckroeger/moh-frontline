@@ -5,12 +5,21 @@
 // their offsets, and the class's virtual table is not reproduced here. The
 // empty overrides are inline in the class in the original (weak symbols,
 // emitted for the vtable), so they are defined __declspec(weak) here.
+// CVector3 view: four floats, 8-byte aligned, overlaid with two doubles. The
+// union is inferred from the code, not the original declaration: whole-vector
+// copies in this file (the row accessors) move each vector as two lfd/stfd
+// pairs, which an implicit copy through the double pair reproduces.
 class CVector3 {
 public:
-    float x;
-    float y;
-    float z;
-    float w;
+    union {
+        struct {
+            float x;
+            float y;
+            float z;
+            float w;
+        };
+        double pair[2];
+    };
 } __attribute__((aligned(8)));
 
 class CMatrix {
@@ -191,6 +200,36 @@ void CAnimObject::EnterLightVolume(BPDLightVolume* volume) {
     m_lightVolumes.AddVolume(volume);
 }
 
-// GetUpward, GetForward, GetRightward and GetPosition follow; they copy a
-// 16-byte row with lfd/stfd pairs into the result, which this view's
-// CVector3 reproduces only for the temporary, so this unit stops here.
+void CAnimObject::GetUpward(CVector3& v) const {
+    v = GetUp();
+}
+
+void CAnimObject::GetForward(CVector3& v) const {
+    v = GetFwd();
+}
+
+void CAnimObject::GetRightward(CVector3& v) const {
+    v = GetRight();
+}
+
+void CAnimObject::GetPosition(CVector3& v) const {
+    v = GetPos();
+}
+
+void CAnimObject::Orthonormalize() {
+    m_tm.Orthonormalize();
+}
+
+void CAnimObject::SetYaw(float yaw) {
+    m_yaw = (int)(2670176.75f * yaw) & 0xFFFFFF;
+    m_field23EC = m_yaw;
+}
+
+float CAnimObject::GetYaw() const {
+    return 6.2831855f * m_yaw / 16777216.0f;
+}
+
+void CAnimObject::Yaw(float angle) {
+    m_tm.RotateZ(angle);
+    m_yaw = (m_yaw + (int)(2670176.75f * angle)) & 0xFFFFFF;
+}

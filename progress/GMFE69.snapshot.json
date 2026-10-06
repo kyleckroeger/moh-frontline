@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 317536,
+    "matching_code_bytes": 317680,
     "total_executable_code_bytes": 1414572,
-    "percent": 22.44749648656979,
+    "percent": 22.457676244121895,
     "categories": {
-      "reconstructed_game": 92616,
-      "restored_library": 224920
+      "reconstructed_game": 92272,
+      "restored_library": 225408
     },
-    "matching_functions": 2000
+    "matching_functions": 2004
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -142,8 +142,7 @@
     "config/GMFE69/alloc.json": "fb00980764751afb051dcf8d20531d16fad345cbb4ab5446ac3f13dae1d82c1e",
     "config/GMFE69/anim.json": "6c0f7deb10acc52b25def57dae0a0ea6329965cecfc7a591ba086eda441dd7a8",
     "config/GMFE69/anim_callback.json": "937a9409585d7e6813853da0dbdb6b7057a2f32bc4255a1bf44c4d988be46098",
-    "config/GMFE69/anim_obj.json": "1fb127f32bc123fbf0681c3a0ff716eced3621257c89eb83b7fac576055a52ef",
-    "config/GMFE69/anim_obj_yaw.json": "253f71f8f76e55f78e1193eaa61bada56eba21bd63e01acad2f58a04a079ec7c",
+    "config/GMFE69/anim_obj.json": "7b769413dfaac847173fa319c93f770d4cb71d94f828c4f8eeb052da68ce673d",
     "config/GMFE69/animated.json": "287709fae92d1f2bc9baa748743d62ba1a49a85cf0e889096e17c7c94c0d6984",
     "config/GMFE69/animated_volume.json": "7d1c85b24d6774d0fda4ac1fcae8f10f8f1689c5af247d311403d1602def7bb4",
     "config/GMFE69/animchan.json": "6342a434b5e2b62c447c6545e0b905bc97dfb3e202fb456a6608dfe74f9cd25b",
@@ -308,7 +307,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "dc6844730cd17a093479986505822859b9c8bd3eae8b5557c70458c597249ceb",
+    "config/GMFE69/project.json": "01292860e711f521ab7375d1f34cfcb32ca9bf5786234c69dbe9b105b9c579e9",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -1482,8 +1481,7 @@
     "src/game/alarm.cpp": "758bb9a1e937336151aa37ab17fd2b09abf28f61a0cdaa37197476b3ac8f707c",
     "src/game/anim.cpp": "9e086af4631ac941623f4e90cc4d858d9a4a1ddde96c1433e494b2f9411978d3",
     "src/game/anim_callback.cpp": "6364e30e1a95c04cf9b0da29fc29dddb3a3b2d334fdedb52b88d73ac2c3b574b",
-    "src/game/anim_obj.cpp": "725abd73fe56c11fd2c8b08a127d30cfc73d5b6527fc15d9000668ac993e7dd7",
-    "src/game/anim_obj_yaw.cpp": "b3d101977ab91356b2dfc723c602990e495379e5c09089fa244bbc274bf43047",
+    "src/game/anim_obj.cpp": "ef2da27619bf1194d40d5f9698d2c199ef575271645562d0b7c0629b42c3cbfb",
     "src/game/animated.cpp": "7201a9c7fc7443902e3ff26bebada1970237b53aeeb9d6727209e4572908d76d",
     "src/game/animated_volume.cpp": "f62030622d9d9f6dfe61d463a94a3ecc33d2b6dedb85bb42aa8040c5ff0d85db",
     "src/game/animchan.cpp": "221d21b6310330f8d36e7a5735a51dcfdb4f162c8d5651ef577e1ee2c9ca6030",
@@ -17048,9 +17046,9 @@
     },
     {
       "id": "anim_obj",
-      "category": "reconstructed_game",
-      "functions": 22,
-      "code_bytes": 344,
+      "category": "restored_library",
+      "functions": 30,
+      "code_bytes": 736,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -17082,8 +17080,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "c090925ec8da4feda7542e3744ef558904e287e5a186dda0177cca3a2d6a81f6",
-      "linked_sha256": "ba03ef943f73a0ed7c909a20513c31bdffc0f5215d35b53d38fb7e640303134b"
+      "object_sha256": "ee47576a30d86025e7d5fa56c7f0d0f37e4fffcfa77f11407bf8b4dfa6572596",
+      "linked_sha256": "a6d1ff2ff9dbe74c32fc94f510344d63d270556cc37249231485d6df65157038"
     },
     {
       "id": "fader",
@@ -22400,45 +22398,6 @@
       ],
       "object_sha256": "eb777bfadf58b1ab42f47f66d05083fbd52026e6e7ac097551129623865b19ad",
       "linked_sha256": "851ecc1bdf0e8030a26da8ebd09c1867dbf04adcf8d441e6876d2c6241218fe8"
-    },
-    {
-      "id": "anim_obj_yaw",
-      "category": "restored_library",
-      "functions": 4,
-      "code_bytes": 248,
-      "compiler_family": "GC",
-      "compiler_version": "1.3.2",
-      "compiler_flags": [
-        "-nodefaults",
-        "-proc",
-        "gekko",
-        "-align",
-        "powerpc",
-        "-enum",
-        "int",
-        "-fp",
-        "hardware",
-        "-Cpp_exceptions",
-        "on",
-        "-O4,p",
-        "-inline",
-        "auto",
-        "-pragma",
-        "cats off",
-        "-nosyspath",
-        "-RTTI",
-        "off",
-        "-str",
-        "reuse,readonly",
-        "-use_lmw_stmw",
-        "on",
-        "-fp_contract",
-        "on"
-      ],
-      "strip_unused": false,
-      "discarded_functions": [],
-      "object_sha256": "6b2375f5fbdabd72f8f846992e3771bedd02c800bd0f96468148f7795f97a115",
-      "linked_sha256": "ed71c97941718a1b859866adb2c7edcc1a5d209042837f1151f325174bc94f6c"
     },
     {
       "id": "font_draw",
@@ -33589,34 +33548,6 @@
         "file_record": 107,
         "file_name": "anim_obj.cpp",
         "ranges": [
-          {
-            "address": "0x80093774",
-            "size": 36,
-            "kind": "function",
-            "name": "GetUpward__11CAnimObjectCFR8CVector3",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80093798",
-            "size": 36,
-            "kind": "function",
-            "name": "GetForward__11CAnimObjectCFR8CVector3",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800937bc",
-            "size": 36,
-            "kind": "function",
-            "name": "GetRightward__11CAnimObjectCFR8CVector3",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800937e0",
-            "size": 36,
-            "kind": "function",
-            "name": "GetPosition__11CAnimObjectCFR8CVector3",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x800938fc",
             "size": 56,
