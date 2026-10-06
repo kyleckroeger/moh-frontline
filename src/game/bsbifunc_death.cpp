@@ -5,14 +5,17 @@
 // player's interface (directions 0 to 3 as interface directions 1, 3, 4 and 2),
 // return the player's weapon refire rate (0 without a weapon), start the
 // player's death sequence (in multiplayer also dropping the multiplayer dump
-// object; in single player for the first player) and stop the first player's
-// path. Each pops the built-in's arguments. The file name is this project's;
-// the original record is bsbifunc.cpp and the built-ins around these are not
-// reconstructed. The functions, classes and globals are named by the mangled
-// symbols; ISceneNode is declared with its virtual functions in the order of
-// __vt__10ISceneNode and BSGO_Basic in the order of __vt__10BSGO_Basic,
-// CPlayerObject derives from ISceneNode, and the weapon, player, script-data,
-// scene and built-in record views and the weapon-type helpers are inferred.
+// object; in single player for the first player) stop the first player's path
+// and start it (the first player moving on two spline paths found by id in the
+// AI filter's spline path list, none for id 0, at a speed). Each pops the
+// built-in's arguments. The file name is this project's; the original record is
+// bsbifunc.cpp and the built-ins around these are not reconstructed. The
+// functions, classes and globals are named by the mangled symbols; ISceneNode
+// is declared with its virtual functions in the order of __vt__10ISceneNode and
+// BSGO_Basic in the order of __vt__10BSGO_Basic, CPlayerObject derives from
+// ISceneNode, and the weapon, player, script-data, spline-path list, scene and
+// built-in record views and the weapon-type and spline-path search helpers are
+// inferred.
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
@@ -22,6 +25,7 @@ class CBullet;
 class CLight;
 class CPlayerObject;
 struct AIDoodadView;
+class CAISplinePath;
 struct BSObjectView;
 
 class ISceneNode {
@@ -125,6 +129,7 @@ public:
     void StartDeathSequence();
     void DropMPDumpObject();
     void StopPath();
+    void MoveOnPath(CAISplinePath*, CAISplinePath*, float);
 
     unsigned char unknown004[912];
     unsigned char unknown394 : 4;
@@ -133,6 +138,36 @@ public:
     unsigned char unknown395[1755];
     UserInterface m_interface;
 };
+
+class CAISplinePath {
+public:
+    unsigned char unknown00[8];
+    unsigned int m_id;
+};
+
+struct SplinePathListView {
+    unsigned int count;
+    CAISplinePath* paths;
+};
+
+class CAIFilterGlobal {
+public:
+    CAISplinePath* FindSplinePath(int id) {
+        SplinePathListView* list = m_splinePaths;
+        unsigned int i;
+        for (i = 0; i < list->count; i++) {
+            if (id == list->paths[i].m_id)
+                break;
+        }
+        return &list->paths[i];
+    }
+
+    unsigned char unknown00[12];
+    SplinePathListView* m_splinePaths;
+    unsigned char unknown10[8];
+};
+
+extern CAIFilterGlobal g_aigAIFilterGlobalObject;
 
 class CScene {
 public:
@@ -221,5 +256,24 @@ void BIFunc_PlayerDeath(int** stack, void* object) {
 
 void BIFunc_PlayerStopPath(int** stack, void*) {
     g_scene.GetPlayer(0)->StopPath();
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+void BIFunc_PlayerStartPath(int** stack, void*) {
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    int first = *(*stack - (count - 1));
+    int second = *(*stack - (count - 2));
+    float speed = *(float*)(*stack - (count - 3));
+    CAISplinePath* firstPath;
+    CAISplinePath* secondPath;
+    if (first)
+        firstPath = g_aigAIFilterGlobalObject.FindSplinePath(first);
+    else
+        firstPath = 0;
+    if (second)
+        secondPath = g_aigAIFilterGlobalObject.FindSplinePath(second);
+    else
+        secondPath = 0;
+    g_scene.GetPlayer(0)->MoveOnPath(firstPath, secondPath, speed);
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
 }

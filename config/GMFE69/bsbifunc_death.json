@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800300cc",
-      "size": 1016,
+      "size": 1420,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009f04",
-      "size": 48,
+      "size": 56,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80010c4c",
-      "size": 72,
+      "size": 84,
       "type": 1
     }
   ],
@@ -61,6 +61,12 @@
       "name": "BIFunc_PlayerStopPath__FPPiPv",
       "address": "0x80030464",
       "size": 96,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_PlayerStartPath__FPPiPv",
+      "address": "0x800304c4",
+      "size": 404,
       "binding": 1
     },
     {
@@ -99,8 +105,10 @@
     "DropMPDumpObject__13CPlayerObjectFv": "0x8009c6fc",
     "GetCurrentWeapon__13CPlayerObjectCFv": "0x8009fb78",
     "GetPlayer__6CSceneCFi": "0x800d8274",
+    "MoveOnPath__13CPlayerObjectFP13CAISplinePathP13CAISplinePathf": "0x8009f15c",
     "StartDeathSequence__13CPlayerObjectFv": "0x8009d810",
     "StopPath__13CPlayerObjectFv": "0x8009f148",
+    "g_aigAIFilterGlobalObject": "0x801c6cd4",
     "g_bInMultiplayerMode": "0x8034eca5",
     "g_iCurrentBIFIndex": "0x8034e77c",
     "g_pBuiltInFunctions": "0x8034e778",
