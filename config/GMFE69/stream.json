@@ -37,12 +37,18 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8014dc74",
-      "size": 344,
+      "address": "0x8014dae0",
+      "size": 748,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "STREAM_release",
+      "address": "0x8014dae0",
+      "size": 404,
+      "binding": 1
+    },
     {
       "name": "STREAM_gettable",
       "address": "0x8014dc74",
@@ -68,11 +74,18 @@
       "binding": 1
     }
   ],
-  "externals": {},
+  "externals": {
+    "FILESYS_priorityop": "0x801486a0",
+    "MUTEX_lock": "0x8015212c",
+    "MUTEX_unlock": "0x80152150",
+    "restartstream__FP15STREAMHEADERtagi": "0x8014c23c"
+  },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
-  "local_externals": [],
+  "local_externals": [
+    "restartstream__FP15STREAMHEADERtagi"
+  ],
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "stream.cpp",
