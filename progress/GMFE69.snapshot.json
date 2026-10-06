@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 275316,
+    "matching_code_bytes": 275400,
     "total_executable_code_bytes": 1414572,
-    "percent": 19.462848126500454,
+    "percent": 19.46878631840585,
     "categories": {
-      "reconstructed_game": 75436,
+      "reconstructed_game": 75520,
       "restored_library": 199880
     },
-    "matching_functions": 1768
+    "matching_functions": 1772
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -251,6 +251,7 @@
     "config/GMFE69/memstd.json": "a0e6b2112e7e958951695412c60d1a70d74fe25df6c62a29121a7e36c6b90246",
     "config/GMFE69/memunused.json": "3d7f29fa1955bab00027cdd115e8a829932fafb9008b4328198cc302b14f4a5f",
     "config/GMFE69/misc_io.json": "ce7d57c797416feb92a3a89e4ce5412b18b2a322ecac1667ffdca9c454e2e8f1",
+    "config/GMFE69/motionblur.json": "a340a49b5c850d58572496abcfea7af55294d2271d1e3cf68d1d2c56d69f5bfa",
     "config/GMFE69/mpc_7xx_603e.json": "815f349dc1383d438a3836cb5ba5bd2db4279c6d017721a52804a4fd42e85507",
     "config/GMFE69/msgbuf.json": "4057c312515bc36142e33114903cf3cec341e73b5ff36b077de86fed725eb38b",
     "config/GMFE69/mslsupp.json": "3356ce84580021d5df9f41c0ada4620bbb19bda532f75c8dd505f99f4f229da3",
@@ -271,7 +272,7 @@
     "config/GMFE69/player_weapon_object.json": "2c451ab555672599946bb97ca631b2a316350d8f99e8e9b77cf7f8f648d219df",
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "99696d289ab9901bb88895e087ef4c2ad920d34bef0272b042ff1d8a47bc6196",
+    "config/GMFE69/project.json": "cd12e912881da846819b5db9fced03b8d92f56d3ef3cc7297f658ea07e597a86",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
@@ -1420,6 +1421,7 @@
     "src/game/matrix.cpp": "a42439e00d156a43e00b9a97bbc6bc8e80386e2c5f4bd7aaec6a2c9bb1aac0c0",
     "src/game/matstack.cpp": "6634a4f6e298738943789d4f05c03cb1b8cf92892785cdac08855af4fec0cf58",
     "src/game/memory.cpp": "75e50f5f66acd16755a070f59afef29e6869b97dede92fada6399d2931c1b27c",
+    "src/game/motionblur.cpp": "1a6f7660b3f48a366a69a12d5ccbb6f221b19db7aa60066dc0b55e6b6d9aaef2",
     "src/game/objcreate.cpp": "a8ec01efb52c079a05a8d23f4da6a48069b76b8f72381051618d38351aee33c9",
     "src/game/orient.cpp": "031b0d870db82013b99a554649dfe99038d03705b3309d14909ed0094ee43304",
     "src/game/particlesystem.cpp": "607e86d3b543cf145f040775529ad9b026329e27b0d8a9fdb6a25f9739288e61",
@@ -19919,6 +19921,45 @@
       "discarded_functions": [],
       "object_sha256": "8b44bf24de158d22f1e89036043aa172086cff8585fdd1b3352a006c6d283d61",
       "linked_sha256": "c294aaf93cc54531026dd848c09632900a62f9271652ff147bc2fedb6db6a902"
+    },
+    {
+      "id": "motionblur",
+      "category": "reconstructed_game",
+      "functions": 4,
+      "code_bytes": 84,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "on",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "bc8130e24cdeb7211f08f3c89cbb7b0d33f6eb707967d574b1e8e53e27c90d8e",
+      "linked_sha256": "cbdcde35f26dc105f1cf69e475e353ed19c30e030146972bdc0a4b14274148aa"
     }
   ],
   "code_map": {
@@ -28891,34 +28932,6 @@
             "size": 92,
             "kind": "function",
             "name": "__dt__8CBlurBinFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007d2c8",
-            "size": 28,
-            "kind": "function",
-            "name": "IsUsed__8CBlurBinFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007d2e4",
-            "size": 4,
-            "kind": "function",
-            "name": "Link__8CBlurBinFP7CDmaTagR10CDmaPacket",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007d2e8",
-            "size": 8,
-            "kind": "function",
-            "name": "SetAmount__11CMotionBlurFf",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007d2f0",
-            "size": 44,
-            "kind": "function",
-            "name": "Init__11CMotionBlurFP11CRenderList",
             "evidence": "exception-index"
           },
           {

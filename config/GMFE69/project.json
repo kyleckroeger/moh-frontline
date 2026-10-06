@@ -421,7 +421,8 @@
     "weapon.json",
     "bsbifunc.json",
     "publisher.json",
-    "hierobject.json"
+    "hierobject.json",
+    "motionblur.json"
   ],
   "progress": {
     "code_bytes": 1414572,
