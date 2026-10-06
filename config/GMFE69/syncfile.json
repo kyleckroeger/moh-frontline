@@ -1,0 +1,87 @@
+{
+  "id": "syncfile",
+  "source": "src/ea/syncfile.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80149ecc",
+      "size": 612,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "synccallback__FiiPv",
+      "address": "0x80149ecc",
+      "size": 272,
+      "binding": 0
+    },
+    {
+      "name": "syncblockio__FiiPviiPFiiPviiPv_i",
+      "address": "0x80149fdc",
+      "size": 172,
+      "binding": 0
+    },
+    {
+      "name": "FILESYS_opensync",
+      "address": "0x8014a088",
+      "size": 128,
+      "binding": 1
+    },
+    {
+      "name": "FILESYS_readsync",
+      "address": "0x8014a108",
+      "size": 40,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "FILESYS_callbackop": "0x80148624",
+    "FILESYS_completeop": "0x80148a84",
+    "FILESYS_open": "0x80148c38",
+    "FILESYS_opstatus": "0x801485b0",
+    "FILESYS_read": "0x80148d7c",
+    "FILESYS_waitop": "0x80148980"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "syncfile.cpp",
+  "original_file_index": 12134
+}

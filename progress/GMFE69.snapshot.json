@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 210988,
+    "matching_code_bytes": 211600,
     "total_executable_code_bytes": 1414572,
-    "percent": 14.915324211139483,
+    "percent": 14.95858818073594,
     "categories": {
       "reconstructed_game": 17460,
-      "restored_library": 193528
+      "restored_library": 194140
     },
-    "matching_functions": 967
+    "matching_functions": 971
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -163,7 +163,7 @@
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "4c5a230d0c51852a22611bd9b6bc33555fb881ed57715e6de4e71d2ce4795d31",
+    "config/GMFE69/project.json": "8cde620469e7a7cae796891c7252b2232cae665e1b5cf79501efcf043a692d30",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -200,6 +200,7 @@
     "config/GMFE69/string.json": "dfcf9ebcd504cab3afb3e06b74c7e218ecadac89ebde48c40659fcaeb0a01628",
     "config/GMFE69/strtoul.json": "96027a37123019cd24fdaf9c4ec6caa8228464cf8362a2b3ba7e36acdb35dad5",
     "config/GMFE69/surfacetype.json": "86dc7dabf78f07ec11a9d5eca99eb78762ddd2392826818716ae3082c324a362",
+    "config/GMFE69/syncfile.json": "0a601a047c3ef1e55684fc94e096855bc89a99764e9b90ce44d685d8c3bc467a",
     "config/GMFE69/systask.json": "72ab78a87c62946f502623a9bc8fad993fcddee8643de447770dd905097bc03f",
     "config/GMFE69/system.json": "9394480cdf8454b27c4fa4f94aba62c452a439fc1c1cde6698ff33bbcf26375f",
     "config/GMFE69/targcont.json": "b2ca2a623eb919a56e51a2a987564851f0820315980336f1c08791bf38a03769",
@@ -1003,6 +1004,7 @@
     "src/ea/spantoaz.c": "e31c00ca71938e75d62f7465384c809d31a6bd0daa4b46f9d2576df1cbe2775c",
     "src/ea/ssine.c": "93302d8c4f67ab20ec7e2ead484fb1726b447d5e118755a655f69a2b8479136c",
     "src/ea/ssysreal.c": "08872d0af87f62ff0a9c5171fb908b629202f85e585ef45923d546f90b77f4f8",
+    "src/ea/syncfile.cpp": "2bd70dddb756dbb86b8eb75d2dd8a7c706d2c9decc0cde7d6b27f95383d8ca56",
     "src/ea/systask.cpp": "064e88a22a3eb4ce2abeccd180f0df17d49e86028b44b3fc0a54e8cf7365d4bb",
     "src/ea/timerthread.cpp": "e2ee2dfbb74893029f0693bb5b76212bdd70223c892d9fd963984794c6193628",
     "src/game/LinkedList.cpp": "3007b79180a5844b8b799dc4fc11618f6b5da77679e6c73c6f388fec501beb2a",
@@ -10578,6 +10580,45 @@
       "discarded_functions": [],
       "object_sha256": "37e7fe2f437a91972d27be68dedb7c8d6b88a7750b5fd9a1e818c7cbcdabad4c",
       "linked_sha256": "52f0496abb6fdcc95ed0eeaad0e26653e81d2743d85ffad69a047a2bf1216e57"
+    },
+    {
+      "id": "syncfile",
+      "category": "restored_library",
+      "functions": 4,
+      "code_bytes": 612,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "55a92972194104cab76204083aaf1b0c85b32cc1c7f67d89d2d47de60272d6e0",
+      "linked_sha256": "e036520922f1c437d672110e2e00a82dfe7eee4e7943fe2683d1b72c8e7ad195"
     }
   ],
   "code_map": {
@@ -36967,41 +37008,6 @@
             "kind": "function",
             "name": "FILESYS_setmemcallbacks",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/syncfile.cpp [symbol evidence]",
-        "file_record": 365,
-        "file_name": "syncfile.cpp",
-        "ranges": [
-          {
-            "address": "0x80149ecc",
-            "size": 272,
-            "kind": "function",
-            "name": "synccallback__FiiPv",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80149fdc",
-            "size": 172,
-            "kind": "function",
-            "name": "syncblockio__FiiPviiPFiiPviiPv_i",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8014a088",
-            "size": 128,
-            "kind": "function",
-            "name": "FILESYS_opensync",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8014a108",
-            "size": 40,
-            "kind": "function",
-            "name": "FILESYS_readsync",
-            "evidence": "private-reference"
           }
         ]
       },
