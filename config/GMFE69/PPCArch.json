@@ -1,0 +1,159 @@
+{
+  "id": "PPCArch",
+  "source": "src/dolsdk2001/base/PPCArch.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80110160",
+      "size": 112,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "PPCMfmsr",
+      "address": "0x80110160",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "PPCMtmsr",
+      "address": "0x80110168",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "PPCMfhid0",
+      "address": "0x80110170",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "PPCMfl2cr",
+      "address": "0x80110178",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "PPCMtl2cr",
+      "address": "0x80110180",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "PPCMtdec",
+      "address": "0x80110188",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "PPCSync",
+      "address": "0x80110190",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "PPCHalt",
+      "address": "0x80110198",
+      "size": 20,
+      "binding": 2
+    },
+    {
+      "name": "PPCMfhid2",
+      "address": "0x801101ac",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "PPCMthid2",
+      "address": "0x801101b4",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "PPCMfwpar",
+      "address": "0x801101bc",
+      "size": 12,
+      "binding": 1
+    },
+    {
+      "name": "PPCMtwpar",
+      "address": "0x801101c8",
+      "size": 8,
+      "binding": 1
+    }
+  ],
+  "externals": {},
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "PPCOrMsr",
+    "PPCAndMsr",
+    "PPCAndCMsr",
+    "PPCMthid0",
+    "PPCMfhid1",
+    "PPCMfdec",
+    "PPCEieio",
+    "PPCMfmmcr0",
+    "PPCMtmmcr0",
+    "PPCMfmmcr1",
+    "PPCMtmmcr1",
+    "PPCMfpmc1",
+    "PPCMtpmc1",
+    "PPCMfpmc2",
+    "PPCMtpmc2",
+    "PPCMfpmc3",
+    "PPCMtpmc3",
+    "PPCMfpmc4",
+    "PPCMtpmc4",
+    "PPCMfsia",
+    "PPCMtsia",
+    "PPCMfdmaU",
+    "PPCMfdmaL",
+    "PPCMtdmaU",
+    "PPCMtdmaL",
+    "PPCMfpvr"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/base/PPCArch.c"
+  },
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "PPCArch.c",
+  "original_file_index": 10615
+}

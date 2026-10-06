@@ -314,7 +314,8 @@
     "CARDNet.json",
     "CARDStatEx.json",
     "CARDOpen.json",
-    "OSReboot.json"
+    "OSReboot.json",
+    "PPCArch.json"
   ],
   "progress": {
     "code_bytes": 1414572,
