@@ -203,6 +203,7 @@ establish a type, the source comments say so.
 | `sdfx.c` | 3 | 732 | Platform effects: reverb select/restore (inlined into `SNDPLATFORM_fxinit`) and per-voice send levels as DSP aux-bus levels or software wet gain (scales 1/127 and 1/(127·32767)) |
 | `sx87d16.c` | 1 | 392 | `decode16x87`: 16-bit PCM to float |
 | `supmutf.c`, `supmutpf.c`, `suppf.c` | 7 | 1,424 | MicroTalk unpackers (in memory and through the packet player, 432-sample blocks) and the packet-player 16-bit PCM unpacker |
+| `spktplay.c` (fragment) | 1 | 268 | `SNDPKTPLAY_create` (slot search with an early exit, player record in caller memory) |
 | `suplf.c` | 3 | 276 | Looping 16-bit PCM unpacker (the converter's base is taken into a local before the loop) |
 | `saramman.c` (fragment) | 3 | 256 | ARAM manager set-up, pool bounds in 32-byte units (the end is masked with `~4` exactly as compiled) and teardown; `SNDARAM_alloc`/`SNDARAM_free` are not reconstructed |
 | More sound files: `sbvalid.c`, `sst3dpos.c`, `ssthold.c`, `sctlfilt.c`, `shipass.c`, `slowpass.c`, `sstgetrp.c`, `sstopall.c`, `sstautov.c`, `sattrdef.c`, `scalcfx.c`, `sballoc.c`, `sbhdrcpy.c`, `sctrldry.cpp`, `stimemul.c` | 17 | 1,768 | Bank slots, voice controls applied to each platform voice (`iSNDpatchkey` loop), stream setters and defaults; record members are inferred views |

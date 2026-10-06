@@ -1,0 +1,71 @@
+{
+  "id": "spktplay",
+  "source": "src/ea/spktplay.c",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8015a710",
+      "size": 268,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SNDPKTPLAY_create",
+      "address": "0x8015a710",
+      "size": 268,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "SNDPLATFORM_packetoverhead__Fv": "0x8016b6b0",
+    "SNDPLATFORM_packetplaycreate__FiPv": "0x8016b6b8",
+    "SNDSYS_entercritical": "0x80153554",
+    "SNDSYS_leavecritical": "0x80153588",
+    "_restgpr_25": "0x80138a54",
+    "_savegpr_25": "0x80138a08",
+    "sndgs": "0x80340860",
+    "sndpps": "0x80340458"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "spktplay.c",
+  "original_file_index": 12707
+}
