@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 320280,
+    "matching_code_bytes": 321196,
     "total_executable_code_bytes": 1414572,
-    "percent": 22.641477422146064,
+    "percent": 22.70623199101919,
     "categories": {
       "reconstructed_game": 92272,
-      "restored_library": 228008
+      "restored_library": 228924
     },
-    "matching_functions": 2065
+    "matching_functions": 2081
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -177,7 +177,7 @@
     "config/GMFE69/buffer_io.json": "9a997068c0c387e86e9609ec66493e7caa8d98ea675676441eb2ff729f5d4186",
     "config/GMFE69/bullet_rows.json": "d2da7985a64af7ee40f71f59a1522e765ad247016d67640dc5667b96a36fc254",
     "config/GMFE69/bulletfactory.json": "d5681576011cf8586569a65fdaa27b8149000509d5401766546e9c9fea821227",
-    "config/GMFE69/camera_rows.json": "c0d70de291df3643c72de96b2beb64dc2290c5f5c09e2de8c95673fc7d21201f",
+    "config/GMFE69/camera_rows.json": "d795a8bf509e2f625d002ab8269d584cb2a889ba72f63569bebde227edb6b428",
     "config/GMFE69/cdbgeom.json": "5a109535b401c445086faf5c376577d4b6f060dae9fd6a6071fdfecf36255cdf",
     "config/GMFE69/cdbobject.json": "05d0a5d951c8fd3d451e360560441b26335e47a75eac59645e9848879f9b01b8",
     "config/GMFE69/coda.json": "ed79629f16e36603a2a74fe3bfd2db4c7043efb597de702316a222bcbb355440",
@@ -1519,7 +1519,7 @@
     "src/game/bsutil_size.cpp": "79519dc3d1158664204a44a09651f4eb839da7ec06fa1d830eeece172595c74c",
     "src/game/bullet_rows.cpp": "61a2169543f0cd466b957ceddfb3f97973bfa5e73bf310829732a37229a1f0a2",
     "src/game/bulletfactory.cpp": "d6ee2336a34566955cb6050fa4d9fe885b64ee577b00c606ce91fbd748bc3f4a",
-    "src/game/camera_rows.cpp": "f76a03e6166f7f2afa6d28d66506030df416a02c44b54e8b583a7c6238d64e45",
+    "src/game/camera_rows.cpp": "ad6da75e4f2269b17a88cd8f54e5e65003cd57b25bb284dce60bf13894115962",
     "src/game/cdbgeom.cpp": "dbb319b1ba8edc52c87f565f57a506fb7e3934a7195ac17ae7d79e86ac4e8c06",
     "src/game/cdbobject.cpp": "8d9ba3051b730eaceb1df207075b6d193ad9ee06b403ef50da260ff8821c0e51",
     "src/game/collisionvolume.cpp": "43ba2b786b6016be28ed111443666151b7721d434b959794c048a582f6b8b826",
@@ -23129,8 +23129,8 @@
     {
       "id": "camera_rows",
       "category": "restored_library",
-      "functions": 5,
-      "code_bytes": 188,
+      "functions": 21,
+      "code_bytes": 1104,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -23162,8 +23162,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "cf8ebb8920ca7027dfbf97e1f00c429d5b337b915a1b565f72214b510e4ece04",
-      "linked_sha256": "5915a386d93d393b1588f11706b3d1d41102ca9c7cc4422c05af7a2c3b4bc23d"
+      "object_sha256": "0a2245a932325bd0053de0a59b137a4ed7f52104aa0072e298b60bdb9035f465",
+      "linked_sha256": "1648f8fb1585204f4850767f48811b52f99d31cb6f0ffd0c5809ad942982e754"
     },
     {
       "id": "hearingvolume_rows",
@@ -31614,118 +31614,6 @@
             "kind": "function",
             "name": "SetPerspective__7CCameraFff",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x80079ee8",
-            "size": 60,
-            "kind": "function",
-            "name": "Orthonormalize__7CCameraFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80079f24",
-            "size": 60,
-            "kind": "function",
-            "name": "Yaw__7CCameraFf",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80079f60",
-            "size": 60,
-            "kind": "function",
-            "name": "Roll__7CCameraFf",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80079f9c",
-            "size": 60,
-            "kind": "function",
-            "name": "Pitch__7CCameraFf",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80079fd8",
-            "size": 80,
-            "kind": "function",
-            "name": "Rotate__7CCameraF8CVector3f",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007a028",
-            "size": 80,
-            "kind": "function",
-            "name": "Move__7CCameraF8CVector3",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007a078",
-            "size": 160,
-            "kind": "function",
-            "name": "SetBasis__7CCameraF8CVector38CVector38CVector3",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007a118",
-            "size": 80,
-            "kind": "function",
-            "name": "SetPosition__7CCameraF8CVector3",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007a168",
-            "size": 60,
-            "kind": "function",
-            "name": "SetTMLocalToWorld__7CCameraFRC7CMatrix",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007a1a4",
-            "size": 68,
-            "kind": "function",
-            "name": "Transform__7CCameraFRC7CMatrix",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007a1e8",
-            "size": 60,
-            "kind": "function",
-            "name": "Reset__7CCameraFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007a224",
-            "size": 64,
-            "kind": "function",
-            "name": "PreTransform__7CCameraFRC7CMatrix",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007a264",
-            "size": 8,
-            "kind": "function",
-            "name": "IsVisible__7CCameraCFR12CDrawContext",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007a26c",
-            "size": 8,
-            "kind": "function",
-            "name": "IsDrawEnabled__7CCameraCFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007a330",
-            "size": 4,
-            "kind": "function",
-            "name": "Draw__7CCameraFR12CDrawContext",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007a334",
-            "size": 4,
-            "kind": "function",
-            "name": "CommitUpdate__7CCameraFv",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x8007a338",
