@@ -1,0 +1,91 @@
+{
+  "id": "bmem",
+  "source": "src/ea/bmem.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8014ff44",
+      "size": 680,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80192e00",
+      "size": 9,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "AddNewPool__FP8BPoolManP5BPoolUi",
+      "address": "0x80150024",
+      "size": 456,
+      "binding": 0
+    },
+    {
+      "name": "CON_BPoolMan",
+      "address": "0x8014ffa4",
+      "size": 104,
+      "binding": 1
+    },
+    {
+      "name": "NEW_BPoolMan",
+      "address": "0x8014ff44",
+      "size": 96,
+      "binding": 1
+    },
+    {
+      "name": "BFree",
+      "address": "0x8015000c",
+      "size": 24,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "MEM_alloc": "0x8014f7dc",
+    "mb_default": "0x8034f3c0"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "mb_default"
+  ],
+  "original_file": "bmem.cpp",
+  "original_file_index": 12411
+}

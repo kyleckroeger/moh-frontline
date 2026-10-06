@@ -196,7 +196,9 @@
     "abortmsg.json",
     "orient.json",
     "memclass.json",
-    "systask.json"
+    "systask.json",
+    "trig.json",
+    "bmem.json"
   ],
   "progress": {
     "code_bytes": 1414572,

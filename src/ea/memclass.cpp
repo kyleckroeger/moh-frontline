@@ -1,4 +1,4 @@
-// MEMCLASS_create: lay out a REAL memory class in a block of memory. The LOW
+// REAL memory classes. MEMCLASS_create lays out a class in a block of memory: the LOW
 // block holds the class record, one free block covers the rest, and an empty
 // HIGH block ends the range.
 //
@@ -37,8 +37,13 @@ extern "C" int sprintf(char*, const char*, ...);
 extern "C" char* strcpy(char*, const char*);
 extern "C" void MEM_fill(void*, int, int);
 extern "C" void MUTEX_create(void*);
+extern "C" void MUTEX_destroy(void*);
+extern "C" {
+extern int mb_default;
+}
 int MEM_initblock(MEMBLOCK*, const char*, int, int, int, MEMBLOCK*, MEMBLOCK*);
 void FREE_add(MEMCLASS*, MEMBLOCK*);
+int FREE_gettotalfree(MEMCLASS*, int);
 
 extern "C" int MEMCLASS_create(int index, const char* name, void* address, int size, int arg4, int alignment,
                                int arg6, bool sentinel, bool named, bool locked) {
@@ -83,4 +88,24 @@ extern "C" int MEMCLASS_create(int index, const char* name, void* address, int s
         cls->locked = 1;
     }
     return block->size;
+}
+
+extern "C" int MEMCLASS_remove(int index) {
+    MEMCLASS* cls = memclass[index & 0x3f];
+    int result = 0;
+
+    if (cls) {
+        if (cls->locked)
+            MUTEX_destroy(cls->mutex);
+        MEM_fill(cls, 0, 92);
+        memclass[index & 0x3f] = 0;
+        result = 1;
+    }
+    return result;
+}
+
+extern "C" int MEM_totalunused(int flags) {
+    if (!flags)
+        flags = mb_default;
+    return FREE_gettotalfree(memclass[flags & 0x3f], 0);
 }

@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8014f268",
-      "size": 464,
+      "size": 656,
       "type": 1
     },
     {
@@ -60,15 +60,30 @@
       "address": "0x8014f268",
       "size": 464,
       "binding": 1
+    },
+    {
+      "name": "MEMCLASS_remove",
+      "address": "0x8014f438",
+      "size": 128,
+      "binding": 1
+    },
+    {
+      "name": "MEM_totalunused",
+      "address": "0x8014f4b8",
+      "size": 64,
+      "binding": 1
     }
   ],
   "externals": {
     "FREE_add__FP8MEMCLASSP8MEMBLOCK": "0x8014fe8c",
+    "FREE_gettotalfree__FP8MEMCLASSi": "0x8014fe38",
     "MEM_fill": "0x80150db4",
     "MEM_initblock__FP8MEMBLOCKPCciiiP8MEMBLOCKP8MEMBLOCK": "0x8014fd40",
     "MUTEX_create": "0x801520d8",
+    "MUTEX_destroy": "0x80152100",
     "_restgpr_21": "0x80138a44",
     "_savegpr_21": "0x801389f8",
+    "mb_default": "0x8034f3c0",
     "memclass": "0x8033ee20",
     "sprintf": "0x8013dab4",
     "strcpy": "0x80140040"
@@ -78,7 +93,9 @@
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": [],
+  "sda_externals": [
+    "mb_default"
+  ],
   "original_file": "memclass.cpp",
   "original_file_index": 12355
 }

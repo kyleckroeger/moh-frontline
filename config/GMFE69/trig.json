@@ -1,0 +1,104 @@
+{
+  "id": "trig",
+  "source": "src/game/trig.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80091e64",
+      "size": 272,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000c760",
+      "size": 32,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x8001382c",
+      "size": 48,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x803502c8",
+      "size": 24,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "MathArcTan2__Fff",
+      "address": "0x80091e64",
+      "size": 56,
+      "binding": 1
+    },
+    {
+      "name": "MathSinCos__FlPfPf",
+      "address": "0x80091e9c",
+      "size": 144,
+      "binding": 1
+    },
+    {
+      "name": "MathCosf__Ff",
+      "address": "0x80091f2c",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "MathSinf__Ff",
+      "address": "0x80091f50",
+      "size": 36,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "atan2": "0x80143920",
+    "cos": "0x80143228",
+    "sin": "0x80143790"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "trig.cpp",
+  "original_file_index": 5524
+}

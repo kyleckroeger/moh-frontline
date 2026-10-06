@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 209844,
+    "matching_code_bytes": 210988,
     "total_executable_code_bytes": 1414572,
-    "percent": 14.83445169280885,
+    "percent": 14.915324211139483,
     "categories": {
-      "reconstructed_game": 17188,
-      "restored_library": 192656
+      "reconstructed_game": 17460,
+      "restored_library": 193528
     },
-    "matching_functions": 957
+    "matching_functions": 967
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -107,6 +107,7 @@
     "config/GMFE69/ar.json": "f7bf6b4079ed418edeb4c95ff15f08f4450ac1e184d58dd1af945665137df3c2",
     "config/GMFE69/arq.json": "53c9d956d7cd2b69c858816128443494613f46b3ad680d5056ae00227df49900",
     "config/GMFE69/baseline.json": "36a2b85cf4193e53afac79bdd2a8fdbf8dfb1880cae89e119463f2c81461b42f",
+    "config/GMFE69/bmem.json": "5c216df0229532ab83747b97c8d6527dac9ffc9a67ba7d8b08fc25be514c46de",
     "config/GMFE69/bsearch.json": "dd287b9523a5f289e22dc32f273d0f9756b610c9280ec41b84aac1d7ea50912b",
     "config/GMFE69/bstimer.json": "f6c1bc76d8200192cc1dc0fcc0d071b489cc158c09f820ee351e4190d480c6ae",
     "config/GMFE69/buffer_io.json": "9a997068c0c387e86e9609ec66493e7caa8d98ea675676441eb2ff729f5d4186",
@@ -149,7 +150,7 @@
     "config/GMFE69/mbstring.json": "9de9f46cc9601517195f1c54fab48fb7e78bb2f47d69f7aa83c76823aea418d9",
     "config/GMFE69/mem.json": "ca3c317259aa8b4ae29fb186b81dae2190665955e0af421cfa574e77be7bb350",
     "config/GMFE69/mem_funcs.json": "cdc21eee7ec690a2964eff60bc9e230f0115ca0eb200b536179c0a35c292ae7a",
-    "config/GMFE69/memclass.json": "df204516364d5a81e1b59db1bec8bc22d93dcae30bee54eea0d7cccb76d82f2b",
+    "config/GMFE69/memclass.json": "46eddd286cbf5e3f845b1e2017ad0a37fdecb92483caa4302506d5daf4b300ba",
     "config/GMFE69/meminitadr.json": "381fcfbcbb6c274bbc1966d84f43a5ba64175efe3e51b4f0b3824230aa348172",
     "config/GMFE69/misc_io.json": "ce7d57c797416feb92a3a89e4ce5412b18b2a322ecac1667ffdca9c454e2e8f1",
     "config/GMFE69/mpc_7xx_603e.json": "815f349dc1383d438a3836cb5ba5bd2db4279c6d017721a52804a4fd42e85507",
@@ -162,7 +163,7 @@
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "8c70941dcec0479d91ed1a8f56d36b233c571054c153bf54901444c9e6996315",
+    "config/GMFE69/project.json": "4c5a230d0c51852a22611bd9b6bc33555fb881ed57715e6de4e71d2ce4795d31",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -206,6 +207,7 @@
     "config/GMFE69/target_options.json": "89566eaeb8524e74b697e212fd6b56f53c2276681df67bd4ab9ac2fdf4761b95",
     "config/GMFE69/texpack.json": "e72b98cff12a06a8815f3de46a2dddeaaff0a28ea13a88b19df4444349d53607",
     "config/GMFE69/timerthread.json": "993154fd5f472860102c81015ebb43aaf30afcf22cd46655a20003306ccdd50c",
+    "config/GMFE69/trig.json": "fc3515f7450abad9fe74ce81c40946371221fba799328195e2e12c9b81e26645",
     "config/GMFE69/uart_console_io.json": "c12ad27f08ae82aef8dffc7980694bcb0a18c94f53658fab67915a668275a538",
     "config/GMFE69/usr_put.json": "fc210d4609484140e85306a13eed93ea270caf0897407db3637436d79074440e",
     "config/GMFE69/vi.json": "3341dbca41fdd83ec556de88bdc9cedb4cbd6a7c397486637cd9b6ed88713655",
@@ -976,13 +978,14 @@
     "src/ea/SNDI_root1x.c": "7f9b7d5d12060bfbf3592c216c854befc5946190765109b0ca053b8aaea27759",
     "src/ea/SNDI_sin.c": "b60cf7dd7e0f9c570a0b4a2a6dd05db4729472fec2d2beb6e8fe4063c5010cd2",
     "src/ea/abortmsg.cpp": "3dab94dd43cec779c87131efbfc0ee283cfd1b5768c02976f4370f4eb1787055",
+    "src/ea/bmem.cpp": "52aa41325f9f9200d4e9ddc252ca99a55b4040b928b87283b7b226ddb2ad0e87",
     "src/ea/cpudetect.cpp": "82ad74ceba8d5dcd8eda8284a31e54ca3a660ce35f0909967bfb80204e8081e7",
     "src/ea/exit.cpp": "74497f5488a200cd082a1769249e659f5cd17b94ee5c7e6b2b4f3b240c9f1923",
     "src/ea/fontnull.cpp": "f5c2dfb2e21956fc5d3a1b11c46ae763d9b5cd956badc5e3db912b1e59a9d641",
     "src/ea/idct.cpp": "b3f69a37bb85fc0cad5293848e9add29eb184e02082723c04d1ab7aec557a8a4",
     "src/ea/initosalloc.cpp": "de7adefcde275593a6ed8ebcae40eef5f82e0fcd932e4569270e2bad4db8fe64",
     "src/ea/inittmr.cpp": "2b8bc47a5536adecefaedb4c74d54e5a0509db63fdfef428e0975b1dcabababa",
-    "src/ea/memclass.cpp": "ee817bfb9f719cf31446fcc3bfd9df5922fd9ab43fc344c85507a1f7226c34fa",
+    "src/ea/memclass.cpp": "470864458fdc474364d9e51cc0a46af78a0e459940d1c0c78485f848a526f83c",
     "src/ea/meminitadr.cpp": "95eed033a03deab2f0918e8b1a92183e8cf0a9bb94d793f3558d6aa13d112d8d",
     "src/ea/rcmp_mpc_codec_chunk_types.cpp": "b996231c1c402b6ecdd813bb69df3ae8a3580e537b71dd9fa91e238690bb3635",
     "src/ea/sexithndl.c": "b5dc86e69a579d07c16f0ef7558d5928fb5c5271c2748f3833c203e624a60019",
@@ -1014,6 +1017,7 @@
     "src/game/surfacetype.cpp": "3499ce5dc7d066f093e39c158e9b096e37683df4d6b6d234eb9b08395d411390",
     "src/game/system.cpp": "a6b1bce950e974ebaf7e6c7afc31ecab8f41566550163428c632534bc8f78b83",
     "src/game/texpack.cpp": "170a3a9592cbea2d199a09aba976cc93963f0104100915e1f5d9d23eaf30f61a",
+    "src/game/trig.cpp": "5f3032fa44b1d5ddca67665564f3e280e9585d9fb7883e6e5d6398c9e032da74",
     "src/msl/NewMore.cp": "cb60e70e586609256a8ff5c7a4b0efbdf7586b7fa7e3cb43b7f84e309e87c1be",
     "src/msl/bsearch.c": "e18222caa9298644a58b0d497c283f472396491e6297b39abb4865632978533a",
     "src/msl/mslsupp.c": "b218ce6eb031f2b74fc27abb2c18cfe43e63a47161ada8703531fd06c18964b0",
@@ -10422,8 +10426,8 @@
     {
       "id": "memclass",
       "category": "restored_library",
-      "functions": 1,
-      "code_bytes": 464,
+      "functions": 3,
+      "code_bytes": 656,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -10455,8 +10459,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "2b841751b7b6934978f9ca4e58408afb35d1becba8cc1c40bb09dd57db732f57",
-      "linked_sha256": "11d84cf47276736fb68b803954d008a5550cc27ead1ea091d5e12511a2d50451"
+      "object_sha256": "cb9108a334d5024df13eced55252fd20cd56307e8c8d95ba9487810197ff3fce",
+      "linked_sha256": "b97c361df2813d56b7b178eb1a610c56755c8439fd577144803399361c575b43"
     },
     {
       "id": "systask",
@@ -10496,6 +10500,84 @@
       "discarded_functions": [],
       "object_sha256": "ce3df68703711127818bfbabc9cccc52f31cb73c41f1b873805d6884aa334089",
       "linked_sha256": "79c81e774206f0ec3ebcf24d2be67e34c985bdd226767663427ec669c5a0776f"
+    },
+    {
+      "id": "trig",
+      "category": "reconstructed_game",
+      "functions": 4,
+      "code_bytes": 272,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "9f3a1c2561cdaeea5bb63edd7f2c67f165757bf0bd69b7b6404fedf02f45a4ca",
+      "linked_sha256": "877aa38e97541c4166d637dd2847a34b03be6b6a4681ca82fdd07fc80dde1247"
+    },
+    {
+      "id": "bmem",
+      "category": "restored_library",
+      "functions": 4,
+      "code_bytes": 680,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "37e7fe2f437a91972d27be68dedb7c8d6b88a7750b5fd9a1e818c7cbcdabad4c",
+      "linked_sha256": "52f0496abb6fdcc95ed0eeaad0e26653e81d2743d85ffad69a047a2bf1216e57"
     }
   ],
   "code_map": {
@@ -23629,34 +23711,6 @@
         "file_record": 103,
         "file_name": "trig.cpp",
         "ranges": [
-          {
-            "address": "0x80091e64",
-            "size": 56,
-            "kind": "function",
-            "name": "MathArcTan2__Fff",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80091e9c",
-            "size": 144,
-            "kind": "function",
-            "name": "MathSinCos__FlPfPf",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80091f2c",
-            "size": 36,
-            "kind": "function",
-            "name": "MathCosf__Ff",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80091f50",
-            "size": 36,
-            "kind": "function",
-            "name": "MathSinf__Ff",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x80091f74",
             "size": 456,
@@ -37556,22 +37610,8 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 8014f438",
+        "name": "Unknown file/.text @ 8014f4f8",
         "ranges": [
-          {
-            "address": "0x8014f438",
-            "size": 128,
-            "kind": "function",
-            "name": "MEMCLASS_remove",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8014f4b8",
-            "size": 64,
-            "kind": "function",
-            "name": "MEM_totalunused",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x8014f4f8",
             "size": 24,
@@ -37712,41 +37752,6 @@
             "kind": "function",
             "name": "MEM_size",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/bmem.cpp [symbol evidence]",
-        "file_record": 394,
-        "file_name": "bmem.cpp",
-        "ranges": [
-          {
-            "address": "0x8014ff44",
-            "size": 96,
-            "kind": "function",
-            "name": "NEW_BPoolMan",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8014ffa4",
-            "size": 104,
-            "kind": "function",
-            "name": "CON_BPoolMan",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8015000c",
-            "size": 24,
-            "kind": "function",
-            "name": "BFree",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80150024",
-            "size": 456,
-            "kind": "function",
-            "name": "AddNewPool__FP8BPoolManP5BPoolUi",
-            "evidence": "local-file-symbol"
           }
         ]
       },
