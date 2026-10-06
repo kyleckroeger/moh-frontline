@@ -430,7 +430,8 @@
     "quaternion.json",
     "AnimObjFactory.json",
     "anim_callback.json",
-    "printstr.json"
+    "printstr.json",
+    "sphere.json"
   ],
   "progress": {
     "code_bytes": 1414572,

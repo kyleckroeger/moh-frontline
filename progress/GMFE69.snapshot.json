@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 280132,
+    "matching_code_bytes": 280372,
     "total_executable_code_bytes": 1414572,
-    "percent": 19.80330446240983,
+    "percent": 19.82027072499668,
     "categories": {
-      "reconstructed_game": 80252,
+      "reconstructed_game": 80492,
       "restored_library": 199880
     },
-    "matching_functions": 1795
+    "matching_functions": 1798
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -279,7 +279,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "33cb9ffa05154fb034edd3c016ef8d1e605b4d2e112dfe8fd634ebcd32f82082",
+    "config/GMFE69/project.json": "e697b54b2df3f2725ac974ea99aa7b1936947af017645279ee44e9b956d1be21",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
@@ -369,6 +369,7 @@
     "config/GMFE69/sover.json": "e93f0bef0e81124940f9ca940effc94a8b0c69c04f988f2ffaa1b34c25494e48",
     "config/GMFE69/spantoaz.json": "0e3c799ee99a0820131c59ca50dbae62300eb93899d8495888384884db8c42db",
     "config/GMFE69/spatkey.json": "bff5557b5581c610bdbc37b7db14e72fd656663c3acd429102ca9df7415d39f4",
+    "config/GMFE69/sphere.json": "5b4527b0268569ea834dbcc9ea742622b359167efaa7940ad6884b797c12ee85",
     "config/GMFE69/spitch.json": "cb62e278b14f38415e8e5c27bbf52bcb5b5b0ac7ab471e9b1f556e22165a42ff",
     "config/GMFE69/spktctoh.json": "32d07778d065bdc4f91fa7df1767303ac49ef857665a89458d479dc436b49e8e",
     "config/GMFE69/spktplay.json": "45b55139a484b930a3aa11919d892bd54910f394d38f43eeb03266bd631e60c4",
@@ -1455,6 +1456,7 @@
     "src/game/skybox.cpp": "51c0fbd12e9ef49c313bcc7055d61c7ad7fcd8c243abaea7ef80bb1dc8b33da8",
     "src/game/sound.cpp": "09a7a15e802021a5756266ba749fc363a337c930203b4df623cd125f3c1541a8",
     "src/game/soundtable.cpp": "a871dc12cd0c9ada5788da7883313efc873ddbe60f7cc1a31746e95f6eafff08",
+    "src/game/sphere.cpp": "4d34d3b5e628d4a4b11203cd131974547a14c3f6c9f515a7faecf39a78efe66e",
     "src/game/staticmesh.cpp": "3a8bd609a8efecaa00960dcdd8fdfc554ba8f0d50b782532f6cbb7243d255224",
     "src/game/surfacetype.cpp": "3499ce5dc7d066f093e39c158e9b096e37683df4d6b6d234eb9b08395d411390",
     "src/game/swvideodisplaylist.cpp": "604fff141650e041f635fbf1c136dd328c6e3151200a1ce6d9bd90d82e1caa00",
@@ -20288,6 +20290,45 @@
       "discarded_functions": [],
       "object_sha256": "1df2f9d3d813f844045ac4d2d4e42b93607ead88a8f592d9d3df60091990bf09",
       "linked_sha256": "6447b4b9fc414769ca0e8cd2ce5a7416fc3a50cd7a1c908676fe7bcea36f30e1"
+    },
+    {
+      "id": "sphere",
+      "category": "reconstructed_game",
+      "functions": 3,
+      "code_bytes": 240,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "06ea3894cc017c1fb49140d5e8238e589986ee86399b7875378f60d41f5a76fd",
+      "linked_sha256": "0757ed1a730b31ca651ccddfa81e22c8dc2ff5709823aa904db14d9661b5a117"
     }
   ],
   "code_map": {
@@ -35560,27 +35601,6 @@
             "kind": "function",
             "name": "TestCollision__10CVolSphereCFRC10CVolSphereR10CCollisionb",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cb940",
-            "size": 116,
-            "kind": "function",
-            "name": "TestCollision__10CVolSphereCFRC7CVolBoxR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cb9b4",
-            "size": 116,
-            "kind": "function",
-            "name": "TestCollision__10CVolSphereCFRC7IVolumeR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cba28",
-            "size": 8,
-            "kind": "function",
-            "name": "GetRadius__10CVolSphereCFv",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x800cba30",
