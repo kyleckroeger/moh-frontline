@@ -1,0 +1,108 @@
+{
+  "id": "bsbifunc_soundbank",
+  "source": "src/game/bsbifunc_soundbank.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8002b064",
+      "size": 432,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x80009d54",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800109c4",
+      "size": 24,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "BIFunc_DebugInitFromTrigger__FPPiPv",
+      "address": "0x8002b064",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_LoadOneShotSoundBank__FPPiPv",
+      "address": "0x8002b08c",
+      "size": 236,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_DisplayLetterbox__FPPiPv",
+      "address": "0x8002b178",
+      "size": 156,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "GetPlayer__6CSceneCFi": "0x800d8274",
+    "Get_currentMission__10CShellMenuFv": "0x800e6ebc",
+    "Get_currentStage__10CShellMenuFv": "0x800e6eb4",
+    "LoadOneShotSound__Fiii": "0x800ec754",
+    "g_CurrentLevel": "0x8034da04",
+    "g_CurrentMission": "0x8034da00",
+    "g_CurrentSoundBank": "0x8034da08",
+    "g_Shell": "0x80195090",
+    "g_bInMultiplayerMode": "0x8034eca5",
+    "g_iCurrentBIFIndex": "0x8034e77c",
+    "g_pBuiltInFunctions": "0x8034e778",
+    "g_scene": "0x8019484c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "g_CurrentLevel",
+    "g_CurrentMission",
+    "g_CurrentSoundBank",
+    "g_bInMultiplayerMode",
+    "g_iCurrentBIFIndex",
+    "g_pBuiltInFunctions"
+  ],
+  "original_file": "bsbifunc.cpp",
+  "original_file_index": 443
+}

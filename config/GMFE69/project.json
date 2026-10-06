@@ -558,7 +558,8 @@
     "bsbifunc_death.json",
     "bsbifunc_hier.json",
     "bsbifunc_playercoll.json",
-    "bsbifunc_coverpoint.json"
+    "bsbifunc_coverpoint.json",
+    "bsbifunc_soundbank.json"
   ],
   "progress": {
     "code_bytes": 1414572,
