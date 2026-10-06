@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 271876,
+    "matching_code_bytes": 272052,
     "total_executable_code_bytes": 1414572,
-    "percent": 19.219665029422327,
+    "percent": 19.23210695531935,
     "categories": {
-      "reconstructed_game": 71996,
+      "reconstructed_game": 72172,
       "restored_library": 199880
     },
-    "matching_functions": 1633
+    "matching_functions": 1656
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -107,6 +107,7 @@
     "config/GMFE69/SNDI_root1x.json": "ea826a27a8d9e2588fd750844842c1e363c3555078469ac393e6172f6aedada7",
     "config/GMFE69/SNDI_sin.json": "0b60fa9265dea81e4c4dc40bdaf11377f21325b62ab47bfd58ada88b7602fee2",
     "config/GMFE69/SearchNodeList.json": "94a6f88f4b8062b0b71ee5f431cf4a7f102d07ca517660d3fe098a7fd2a44a2c",
+    "config/GMFE69/ShellMenu.json": "12334fab8c5ecec10bece4423a6da6effac2cfef65c1450ff865a6ca968239dd",
     "config/GMFE69/Soldier_object.json": "d625d33bbfdcbd4ae922099756d0a2525feb495afdd309517e996dc20e2f2aff",
     "config/GMFE69/UISActionProcess.json": "2a99d24d9da29f023bab9396c2424e8dafe6ce9bdaa87904306b5ea85783af91",
     "config/GMFE69/UISEvent.json": "494508d3a1bc6ee076038b4f42906c60c3d009f45520a50f128c75aed4f00631",
@@ -248,7 +249,8 @@
     "config/GMFE69/player_weapon_object.json": "2c451ab555672599946bb97ca631b2a316350d8f99e8e9b77cf7f8f648d219df",
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "3f11144192fc74e63393da3d87b70e75042fd48867e65fff78e53edde7a5b104",
+    "config/GMFE69/project.json": "425dbd8f429f91ec5f2e1f2c4d3e37ec9cbb3b857367f2a136572ecdfe6abd35",
+    "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -387,6 +389,8 @@
     "config/GMFE69/target_options.json": "89566eaeb8524e74b697e212fd6b56f53c2276681df67bd4ab9ac2fdf4761b95",
     "config/GMFE69/texpack.json": "e72b98cff12a06a8815f3de46a2dddeaaff0a28ea13a88b19df4444349d53607",
     "config/GMFE69/threads.json": "d264cbc64f178174ef4e3e782c684e2b008abf5eb3ac641e9bd1236e522459c8",
+    "config/GMFE69/thrown_obj.json": "2e05e03f89462f90a97d8301f1940df2da43d84d733f141d5c565df688c3d04d",
+    "config/GMFE69/thrownbullet.json": "8cef477f5587e42088594864c168cd1314c6330c9ad7e4bd1986b93aa0bacbdd",
     "config/GMFE69/timer.json": "ae3403f8235fadb3bdcbcd4f4648ddf27c185cdab7db3542519793fce7267534",
     "config/GMFE69/timerthread.json": "993154fd5f472860102c81015ebb43aaf30afcf22cd46655a20003306ccdd50c",
     "config/GMFE69/trig.json": "fc3515f7450abad9fe74ce81c40946371221fba799328195e2e12c9b81e26645",
@@ -1322,6 +1326,7 @@
     "src/game/Moh2.cpp": "de6c92093366f02578f9e8b8d2f69e0de0bece31142f95b7a51ed02dd533c3fb",
     "src/game/Pause.cpp": "8cb08efb80ca5f837f5fe7e9f2755ec247d10282133bd0f6d5229a573779951e",
     "src/game/SearchNodeList.cpp": "738d75054ffdc5c611f06f3c0f8d330d60226794efc3684079e2280494a4d65c",
+    "src/game/ShellMenu.cpp": "bdd9fe66a5c610b53fff1f0b46b076a733010fac633e7d3a1794e35757d22b44",
     "src/game/Soldier_object.cpp": "92bf858d3c8b06c691309b702079f4c10d3da7935ed4b50d4e27764fa7eeca41",
     "src/game/UISActionProcess.c": "0c8322629537a363a11f51d7aa0ddaf2fa57f6d24c22fb15f45f76e6566d5f7e",
     "src/game/UISEvent.c": "a9b324a04b57cdf40fbb819827d2073be6fa1b9fa1be2f1c0757e46dd3747a82",
@@ -1365,6 +1370,7 @@
     "src/game/particlesystem.cpp": "607e86d3b543cf145f040775529ad9b026329e27b0d8a9fdb6a25f9739288e61",
     "src/game/player_weapon_object.cpp": "1fd752be827cdffac6452a0457941d3237b13d77dec02900a4a7dac4c597d1fa",
     "src/game/popup.cpp": "64e2a7db93328be02cadb3f465f1cd9936b3f19d0b6ca82315d38ea6681b4133",
+    "src/game/projectilebullet.cpp": "cdac318e5bfe1930442fa86d43227ce01dc8c4d8c571ac800610814275ec44e2",
     "src/game/propdat.cpp": "b1e26b00f10be619cc409432f6748e200a0064248119fafa81774718c305885d",
     "src/game/rcmpbase.cpp": "ff8d5797157a414f7fcd5f34456614259a93f8fe1feb92ea2fdaeb740ee14eb3",
     "src/game/real_bridge.cpp": "3528e557dcb6116823246402f1003e63fd82246a624dcbc2f18e5ee8b9bf8e41",
@@ -1373,6 +1379,8 @@
     "src/game/surfacetype.cpp": "3499ce5dc7d066f093e39c158e9b096e37683df4d6b6d234eb9b08395d411390",
     "src/game/system.cpp": "a6b1bce950e974ebaf7e6c7afc31ecab8f41566550163428c632534bc8f78b83",
     "src/game/texpack.cpp": "170a3a9592cbea2d199a09aba976cc93963f0104100915e1f5d9d23eaf30f61a",
+    "src/game/thrown_obj.cpp": "2e631cf451d1caade3980eb104bb2cb53177369e02930cc3fec5e2fbd15dfabf",
+    "src/game/thrownbullet.cpp": "e05184b51b2be95241871b5c128cbd4584145f38b43e62604d0cba573be55040",
     "src/game/trig.cpp": "5f3032fa44b1d5ddca67665564f3e280e9585d9fb7883e6e5d6398c9e032da74",
     "src/game/vector.cpp": "418a16a82127cea03fd102a27d28bf20ccd7f83caafb1ff1425f09bd38ed113d",
     "src/game/viewport.cpp": "2cf32aa14139d6cd4facb7be15588ff0c937cf61b2e16e0d1c904bdf305423f5",
@@ -18400,6 +18408,162 @@
       "discarded_functions": [],
       "object_sha256": "3e08446abe125add52b1540f3eefef58f701070531db0f0699fdb54335a16270",
       "linked_sha256": "49c6c17a8c7ed861d36968bb4a1fad7485685c85bbb99794ab6c23e964799fa1"
+    },
+    {
+      "id": "ShellMenu",
+      "category": "reconstructed_game",
+      "functions": 6,
+      "code_bytes": 48,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "7b0525e428a4649f34985bb1a60a8cba037b08cb95e60b671d5705ddef476026",
+      "linked_sha256": "784c34fcbcb10bfa9fcd195b058a68595d7a87f0bc8d57b1985bcdc25a7a3ca2"
+    },
+    {
+      "id": "thrown_obj",
+      "category": "reconstructed_game",
+      "functions": 6,
+      "code_bytes": 40,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "ff1d1e2f6cfd7abee22ffc388b2d0895458d2cbfeae3d2dbef5e995a6d514c33",
+      "linked_sha256": "d08b57c7e536b24d7e5228c35d0f2a7fd23de42cef4ac0a53fe6f0b3f6cf243c"
+    },
+    {
+      "id": "thrownbullet",
+      "category": "reconstructed_game",
+      "functions": 6,
+      "code_bytes": 48,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "3ea46e26121118c33adf55851d36b6c72d29472a7a7e4d4eeeb0c33d8989a130",
+      "linked_sha256": "37967c47f8c766238c85ed2d7c113be4170b0758f9e6e4eb1f3815ddf42efee2"
+    },
+    {
+      "id": "projectilebullet",
+      "category": "reconstructed_game",
+      "functions": 5,
+      "code_bytes": 40,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "3680660dcba997cace946d1ceff92e3e655a6fa269d89bf202ed8fed21b516d0",
+      "linked_sha256": "46259c2a44343d4c6935fd9a106f3201679a732fd4d9447ebb7dc13f2843b243"
     }
   ],
   "code_map": {
@@ -32633,52 +32797,10 @@
         ]
       },
       {
-        "name": "Unmatched files/thrown_obj.cpp [inferred file group]",
+        "name": "Unmatched files/thrown_obj.cpp [symbol evidence]",
         "file_record": 121,
         "file_name": "thrown_obj.cpp",
         "ranges": [
-          {
-            "address": "0x800b4d14",
-            "size": 8,
-            "kind": "function",
-            "name": "GetObjectType__13CThrownObjectCFv",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x800b4d1c",
-            "size": 4,
-            "kind": "function",
-            "name": "AsThrownObject__13CThrownObjectFv",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x800b4d20",
-            "size": 4,
-            "kind": "function",
-            "name": "TranslateFromScript__13CThrownObjectFR8CVector3R8CVector312EBSEventEnum",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x800b4d24",
-            "size": 4,
-            "kind": "function",
-            "name": "RotateFromScript__13CThrownObjectFR8CVector3R8CVector312EBSEventEnum",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x800b4d28",
-            "size": 4,
-            "kind": "function",
-            "name": "ScaleFromScript__13CThrownObjectFff12EBSEventEnum",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x800b4d2c",
-            "size": 16,
-            "kind": "function",
-            "name": "SetDeleted__13CThrownObjectFb",
-            "evidence": "between-same-file (inferred)"
-          },
           {
             "address": "0x800b4d3c",
             "size": 48,
@@ -35079,41 +35201,6 @@
             "evidence": "exception-index"
           },
           {
-            "address": "0x800d1ba4",
-            "size": 8,
-            "kind": "function",
-            "name": "GetLocalBoundingVolume__17CProjectileBulletCFQ210ISceneNode11EVolumeType",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800d1bac",
-            "size": 8,
-            "kind": "function",
-            "name": "GetWorldBoundingVolume__17CProjectileBulletCFQ210ISceneNode11EVolumeType",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800d1bb4",
-            "size": 12,
-            "kind": "function",
-            "name": "GetDamage__17CProjectileBulletCFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800d1bc0",
-            "size": 8,
-            "kind": "function",
-            "name": "GetFiredBy__17CProjectileBulletCFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800d1bc8",
-            "size": 4,
-            "kind": "function",
-            "name": "AsProjectile__17CProjectileBulletFv",
-            "evidence": "between-same-file"
-          },
-          {
             "address": "0x800d1bcc",
             "size": 140,
             "kind": "function",
@@ -35133,48 +35220,6 @@
             "kind": "function",
             "name": "Init__13CThrownBulletFv",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x800d1c78",
-            "size": 8,
-            "kind": "function",
-            "name": "GetLocalBoundingVolume__13CThrownBulletCFQ210ISceneNode11EVolumeType",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800d1c80",
-            "size": 8,
-            "kind": "function",
-            "name": "GetWorldBoundingVolume__13CThrownBulletCFQ210ISceneNode11EVolumeType",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800d1c88",
-            "size": 8,
-            "kind": "function",
-            "name": "IsCollisionEnabled__13CThrownBulletCFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800d1c90",
-            "size": 8,
-            "kind": "function",
-            "name": "GetAttachedLight__13CThrownBulletCFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800d1c98",
-            "size": 12,
-            "kind": "function",
-            "name": "GetDamage__13CThrownBulletCFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800d1ca4",
-            "size": 4,
-            "kind": "function",
-            "name": "AsThrown__13CThrownBulletFv",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x800d1ca8",
@@ -37050,48 +37095,6 @@
             "size": 184,
             "kind": "function",
             "name": "GetMedalStatus__10CShellMenuFPi",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800e6eb4",
-            "size": 8,
-            "kind": "function",
-            "name": "Get_currentStage__10CShellMenuFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800e6ebc",
-            "size": 8,
-            "kind": "function",
-            "name": "Get_currentMission__10CShellMenuFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800e6ec4",
-            "size": 8,
-            "kind": "function",
-            "name": "Get_currentDifficulty__10CShellMenuFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800e6ecc",
-            "size": 8,
-            "kind": "function",
-            "name": "Get_currentControllerSetting__10CShellMenuFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800e6ed4",
-            "size": 8,
-            "kind": "function",
-            "name": "Set_currentStage__10CShellMenuFUi",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800e6edc",
-            "size": 8,
-            "kind": "function",
-            "name": "Set_currentMission__10CShellMenuFUi",
             "evidence": "between-same-file"
           },
           {
