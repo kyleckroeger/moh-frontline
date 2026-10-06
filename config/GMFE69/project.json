@@ -286,7 +286,9 @@
     "slinklst.json",
     "ssysserv.json",
     "sgettag.json",
-    "sstrstat.json"
+    "sstrstat.json",
+    "sfilter.json",
+    "supf.json"
   ],
   "progress": {
     "code_bytes": 1414572,
