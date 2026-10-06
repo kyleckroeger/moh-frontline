@@ -1,0 +1,116 @@
+{
+  "id": "OSReboot",
+  "source": "src/tww/dolphin/os/OSReboot.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/tww",
+    "src/tww",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Include",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common_Embedded/Math/Include",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/PPC_EABI/Include",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C++/MSL_Common/Include",
+    "src/tww/PowerPC_EABI_Support/Runtime/Inc",
+    "src/tww/PowerPC_EABI_Support/MetroTRK"
+  ],
+  "strip_unused": true,
+  "source_root": "src/tww",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8011457c",
+      "size": 536,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x80317000",
+      "size": 32,
+      "type": 8
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034eff0",
+      "size": 12,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "Run",
+      "address": "0x8011457c",
+      "size": 64,
+      "binding": 0
+    },
+    {
+      "name": "Callback",
+      "address": "0x801145bc",
+      "size": 12,
+      "binding": 0
+    },
+    {
+      "name": "__OSReboot",
+      "address": "0x801145c8",
+      "size": 460,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DVDCheckDisk": "0x8011a5fc",
+    "DVDInit": "0x80118448",
+    "DVDReadAbsAsyncForBS": "0x80119fc4",
+    "DVDSetAutoInvalidation": "0x8011a2a4",
+    "ICFlashInvalidate": "0x80111980",
+    "ICInvalidateRange": "0x80111948",
+    "OSClearContext": "0x801120cc",
+    "OSDisableInterrupts": "0x801135cc",
+    "OSEnableInterrupts": "0x801135e0",
+    "OSSetCurrentContext": "0x80111f04",
+    "__DVDPrepareResetAsync": "0x8011a6e0",
+    "__OSDoHotReset": "0x80114888",
+    "__OSMaskInterrupts": "0x80113994",
+    "__OSUnmaskInterrupts": "0x80113a1c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "ReadApploader",
+    "OSSetSaveRegion"
+  ],
+  "upstream": {
+    "repository": "https://github.com/zeldaret/tww",
+    "commit": "a1854d47ce5aa9d0f21c7fb5a71aaade63659693",
+    "path": "src/dolphin/os/OSReboot.c"
+  },
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "OSReboot.c",
+  "original_file_index": 10783
+}

@@ -313,7 +313,8 @@
     "bsmachin.json",
     "CARDNet.json",
     "CARDStatEx.json",
-    "CARDOpen.json"
+    "CARDOpen.json",
+    "OSReboot.json"
   ],
   "progress": {
     "code_bytes": 1414572,

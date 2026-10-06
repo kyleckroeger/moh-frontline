@@ -17,7 +17,7 @@ in files it lacks or links in a different revision. Both are CC0; see
 
 | Tree | Upstream | Used for |
 | --- | --- | --- |
-| `src/tww/` | [zeldaret/tww](https://github.com/zeldaret/tww) `a1854d4` | MSL C, math, runtime, MetroTRK, `__ppc_eabi_init.cpp`, `DebuggerDriver.c`, `odenotstub.c` |
+| `src/tww/` | [zeldaret/tww](https://github.com/zeldaret/tww) `a1854d4` | MSL C, math, runtime, MetroTRK, `__ppc_eabi_init.cpp`, `OSReboot.c`, `DebuggerDriver.c`, `odenotstub.c` |
 | `src/prime/runtime/` | [PrimeDecomp/prime](https://github.com/PrimeDecomp/prime) `32020a0` | `alloc.c`, `ansi_fp.c`, `ctype.c`, `qsort.c`, `rand.c`, and `__cvt_sll_flt` |
 
 Units use the reference's own compiler profile: the Wind Waker's
@@ -45,6 +45,7 @@ drafted with `port_unit.py --no-file-record` and their manifests carry no
 | `tww/.../Runtime/Src/runtime.c` | Add `__cvt_sll_flt` (`asm`, copied from Prime's `runtime.c`) between `__shr2i` and `__cvt_dbl_usll` | Global `__cvt_sll_flt` at `0x80138dec` (180 bytes) between them; Prime's whole file does not fit, because its `__save_fpr`-family helpers are global where the target's are file-local |
 | `tww/.../Runtime/Src/NMWException.cp` | Declare `terminate`, `unexpected` and their setters in namespace `std` (the file declared them at global scope), and give `__throw_catch_compare` C linkage | `duhandler__3stdFv` at `0x80138878` is 40 bytes and calls through `thandler` (`lwz r12,-29704(r13)`), so it inlines `std::terminate`; the global-scope declaration made it call an external `::terminate`. Global `__throw_catch_compare` at `0x801385fc` is unmangled |
 | `tww/dolphin/os/__ppc_eabi_init.cpp` | Add the `.init` functions `__init_hardware` and `__flush_cache` (`asm`, from dolsdk2001's `__ppc_eabi_init.c`, with C declarations of `__OSPSInit`/`__OSCacheInit`), and make `__init_cpp` `static` | `__init_hardware` (`0x80007330`) and `__flush_cache` (`0x80007350`) belong to the `__ppc_eabi_init.cpp` record with `__init_user`, file-local `__init_cpp` and `_ExitProcess`; the 2001 `.c` file also defines `abort`/`exit`, which Frontline takes from MSL |
+| `tww/dolphin/os/OSReboot.c` | Frontline's older revision: `Run` is a `fralloc` `asm` function that calls `OSDisableInterrupts` and `ICFlashInvalidate` itself, the form of [Pikmin's](https://github.com/doldecomp/pikmin) CC0 `OSReboot.c`, so `__OSReboot` no longer calls them; `__OSReboot` stores `resetCode` (not 0) at `0x817FFFFC`. Built with the SDK compiler (1.2.5n) and SDK flags | `Run`, `Callback` and `__OSReboot` at `0x8011457c` (536 bytes); `__OSReboot` writes `r29` (the first argument) to `-4(0x81800000)` and calls `Run`, which has a frame and both calls. `ReadApploader` is inlined and `OSSetSaveRegion` is not linked |
 | `prime/runtime/alloc.c` | Add `malloc` (a `__pool_alloc` wrapper, MSL's form) and move `__pool_alloc` before it, after `deallocate_from_fixed_pools` | Global `malloc` at `0x8013a6a8` (152 bytes) between `free` and `deallocate_from_fixed_pools`; Prime omits `malloc` because Prime never links it |
 
 `ctype.c` comes from Prime because Frontline's `tolower` is a weak definition

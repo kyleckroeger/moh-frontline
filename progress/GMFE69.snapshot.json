@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 242716,
+    "matching_code_bytes": 243252,
     "total_executable_code_bytes": 1414572,
-    "percent": 17.15826412512053,
+    "percent": 17.19615544489782,
     "categories": {
       "reconstructed_game": 47860,
-      "restored_library": 194856
+      "restored_library": 195392
     },
-    "matching_functions": 1209
+    "matching_functions": 1212
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -80,6 +80,7 @@
     "config/GMFE69/OSMemory.json": "3b2f8cb0712628f20ecc069102b8e6cbc19bc1023947743446d2ea6d0502dc93",
     "config/GMFE69/OSMessage.json": "28f4ca013eb889f29452ce4b60a40bb32e49647ac513ed167fb959d48d32f37e",
     "config/GMFE69/OSMutex.json": "73821799678006005768465d02abed822ac63d97c863f28923bb68efacc692ab",
+    "config/GMFE69/OSReboot.json": "c7ab286a47094c84a62c5bf2ccd6b6af3c07333d3c1b5349edb9756a4a1c927e",
     "config/GMFE69/OSReset.json": "77625b94ecae7bcd0bab3364c46eb2b225853b5c4b4799e9d23e634962621119",
     "config/GMFE69/OSResetSW.json": "448c1b07ffd33631e830f0aad1595aad417cad2159f0b897410bae4027a16f14",
     "config/GMFE69/OSRtc.json": "2b3f59e100a488b914b76173a7bf9182eb89539f5a156a569a2e3743451c22b8",
@@ -196,7 +197,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "94ead23244bfcd56bfb861cf69a32086b6f7e3a29f2f3f6e1fb3ac453a7ba9fd",
+    "config/GMFE69/project.json": "0dc523b9f73c2d18c0d6c01e3c86a7d10efdb051f1586a58d9337ea95f399ec4",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1459,6 +1460,7 @@
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/mpc_7xx_603e.c": "f01b0d4b9eb846a5d367fd2c1b6749a53174232a01e693a3674bf5551fbc328c",
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl.c": "d0db4d34ff415b11c6fb6e470960c6cde9d43d51c724000cd8637dca716768e3",
     "src/tww/amcstubs/AmcExi2Stubs.c": "b03f8845bf930e4846506376b0a81d97bab493ce8d394868a38d3626403fb9a3",
+    "src/tww/dolphin/os/OSReboot.c": "feae9cfa95a2a8b82339c8864bb2ad99e1fb5c20b683c238f3e90375b0a12322",
     "src/tww/dolphin/os/__ppc_eabi_init.cpp": "9b2f7361cf36a889a13870ca382642eb33333e4a0432674235218b23f94ac4b3",
     "src/tww/odenotstub/odenotstub.c": "6e1de1a33298163c0dcc0d3b3e4add3b54e5393d7bee08e2a7982d82f208d841",
     "tools/audit.py": "9385332d49fb5899572afed342e75614ffc12596b8deda9f8cac2fff4424e928",
@@ -15319,6 +15321,47 @@
       "discarded_functions": [],
       "object_sha256": "0e97e44081a825a814038b1212d17553899c9246e2e13202b49b7a3cb1a756fb",
       "linked_sha256": "7924fee07d0630d24c6364a9ca4a91a5c09bd56725010e6a0e77d57090652e32"
+    },
+    {
+      "id": "OSReboot",
+      "category": "restored_library",
+      "functions": 3,
+      "code_bytes": 536,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "ReadApploader",
+        "OSSetSaveRegion"
+      ],
+      "object_sha256": "a33d535b3b5c5b9ed090aabf9754ad58b91813ce9abf08e0cd2b3d4960ed9f9d",
+      "linked_sha256": "4af1deb9eb2b6e42beac725c5e9b93f0d0d26862e7a26ec1be799e3e09b850eb"
     }
   ],
   "code_map": {
@@ -39799,34 +39842,6 @@
             "kind": "function",
             "name": "PPCMtwpar",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/OSReboot.c [symbol evidence]",
-        "file_record": 204,
-        "file_name": "OSReboot.c",
-        "ranges": [
-          {
-            "address": "0x8011457c",
-            "size": 64,
-            "kind": "function",
-            "name": "Run",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801145bc",
-            "size": 12,
-            "kind": "function",
-            "name": "Callback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801145c8",
-            "size": 460,
-            "kind": "function",
-            "name": "__OSReboot",
-            "evidence": "private-reference"
           }
         ]
       },
