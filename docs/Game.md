@@ -79,3 +79,29 @@ and layouts it marks as descriptive stay descriptive here.
 | File | Functions | Bytes | Reference | Notes |
 | --- | ---: | ---: | --- | --- |
 | `bstimer.cpp` | 6 | 2,020 | Rising Sun `src/script/timer_*.cpp` | `BSObject` is a view (`queueIdentity` at `+16`); `BSTimerEvent_struct.ownsEventMemory` is a byte, `DoWeOwnThisMemory` returns `bool`; `BSInitTimer` links events forward |
+| `propdat.cpp` (fragment) | 11 | 5,124 | Rising Sun `src/bpd/endian.cpp` | The `EndianSwap` conversions at `0x80040c6c`-`0x80042070` only; the rest of the file stays original context (see "Endian conversions") |
+
+## Endian conversions
+
+`propdat.cpp` starts with `EndianSwap` for each property record. As in Rising
+Sun, each converted field gets one `ChangeEndian` call. Frontline inlines every
+conversion, so the overloads are recovered from the code they leave:
+
+- `ChangeEndian(short&)`, `ChangeEndian(int&)` and `ChangeEndian(unsigned int&)`
+  copy the value to a local byte array and swap it. The 32-bit form is written
+  as two explicit pair swaps; a loop reproduces the bytes of most functions but
+  moves the scheduler's split points in others.
+- A `ChangeEndian` template converts other 32-bit types (pointers, `unsigned
+  long`) through `int`. Floats go through `ChangeEndian(float&)`, which calls
+  `EndianSwap(float&, bool)` (a weak function in this file); its `bool` is
+  unused and its meaning is unknown.
+- Each inline level puts its temporaries in a separate group of stack slots
+  (deeper levels lower, source order within a level). The slot order of each
+  target function therefore shows which fields are direct `int`s, which go
+  through the template and which are floats, and that is how the views' field
+  types were chosen. Where only one group appears, the types are not
+  established.
+
+The fragment covers only these functions. The remaining propdat functions (BSP
+patch-up, trigger setup, player starts and `PatchUpAllPropertyData`) are drafted
+in scratch and are not accepted.

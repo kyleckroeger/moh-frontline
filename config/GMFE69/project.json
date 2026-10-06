@@ -146,7 +146,8 @@
     "flush_cache.json",
     "mpc_7xx_603e.json",
     "targcont.json",
-    "bstimer.json"
+    "bstimer.json",
+    "propdat.json"
   ],
   "progress": {
     "code_bytes": 1414572,
