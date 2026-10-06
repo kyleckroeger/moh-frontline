@@ -6,17 +6,18 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 261200,
+    "matching_code_bytes": 261460,
     "total_executable_code_bytes": 1414572,
-    "percent": 18.46494911535079,
+    "percent": 18.483329233153206,
     "categories": {
-      "reconstructed_game": 64196,
+      "reconstructed_game": 64456,
       "restored_library": 197004
     },
-    "matching_functions": 1437
+    "matching_functions": 1442
   },
   "input_sha256": {
     "config/GMFE69/AIPlayerDoodad.json": "5ab45909efeb94b828331a8b68a46467e9cb19518255f572f32340c24b98dff2",
+    "config/GMFE69/AIPlayerObject.json": "89824370512e8f14345d260f39b95516cf337b026e7e61b8d6013d4d3664516a",
     "config/GMFE69/AITankDoodad.json": "733dd452ed553547b1c19276c94ec192493fdac622dc9fe66b677e200a12a55a",
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
     "config/GMFE69/AXAlloc.json": "b51afdb5cb97132361ccd2fe3e018cda2e215277e2c457b6ff35b3a9cd352f47",
@@ -228,7 +229,7 @@
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/pathxSND.json": "711dcdf3a5a5a7b4124ae70e377c5e863dc39c8de8a0de785b3dc3921c685fa0",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "e954121ea3c28d19ac0991b4d6be0eac69a41bd6c517e16e6356f21b39f60872",
+    "config/GMFE69/project.json": "d6fdb6cc94289afbd5af61fda1a77f79fa48ef8f9c737a570d96770e0b2a4f2e",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1286,6 +1287,7 @@
     "src/ea/timer.cpp": "5fbb8bd406632aa10e62ca1c8523eee1e88d3fcd17e3edcdf1b3d7cfd0f19708",
     "src/ea/timerthread.cpp": "e2ee2dfbb74893029f0693bb5b76212bdd70223c892d9fd963984794c6193628",
     "src/game/AIPlayerDoodad.cpp": "218144f1416be0e264e2255e27e05126728778a56d650e5705a961e69003196e",
+    "src/game/AIPlayerObject.cpp": "b1e57451819617f12a53f7185419f09b4ece3035859b25fcedb2752ec9d226bf",
     "src/game/AITankDoodad.cpp": "35252fb5c75740ecddc982a39bfecfc3c4a046a4e75046679eff1050fd598da9",
     "src/game/LinkedList.cpp": "3007b79180a5844b8b799dc4fc11618f6b5da77679e6c73c6f388fec501beb2a",
     "src/game/MallocInit.cpp": "ba35f4c9ac530c717f81930ab9aa3a203ea81844e4776914ae6b51acf4188a74",
@@ -17416,6 +17418,45 @@
       "discarded_functions": [],
       "object_sha256": "b15d9913de04900bc279d7b6d12588b9e8da7ab7581be2956f3fd6726caa2373",
       "linked_sha256": "c522a0867c06911a6275da3fcb6865fba562ed757eebb57fb94c9cd2eff08bd5"
+    },
+    {
+      "id": "AIPlayerObject",
+      "category": "reconstructed_game",
+      "functions": 5,
+      "code_bytes": 260,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "d74f942675e93b2da0f8ae7b9ed7e96618c72b78539da41b8d9b3ecf340cecdc",
+      "linked_sha256": "63b63c4a2a56689e9e49ef8ab5ab5508f296bd80541ad96a30c413740409120a"
     }
   ],
   "code_map": {
@@ -22789,45 +22830,10 @@
         ]
       },
       {
-        "name": "Unmatched files/AIPlayerObject.cpp [inferred file group]",
+        "name": "Unmatched files/AIPlayerObject.cpp [symbol evidence]",
         "file_record": 26,
         "file_name": "AIPlayerObject.cpp",
         "ranges": [
-          {
-            "address": "0x8004f16c",
-            "size": 8,
-            "kind": "function",
-            "name": "IsPlayer__15CAIPlayerObjectCFv",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x8004f174",
-            "size": 48,
-            "kind": "function",
-            "name": "IsCrouching__15CAIPlayerObjectCFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8004f1a4",
-            "size": 132,
-            "kind": "function",
-            "name": "Init__15CAIPlayerObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8004f228",
-            "size": 68,
-            "kind": "function",
-            "name": "Update__15CAIPlayerObjectFf",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8004f26c",
-            "size": 4,
-            "kind": "function",
-            "name": "PreUpdate__15CAIPlayerObjectFv",
-            "evidence": "between-same-file"
-          },
           {
             "address": "0x8004f270",
             "size": 96,
