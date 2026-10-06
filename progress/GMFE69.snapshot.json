@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 281040,
+    "matching_code_bytes": 281704,
     "total_executable_code_bytes": 1414572,
-    "percent": 19.867493489196733,
+    "percent": 19.914433482353672,
     "categories": {
-      "reconstructed_game": 81160,
+      "reconstructed_game": 81824,
       "restored_library": 199880
     },
-    "matching_functions": 1801
+    "matching_functions": 1809
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -281,7 +281,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "bf66538e645aa99b89c4f1d2bfcbf2f79dee1b2a96b9b4712e8dcf7eaa1a93a2",
+    "config/GMFE69/project.json": "05ef0d5a2cd8a4dfc2e6aa9da19edcc2b4d42655d4f00be091958baf2e5d0c46",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
@@ -307,6 +307,7 @@
     "config/GMFE69/s_modf.json": "19c80bbeaa8c51ee3125929c7519ced093a1c194a026b3ab10541bbaafda3e7a",
     "config/GMFE69/s_sin.json": "72a9c31b228d23acc079c9dd985ac8f6cdb2115b9df2cf5acd29882938696942",
     "config/GMFE69/s_tan.json": "4d4245a72ecbda130924076021f01024ffa5f912437d596842d21aa4b2ac1390",
+    "config/GMFE69/saems.json": "393f39c933594e85096657c77909ee2255155b518be653e6104d908b92a92165",
     "config/GMFE69/salloc.json": "ef3ec4f12f03a954dcf6987abf6f3758f75a48fdf016e8928adde29968cc5d4b",
     "config/GMFE69/saramman.json": "f3b24db465f9155f71b8e87e5be925838d41336f84ed7c65f079b9f1b037a1f9",
     "config/GMFE69/sattrdef.json": "2062535254eee3ac4100a4a8a86e83bf872f5c8bad922fe3e395962696444769",
@@ -1255,6 +1256,7 @@
     "src/ea/rcmp2real.cpp": "1d046950eca9f279ad901b132d22290eb4f44d42d4605181f63b1b097122ac25",
     "src/ea/rcmp_mpc_codec_chunk_types.cpp": "b996231c1c402b6ecdd813bb69df3ae8a3580e537b71dd9fa91e238690bb3635",
     "src/ea/s3dlow.c": "b79405b9175ff0299ba213a824c1599ebc4384af549addcc8725867ebc0390ce",
+    "src/ea/saems.c": "2d090b98b1eec0d4122e7dcc40b8360782b39c6aae88d2e4f3da898d3037ecc6",
     "src/ea/salloc.c": "3ac96aeac05c97dbc75a0a10fd30800dc8d61d636ec073ae89d3bcacd001affe",
     "src/ea/saramman.c": "a1fc41a18822adc35b7bfab01340e095d9a0e9aeefe021415e771332e38998f1",
     "src/ea/sattrdef.c": "5e55d42f497ca48214b54fe67659d8ed3943f33e3491bdc4832a83938bf10363",
@@ -20452,6 +20454,45 @@
       "discarded_functions": [],
       "object_sha256": "01e93f814df4f886c5843b9af2c0331401d9f01b67d31bb395cd27e1395b4e4b",
       "linked_sha256": "0940a6a4c7bcdff5e81cb1d4daace1d08ce4e72627c1aaf0bc3e5fc1bbf464a1"
+    },
+    {
+      "id": "saems",
+      "category": "reconstructed_game",
+      "functions": 8,
+      "code_bytes": 664,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "cad0429fc4be0c99e3e9a37527589e34b8657e10aa95cc8733ff18c498bff58e",
+      "linked_sha256": "caf82a3dc672621b80fbbf4c03e24f56951a8592a5ee5e2ded780ea2e07ae483"
     }
   ],
   "code_map": {
@@ -42961,63 +43002,12 @@
             "kind": "function",
             "name": "AEMSI_updaterandom__FP15AEMSCOMPDYNAMICP6MODULE",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8015577c",
-            "size": 44,
-            "kind": "function",
-            "name": "AEMSI_updatemux__FP15AEMSCOMPDYNAMICP6MODULE",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801557a8",
-            "size": 88,
-            "kind": "function",
-            "name": "AEMSI_updatedemux__FP15AEMSCOMPDYNAMICP6MODULE",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80155800",
-            "size": 212,
-            "kind": "function",
-            "name": "AEMSI_updateadd__FP15AEMSCOMPDYNAMICP6MODULE",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801558d4",
-            "size": 48,
-            "kind": "function",
-            "name": "AEMSI_updatesubtract__FP15AEMSCOMPDYNAMICP6MODULE",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80155904",
-            "size": 148,
-            "kind": "function",
-            "name": "AEMSI_updatescale__FP15AEMSCOMPDYNAMICP6MODULE",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80155998",
-            "size": 48,
-            "kind": "function",
-            "name": "AEMSI_updatemultiply__FP15AEMSCOMPDYNAMICP6MODULE",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801559c8",
-            "size": 44,
-            "kind": "function",
-            "name": "AEMSI_updatedivide__FP15AEMSCOMPDYNAMICP6MODULE",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801559f4",
-            "size": 32,
-            "kind": "function",
-            "name": "AEMSI_updatemodulo__FP15AEMSCOMPDYNAMICP6MODULE",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 80155a14",
+        "ranges": [
           {
             "address": "0x80155a14",
             "size": 120,

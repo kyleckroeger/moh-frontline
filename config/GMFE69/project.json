@@ -434,7 +434,8 @@
     "sphere.json",
     "UserInterface.json",
     "ConfigGC.json",
-    "pumhandler.json"
+    "pumhandler.json",
+    "saems.json"
   ],
   "progress": {
     "code_bytes": 1414572,
