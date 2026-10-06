@@ -164,7 +164,13 @@
     "sflpf.json",
     "SNDI_sin.json",
     "SNDI_cos.json",
-    "SNDI_root1x.json"
+    "SNDI_root1x.json",
+    "spantoaz.json",
+    "ssine.json",
+    "SNDI_mult16.json",
+    "sexithndl.json",
+    "slinkmix.json",
+    "SNDI_findprime.json"
   ],
   "progress": {
     "code_bytes": 1414572,

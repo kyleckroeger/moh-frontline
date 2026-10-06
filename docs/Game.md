@@ -147,4 +147,10 @@ establish a type, the source comments say so.
 | `SNDI_sin.c` | 1 | 124 | Taylor series to x^13 after reducing below 2*pi |
 | `SNDI_cos.c` | 1 | 124 | Taylor series to x^12 after reducing below 2*pi |
 | `SNDI_root1x.c` | 1 | 116 | Binomial series for sqrt(1 + x); terms are separate variables summed in one expression |
+| `spantoaz.c` | 1 | 20 | Pan-to-azimuth table lookup (the 128-entry table is this file's data) |
+| `ssine.c` | 1 | 124 | Integer sine from a 257-entry quarter-wave table |
+| `SNDI_findprime.c` | 1 | 152 | First prime at or above `a * b / 1000`; integer root by stepping `i * (i - 1)` |
+| `SNDI_mult16.c` | 1 | 44 | `SNDI_findprime(a, b / 16) * 16` |
+| `sexithndl.c` | 1 | 32 | Calls `SNDSYS_restore` |
+| `slinkmix.c` | 1 | 88 | Installs the seven main-CPU mixer entry points |
 
