@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 231320,
+    "matching_code_bytes": 232704,
     "total_executable_code_bytes": 1414572,
-    "percent": 16.352649423288458,
+    "percent": 16.450488204205936,
     "categories": {
-      "reconstructed_game": 40300,
+      "reconstructed_game": 41684,
       "restored_library": 191020
     },
-    "matching_functions": 1131
+    "matching_functions": 1141
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -144,6 +144,7 @@
     "config/GMFE69/fstload.json": "c101975fb01250bc8f0325effbe643330b62ccd00eac41e24aff682c06866309",
     "config/GMFE69/gcSystem.json": "3bf2743737fe9c041930fdcb9879f7d17600a25c1ffc836927c0901688b92aea",
     "config/GMFE69/global_destructor_chain.json": "0fe0a3698440cd1f1bff61944bd62409272132d09eb6b5c82b9745b82413e6fa",
+    "config/GMFE69/hlsfile.json": "949cb6bbf006231f6e840512648466c8cc1f095827bbb723bf5ff1c4a55603e5",
     "config/GMFE69/idct.json": "eb6d0797d88ce828568e804d35d083be094fd1ef17858bf028ba89364ff70164",
     "config/GMFE69/initosalloc.json": "5324f4e73a3982e763bab556d4b226d91ef242cc4b14e07a057a1fe18a367ae0",
     "config/GMFE69/inittmr.json": "7755f1641b77990ae66e1ef55ad3b56891762a7784c3a1f993f458cc6bc71f24",
@@ -189,7 +190,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "2a587bebec2ec860b81d32f816361b05ebaf024cd77245cca9075a7c5ce6510a",
+    "config/GMFE69/project.json": "b8319767d417f4d04e812ea3cefc2cf1e507fd9ea1c786b4b8dcfaa44406299e",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1094,6 +1095,7 @@
     "src/ea/fontdriver.cpp": "799464786df81aa82291f1d18699c4c4d2283338c1e6c75e4e508bc368470f9c",
     "src/ea/fontinit.cpp": "23ee3e1e4457de8dba71c1b08e1355e02844f0753acb1b2cdf4d8bc9ab7e7fa3",
     "src/ea/fontnull.cpp": "f5c2dfb2e21956fc5d3a1b11c46ae763d9b5cd956badc5e3db912b1e59a9d641",
+    "src/ea/hlsfile.cpp": "c8095cd394607595fc29daf20812c5430140171a6214048367943aa62f453105",
     "src/ea/idct.cpp": "b3f69a37bb85fc0cad5293848e9add29eb184e02082723c04d1ab7aec557a8a4",
     "src/ea/initosalloc.cpp": "4947ccd21ff1ff25a35565783cff19911daddc3bebc8bd4b31e22056e208885a",
     "src/ea/inittmr.cpp": "2b8bc47a5536adecefaedb4c74d54e5a0509db63fdfef428e0975b1dcabababa",
@@ -14924,6 +14926,45 @@
       "discarded_functions": [],
       "object_sha256": "baa1ea1cdb08324a72237ee7e5f050f2887bf1c8202e60ee7576848c7aacc22e",
       "linked_sha256": "fb0682a3e83c52a20a4c8b7d1d2b37d4068baac2f00ec0e3878e3d1e22d31605"
+    },
+    {
+      "id": "hlsfile",
+      "category": "reconstructed_game",
+      "functions": 10,
+      "code_bytes": 1384,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "c0e64be69235aa3008fa145572cfb649f132186a91dc29653220bebf23ea37c8",
+      "linked_sha256": "73cf2fee3926cd735f6e6b3e96bfd6ef75b63ef24aa37b13b9e0b79e71b81b78"
     }
   ],
   "code_map": {
@@ -41517,83 +41558,6 @@
             "kind": "function",
             "name": "STREAM_buffersize",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/hlsfile.cpp [symbol evidence]",
-        "file_record": 369,
-        "file_name": "hlsfile.cpp",
-        "ranges": [
-          {
-            "address": "0x8014ddcc",
-            "size": 36,
-            "kind": "function",
-            "name": "FILE_exists",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8014ddf0",
-            "size": 120,
-            "kind": "function",
-            "name": "filesizeatom__FiPv",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8014de68",
-            "size": 64,
-            "kind": "function",
-            "name": "FILE_size",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8014dea8",
-            "size": 64,
-            "kind": "function",
-            "name": "FILE_sizez",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8014dee8",
-            "size": 216,
-            "kind": "function",
-            "name": "loadfileatom__FiPv",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8014dfc0",
-            "size": 72,
-            "kind": "function",
-            "name": "FILE_loadz",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8014e008",
-            "size": 228,
-            "kind": "function",
-            "name": "loadfilesizeatom__FiPv",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8014e0ec",
-            "size": 100,
-            "kind": "function",
-            "name": "FILE_loadsize",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8014e150",
-            "size": 412,
-            "kind": "function",
-            "name": "loadbigheaderatom__FiPv",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8014e2ec",
-            "size": 72,
-            "kind": "function",
-            "name": "FILE_loadbigheader",
-            "evidence": "private-reference"
           }
         ]
       },

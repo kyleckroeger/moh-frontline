@@ -1,0 +1,135 @@
+{
+  "id": "hlsfile",
+  "source": "src/ea/hlsfile.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8014ddcc",
+      "size": 1384,
+      "type": 1
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034e5b0",
+      "size": 4,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "filesizeatom__FiPv",
+      "address": "0x8014ddf0",
+      "size": 120,
+      "binding": 0
+    },
+    {
+      "name": "loadfileatom__FiPv",
+      "address": "0x8014dee8",
+      "size": 216,
+      "binding": 0
+    },
+    {
+      "name": "loadfilesizeatom__FiPv",
+      "address": "0x8014e008",
+      "size": 228,
+      "binding": 0
+    },
+    {
+      "name": "loadbigheaderatom__FiPv",
+      "address": "0x8014e150",
+      "size": 412,
+      "binding": 0
+    },
+    {
+      "name": "FILE_exists",
+      "address": "0x8014ddcc",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "FILE_size",
+      "address": "0x8014de68",
+      "size": 64,
+      "binding": 1
+    },
+    {
+      "name": "FILE_sizez",
+      "address": "0x8014dea8",
+      "size": 64,
+      "binding": 1
+    },
+    {
+      "name": "FILE_loadz",
+      "address": "0x8014dfc0",
+      "size": 72,
+      "binding": 1
+    },
+    {
+      "name": "FILE_loadsize",
+      "address": "0x8014e0ec",
+      "size": 100,
+      "binding": 1
+    },
+    {
+      "name": "FILE_loadbigheader",
+      "address": "0x8014e2ec",
+      "size": 72,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "BIG_sizeofheader": "0x8014a364",
+    "BIG_typeofheader": "0x8014a318",
+    "FILESYS_atomic": "0x801496f8",
+    "FILESYS_closesync": "0x8014a130",
+    "FILESYS_existssync": "0x8014a2bc",
+    "FILESYS_opensync": "0x8014a088",
+    "FILESYS_readsync": "0x8014a108",
+    "FILESYS_sizesync": "0x8014a18c",
+    "MEM_copy": "0x80150880",
+    "_restgpr_27": "0x80138a5c",
+    "_savegpr_27": "0x80138a10",
+    "gFileSysOpts": "0x80190f38"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "hlsfile.cpp",
+  "original_file_index": 12175
+}
