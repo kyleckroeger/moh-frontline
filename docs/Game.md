@@ -90,6 +90,7 @@ and layouts it marks as descriptive stay descriptive here.
 | `texpack.cpp` | 6 | 428 | — | Texture pack lookup (`bsearch` over 16-byte names) and offset fix-up; with its weak `offsetPtr` instantiations. Its own copy of `offsetPtr<void>` was dropped by the linker in favour of propdat's, so the source declares that specialisation instead of instantiating it |
 | `anim.cpp` | 11 | 532 | — | Animation module start-up, the user-opcode callback stacks and the global `g_AnimDB` (constructed by `__sinit_anim_cpp`) |
 | `orient.cpp` | 2 | 300 | — | Fixed-point (one turn = 0x1000000) shortest-way angle interpolation, `extern "C"` names; the 64-bit product shape fixes where the difference is taken |
+| `memory.cpp` | 7 | 748 | `DWI_alloc`/`DWI_allocalign` and the global `operator new`/`new[]`/`delete`/`delete[]` on the REAL heap; `DWI_alloc` is inlined into the `new` forms (hence two `memset` calls), and the `throw()` deletes keep their exception-spec frames |
 | `trig.cpp` (fragment) | 4 | 272 | `MathArcTan2`, `MathSinCos`, `MathCosf`, `MathSinf`. `MathLLAngleInit` (Taylor tables) is left out: 4 instructions differ (element 0 of `_Math_TaylorConst` is addressed through a copied base register), and a 12-byte object the linker stripped sits between the tables |
 
 ## Endian conversions

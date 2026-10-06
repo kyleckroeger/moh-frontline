@@ -199,7 +199,8 @@
     "systask.json",
     "trig.json",
     "bmem.json",
-    "syncfile.json"
+    "syncfile.json",
+    "memory.json"
   ],
   "progress": {
     "code_bytes": 1414572,

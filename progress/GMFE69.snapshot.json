@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 211600,
+    "matching_code_bytes": 212348,
     "total_executable_code_bytes": 1414572,
-    "percent": 14.95858818073594,
+    "percent": 15.011466365798277,
     "categories": {
-      "reconstructed_game": 17460,
+      "reconstructed_game": 18208,
       "restored_library": 194140
     },
-    "matching_functions": 971
+    "matching_functions": 978
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -152,6 +152,7 @@
     "config/GMFE69/mem_funcs.json": "cdc21eee7ec690a2964eff60bc9e230f0115ca0eb200b536179c0a35c292ae7a",
     "config/GMFE69/memclass.json": "46eddd286cbf5e3f845b1e2017ad0a37fdecb92483caa4302506d5daf4b300ba",
     "config/GMFE69/meminitadr.json": "381fcfbcbb6c274bbc1966d84f43a5ba64175efe3e51b4f0b3824230aa348172",
+    "config/GMFE69/memory.json": "fe888334b7e0b723c25eefadb3445d72d0b6a47eb84f7b32d253937403302a75",
     "config/GMFE69/misc_io.json": "ce7d57c797416feb92a3a89e4ce5412b18b2a322ecac1667ffdca9c454e2e8f1",
     "config/GMFE69/mpc_7xx_603e.json": "815f349dc1383d438a3836cb5ba5bd2db4279c6d017721a52804a4fd42e85507",
     "config/GMFE69/mslsupp.json": "2541b92f398de9b87693f46cf3c1788ca2567585937933406e7e83b347675dd5",
@@ -163,7 +164,7 @@
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "8cde620469e7a7cae796891c7252b2232cae665e1b5cf79501efcf043a692d30",
+    "config/GMFE69/project.json": "cc4bcf9a972a66fd18388834b8adefe3639a5f3ad0b52c67e0d704a16b020aba",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1013,6 +1014,7 @@
     "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
     "src/game/dmgeom.cpp": "6f176541b44727ce39e90fbc33d60d1c7cd572e20cde4bc86401f647cd9f7f14",
     "src/game/gcSystem.cpp": "e97d4933fe4ba1c46e72d853db6ff53b0c8136020bef2237c66ad38a0d1e1068",
+    "src/game/memory.cpp": "75e50f5f66acd16755a070f59afef29e6869b97dede92fada6399d2931c1b27c",
     "src/game/orient.cpp": "031b0d870db82013b99a554649dfe99038d03705b3309d14909ed0094ee43304",
     "src/game/propdat.cpp": "b1e26b00f10be619cc409432f6748e200a0064248119fafa81774718c305885d",
     "src/game/real_bridge.cpp": "3528e557dcb6116823246402f1003e63fd82246a624dcbc2f18e5ee8b9bf8e41",
@@ -10619,6 +10621,45 @@
       "discarded_functions": [],
       "object_sha256": "55a92972194104cab76204083aaf1b0c85b32cc1c7f67d89d2d47de60272d6e0",
       "linked_sha256": "e036520922f1c437d672110e2e00a82dfe7eee4e7943fe2683d1b72c8e7ad195"
+    },
+    {
+      "id": "memory",
+      "category": "reconstructed_game",
+      "functions": 7,
+      "code_bytes": 748,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "5e8d0f906769a4306ad54b2d11860701aac224422703898e344b5a629f030f33",
+      "linked_sha256": "aa8d8c6ec87989e842fb059520e7fb70cce0e8b499d1dc216283d27fbc134f5d"
     }
   ],
   "code_map": {
@@ -11830,62 +11871,6 @@
             "size": 492,
             "kind": "function",
             "name": "File_Open__FPCc9EOpenMode",
-            "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/memory.cpp [symbol evidence]",
-        "file_record": 9,
-        "file_name": "memory.cpp",
-        "ranges": [
-          {
-            "address": "0x8001c8ec",
-            "size": 136,
-            "kind": "function",
-            "name": "DWI_allocalign__FPCciii",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001c974",
-            "size": 116,
-            "kind": "function",
-            "name": "DWI_alloc__FPCcii",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001c9e8",
-            "size": 68,
-            "kind": "function",
-            "name": "__dla__FPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001ca2c",
-            "size": 68,
-            "kind": "function",
-            "name": "__dl__FPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001ca70",
-            "size": 120,
-            "kind": "function",
-            "name": "__nwa__FUlPc",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001cae8",
-            "size": 120,
-            "kind": "function",
-            "name": "__nwa__FUl",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001cb60",
-            "size": 120,
-            "kind": "function",
-            "name": "__nw__FUl",
             "evidence": "exception-index"
           }
         ]
