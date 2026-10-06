@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 329296,
+    "matching_code_bytes": 329820,
     "total_executable_code_bytes": 1414572,
-    "percent": 23.278843353325247,
+    "percent": 23.31588635997319,
     "categories": {
       "reconstructed_game": 91828,
-      "restored_library": 237468
+      "restored_library": 237992
     },
-    "matching_functions": 2210
+    "matching_functions": 2215
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -123,6 +123,7 @@
     "config/GMFE69/SearchNodeList.json": "94a6f88f4b8062b0b71ee5f431cf4a7f102d07ca517660d3fe098a7fd2a44a2c",
     "config/GMFE69/SearchNode_tail.json": "776226b1df84ac789283ba0367ca13acd0df61805f62e384d87dcbdcd1f3af23",
     "config/GMFE69/ShellMenu.json": "12334fab8c5ecec10bece4423a6da6effac2cfef65c1450ff865a6ca968239dd",
+    "config/GMFE69/ShellMenu_card.json": "f8e82fac8047821f0181b6a4aacac959d67dc8664b0a2509f30867cafe640b2d",
     "config/GMFE69/ShellMenu_levels.json": "63f395cf68dc158b848e46243a23164ec7dc9cc89530776e3448e734694d4a93",
     "config/GMFE69/ShellMenu_mp.json": "832b6ca80ff60cae037bcdfe4519a41b2b5b41f6869b0ab6cd4ce912d13bbaf8",
     "config/GMFE69/Soldier_object.json": "d625d33bbfdcbd4ae922099756d0a2525feb495afdd309517e996dc20e2f2aff",
@@ -338,7 +339,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "a9f1d232ba97fff2a3b7fe8502ad501585b3060334b49c1e53f08722d818ed8b",
+    "config/GMFE69/project.json": "32ce5d9035da7311f9cb2278c08bbb8219d01cde25210522273637399a2f2dd8",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -1508,6 +1509,7 @@
     "src/game/SearchNodeList.cpp": "738d75054ffdc5c611f06f3c0f8d330d60226794efc3684079e2280494a4d65c",
     "src/game/SearchNode_tail.cpp": "ac957dcb51976bf56af734d6ff8433a4bc34a95f066fdc0708034b825032e2e2",
     "src/game/ShellMenu.cpp": "bdd9fe66a5c610b53fff1f0b46b076a733010fac633e7d3a1794e35757d22b44",
+    "src/game/ShellMenu_card.cpp": "360c40a30ae8561bcc938899f84adc18104343aa89f688077a8c3667dcad0ddd",
     "src/game/ShellMenu_levels.cpp": "7725919006107aa8c2dee7d6142fb64ed999096ac96d51e9d55c418630259a7b",
     "src/game/ShellMenu_mp.cpp": "ddb7136cf97d30ad3178c7add969b38cb66835043dc1fbbe8467d8057fd8de99",
     "src/game/Soldier_object.cpp": "92bf858d3c8b06c691309b702079f4c10d3da7935ed4b50d4e27764fa7eeca41",
@@ -24540,6 +24542,45 @@
       "discarded_functions": [],
       "object_sha256": "6e942633b4540cb7c6e2154559d9c3906580bbd60a69e0357665367b72074093",
       "linked_sha256": "187a00cbf0944869acffcf2f39df4dd787748fb19c18eca15f16f09d0790cdf5"
+    },
+    {
+      "id": "ShellMenu_card",
+      "category": "restored_library",
+      "functions": 5,
+      "code_bytes": 524,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "318bb184b89de1803d80a21c0a889d50aa877306b52342202804f3861140bc7e",
+      "linked_sha256": "92e8b937aa10fffd0e6624f848005eca45d0883c9d1090ec2a9d9e34e12755c8"
     }
   ],
   "code_map": {
@@ -40272,41 +40313,6 @@
             "size": 140,
             "kind": "function",
             "name": "MemoryCardGetNextSaveGame__10CShellMenuFiPUiPUiPc",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800e5380",
-            "size": 116,
-            "kind": "function",
-            "name": "MemoryCardRewindSaveGameList__10CShellMenuFi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800e53f4",
-            "size": 124,
-            "kind": "function",
-            "name": "MemoryCardArePrefsPresent__10CShellMenuFi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800e5470",
-            "size": 124,
-            "kind": "function",
-            "name": "MemoryCardFormat__10CShellMenuFi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800e54ec",
-            "size": 124,
-            "kind": "function",
-            "name": "MemoryCardIsFormated__10CShellMenuFi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800e5568",
-            "size": 36,
-            "kind": "function",
-            "name": "MemoryCardQueryPort__10CShellMenuFi",
             "evidence": "exception-index"
           },
           {

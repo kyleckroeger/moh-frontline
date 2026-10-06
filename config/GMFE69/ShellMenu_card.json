@@ -1,0 +1,107 @@
+{
+  "id": "ShellMenu_card",
+  "source": "src/game/ShellMenu_card.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800e5380",
+      "size": 524,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000f120",
+      "size": 40,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80015c14",
+      "size": 60,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "MemoryCardRewindSaveGameList__10CShellMenuFi",
+      "address": "0x800e5380",
+      "size": 116,
+      "binding": 1
+    },
+    {
+      "name": "MemoryCardArePrefsPresent__10CShellMenuFi",
+      "address": "0x800e53f4",
+      "size": 124,
+      "binding": 1
+    },
+    {
+      "name": "MemoryCardFormat__10CShellMenuFi",
+      "address": "0x800e5470",
+      "size": 124,
+      "binding": 1
+    },
+    {
+      "name": "MemoryCardIsFormated__10CShellMenuFi",
+      "address": "0x800e54ec",
+      "size": 124,
+      "binding": 1
+    },
+    {
+      "name": "MemoryCardQueryPort__10CShellMenuFi",
+      "address": "0x800e5568",
+      "size": 36,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "ArePrefsPresent__11CMemoryCardFv": "0x800ee7b4",
+    "Format__11CMemoryCardFv": "0x800ef9ec",
+    "GetPort__11CMemoryCardFv": "0x800ee7a4",
+    "IsFormated__11CMemoryCardFv": "0x800f02c8",
+    "OpenSlot__11CMemoryCardFi": "0x800f083c",
+    "RewindSaveGameList__11CMemoryCardFv": "0x800ef9c4"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "ShellMenu.cpp",
+  "original_file_index": 8612
+}
