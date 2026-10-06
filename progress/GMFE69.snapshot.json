@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 283156,
+    "matching_code_bytes": 283544,
     "total_executable_code_bytes": 1414572,
-    "percent": 20.01707937100409,
+    "percent": 20.04450816218616,
     "categories": {
-      "reconstructed_game": 83276,
+      "reconstructed_game": 83664,
       "restored_library": 199880
     },
-    "matching_functions": 1823
+    "matching_functions": 1830
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -176,6 +176,7 @@
     "config/GMFE69/db.json": "f5cdac8d1b6ec28c05d82995e2918679665f81055beaea75273deb9b2bb4a458",
     "config/GMFE69/debugger.json": "b4812b86753209416cae697106b949c189ef985bbe634aca332ff006abd18fdb",
     "config/GMFE69/destructor_queue.json": "2350cf976029cd809d15a75f5f5d41195d68c7984d9c637caabbf8766be0ddd5",
+    "config/GMFE69/devicemgr.json": "1a68b9b3166a8dc32f21a3b30dfd783a16a741d56b768118cc985fbbcd2d873c",
     "config/GMFE69/direct_io.json": "6bc91b9814ea8394c4fb8292d3c0f477dd5841c089e81e92061adaca275f77ab",
     "config/GMFE69/dispatch.json": "9785b3256f8baf02b4d894ff082a1103522e7730d2bea7f05c504b418b5a462f",
     "config/GMFE69/dmgeom.json": "9829feea0b00aad311216a345cb671d1c82c01af17c198cd9ecea52129f159fa",
@@ -281,7 +282,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "4a5e2fbf11e7262c20d31a2313190c78f8082b3d7037adc03d003dd1bd9bb275",
+    "config/GMFE69/project.json": "b9b2ea49e9fddbf61e129208fe9a94a3f2fd6c1ed9d70ce1d2b9a9e99b0cc37b",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
@@ -1426,6 +1427,7 @@
     "src/game/configfile.cpp": "d7e5f7aff38b5ab2c1744e81f1a3469c55b6e00a561d1f5cd43f49ccf6b6d2ec",
     "src/game/csg_volume.cpp": "f25cc67d8eb3b8f7878f9b091457fd541542c87d7ac50c96a7672781e668484c",
     "src/game/destructor_queue.cpp": "96832ec7b1265822d1e18a69dea9302e793bb1a399694519922f360dbfc5c361",
+    "src/game/devicemgr.cpp": "6c722b6c1a7fca3a5975e6772be5f38de9d6e6a80f19a3b1dcb7e3eb4953794c",
     "src/game/dmgeom.cpp": "6f176541b44727ce39e90fbc33d60d1c7cd572e20cde4bc86401f647cd9f7f14",
     "src/game/dmmorph.cpp": "bd3896c6b9956acda3fe9efaa958a3ae4ae04e95a706b93e0a682241354a77f3",
     "src/game/dmrender.cpp": "7b92ea9bad0f52f4ba4728f8386f4da6fd4a3b93b5293dd87d1fdcf6bc6c3ec8",
@@ -20534,6 +20536,45 @@
       "discarded_functions": [],
       "object_sha256": "1fe788cb6574ac852a5d2cf66a9f80a0c64a0a5a7e91cf7d9f3ad0949f3b227d",
       "linked_sha256": "4f301da9d3340a6d3f4ba72ba8c549e71d0645a1fca142829f051751e6c2d95c"
+    },
+    {
+      "id": "devicemgr",
+      "category": "reconstructed_game",
+      "functions": 7,
+      "code_bytes": 388,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "4d85e3ccb988ed19c19bad1262c8e2d119cf7da4ef144fd7afac23f205fef97d",
+      "linked_sha256": "fc9d8d31e8e4c720e0cc3588ec7e06196f2c2155f16127eb9ffcd3bd6ee6b27d"
     }
   ],
   "code_map": {
@@ -30335,55 +30376,6 @@
             "kind": "function",
             "name": "SetActuatorState__14CDeviceManagerFillff",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x80084158",
-            "size": 92,
-            "kind": "function",
-            "name": "GetDeviceState__14CDeviceManagerFUl",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800841b4",
-            "size": 12,
-            "kind": "function",
-            "name": "IsReady__14CDeviceManagerFi",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800841c0",
-            "size": 80,
-            "kind": "function",
-            "name": "Update__14CDeviceManagerFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80084210",
-            "size": 4,
-            "kind": "function",
-            "name": "Shutdown__14CDeviceManagerFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80084214",
-            "size": 136,
-            "kind": "function",
-            "name": "Init__14CDeviceManagerFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8008429c",
-            "size": 60,
-            "kind": "function",
-            "name": "__dt__14CDeviceManagerFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800842d8",
-            "size": 4,
-            "kind": "function",
-            "name": "__ct__14CDeviceManagerFv",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x800842dc",

@@ -436,7 +436,8 @@
     "ConfigGC.json",
     "pumhandler.json",
     "saems.json",
-    "snddrv.json"
+    "snddrv.json",
+    "devicemgr.json"
   ],
   "progress": {
     "code_bytes": 1414572,
