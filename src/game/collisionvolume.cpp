@@ -5,9 +5,8 @@
 // touch are declared, at their offsets (their names are not original), and
 // the virtual table is not reproduced. The accessors and casts are inline in
 // the original (weak symbols), so they are defined __declspec(weak). The row
-// accessors later in the file copy a 16-byte row that this view cannot
-// reproduce without inventing a type, and the bullet handler that follows
-// these functions is not reconstructed.
+// accessors later in the file are the collisionvolume_rows.cpp fragment, and
+// the bullet handler that follows these functions is not reconstructed.
 enum EClsnId {};
 
 // The object at BSObject+12; only its first virtual slot is called here, and
