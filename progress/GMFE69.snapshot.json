@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 204632,
+    "matching_code_bytes": 205100,
     "total_executable_code_bytes": 1414572,
-    "percent": 14.466001023631176,
+    "percent": 14.499085235675526,
     "categories": {
-      "reconstructed_game": 13612,
+      "reconstructed_game": 14080,
       "restored_library": 191020
     },
-    "matching_functions": 903
+    "matching_functions": 912
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -59,6 +59,7 @@
     "config/GMFE69/GXTexture.json": "fee53b58bcc52dee50e933340ae77066267452c98410a66575d8acd6d920c0bc",
     "config/GMFE69/GXTransform.json": "38225301a6fd0d656301839a81128f2235b7fbe70c809990d1beeb45d8a5182b",
     "config/GMFE69/Gecko_ExceptionPPC.json": "40e29a739fe917c560f5eb9768fcab768f7b2d6fafcf2e45c14439d96526b39e",
+    "config/GMFE69/LinkedList.json": "602f883f2de084765f8942b8e59f71e78eba4a2f6decd323bf7ba7b64498ec81",
     "config/GMFE69/MallocInit.json": "8084909a7be143dbe22e68d1ec13bf2de5447a3ce15fc2023dff212530d007d1",
     "config/GMFE69/NMWException.json": "993919adc03819f768ac97f37687a067894f1324f0097fa28477b34baf8f9157",
     "config/GMFE69/NewMore.json": "a73fc17ffb36c223ebeace7005486781fe8461b7cdeead36cec2f2532fdd9aea",
@@ -111,6 +112,7 @@
     "config/GMFE69/ctype.json": "204f2baf71f1c77a57c8bb685dba45f7583994fc6c39201224cb2a0ed20eb580",
     "config/GMFE69/db.json": "f5cdac8d1b6ec28c05d82995e2918679665f81055beaea75273deb9b2bb4a458",
     "config/GMFE69/direct_io.json": "6bc91b9814ea8394c4fb8292d3c0f477dd5841c089e81e92061adaca275f77ab",
+    "config/GMFE69/dmgeom.json": "9829feea0b00aad311216a345cb671d1c82c01af17c198cd9ecea52129f159fa",
     "config/GMFE69/dsp.json": "6c4ba9a2f66c0ef3e23283c2ae295edd31558a47efcff76f281c5ba678f4d74d",
     "config/GMFE69/dsp_debug.json": "abb1bf69b26be3567a5e3a22a729922f11d7a3b8c74ed938895798d0072114a0",
     "config/GMFE69/dsp_task.json": "23fad1688cbbe0178fb9b445cc0d319c557ace917f657fe4d2e1b34efa7c90b7",
@@ -153,7 +155,7 @@
     "config/GMFE69/nubevent.json": "d6afc4bc3a93eb5ab6fc791d166d4243a4fee57863e76656a656235d2e20e0f2",
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "94211f42ecdb0c1fbd62ad687b43bde01f3afca01c510fed21ed89d43532838f",
+    "config/GMFE69/project.json": "14f2a16f31f53677b5f9266a5c6dc10096eebf953b11ed4398493017c7434cc0",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -981,8 +983,10 @@
     "src/ea/slinkmix.c": "3cf4c749e4f9caf67c6276ed5df5b66b07e13be40dc7192b1d952b35fd5225f5",
     "src/ea/spantoaz.c": "e31c00ca71938e75d62f7465384c809d31a6bd0daa4b46f9d2576df1cbe2775c",
     "src/ea/ssine.c": "93302d8c4f67ab20ec7e2ead484fb1726b447d5e118755a655f69a2b8479136c",
+    "src/game/LinkedList.cpp": "3007b79180a5844b8b799dc4fc11618f6b5da77679e6c73c6f388fec501beb2a",
     "src/game/MallocInit.cpp": "ba35f4c9ac530c717f81930ab9aa3a203ea81844e4776914ae6b51acf4188a74",
     "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
+    "src/game/dmgeom.cpp": "6f176541b44727ce39e90fbc33d60d1c7cd572e20cde4bc86401f647cd9f7f14",
     "src/game/gcSystem.cpp": "e97d4933fe4ba1c46e72d853db6ff53b0c8136020bef2237c66ad38a0d1e1068",
     "src/game/propdat.cpp": "b1e26b00f10be619cc409432f6748e200a0064248119fafa81774718c305885d",
     "src/game/real_bridge.cpp": "3528e557dcb6116823246402f1003e63fd82246a624dcbc2f18e5ee8b9bf8e41",
@@ -9963,6 +9967,84 @@
       "discarded_functions": [],
       "object_sha256": "8a3e1ead3bcc841a1d70b1f16b41fcd5b5e2ea6eb4354acf29a27a26ecfc57b6",
       "linked_sha256": "6acd52201169960dd39de72ac884bbc3a0933e6aa1f41fd1fb4e46dda7eab234"
+    },
+    {
+      "id": "dmgeom",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 44,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "7cbcdd54e8464d3d4e12b7ec8626feb0c55f2da56031ad43d2d986da82ac5a4c",
+      "linked_sha256": "3ddcb83f334b367e283ce13bd5606983d6bd745b0108d1c9f5aeb6b2ffa294f3"
+    },
+    {
+      "id": "LinkedList",
+      "category": "reconstructed_game",
+      "functions": 8,
+      "code_bytes": 424,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "1e30b1ea27d1fdb18d9aabdbd969ac848a10ef795e9e86c7a65fd4174fe13b72",
+      "linked_sha256": "16947025082214760a98dafff6a114fd669693bf777f8b2b9ff9f7f107797548"
     }
   ],
   "code_map": {
@@ -16297,69 +16379,6 @@
             "kind": "function",
             "name": "__sinit_CoverPoint_cpp",
             "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/LinkedList.cpp [inferred file group]",
-        "file_record": 32,
-        "file_name": "LinkedList.cpp",
-        "ranges": [
-          {
-            "address": "0x80053590",
-            "size": 16,
-            "kind": "function",
-            "name": "IsEmpty__11CLinkedListFv",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x800535a0",
-            "size": 160,
-            "kind": "function",
-            "name": "RemoveElement__11CLinkedListFP18CLinkedListElement",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x80053640",
-            "size": 52,
-            "kind": "function",
-            "name": "AddElementAtEnd__11CLinkedListFP18CLinkedListElement",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x80053674",
-            "size": 44,
-            "kind": "function",
-            "name": "AddElementAtBeginning__11CLinkedListFP18CLinkedListElement",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x800536a0",
-            "size": 60,
-            "kind": "function",
-            "name": "__dt__11CLinkedListFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800536dc",
-            "size": 20,
-            "kind": "function",
-            "name": "__ct__11CLinkedListFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800536f0",
-            "size": 60,
-            "kind": "function",
-            "name": "__dt__18CLinkedListElementFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8005372c",
-            "size": 12,
-            "kind": "function",
-            "name": "__ct__18CLinkedListElementFv",
-            "evidence": "same-class (inferred)"
           }
         ]
       },
@@ -33380,18 +33399,6 @@
             "kind": "function",
             "name": "__dt__14CFinishPartBinFv",
             "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 800f6db8",
-        "ranges": [
-          {
-            "address": "0x800f6db8",
-            "size": 44,
-            "kind": "function",
-            "name": "DMGeomSetNodeState__FP17DMGeometryState_Tll",
-            "evidence": "unknown-file"
           }
         ]
       },

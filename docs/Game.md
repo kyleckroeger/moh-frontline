@@ -85,6 +85,8 @@ and layouts it marks as descriptive stay descriptive here.
 | `real_bridge.cpp` | 3 | 196 | — | REAL runtime start-up, update and shutdown calls |
 | `system.cpp` | 3 | 208 | — | `SysInit`/`SysShutdown` with the module-active flag and a 36-byte critical section |
 | `gcSystem.cpp` | 5 | 232 | — | Critical sections over `MUTEX_create`/`MUTEX_destroy` (a 28-byte mutex, owner thread and count) and `SysInitDependent` (`OSInit`, `DVDInit`) |
+| `dmgeom.cpp` (fragment) | 1 | 44 | — | `DMGeomSetNodeState` only; `DMGeomResetState` is drafted but not matched |
+| `LinkedList.cpp` | 8 | 424 | — | Singly linked list (head, tail, count) and its element |
 
 ## Endian conversions
 

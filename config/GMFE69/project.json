@@ -183,7 +183,9 @@
     "real_bridge.json",
     "system.json",
     "gcSystem.json",
-    "idct.json"
+    "idct.json",
+    "dmgeom.json",
+    "LinkedList.json"
   ],
   "progress": {
     "code_bytes": 1414572,

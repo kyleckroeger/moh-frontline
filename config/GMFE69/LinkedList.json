@@ -1,0 +1,120 @@
+{
+  "id": "LinkedList",
+  "source": "src/game/LinkedList.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80053590",
+      "size": 424,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000aaf0",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80011c90",
+      "size": 24,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "IsEmpty__11CLinkedListFv",
+      "address": "0x80053590",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "RemoveElement__11CLinkedListFP18CLinkedListElement",
+      "address": "0x800535a0",
+      "size": 160,
+      "binding": 1
+    },
+    {
+      "name": "AddElementAtEnd__11CLinkedListFP18CLinkedListElement",
+      "address": "0x80053640",
+      "size": 52,
+      "binding": 1
+    },
+    {
+      "name": "AddElementAtBeginning__11CLinkedListFP18CLinkedListElement",
+      "address": "0x80053674",
+      "size": 44,
+      "binding": 1
+    },
+    {
+      "name": "__dt__11CLinkedListFv",
+      "address": "0x800536a0",
+      "size": 60,
+      "binding": 1
+    },
+    {
+      "name": "__ct__11CLinkedListFv",
+      "address": "0x800536dc",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "__dt__18CLinkedListElementFv",
+      "address": "0x800536f0",
+      "size": 60,
+      "binding": 1
+    },
+    {
+      "name": "__ct__18CLinkedListElementFv",
+      "address": "0x8005372c",
+      "size": 12,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "__dl__FPv": "0x8001ca2c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "LinkedList.cpp",
+  "original_file_index": 2204
+}
