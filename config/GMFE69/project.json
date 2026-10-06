@@ -535,7 +535,9 @@
     "bsbifunc_cook.json",
     "bsbifunc_holdtime.json",
     "bsbifunc_ai.json",
-    "bsbifunc_misc.json"
+    "bsbifunc_misc.json",
+    "bsbifunc_random.json",
+    "bsbifunc_melee.json"
   ],
   "progress": {
     "code_bytes": 1414572,

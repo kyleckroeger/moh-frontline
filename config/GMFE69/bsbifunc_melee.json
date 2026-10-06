@@ -1,0 +1,105 @@
+{
+  "id": "bsbifunc_melee",
+  "source": "src/game/bsbifunc_melee.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8002f8dc",
+      "size": 588,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x80009eb4",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80010bd4",
+      "size": 36,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "BIFunc_PlayerHasMeleeWeapon__FPPiPv",
+      "address": "0x8002f8dc",
+      "size": 200,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_EnableNonVisDestruct__FPPiPv",
+      "address": "0x8002f9a4",
+      "size": 92,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_RegisterTimerEvent__FPPiPv",
+      "address": "0x8002fa00",
+      "size": 164,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_PlayFacialAnimation__FPPiPv",
+      "address": "0x8002faa4",
+      "size": 132,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "BSRegisterTimerEvent__FiUsP8BSObjectPv19ETimerReplaceMethod": "0x8003ae40",
+    "GetCurrentWeapon__13CPlayerObjectCFv": "0x8009fb78",
+    "SetFaceAnimationState__14CSoldierObjectFUsl": "0x800adeac",
+    "g_iCurrentBIFIndex": "0x8034e77c",
+    "g_pBSObject": "0x8034e7e0",
+    "g_pBuiltInFunctions": "0x8034e778"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "g_iCurrentBIFIndex",
+    "g_pBSObject",
+    "g_pBuiltInFunctions"
+  ],
+  "original_file": "bsbifunc.cpp",
+  "original_file_index": 443
+}
