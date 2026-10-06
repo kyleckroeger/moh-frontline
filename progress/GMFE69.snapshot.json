@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 283008,
+    "matching_code_bytes": 283156,
     "total_executable_code_bytes": 1414572,
-    "percent": 20.00661684240887,
+    "percent": 20.01707937100409,
     "categories": {
-      "reconstructed_game": 83128,
+      "reconstructed_game": 83276,
       "restored_library": 199880
     },
-    "matching_functions": 1819
+    "matching_functions": 1823
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -281,7 +281,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "05ef0d5a2cd8a4dfc2e6aa9da19edcc2b4d42655d4f00be091958baf2e5d0c46",
+    "config/GMFE69/project.json": "4a5e2fbf11e7262c20d31a2313190c78f8082b3d7037adc03d003dd1bd9bb275",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
@@ -368,6 +368,7 @@
     "config/GMFE69/smixlowp.json": "d53e5c31fe798368a255f83acad448258398036638284e3bc62c00683bf6796a",
     "config/GMFE69/smixptch.json": "3ee346a2468c72ab7527f27bcf6828417178cbb8b0f2d6e04fbe0403fd87e159",
     "config/GMFE69/smixtmul.json": "37f93dd19460569e21edd1a0a60fc37651d392a42d8313b9ac31b49488492459",
+    "config/GMFE69/snddrv.json": "14cb6c44e004930954fc8f3efa1497d5c6f5e6f1eb4dd3f839cb6ccfa569d194",
     "config/GMFE69/sound.json": "d74b722d4e85fbb126fd03a4f58be228d5cb31fbc8a7baed7337cefc70b15328",
     "config/GMFE69/soundtable.json": "cdb4630125f80a582ec8b2e1da94b8535275157bb21eb768aee80687fed4dfcc",
     "config/GMFE69/sover.json": "e93f0bef0e81124940f9ca940effc94a8b0c69c04f988f2ffaa1b34c25494e48",
@@ -1312,6 +1313,7 @@
     "src/ea/smixlowp.c": "3a30e12bbbc6bdbce38ef1897a4b0dbe9342d675ad94bd13908f6643525fe6c2",
     "src/ea/smixptch.c": "47a348d834dba9fe0175a712c545385b61ba841ff47a27dc7fb70381cc7723fb",
     "src/ea/smixtmul.c": "904c72fe015bac10ded57e46ac9f7fc9a4acb0218e25e3cbe4091b750336d11f",
+    "src/ea/snddrv.c": "b2c7317eaf9685685540cc3440acdf95584674f76562a36e0b043c7375149280",
     "src/ea/sover.c": "195a5eb257fd99eb0337c24b3f263591fc147eb5c4d343a039faaf66c2cbd950",
     "src/ea/spantoaz.c": "e31c00ca71938e75d62f7465384c809d31a6bd0daa4b46f9d2576df1cbe2775c",
     "src/ea/spatkey.c": "b4dbcbbf95c33db80e3442f28f6846a8e054ab762c3c73d2b45fca7e51d055f9",
@@ -20493,6 +20495,45 @@
       "discarded_functions": [],
       "object_sha256": "5482d198ad80447f0856372ec0bfca56a3bc5cebde65c0cfcd109bb841d5a219",
       "linked_sha256": "5535777ed56dc52bad86aa291ae2ed020775c6eea29ed658c67efd64c040e4c1"
+    },
+    {
+      "id": "snddrv",
+      "category": "reconstructed_game",
+      "functions": 4,
+      "code_bytes": 148,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "1fe788cb6574ac852a5d2cf66a9f80a0c64a0a5a7e91cf7d9f3ad0949f3b227d",
+      "linked_sha256": "4f301da9d3340a6d3f4ba72ba8c549e71d0645a1fca142829f051751e6c2d95c"
     }
   ],
   "code_map": {
@@ -44175,7 +44216,7 @@
             "size": 168,
             "kind": "function",
             "name": "SNDDRV_thread__FPv",
-            "evidence": "private-reference"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x80169c18",
@@ -44196,7 +44237,7 @@
             "size": 1804,
             "kind": "function",
             "name": "SNDPLATFORM_init__Fv",
-            "evidence": "private-reference"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x8016ac84",
@@ -44308,7 +44349,7 @@
             "size": 328,
             "kind": "function",
             "name": "SNDPLATFORM_setpitch__Fi",
-            "evidence": "private-reference"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x8016c1e8",
@@ -44322,96 +44363,63 @@
             "size": 244,
             "kind": "function",
             "name": "SNDPLATFORM_lowpass__Fii",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8016c364",
-        "ranges": [
+            "evidence": "between-same-file"
+          },
           {
             "address": "0x8016c364",
             "size": 132,
             "kind": "function",
             "name": "SNDPLATFORM_highpass__Fii",
-            "evidence": "unknown-file"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x8016c3e8",
             "size": 168,
             "kind": "function",
             "name": "SNDPLATFORM_getcurframe__Fi",
-            "evidence": "unknown-file"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x8016c490",
             "size": 360,
             "kind": "function",
             "name": "SNDPLATFORM_stop__Fi",
-            "evidence": "unknown-file"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x8016c5f8",
             "size": 8,
             "kind": "function",
             "name": "SNDPLATFORM_filteradd__FiP12SNDFILTERDEF",
-            "evidence": "unknown-file"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x8016c600",
             "size": 72,
             "kind": "function",
             "name": "SNDPLATFORM_memalloc__Fii",
-            "evidence": "unknown-file"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x8016c648",
             "size": 80,
             "kind": "function",
             "name": "SNDPLATFORM_memfree__FiUi",
-            "evidence": "unknown-file"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x8016c698",
             "size": 464,
             "kind": "function",
             "name": "SNDPLATFORM_download__FiPvPvi",
-            "evidence": "unknown-file"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x8016c868",
             "size": 708,
             "kind": "function",
             "name": "SNDPLATFORM_downloadcomplete__Fi",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8016cb2c",
-            "size": 48,
-            "kind": "function",
-            "name": "SNDI_mutexalloc__Fv",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8016cb5c",
-            "size": 4,
-            "kind": "function",
-            "name": "SNDI_mutexfree__Fv",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8016cb60",
-            "size": 48,
-            "kind": "function",
-            "name": "SNDI_mutexlock__Fv",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8016cb90",
-            "size": 48,
-            "kind": "function",
-            "name": "SNDI_mutexunlock__Fv",
-            "evidence": "unknown-file"
+            "evidence": "between-same-file"
           }
         ]
       },

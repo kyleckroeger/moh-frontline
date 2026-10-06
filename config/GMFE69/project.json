@@ -435,7 +435,8 @@
     "UserInterface.json",
     "ConfigGC.json",
     "pumhandler.json",
-    "saems.json"
+    "saems.json",
+    "snddrv.json"
   ],
   "progress": {
     "code_bytes": 1414572,

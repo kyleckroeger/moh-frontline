@@ -1,0 +1,85 @@
+{
+  "id": "snddrv",
+  "source": "src/ea/snddrv.c",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8016cb2c",
+      "size": 148,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SNDI_mutexlock__Fv",
+      "address": "0x8016cb60",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "SNDI_mutexunlock__Fv",
+      "address": "0x8016cb90",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "SNDI_mutexalloc__Fv",
+      "address": "0x8016cb2c",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "SNDI_mutexfree__Fv",
+      "address": "0x8016cb5c",
+      "size": 4,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "OSInitMutex": "0x80114330",
+    "OSLockMutex": "0x80114368",
+    "OSUnlockMutex": "0x80114444",
+    "snddrv": "0x80341a20"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "snddrv.c",
+  "original_file_index": 13274
+}
