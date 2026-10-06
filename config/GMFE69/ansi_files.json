@@ -61,8 +61,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8013b3e8",
-      "size": 264,
+      "address": "0x8013b35c",
+      "size": 768,
       "type": 1
     },
     {
@@ -80,6 +80,12 @@
   ],
   "functions": [
     {
+      "name": "__flush_line_buffered_output_files",
+      "address": "0x8013b35c",
+      "size": 140,
+      "binding": 1
+    },
+    {
       "name": "__flush_all",
       "address": "0x8013b3e8",
       "size": 112,
@@ -90,15 +96,34 @@
       "address": "0x8013b458",
       "size": 152,
       "binding": 1
+    },
+    {
+      "name": "__init_file",
+      "address": "0x8013b4f0",
+      "size": 220,
+      "binding": 1
+    },
+    {
+      "name": "__find_unopened_file",
+      "address": "0x8013b5cc",
+      "size": 144,
+      "binding": 1
     }
   ],
   "externals": {
     "__close_console": "0x80137eb0",
+    "__close_file": "0x80137c14",
+    "__position_file": "0x80137b38",
     "__read_console": "0x80137ff0",
+    "__read_file": "0x80137dfc",
     "__write_console": "0x8014054c",
+    "__write_file": "0x80137d48",
     "fclose": "0x8013d174",
     "fflush": "0x8013d03c",
-    "free": "0x8013a574"
+    "free": "0x8013a574",
+    "malloc": "0x8013a6a8",
+    "memset": "0x80009410",
+    "setvbuf": "0x8013c360"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],

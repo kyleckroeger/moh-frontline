@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 202592,
+    "matching_code_bytes": 203096,
     "total_executable_code_bytes": 1414572,
-    "percent": 14.321787791642985,
+    "percent": 14.35741694307536,
     "categories": {
       "reconstructed_game": 12484,
-      "restored_library": 190108
+      "restored_library": 190612
     },
-    "matching_functions": 880
+    "matching_functions": 883
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -98,7 +98,7 @@
     "config/GMFE69/abort_exit.json": "6ece500a463798efa6113ceec565b1bc449b5f23ea3602f03a676c413fa303b8",
     "config/GMFE69/ai.json": "57c30f25d932fdeb3f89033a5520f9d2de67dc88142e1f33a09be06723837827",
     "config/GMFE69/alloc.json": "fb00980764751afb051dcf8d20531d16fad345cbb4ab5446ac3f13dae1d82c1e",
-    "config/GMFE69/ansi_files.json": "87a3d8b0a4f43519299c8f5eeb4759808a6c6e7f2954de34aeee5504713e7230",
+    "config/GMFE69/ansi_files.json": "fd2d4cda0d125e73920f67f3d75171b2abd9967c8c4e9fcc3f024baba54e119e",
     "config/GMFE69/ansi_fp.json": "a0ef64e95f9c4bdc4bb31bbfa57bd7af88bd31f24fec8fad5c9aef7cfcfc2427",
     "config/GMFE69/ar.json": "f7bf6b4079ed418edeb4c95ff15f08f4450ac1e184d58dd1af945665137df3c2",
     "config/GMFE69/arq.json": "53c9d956d7cd2b69c858816128443494613f46b3ad680d5056ae00227df49900",
@@ -1087,7 +1087,7 @@
     "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/FILE_POS.c": "fbea78ecfb554e98956db4ddd5ec4309db7b461dbbfbd57a468a96a08fba948b",
     "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/abort_exit.c": "5ca0bddaccb5e5560feb486ee8006d211efb048dc1c7ed6cc42819a3d67abf36",
     "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/alloc.c": "45ea4a5762a83158e2c65a8c938a3cb939dcfc8232493e02b0b08f1f502cc2b8",
-    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_files.c": "05370e8e726e35a79cefa6d4f2571845fb81b1702a446e95b9b183627bf7030d",
+    "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ansi_files.c": "0fa034fd1ef5752f2d5f3f1eb5d2ee6dc29b5e1fb6ffa525738ade3f44f4b023",
     "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/arith.c": "6ac759260b798e3086e0e6859f0b04fd81311296143a76ae6e3459aa4a720216",
     "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/buffer_io.c": "c2c605e9ef8b67f542e88e03b31bea34211bf26d29f3120ac2d370f44f2d8992",
     "src/tww/PowerPC_EABI_Support/MSL/MSL_C/MSL_Common/Src/ctype.c": "c0f5f0e20882bd730a9dec8e2abed358c81bfbc7bc372a6b86ad0c1156012ad1",
@@ -6935,8 +6935,8 @@
     {
       "id": "ansi_files",
       "category": "restored_library",
-      "functions": 2,
-      "code_bytes": 264,
+      "functions": 5,
+      "code_bytes": 768,
       "compiler_family": "GC",
       "compiler_version": "1.3",
       "compiler_flags": [
@@ -6983,8 +6983,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "74801ea0acbd5f4103b5926d5702d9caefae4fd4f3ec052e9785637844311384",
-      "linked_sha256": "45ed34e53ba2f57ca46059ae3c38449f9b53db009a58313e544694ff4f7fb9eb"
+      "object_sha256": "b4404f128d64d61f0d32e0e3c65da5d71d9369a5d59484fffaa3d0ed85b8f7e1",
+      "linked_sha256": "22d7cf4484022d908eb7b5212fc64e24c534832d4e3fc41031292570c321ac9d"
     },
     {
       "id": "__va_arg",
@@ -36171,37 +36171,6 @@
             "kind": "function",
             "name": "what__Q23std13bad_exceptionCFv",
             "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8013b35c",
-        "ranges": [
-          {
-            "address": "0x8013b35c",
-            "size": 140,
-            "kind": "function",
-            "name": "__flush_line_buffered_output_files",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8013b4f0",
-        "ranges": [
-          {
-            "address": "0x8013b4f0",
-            "size": 220,
-            "kind": "function",
-            "name": "__init_file",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8013b5cc",
-            "size": 144,
-            "kind": "function",
-            "name": "__find_unopened_file",
-            "evidence": "unknown-file"
           }
         ]
       },

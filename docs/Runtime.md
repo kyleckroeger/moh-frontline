@@ -81,7 +81,8 @@ linked comparison then treats weak and global alike.
 
 Functions added to Wind Waker copies (absent upstream, reconstructed from the
 disassembly): `clearerr` in `misc_io.c` (placed before `__stdio_atexit`),
-`strstr` in `string.c`, `atoi` in `strtoul.c` (`strtol(str, NULL, 10)`,
+`__find_unopened_file`, `__init_file` and `__flush_line_buffered_output_files` in
+`ansi_files.c`, `strstr` in `string.c`, `atoi` in `strtoul.c` (`strtol(str, NULL, 10)`,
 with `strtol` inlined), and `__load_buffer` and `setvbuf` in `buffer_io.c`
 (source order reversed relative to the target).
 
@@ -89,8 +90,7 @@ with `strtol` inlined), and `__load_buffer` and `setvbuf` in `buffer_io.c`
 
 - No reference links these, so they need reconstruction from the
   disassembly: the C++ throw/unwind code of `Gecko_ExceptionPPC.cp`
-  (`__throw`, `ExPPC_*`, about 5 KB), `ansi_files.c`'s file-table helpers,
-  and `fopen`/`freopen`/`fread`.
+  (`__throw`, `ExPPC_*`, about 5 KB) and `fopen`/`freopen`/`fread`.
 - MetroTRK: Frontline links the Wind Waker's revision (117 of 118 function
   sizes agree), but the Wind Waker decompilation marks most TRK files
   non-matching. The matching files (`mainloop`, `nubevent`, `usr_put`,
