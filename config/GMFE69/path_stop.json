@@ -94,9 +94,5 @@
     "pfstate"
   ],
   "original_file": "path.c",
-  "original_file_index": 10551,
-  "adapted_from": {
-    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
-    "manifest": "path.json"
-  }
+  "original_file_index": 10551
 }

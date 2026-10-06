@@ -146,9 +146,5 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "targimpl.c",
-  "original_file_index": 11493,
-  "adapted_from": {
-    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
-    "manifest": "targimpl.json"
-  }
+  "original_file_index": 11493
 }

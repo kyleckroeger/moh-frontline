@@ -80,9 +80,5 @@
     "g_FreeRecordList"
   ],
   "original_file": "soundschedule.cpp",
-  "original_file_index": 1712,
-  "adapted_from": {
-    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
-    "manifest": "soundschedule.json"
-  }
+  "original_file_index": 1712
 }

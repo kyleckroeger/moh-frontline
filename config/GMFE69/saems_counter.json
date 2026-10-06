@@ -58,9 +58,5 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "saems.c",
-  "original_file_index": 12620,
-  "adapted_from": {
-    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
-    "manifest": "saems.json"
-  }
+  "original_file_index": 12620
 }

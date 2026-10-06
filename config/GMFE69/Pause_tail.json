@@ -82,9 +82,5 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "Pause.cpp",
-  "original_file_index": 8565,
-  "adapted_from": {
-    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
-    "manifest": "Pause.json"
-  }
+  "original_file_index": 8565
 }

@@ -142,9 +142,5 @@
     "g_pPBSPHeader"
   ],
   "original_file": "propdat.cpp",
-  "original_file_index": 1602,
-  "adapted_from": {
-    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
-    "manifest": "propdat.json"
-  }
+  "original_file_index": 1602
 }
