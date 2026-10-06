@@ -1,0 +1,98 @@
+{
+  "id": "printstr",
+  "source": "src/ea/printstr.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80151620",
+      "size": 688,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "PRINT_vstring__F12PRINTCHANNELPCcPQ23std13__tag_va_List",
+      "address": "0x80151620",
+      "size": 192,
+      "binding": 0
+    },
+    {
+      "name": "PRINT_setchannelstate",
+      "address": "0x80151880",
+      "size": 80,
+      "binding": 1
+    },
+    {
+      "name": "PRINT_setdevicestate",
+      "address": "0x8015180c",
+      "size": 116,
+      "binding": 1
+    },
+    {
+      "name": "PRINT_string",
+      "address": "0x801516e0",
+      "size": 140,
+      "binding": 1
+    },
+    {
+      "name": "PRINT_string__FPCce",
+      "address": "0x8015176c",
+      "size": 160,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "PRINT_init": "0x80151380",
+    "PRINT_movechannel__F12PRINTCHANNELi": "0x80151234",
+    "PRINTchannellist": "0x80193050",
+    "PRINTdevicelist": "0x80192fd4",
+    "PRINTinitialized": "0x8034f3d8",
+    "vsprintf": "0x8013db94"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [
+    "PRINT_movechannel__F12PRINTCHANNELi",
+    "PRINTchannellist"
+  ],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "PRINTinitialized"
+  ],
+  "original_file": "printstr.cpp",
+  "original_file_index": 12482
+}

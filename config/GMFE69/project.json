@@ -429,7 +429,8 @@
     "csg_volume.json",
     "quaternion.json",
     "AnimObjFactory.json",
-    "anim_callback.json"
+    "anim_callback.json",
+    "printstr.json"
   ],
   "progress": {
     "code_bytes": 1414572,
