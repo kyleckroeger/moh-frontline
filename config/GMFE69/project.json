@@ -446,7 +446,8 @@
     "msghndlr.json",
     "support.json",
     "targimpl.json",
-    "renderlist.json"
+    "renderlist.json",
+    "debug_prof.json"
   ],
   "progress": {
     "code_bytes": 1414572,
