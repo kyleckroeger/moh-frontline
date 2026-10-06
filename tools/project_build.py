@@ -42,6 +42,10 @@ def object_record(symbol):
         name = name.rsplit("$", 1)[0]
     if symbol["binding"] == 0 and re.fullmatch(r"[A-Za-z_]\w*\.\d+", name):
         name = name.rsplit(".", 1)[0]
+    # MW's anonymous objects (such as a static destructor-chain record) are
+    # named @N with a compilation-local number.
+    if symbol["binding"] == 0 and re.fullmatch(r"@\d+", name):
+        name = "@"
     return name, symbol["address"], symbol["size"], symbol["binding"]
 
 

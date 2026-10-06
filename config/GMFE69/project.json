@@ -189,7 +189,8 @@
     "timerthread.json",
     "inittmr.json",
     "exit.json",
-    "texpack.json"
+    "texpack.json",
+    "anim.json"
   ],
   "progress": {
     "code_bytes": 1414572,

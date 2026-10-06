@@ -88,6 +88,7 @@ and layouts it marks as descriptive stay descriptive here.
 | `dmgeom.cpp` (fragment) | 1 | 44 | — | `DMGeomSetNodeState` only; `DMGeomResetState` is drafted but not matched |
 | `LinkedList.cpp` | 8 | 424 | — | Singly linked list (head, tail, count) and its element |
 | `texpack.cpp` | 6 | 428 | — | Texture pack lookup (`bsearch` over 16-byte names) and offset fix-up; with its weak `offsetPtr` instantiations. Its own copy of `offsetPtr<void>` was dropped by the linker in favour of propdat's, so the source declares that specialisation instead of instantiating it |
+| `anim.cpp` | 11 | 532 | — | Animation module start-up, the user-opcode callback stacks and the global `g_AnimDB` (constructed by `__sinit_anim_cpp`) |
 
 ## Endian conversions
 

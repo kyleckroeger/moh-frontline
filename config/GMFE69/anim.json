@@ -1,0 +1,160 @@
+{
+  "id": "anim",
+  "source": "src/game/anim.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800691c8",
+      "size": 532,
+      "type": 1
+    },
+    {
+      "name": ".ctors",
+      "address": "0x8016df8c",
+      "size": 4,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000b580",
+      "size": 40,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80012740",
+      "size": 60,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x801d4a60",
+      "size": 212,
+      "type": 8
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034e970",
+      "size": 14,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "__sinit_anim_cpp",
+      "address": "0x800693a0",
+      "size": 60,
+      "binding": 0
+    },
+    {
+      "name": "AnimSetUserOpcodeCallbacks",
+      "address": "0x800691c8",
+      "size": 12,
+      "binding": 1
+    },
+    {
+      "name": "AnimInitHeader",
+      "address": "0x800691d4",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "AnimShutdown",
+      "address": "0x800691e4",
+      "size": 88,
+      "binding": 1
+    },
+    {
+      "name": "AnimInit",
+      "address": "0x8006923c",
+      "size": 112,
+      "binding": 1
+    },
+    {
+      "name": "_AnimUserCallbackPopInfo__Fv",
+      "address": "0x800692ac",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "_AnimUserCallbackPopState__Fv",
+      "address": "0x800692bc",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "_AnimUserCallbackPushInfo__FPv",
+      "address": "0x800692cc",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "_AnimUserCallbackPushState__FUl",
+      "address": "0x800692f4",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "_AnimDoUserOpcodeSkipCallback__FUs",
+      "address": "0x8006931c",
+      "size": 52,
+      "binding": 1
+    },
+    {
+      "name": "_AnimDoUserOpcodeCallback__FUs",
+      "address": "0x80069350",
+      "size": 80,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "Init__13CAnimDatabaseFv": "0x800620cc",
+    "SysSetLastErrorFunc": "0x8001cbd8",
+    "__ct__13CAnimDatabaseFv": "0x800621d0",
+    "__dt__13CAnimDatabaseFv": "0x80062194",
+    "__register_global_object": "0x801381bc"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "anim.cpp",
+  "original_file_index": 3172
+}
