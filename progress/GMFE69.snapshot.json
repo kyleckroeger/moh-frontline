@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 275680,
+    "matching_code_bytes": 276080,
     "total_executable_code_bytes": 1414572,
-    "percent": 19.488580291423837,
+    "percent": 19.516857395735247,
     "categories": {
-      "reconstructed_game": 75800,
+      "reconstructed_game": 76200,
       "restored_library": 199880
     },
-    "matching_functions": 1776
+    "matching_functions": 1781
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -173,6 +173,7 @@
     "config/GMFE69/direct_io.json": "6bc91b9814ea8394c4fb8292d3c0f477dd5841c089e81e92061adaca275f77ab",
     "config/GMFE69/dispatch.json": "9785b3256f8baf02b4d894ff082a1103522e7730d2bea7f05c504b418b5a462f",
     "config/GMFE69/dmgeom.json": "9829feea0b00aad311216a345cb671d1c82c01af17c198cd9ecea52129f159fa",
+    "config/GMFE69/dmmorph.json": "5d6bcd1c343237b6b5c06843d43fc5af43e209e616b20d6aca1dcad294146828",
     "config/GMFE69/dmrender.json": "a4e5a155bcb40cefc60608fed6f7359cea5bc51b9fec0b9f80c0e4dbac97ac56",
     "config/GMFE69/dolphin_trk.json": "9f66a923f4f6e4103cb15c12022e534d623c661d7ace9cc644364dfd361c06b7",
     "config/GMFE69/dolphin_trk_glue.json": "35632428fdcb95c68c3d34d0e84c498fdf35a8a1150c9c0bfb433defb9d187d4",
@@ -273,7 +274,7 @@
     "config/GMFE69/player_weapon_object.json": "2c451ab555672599946bb97ca631b2a316350d8f99e8e9b77cf7f8f648d219df",
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "9df15f93a250ed32696b1aee1c00a737804b9e902a68fae87620c63ca05b62de",
+    "config/GMFE69/project.json": "86fa5e169847bca7811fd95ef449d12881772ddfa0f765c43865efdb4471366e",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
@@ -1405,6 +1406,7 @@
     "src/game/configfile.cpp": "d7e5f7aff38b5ab2c1744e81f1a3469c55b6e00a561d1f5cd43f49ccf6b6d2ec",
     "src/game/destructor_queue.cpp": "96832ec7b1265822d1e18a69dea9302e793bb1a399694519922f360dbfc5c361",
     "src/game/dmgeom.cpp": "6f176541b44727ce39e90fbc33d60d1c7cd572e20cde4bc86401f647cd9f7f14",
+    "src/game/dmmorph.cpp": "bd3896c6b9956acda3fe9efaa958a3ae4ae04e95a706b93e0a682241354a77f3",
     "src/game/dmrender.cpp": "7b92ea9bad0f52f4ba4728f8386f4da6fd4a3b93b5293dd87d1fdcf6bc6c3ec8",
     "src/game/draw_context.cpp": "261589cc092b9c8c7b80605255eefc78641468141f4d33264252696f62c9782b",
     "src/game/fader.cpp": "fcc29dce43a0cf9eca978df224fba99596b634584e886a18cb434749daf4a4e0",
@@ -20001,6 +20003,45 @@
       "discarded_functions": [],
       "object_sha256": "450620b49f15ad4db6fb99ddd95491a139dcc2ba210e7f02e66746f7f7d8e086",
       "linked_sha256": "d1e39ab1e80214725b9b8aa237bfa57d719a073b4537391bcd607ff7dc59f25c"
+    },
+    {
+      "id": "dmmorph",
+      "category": "reconstructed_game",
+      "functions": 5,
+      "code_bytes": 400,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "2e96543ea6df309ed58e28d3695a80d6e65b25ee61a003bab3d8d79cd53154a5",
+      "linked_sha256": "3dfd586bef112bb2a3140d2dd0c7ae3f6e0e0d7f595fc2252c205b906839a0db"
     }
   ],
   "code_map": {
@@ -39526,41 +39567,6 @@
         "file_record": 161,
         "file_name": "dmmorph.cpp",
         "ranges": [
-          {
-            "address": "0x800f6f9c",
-            "size": 96,
-            "kind": "function",
-            "name": "__dt__10CMemBufferFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f6ffc",
-            "size": 24,
-            "kind": "function",
-            "name": "__ct__10CMemBufferFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800f7014",
-            "size": 92,
-            "kind": "function",
-            "name": "__dt__17CBlendBufferCacheFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f7070",
-            "size": 100,
-            "kind": "function",
-            "name": "__dt__Q217CBlendBufferCache15BufferCacheDataFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f70d4",
-            "size": 88,
-            "kind": "function",
-            "name": "__ct__Q217CBlendBufferCache15BufferCacheDataFv",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x800f712c",
             "size": 1260,

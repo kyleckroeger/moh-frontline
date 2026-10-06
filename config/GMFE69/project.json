@@ -423,7 +423,8 @@
     "publisher.json",
     "hierobject.json",
     "motionblur.json",
-    "bsfile.json"
+    "bsfile.json",
+    "dmmorph.json"
   ],
   "progress": {
     "code_bytes": 1414572,
