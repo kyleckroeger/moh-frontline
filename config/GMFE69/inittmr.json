@@ -1,0 +1,121 @@
+{
+  "id": "inittmr",
+  "source": "src/ea/inittmr.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80151b8c",
+      "size": 524,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x8033ef38",
+      "size": 40,
+      "type": 8
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f3f0",
+      "size": 2,
+      "type": 8
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x803519c8",
+      "size": 24,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "AlarmHandler__FP7OSAlarmP9OSContext",
+      "address": "0x80151d74",
+      "size": 36,
+      "binding": 0
+    },
+    {
+      "name": "InitAlarm__Fv",
+      "address": "0x80151b8c",
+      "size": 56,
+      "binding": 1
+    },
+    {
+      "name": "TIMER_restore",
+      "address": "0x80151cc0",
+      "size": 64,
+      "binding": 1
+    },
+    {
+      "name": "TIMER_init",
+      "address": "0x80151bc4",
+      "size": 252,
+      "binding": 1
+    },
+    {
+      "name": "ttDoTimerMsg__Fv",
+      "address": "0x80151d00",
+      "size": 116,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "OSCancelAlarm": "0x80110ee0",
+    "OSGetTime": "0x80116a40",
+    "OSInitAlarm": "0x80110b54",
+    "OSSetPeriodicAlarm": "0x80110e64",
+    "REAL_addexit": "0x801519b0",
+    "TIMERhz": "0x8034f3e4",
+    "libticks": "0x8034f3ec",
+    "ticks": "0x8034f3e8",
+    "tmrsub": "0x80193370",
+    "ttInit__Fv": "0x80151e10",
+    "ttKill__Fv": "0x80151e94",
+    "ttMsg__F8TIMERMSG": "0x80151ec8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "TIMERhz",
+    "libticks",
+    "ticks"
+  ],
+  "original_file": "inittmr.cpp",
+  "original_file_index": 12532
+}

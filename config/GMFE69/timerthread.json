@@ -1,0 +1,100 @@
+{
+  "id": "timerthread",
+  "source": "src/ea/timerthread.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80151e10",
+      "size": 352,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x8033ef60",
+      "size": 5040,
+      "type": 8
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f3f8",
+      "size": 4,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "TimerThreadFunc__FPv",
+      "address": "0x80151ef8",
+      "size": 120,
+      "binding": 0
+    },
+    {
+      "name": "ttInit__Fv",
+      "address": "0x80151e10",
+      "size": 132,
+      "binding": 1
+    },
+    {
+      "name": "ttMsg__F8TIMERMSG",
+      "address": "0x80151ec8",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "ttKill__Fv",
+      "address": "0x80151e94",
+      "size": 52,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "OSCreateThread": "0x80116098",
+    "OSInitMessageQueue": "0x80113e4c",
+    "OSReceiveMessage": "0x80113f74",
+    "OSResumeThread": "0x80116458",
+    "OSSendMessage": "0x80113eac",
+    "ttDoTimerMsg__Fv": "0x80151d00",
+    "ttDoVTimerMsg__Fv": "0x80151d98"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "timerthread.cpp",
+  "original_file_index": 12552
+}

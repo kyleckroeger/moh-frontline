@@ -161,4 +161,6 @@ establish a type, the source comments say so.
 | `sexithndl.c` | 1 | 32 | Calls `SNDSYS_restore` |
 | `slinkmix.c` | 1 | 88 | Installs the seven main-CPU mixer entry points |
 | `idct.cpp` | 1 | 232 | Clip-table set-up of the MPEG-2 reference decoder's fast IDCT (`iclp[i]` clamped to -256..255) |
+| `inittmr.cpp` | 5 | 524 | REAL timer set-up: a periodic OS alarm at `bus clock / 4 / hz` posts to the timer thread, which runs eight handler slots; the tick counters are volatile |
+| `timerthread.cpp` | 4 | 352 | The timer thread's message loop and its queue, stack and thread objects |
 
