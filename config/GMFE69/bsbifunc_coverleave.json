@@ -39,24 +39,36 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80032f60",
-      "size": 312,
+      "address": "0x80032cf4",
+      "size": 932,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000a0b4",
-      "size": 16,
+      "address": "0x8000a0a4",
+      "size": 32,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80010ed4",
-      "size": 24,
+      "address": "0x80010ebc",
+      "size": 48,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "BIFunc_AISetCoverPoint__FPPiPv",
+      "address": "0x80032cf4",
+      "size": 204,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_AIChooseCoverPoint__FPPiPv",
+      "address": "0x80032dc0",
+      "size": 416,
+      "binding": 1
+    },
     {
       "name": "BIFunc_AILeaveCoverPoint__FPPiPv",
       "address": "0x80032f60",
@@ -71,8 +83,10 @@
     }
   ],
   "externals": {
+    "ChooseCoverPoint__9CAIObjectF24ECoverPointSelectionTypePC10ISceneNodeff": "0x8004b000",
     "FlagAsUnoccupied__11CCoverPointF15COVERPOINT_TYPE": "0x80052f5c",
     "GetCoverPointIndex__15CAIFilterGlobalCFP11CCoverPoint": "0x8005d470",
+    "SetCoverPoint__9CAIObjectFib": "0x8004aec4",
     "StoreClosestCoverPoint__9CAIObjectFv": "0x8004b170",
     "g_aigAIFilterGlobalObject": "0x801c6cd4",
     "g_iCurrentBIFIndex": "0x8034e77c",

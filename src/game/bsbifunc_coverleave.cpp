@@ -1,16 +1,20 @@
-// A fragment of bsbifunc.cpp (0x80032f60): AI built-ins that leave the current
-// cover point (clearing a flag bit, and when there is a cover point, flagging
-// it unoccupied for the stored type and clearing the cover point, the cover
-// state and the cover flag) and store the closest cover point, returning its
-// index (-1 when none; kept in memory before it is written). Each reaches the
-// AI object through the scene node's AI doodad and its filter, and pops the
-// built-in's arguments. The file name is this project's; the original record is
-// bsbifunc.cpp; AISetCoverPoint and AIChooseCoverPoint before these differ in
-// their argument-load scheduling. The functions, classes and globals are named
-// by the mangled symbols; ISceneNode is declared with its virtual functions in
-// the order of __vt__10ISceneNode (GetAIDoodad at +204); the doodad, filter, AI
-// object, filter-global and built-in record views and the index helper are
-// inferred (members at their offsets, names not original).
+// A fragment of bsbifunc.cpp (0x80032cf4): AI built-ins that set the cover
+// point (an index and a flag), choose a cover point by selection type (relative
+// to a given scene node when asked, otherwise none, within two distances),
+// returning its index, leave the current cover point (clearing a flag bit, and
+// when there is a cover point, flagging it unoccupied for the stored type and
+// clearing the cover point, the cover state and the cover flag), and store the
+// closest cover point, returning its index (-1 when none; results kept in
+// memory before they are written). Each reaches the AI object through the scene
+// node's AI doodad and its filter, reads its arguments below the script stack
+// top (through inferred inline argument helpers) and pops the built-in's
+// arguments. The file name is this project's; the original record is
+// bsbifunc.cpp and the built-ins around these are not reconstructed. The
+// functions, classes and globals are named by the mangled symbols; ISceneNode
+// is declared with its virtual functions in the order of __vt__10ISceneNode
+// (GetAIDoodad at +204); the doodad, filter, AI object, filter-global and
+// built-in record views and the index helper are inferred (members at their
+// offsets, names not original).
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
@@ -87,8 +91,12 @@ public:
     void FlagAsUnoccupied(COVERPOINT_TYPE);
 };
 
+enum ECoverPointSelectionType {};
+
 class CAIObject {
 public:
+    void SetCoverPoint(int, bool);
+    CCoverPoint* ChooseCoverPoint(ECoverPointSelectionType, const ISceneNode*, float, float);
     CCoverPoint* StoreClosestCoverPoint();
 
     unsigned char unknown000[424];
@@ -132,10 +140,49 @@ struct BSBuiltinView {
 extern BSBuiltinView* g_pBuiltInFunctions;
 extern int g_iCurrentBIFIndex;
 
+inline int BSArgBool(int** stack, int index) {
+    return *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - index)) != 0;
+}
+
+inline int BSArgInt(int** stack, int index) {
+    return *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - index));
+}
+
+inline float BSArgFloat(int** stack, int index) {
+    return *(float*)(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - index));
+}
+
+inline CAIObject* GetAIObject(void* object) {
+    return ((ISceneNode*)object)->GetAIDoodad()->filter->object;
+}
+
 inline int GetCoverPointIndex(CCoverPoint* point) {
     if (point)
         return g_aigAIFilterGlobalObject.GetCoverPointIndex(point);
     return -1;
+}
+
+void BIFunc_AISetCoverPoint(int** stack, void* object) {
+    int index = BSArgInt(stack, 1);
+    bool flag = BSArgBool(stack, 2);
+    GetAIObject(object)->SetCoverPoint(index, flag);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+void BIFunc_AIChooseCoverPoint(int** stack, void* object) {
+    int value;
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    ECoverPointSelectionType type = (ECoverPointSelectionType)BSArgInt(stack, 1);
+    bool useNode = BSArgBool(stack, 2);
+    float a = BSArgFloat(stack, 4);
+    float b = BSArgFloat(stack, 5);
+    CAIFilterView* filter = ((ISceneNode*)object)->GetAIDoodad()->filter;
+    if (useNode)
+        value = GetCoverPointIndex(filter->object->ChooseCoverPoint(type, *(const ISceneNode**)(*stack - (count - 3)), a, b));
+    else
+        value = GetCoverPointIndex(filter->object->ChooseCoverPoint(type, 0, a, b));
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    **stack = *(int*)&value;
 }
 
 void BIFunc_AILeaveCoverPoint(int** stack, void* object) {
