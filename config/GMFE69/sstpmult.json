@@ -1,0 +1,65 @@
+{
+  "id": "sstpmult",
+  "source": "src/ea/sstpmult.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8015c728",
+      "size": 80,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SNDSTRM_pitchmult",
+      "address": "0x8015c728",
+      "size": 80,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "SNDSTRMI_getstreamptr__Fi": "0x8015b1f4",
+    "SNDpitchmult": "0x8015ce8c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "sstpmult.c",
+  "original_file_index": 12755
+}

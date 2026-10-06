@@ -1,0 +1,78 @@
+{
+  "id": "pad",
+  "source": "src/ea/pad.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8014eea4",
+      "size": 84,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "PAD_init",
+      "address": "0x8014eea4",
+      "size": 32,
+      "binding": 1
+    },
+    {
+      "name": "PAD_getdataptr",
+      "address": "0x8014eec4",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "PAD_update",
+      "address": "0x8014eed8",
+      "size": 32,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "gPadStatus": "0x8033edf0",
+    "iPAD_init__Fv": "0x8014ef80",
+    "iPAD_update__Fv": "0x8014f028"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "pad.cpp",
+  "original_file_index": 12304
+}
