@@ -442,7 +442,8 @@
     "filesys.json",
     "filesys_ea.json",
     "dmcluster.json",
-    "animplayer.json"
+    "animplayer.json",
+    "msghndlr.json"
   ],
   "progress": {
     "code_bytes": 1414572,
