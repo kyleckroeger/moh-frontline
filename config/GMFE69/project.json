@@ -472,7 +472,8 @@
     "Pause_tail.json",
     "targimpl_head.json",
     "propdat_bsp.json",
-    "propdat_core.json"
+    "propdat_core.json",
+    "saems_counter.json"
   ],
   "progress": {
     "code_bytes": 1414572,
