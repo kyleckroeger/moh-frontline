@@ -520,7 +520,14 @@
     "sphere_dispatch.json",
     "capsule_dispatch.json",
     "animated_volume_dispatch.json",
-    "box_dispatch.json"
+    "box_dispatch.json",
+    "box_dispatch2.json",
+    "capsule_dispatch2.json",
+    "box_ivolume.json",
+    "cdbobject_csg.json",
+    "cdbobject_ivolume.json",
+    "csg_volume_ivolume.json",
+    "fiber_ivolume.json"
   ],
   "progress": {
     "code_bytes": 1414572,
