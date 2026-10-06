@@ -1,0 +1,100 @@
+{
+  "id": "rcmpbase_head",
+  "source": "src/game/rcmpbase_head.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "on",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80105258",
+      "size": 220,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000fcf4",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80016a6c",
+      "size": 36,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "__ct__Q24RCMP11CODEC_IDATAFPQ24RCMP8STREAMERPFPQ24RCMP7DECODERPQ24RCMP8STREAMERPPQ24RCMP5CHUNK_vPFPQ24RCMP7DECODERPQ24RCMP8STREAMERPQ24RCMP5CHUNK_vUi",
+      "address": "0x80105258",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "__ct__Q24RCMP5CHUNKFv",
+      "address": "0x8010526c",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "ReleaseChunk__Q24RCMP7DECODERFPQ24RCMP5CHUNK",
+      "address": "0x80105280",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "GetChunk__Q24RCMP7DECODERFv",
+      "address": "0x801052b0",
+      "size": 84,
+      "binding": 1
+    },
+    {
+      "name": "ReleaseFrame__Q24RCMP7DECODERFPQ24RCMP5FRAME",
+      "address": "0x80105304",
+      "size": 48,
+      "binding": 1
+    }
+  ],
+  "externals": {},
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "rcmpbase.cpp",
+  "original_file_index": 10293
+}
