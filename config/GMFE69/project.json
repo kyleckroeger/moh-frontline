@@ -371,7 +371,8 @@
     "Soldier_object.json",
     "world_object.json",
     "font.json",
-    "AIFilter.json"
+    "AIFilter.json",
+    "collisionvolume.json"
   ],
   "progress": {
     "code_bytes": 1414572,

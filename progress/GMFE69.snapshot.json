@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 267864,
+    "matching_code_bytes": 268024,
     "total_executable_code_bytes": 1414572,
-    "percent": 18.936045673178885,
+    "percent": 18.947356514903447,
     "categories": {
-      "reconstructed_game": 67984,
+      "reconstructed_game": 68144,
       "restored_library": 199880
     },
-    "matching_functions": 1503
+    "matching_functions": 1510
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -141,6 +141,7 @@
     "config/GMFE69/bsutil.json": "13765752a33dc76e39372b30249944a615461f0ea3f9a39a276cc311ffbc3ea4",
     "config/GMFE69/buffer_io.json": "9a997068c0c387e86e9609ec66493e7caa8d98ea675676441eb2ff729f5d4186",
     "config/GMFE69/coda.json": "ed79629f16e36603a2a74fe3bfd2db4c7043efb597de702316a222bcbb355440",
+    "config/GMFE69/collisionvolume.json": "4b42015c953c1335d95d5edae0ec810f53e76935e2b6b0e446fd20b039dbc795",
     "config/GMFE69/configfile.json": "91ea7c527a01fbdf35a79bee7b9f1f527b45ca2c45cceaca096207d590220903",
     "config/GMFE69/cpudetect.json": "f617351e9aa4e5ec3cd84ed1322674cc8c654e2e1e9b138b5402edf93e1acd56",
     "config/GMFE69/ctype.json": "204f2baf71f1c77a57c8bb685dba45f7583994fc6c39201224cb2a0ed20eb580",
@@ -237,7 +238,7 @@
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/pathxSND.json": "711dcdf3a5a5a7b4124ae70e377c5e863dc39c8de8a0de785b3dc3921c685fa0",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "35a686ad9f56a2c178d6c2495311943b63d71452eafdb8bce5e81e912309c0da",
+    "config/GMFE69/project.json": "d7fd21b0acd0a2a66e25c9e914aca23c9b6a1505105e7190ae212dc1e31292a4",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1322,6 +1323,7 @@
     "src/game/bsschedule.cpp": "03573e4203501782b94b4ed70853989b43110a29ecee0af5d0eed5e4baf9919c",
     "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
     "src/game/bsutil.cpp": "f03c5b5ec3e47256dacde20a490fde3a873782516ee578d6fd469ab5025e49a2",
+    "src/game/collisionvolume.cpp": "7630050bd871009d72d7c476d8176402a9d2475ce5e0d3100183e5e3d51c5ef2",
     "src/game/configfile.cpp": "d7e5f7aff38b5ab2c1744e81f1a3469c55b6e00a561d1f5cd43f49ccf6b6d2ec",
     "src/game/destructor_queue.cpp": "96832ec7b1265822d1e18a69dea9302e793bb1a399694519922f360dbfc5c361",
     "src/game/dmgeom.cpp": "6f176541b44727ce39e90fbc33d60d1c7cd572e20cde4bc86401f647cd9f7f14",
@@ -17867,6 +17869,45 @@
       "discarded_functions": [],
       "object_sha256": "e08aa6564258e4dea94ab57ef4dbbdbcb1696e766eed765b03e6554b045d9a46",
       "linked_sha256": "acf4862803d533e1ef26a6bafbe36f72f0f42506de185e227a941bc952b6a8b4"
+    },
+    {
+      "id": "collisionvolume",
+      "category": "reconstructed_game",
+      "functions": 7,
+      "code_bytes": 160,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "bfdec580d3da257bf6d3a7f6ad2c47f704f82b6465317d5fb190326571976583",
+      "linked_sha256": "8b1bba6713b781e7888ee6a7ade0022a4a7729f58099746e46cac35317b1f605"
     }
   ],
   "code_map": {
@@ -30289,59 +30330,10 @@
         ]
       },
       {
-        "name": "Unmatched files/collisionvolume.cpp [inferred file group]",
+        "name": "Unmatched files/collisionvolume.cpp [symbol evidence]",
         "file_record": 110,
         "file_name": "collisionvolume.cpp",
         "ranges": [
-          {
-            "address": "0x80097e00",
-            "size": 8,
-            "kind": "function",
-            "name": "GetCollisionId__16CCollisionVolumeCFv",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80097e08",
-            "size": 4,
-            "kind": "function",
-            "name": "AsCollisionVolume__16CCollisionVolumeCFv",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80097e0c",
-            "size": 4,
-            "kind": "function",
-            "name": "AsCollisionVolume__16CCollisionVolumeFv",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80097e10",
-            "size": 8,
-            "kind": "function",
-            "name": "GetScriptObject__16CCollisionVolumeCFv",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80097e18",
-            "size": 8,
-            "kind": "function",
-            "name": "SetCollisionId__16CCollisionVolumeF7EClsnId",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80097e20",
-            "size": 68,
-            "kind": "function",
-            "name": "Destroy__16CCollisionVolumeFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80097e64",
-            "size": 60,
-            "kind": "function",
-            "name": "MarkForDestruction__16CCollisionVolumeFi",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x80097ea0",
             "size": 460,
