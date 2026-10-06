@@ -74,6 +74,17 @@ long long __OSGetSystemTime() {
     return result;
 }
 
+long long __OSTimeToSystemTime(long long time) {
+    BOOL enabled;
+    long long* timeAdjustAddr = (long long*)0x800030D8;
+    long long result;
+
+    enabled = OSDisableInterrupts();
+    result = *timeAdjustAddr + time;
+    OSRestoreInterrupts(enabled);
+    return result;
+}
+
 asm void __OSSetTick(register unsigned long newTicks) {
     // clang-format off
     nofralloc

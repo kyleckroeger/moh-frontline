@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 239656,
+    "matching_code_bytes": 239744,
     "total_executable_code_bytes": 1414572,
-    "percent": 16.941944277138244,
+    "percent": 16.948165240086755,
     "categories": {
       "reconstructed_game": 47860,
-      "restored_library": 191796
+      "restored_library": 191884
     },
-    "matching_functions": 1195
+    "matching_functions": 1196
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -82,7 +82,7 @@
     "config/GMFE69/OSRtc.json": "2b3f59e100a488b914b76173a7bf9182eb89539f5a156a569a2e3743451c22b8",
     "config/GMFE69/OSSync.json": "06255b0aaf96ae8e5c7cf3b363d66e1b7b7a7ba742a870e2256f7705d5eb2a14",
     "config/GMFE69/OSThread.json": "38638c5451250dd068469a8b6b609d98e9aabad647ceb265a4cfd78f3d497cca",
-    "config/GMFE69/OSTime.json": "eb335b6100ab9c431f68433844f0426983bb54d3574ead92ee3aa46d5f83ffa6",
+    "config/GMFE69/OSTime.json": "f59f3f37208ab6ad04e71ab8586afb08b51deaad6157f0183cead030e4d8749c",
     "config/GMFE69/Pad.json": "0b2c4b221832a5e352c0236d90c02e9938bb4a00392741832f1510da07a7770d",
     "config/GMFE69/Padclamp.json": "570f443e7a228e96a9e869248c68a59a1d9e68052c20523d1c9a482772bfe76b",
     "config/GMFE69/SIBios.json": "ef42fc4b95402bef0544ec5fe1a10c75781171f56afba7954318d42020fd6c1a",
@@ -1050,7 +1050,7 @@
     "src/dolsdk2001/os/OSStopwatch.c": "2d43fe77bdaa5001a7dcba8782ac8c475bde0755ccbdb5febb4d833991ec18ec",
     "src/dolsdk2001/os/OSSync.c": "ca8ab2a74d2834b216cba159b41c8f0ed110085964f564696621750ec9e9b71a",
     "src/dolsdk2001/os/OSThread.c": "1c97b881fb589632e233a7420f2bf57a09898ffae5657a681e8e917ff228bf70",
-    "src/dolsdk2001/os/OSTime.c": "72918386ca0cc4eec0dcddb48a2c0c43e214318c1d4ec6fb762e75b2658b765b",
+    "src/dolsdk2001/os/OSTime.c": "52de1c2be38b5fd2d23cdbac2d3f5c0e5cb3a44c695c136b440db02908805e87",
     "src/dolsdk2001/os/OSTimer.c": "5bb25ce9ea4a3a71d3b33ae58aca1a7abaf6cb6d78cd5b9518ccd5e59419a5d4",
     "src/dolsdk2001/os/OSUartExi.c": "0b4bfc29c0e2949f5a59d9c10516ef0b076656a1478eb3b2462b5f6403f9fb9f",
     "src/dolsdk2001/os/__os.h": "0543b7e052a13204a68ee66f31a4382ff5768fa59e5ee25872e9c7ef9dc9a07d",
@@ -2610,8 +2610,8 @@
     {
       "id": "OSTime",
       "category": "restored_library",
-      "functions": 3,
-      "code_bytes": 132,
+      "functions": 4,
+      "code_bytes": 220,
       "compiler_family": "GC",
       "compiler_version": "1.2.5n",
       "compiler_flags": [
@@ -2650,8 +2650,8 @@
         "OSTicksToCalendarTime",
         "OSCalendarTimeToTicks"
       ],
-      "object_sha256": "d2019c941962fad2739a25437ff9e53269c6a415376ad255d11254d49e49afe0",
-      "linked_sha256": "0c91fc59199d3d19a1ee5b004fde8936064769d16128f10ce7964ebbfbbdbfa9"
+      "object_sha256": "564481e4c0ac979a4a90b9d403ad7303b6903721bffaac7e3126df291b38d299",
+      "linked_sha256": "7d8230a5819c1022b021a08468665115375eaffd8ea488a1b406dc2f871092ab"
     },
     {
       "id": "arq",
@@ -39749,18 +39749,6 @@
             "size": 48,
             "kind": "function",
             "name": "OSGetResetCode",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80116ac4",
-        "ranges": [
-          {
-            "address": "0x80116ac4",
-            "size": 88,
-            "kind": "function",
-            "name": "__OSTimeToSystemTime",
             "evidence": "unknown-file"
           }
         ]
