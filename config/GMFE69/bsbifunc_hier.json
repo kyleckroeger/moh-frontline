@@ -39,20 +39,20 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8002f298",
-      "size": 564,
+      "address": "0x8002f060",
+      "size": 1132,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x80009e64",
-      "size": 24,
+      "address": "0x80009e54",
+      "size": 40,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80010b5c",
-      "size": 36,
+      "address": "0x80010b44",
+      "size": 60,
       "type": 1
     }
   ],
@@ -74,14 +74,37 @@
       "address": "0x8002f3fc",
       "size": 208,
       "binding": 1
+    },
+    {
+      "name": "BIFunc_CanICreateChild__FPPiPv",
+      "address": "0x8002f060",
+      "size": 92,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_DestroyObject__FPPiPv",
+      "address": "0x8002f0bc",
+      "size": 228,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_CreateChild__FPPiPv",
+      "address": "0x8002f1a0",
+      "size": 248,
+      "binding": 1
     }
   ],
   "externals": {
+    "CreateObject__FP20TriggerObject_structiPv": "0x8004029c",
     "CreateSubHierObject__FP11CHierObjectii23DWI_ATTACHMENT_CRC_ENUM": "0x8003d204",
     "DelayDestroyObject__FP10BSGO_Basic": "0x8003c310",
     "DestroySubHierObject__FP11CHierObjecti": "0x8003d130",
     "SwapHierObject__FP11CHierObjectii": "0x8003d160",
     "g_iCurrentBIFIndex": "0x8034e77c",
+    "g_iGermanCreationQueueHeadIndex": "0x8034e878",
+    "g_iGermanCreationQueueTailIndex": "0x8034e87c",
+    "g_maxActiveSoldiers": "0x8034e8a0",
+    "g_numActiveSoldiers": "0x8034e89c",
     "g_pBSObject": "0x8034e7e0",
     "g_pBuiltInFunctions": "0x8034e778"
   },
@@ -92,6 +115,10 @@
   "discarded_local_functions": [],
   "sda_externals": [
     "g_iCurrentBIFIndex",
+    "g_iGermanCreationQueueHeadIndex",
+    "g_iGermanCreationQueueTailIndex",
+    "g_maxActiveSoldiers",
+    "g_numActiveSoldiers",
     "g_pBSObject",
     "g_pBuiltInFunctions"
   ],
