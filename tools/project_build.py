@@ -12,6 +12,7 @@ from formats import Elf32, verify_load_image
 from tool_runner import run, sha256
 from setup import CONFIG, ROOT, setup
 from setup_compiler import setup_compiler
+from data_strip import c_identifier, strip_objects
 from sdk_build import compile_sdk, resolve_external, sdk_link_script, stripped_address
 
 
@@ -142,6 +143,15 @@ def validate_units(original, units):
         for name in unit["discarded_functions"]:
             if name in names and (name not in local_discards or name in local_names):
                 raise ValueError(f"Cannot discard a symbol present in the target: {name}")
+        stripped_objects = [n for s in unit["sections"] for n in s.get("stripped_objects", [])]
+        if stripped_objects and (not unit["strip_unused"] or not unit.get("original_file")):
+            raise ValueError("Stripped data objects need a stripping, file-scoped unit")
+        present = {c_identifier(n) for n in linkable}
+        for name in stripped_objects:
+            # Compiler-numbered literals (`@123`) are not source names; their
+            # numbers can coincide with unrelated labels in the target.
+            if (name in present and not name.startswith("@")) or len(stripped_objects) != len(set(stripped_objects)):
+                raise ValueError(f"Cannot strip an object present in the target: {name}")
         # MW emits unreferenced declarations as undefined symbols. A target
         # symbol may share the name only as another source file's private one.
         for name in unit["undefined_in_discarded_code"]:
@@ -430,7 +440,9 @@ def build_project():
             execute("assemble", wrapper, assembler, "compiled.s", "-o", "compiled.o")
         else:
             raise ValueError("Unsupported compiler family")
-        obj = Elf32((work / "compiled.o").read_bytes())
+        # compiled.o stays the hashed compiler output; input.o is what links.
+        (work / "input.o").write_bytes(strip_objects((work / "compiled.o").read_bytes(), unit))
+        obj = Elf32((work / "input.o").read_bytes())
         validate_object(obj, unit)
         use_small_data = family == "GC" or "sda_externals" in unit
         if use_small_data:
@@ -448,7 +460,7 @@ def build_project():
             strip_args += ["--retain-symbols-file", "functions.keep"]
         execute("link", wrapper, linker / "ngcld.exe", *strip_args,
                 *(["--fix-sda"] if use_small_data else []), "-T", "source.ld",
-                "-o", "compiled.elf", *([] if use_small_data else ["compiled.o"]))
+                "-o", "compiled.elf", *([] if use_small_data else ["input.o"]))
         generated = verify_unit(original, Elf32((work / "compiled.elf").read_bytes()), unit)
         for blob in generated:
             data = blob.pop("data")

@@ -1,0 +1,185 @@
+{
+  "id": "GXFrameBuf",
+  "source": "src/dolsdk2001/gx/GXFrameBuf.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8012c6f4",
+      "size": 2604,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80190120",
+      "size": 240,
+      "type": 1,
+      "linked_size": 1500,
+      "stripped_objects": [
+        "GXNtsc240Ds",
+        "GXNtsc240DsAa",
+        "GXNtsc240Int",
+        "GXNtsc240IntAa",
+        "GXNtsc480Int",
+        "GXNtsc480IntAa",
+        "GXNtsc480Prog",
+        "GXNtsc480ProgAa",
+        "GXMpal240Ds",
+        "GXMpal240DsAa",
+        "GXMpal240Int",
+        "GXMpal240IntAa",
+        "GXMpal480Int",
+        "GXMpal480IntAa",
+        "GXPal264Ds",
+        "GXPal264DsAa",
+        "GXPal264Int",
+        "GXPal264IntAa",
+        "GXPal528Int",
+        "GXPal524IntAa",
+        "GXRmHW"
+      ]
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x80351460",
+      "size": 16,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "GXAdjustForOverscan",
+      "address": "0x8012c6f4",
+      "size": 288,
+      "binding": 1
+    },
+    {
+      "name": "GXSetDispCopySrc",
+      "address": "0x8012c814",
+      "size": 192,
+      "binding": 1
+    },
+    {
+      "name": "GXSetDispCopyDst",
+      "address": "0x8012c8d4",
+      "size": 68,
+      "binding": 1
+    },
+    {
+      "name": "GXSetDispCopyFrame2Field",
+      "address": "0x8012c918",
+      "size": 44,
+      "binding": 1
+    },
+    {
+      "name": "GXSetCopyClamp",
+      "address": "0x8012c944",
+      "size": 124,
+      "binding": 1
+    },
+    {
+      "name": "GXGetYScaleFactor",
+      "address": "0x8012c9c0",
+      "size": 568,
+      "binding": 1
+    },
+    {
+      "name": "GXSetDispCopyYScale",
+      "address": "0x8012cbf8",
+      "size": 212,
+      "binding": 1
+    },
+    {
+      "name": "GXSetCopyClear",
+      "address": "0x8012cccc",
+      "size": 104,
+      "binding": 1
+    },
+    {
+      "name": "GXSetCopyFilter",
+      "address": "0x8012cd34",
+      "size": 552,
+      "binding": 1
+    },
+    {
+      "name": "GXSetDispCopyGamma",
+      "address": "0x8012cf5c",
+      "size": 28,
+      "binding": 1
+    },
+    {
+      "name": "GXCopyDisp",
+      "address": "0x8012cf78",
+      "size": 368,
+      "binding": 1
+    },
+    {
+      "name": "GXClearBoundingBox",
+      "address": "0x8012d0e8",
+      "size": 56,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "__cvt_fp2unsigned": "0x801388e8",
+    "__peReg": "0x8034f2d0",
+    "gx": "0x8034e4f8"
+  },
+  "undefined_in_discarded_code": [
+    "__GetImageTileCount"
+  ],
+  "discarded_functions": [
+    "GXSetTexCopySrc",
+    "GXSetTexCopyDst",
+    "__GXGetNumXfbLines",
+    "GXCopyTex",
+    "GXReadBoundingBox"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/gx/GXFrameBuf.c"
+  },
+  "original_file": "GXFrameBuf.c",
+  "original_file_index": 11367,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "__GXGetNumXfbLines"
+  ],
+  "sda_externals": [
+    "__peReg",
+    "gx"
+  ]
+}

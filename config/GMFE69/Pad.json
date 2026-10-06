@@ -1,0 +1,233 @@
+{
+  "id": "Pad",
+  "source": "src/dolphin/pad/Pad.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8011c9fc",
+      "size": 5084,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x80317df0",
+      "size": 80,
+      "type": 8
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034e4c8",
+      "size": 28,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f148",
+      "size": 32,
+      "type": 8,
+      "linked_size": 44,
+      "stripped_objects": [
+        "Initialized",
+        "CmdTypeAndStatus",
+        "recalibrated"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "SPEC2_MakeStatus",
+      "address": "0x8011d8b0",
+      "size": 1016,
+      "binding": 0
+    },
+    {
+      "name": "PADTypeAndStatusCallback",
+      "address": "0x8011cdfc",
+      "size": 812,
+      "binding": 0
+    },
+    {
+      "name": "UpdateOrigin",
+      "address": "0x8011c9fc",
+      "size": 420,
+      "binding": 0
+    },
+    {
+      "name": "PADOriginCallback",
+      "address": "0x8011cba0",
+      "size": 196,
+      "binding": 0
+    },
+    {
+      "name": "PADOriginUpdateCallback",
+      "address": "0x8011cc64",
+      "size": 192,
+      "binding": 0
+    },
+    {
+      "name": "PADProbeCallback",
+      "address": "0x8011cd24",
+      "size": 216,
+      "binding": 0
+    },
+    {
+      "name": "PADReceiveCheckCallback",
+      "address": "0x8011d128",
+      "size": 308,
+      "binding": 0
+    },
+    {
+      "name": "SamplingHandler",
+      "address": "0x8011dca8",
+      "size": 96,
+      "binding": 0
+    },
+    {
+      "name": "PADReset",
+      "address": "0x8011d25c",
+      "size": 256,
+      "binding": 1
+    },
+    {
+      "name": "PADRecalibrate",
+      "address": "0x8011d35c",
+      "size": 260,
+      "binding": 1
+    },
+    {
+      "name": "PADRead",
+      "address": "0x8011d460",
+      "size": 940,
+      "binding": 1
+    },
+    {
+      "name": "PADControlMotor",
+      "address": "0x8011d80c",
+      "size": 164,
+      "binding": 1
+    },
+    {
+      "name": "PADSetSamplingCallback",
+      "address": "0x8011dd08",
+      "size": 84,
+      "binding": 1
+    },
+    {
+      "name": "__PADDisableRecalibration",
+      "address": "0x8011dd5c",
+      "size": 124,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "OSClearContext": "0x801120cc",
+    "OSDisableInterrupts": "0x801135cc",
+    "OSGetTime": "0x80116a40",
+    "OSRegisterResetFunction": "0x80114794",
+    "OSRestoreInterrupts": "0x801135f4",
+    "OSSetCurrentContext": "0x80111f04",
+    "OSSetWirelessID": "0x80115884",
+    "SIDisablePolling": "0x80146c94",
+    "SIEnablePolling": "0x80146bf8",
+    "SIGetResponse": "0x80146dd4",
+    "SIGetStatus": "0x80146aec",
+    "SIGetType": "0x80147328",
+    "SIGetTypeAsync": "0x801474ec",
+    "SIIsChanBusy": "0x80145f68",
+    "SIRefreshSamplingRate": "0x8014787c",
+    "SIRegisterPollingHandler": "0x8014667c",
+    "SISetCommand": "0x80146b68",
+    "SISetSamplingRate": "0x80147798",
+    "SITransfer": "0x80146f24",
+    "SITransferCommands": "0x80146b7c",
+    "SIUnregisterPollingHandler": "0x80146748",
+    "__PADFixBits": "0x8034f370",
+    "__shr2i": "0x80138dc4",
+    "memset": "0x80009410"
+  },
+  "undefined_in_discarded_code": [
+    "SIBusy"
+  ],
+  "discarded_functions": [
+    "PADEnable",
+    "PADDisable",
+    "DoReset",
+    "PADInit",
+    "PADSetSamplingRate",
+    "PADControlAllMotors",
+    "PADSetSpec",
+    "PADGetSpec",
+    "SPEC0_MakeStatus",
+    "SPEC1_MakeStatus",
+    "ClampS8",
+    "ClampU8",
+    "PADGetType",
+    "PADSync",
+    "PADSetAnalogMode",
+    "OnReset",
+    "__PADDisableXPatch",
+    "__PADDisableRumble"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/pad/Pad.c"
+  },
+  "original_file": "Pad.c",
+  "original_file_index": 11045,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "PADEnable",
+    "PADDisable",
+    "DoReset",
+    "SPEC0_MakeStatus",
+    "SPEC1_MakeStatus",
+    "ClampS8",
+    "ClampU8",
+    "OnReset"
+  ],
+  "sda_externals": [
+    "__PADFixBits"
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "Pad.json"
+  },
+  "stripped_sections": [
+    ".data"
+  ]
+}

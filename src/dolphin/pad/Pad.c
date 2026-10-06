@@ -4,12 +4,6 @@
 
 #include "__si.h"
 
-#if DEBUG
-const char* __PADVersion = "<< Dolphin SDK - PAD\tdebug build: Apr  5 2004 03:56:05 (0x2301) >>";
-#else
-const char* __PADVersion = "<< Dolphin SDK - PAD\trelease build: Apr 17 2003 12:33:44 (0x2301) >>";
-#endif
-
 #define PAD_ALL                                                                                                        \
     (                      \
         PAD_BUTTON_LEFT  | \
@@ -357,8 +351,6 @@ BOOL PADInit() {
         return 1;
     }
     
-    OSRegisterVersion(__PADVersion);
-
     if (__PADSpec)
         PADSetSpec(__PADSpec);
 

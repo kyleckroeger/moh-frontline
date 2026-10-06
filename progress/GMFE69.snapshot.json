@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 107928,
+    "matching_code_bytes": 126972,
     "total_executable_code_bytes": 1414572,
-    "percent": 7.6297282853046715,
+    "percent": 8.976001221570906,
     "categories": {
       "reconstructed_game": 0,
-      "restored_library": 107928
+      "restored_library": 126972
     },
-    "matching_functions": 479
+    "matching_functions": 547
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -43,10 +43,12 @@
     "config/GMFE69/GXBump.json": "a78c5c03a49b6ec3cbb3d45288946827cb15b6fbf7b0a7c632b5191731e75525",
     "config/GMFE69/GXDisplayList.json": "f7347b3d89b9742bcebfe209ec4be05580ca9effb91646f940b7a03d4648d397",
     "config/GMFE69/GXFifo.json": "f73ba935928b52f77cce38e854ff5d6557357dacbe2ea1f2fbc6b8ed85afa229",
+    "config/GMFE69/GXFrameBuf.json": "78cdbbf2f891eb24261041884faea3790396b02d99033a8e0c19a14d91d51313",
     "config/GMFE69/GXGeometry.json": "812b2a048b783c48d666c565007dfcf4860344f7cad016a6d903726c22befd09",
-    "config/GMFE69/GXInit.json": "0c611a72dd914d0aad974143eab17c38b3ba9ed2670d181ba94c84850a290efd",
+    "config/GMFE69/GXInit.json": "842a7775aeafffa5fb4ec9e94cdb30c1b3aada6a070dc006ba5d8c9f44333b44",
     "config/GMFE69/GXLight.json": "61ed42d7e68c16cfbfc3a1e46f52a5035fc114ac18fbfeaddd363d3888295166",
     "config/GMFE69/GXMisc.json": "08008e3e750601a0a56d2442b14c450e5677f3ebe4f14eb98e6066cb011367d5",
+    "config/GMFE69/GXPerf.json": "2a7d9ffee32ccc4a8ac1004263583639957f5dc7ab2e9dfca5fe59e8589f98cb",
     "config/GMFE69/GXPixel.json": "8a078293429864d0af0f5181a695a381b0144714e2ac2281d6ce38136aeeb262",
     "config/GMFE69/GXStubs.json": "f982b70601475f696346533ae77d4424c28e7ff3e577f677e69199958fa00fdc",
     "config/GMFE69/GXTev.json": "4b28b0baa32d270c71bc6725d0b291fc2236dc9f6f6d0c104edb0ba1fa3b4399",
@@ -70,6 +72,7 @@
     "config/GMFE69/OSSync.json": "27c30f37b10db00a3b25b1f38ff69d7c33ab7870f9727aa1bdf9be17332991c8",
     "config/GMFE69/OSThread.json": "38638c5451250dd068469a8b6b609d98e9aabad647ceb265a4cfd78f3d497cca",
     "config/GMFE69/OSTime.json": "eb335b6100ab9c431f68433844f0426983bb54d3574ead92ee3aa46d5f83ffa6",
+    "config/GMFE69/Pad.json": "0b2c4b221832a5e352c0236d90c02e9938bb4a00392741832f1510da07a7770d",
     "config/GMFE69/Padclamp.json": "570f443e7a228e96a9e869248c68a59a1d9e68052c20523d1c9a482772bfe76b",
     "config/GMFE69/SIBios.json": "ef42fc4b95402bef0544ec5fe1a10c75781171f56afba7954318d42020fd6c1a",
     "config/GMFE69/SISamplingRate.json": "e4def7467ec8d82fdb9730412721675a9ea0e7ce572d5b8b63e89c3bdfe1eb84",
@@ -78,6 +81,7 @@
     "config/GMFE69/baseline.json": "36a2b85cf4193e53afac79bdd2a8fdbf8dfb1880cae89e119463f2c81461b42f",
     "config/GMFE69/db.json": "f5cdac8d1b6ec28c05d82995e2918679665f81055beaea75273deb9b2bb4a458",
     "config/GMFE69/dsp_debug.json": "abb1bf69b26be3567a5e3a22a729922f11d7a3b8c74ed938895798d0072114a0",
+    "config/GMFE69/dvd.json": "121312ac4bb040c75b0e7189d8e139340898c69323bf7bc7f171b1e302751427",
     "config/GMFE69/dvderror.json": "e707cc3372abd7ab11663cb1d927b494694905f6aff6c33152a9b6fcf015590b",
     "config/GMFE69/dvdfs.json": "3a7e5c902b07320492019461ccbfe54e1c9166f4a2f84d8d3a4b7446a7f425f9",
     "config/GMFE69/dvdlow.json": "42a078d56dcdf064392e009265a8acb918851c6a9ad5459e2b9adf8dd8c891e9",
@@ -85,7 +89,7 @@
     "config/GMFE69/fstload.json": "c101975fb01250bc8f0325effbe643330b62ccd00eac41e24aff682c06866309",
     "config/GMFE69/mtx44.json": "6ec8c80e78a896f985eb769ac01b97ff684e2d83116660d2c740123270c0ddf5",
     "config/GMFE69/mtxvec.json": "bb6a4f09ca854ab9a727be34f0a20df7f53e0e081e1b83581418b88de9987009",
-    "config/GMFE69/project.json": "07cacc07be423b44e523cff64ea75d3d5b4d94b02513b9c2a8011006cc8a7542",
+    "config/GMFE69/project.json": "fb6fcbe54682f95adc4833c13167aadea4e35ffabedced998e6b37c49d05ad01",
     "config/GMFE69/target.json": "f7e8d7b660fd35f21cdc13385271d7b73fabda6669a0d112db63b3b1f3e8b3b2",
     "config/GMFE69/vi.json": "3341dbca41fdd83ec556de88bdc9cedb4cbd6a7c397486637cd9b6ed88713655",
     "include/dolphin-sdk/charPipeline/fileCache.h": "9fc5bbfba874376ec1d239271cda99d84c256b2bd07f884d1177bee6b705b985",
@@ -379,7 +383,7 @@
     "src/dolphin/dsp/dsp_debug.c": "34292d0ed4d1e2080b974ff6c6f978ef7c602aaa5ba15f3893421ca13c501ff6",
     "src/dolphin/dsp/dsp_task.c": "84d778c127056bf37e1d4a7ee8e71c48a37449e4c99afb850ffe86857cae054c",
     "src/dolphin/dvd/__dvd.h": "1268e8cf9a346bfa107545672fbcb2b8cbea9f3f3adeb430d01de894b1469f56",
-    "src/dolphin/dvd/dvd.c": "45bd7f8b2b0a8ef504f46ee48473ec9b006c1ef8484e267ff222037fdbdf82ef",
+    "src/dolphin/dvd/dvd.c": "707c56961aa0625f3b9d000f7424bff43541cd0703ff034fd51252c363d50d83",
     "src/dolphin/dvd/dvderror.c": "f12f08430c472e4d748bf2ed408df7291f67dd36bff77735cd4cd9bd8f745719",
     "src/dolphin/dvd/dvdfs.c": "41ea4744fa21958e8d4a6688dd274e154a6179b67cc06dca06cd1618cc17f61e",
     "src/dolphin/dvd/dvdidutils.c": "17c781caee65ff9580899dde3a41c9ad12089f182f62a145d5a2dfa7d195e29a",
@@ -452,7 +456,7 @@
     "src/dolphin/os/OSThread.c": "0cb186937e515974a464a69d2d579dc2dd0e84d4df5884c64b95d6ce5c126e57",
     "src/dolphin/os/OSTime.c": "9a52461f409da4409445534abbb68d52f7c44635ea4e4a753a63d50e67250aca",
     "src/dolphin/os/__os.h": "d2f66ca0cc016fa0684da5b96179a0eebbdcd8cdc7f7b7f0f4ac27230e5d8772",
-    "src/dolphin/pad/Pad.c": "e7e1324c5523fab18b956e3730df9bc8c9755c3970556b32333577007751e45c",
+    "src/dolphin/pad/Pad.c": "fdcc1fb59a156f57330fc0ded600d59e4a72c4d6bebaf24a06fecab94571649d",
     "src/dolphin/pad/Padclamp.c": "6f59409681539394aa23cf639c2431f89cb5e2bdd728fce61681b0e1b0a8d359",
     "src/dolphin/perf/__perf.h": "cc9b3899d19787ff82f8f06a624846f130365f47f9a3f62e259c9771a1845a5c",
     "src/dolphin/si/SIBios.c": "1f8ec90e740343611eb1739d530d4a23dcdf136ed55142d5e2967295564f0fb3",
@@ -529,12 +533,12 @@
     "src/dolsdk2001/gx/GXDisplayList.c": "4d7ecd11d2f3b21bd7de38f590ae670995335d36a5d7e4867f3dc63844aa6c33",
     "src/dolsdk2001/gx/GXDraw.c": "beef6be1f52fa22983653c710d1e6bf48a0ecdc28d007e1c5bad31d2b9ee9d07",
     "src/dolsdk2001/gx/GXFifo.c": "e7237b7cf3efac7dd7b5e52fe881dbed8c07828a535ad1ca8c64cd251e20ba41",
-    "src/dolsdk2001/gx/GXFrameBuf.c": "41677da3ba7a4035900ff7ae50b3c6cdeecc06643fd90451c60b03d89b309894",
+    "src/dolsdk2001/gx/GXFrameBuf.c": "ac7c1812dbf8d2342dc63c14836e438c9d3b07d57bb449120125c8f69ea30c11",
     "src/dolsdk2001/gx/GXGeometry.c": "ac5ea408c49d80bb94ab6e309c8c401bc6e17be97d0ba08b8035ba6979527693",
     "src/dolsdk2001/gx/GXInit.c": "893b3b0fc567b5496de726df22c345a3e7e80b535642f9943968d75b5096092f",
     "src/dolsdk2001/gx/GXLight.c": "facc34df81acba09dff51d4dbbfaa8b3b47917bdc9b53d41f1bd611e07f52879",
     "src/dolsdk2001/gx/GXMisc.c": "e0b13ba77a4994368844942c89471a15c47f82f6a458ec109032a5958a43b25c",
-    "src/dolsdk2001/gx/GXPerf.c": "3c30e7f6a8e22b9572984278382ebda6f3942409c079da03a5b789a9d861d4ac",
+    "src/dolsdk2001/gx/GXPerf.c": "e5c657f2df666535f46f904842133a3cc63333295a512b5ffa0b0404ec5122ba",
     "src/dolsdk2001/gx/GXPixel.c": "6812d77fe5788d51a8ae7cb285a6f7f71a6be3a0bd57d79363187609f2643f16",
     "src/dolsdk2001/gx/GXSave.c": "b27c1ee3460da8ab130e3a3e40190f6ccc057cf42818ac4567de7728fc071fb3",
     "src/dolsdk2001/gx/GXStubs.c": "d4fe05a2f0242d9a57e28640f98155cd2db169571f2eccd8ea8407546d053f48",
@@ -621,6 +625,7 @@
     "tools/baseline.py": "b1bcca74f43dbe7d4bb323a4a76db013527907f4ec739f1fb0d3b1fb246d0dd2",
     "tools/code_map.py": "2d148710de147a8d4b8b834b982de64ea0a0da56a743173df8772f06dace7204",
     "tools/compilers.json": "a7d66ea0a76c35649ab1313e5c6d8257cbee1f2790e230fafbbfb47fd6fa0367",
+    "tools/data_strip.py": "f9d9d57905bb4947f9ae31678158e3e6afb9b38751e25370be18d9fc3f465de1",
     "tools/dependencies.py": "904789a0085a12fbc9405b95f47e5b827a33850738bf7e2aa2b3c3ed548da118",
     "tools/file_map.py": "3b17864b22df195bc3256d63620cf57a171db1333d5e7d39d2d85f029b4fd93b",
     "tools/formats.py": "3124d742d0518c913dfc575602bba63befbd9e0e78220e5a85059cda277f8f81",
@@ -628,9 +633,9 @@
     "tools/objdiff_config.py": "4133276adf513df6f4aad3d70df298f0bb0f8ced4ae1abc72703e8e0dc9bb13a",
     "tools/port_unit.py": "e0efb8a0645d7d538d58cfca1ecffb28b5c1b32c0d08198827e115e35837c123",
     "tools/progress_report.py": "18f16a51268af84afa8c58e6be719abd94f5ffba16592ed0adcdbd94b9c67b9d",
-    "tools/project_build.py": "67ecf276a8fa4aa5904ad1c2ec9236933a106efce5b5fb99cd98f6a2d400a9e4",
+    "tools/project_build.py": "45b97450895f5aef290b5df2733f6d2a89a72e8a946b2475c6788ba9b27994d7",
     "tools/reconstruct.py": "ae713fceeb3eef9f113af483ad5e3d5d6f1123fc424d0595099247e3e07a4cf2",
-    "tools/sdk_build.py": "f665d52b4f5ecee212e85c9c61148771fa4339359923e6f06745940c2da5bfa4",
+    "tools/sdk_build.py": "cff29a4f5465e49f7ee95483c25a200b6d0c025f428cae6064a67d297872369f",
     "tools/setup.py": "99f9d6bf69d36a45530565f597d0bdc926da68d96515bfdd1ec011719b8ebe84",
     "tools/setup_compiler.py": "4da101de7e8e2faf67f3130038312fdfa8152a6391d6b16ece437d22a93bd512",
     "tools/split_config.py": "ffb569bf3f576a772865d88595909137bf2f88b1243c80bd7e7c9f28bd5d8ffb",
@@ -1876,7 +1881,7 @@
         "__DBSetPresent"
       ],
       "object_sha256": "0358cf25591e6ef383cb0facb4f32e15f8c92830d961113f4efc309f6aa8ccf0",
-      "linked_sha256": "32f1835df21c82f0cc72bc97edbe4193e36608c977934538436d7d8b093c895d"
+      "linked_sha256": "958037f6c062a8325d79363cc65476bfcea8f53fd65bd1d0a2b8ca9d94289708"
     },
     {
       "id": "mtxvec",
@@ -3515,7 +3520,7 @@
         "EXIGetTypeString"
       ],
       "object_sha256": "4e23b752c68224891dd6e251bc5868b09aed3180685d73bdd5cd8ee00dcd76cf",
-      "linked_sha256": "f0f9f54238262ea85ea3ac236ca014c767256faf65611cc7adbd4430ef377223"
+      "linked_sha256": "8d0bac99b56afd6fa30ec4de3f9d0c111de111edab71ea49b61f30c160297201"
     },
     {
       "id": "vi",
@@ -3584,6 +3589,235 @@
       ],
       "object_sha256": "3bdc719ec6c5604bc90734635317a66d75b247931b15be0bc5af94c7a04e9c9d",
       "linked_sha256": "f062ad93e4917a04fba61b87e1b4694a8ec13b3c2475c92e1132b559dce9977b"
+    },
+    {
+      "id": "GXFrameBuf",
+      "category": "restored_library",
+      "functions": 12,
+      "code_bytes": 2604,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "GXSetTexCopySrc",
+        "GXSetTexCopyDst",
+        "__GXGetNumXfbLines",
+        "GXCopyTex",
+        "GXReadBoundingBox"
+      ],
+      "object_sha256": "a6bcba862c9ffc0abd7ccc927f040df659de1552e5e042b0ac728d600e926592",
+      "linked_sha256": "3cb258df62c400fd9d5e48e9dfbbe50eb0bb13d1023333bbd7bf1e801015588b"
+    },
+    {
+      "id": "Pad",
+      "category": "restored_library",
+      "functions": 14,
+      "code_bytes": 5084,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "PADEnable",
+        "PADDisable",
+        "DoReset",
+        "PADInit",
+        "PADSetSamplingRate",
+        "PADControlAllMotors",
+        "PADSetSpec",
+        "PADGetSpec",
+        "SPEC0_MakeStatus",
+        "SPEC1_MakeStatus",
+        "ClampS8",
+        "ClampU8",
+        "PADGetType",
+        "PADSync",
+        "PADSetAnalogMode",
+        "OnReset",
+        "__PADDisableXPatch",
+        "__PADDisableRumble"
+      ],
+      "object_sha256": "85357a0a85e6822922fb1b9fe2f3277031a1434544570d38de6cb7de3c737301",
+      "linked_sha256": "7b2d2af507a4b8441eb512a82f43f15efb92772568c0e4993a05b501b890df42"
+    },
+    {
+      "id": "dvd",
+      "category": "restored_library",
+      "functions": 40,
+      "code_bytes": 9140,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "signed",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "stateError",
+        "CheckCancel",
+        "issueCommand",
+        "DVDSeekAbsAsyncPrio",
+        "DVDPrepareStreamAbsAsync",
+        "DVDCancelStreamAsync",
+        "DVDCancelStream",
+        "cbForCancelStreamSync",
+        "DVDStopStreamAtEndAsync",
+        "DVDStopStreamAtEnd",
+        "cbForStopStreamAtEndSync",
+        "DVDGetStreamErrorStatusAsync",
+        "DVDGetStreamErrorStatus",
+        "cbForGetStreamErrorStatusSync",
+        "DVDGetStreamPlayAddrAsync",
+        "DVDGetStreamPlayAddr",
+        "cbForGetStreamPlayAddrSync",
+        "DVDGetStreamStartAddrAsync",
+        "DVDGetStreamStartAddr",
+        "cbForGetStreamStartAddrSync",
+        "DVDGetStreamLengthAsync",
+        "DVDGetStreamLength",
+        "cbForGetStreamLengthSync",
+        "__DVDAudioBufferConfig",
+        "DVDChangeDiskAsyncForBS",
+        "DVDChangeDiskAsync",
+        "DVDChangeDisk",
+        "cbForChangeDiskSync",
+        "DVDStopMotorAsync",
+        "DVDStopMotor",
+        "cbForStopMotorSync",
+        "DVDInquiryAsync",
+        "DVDInquiry",
+        "cbForInquirySync",
+        "DVDResetRequired",
+        "DVDPause",
+        "DVDResume",
+        "DVDCancelAllAsync",
+        "__DVDTestAlarm",
+        "DVDCancelAll",
+        "cbForCancelAllSync"
+      ],
+      "object_sha256": "f9985e00841fe09394901d9f38a2d18dc644b9f656a00a07786346e61da2d354",
+      "linked_sha256": "e67fca45528a026a3c07d74a661b0d2a6112e62f90df363f2a5b0ef506465f3c"
+    },
+    {
+      "id": "GXPerf",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 2216,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "GXReadGPMetric",
+        "GXReadGP0Metric",
+        "GXReadGP1Metric",
+        "GXReadMemMetric",
+        "GXClearMemMetric",
+        "GXReadPixMetric",
+        "GXClearPixMetric",
+        "GXSetVCacheMetric",
+        "GXReadVCacheMetric",
+        "GXClearVCacheMetric",
+        "GXInitXfRasMetric",
+        "GXReadXfRasMetric",
+        "GXReadClksPerVtx"
+      ],
+      "object_sha256": "a7eadf0d5e74d2a4aae91c8f269dab7cc589aab5d2bfb3a7d5a3e8a1695e141f",
+      "linked_sha256": "546ad4f8b5e0a2413061fbe1f07935ddbae7a3ec1ed9b05573a2d0e7cf2b053b"
     }
   ],
   "code_map": {
@@ -29460,403 +29694,6 @@
         ]
       },
       {
-        "name": "Unmatched files/dvd.c [symbol evidence]",
-        "file_record": 218,
-        "file_name": "dvd.c",
-        "ranges": [
-          {
-            "address": "0x80118448",
-            "size": 252,
-            "kind": "function",
-            "name": "DVDInit",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80118544",
-            "size": 84,
-            "kind": "function",
-            "name": "stateReadingFST",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80118598",
-            "size": 128,
-            "kind": "function",
-            "name": "cbForStateReadingFST",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80118618",
-            "size": 168,
-            "kind": "function",
-            "name": "cbForStateError",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801186c0",
-            "size": 156,
-            "kind": "function",
-            "name": "stateTimeout",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011875c",
-            "size": 40,
-            "kind": "function",
-            "name": "stateGettingError",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80118784",
-            "size": 180,
-            "kind": "function",
-            "name": "CategorizeError",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80118838",
-            "size": 660,
-            "kind": "function",
-            "name": "cbForStateGettingError",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80118acc",
-            "size": 104,
-            "kind": "function",
-            "name": "cbForUnrecoveredError",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80118b34",
-            "size": 152,
-            "kind": "function",
-            "name": "cbForUnrecoveredErrorRetry",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80118bcc",
-            "size": 40,
-            "kind": "function",
-            "name": "stateGoToRetry",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80118bf4",
-            "size": 344,
-            "kind": "function",
-            "name": "cbForStateGoToRetry",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80118d4c",
-            "size": 228,
-            "kind": "function",
-            "name": "stateCheckID",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80118e30",
-            "size": 52,
-            "kind": "function",
-            "name": "stateCheckID3",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80118e64",
-            "size": 56,
-            "kind": "function",
-            "name": "stateCheckID2",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80118e9c",
-            "size": 276,
-            "kind": "function",
-            "name": "cbForStateCheckID1",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80118fb0",
-            "size": 164,
-            "kind": "function",
-            "name": "cbForStateCheckID2",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80119054",
-            "size": 252,
-            "kind": "function",
-            "name": "cbForStateCheckID3",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80119150",
-            "size": 68,
-            "kind": "function",
-            "name": "AlarmHandler",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80119194",
-            "size": 204,
-            "kind": "function",
-            "name": "stateCoverClosed",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80119260",
-            "size": 48,
-            "kind": "function",
-            "name": "stateCoverClosed_CMD",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80119290",
-            "size": 112,
-            "kind": "function",
-            "name": "cbForStateCoverClosed",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80119300",
-            "size": 40,
-            "kind": "function",
-            "name": "stateMotorStopped",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80119328",
-            "size": 228,
-            "kind": "function",
-            "name": "cbForStateMotorStopped",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011940c",
-            "size": 584,
-            "kind": "function",
-            "name": "stateReady",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80119654",
-            "size": 704,
-            "kind": "function",
-            "name": "stateBusy",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80119914",
-            "size": 1492,
-            "kind": "function",
-            "name": "cbForStateBusy",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80119ee8",
-            "size": 220,
-            "kind": "function",
-            "name": "DVDReadAbsAsyncPrio",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80119fc4",
-            "size": 208,
-            "kind": "function",
-            "name": "DVDReadAbsAsyncForBS",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011a094",
-            "size": 212,
-            "kind": "function",
-            "name": "DVDReadDiskID",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011a168",
-            "size": 68,
-            "kind": "function",
-            "name": "DVDReset",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011a1ac",
-            "size": 76,
-            "kind": "function",
-            "name": "DVDGetCommandBlockStatus",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011a1f8",
-            "size": 172,
-            "kind": "function",
-            "name": "DVDGetDriveStatus",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011a2a4",
-            "size": 16,
-            "kind": "function",
-            "name": "DVDSetAutoInvalidation",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011a2b4",
-            "size": 624,
-            "kind": "function",
-            "name": "DVDCancelAsync",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011a524",
-            "size": 172,
-            "kind": "function",
-            "name": "DVDCancel",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011a5d0",
-            "size": 36,
-            "kind": "function",
-            "name": "cbForCancelSync",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011a5f4",
-            "size": 8,
-            "kind": "function",
-            "name": "DVDGetCurrentDiskID",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011a5fc",
-            "size": 228,
-            "kind": "function",
-            "name": "DVDCheckDisk",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8011a6e0",
-            "size": 284,
-            "kind": "function",
-            "name": "__DVDPrepareResetAsync",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/Pad.c [symbol evidence]",
-        "file_record": 224,
-        "file_name": "Pad.c",
-        "ranges": [
-          {
-            "address": "0x8011c9fc",
-            "size": 420,
-            "kind": "function",
-            "name": "UpdateOrigin",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011cba0",
-            "size": 196,
-            "kind": "function",
-            "name": "PADOriginCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011cc64",
-            "size": 192,
-            "kind": "function",
-            "name": "PADOriginUpdateCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011cd24",
-            "size": 216,
-            "kind": "function",
-            "name": "PADProbeCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011cdfc",
-            "size": 812,
-            "kind": "function",
-            "name": "PADTypeAndStatusCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011d128",
-            "size": 308,
-            "kind": "function",
-            "name": "PADReceiveCheckCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011d25c",
-            "size": 256,
-            "kind": "function",
-            "name": "PADReset",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011d35c",
-            "size": 260,
-            "kind": "function",
-            "name": "PADRecalibrate",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011d460",
-            "size": 940,
-            "kind": "function",
-            "name": "PADRead",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011d80c",
-            "size": 164,
-            "kind": "function",
-            "name": "PADControlMotor",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011d8b0",
-            "size": 1016,
-            "kind": "function",
-            "name": "SPEC2_MakeStatus",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011dca8",
-            "size": 96,
-            "kind": "function",
-            "name": "SamplingHandler",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011dd08",
-            "size": 84,
-            "kind": "function",
-            "name": "PADSetSamplingCallback",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8011dd5c",
-        "ranges": [
-          {
-            "address": "0x8011dd5c",
-            "size": 124,
-            "kind": "function",
-            "name": "__PADDisableRecalibration",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/ai.c [symbol evidence]",
         "file_record": 225,
         "file_name": "ai.c",
@@ -30368,107 +30205,6 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 8012c6f4",
-        "ranges": [
-          {
-            "address": "0x8012c6f4",
-            "size": 288,
-            "kind": "function",
-            "name": "GXAdjustForOverscan",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c814",
-            "size": 192,
-            "kind": "function",
-            "name": "GXSetDispCopySrc",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c8d4",
-            "size": 68,
-            "kind": "function",
-            "name": "GXSetDispCopyDst",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c918",
-            "size": 44,
-            "kind": "function",
-            "name": "GXSetDispCopyFrame2Field",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012c944",
-            "size": 124,
-            "kind": "function",
-            "name": "GXSetCopyClamp",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/GXFrameBuf.c [symbol evidence]",
-        "file_record": 261,
-        "file_name": "GXFrameBuf.c",
-        "ranges": [
-          {
-            "address": "0x8012c9c0",
-            "size": 568,
-            "kind": "function",
-            "name": "GXGetYScaleFactor",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8012cbf8",
-            "size": 212,
-            "kind": "function",
-            "name": "GXSetDispCopyYScale",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8012cccc",
-        "ranges": [
-          {
-            "address": "0x8012cccc",
-            "size": 104,
-            "kind": "function",
-            "name": "GXSetCopyClear",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012cd34",
-            "size": 552,
-            "kind": "function",
-            "name": "GXSetCopyFilter",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012cf5c",
-            "size": 28,
-            "kind": "function",
-            "name": "GXSetDispCopyGamma",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012cf78",
-            "size": 368,
-            "kind": "function",
-            "name": "GXCopyDisp",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8012d0e8",
-            "size": 56,
-            "kind": "function",
-            "name": "GXClearBoundingBox",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/GXTexture.c [symbol evidence]",
         "file_record": 263,
         "file_name": "GXTexture.c",
@@ -30607,29 +30343,8 @@
         ]
       },
       {
-        "name": "Unmatched files/GXPerf.c [symbol evidence]",
-        "file_record": 270,
-        "file_name": "GXPerf.c",
+        "name": "Unknown file/.text @ 80130f2c",
         "ranges": [
-          {
-            "address": "0x80130684",
-            "size": 2200,
-            "kind": "function",
-            "name": "GXSetGPMetric",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80130f1c",
-        "ranges": [
-          {
-            "address": "0x80130f1c",
-            "size": 16,
-            "kind": "function",
-            "name": "GXClearGPMetric",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x80130f2c",
             "size": 248,

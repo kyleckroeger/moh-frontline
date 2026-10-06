@@ -63,11 +63,11 @@ def sdk_link_script(unit, obj, original, tools, work, execute):
     for section in unit["sections"]:
         name = section["name"]
         base = int(section["address"], 16) - section.get("linked_offset", 0)
-        script.append(f"{name} {base:#x} : {{ compiled.o({name}) }}")
+        script.append(f"{name} {base:#x} : {{ input.o({name}) }}")
     # SN's linker has no /DISCARD/. Park sections the original linker
     # dead-stripped outside the image; they never enter the rebuilt context.
     for index, name in enumerate(unit.get("stripped_sections", [])):
-        script.append(f"{name} {stripped_address(index):#x} : {{ compiled.o({name}) }}")
+        script.append(f"{name} {stripped_address(index):#x} : {{ input.o({name}) }}")
     originals = list(original.symbols())
     for index, (name, address) in enumerate(unit["externals"].items()):
         if name not in small:

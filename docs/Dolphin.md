@@ -59,6 +59,9 @@ Upstream is commit `eb1234c` of dolsdk2001.
 | `gx/GXInit.c` | `GXInit` clears the added `gx->tevTcEnab`; `__GXInitGX` gains the `for (i = GX_VA_POS; i <= GX_LIGHT_ARRAY; i++) GXSetArray(i, gx, 0)` loop, the `VI_EURGB60` case (`GXEurgb60Hz480IntDf`) and the ending `GXSetGPMetric(GX_PERF0_NONE, GX_PERF1_NONE)`/`GXClearGPMetric()` | `stw r31,0x4E0(gx)` at `0x80129664`; `li r30,9`/`cmplwi r30,0x18`/`bl GXSetArray` at `0x80129F84`-`0x80129FAC`; `cmpwi r3,5`/`GXEurgb60Hz480IntDf` at `0x80129E24`/`0x80129E50`; `GXSetGPMetric(0x23,0x16)` at `0x8012A634` and `bl GXClearGPMetric` at `0x8012A640` |
 | `gx/GXInit.c` | `GXInit` adds the perf-counter block and `__GXSetTmemConfig(0)` (the 2004 revision passes `2`); `EnableWriteGatherPipe`/`DisableWriteGatherPipe` are `inline`, so the Mfhid2/Mtwpar/Mthid2 sequence appears in `GXInit`; a retained (unused) `GXRenderModeObj *rmode` local reproduces the original `0x48` stack frame (the body is otherwise instruction-identical without it) | `GX_SET_CP_REG(3,0)` (`sth r12,6(__cpReg)`) at `0x80129D44`; `addi gx+0x4EC`/perfSel writes at `0x80129D50`-`0x80129DB4`; `li r3,0` then `bl __GXSetTmemConfig` at `0x80129D80`/`0x80129DB8`; `bl PPCMfhid2` at `0x801296A8`; original `stwu r1,-0x48`/`stmw r26,0x30(r1)` vs `-0x40`/`0x28` without the local |
 | `gx/GXInit.c` | Local `GX_SET_CP_REG` macro plus `__GXInitGX`/`__GXSetTmemConfig` prototypes and a `GXEurgb60Hz480IntDf` declaration, which the 2001 headers omit | Relocations to `__GXSetTmemConfig` at `0x80129DB8` and to `GXEurgb60Hz480IntDf` at `0x80129E50`; `__GXInitGX` symbol at `0x80129DD8` |
+| `gx/GXFrameBuf.c` | Add the later `GXGetYScaleFactor` and its `static __GXGetNumXfbLines` from the 2004 tree; `GXSetDispCopyYScale` returns `__GXGetNumXfbLines(ht, iScale)` | `GXGetYScaleFactor` at `0x8012c9c0` (568 bytes); `GXSetDispCopyYScale` at `0x8012cbf8` is 212 bytes with the line-count helper inlined; no `__GXGetNumXfbLines` symbol |
+| `gx/GXFrameBuf.c` | Add `GXEurgb60Hz480IntDf` after `GXPal524IntAa`, written like `GXNtsc480IntDf` with `viTVmode` 20. Its place among the stripped render modes, and any other EURGB60 modes the Dec 2001 file defined, are unknown | Global `GXEurgb60Hz480IntDf` at `0x801901d4` (60 bytes) follows `GXPal528IntDf`; its bytes equal `GXNtsc480IntDf`'s except the first word, `0x14`. Only the four `*IntDf` modes are kept (`stripped_objects`) |
+| `gx/GXPerf.c` | `GXSetGPMetric` uses the 2004 case order (`GX_PERF0_CLOCKS` first, `GX_PERF1_TC_MISS` before `GX_PERF1_CLOCKS`) and the 2004 `0x2300xxxx` TRIANGLES register values | `GXSetGPMetric` at `0x80130684` is 2,200 bytes; it loads `lis 0x2301` 15 times and never `0x2304` (the 2001 `0x2303xxxx` values); jump tables `@242` (92 bytes) and `@241` (144) at `.data:0x801902b8` |
 
 ## Local modifications to the 2004 tree
 
@@ -99,6 +102,14 @@ later changed (the `card` units, `pad/Padclamp.c`'s Dec 2001 `PADClampRegion`,
 | `vi/vi.c` | `VIGetTvFormat` omits `case 6` | `0x8011c748` is 124 bytes; the comparison tree handles `0..5` and sends `6` to the default |
 | `vi/vi.c` | `setVerticalRegs` tests `equ >= 10` (2001 form), not `regs[54] & 1` | `0x8011ba60` is 416 bytes; `clrlwi r0,r5,24` / `cmplwi r0,10` at `0x8011ba6c` compares the `equ` argument |
 | `vi/vi.c` | Drops `VIGetNextFrameBuffer`, `VIGetCurrentFrameBuffer`, `__VIEnableRawPositionInterrupt`, `__VIDisableRawPositionInterrupt` and the `PositionCallback`/`NextBufAddr`/`CurrBufAddr`/`IsInitialized` statics | The original `.sbss` layout ends at `CurrTvMode` (`-26660`), `FBSet` (`-26656`), `message` (`-26652`); there is no `.sbss` object for those statics, and no relocation to the functions |
+| `pad/Pad.c` | Drop `__PADVersion` and its `OSRegisterVersion` call | `OSRegisterVersion` exists neither in the target nor in the 2001 tree. The dead `Initialized`, `CmdTypeAndStatus` and `OnReset`'s `recalibrated` stay in the source and are declared `stripped_objects`; `ResetFunctionInfo`'s `.data` is a stripped section |
+| `dvd/dvd.c` | Dec 2001 globals: `tmpBuffer`/`currID`/`bootInfo`, no `BB2`/`CurrDiskID`/`IDShouldBe`, and no optional-command or DMA/imm-command tables or their 2004-only accessors | `.bss` `tmpBuffer` 128 at `0x80317b40`, `DummyCommandBlock` 48, `ResetAlarm` 40; `.sbss` `currID` at `0x8034f0a4`; no `BB2`/`CurrDiskID`/`IDShouldBe`/`checkOptionalCommand`/`IsDmaCommand`/`IsImmCommandWithResult` symbols. The unused `CancelAllSyncComplete`/`ResetCount` and the `DVDChangeDiskAsync` company-name message stay and are `stripped_objects` |
+| `dvd/dvd.c` | `DVDInit` keeps the 2001 boot-magic reports and adds `OSInitAlarm`/`__DVDInitWA`; no `OSRegisterVersion` | `bl 0x80110b54` `OSInitAlarm` at `0x80118470`, `bl 0x80116e54` `__DVDInitWA` at `0x80118484`; four `.data` reports (21/10/25/9 bytes) and no `__DVDVersion` |
+| `dvd/dvd.c` | `stateReadingFST` reads FST length/position from `tmpBuffer[2]`/`tmpBuffer[1]`; `cbForStateReadingFST` drops `__DVDFSInit`; `stateCheckID2` reads into `tmpBuffer` | `lwz r4,8(r5)`/`lwz r5,4(r5)` with `r5 = 0x80317b40`; no `__DVDFSInit` relocation in the callback; `DVDLowRead(&tmpBuffer, 0x20, 0x420, ...)` at `0x80118e64` |
+| `dvd/dvd.c` | `cbForStateError` drops `__DVDPrintFatalMessage`; `stateTimeout` inlines its body (156 bytes) | No relocation to `__DVDPrintFatalMessage`; error finalization inlined at `0x801186c0` |
+| `dvd/dvd.c` | `stateCheckID` uses `memcmp` (0x1C then 0x20) against `executing->id`/`currID` instead of `DVDCompareDiskID` | `bl memcmp` at `0x80118d84`/`0x80118dec` with `li r5,28`; function is 228 bytes |
+| `dvd/dvd.c` | `stateReady` keeps the 2001 `ResumeFromHere` cases 1/2/3/7/4/6/5; `stateBusy` drops the 2004 zero-length read and optional-command default; `cbForStateBusy` tests the DMA/imm commands directly | 8-entry jump table `@293` at `0x8018ddb4`; `stateBusy` is 704 bytes with `cmplwi r0,15` ending at the epilogue; direct `CurrCommand == 1/4/5/14` and `== 9/10/11/12` compares |
+| `dvd/dvd.c` | `DVDCancelAsync` and `DVDCheckDisk` drop later-2004 additions | `DVDCancelAsync` has no `executing = &DummyCommandBlock` in the cover/motor case (624 bytes); `DVDCheckDisk` has no `ResumeFromHere` test in the END/PAUSING case (228 bytes) |
 
 ## Porting workflow
 
@@ -133,8 +144,19 @@ The original was linked by the MW linker, unlike Rising Sun's ProDG link:
   section, the manifest section names the kept slice (`linked_offset`,
   `linked_size`). The whole compiled section is linked at the shifted base, only
   the kept bytes are compared and credited, the trimmed part must hold whole
-  compiler objects, and retained code may not refer into it. Stripping in the
-  middle of a section is not supported.
+  compiler objects, and retained code may not refer into it.
+- **Stripped objects.** For unused objects inside a section, the manifest
+  section lists them in `stripped_objects` (C names; MW's numbered function
+  statics match by identifier, and anonymous literals by their `@N` label).
+  `tools/data_strip.py` moves each one, with its trailing padding, after the
+  section's other bytes in a copy of the object (`input.o`; `compiled.o` stays
+  the hashed compiler output). The trimmed-tail rules then apply. A listed name
+  may not exist in the target, and retained code may not refer to it.
+- **Relocations in removed bytes.** Relocations located in stripped sections,
+  trimmed slices or stripped objects are pointed at their own section before
+  linking. Otherwise SN keeps a discarded function alive through dead data, such
+  as `GXPerf`'s jump tables or `Pad`'s `ResetFunctionInfo` (SN rejects
+  `R_PPC_NONE`).
 - **Weak definitions.** Frontline has weak globals (for example `PPCHalt`,
   `__start`). External resolution treats them like globals.
 - **Declaration-only symbols.** `__declspec(section ".init")` declarations in
@@ -145,18 +167,12 @@ The original was linked by the MW linker, unlike Rising Sun's ProDG link:
 
 ## Open problems
 
-- **Middle-of-section data stripping**, and small-data ordering in `dsp.c` and
-  `dsp_task.c`: no single base places all kept objects.
+- **Small-data ordering** in `dsp.c` and `dsp_task.c`: no single base places
+  all kept objects. Check whether `stripped_objects` now covers them.
 - **Revision differences.** Remaining SDK files differ from both reconstructions
   in some functions. A `scratch`-style comparison of each function's size against
-  the 2001 and 2004 builds shows where to start: `Pad` is explained entirely by
-  2004 functions, which suggests the 2004 source as its base. `CARDCheck`,
-  `CARDFormat` and `CARDWrite` were resolved that way and are now accepted.
-- **Discarded functions with retained jump tables.** MW dead-strips a function
-  while its switch tables sit in a data section that is otherwise kept. The SN
-  linker then retains the function through the data relocation, so `GXPerf`
-  (whose trimmed `.data` references `GXReadGPMetric`) cannot yet reproduce the
-  original `.text` layout.
+  the 2001 and 2004 builds shows where to start. `CARDCheck`, `CARDFormat`,
+  `CARDWrite` and `Pad` were resolved from the 2004 source that way.
 - Compiled code that calls a different function than the original is reported by
   `port_unit.py` (for example `OSGetTime` vs `__OSGetSystemTime`).
 - `PPCArch`, `odenotstub`: linked function symbols differ (likely asm-only or

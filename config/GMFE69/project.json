@@ -69,7 +69,11 @@
     "CARDBios.json",
     "SIBios.json",
     "EXIBios.json",
-    "vi.json"
+    "vi.json",
+    "GXFrameBuf.json",
+    "Pad.json",
+    "dvd.json",
+    "GXPerf.json"
   ],
   "progress": {
     "code_bytes": 1414572,

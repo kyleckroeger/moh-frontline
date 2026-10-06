@@ -1,0 +1,446 @@
+{
+  "id": "dvd",
+  "source": "src/dolphin/dvd/dvd.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "signed",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80118448",
+      "size": 9140,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018dd68",
+      "size": 276,
+      "type": 1,
+      "linked_size": 344,
+      "stripped_objects": [
+        "@687"
+      ]
+    },
+    {
+      "name": ".bss",
+      "address": "0x80317b40",
+      "size": 216,
+      "type": 8
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034e4a8",
+      "size": 4,
+      "type": 1,
+      "linked_size": 13
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f0a0",
+      "size": 72,
+      "type": 8,
+      "linked_size": 80,
+      "stripped_objects": [
+        "CancelAllSyncComplete",
+        "ResetCount"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "stateReadingFST",
+      "address": "0x80118544",
+      "size": 84,
+      "binding": 0
+    },
+    {
+      "name": "cbForStateReadingFST",
+      "address": "0x80118598",
+      "size": 128,
+      "binding": 0
+    },
+    {
+      "name": "stateTimeout",
+      "address": "0x801186c0",
+      "size": 156,
+      "binding": 0
+    },
+    {
+      "name": "stateReady",
+      "address": "0x8011940c",
+      "size": 584,
+      "binding": 0
+    },
+    {
+      "name": "stateGettingError",
+      "address": "0x8011875c",
+      "size": 40,
+      "binding": 0
+    },
+    {
+      "name": "cbForStateError",
+      "address": "0x80118618",
+      "size": 168,
+      "binding": 0
+    },
+    {
+      "name": "cbForStateGettingError",
+      "address": "0x80118838",
+      "size": 660,
+      "binding": 0
+    },
+    {
+      "name": "CategorizeError",
+      "address": "0x80118784",
+      "size": 180,
+      "binding": 0
+    },
+    {
+      "name": "stateGoToRetry",
+      "address": "0x80118bcc",
+      "size": 40,
+      "binding": 0
+    },
+    {
+      "name": "cbForUnrecoveredError",
+      "address": "0x80118acc",
+      "size": 104,
+      "binding": 0
+    },
+    {
+      "name": "stateMotorStopped",
+      "address": "0x80119300",
+      "size": 40,
+      "binding": 0
+    },
+    {
+      "name": "stateCoverClosed",
+      "address": "0x80119194",
+      "size": 204,
+      "binding": 0
+    },
+    {
+      "name": "cbForUnrecoveredErrorRetry",
+      "address": "0x80118b34",
+      "size": 152,
+      "binding": 0
+    },
+    {
+      "name": "cbForStateGoToRetry",
+      "address": "0x80118bf4",
+      "size": 344,
+      "binding": 0
+    },
+    {
+      "name": "stateCheckID",
+      "address": "0x80118d4c",
+      "size": 228,
+      "binding": 0
+    },
+    {
+      "name": "cbForStateCheckID1",
+      "address": "0x80118e9c",
+      "size": 276,
+      "binding": 0
+    },
+    {
+      "name": "stateCheckID2",
+      "address": "0x80118e64",
+      "size": 56,
+      "binding": 0
+    },
+    {
+      "name": "stateCheckID3",
+      "address": "0x80118e30",
+      "size": 52,
+      "binding": 0
+    },
+    {
+      "name": "cbForStateCheckID3",
+      "address": "0x80119054",
+      "size": 252,
+      "binding": 0
+    },
+    {
+      "name": "cbForStateCheckID2",
+      "address": "0x80118fb0",
+      "size": 164,
+      "binding": 0
+    },
+    {
+      "name": "stateBusy",
+      "address": "0x80119654",
+      "size": 704,
+      "binding": 0
+    },
+    {
+      "name": "AlarmHandler",
+      "address": "0x80119150",
+      "size": 68,
+      "binding": 0
+    },
+    {
+      "name": "stateCoverClosed_CMD",
+      "address": "0x80119260",
+      "size": 48,
+      "binding": 0
+    },
+    {
+      "name": "cbForStateCoverClosed",
+      "address": "0x80119290",
+      "size": 112,
+      "binding": 0
+    },
+    {
+      "name": "cbForStateMotorStopped",
+      "address": "0x80119328",
+      "size": 228,
+      "binding": 0
+    },
+    {
+      "name": "cbForStateBusy",
+      "address": "0x80119914",
+      "size": 1492,
+      "binding": 0
+    },
+    {
+      "name": "cbForCancelSync",
+      "address": "0x8011a5d0",
+      "size": 36,
+      "binding": 0
+    },
+    {
+      "name": "DVDInit",
+      "address": "0x80118448",
+      "size": 252,
+      "binding": 1
+    },
+    {
+      "name": "DVDReset",
+      "address": "0x8011a168",
+      "size": 68,
+      "binding": 1
+    },
+    {
+      "name": "DVDReadAbsAsyncPrio",
+      "address": "0x80119ee8",
+      "size": 220,
+      "binding": 1
+    },
+    {
+      "name": "DVDReadAbsAsyncForBS",
+      "address": "0x80119fc4",
+      "size": 208,
+      "binding": 1
+    },
+    {
+      "name": "DVDReadDiskID",
+      "address": "0x8011a094",
+      "size": 212,
+      "binding": 1
+    },
+    {
+      "name": "DVDGetCommandBlockStatus",
+      "address": "0x8011a1ac",
+      "size": 76,
+      "binding": 1
+    },
+    {
+      "name": "DVDGetDriveStatus",
+      "address": "0x8011a1f8",
+      "size": 172,
+      "binding": 1
+    },
+    {
+      "name": "DVDSetAutoInvalidation",
+      "address": "0x8011a2a4",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "DVDCancelAsync",
+      "address": "0x8011a2b4",
+      "size": 624,
+      "binding": 1
+    },
+    {
+      "name": "DVDCancel",
+      "address": "0x8011a524",
+      "size": 172,
+      "binding": 1
+    },
+    {
+      "name": "DVDGetCurrentDiskID",
+      "address": "0x8011a5f4",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "DVDCheckDisk",
+      "address": "0x8011a5fc",
+      "size": 228,
+      "binding": 1
+    },
+    {
+      "name": "__DVDPrepareResetAsync",
+      "address": "0x8011a6e0",
+      "size": 284,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DCInvalidateRange": "0x80111850",
+    "DVDLowAudioBufferConfig": "0x80117ae0",
+    "DVDLowAudioStream": "0x801179bc",
+    "DVDLowBreak": "0x80117c38",
+    "DVDLowClearCallback": "0x80117c4c",
+    "DVDLowInquiry": "0x80117920",
+    "DVDLowRead": "0x8011740c",
+    "DVDLowReadDiskID": "0x80117764",
+    "DVDLowRequestAudioStatus": "0x80117a54",
+    "DVDLowRequestError": "0x80117894",
+    "DVDLowReset": "0x80117b7c",
+    "DVDLowSeek": "0x801176a4",
+    "DVDLowStopMotor": "0x80117808",
+    "DVDLowWaitCoverClose": "0x80117738",
+    "OSCreateAlarm": "0x80110ba0",
+    "OSDisableInterrupts": "0x801135cc",
+    "OSInitAlarm": "0x80110b54",
+    "OSInitThreadQueue": "0x80115adc",
+    "OSPanic": "0x801125a0",
+    "OSReport": "0x80112520",
+    "OSRestoreInterrupts": "0x801135f4",
+    "OSSetAlarm": "0x80110dfc",
+    "OSSleepThread": "0x80116850",
+    "OSWakeupThread": "0x8011693c",
+    "__DVDCheckWaitingQueue": "0x8011a93c",
+    "__DVDClearWaitingQueue": "0x8011a7fc",
+    "__DVDDequeueWaitingQueue": "0x8011a994",
+    "__DVDFSInit": "0x80117ca8",
+    "__DVDInitWA": "0x80116e54",
+    "__DVDInterruptHandler": "0x80116e94",
+    "__DVDPopWaitingQueue": "0x8011a89c",
+    "__DVDPushWaitingQueue": "0x8011a834",
+    "__DVDStoreErrorCode": "0x8011ab10",
+    "__DVDThreadQueue": "0x8034f098",
+    "__OSSetInterruptHandler": "0x80113618",
+    "__OSUnmaskInterrupts": "0x80113a1c",
+    "__flush_cache": "0x80007350",
+    "__fstLoad": "0x8011ac64",
+    "__init_hardware": "0x80007330",
+    "__start": "0x80007140",
+    "memcmp": "0x8013d644",
+    "memcpy": "0x800094f8"
+  },
+  "undefined_in_discarded_code": [
+    "__DVDLowTestAlarm",
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers"
+  ],
+  "discarded_functions": [
+    "stateError",
+    "CheckCancel",
+    "issueCommand",
+    "DVDSeekAbsAsyncPrio",
+    "DVDPrepareStreamAbsAsync",
+    "DVDCancelStreamAsync",
+    "DVDCancelStream",
+    "cbForCancelStreamSync",
+    "DVDStopStreamAtEndAsync",
+    "DVDStopStreamAtEnd",
+    "cbForStopStreamAtEndSync",
+    "DVDGetStreamErrorStatusAsync",
+    "DVDGetStreamErrorStatus",
+    "cbForGetStreamErrorStatusSync",
+    "DVDGetStreamPlayAddrAsync",
+    "DVDGetStreamPlayAddr",
+    "cbForGetStreamPlayAddrSync",
+    "DVDGetStreamStartAddrAsync",
+    "DVDGetStreamStartAddr",
+    "cbForGetStreamStartAddrSync",
+    "DVDGetStreamLengthAsync",
+    "DVDGetStreamLength",
+    "cbForGetStreamLengthSync",
+    "__DVDAudioBufferConfig",
+    "DVDChangeDiskAsyncForBS",
+    "DVDChangeDiskAsync",
+    "DVDChangeDisk",
+    "cbForChangeDiskSync",
+    "DVDStopMotorAsync",
+    "DVDStopMotor",
+    "cbForStopMotorSync",
+    "DVDInquiryAsync",
+    "DVDInquiry",
+    "cbForInquirySync",
+    "DVDResetRequired",
+    "DVDPause",
+    "DVDResume",
+    "DVDCancelAllAsync",
+    "__DVDTestAlarm",
+    "DVDCancelAll",
+    "cbForCancelAllSync"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/dvd/dvd.c"
+  },
+  "original_file": "dvd.c",
+  "original_file_index": 10905,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "stateError",
+    "CheckCancel",
+    "issueCommand",
+    "cbForCancelStreamSync",
+    "cbForStopStreamAtEndSync",
+    "cbForGetStreamErrorStatusSync",
+    "cbForGetStreamPlayAddrSync",
+    "cbForGetStreamStartAddrSync",
+    "cbForGetStreamLengthSync",
+    "cbForChangeDiskSync",
+    "cbForStopMotorSync",
+    "cbForInquirySync",
+    "cbForCancelAllSync"
+  ],
+  "sda_externals": [
+    "__DVDThreadQueue"
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "dvd.json"
+  }
+}

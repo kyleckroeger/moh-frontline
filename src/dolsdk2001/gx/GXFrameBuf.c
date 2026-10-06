@@ -62,6 +62,7 @@ GXRenderModeObj GXPal264IntAa = {4, 640, 264, 264, 40, 23, 640, 528, 0, 1, 1, { 
 GXRenderModeObj GXPal528IntDf = {4, 640, 528, 528, 40, 23, 640, 528, 1, 0, 0, { 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 }, { 8, 8, 10, 12, 10, 8, 8 } };
 GXRenderModeObj GXPal528Int = {4, 640, 528, 528, 40, 23, 640, 528, 1, 0, 0, { 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 }, { 0, 0, 21, 22, 21, 0, 0 } };
 GXRenderModeObj GXPal524IntAa = {4, 640, 264, 524, 40, 23, 640, 524, 1, 0, 1, { 3, 2, 9, 6, 3, 10, 3, 2, 9, 6, 3, 10, 9, 2, 3, 6, 9, 10, 9, 2, 3, 6, 9, 10 }, { 4, 8, 12, 16, 12, 8, 4 } };
+GXRenderModeObj GXEurgb60Hz480IntDf = {20, 640, 480, 480, 40, 0, 640, 480, 1, 0, 0, { 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 }, { 8, 8, 10, 12, 10, 8, 8 } };
 GXRenderModeObj GXRmHW = {1, 320, 240, 240, 40, 0, 640, 480, 0, 0, 0, { 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6 }, { 0, 0, 21, 22, 21, 0, 0 } };
 
 void GXAdjustForOverscan(GXRenderModeObj *rmin, GXRenderModeObj *rmout, u16 hor, u16 ver)
@@ -200,11 +201,68 @@ void GXSetCopyClamp(GXFBClamp clamp)
     SET_REG_FIELD(0x485, gx->cpTex, 1, 1, clmpB);
 }
 
+static u32 __GXGetNumXfbLines(u32 efbHt, u32 iScale) {
+  u32 count;
+  u32 realHt;
+  u32 iScaleD;
+
+  count = (efbHt - 1) * 0x100;
+  realHt = (count / iScale) + 1;
+
+  iScaleD = iScale;
+
+  if (iScaleD > 0x80 && iScaleD < 0x100) {
+    while (iScaleD % 2 == 0) {
+      iScaleD /= 2;
+    }
+
+    if (efbHt % iScaleD == 0) {
+      realHt++;
+    }
+  }
+
+  if (realHt > 0x400) {
+    realHt = 0x400;
+  }
+
+  return realHt;
+}
+
+f32 GXGetYScaleFactor(u16 efbHeight, u16 xfbHeight) {
+  f32 fScale;
+  f32 yScale;
+  u32 iScale;
+  u32 tgtHt;
+  u32 realHt;
+
+  tgtHt = xfbHeight;
+  yScale = (f32)xfbHeight / (f32)efbHeight;
+  iScale = (u32)(256.0f / yScale) & 0x1FF;
+  realHt = __GXGetNumXfbLines(efbHeight, iScale);
+
+  while (realHt > xfbHeight) {
+    tgtHt--;
+    yScale = (f32)tgtHt / (f32)efbHeight;
+    iScale = (u32)(256.0f / yScale) & 0x1FF;
+    realHt = __GXGetNumXfbLines(efbHeight, iScale);
+  }
+
+  fScale = yScale;
+  while (realHt < xfbHeight) {
+    fScale = yScale;
+    tgtHt++;
+    yScale = (f32)tgtHt / (f32)efbHeight;
+    iScale = (u32)(256.0f / yScale) & 0x1FF;
+    realHt = __GXGetNumXfbLines(efbHeight, iScale);
+  }
+
+  return fScale;
+}
+
 u32 GXSetDispCopyYScale(f32 vscale)
 {
     u8 enable;
     u32 iScale;
-    f32 fScale;
     u32 ht;
     u32 reg;
 
@@ -213,7 +271,6 @@ u32 GXSetDispCopyYScale(f32 vscale)
     ASSERTMSGLINE(0x49D, vscale >= 1.0f, "GXSetDispCopyYScale: Vertical scale must be >= 1.0");
 
     iScale = (u32) (256.0f / vscale) & 0x1FF;
-    fScale = 256.0f / (f32) iScale;
     enable = (iScale != 256);
 
     reg = 0;
@@ -222,8 +279,8 @@ u32 GXSetDispCopyYScale(f32 vscale)
     GX_WRITE_RAS_REG(reg);
     gx->bpSentNot = 0;
     SET_REG_FIELD(0x4AB, gx->cpDisp, 1, 10, enable);
-    ht = GET_REG_FIELD(gx->cpDispSize, 10, 10) + 1;
-    return ht * fScale;
+    ht = (u32)GET_REG_FIELD(gx->cpDispSize, 10, 10) + 1;
+    return __GXGetNumXfbLines(ht, iScale);
 }
 
 void GXSetCopyClear(GXColor clear_clr, u32 clear_z)

@@ -1,0 +1,105 @@
+{
+  "id": "GXPerf",
+  "source": "src/dolsdk2001/gx/GXPerf.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80130684",
+      "size": 2216,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x801902b8",
+      "size": 236,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 328
+    }
+  ],
+  "functions": [
+    {
+      "name": "GXSetGPMetric",
+      "address": "0x80130684",
+      "size": 2200,
+      "binding": 1
+    },
+    {
+      "name": "GXClearGPMetric",
+      "address": "0x80130f1c",
+      "size": 16,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "GXDrawDone": "0x8012bff0",
+    "__cpReg": "0x8034f2cc",
+    "__memReg": "0x8034f2d4",
+    "__peReg": "0x8034f2d0",
+    "gx": "0x8034e4f8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "GXReadGPMetric",
+    "GXReadGP0Metric",
+    "GXReadGP1Metric",
+    "GXReadMemMetric",
+    "GXClearMemMetric",
+    "GXReadPixMetric",
+    "GXClearPixMetric",
+    "GXSetVCacheMetric",
+    "GXReadVCacheMetric",
+    "GXClearVCacheMetric",
+    "GXInitXfRasMetric",
+    "GXReadXfRasMetric",
+    "GXReadClksPerVtx"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/gx/GXPerf.c"
+  },
+  "original_file": "GXPerf.c",
+  "original_file_index": 11440,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "__cpReg",
+    "__memReg",
+    "__peReg",
+    "gx"
+  ]
+}

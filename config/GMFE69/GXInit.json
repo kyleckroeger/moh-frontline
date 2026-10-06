@@ -187,7 +187,7 @@
   "upstream": {
     "repository": "https://github.com/doldecomp/dolsdk2001",
     "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
-    "path": "gx/GXInit.c"
+    "path": "src/gx/GXInit.c"
   },
   "original_file": "GXInit.c",
   "original_file_index": 11310,
