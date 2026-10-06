@@ -363,7 +363,8 @@
     "AITankDoodad.json",
     "AIPlayerDoodad.json",
     "AIPlayerObject.json",
-    "AISoldierDoodad.json"
+    "AISoldierDoodad.json",
+    "AISoldierObject.json"
   ],
   "progress": {
     "code_bytes": 1414572,
