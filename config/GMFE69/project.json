@@ -341,7 +341,8 @@
     "dolphin_trk_glue.json",
     "MathFun.json",
     "ssysinit.json",
-    "bsutil.json"
+    "bsutil.json",
+    "sst.json"
   ],
   "progress": {
     "code_bytes": 1414572,

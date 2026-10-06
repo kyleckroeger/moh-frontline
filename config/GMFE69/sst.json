@@ -1,0 +1,79 @@
+{
+  "id": "sst",
+  "source": "src/ea/sst.c",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8015b19c",
+      "size": 204,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SNDSTRMI_destroyall__Fv",
+      "address": "0x8015b19c",
+      "size": 88,
+      "binding": 1
+    },
+    {
+      "name": "SNDSTRMI_getstreamptr__Fi",
+      "address": "0x8015b1f4",
+      "size": 56,
+      "binding": 1
+    },
+    {
+      "name": "SNDSTRMI_releasecallback__FPvPv",
+      "address": "0x8015b22c",
+      "size": 60,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "SNDSTRM_destroy": "0x8015bef4",
+    "STREAM_release": "0x8014dae0",
+    "sndgs": "0x80340860",
+    "sndss": "0x803407e0"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "sst.c",
+  "original_file_index": 12715
+}
