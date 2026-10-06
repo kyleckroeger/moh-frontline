@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 63340,
+    "matching_code_bytes": 107928,
     "total_executable_code_bytes": 1414572,
-    "percent": 4.477679467711789,
+    "percent": 7.6297282853046715,
     "categories": {
       "reconstructed_game": 0,
-      "restored_library": 63340
+      "restored_library": 107928
     },
-    "matching_functions": 325
+    "matching_functions": 479
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -23,23 +23,28 @@
     "config/GMFE69/AXOut.json": "f6a71b0f8f7e0d5388ef5290b5a2a3f4adc679d27fb8a14c9157268f1280a418",
     "config/GMFE69/AXProf.json": "ba1ea082ba1cca2929a03e0b3f9715d8f0ba2203b8a59af5c8d43a620397ceef",
     "config/GMFE69/AXSPB.json": "b545c13a80837ee4ec6447cd14220ca12742a60c4525e91f744603629870f101",
+    "config/GMFE69/AXVPB.json": "9c5494460b355855751e5493d2f3f4ac0f292a38e7c6e99192c28ac9268faf6a",
     "config/GMFE69/AmcExi2Stubs.json": "06e09d04a4badb35d73036086b321ab231a21afa20b86979b63e9546006ca0ce",
+    "config/GMFE69/CARDBios.json": "e1e00c4ed5f83508ca43c5ccc4c3b569cf232d5bd60179441a3c564ea583b41b",
     "config/GMFE69/CARDBlock.json": "9b20825c0b22ffb86797c911f53b3f7b61bc82ca79662bb7770eff62bfd5f25a",
     "config/GMFE69/CARDCheck.json": "520a86f316a267f2b8745ffdc72ef9a7d9545335b18b7e85247563e79c50e69f",
     "config/GMFE69/CARDCreate.json": "3cf6d6beba2ac741643552f85fd9f114fd204267747630029385ff3a7a704a0d",
     "config/GMFE69/CARDDelete.json": "c1c26e08366317235691bda59dd8e55e40ffe504c18f081dbc726ba75955bc2c",
     "config/GMFE69/CARDDir.json": "45f60e8765248b1f5161f2ef9e703619a87d6a3115f7f0e6d745bc807e494618",
     "config/GMFE69/CARDFormat.json": "07cdbc24fc5f0880fdbd38f2a28eb06cc3661b6c3a399647b24065059d98f4e6",
+    "config/GMFE69/CARDMount.json": "2f318403c174ab16edbc6ebec314453e4a1d7de4c1ed0a10d8e7aca413f790e8",
     "config/GMFE69/CARDRdwr.json": "f6823e5de5ee80dc52792b3137627ea5401106745a584bc344d54eeed63855b0",
     "config/GMFE69/CARDRead.json": "0613bbc21efae2d73ad3beb886b984a4e89b8a7163ab6ded75f0c2c5748f0262",
     "config/GMFE69/CARDStat.json": "e03bf32bdb249914a02454fa9671d8eb663e5d56997d8c6fc727fbaa6265d8b4",
     "config/GMFE69/CARDUnlock.json": "7716542ea7b19b3b01b0afaf41869f75a4772afefa61129b459ba5b420bc3285",
     "config/GMFE69/CARDWrite.json": "281660a172ac3b60419b0fb73f382239d55a0c22e81768890c98b0e0ca2bb817",
+    "config/GMFE69/EXIBios.json": "c9390151ed61c1e36be176f48feef883f85c6733e4cb6389153a8ad9b732e034",
     "config/GMFE69/EXIUart.json": "3664769d38b00c6667a6a8d583bd985d8a26b24d7fdb3c09c978c7fbdf4d64ee",
     "config/GMFE69/GXBump.json": "a78c5c03a49b6ec3cbb3d45288946827cb15b6fbf7b0a7c632b5191731e75525",
     "config/GMFE69/GXDisplayList.json": "f7347b3d89b9742bcebfe209ec4be05580ca9effb91646f940b7a03d4648d397",
     "config/GMFE69/GXFifo.json": "f73ba935928b52f77cce38e854ff5d6557357dacbe2ea1f2fbc6b8ed85afa229",
     "config/GMFE69/GXGeometry.json": "812b2a048b783c48d666c565007dfcf4860344f7cad016a6d903726c22befd09",
+    "config/GMFE69/GXInit.json": "0c611a72dd914d0aad974143eab17c38b3ba9ed2670d181ba94c84850a290efd",
     "config/GMFE69/GXLight.json": "61ed42d7e68c16cfbfc3a1e46f52a5035fc114ac18fbfeaddd363d3888295166",
     "config/GMFE69/GXMisc.json": "08008e3e750601a0a56d2442b14c450e5677f3ebe4f14eb98e6066cb011367d5",
     "config/GMFE69/GXPixel.json": "8a078293429864d0af0f5181a695a381b0144714e2ac2281d6ce38136aeeb262",
@@ -54,16 +59,19 @@
     "config/GMFE69/OSCache.json": "1cde56786574eb0990fadff2d5a823908f12be8bb020c8b3454c124467adc1a3",
     "config/GMFE69/OSContext.json": "678a14c04297999d61b92b1c85c5aeaad341181b6a9ff0c80c62d12e87b562e6",
     "config/GMFE69/OSError.json": "c7b0ad34648538e94301b0bc8c5c6fe4b4bbea81546b42cb56b10e3af1a7655f",
+    "config/GMFE69/OSFont.json": "afbd3ddd9f77cfc60e058845924cb05046468d2e3bba5c4b7180be9faa38f8d7",
     "config/GMFE69/OSInterrupt.json": "f5c05cf460a925e69e0498258555ab02f61bfef7f808494ed08197b834b4410e",
     "config/GMFE69/OSLink.json": "3f8bb6e15dbdb60dadeba4a00dd5534d0695c81ba10c4c94662697437dd7bea1",
     "config/GMFE69/OSMessage.json": "28f4ca013eb889f29452ce4b60a40bb32e49647ac513ed167fb959d48d32f37e",
     "config/GMFE69/OSMutex.json": "73821799678006005768465d02abed822ac63d97c863f28923bb68efacc692ab",
     "config/GMFE69/OSReset.json": "77625b94ecae7bcd0bab3364c46eb2b225853b5c4b4799e9d23e634962621119",
     "config/GMFE69/OSResetSW.json": "448c1b07ffd33631e830f0aad1595aad417cad2159f0b897410bae4027a16f14",
+    "config/GMFE69/OSRtc.json": "2b3f59e100a488b914b76173a7bf9182eb89539f5a156a569a2e3743451c22b8",
     "config/GMFE69/OSSync.json": "27c30f37b10db00a3b25b1f38ff69d7c33ab7870f9727aa1bdf9be17332991c8",
     "config/GMFE69/OSThread.json": "38638c5451250dd068469a8b6b609d98e9aabad647ceb265a4cfd78f3d497cca",
     "config/GMFE69/OSTime.json": "eb335b6100ab9c431f68433844f0426983bb54d3574ead92ee3aa46d5f83ffa6",
     "config/GMFE69/Padclamp.json": "570f443e7a228e96a9e869248c68a59a1d9e68052c20523d1c9a482772bfe76b",
+    "config/GMFE69/SIBios.json": "ef42fc4b95402bef0544ec5fe1a10c75781171f56afba7954318d42020fd6c1a",
     "config/GMFE69/SISamplingRate.json": "e4def7467ec8d82fdb9730412721675a9ea0e7ce572d5b8b63e89c3bdfe1eb84",
     "config/GMFE69/ai_src.json": "f0c8725cb5fed0ec6bbd3940f8c439dc47168cfd29a94c4b891cf592973d7e1a",
     "config/GMFE69/arq.json": "53c9d956d7cd2b69c858816128443494613f46b3ad680d5056ae00227df49900",
@@ -72,12 +80,14 @@
     "config/GMFE69/dsp_debug.json": "abb1bf69b26be3567a5e3a22a729922f11d7a3b8c74ed938895798d0072114a0",
     "config/GMFE69/dvderror.json": "e707cc3372abd7ab11663cb1d927b494694905f6aff6c33152a9b6fcf015590b",
     "config/GMFE69/dvdfs.json": "3a7e5c902b07320492019461ccbfe54e1c9166f4a2f84d8d3a4b7446a7f425f9",
+    "config/GMFE69/dvdlow.json": "42a078d56dcdf064392e009265a8acb918851c6a9ad5459e2b9adf8dd8c891e9",
     "config/GMFE69/dvdqueue.json": "3972551d2dea13e4955e0652398d4423a1ecfbf913abb2f4a0d352a2d558c905",
     "config/GMFE69/fstload.json": "c101975fb01250bc8f0325effbe643330b62ccd00eac41e24aff682c06866309",
     "config/GMFE69/mtx44.json": "6ec8c80e78a896f985eb769ac01b97ff684e2d83116660d2c740123270c0ddf5",
     "config/GMFE69/mtxvec.json": "bb6a4f09ca854ab9a727be34f0a20df7f53e0e081e1b83581418b88de9987009",
-    "config/GMFE69/project.json": "36d22cc72c81cc0cd029318b8c35df1cf7c31d3f28b805f7d422aa4e5464a11f",
+    "config/GMFE69/project.json": "07cacc07be423b44e523cff64ea75d3d5b4d94b02513b9c2a8011006cc8a7542",
     "config/GMFE69/target.json": "f7e8d7b660fd35f21cdc13385271d7b73fabda6669a0d112db63b3b1f3e8b3b2",
+    "config/GMFE69/vi.json": "3341dbca41fdd83ec556de88bdc9cedb4cbd6a7c397486637cd9b6ed88713655",
     "include/dolphin-sdk/charPipeline/fileCache.h": "9fc5bbfba874376ec1d239271cda99d84c256b2bd07f884d1177bee6b705b985",
     "include/dolphin-sdk/charPipeline/structures/HTable.h": "e1e36439d044200512635bc37470f318258d75767fad9ec2d9c407f9c0ee1af8",
     "include/dolphin-sdk/charPipeline/structures/List.h": "5646f12d28166b80aa7ad18711a2a01b1b1e836f4f509c25a03b2220adcc3c58",
@@ -345,14 +355,14 @@
     "src/dolphin/ax/AXVPB.c": "e050a7f891156a87f1b4766bd1e5138a0e99c1feaffa52aeb90655da3154bc57",
     "src/dolphin/ax/__ax.h": "2357bb9dbe06cabc45d73aa3e1db833627ba3d564eba3f485bb20d558a1be2b6",
     "src/dolphin/axfx/__axfx.h": "73686c724654e027e956a59e2806002dd51484baedb37791962dc354dee8a43f",
-    "src/dolphin/card/CARDBios.c": "f133713b025149a27f75cf037ee2c49dc04f71eaacdd84a21ede03951e3cf81b",
+    "src/dolphin/card/CARDBios.c": "14c778f73b6c9f419a693040f813b37577f4208ed857f3b5b324f4d4b67682f1",
     "src/dolphin/card/CARDBlock.c": "af6009b5e8adbbc7ca67669ac860d04f99cc7cf98138d48ce9bfea20dc96c340",
     "src/dolphin/card/CARDCheck.c": "86a3ff4988ab042cb09aa4df95f05d230520263dc14b70882b80b08c199c2d4e",
     "src/dolphin/card/CARDCreate.c": "64954da2c10ef3a7630e815f944be9adc8911b0edfa6f6aee0d7d4b7d03ed55e",
     "src/dolphin/card/CARDDelete.c": "2abf75a7181861bf84bf2debc97314e4950f7fe1f02268854f574ae24eaf0540",
     "src/dolphin/card/CARDDir.c": "7bc7f6cec27df1d343f43232be84675c763bf913ccdc6597a8cfd56a4b3d98a9",
     "src/dolphin/card/CARDFormat.c": "c428840947d3498635415387a116b6129e64584fc9bc5b5d9eb1b6e51446a236",
-    "src/dolphin/card/CARDMount.c": "6684ce9862fbcd7c577372d9e42e62279f23fea4ef2974a51d3cb054753a2bcf",
+    "src/dolphin/card/CARDMount.c": "de444915dbd54bcde9fe5cc0d4a1b5ebc197d62d37391f7bdb05c006cc70e900",
     "src/dolphin/card/CARDNet.c": "4b05df1e6871bb4b7064d0a4b6dbf8bdac17edb1c39ee5196d2b71c2de60dd22",
     "src/dolphin/card/CARDOpen.c": "666a8119c9431235014123743e37b7ecbe10996d3bc326de39469b52ca215a1f",
     "src/dolphin/card/CARDRdwr.c": "15ad63595114cd30c9b43fb142495af1036d8d144753cd6c746323344329a451",
@@ -373,13 +383,13 @@
     "src/dolphin/dvd/dvderror.c": "f12f08430c472e4d748bf2ed408df7291f67dd36bff77735cd4cd9bd8f745719",
     "src/dolphin/dvd/dvdfs.c": "41ea4744fa21958e8d4a6688dd274e154a6179b67cc06dca06cd1618cc17f61e",
     "src/dolphin/dvd/dvdidutils.c": "17c781caee65ff9580899dde3a41c9ad12089f182f62a145d5a2dfa7d195e29a",
-    "src/dolphin/dvd/dvdlow.c": "c064dd1a2a8969650016cf742c7009ac20aadcec5a6ae990b864feab04ea5686",
+    "src/dolphin/dvd/dvdlow.c": "bce26c02aa8950a81726225a3e92c79efeb430af98524ce4e50ab29775cc8139",
     "src/dolphin/dvd/dvdqueue.c": "838c3e925ca42504770c215d0c84971680a2d38c5d04bcd40f9e92a8fef3e1fa",
     "src/dolphin/dvd/fstload.c": "d90c3493b439305f26170362d1eff37da7678f42b6cdfcf77f1445a63ed5334a",
     "src/dolphin/eth/base64.c": "718a42fed1e99d5d30c32f31b2ce542d44ceebd374477978f466168843061e27",
     "src/dolphin/eth/ethsec.c": "df746823b967810cb058acd94eaf8c386c527f4212af45407811e317f6c716ce",
     "src/dolphin/eth/md5.c": "c2c735c768c2145be464170fb3aae755b38fc6b289316884656c80e154ed174e",
-    "src/dolphin/exi/EXIBios.c": "df6807f819abd481f6cdd7608a5f372e8f4394e43e9e568b2c1f2bdbdaed849f",
+    "src/dolphin/exi/EXIBios.c": "6a655e54c6748f689d0c58b7a6928d6a509a81596b2e51815ae1d7ec764d8c1b",
     "src/dolphin/exi/EXIUart.c": "40081fb49c03ce42e79aefade0db46552fe85d82c051d9190f40847b44ef7ab9",
     "src/dolphin/gba/GBA.c": "226c8898afb3f35f4382067bbc40cf3b4f7f61906cbbce4c7f5a7b0bda99fac9",
     "src/dolphin/gba/GBAGetProcessStatus.c": "88e8132c776c1bfc9d3f0bb3e6cac8ea7462ca52a12d0438283178ab114f5a6a",
@@ -445,12 +455,12 @@
     "src/dolphin/pad/Pad.c": "e7e1324c5523fab18b956e3730df9bc8c9755c3970556b32333577007751e45c",
     "src/dolphin/pad/Padclamp.c": "6f59409681539394aa23cf639c2431f89cb5e2bdd728fce61681b0e1b0a8d359",
     "src/dolphin/perf/__perf.h": "cc9b3899d19787ff82f8f06a624846f130365f47f9a3f62e259c9771a1845a5c",
-    "src/dolphin/si/SIBios.c": "51828377487aea5374867eed72a34e7588da36896163d13f271cdd3146410ef6",
+    "src/dolphin/si/SIBios.c": "1f8ec90e740343611eb1739d530d4a23dcdf136ed55142d5e2967295564f0fb3",
     "src/dolphin/si/SISamplingRate.c": "7947cfd2ec671b58d6bccc14e4a279a36bec0f8d1cc4a91e8250dc3a0e2e8394",
     "src/dolphin/si/__si.h": "ebdc70a1a12a5199f2f59b68f53f206222205e63d6b39a0dd42044298465b0d6",
     "src/dolphin/syn/__syn.h": "08b05a8b8e04e272305efa50936912ac395d76d937bd73a403065601e469f8ee",
     "src/dolphin/vi/__vi.h": "22201b234d317ca8d2724210a124ac6ceb9708df13c1b73eae87afab8e625b7b",
-    "src/dolphin/vi/vi.c": "a39c975336daa3c42a5a186d68d0c9c39e91aa0df0003b1b052eb767cdf4beed",
+    "src/dolphin/vi/vi.c": "d597b3b00f0a9ae8e8f066f5704850c39aaabc2190913c8a2d2dee2bdce79f7e",
     "src/dolsdk2001/G2D/G2D.c": "4a6394031c95e5831ea92134b21c6f82d558b0e6e3c029421ed3102dd64077f2",
     "src/dolsdk2001/NOTICE": "ccf64ee8764708043935167247a8210235f777c0c500026a2278aee6d8c083c5",
     "src/dolsdk2001/ai/ai.c": "cb8508338aa0c4b10b9134f2f51936618929fe8f63515e137a5ff2f2d4fcc0d9",
@@ -466,7 +476,7 @@
     "src/dolsdk2001/ax/AXOut.c": "82baef05e40460b1d0e423e6175d113b2a1a6af2751a88a96e8ace6bf53acd23",
     "src/dolsdk2001/ax/AXProf.c": "ab820c816778df4d21be244647724e4ee54638fe0eedd4f5667ec30ebe854b23",
     "src/dolsdk2001/ax/AXSPB.c": "7fa05febc18aeef3287d2c1da86016c5ad473386a5a273edcb167be4c5ae8684",
-    "src/dolsdk2001/ax/AXVPB.c": "7286ff93b493278989c698748abfc9fc58eea6c9ad662e7b0567de10a420de5b",
+    "src/dolsdk2001/ax/AXVPB.c": "3482016dbec0309c896efba2f1432f1100dc1d445357262894880a88f9f6da1a",
     "src/dolsdk2001/ax/DSPCode.c": "3beed970a95adf8229b14dd0d92dd93a3649712d871f6e5f8ae3ef9f6f256fd1",
     "src/dolsdk2001/ax/__ax.h": "d3feb504e3873f6cfb89c0e2c34237301a16b510ecf950ed12a0048ff5132286",
     "src/dolsdk2001/axfx/chorus.c": "d47fe1ddb0795170ee6ef0ffa2f7f45e3bec01348a523b780d712bfd26fc1610",
@@ -521,7 +531,7 @@
     "src/dolsdk2001/gx/GXFifo.c": "e7237b7cf3efac7dd7b5e52fe881dbed8c07828a535ad1ca8c64cd251e20ba41",
     "src/dolsdk2001/gx/GXFrameBuf.c": "41677da3ba7a4035900ff7ae50b3c6cdeecc06643fd90451c60b03d89b309894",
     "src/dolsdk2001/gx/GXGeometry.c": "ac5ea408c49d80bb94ab6e309c8c401bc6e17be97d0ba08b8035ba6979527693",
-    "src/dolsdk2001/gx/GXInit.c": "5bf18654218048b7099829a54ab80cbbd4424a74222477f066ddb8cceb9c4ec4",
+    "src/dolsdk2001/gx/GXInit.c": "893b3b0fc567b5496de726df22c345a3e7e80b535642f9943968d75b5096092f",
     "src/dolsdk2001/gx/GXLight.c": "facc34df81acba09dff51d4dbbfaa8b3b47917bdc9b53d41f1bd611e07f52879",
     "src/dolsdk2001/gx/GXMisc.c": "e0b13ba77a4994368844942c89471a15c47f82f6a458ec109032a5958a43b25c",
     "src/dolsdk2001/gx/GXPerf.c": "3c30e7f6a8e22b9572984278382ebda6f3942409c079da03a5b789a9d861d4ac",
@@ -560,7 +570,7 @@
     "src/dolsdk2001/os/OSError.c": "d45b291fe6ccea5444f9259e7451f6bd86ffa951869dc74f3a6b87455f7da104",
     "src/dolsdk2001/os/OSExi.c": "bc1ab5a0aa2aeb3c476304a7aed5a778c283c315c4427b1490f3dfdbcbbfdf2a",
     "src/dolsdk2001/os/OSExiAd16.c": "f75960f20bb0a4fd124b4a430a9dffa5553172f7e398d0cd0b6d03b2bf4407fd",
-    "src/dolsdk2001/os/OSFont.c": "385ad009e79f50cef612ecf344df402f5b8d87bd8a74b345cfcbe5a37f326ec5",
+    "src/dolsdk2001/os/OSFont.c": "8e7d6a52ed4950e4a911a134a1337d31b6eb87480b7f9fa206b9e6abcc46e39c",
     "src/dolsdk2001/os/OSInterrupt.c": "08d8a075ef539c427c3394fd35039f8f8352288386d35dac5ffb4a0c77f4d149",
     "src/dolsdk2001/os/OSLink.c": "28ab98f1e4e149b3fa5998044ce4d75b53b0820ddf8c75d2478745386931b43c",
     "src/dolsdk2001/os/OSMemory.c": "762e33b1921590e64f23d5344225025f4a1842ebfddf189da805967df370f44c",
@@ -568,7 +578,7 @@
     "src/dolsdk2001/os/OSMutex.c": "46c506ca2f168f35eb353e31c481c3764a8d76568cde5ce2d2d6bab0851c86c2",
     "src/dolsdk2001/os/OSReset.c": "5505b0a3239f9188cf9015aba96f4a55b6d31998af0d2a0ec53a54e443541e24",
     "src/dolsdk2001/os/OSResetSW.c": "208b02f2dd28e9a357847ff7a9f73e427044aca658e07ffff3690d1b8f431474",
-    "src/dolsdk2001/os/OSRtc.c": "988a9620feeb01f124194981b91ae2d8d800dcd06187979fa3396b67300170cf",
+    "src/dolsdk2001/os/OSRtc.c": "d617920415e44f2c9f1da55f269b69b2e975449577f51365533c915596b9c1ed",
     "src/dolsdk2001/os/OSSerial.c": "dbeaa3c81110ad8214fe10a6a535bdf099e44fe8a51741cd9c351019193e6901",
     "src/dolsdk2001/os/OSStopwatch.c": "2d43fe77bdaa5001a7dcba8782ac8c475bde0755ccbdb5febb4d833991ec18ec",
     "src/dolsdk2001/os/OSSync.c": "ca8ab2a74d2834b216cba159b41c8f0ed110085964f564696621750ec9e9b71a",
@@ -3086,6 +3096,494 @@
       ],
       "object_sha256": "2f14e1b1be6b1d63d6ab72c1b157e09c1f52274c58456d7dc14743ce344e9f2e",
       "linked_sha256": "70ba1bf880ab95a19cf6bc2b0ba2fd2bc74bb510fa286caf572fba9fa50f1200"
+    },
+    {
+      "id": "CARDMount",
+      "category": "restored_library",
+      "functions": 7,
+      "code_bytes": 2664,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "IsCard",
+        "__CARDDisable",
+        "CARDMount"
+      ],
+      "object_sha256": "506f97fe40350e956500c6df5170f282c4cbc0c395450cf06c301e0ea7b5ad62",
+      "linked_sha256": "71b2896d2976109a2b7a73924ed151a24e58cc44f4f15bd61505503d58d57a83"
+    },
+    {
+      "id": "OSRtc",
+      "category": "restored_library",
+      "functions": 14,
+      "code_bytes": 2620,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "GetRTC",
+        "__OSGetRTC",
+        "__OSSetRTC",
+        "ReadSram",
+        "LockSram",
+        "__OSCheckSram",
+        "__OSReadROMCallback",
+        "__OSReadROMAsync",
+        "OSGetVideoMode",
+        "OSSetVideoMode",
+        "OSGetLanguage",
+        "OSSetLanguage",
+        "__OSGetBootMode",
+        "__OSSetBootMode"
+      ],
+      "object_sha256": "6a21dd73ea771a03ccfd7171fb9ea63f12c4c26faab7c505bc8dde4d07122489",
+      "linked_sha256": "581ac901f37f6fa32dca14bc13691ceaeb10449206d682aa9a67c0630196ba19"
+    },
+    {
+      "id": "OSFont",
+      "category": "restored_library",
+      "functions": 9,
+      "code_bytes": 3300,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "GetFontSize",
+        "ReadFont",
+        "OSGetFontTexel"
+      ],
+      "object_sha256": "628bdfb65d6ae1f19af2479fa2c0e16a5783f5777212a988c4adea4fea0d94f8",
+      "linked_sha256": "a3542120436e768ee2bffb745ad0f0e1e459294043fab41dc9c4c9ebe8ef5c04"
+    },
+    {
+      "id": "dvdlow",
+      "category": "restored_library",
+      "functions": 20,
+      "code_bytes": 3668,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "signed",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "ProcessNextCommand",
+        "SetTimeoutAlarm",
+        "AudioBufferOn",
+        "HitCache",
+        "DoJustRead",
+        "WaitBeforeRead",
+        "DVDLowSetResetCoverCallback",
+        "DoBreak",
+        "AlarmHandlerForBreak",
+        "SetBreakAlarm",
+        "DVDLowGetCoverStatus",
+        "__DVDLowTestAlarm"
+      ],
+      "object_sha256": "31a66b4d6c944de0fc60486c4353f0b1371d24c85763ecc3b3146fc449e94fda",
+      "linked_sha256": "cfab598772d04d0332095693f146a9b6ad6a669de252a77e5c44371c9ba19b36"
+    },
+    {
+      "id": "AXVPB",
+      "category": "restored_library",
+      "functions": 13,
+      "code_bytes": 3920,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "__AXDumpVPB",
+        "AXSetVoiceType",
+        "AXSetVoiceMix",
+        "AXSetVoiceItdOn",
+        "AXSetVoiceItdTarget",
+        "AXSetVoiceUpdateIncrement",
+        "AXSetVoiceUpdateWrite",
+        "AXSetVoiceDpop",
+        "AXSetVoiceVe",
+        "AXSetVoiceVeDelta",
+        "AXSetVoiceFir",
+        "AXSetVoiceLoop",
+        "AXSetVoiceLoopAddr",
+        "AXSetVoiceEndAddr",
+        "AXSetVoiceCurrentAddr",
+        "AXSetVoiceSrc",
+        "AXSetMaxDspCycles",
+        "AXGetMaxDspCycles",
+        "AXGetDspCycles"
+      ],
+      "object_sha256": "e82782ae401419cbbdc6809ebf014e1b4e48bee60e42e9456e051e7c5ac79ddf",
+      "linked_sha256": "5077f726d42280e0c903aafc7454bcc1a310e8239f460e1e66eb92a77196629c"
+    },
+    {
+      "id": "GXInit",
+      "category": "restored_library",
+      "functions": 4,
+      "code_bytes": 4332,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "IsWriteGatherBufferEmpty"
+      ],
+      "object_sha256": "1e43767ab5218ca3fd5b5e32c96b290fba449d802bbe13d6e4a18859b9c04c04",
+      "linked_sha256": "3f4578efc9cc0fe0470ea693fd7524ac7828170b48a80a71c318e5f8d504e811"
+    },
+    {
+      "id": "CARDBios",
+      "category": "restored_library",
+      "functions": 25,
+      "code_bytes": 4944,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "__CARDReadVendorID",
+        "__CARDSleep",
+        "__CARDWakeup",
+        "SetupTimeoutAlarm",
+        "__CARDErase",
+        "__CARDGetFontEncode",
+        "__CARDSetFontEncode",
+        "CARDGetDiskID",
+        "CARDSetDiskID",
+        "CARDGetEncoding",
+        "CARDGetMemSize",
+        "CARDGetCurrentMode"
+      ],
+      "object_sha256": "8bbf36b5578aaacce47aa6d82991df8a7e8b9c3375d74419de4918556b041fd9",
+      "linked_sha256": "a2db12b89f7520a4f22a114f1e53f6986b4020a950e2952fb36bb1af22b523f8"
+    },
+    {
+      "id": "SIBios",
+      "category": "restored_library",
+      "functions": 23,
+      "code_bytes": 6192,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "SIBusy",
+        "SIClearTCInterrupt",
+        "SITransferNext",
+        "SISync",
+        "SIGetCommand",
+        "CallTypeAndStatusCallback",
+        "SIGetTypeString"
+      ],
+      "object_sha256": "2858bf9d324951b2fb44481cb72139e81423df7f89868edf17d9193a813c40a3",
+      "linked_sha256": "75cc980b23e92748328898fc7d1001a2a0b375f8aec157b9ddd45a825c663e38"
+    },
+    {
+      "id": "EXIBios",
+      "category": "restored_library",
+      "functions": 23,
+      "code_bytes": 6300,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "CompleteTransfer",
+        "EXIProbeReset",
+        "__EXIAttach",
+        "EXISelectSD",
+        "EXIGetType",
+        "EXIGetTypeString"
+      ],
+      "object_sha256": "4e23b752c68224891dd6e251bc5868b09aed3180685d73bdd5cd8ee00dcd76cf",
+      "linked_sha256": "f0f9f54238262ea85ea3ac236ca014c767256faf65611cc7adbd4430ef377223"
+    },
+    {
+      "id": "vi",
+      "category": "restored_library",
+      "functions": 16,
+      "code_bytes": 6648,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "getEncoderType",
+        "cntlzd",
+        "VISetRegs",
+        "VISetPostRetraceCallback",
+        "AdjustPosition",
+        "ImportAdjustingValues",
+        "setInterruptRegs",
+        "setPicConfig",
+        "setBBIntervalRegs",
+        "setScalingRegs",
+        "calcFbbs",
+        "setHorizontalRegs",
+        "PrintDebugPalCaution",
+        "VIConfigurePan",
+        "VISetNextRightFrameBuffer",
+        "VISet3D",
+        "VIGetRetraceCount",
+        "GetCurrentDisplayPosition",
+        "getCurrentHalfLine",
+        "VIGetScanMode",
+        "VIGetDTVStatus",
+        "__VISetAdjustingValues",
+        "__VIGetAdjustingValues",
+        "__VIDisplayPositionToXY",
+        "__VIGetCurrentPosition",
+        "__VISetLatchMode",
+        "__VIGetLatch0Position",
+        "__VIGetLatch1Position",
+        "__VIGetLatchPosition"
+      ],
+      "object_sha256": "3bdc719ec6c5604bc90734635317a66d75b247931b15be0bc5af94c7a04e9c9d",
+      "linked_sha256": "f062ad93e4917a04fba61b87e1b4694a8ec13b3c2475c92e1132b559dce9977b"
     }
   ],
   "code_map": {
@@ -28718,76 +29216,6 @@
         ]
       },
       {
-        "name": "Unmatched files/OSFont.c [symbol evidence]",
-        "file_record": 198,
-        "file_name": "OSFont.c",
-        "ranges": [
-          {
-            "address": "0x801128e8",
-            "size": 308,
-            "kind": "function",
-            "name": "GetFontCode",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80112a1c",
-            "size": 372,
-            "kind": "function",
-            "name": "Decode",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80112b90",
-            "size": 88,
-            "kind": "function",
-            "name": "OSGetFontEncode",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80112be8",
-            "size": 140,
-            "kind": "function",
-            "name": "ReadROM",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80112c74",
-            "size": 576,
-            "kind": "function",
-            "name": "OSLoadFont",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80112eb4",
-            "size": 944,
-            "kind": "function",
-            "name": "ExpandFontSheet",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80113264",
-            "size": 224,
-            "kind": "function",
-            "name": "OSInitFont",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80113344",
-            "size": 376,
-            "kind": "function",
-            "name": "OSGetFontTexture",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x801134bc",
-            "size": 272,
-            "kind": "function",
-            "name": "OSGetFontWidth",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
         "name": "Unknown file/.text @ 801135cc",
         "ranges": [
           {
@@ -28945,111 +29373,6 @@
         ]
       },
       {
-        "name": "Unmatched files/OSRtc.c [symbol evidence]",
-        "file_record": 207,
-        "file_name": "OSRtc.c",
-        "ranges": [
-          {
-            "address": "0x80114ef4",
-            "size": 96,
-            "kind": "function",
-            "name": "WriteSramCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80114f54",
-            "size": 280,
-            "kind": "function",
-            "name": "WriteSram",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011506c",
-            "size": 308,
-            "kind": "function",
-            "name": "__OSInitSram",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x801151a0",
-            "size": 92,
-            "kind": "function",
-            "name": "__OSLockSram",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x801151fc",
-            "size": 92,
-            "kind": "function",
-            "name": "__OSLockSramEx",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80115258",
-            "size": 776,
-            "kind": "function",
-            "name": "UnlockSram",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80115560",
-            "size": 36,
-            "kind": "function",
-            "name": "__OSUnlockSram",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80115584",
-            "size": 36,
-            "kind": "function",
-            "name": "__OSUnlockSramEx",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x801155a8",
-            "size": 16,
-            "kind": "function",
-            "name": "__OSSyncSram",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x801155b8",
-            "size": 292,
-            "kind": "function",
-            "name": "__OSReadROM",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x801156dc",
-            "size": 128,
-            "kind": "function",
-            "name": "OSGetSoundMode",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8011575c",
-            "size": 164,
-            "kind": "function",
-            "name": "OSSetSoundMode",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80115800",
-            "size": 132,
-            "kind": "function",
-            "name": "OSGetWirelessID",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80115884",
-            "size": 172,
-            "kind": "function",
-            "name": "OSSetWirelessID",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/OSSync.c [local symbols only]",
         "file_record": 208,
         "file_name": "OSSync.c",
@@ -29132,153 +29455,6 @@
             "size": 40,
             "kind": "function",
             "name": "PSMTXScale",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/dvdlow.c [symbol evidence]",
-        "file_record": 216,
-        "file_name": "dvdlow.c",
-        "ranges": [
-          {
-            "address": "0x80116e54",
-            "size": 64,
-            "kind": "function",
-            "name": "__DVDInitWA",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80116e94",
-            "size": 756,
-            "kind": "function",
-            "name": "__DVDInterruptHandler",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80117188",
-            "size": 132,
-            "kind": "function",
-            "name": "AlarmHandler",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011720c",
-            "size": 112,
-            "kind": "function",
-            "name": "AlarmHandlerForTimeout",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011727c",
-            "size": 272,
-            "kind": "function",
-            "name": "Read",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011738c",
-            "size": 128,
-            "kind": "function",
-            "name": "SeekTwiceBeforeRead",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011740c",
-            "size": 664,
-            "kind": "function",
-            "name": "DVDLowRead",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x801176a4",
-            "size": 148,
-            "kind": "function",
-            "name": "DVDLowSeek",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80117738",
-            "size": 44,
-            "kind": "function",
-            "name": "DVDLowWaitCoverClose",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80117764",
-            "size": 164,
-            "kind": "function",
-            "name": "DVDLowReadDiskID",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80117808",
-            "size": 140,
-            "kind": "function",
-            "name": "DVDLowStopMotor",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80117894",
-            "size": 140,
-            "kind": "function",
-            "name": "DVDLowRequestError",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80117920",
-            "size": 156,
-            "kind": "function",
-            "name": "DVDLowInquiry",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x801179bc",
-            "size": 152,
-            "kind": "function",
-            "name": "DVDLowAudioStream",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80117a54",
-            "size": 140,
-            "kind": "function",
-            "name": "DVDLowRequestAudioStatus",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80117ae0",
-            "size": 156,
-            "kind": "function",
-            "name": "DVDLowAudioBufferConfig",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80117b7c",
-            "size": 188,
-            "kind": "function",
-            "name": "DVDLowReset",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80117c38",
-            "size": 20,
-            "kind": "function",
-            "name": "DVDLowBreak",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80117c4c",
-            "size": 24,
-            "kind": "function",
-            "name": "DVDLowClearCallback",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80117c64",
-            "size": 68,
-            "kind": "function",
-            "name": "__DVDLowSetWAType",
             "evidence": "private-reference"
           }
         ]
@@ -29566,125 +29742,6 @@
             "size": 284,
             "kind": "function",
             "name": "__DVDPrepareResetAsync",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/vi.c [symbol evidence]",
-        "file_record": 222,
-        "file_name": "vi.c",
-        "ranges": [
-          {
-            "address": "0x8011adcc",
-            "size": 552,
-            "kind": "function",
-            "name": "__VIRetraceHandler",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011aff4",
-            "size": 68,
-            "kind": "function",
-            "name": "VISetPreRetraceCallback",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011b038",
-            "size": 144,
-            "kind": "function",
-            "name": "getTiming",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011b0c8",
-            "size": 504,
-            "kind": "function",
-            "name": "__VIInit",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011b2c0",
-            "size": 1144,
-            "kind": "function",
-            "name": "VIInit",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011b738",
-            "size": 84,
-            "kind": "function",
-            "name": "VIWaitForRetrace",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011b78c",
-            "size": 724,
-            "kind": "function",
-            "name": "setFbbRegs",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011ba60",
-            "size": 416,
-            "kind": "function",
-            "name": "setVerticalRegs",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011bc00",
-            "size": 1948,
-            "kind": "function",
-            "name": "VIConfigure",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011c39c",
-            "size": 284,
-            "kind": "function",
-            "name": "VIFlush",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011c4b8",
-            "size": 108,
-            "kind": "function",
-            "name": "VISetNextFrameBuffer",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011c524",
-            "size": 124,
-            "kind": "function",
-            "name": "VISetBlack",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8011c5a0",
-            "size": 104,
-            "kind": "function",
-            "name": "getCurrentFieldEvenOdd",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8011c608",
-            "size": 168,
-            "kind": "function",
-            "name": "VIGetNextField",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8011c6b0",
-            "size": 152,
-            "kind": "function",
-            "name": "VIGetCurrentLine",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8011c748",
-            "size": 124,
-            "kind": "function",
-            "name": "VIGetTvFormat",
             "evidence": "private-reference"
           }
         ]
@@ -29989,109 +30046,6 @@
         ]
       },
       {
-        "name": "Unmatched files/AXVPB.c [symbol evidence]",
-        "file_record": 234,
-        "file_name": "AXVPB.c",
-        "ranges": [
-          {
-            "address": "0x80120f34",
-            "size": 8,
-            "kind": "function",
-            "name": "__AXGetNumVoices",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80120f3c",
-            "size": 1756,
-            "kind": "function",
-            "name": "__AXServiceVPB",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80121618",
-            "size": 584,
-            "kind": "function",
-            "name": "__AXSyncPBs",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80121860",
-            "size": 12,
-            "kind": "function",
-            "name": "__AXGetPBs",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8012186c",
-            "size": 60,
-            "kind": "function",
-            "name": "__AXSetPBDefault",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x801218a8",
-            "size": 512,
-            "kind": "function",
-            "name": "__AXVPBInit",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80121aa8",
-            "size": 4,
-            "kind": "function",
-            "name": "__AXVPBQuit",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80121aac",
-            "size": 196,
-            "kind": "function",
-            "name": "AXSetVoiceSrcType",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80121b70",
-            "size": 92,
-            "kind": "function",
-            "name": "AXSetVoiceState",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80121bcc",
-            "size": 272,
-            "kind": "function",
-            "name": "AXSetVoiceAddr",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80121cdc",
-            "size": 164,
-            "kind": "function",
-            "name": "AXSetVoiceAdpcm",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80121d80",
-            "size": 152,
-            "kind": "function",
-            "name": "AXSetVoiceSrcRatio",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80121e18",
-        "ranges": [
-          {
-            "address": "0x80121e18",
-            "size": 108,
-            "kind": "function",
-            "name": "AXSetVoiceAdpcmLoop",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
         "name": "Unknown file/.text @ 80121ecc",
         "ranges": [
           {
@@ -30234,254 +30188,6 @@
             "kind": "function",
             "name": "__DSP_remove_task",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80122a7c",
-            "size": 4,
-            "kind": "function",
-            "name": "__CARDDefaultApiCallback",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80122a80",
-            "size": 52,
-            "kind": "function",
-            "name": "__CARDSyncCallback",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80122ab4",
-            "size": 216,
-            "kind": "function",
-            "name": "__CARDExtHandler",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/CARDBios.c [symbol evidence]",
-        "file_record": 240,
-        "file_name": "CARDBios.c",
-        "ranges": [
-          {
-            "address": "0x80122b8c",
-            "size": 280,
-            "kind": "function",
-            "name": "__CARDExiHandler",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80122ca4",
-            "size": 168,
-            "kind": "function",
-            "name": "__CARDTxHandler",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80122d4c",
-            "size": 132,
-            "kind": "function",
-            "name": "__CARDUnlockedHandler",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80122dd0",
-            "size": 192,
-            "kind": "function",
-            "name": "__CARDEnableInterrupt",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80122e90",
-            "size": 240,
-            "kind": "function",
-            "name": "__CARDReadStatus",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80122f80",
-            "size": 172,
-            "kind": "function",
-            "name": "__CARDClearStatus",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012302c",
-            "size": 164,
-            "kind": "function",
-            "name": "TimeoutHandler",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801230d0",
-            "size": 556,
-            "kind": "function",
-            "name": "Retry",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801232fc",
-            "size": 272,
-            "kind": "function",
-            "name": "UnlockedCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8012340c",
-            "size": 436,
-            "kind": "function",
-            "name": "__CARDStart",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801235c0",
-            "size": 308,
-            "kind": "function",
-            "name": "__CARDReadSegment",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x801236f4",
-            "size": 284,
-            "kind": "function",
-            "name": "__CARDWritePage",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80123810",
-            "size": 224,
-            "kind": "function",
-            "name": "__CARDEraseSector",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x801238f0",
-            "size": 156,
-            "kind": "function",
-            "name": "CARDInit",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8012398c",
-            "size": 56,
-            "kind": "function",
-            "name": "__CARDSetDiskID",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x801239c4",
-            "size": 184,
-            "kind": "function",
-            "name": "__CARDGetControlBlock",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80123a7c",
-            "size": 100,
-            "kind": "function",
-            "name": "__CARDPutControlBlock",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80123ae0",
-            "size": 48,
-            "kind": "function",
-            "name": "CARDGetResultCode",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80123b10",
-            "size": 336,
-            "kind": "function",
-            "name": "CARDFreeBlocks",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80123c60",
-            "size": 132,
-            "kind": "function",
-            "name": "CARDGetSectorSize",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80123ce4",
-            "size": 152,
-            "kind": "function",
-            "name": "__CARDSync",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80123d7c",
-            "size": 80,
-            "kind": "function",
-            "name": "OnReset",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80126804",
-        "ranges": [
-          {
-            "address": "0x80126804",
-            "size": 56,
-            "kind": "function",
-            "name": "CARDProbe",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/CARDMount.c [symbol evidence]",
-        "file_record": 246,
-        "file_name": "CARDMount.c",
-        "ranges": [
-          {
-            "address": "0x8012683c",
-            "size": 412,
-            "kind": "function",
-            "name": "CARDProbeEx",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x801269d8",
-            "size": 1188,
-            "kind": "function",
-            "name": "DoMount",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80126e7c",
-            "size": 264,
-            "kind": "function",
-            "name": "__CARDMountCallback",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80126f84",
-            "size": 416,
-            "kind": "function",
-            "name": "CARDMountAsync",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80127124",
-            "size": 156,
-            "kind": "function",
-            "name": "DoUnmount",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 801271c0",
-        "ranges": [
-          {
-            "address": "0x801271c0",
-            "size": 172,
-            "kind": "function",
-            "name": "CARDUnmount",
-            "evidence": "unknown-file"
           }
         ]
       },
@@ -30569,41 +30275,6 @@
             "kind": "function",
             "name": "CARDSetAttributes",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/GXInit.c [symbol evidence]",
-        "file_record": 256,
-        "file_name": "GXInit.c",
-        "ranges": [
-          {
-            "address": "0x80129570",
-            "size": 124,
-            "kind": "function",
-            "name": "__GXDefaultTexRegionCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801295ec",
-            "size": 36,
-            "kind": "function",
-            "name": "__GXDefaultTlutRegionCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80129610",
-            "size": 1992,
-            "kind": "function",
-            "name": "GXInit",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80129dd8",
-            "size": 2180,
-            "kind": "function",
-            "name": "__GXInitGX",
-            "evidence": "private-reference"
           }
         ]
       },
@@ -33444,347 +33115,6 @@
             "kind": "function",
             "name": "DBGEXIImm",
             "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/EXIBios.c [symbol evidence]",
-        "file_record": 358,
-        "file_name": "EXIBios.c",
-        "ranges": [
-          {
-            "address": "0x8014445c",
-            "size": 244,
-            "kind": "function",
-            "name": "SetExiInterruptMask",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80144550",
-            "size": 604,
-            "kind": "function",
-            "name": "EXIImm",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x801447ac",
-            "size": 160,
-            "kind": "function",
-            "name": "EXIImmEx",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8014484c",
-            "size": 236,
-            "kind": "function",
-            "name": "EXIDma",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80144938",
-            "size": 520,
-            "kind": "function",
-            "name": "EXISync",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80144b40",
-            "size": 72,
-            "kind": "function",
-            "name": "EXIClearInterrupts",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80144b88",
-            "size": 124,
-            "kind": "function",
-            "name": "EXISetExiCallback",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80144c04",
-            "size": 372,
-            "kind": "function",
-            "name": "__EXIProbe",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80144d78",
-            "size": 128,
-            "kind": "function",
-            "name": "EXIProbe",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80144df8",
-            "size": 180,
-            "kind": "function",
-            "name": "EXIProbeEx",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80144eac",
-            "size": 268,
-            "kind": "function",
-            "name": "EXIAttach",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80144fb8",
-            "size": 188,
-            "kind": "function",
-            "name": "EXIDetach",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80145074",
-            "size": 300,
-            "kind": "function",
-            "name": "EXISelect",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x801451a0",
-            "size": 272,
-            "kind": "function",
-            "name": "EXIDeselect",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x801452b0",
-            "size": 200,
-            "kind": "function",
-            "name": "EXIIntrruptHandler",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80145378",
-            "size": 536,
-            "kind": "function",
-            "name": "TCIntrruptHandler",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80145590",
-            "size": 200,
-            "kind": "function",
-            "name": "EXTIntrruptHandler",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80145658",
-            "size": 276,
-            "kind": "function",
-            "name": "EXIInit",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8014576c",
-            "size": 244,
-            "kind": "function",
-            "name": "EXILock",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80145860",
-            "size": 220,
-            "kind": "function",
-            "name": "EXIUnlock",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8014593c",
-            "size": 24,
-            "kind": "function",
-            "name": "EXIGetState",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80145954",
-            "size": 40,
-            "kind": "function",
-            "name": "UnlockedHandler",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8014597c",
-            "size": 892,
-            "kind": "function",
-            "name": "EXIGetID",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/SIBios.c [symbol evidence]",
-        "file_record": 360,
-        "file_name": "SIBios.c",
-        "ranges": [
-          {
-            "address": "0x80145f68",
-            "size": 60,
-            "kind": "function",
-            "name": "SIIsChanBusy",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80145fa4",
-            "size": 764,
-            "kind": "function",
-            "name": "CompleteTransfer",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801462a0",
-            "size": 836,
-            "kind": "function",
-            "name": "SIInterruptHandler",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801465e4",
-            "size": 152,
-            "kind": "function",
-            "name": "SIEnablePollingInterrupt",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8014667c",
-            "size": 204,
-            "kind": "function",
-            "name": "SIRegisterPollingHandler",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80146748",
-            "size": 244,
-            "kind": "function",
-            "name": "SIUnregisterPollingHandler",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8014683c",
-            "size": 164,
-            "kind": "function",
-            "name": "SIInit",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x801468e0",
-            "size": 524,
-            "kind": "function",
-            "name": "__SITransfer",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80146aec",
-            "size": 124,
-            "kind": "function",
-            "name": "SIGetStatus",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80146b68",
-            "size": 20,
-            "kind": "function",
-            "name": "SISetCommand",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80146b7c",
-            "size": 16,
-            "kind": "function",
-            "name": "SITransferCommands",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80146b8c",
-            "size": 108,
-            "kind": "function",
-            "name": "SISetXY",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80146bf8",
-            "size": 156,
-            "kind": "function",
-            "name": "SIEnablePolling",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80146c94",
-            "size": 108,
-            "kind": "function",
-            "name": "SIDisablePolling",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80146d00",
-            "size": 212,
-            "kind": "function",
-            "name": "SIGetResponseRaw",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80146dd4",
-            "size": 196,
-            "kind": "function",
-            "name": "SIGetResponse",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80146e98",
-            "size": 140,
-            "kind": "function",
-            "name": "AlarmHandler",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80146f24",
-            "size": 364,
-            "kind": "function",
-            "name": "SITransfer",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80147090",
-            "size": 664,
-            "kind": "function",
-            "name": "GetTypeCallback",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80147328",
-            "size": 452,
-            "kind": "function",
-            "name": "SIGetType",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x801474ec",
-            "size": 316,
-            "kind": "function",
-            "name": "SIGetTypeAsync",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80147628",
-        "ranges": [
-          {
-            "address": "0x80147628",
-            "size": 332,
-            "kind": "function",
-            "name": "SIDecodeType",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80147774",
-            "size": 36,
-            "kind": "function",
-            "name": "SIProbe",
-            "evidence": "unknown-file"
           }
         ]
       },

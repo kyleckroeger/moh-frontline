@@ -17,17 +17,17 @@ static unsigned long __AXMixCycles[32] = {
     0x00000B7C,
     0x0000113A,
     0x000008B6,
-    0x00000E74,
-    0x00000E74,
-    0x00001432,
+    0x0000116C,
+    0x0000116C,
+    0x00001A22,
     0x000009A6,
     0x0000134C,
     0x0000134C,
     0x00001CF2,
     0x00000E97,
-    0x0000183D,
-    0x0000183D,
-    0x000021E3,
+    0x00001D2E,
+    0x00001D2E,
+    0x00002BC5,
     0x00000B7C,
     0x00001432,
     0x00000B7C,
@@ -198,22 +198,22 @@ void __AXServiceVPB(AXVPB *pvpb) {
         *(dst) = *(src); dst+=1; src+=1;
         *(dst) = *(src); src+=1;
         dst_ = pvpb->itdBuffer;
-        *(dst) = 0; dst+=1;
-        *(dst) = 0; dst+=1;
-        *(dst) = 0; dst+=1;
-        *(dst) = 0; dst+=1;
-        *(dst) = 0; dst+=1;
-        *(dst) = 0; dst+=1;
-        *(dst) = 0; dst+=1;
-        *(dst) = 0; dst+=1;
-        *(dst) = 0; dst+=1;
-        *(dst) = 0; dst+=1;
-        *(dst) = 0; dst+=1;
-        *(dst) = 0; dst+=1;
-        *(dst) = 0; dst+=1;
-        *(dst) = 0; dst+=1;
-        *(dst) = 0; dst+=1;
-        *(dst) = 0;
+        *(dst_) = 0; dst_+=1;
+        *(dst_) = 0; dst_+=1;
+        *(dst_) = 0; dst_+=1;
+        *(dst_) = 0; dst_+=1;
+        *(dst_) = 0; dst_+=1;
+        *(dst_) = 0; dst_+=1;
+        *(dst_) = 0; dst_+=1;
+        *(dst_) = 0; dst_+=1;
+        *(dst_) = 0; dst_+=1;
+        *(dst_) = 0; dst_+=1;
+        *(dst_) = 0; dst_+=1;
+        *(dst_) = 0; dst_+=1;
+        *(dst_) = 0; dst_+=1;
+        *(dst_) = 0; dst_+=1;
+        *(dst_) = 0; dst_+=1;
+        *(dst_) = 0;
     }
     if (sync & AX_SYNC_FLAG_COPYUPDATE) {
         // copy UPDATE struct.
@@ -295,6 +295,9 @@ void __AXServiceVPB(AXVPB *pvpb) {
         *(dst) = *(src); dst+=1; src+=1;
         *(dst) = *(src); dst+=1; src+=1;
         *(dst) = *(src); 
+    } else {
+        ppbUser->addr.currentAddressHi = ppbDsp->addr.currentAddressHi;
+        ppbUser->addr.currentAddressLo = ppbDsp->addr.currentAddressLo;
     }
     if (sync & AX_SYNC_FLAG_COPYADPCM) {
         // copy ADPCM struct.
@@ -419,15 +422,27 @@ void __AXVPBInit(void) {
     AXPBITDBUFFER * ppbi;
     AXPBU * ppbu;
     AXVPB * pvpb;
+    u32 * p;
 
 #ifdef DEBUG
     OSReport("Initializing AXVPB code module\n");
 #endif
     __AXMaxDspCycles = OS_BUS_CLOCK / 400;
-    __AXRecDspCycles = 0U;
-    memset(__AXPB, 0, sizeof(__AXPB));
-    memset(__AXITD, 0, sizeof(__AXITD));
-    memset(__AXVPB, 0, sizeof(__AXVPB));
+    __AXRecDspCycles = 0;
+
+#define BUFFER_MEMSET(buffer, size)    \
+    {                                  \
+        p = (u32*)&buffer;             \
+        for (i = size; i != 0; i--) {  \
+            *p = 0;                    \
+            p++;                       \
+        }                              \
+    }
+
+    BUFFER_MEMSET(__AXPB, sizeof(__AXPB)/4);
+    BUFFER_MEMSET(__AXITD, sizeof(__AXITD)/4);
+    BUFFER_MEMSET(__AXVPB, sizeof(__AXVPB)/4);
+
     for(i = 0; i < AX_MAX_VOICES; i++) {
         ppb = &__AXPB[i];
         ppbi = &__AXITD[i];
@@ -443,10 +458,10 @@ void __AXVPBInit(void) {
         if (i == 0x3F) {
             pvpb->pb.nextHi = pvpb->pb.nextLo = ppb->nextHi = ppb->nextLo = 0;
         } else {
-            pvpb->pb.nextHi = (u16)(  (u32)((char*)ppb + 0xC0) >> 16 );
-            pvpb->pb.nextLo = (u16)(  (u32)((char*)ppb + 0xC0) );
-            ppb->nextHi = (u16)(  (u32)((char*)ppb + 0xC0) >> 16 );
-            ppb->nextLo = (u16)(  (u32)((char*)ppb + 0xC0) );
+            pvpb->pb.nextHi = (u16)(  (u32)((char*)ppb + sizeof(AXPB)) >> 16 );
+            pvpb->pb.nextLo = (u16)(  (u32)((char*)ppb + sizeof(AXPB)) );
+            ppb->nextHi = (u16)(  (u32)((char*)ppb + sizeof(AXPB)) >> 16 );
+            ppb->nextLo = (u16)(  (u32)((char*)ppb + sizeof(AXPB)) );
         }
         pvpb->pb.currHi = (u16)(((u32)ppb) >> 16);
         pvpb->pb.currLo = (u16)((u32)ppb);
@@ -460,6 +475,7 @@ void __AXVPBInit(void) {
         pvpb->pb.update.dataLo = (u16)((u32)ppbu);
         ppb->update.dataHi = (u16)(((u32)ppbu) >> 16);
         ppb->update.dataLo = (u16)((u32)ppbu);
+        pvpb->priority = 1;
         __AXPushFreeStack(pvpb);
     }
     DCFlushRange(__AXPB, sizeof(__AXPB));

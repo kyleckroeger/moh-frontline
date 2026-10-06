@@ -1,0 +1,155 @@
+{
+  "id": "OSFont",
+  "source": "src/dolsdk2001/os/OSFont.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x801128e8",
+      "size": 3300,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018d0e0",
+      "size": 2826,
+      "type": 1
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034e490",
+      "size": 2,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034efc8",
+      "size": 16,
+      "type": 8
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x80351418",
+      "size": 8,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "GetFontCode",
+      "address": "0x801128e8",
+      "size": 308,
+      "binding": 0
+    },
+    {
+      "name": "Decode",
+      "address": "0x80112a1c",
+      "size": 372,
+      "binding": 0
+    },
+    {
+      "name": "ReadROM",
+      "address": "0x80112be8",
+      "size": 140,
+      "binding": 0
+    },
+    {
+      "name": "ExpandFontSheet",
+      "address": "0x80112eb4",
+      "size": 944,
+      "binding": 0
+    },
+    {
+      "name": "OSGetFontEncode",
+      "address": "0x80112b90",
+      "size": 88,
+      "binding": 1
+    },
+    {
+      "name": "OSLoadFont",
+      "address": "0x80112c74",
+      "size": 576,
+      "binding": 1
+    },
+    {
+      "name": "OSInitFont",
+      "address": "0x80113264",
+      "size": 224,
+      "binding": 1
+    },
+    {
+      "name": "OSGetFontTexture",
+      "address": "0x80113344",
+      "size": 376,
+      "binding": 1
+    },
+    {
+      "name": "OSGetFontWidth",
+      "address": "0x801134bc",
+      "size": 272,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DCStoreRange": "0x801118b4",
+    "__OSReadROM": "0x801155b8",
+    "__flush_cache": "0x80007350",
+    "__init_hardware": "0x80007330"
+  },
+  "undefined_in_discarded_code": [
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers"
+  ],
+  "discarded_functions": [
+    "GetFontSize",
+    "ReadFont",
+    "OSGetFontTexel"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/os/OSFont.c"
+  },
+  "original_file": "OSFont.c",
+  "original_file_index": 10742,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "GetFontSize",
+    "ReadFont"
+  ],
+  "sda_externals": []
+}

@@ -172,6 +172,9 @@ static int UnlockSram(int commit, unsigned long offset) {
     if (commit != 0) {
         if (offset == 0) {
             struct OSSram * sram  = (struct OSSram *)&Scb.sram[0];
+            if (2u < (sram->flags & 3)) {
+                sram->flags &= ~3;
+            }
             sram->checkSum = sram->checkSumInv = 0;
             for(p = (unsigned short*)&sram->counterBias; p < ((u16*)&Scb.sram[sizeof (struct OSSram)]); p++) {
                 sram->checkSum += *p;
@@ -306,6 +309,27 @@ void OSSetSoundMode(unsigned long mode) {
     sram->flags &= 0xFFFFFFFB;
     sram->flags |= mode;
     __OSUnlockSram(1);
+}
+
+unsigned short OSGetWirelessID(long chan) {
+    struct OSSramEx * sram;
+    unsigned short id;
+
+    sram = __OSLockSramEx();
+    id = sram->wirelessPadID[chan];
+    __OSUnlockSramEx(0);
+    return id;
+}
+
+void OSSetWirelessID(long chan, unsigned short id) {
+    struct OSSramEx * sram = __OSLockSramEx();
+
+    if (sram->wirelessPadID[chan] != id) {
+        sram->wirelessPadID[chan] = id;
+        __OSUnlockSramEx(1);
+        return;
+    }
+    __OSUnlockSramEx(0);
 }
 
 unsigned long OSGetVideoMode() {

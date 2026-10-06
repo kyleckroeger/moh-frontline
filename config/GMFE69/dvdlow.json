@@ -1,0 +1,246 @@
+{
+  "id": "dvdlow",
+  "source": "src/dolphin/dvd/dvdlow.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "signed",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80116e54",
+      "size": 3668,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x80317a60",
+      "size": 208,
+      "type": 8
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034e498",
+      "size": 4,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f038",
+      "size": 72,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "Read",
+      "address": "0x8011727c",
+      "size": 272,
+      "binding": 0
+    },
+    {
+      "name": "AlarmHandler",
+      "address": "0x80117188",
+      "size": 132,
+      "binding": 0
+    },
+    {
+      "name": "AlarmHandlerForTimeout",
+      "address": "0x8011720c",
+      "size": 112,
+      "binding": 0
+    },
+    {
+      "name": "SeekTwiceBeforeRead",
+      "address": "0x8011738c",
+      "size": 128,
+      "binding": 0
+    },
+    {
+      "name": "__DVDInitWA",
+      "address": "0x80116e54",
+      "size": 64,
+      "binding": 1
+    },
+    {
+      "name": "__DVDLowSetWAType",
+      "address": "0x80117c64",
+      "size": 68,
+      "binding": 1
+    },
+    {
+      "name": "DVDLowSeek",
+      "address": "0x801176a4",
+      "size": 148,
+      "binding": 1
+    },
+    {
+      "name": "__DVDInterruptHandler",
+      "address": "0x80116e94",
+      "size": 756,
+      "binding": 1
+    },
+    {
+      "name": "DVDLowRead",
+      "address": "0x8011740c",
+      "size": 664,
+      "binding": 1
+    },
+    {
+      "name": "DVDLowWaitCoverClose",
+      "address": "0x80117738",
+      "size": 44,
+      "binding": 1
+    },
+    {
+      "name": "DVDLowReadDiskID",
+      "address": "0x80117764",
+      "size": 164,
+      "binding": 1
+    },
+    {
+      "name": "DVDLowStopMotor",
+      "address": "0x80117808",
+      "size": 140,
+      "binding": 1
+    },
+    {
+      "name": "DVDLowRequestError",
+      "address": "0x80117894",
+      "size": 140,
+      "binding": 1
+    },
+    {
+      "name": "DVDLowInquiry",
+      "address": "0x80117920",
+      "size": 156,
+      "binding": 1
+    },
+    {
+      "name": "DVDLowAudioStream",
+      "address": "0x801179bc",
+      "size": 152,
+      "binding": 1
+    },
+    {
+      "name": "DVDLowRequestAudioStatus",
+      "address": "0x80117a54",
+      "size": 140,
+      "binding": 1
+    },
+    {
+      "name": "DVDLowAudioBufferConfig",
+      "address": "0x80117ae0",
+      "size": 156,
+      "binding": 1
+    },
+    {
+      "name": "DVDLowReset",
+      "address": "0x80117b7c",
+      "size": 188,
+      "binding": 1
+    },
+    {
+      "name": "DVDLowBreak",
+      "address": "0x80117c38",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "DVDLowClearCallback",
+      "address": "0x80117c4c",
+      "size": 24,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DVDGetCurrentDiskID": "0x8011a5f4",
+    "OSCancelAlarm": "0x80110ee0",
+    "OSClearContext": "0x801120cc",
+    "OSCreateAlarm": "0x80110ba0",
+    "OSDisableInterrupts": "0x801135cc",
+    "OSInitAlarm": "0x80110b54",
+    "OSRestoreInterrupts": "0x801135f4",
+    "OSSetAlarm": "0x80110dfc",
+    "OSSetCurrentContext": "0x80111f04",
+    "__OSGetSystemTime": "0x80116a60",
+    "__OSMaskInterrupts": "0x80113994",
+    "__flush_cache": "0x80007350",
+    "__init_hardware": "0x80007330",
+    "__start": "0x80007140"
+  },
+  "undefined_in_discarded_code": [
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers"
+  ],
+  "discarded_functions": [
+    "ProcessNextCommand",
+    "SetTimeoutAlarm",
+    "AudioBufferOn",
+    "HitCache",
+    "DoJustRead",
+    "WaitBeforeRead",
+    "DVDLowSetResetCoverCallback",
+    "DoBreak",
+    "AlarmHandlerForBreak",
+    "SetBreakAlarm",
+    "DVDLowGetCoverStatus",
+    "__DVDLowTestAlarm"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/dvd/dvdlow.c"
+  },
+  "original_file": "dvdlow.c",
+  "original_file_index": 10858,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "ProcessNextCommand",
+    "SetTimeoutAlarm",
+    "AudioBufferOn",
+    "HitCache",
+    "DoJustRead",
+    "WaitBeforeRead",
+    "DoBreak",
+    "AlarmHandlerForBreak",
+    "SetBreakAlarm"
+  ],
+  "sda_externals": [],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "dvdlow.json"
+  }
+}

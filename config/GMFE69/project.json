@@ -59,7 +59,17 @@
     "OSError.json",
     "AXCL.json",
     "AXOut.json",
-    "OS.json"
+    "OS.json",
+    "CARDMount.json",
+    "OSRtc.json",
+    "OSFont.json",
+    "dvdlow.json",
+    "AXVPB.json",
+    "GXInit.json",
+    "CARDBios.json",
+    "SIBios.json",
+    "EXIBios.json",
+    "vi.json"
   ],
   "progress": {
     "code_bytes": 1414572,

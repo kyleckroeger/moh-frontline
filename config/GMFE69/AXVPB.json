@@ -1,0 +1,196 @@
+{
+  "id": "AXVPB",
+  "source": "src/dolsdk2001/ax/AXVPB.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80120f34",
+      "size": 3920,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018e200",
+      "size": 148,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x8031faa0",
+      "size": 65024,
+      "type": 8
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f288",
+      "size": 12,
+      "type": 8
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x80351438",
+      "size": 4,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "__AXGetNumVoices",
+      "address": "0x80120f34",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "__AXServiceVPB",
+      "address": "0x80120f3c",
+      "size": 1756,
+      "binding": 1
+    },
+    {
+      "name": "__AXSyncPBs",
+      "address": "0x80121618",
+      "size": 584,
+      "binding": 1
+    },
+    {
+      "name": "__AXGetPBs",
+      "address": "0x80121860",
+      "size": 12,
+      "binding": 1
+    },
+    {
+      "name": "__AXSetPBDefault",
+      "address": "0x8012186c",
+      "size": 60,
+      "binding": 1
+    },
+    {
+      "name": "__AXVPBInit",
+      "address": "0x801218a8",
+      "size": 512,
+      "binding": 1
+    },
+    {
+      "name": "__AXVPBQuit",
+      "address": "0x80121aa8",
+      "size": 4,
+      "binding": 1
+    },
+    {
+      "name": "AXSetVoiceSrcType",
+      "address": "0x80121aac",
+      "size": 196,
+      "binding": 1
+    },
+    {
+      "name": "AXSetVoiceState",
+      "address": "0x80121b70",
+      "size": 92,
+      "binding": 1
+    },
+    {
+      "name": "AXSetVoiceAddr",
+      "address": "0x80121bcc",
+      "size": 272,
+      "binding": 1
+    },
+    {
+      "name": "AXSetVoiceAdpcm",
+      "address": "0x80121cdc",
+      "size": 164,
+      "binding": 1
+    },
+    {
+      "name": "AXSetVoiceSrcRatio",
+      "address": "0x80121d80",
+      "size": 152,
+      "binding": 1
+    },
+    {
+      "name": "AXSetVoiceAdpcmLoop",
+      "address": "0x80121e18",
+      "size": 108,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DCFlushRange": "0x80111880",
+    "DCInvalidateRange": "0x80111850",
+    "OSDisableInterrupts": "0x801135cc",
+    "OSRestoreInterrupts": "0x801135f4",
+    "__AXClMode": "0x8034f23c",
+    "__AXDepopVoice": "0x80120ea0",
+    "__AXGetCommandListCycles": "0x8011ff2c",
+    "__AXGetStackHead": "0x8011f730",
+    "__AXPushCallbackStack": "0x8011f950",
+    "__AXPushFreeStack": "0x8011f930",
+    "__cvt_fp2unsigned": "0x801388e8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "__AXDumpVPB",
+    "AXSetVoiceType",
+    "AXSetVoiceMix",
+    "AXSetVoiceItdOn",
+    "AXSetVoiceItdTarget",
+    "AXSetVoiceUpdateIncrement",
+    "AXSetVoiceUpdateWrite",
+    "AXSetVoiceDpop",
+    "AXSetVoiceVe",
+    "AXSetVoiceVeDelta",
+    "AXSetVoiceFir",
+    "AXSetVoiceLoop",
+    "AXSetVoiceLoopAddr",
+    "AXSetVoiceEndAddr",
+    "AXSetVoiceCurrentAddr",
+    "AXSetVoiceSrc",
+    "AXSetMaxDspCycles",
+    "AXGetMaxDspCycles",
+    "AXGetDspCycles"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/ax/AXVPB.c"
+  },
+  "original_file": "AXVPB.c",
+  "original_file_index": 11190,
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "__AXClMode"
+  ]
+}

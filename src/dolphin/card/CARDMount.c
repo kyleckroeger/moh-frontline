@@ -111,10 +111,11 @@ s32 CARDProbeEx(s32 chan, s32* memSize, s32* sectorSize) {
         result = CARD_RESULT_WRONGDEVICE;
     else if (!EXIGetID(chan, 0, &id))
         result = CARD_RESULT_BUSY;
-    else if (IsCard(id)) {
+    else if ((id == 0x80000004 && __CARDVendorID != 0xFFFF)
+             || !((id & 0xFFFF0000) || (id & 3))) {
         if (memSize)
             *memSize = (s32)(id & 0xfc);
-        
+
         if (sectorSize)
             *sectorSize = SectorSizeTable[(id & 0x00003800) >> 11];
         result = CARD_RESULT_READY;
@@ -142,7 +143,8 @@ static s32 DoMount(s32 chan) {
     if (card->mountStep == 0) {
         if (EXIGetID(chan, 0, &id) == 0) {
             result = CARD_RESULT_NOCARD;
-        } else if (IsCard(id)) {
+        } else if ((id == 0x80000004 && __CARDVendorID != 0xFFFF)
+                   || !((id & 0xFFFF0000) || (id & 3))) {
             result = CARD_RESULT_READY;
         } else {
             result = CARD_RESULT_WRONGDEVICE;
@@ -154,12 +156,35 @@ static s32 DoMount(s32 chan) {
         card->cid = id;
         card->size = (u16)(id & 0xFC);
         ASSERTLINE(424, card->size);
-        
+
+        switch (card->size) {
+        case 4:
+        case 8:
+        case 16:
+        case 32:
+        case 64:
+        case 128:
+            break;
+        default:
+            result = CARD_RESULT_WRONGDEVICE;
+            goto error;
+        }
+
         card->sectorSize = SectorSizeTable[(id & 0x00003800) >> 11];
         ASSERTLINE(426, card->sectorSize);
 
+        if (card->sectorSize == 0) {
+            result = CARD_RESULT_WRONGDEVICE;
+            goto error;
+        }
+
         card->cBlock = (u16)((card->size * 1024 * 1024 / 8) / card->sectorSize);
         ASSERTLINE(428, 8 <= card->cBlock);
+
+        if (card->cBlock < 8) {
+            result = CARD_RESULT_WRONGDEVICE;
+            goto error;
+        }
 
         card->latency = LatencyTable[(id & 0x00000700) >> 8];
 
@@ -262,12 +287,6 @@ void __CARDMountCallback(s32 chan, s32 result) {
             result = __CARDVerify(card);
         break;
     case CARD_RESULT_UNLOCKED:
-        card->unlockCallback = __CARDMountCallback;
-        if (!EXILock(chan, 0, __CARDUnlockedHandler)) {
-            return;
-        }
-        card->unlockCallback = 0;
-
         result = DoMount(chan);
         if (result >= 0)
             return;

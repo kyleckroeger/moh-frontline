@@ -200,7 +200,7 @@ static int GetFontCode(unsigned short code) {
             return HankakuToCode[code - 0x20];
         }
 
-        if (code > 0x889E) {
+        if (code > 0x889E && code <= 0x9872) {
             int i = ((code >> 8) - 0x88) * 188;
             int j = (code & 0xFF) - 0x40;
 
@@ -208,10 +208,14 @@ static int GetFontCode(unsigned short code) {
                 j--;
             }
 
+            if (j >= 188) {
+                return 0;
+            }
+
             return (i + j + 0x2BE);
         }
 
-        if (code < 0x879E) {
+        if (code >= 0x8140 && code < 0x879E) {
             int i  = ((code >> 8) - 0x81) * 188;
             int j = (code & 0xFF) - 0x40;
 
@@ -219,12 +223,14 @@ static int GetFontCode(unsigned short code) {
                 j--;
             }
 
+            if (j >= 188) {
+                return 0;
+            }
+
             return Zenkaku2Code[i + j];
         }
     } else if (code > 0x20 && code <= 0xFF) {
         return code - 0x20;
-    } else {
-        return 0;
     }
     return 0;
 }
@@ -358,6 +364,41 @@ u32 OSLoadFont(OSFontHeader* fontData, void* temp)
         FontData     = fontData;
         WidthTable   = (u8*)FontData + FontData->widthTable;
         CharsInSheet = FontData->sheetColumn * FontData->sheetRow;
+
+        if (OSGetFontEncode() == OS_FONT_ENCODE_SJIS) {
+            int fontCode;
+            u8 *imageSrc;
+            int sheet;
+            int numChars;
+            int row;
+            int column;
+            int x;
+            int y;
+            u8 *src;
+            u16 imageT[4] = {0x2ABE, 0x003D, 0x003D, 0x003D};
+
+            fontCode = GetFontCode(0x54);
+            sheet = fontCode / CharsInSheet;
+            numChars = fontCode - (sheet * CharsInSheet);
+            row = numChars / FontData->sheetColumn;
+            column = numChars - (row * FontData->sheetColumn);
+            row *= FontData->cellHeight;
+            column *= FontData->cellWidth;
+
+            imageSrc = (u8 *)FontData + FontData->sheetImage;
+            imageSrc += (sheet * FontData->sheetSize) >> 1;
+
+            for (y = 4; y < 8; y++) {
+                x = 0;
+                src = imageSrc + ((((FontData->sheetWidth / 8) << 5) / 2) * ((row + y) / 8));
+                src += ((column + x) / 8) * 0x10;
+                src += ((row + y) % 8) * 2;
+                src += ((column + x) % 8) / 4;
+
+                *(u16 *)src = imageT[y - 4];
+                DCStoreRange(src, 2);
+            }
+        }
     }
 
     return size;
@@ -530,6 +571,8 @@ char * OSGetFontWidth(char * string, long * width) {
             code = (code << 8) | (*string++); // Shift-JIS encoded byte
         }
     }
-    *width = WidthTable[GetFontCode(code)];
+    if (width) {
+        *width = WidthTable[GetFontCode(code)];
+    }
     return string;
 }

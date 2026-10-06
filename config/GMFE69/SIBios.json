@@ -1,0 +1,258 @@
+{
+  "id": "SIBios",
+  "source": "src/dolphin/si/SIBios.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80145f68",
+      "size": 6192,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80190dd0",
+      "size": 36,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 205
+    },
+    {
+      "name": ".bss",
+      "address": "0x80334740",
+      "size": 512,
+      "type": 8
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f368",
+      "size": 12,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "CompleteTransfer",
+      "address": "0x80145fa4",
+      "size": 764,
+      "binding": 0
+    },
+    {
+      "name": "__SITransfer",
+      "address": "0x801468e0",
+      "size": 524,
+      "binding": 0
+    },
+    {
+      "name": "SIInterruptHandler",
+      "address": "0x801462a0",
+      "size": 836,
+      "binding": 0
+    },
+    {
+      "name": "GetTypeCallback",
+      "address": "0x80147090",
+      "size": 664,
+      "binding": 0
+    },
+    {
+      "name": "SIGetResponseRaw",
+      "address": "0x80146d00",
+      "size": 212,
+      "binding": 0
+    },
+    {
+      "name": "SIEnablePollingInterrupt",
+      "address": "0x801465e4",
+      "size": 152,
+      "binding": 0
+    },
+    {
+      "name": "AlarmHandler",
+      "address": "0x80146e98",
+      "size": 140,
+      "binding": 0
+    },
+    {
+      "name": "SIIsChanBusy",
+      "address": "0x80145f68",
+      "size": 60,
+      "binding": 1
+    },
+    {
+      "name": "SITransfer",
+      "address": "0x80146f24",
+      "size": 364,
+      "binding": 1
+    },
+    {
+      "name": "SIRegisterPollingHandler",
+      "address": "0x8014667c",
+      "size": 204,
+      "binding": 1
+    },
+    {
+      "name": "SIUnregisterPollingHandler",
+      "address": "0x80146748",
+      "size": 244,
+      "binding": 1
+    },
+    {
+      "name": "SIInit",
+      "address": "0x8014683c",
+      "size": 164,
+      "binding": 1
+    },
+    {
+      "name": "SIGetType",
+      "address": "0x80147328",
+      "size": 452,
+      "binding": 1
+    },
+    {
+      "name": "SIGetStatus",
+      "address": "0x80146aec",
+      "size": 124,
+      "binding": 1
+    },
+    {
+      "name": "SISetCommand",
+      "address": "0x80146b68",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "SITransferCommands",
+      "address": "0x80146b7c",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "SISetXY",
+      "address": "0x80146b8c",
+      "size": 108,
+      "binding": 1
+    },
+    {
+      "name": "SIEnablePolling",
+      "address": "0x80146bf8",
+      "size": 156,
+      "binding": 1
+    },
+    {
+      "name": "SIDisablePolling",
+      "address": "0x80146c94",
+      "size": 108,
+      "binding": 1
+    },
+    {
+      "name": "SIGetResponse",
+      "address": "0x80146dd4",
+      "size": 196,
+      "binding": 1
+    },
+    {
+      "name": "SIGetTypeAsync",
+      "address": "0x801474ec",
+      "size": 316,
+      "binding": 1
+    },
+    {
+      "name": "SIDecodeType",
+      "address": "0x80147628",
+      "size": 332,
+      "binding": 1
+    },
+    {
+      "name": "SIProbe",
+      "address": "0x80147774",
+      "size": 36,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "OSCancelAlarm": "0x80110ee0",
+    "OSDisableInterrupts": "0x801135cc",
+    "OSGetWirelessID": "0x80115800",
+    "OSRestoreInterrupts": "0x801135f4",
+    "OSSetAlarm": "0x80110dfc",
+    "OSSetWirelessID": "0x80115884",
+    "SISetSamplingRate": "0x80147798",
+    "VIGetCurrentLine": "0x8011c6b0",
+    "__OSGetSystemTime": "0x80116a60",
+    "__OSSetInterruptHandler": "0x80113618",
+    "__OSUnmaskInterrupts": "0x80113a1c",
+    "__flush_cache": "0x80007350",
+    "__init_hardware": "0x80007330",
+    "__start": "0x80007140"
+  },
+  "undefined_in_discarded_code": [
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers"
+  ],
+  "discarded_functions": [
+    "SIBusy",
+    "SIClearTCInterrupt",
+    "SITransferNext",
+    "SISync",
+    "SIGetCommand",
+    "CallTypeAndStatusCallback",
+    "SIGetTypeString"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/si/SIBios.c"
+  },
+  "original_file": "SIBios.c",
+  "original_file_index": 12036,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "SIClearTCInterrupt",
+    "SITransferNext",
+    "CallTypeAndStatusCallback"
+  ],
+  "sda_externals": [],
+  "stripped_sections": [
+    ".sdata"
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "SIBios.json"
+  }
+}

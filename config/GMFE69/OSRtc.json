@@ -1,0 +1,189 @@
+{
+  "id": "OSRtc",
+  "source": "src/dolsdk2001/os/OSRtc.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolsdk2001",
+    "include/dolsdk2001/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/dolsdk2001",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80114ef4",
+      "size": 2620,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x80317020",
+      "size": 84,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "WriteSramCallback",
+      "address": "0x80114ef4",
+      "size": 96,
+      "binding": 0
+    },
+    {
+      "name": "WriteSram",
+      "address": "0x80114f54",
+      "size": 280,
+      "binding": 0
+    },
+    {
+      "name": "UnlockSram",
+      "address": "0x80115258",
+      "size": 776,
+      "binding": 0
+    },
+    {
+      "name": "__OSInitSram",
+      "address": "0x8011506c",
+      "size": 308,
+      "binding": 1
+    },
+    {
+      "name": "__OSLockSram",
+      "address": "0x801151a0",
+      "size": 92,
+      "binding": 1
+    },
+    {
+      "name": "__OSLockSramEx",
+      "address": "0x801151fc",
+      "size": 92,
+      "binding": 1
+    },
+    {
+      "name": "__OSUnlockSram",
+      "address": "0x80115560",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "__OSUnlockSramEx",
+      "address": "0x80115584",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "__OSSyncSram",
+      "address": "0x801155a8",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "__OSReadROM",
+      "address": "0x801155b8",
+      "size": 292,
+      "binding": 1
+    },
+    {
+      "name": "OSGetSoundMode",
+      "address": "0x801156dc",
+      "size": 128,
+      "binding": 1
+    },
+    {
+      "name": "OSSetSoundMode",
+      "address": "0x8011575c",
+      "size": 164,
+      "binding": 1
+    },
+    {
+      "name": "OSGetWirelessID",
+      "address": "0x80115800",
+      "size": 132,
+      "binding": 1
+    },
+    {
+      "name": "OSSetWirelessID",
+      "address": "0x80115884",
+      "size": 172,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DCInvalidateRange": "0x80111850",
+    "EXIDeselect": "0x801451a0",
+    "EXIDma": "0x8014484c",
+    "EXIImm": "0x80144550",
+    "EXIImmEx": "0x801447ac",
+    "EXILock": "0x8014576c",
+    "EXISelect": "0x80145074",
+    "EXISync": "0x80144938",
+    "EXIUnlock": "0x80145860",
+    "OSDisableInterrupts": "0x801135cc",
+    "OSRestoreInterrupts": "0x801135f4",
+    "__flush_cache": "0x80007350",
+    "__init_hardware": "0x80007330"
+  },
+  "undefined_in_discarded_code": [
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers"
+  ],
+  "discarded_functions": [
+    "GetRTC",
+    "__OSGetRTC",
+    "__OSSetRTC",
+    "ReadSram",
+    "LockSram",
+    "__OSCheckSram",
+    "__OSReadROMCallback",
+    "__OSReadROMAsync",
+    "OSGetVideoMode",
+    "OSSetVideoMode",
+    "OSGetLanguage",
+    "OSSetLanguage",
+    "__OSGetBootMode",
+    "__OSSetBootMode"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2001",
+    "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
+    "path": "src/os/OSRtc.c"
+  },
+  "original_file": "OSRtc.c",
+  "original_file_index": 10807,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "GetRTC",
+    "ReadSram",
+    "LockSram",
+    "__OSReadROMCallback"
+  ],
+  "sda_externals": []
+}

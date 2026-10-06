@@ -5,12 +5,6 @@
 
 #define ROUND(n, a) (((u32)(n) + (a)-1) & ~((a)-1))
 
-#ifdef DEBUG
-const char* __SIVersion = "<< Dolphin SDK - SI\tdebug build: Apr  5 2004 03:55:31 (0x2301) >>";
-#else
-const char* __SIVersion = "<< Dolphin SDK - SI\trelease build: Apr 17 2003 12:33:19 (0x2301) >>";
-#endif
-
 static SIControl Si = {
     /* chan */       -1,
     /* poll */        0,
@@ -273,8 +267,6 @@ BOOL SIUnregisterPollingHandler(__OSInterruptHandler handler) {
 }
 
 void SIInit(void) {
-    OSRegisterVersion(__SIVersion);
-
     Packet[0].chan = Packet[1].chan = Packet[2].chan = Packet[3].chan = -1;
     Si.poll = 0;
     SISetSamplingRate(0);

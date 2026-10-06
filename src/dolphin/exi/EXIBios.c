@@ -194,7 +194,7 @@ int EXISync(s32 chan) {
             enabled = OSDisableInterrupts();
             if (exi->state & STATE_SELECTED) {
                 CompleteTransfer(chan);
-                if (__OSGetDIConfig() != 0xFF || (OSGetConsoleType() & 0xf0000000) == 0x20000000 || exi->immLen != 4 || (__EXIRegs[chan * 5] & 0x70) || (__EXIRegs[(chan * 5) + 4] != 0x01010000 && __EXIRegs[(chan * 5) + 4] != 0x05070000 && __EXIRegs[(chan * 5) + 4] != 0x04220001) || __OSDeviceCode == 0x8200) {
+                if (__OSGetDIConfig() != 0xFF || exi->immLen != 4 || (__EXIRegs[chan * 5] & 0x70) || __EXIRegs[(chan * 5) + 4] != 0x01010000) {
                     rc = 1;
                 }
             }
@@ -392,7 +392,7 @@ int EXIDetach(s32 chan) {
     }
 
     exi->state &= ~STATE_ATTACHED;
-    __OSMaskInterrupts(0x500000U >> (chan * 3));
+    __OSMaskInterrupts(0x700000U >> (chan * 3));
 
     OSRestoreInterrupts(enabled);
     return 1;
@@ -575,7 +575,8 @@ static void EXTIntrruptHandler(__OSInterrupt interrupt, OSContext* context) {
     chan = (interrupt - 11) / 3;
 
     ASSERTLINE(1147, 0 <= chan && chan < 2);
-    __OSMaskInterrupts(0x500000U >> (chan * 3));
+    __OSMaskInterrupts(0x700000U >> (chan * 3));
+    __EXIRegs[chan * 5] = 0;
     exi = &Ecb[chan];
     callback = exi->extCallback;
     exi->state &= ~STATE_ATTACHED;
@@ -593,10 +594,6 @@ static void EXTIntrruptHandler(__OSInterrupt interrupt, OSContext* context) {
 }
 
 void EXIInit() {
-    u32 id;
-
-    while (((REG(0, 3) & 1) == 1) || ((REG(1, 3) & 1) == 1) || ((REG(2, 3) & 1) == 1)) {}
-
     __OSMaskInterrupts(0x7F8000U);
     __EXIRegs[0] = 0;
     __EXIRegs[5] = 0;
@@ -611,17 +608,9 @@ void EXIInit() {
     __OSSetInterruptHandler(15, EXIIntrruptHandler);
     __OSSetInterruptHandler(16, TCIntrruptHandler);
 
-    EXIGetID(0, 2, &IDSerialPort1);
-
-    if (__OSInIPL) {
+    if (OSGetConsoleType() & 0x10000000) {
         EXIProbeReset();
-    } else if (EXIGetID(0, 0, &id) && id == 0x7010000) {
-        __OSEnableBarnacle(1, 0);
-    } else if (EXIGetID(1, 0, &id) && id == 0x7010000) {
-        __OSEnableBarnacle(0, 2);
     }
-
-    OSRegisterVersion(__EXIVersion);
 }
 
 int EXILock(s32 chan, u32 dev, EXICallback unlockedCallback) {
@@ -708,11 +697,6 @@ s32 EXIGetID(s32 chan, u32 dev, u32* id) {
     BOOL enabled;
 
     ASSERTLINE(1380, 0 <= chan && chan < MAX_CHAN);
-    if (chan == 0 && dev == 2 && IDSerialPort1 != 0) {
-        *id = IDSerialPort1;
-        return 1;
-    }
-
     if ((chan < 2) && (dev == 0)) {
         if ((__EXIProbe(chan) == 0)) {
             return 0;
@@ -730,8 +714,6 @@ s32 EXIGetID(s32 chan, u32 dev, u32* id) {
         startTime = __gUnknown800030C0[chan];
     }
 
-    enabled = OSDisableInterrupts();
-
     err = !EXILock(chan, dev, (chan < 2 && dev == 0) ? &UnlockedHandler : NULL);
     if (err == 0) {
         err = !EXISelect(chan, dev, 0);
@@ -746,8 +728,6 @@ s32 EXIGetID(s32 chan, u32 dev, u32* id) {
 
         EXIUnlock(chan);
     }
-
-    OSRestoreInterrupts(enabled);
 
     if ((chan < 2) && (dev == 0)) {
         EXIDetach(chan);

@@ -1,0 +1,161 @@
+{
+  "id": "CARDMount",
+  "source": "src/dolphin/card/CARDMount.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.2.5n",
+  "compiler_flags": [
+    "-char",
+    "unsigned",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-sym",
+    "on",
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-fp",
+    "hard",
+    "-Cpp_exceptions",
+    "off",
+    "-enum",
+    "int",
+    "-warn",
+    "pragmas",
+    "-requireprotos",
+    "-pragma",
+    "cats off",
+    "-D__GEKKO__",
+    "-DSDK_REVISION=1",
+    "-DRELEASE"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80126804",
+      "size": 2664,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018ff80",
+      "size": 64,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "DoMount",
+      "address": "0x801269d8",
+      "size": 1188,
+      "binding": 0
+    },
+    {
+      "name": "DoUnmount",
+      "address": "0x80127124",
+      "size": 156,
+      "binding": 0
+    },
+    {
+      "name": "CARDProbe",
+      "address": "0x80126804",
+      "size": 56,
+      "binding": 1
+    },
+    {
+      "name": "CARDProbeEx",
+      "address": "0x8012683c",
+      "size": 412,
+      "binding": 1
+    },
+    {
+      "name": "__CARDMountCallback",
+      "address": "0x80126e7c",
+      "size": 264,
+      "binding": 1
+    },
+    {
+      "name": "CARDMountAsync",
+      "address": "0x80126f84",
+      "size": 416,
+      "binding": 1
+    },
+    {
+      "name": "CARDUnmount",
+      "address": "0x801271c0",
+      "size": 172,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DCInvalidateRange": "0x80111850",
+    "EXIAttach": "0x80144eac",
+    "EXIDetach": "0x80144fb8",
+    "EXIGetID": "0x8014597c",
+    "EXIGetState": "0x8014593c",
+    "EXILock": "0x8014576c",
+    "EXIProbe": "0x80144d78",
+    "EXIProbeEx": "0x80144df8",
+    "EXISetExiCallback": "0x80144b88",
+    "EXIUnlock": "0x80145860",
+    "OSCancelAlarm": "0x80110ee0",
+    "OSDisableInterrupts": "0x801135cc",
+    "OSRestoreInterrupts": "0x801135f4",
+    "__CARDBlock": "0x8032f8a0",
+    "__CARDClearStatus": "0x80122f80",
+    "__CARDDefaultApiCallback": "0x80122a7c",
+    "__CARDEnableInterrupt": "0x80122dd0",
+    "__CARDExiHandler": "0x80122b8c",
+    "__CARDExtHandler": "0x80122ab4",
+    "__CARDGetControlBlock": "0x801239c4",
+    "__CARDPutControlBlock": "0x80123a7c",
+    "__CARDRead": "0x801250bc",
+    "__CARDReadStatus": "0x80122e90",
+    "__CARDSync": "0x80123ce4",
+    "__CARDSyncCallback": "0x80122a80",
+    "__CARDUnlock": "0x80124110",
+    "__CARDUnlockedHandler": "0x80122d4c",
+    "__CARDVendorID": "0x8034e4f0",
+    "__CARDVerify": "0x801261c0",
+    "__OSLockSramEx": "0x801151fc",
+    "__OSUnlockSramEx": "0x80115584",
+    "__flush_cache": "0x80007350",
+    "__init_hardware": "0x80007330",
+    "__start": "0x80007140"
+  },
+  "undefined_in_discarded_code": [
+    "__copy_rom_section",
+    "__init_bss_section",
+    "__init_data",
+    "__init_registers"
+  ],
+  "discarded_functions": [
+    "IsCard",
+    "__CARDDisable",
+    "CARDMount"
+  ],
+  "upstream": {
+    "repository": "https://github.com/doldecomp/dolsdk2004",
+    "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
+    "path": "src/card/CARDMount.c"
+  },
+  "original_file": "CARDMount.c",
+  "original_file_index": 11277,
+  "local_externals": [],
+  "discarded_local_functions": [
+    "IsCard"
+  ],
+  "sda_externals": [
+    "__CARDVendorID"
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "CARDMount.json"
+  }
+}

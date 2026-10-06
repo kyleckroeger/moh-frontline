@@ -8,12 +8,6 @@
 #include "__os.h"
 #include "__vi.h"
 
-#ifdef DEBUG
-const char* __VIVersion = "<< Dolphin SDK - VI\tdebug build: Apr  7 2004 03:55:59 (0x2301) >>";
-#else
-const char* __VIVersion = "<< Dolphin SDK - VI\trelease build: Apr 17 2003 12:33:22 (0x2301) >>";
-#endif
-
 typedef struct {
     u8 equ;
     u16 acv;
@@ -74,14 +68,12 @@ typedef struct {
     VITiming* timing;
 } SomeVIStruct;
 
-static BOOL IsInitialized;
 static volatile u32 retraceCount;
 
 static volatile u32 flushFlag;
 static OSThreadQueue retraceQueue;
 static void (*PreCB)(u32);
 static void (*PostCB)(u32);
-static void (*PositionCallback)(s16, s16);
 static u32 encoderType;
 static s16 displayOffsetH;
 static s16 displayOffsetV;
@@ -92,13 +84,11 @@ static volatile u16 regs[59];
 static volatile u64 shdwChanged;
 static VITiming* CurrTiming;
 static u32 CurrTvMode;
-static u32 NextBufAddr;
-static u32 CurrBufAddr;
 static volatile u16 shdwRegs[59];
 
 #define MARK_CHANGED(index) (changed |= 1LL << (63 - (index)))
 
-static VITiming timing[10] = {
+static VITiming timing[8] = {
     { 6, 240, 24, 25, 3, 2, 12, 13, 12, 13, 520, 519, 520, 519, 525, 429, 64, 71, 105, 162, 373, 122, 412 },
     { 6, 240, 24, 24, 4, 4, 12, 12, 12, 12, 520, 520, 520, 520, 526, 429, 64, 71, 105, 162, 373, 122, 412 },
     { 5, 287, 35, 36, 1, 0, 13, 12, 11, 10, 619, 618, 617, 620, 625, 432, 64, 75, 106, 172, 380, 133, 420 },
@@ -106,9 +96,7 @@ static VITiming timing[10] = {
     { 6, 240, 24, 25, 3, 2, 16, 15, 14, 13, 518, 517, 516, 519, 525, 429, 64, 78, 112, 162, 373, 122, 412 },
     { 6, 240, 24, 24, 4, 4, 16, 14, 16, 14, 518, 520, 518, 520, 526, 429, 64, 78, 112, 162, 373, 122, 412 },
     { 12, 480, 48, 48, 6, 6, 24, 24, 24, 24, 1038, 1038, 1038, 1038, 1050, 429, 64, 71, 105, 162, 373, 122, 412 },
-    { 12, 480, 44, 44, 10, 10, 24, 24, 24, 24, 1038, 1038, 1038, 1038, 1050, 429, 64, 71, 105, 168, 379, 122, 412 },
-    { 6, 241, 24, 25, 1, 0, 12, 13, 12, 13, 520, 519, 520, 519, 525, 429, 64, 71, 105, 159, 370, 122, 412 },
-    { 12, 480, 48, 48, 6, 6, 24, 24, 24, 24, 1038, 1038, 1038, 1038, 1050, 429, 64, 71, 105, 180, 391, 122, 412 }
+    { 12, 480, 44, 44, 10, 10, 24, 24, 24, 24, 1038, 1038, 1038, 1038, 1050, 429, 64, 71, 105, 168, 379, 122, 412 }
 };
 
 static u16 taps[25] = {
@@ -132,8 +120,6 @@ static u32 FBSet;
 
 // prototypes
 static u32 getCurrentFieldEvenOdd(void);
-void __VIEnableRawPositionInterrupt(s16 x, s16 y, void (*callback)(s16, s16));
-void (*__VIDisableRawPositionInterrupt())(s16, s16);
 void __VIDisplayPositionToXY(u32 hct, u32 vct, s16* x, s16* y);
 void __VISetLatchMode(u32 mode);
 int __VIGetLatch0Position(s16* px, s16* py);
@@ -172,7 +158,6 @@ static int VISetRegs(void) {
         shdwChangeMode = 0;
         CurrTiming = HorVer.timing;
         CurrTvMode = HorVer.tv;
-        CurrBufAddr = NextBufAddr;
         return 1;
     }
 
@@ -211,16 +196,6 @@ static void __VIRetraceHandler(__OSInterrupt unused, OSContext* context) {
     reg = __VIRegs[0x1E];
 
     if ((inter & 4) || (inter & 8)) {
-        OSClearContext(&exceptionContext);
-        OSSetCurrentContext(&exceptionContext);
-
-        if (PositionCallback != 0) {
-            s16 x, y;
-            __VIGetCurrentPosition(&x, &y);
-            (*PositionCallback)(x, y);
-        }
-
-        OSClearContext(&exceptionContext);
         OSSetCurrentContext(context);
         return;
     }
@@ -305,8 +280,6 @@ static VITiming* getTiming(VITVMode mode) {
     case 3:                         return &timing[7];
     case VI_TVMODE_DEBUG_PAL_INT:   return &timing[2];
     case VI_TVMODE_DEBUG_PAL_DS:    return &timing[3];
-    case 24:                        return &timing[8];
-    case 26:                        return &timing[9];
     default:
         return NULL;
     }
@@ -365,7 +338,7 @@ void __VIInit(VITVMode mode) {
     __VIRegs[25] = (u16)(u32)hct;
     __VIRegs[24] = vct | 0x1000;
 
-    if (mode != VI_TVMODE_NTSC_PROG && mode != 3 && mode != 26) {
+    if (mode != VI_TVMODE_NTSC_PROG && mode != 3) {
         __VIRegs[1] = (nonInter << 2) | 1 | (tv << 8);
         __VIRegs[54] = 0;
     } else {
@@ -410,14 +383,6 @@ void VIInit(void) {
     u16 dspCfg;
     u32 value;
     u32 tv;
-    u32 tvInBootrom;
-
-    if (IsInitialized) {
-        return;
-    }
-
-    OSRegisterVersion(__VIVersion);
-    IsInitialized = TRUE;
 
     encoderType = getEncoderType();
     if (!(__VIRegs[1] & 1)) {
@@ -448,14 +413,9 @@ void VIInit(void) {
     __VIRegs[56] = 0x280;
     ImportAdjustingValues();
 
-    tvInBootrom = *(u32*)OSPhysicalToCached(0xCC);
     dspCfg = __VIRegs[1];
     HorVer.nonInter = (s32) ((dspCfg >> 2U) & 1);
     HorVer.tv = ((u32)(dspCfg) & 0x300) >> 8;
-
-    if (tvInBootrom == VI_PAL && HorVer.tv == VI_NTSC) {
-        HorVer.tv = VI_EURGB60;
-    }
 
     tv = (HorVer.tv == 3) ? 0 : HorVer.tv;
     HorVer.timing = getTiming((tv << 2) + HorVer.nonInter);
@@ -673,7 +633,7 @@ static void setVerticalRegs(u16 dispPosY, u16 dispSizeY, u8 equ, u16 acv, u16 pr
     u16 c;
     u16 d;
 
-    if (regs[54] & 1) {
+    if (equ >= 10) {
         c = 1;
         d = 2;
     } else {
@@ -773,26 +733,6 @@ void VIConfigure(const GXRenderModeObj* rm) {
         PrintDebugPalCaution();
     }
 
-    switch (tvInBootrom) {
-    case VI_MPAL:
-    case VI_NTSC:
-    case 6:
-        if (tvInGame == VI_NTSC || tvInGame == VI_MPAL || tvInGame == 6) {
-            break;
-        }
-        goto panic;
-    case VI_PAL:
-    case VI_EURGB60:
-        if (tvInGame == VI_PAL || tvInGame == VI_EURGB60) {
-            break;
-        }
-    default:
-    panic:
-        OSPanic(__FILE__, 1908,
-                "VIConfigure(): Tried to change mode from (%d) to (%d), which is forbidden\n",
-                tvInBootrom, tvInGame);
-    }
-
     if ((tvInGame == VI_NTSC) || (tvInGame == VI_MPAL)) {
         HorVer.tv = tvInBootrom;
     } else {
@@ -838,7 +778,7 @@ void VIConfigure(const GXRenderModeObj* rm) {
         OLD_SET_REG_FIELD(2052, regDspCfg, 1, 2, HorVer.nonInter & 1);
     }
     OLD_SET_REG_FIELD(2056, regDspCfg, 1, 3, HorVer.threeD);
-    if (HorVer.tv == 4 || HorVer.tv == 5 || HorVer.tv == 6) {
+    if (HorVer.tv == 4 || HorVer.tv == 5) {
         reg = regDspCfg & ~0x300;
     } else {
         reg = (regDspCfg & ~0x300) | (HorVer.tv << 8);
@@ -847,7 +787,7 @@ void VIConfigure(const GXRenderModeObj* rm) {
     MARK_CHANGED(1);
 
     regClksel = regs[54];
-    if (rm->viTVmode == VI_TVMODE_NTSC_PROG || rm->viTVmode == 3 || rm->viTVmode == 26) {
+    if (rm->viTVmode == VI_TVMODE_NTSC_PROG || rm->viTVmode == 3) {
         reg = (regClksel & ~1) | 1;
     } else {
         reg = regClksel & ~1;
@@ -916,7 +856,6 @@ void VIFlush(void) {
     }
 
     flushFlag = 1;
-    NextBufAddr = HorVer.bufAddr;
     OSRestoreInterrupts(enabled);
 }
 
@@ -931,14 +870,6 @@ void VISetNextFrameBuffer(void* fb) {
     FBSet = 1;
     setFbbRegs(&HorVer, &HorVer.tfbb, &HorVer.bfbb, &HorVer.rtfbb, &HorVer.rbfbb);
     OSRestoreInterrupts(enabled);
-}
-
-void* VIGetNextFrameBuffer(void) {
-    return *(void**)(&NextBufAddr);
-}
-
-void* VIGetCurrentFrameBuffer(void) {
-    return *(void**)(&CurrBufAddr);
 }
 
 void VISetNextRightFrameBuffer(void* fb) {
@@ -998,14 +929,24 @@ static void GetCurrentDisplayPosition(u32* hct, u32* vct) {
 }
 
 static u32 getCurrentHalfLine(void) {
-    u32 hcount, vcount;
-    GetCurrentDisplayPosition(&hcount, &vcount);
+    u32 hcount;
+    u32 vcount0;
+    u32 vcount;
 
+    vcount = __VIRegs[VI_VERT_COUNT] & 0x7FF;
+    do {
+        vcount0 = vcount;
+        hcount = __VIRegs[VI_HORIZ_COUNT] & 0x7FF;
+        vcount = __VIRegs[VI_VERT_COUNT] & 0x7FF;
+    } while (vcount0 != vcount);
     return ((vcount - 1) << 1) + ((hcount - 1) / CurrTiming->hlw);
 }
 
 static u32 getCurrentFieldEvenOdd(void) {
-    return (getCurrentHalfLine() < CurrTiming->nhlines) ? 1 : 0;
+    if (getCurrentHalfLine() < CurrTiming->nhlines) {
+        return 1;
+    }
+    return 0;
 }
 
 u32 VIGetNextField(void) {
@@ -1016,9 +957,9 @@ u32 VIGetNextField(void) {
 #endif
 
     enabled = OSDisableInterrupts();
-    nextField = getCurrentFieldEvenOdd() ^ 1;
+    nextField = getCurrentFieldEvenOdd();
     OSRestoreInterrupts(enabled);
-    return nextField ^ (HorVer.AdjustedDispPosY & 1);
+    return nextField ^ 1 ^ (HorVer.AdjustedDispPosY & 1);
 }
 
 u32 VIGetCurrentLine(void) {
@@ -1045,7 +986,6 @@ u32 VIGetTvFormat(void) {
     switch (CurrTvMode) {
     case VI_NTSC:
     case VI_DEBUG:
-    case 6:
         format = VI_NTSC;
         break;
     case VI_PAL:
@@ -1114,53 +1054,6 @@ void __VIGetAdjustingValues(s16* x, s16* y) {
     *x = displayOffsetH;
     *y = displayOffsetV;
     OSRestoreInterrupts(enabled);
-}
-
-// DEBUG NONMATCHING - wrong reg use, equivalent
-void __VIEnableRawPositionInterrupt(s16 x, s16 y, void (*callback)(s16, s16)) {
-    BOOL enabled;
-    u32 halfLine;
-    u32 halfLineOff;
-
-    enabled = OSDisableInterrupts();
-    __VIRegs[29] = x + 1U;
-    __VIRegs[31] = x + 1U;
-
-    if (HorVer.nonInter == 0) {
-        if (y & 1) {
-            halfLineOff = CurrTiming->prbEven + ((CurrTiming->equ * 3) + CurrTiming->nhlines);
-            __VIRegs[30] = (((halfLineOff / 2) + (y / 2)) + 1) | 0x1000;
-        } else {
-            halfLineOff = CurrTiming->prbOdd + (CurrTiming->equ * 3);
-            __VIRegs[28] = (((halfLineOff / 2) + (y / 2)) + 1) | 0x1000;
-        }
-    } else if (HorVer.nonInter == 1) {
-        ASSERTLINE(2702, (y & 1) == 0);
-        halfLine = CurrTiming->prbOdd + ((CurrTiming->equ * 3)) + y;
-        __VIRegs[28] = ((halfLine / 2) + 1) | 0x1000;
-        __VIRegs[30] = (((halfLine + CurrTiming->nhlines) / 2) + 1) | 0x1000;
-    } else if (HorVer.nonInter == 2) {
-        halfLine = CurrTiming->prbOdd + ((CurrTiming->equ * 3)) + y;
-        __VIRegs[28] = (halfLine + 1) | 0x1000;
-        __VIRegs[30] = 0;
-    }
-
-    PositionCallback = callback;
-    OSRestoreInterrupts(enabled);
-}
-
-void (*__VIDisableRawPositionInterrupt())(s16, s16) {
-    BOOL enabled;
-    void (*old)(s16, s16);
-
-    enabled = OSDisableInterrupts();
-    __VIRegs[28] = 0;
-    __VIRegs[30] = 0;
-
-    old = PositionCallback;
-    PositionCallback = 0;
-    OSRestoreInterrupts(enabled);
-    return old;
 }
 
 void __VIDisplayPositionToXY(u32 hct, u32 vct, s16* x, s16* y) {
