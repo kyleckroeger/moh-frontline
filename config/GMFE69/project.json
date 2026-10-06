@@ -310,7 +310,8 @@
     "spktplay.json",
     "salloc.json",
     "aramalloc.json",
-    "bsmachin.json"
+    "bsmachin.json",
+    "CARDNet.json"
   ],
   "progress": {
     "code_bytes": 1414572,

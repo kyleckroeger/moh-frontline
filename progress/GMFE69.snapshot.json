@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 240340,
+    "matching_code_bytes": 240472,
     "total_executable_code_bytes": 1414572,
-    "percent": 16.990298125510755,
+    "percent": 16.99962956993352,
     "categories": {
       "reconstructed_game": 47860,
-      "restored_library": 192480
+      "restored_library": 192612
     },
-    "matching_functions": 1198
+    "matching_functions": 1199
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -33,6 +33,7 @@
     "config/GMFE69/CARDDir.json": "45f60e8765248b1f5161f2ef9e703619a87d6a3115f7f0e6d745bc807e494618",
     "config/GMFE69/CARDFormat.json": "07cdbc24fc5f0880fdbd38f2a28eb06cc3661b6c3a399647b24065059d98f4e6",
     "config/GMFE69/CARDMount.json": "2f318403c174ab16edbc6ebec314453e4a1d7de4c1ed0a10d8e7aca413f790e8",
+    "config/GMFE69/CARDNet.json": "668b0317266cd5d2eb031b105d11e11ffe65dc5e71d9d7a4bcbee49fa4323dab",
     "config/GMFE69/CARDRdwr.json": "f6823e5de5ee80dc52792b3137627ea5401106745a584bc344d54eeed63855b0",
     "config/GMFE69/CARDRead.json": "0613bbc21efae2d73ad3beb886b984a4e89b8a7163ab6ded75f0c2c5748f0262",
     "config/GMFE69/CARDStat.json": "e03bf32bdb249914a02454fa9671d8eb663e5d56997d8c6fc727fbaa6265d8b4",
@@ -193,7 +194,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "2a86d4ae9adba0cb981513d39f30aa3d83a08f53b10570e37911bf048d9288f0",
+    "config/GMFE69/project.json": "152181aef1326726aca4307d12e4c28ccdcc879202b974a840db89220a884797",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -829,7 +830,7 @@
     "src/dolphin/card/CARDDir.c": "7bc7f6cec27df1d343f43232be84675c763bf913ccdc6597a8cfd56a4b3d98a9",
     "src/dolphin/card/CARDFormat.c": "c428840947d3498635415387a116b6129e64584fc9bc5b5d9eb1b6e51446a236",
     "src/dolphin/card/CARDMount.c": "de444915dbd54bcde9fe5cc0d4a1b5ebc197d62d37391f7bdb05c006cc70e900",
-    "src/dolphin/card/CARDNet.c": "4b05df1e6871bb4b7064d0a4b6dbf8bdac17edb1c39ee5196d2b71c2de60dd22",
+    "src/dolphin/card/CARDNet.c": "6ff9972c83b3f5a461574d3aec6765d54fe912eab16be90a04089e03121dab74",
     "src/dolphin/card/CARDOpen.c": "666a8119c9431235014123743e37b7ecbe10996d3bc326de39469b52ca215a1f",
     "src/dolphin/card/CARDRdwr.c": "15ad63595114cd30c9b43fb142495af1036d8d144753cd6c746323344329a451",
     "src/dolphin/card/CARDRead.c": "e2c80995d24c987b9483f6ad7b6375595c28f24315eec1b7a8e52a5f71f5a999",
@@ -15190,6 +15191,54 @@
       ],
       "object_sha256": "ad432ae4132eb851587c2f8b85c2909ab4c688a74713ba863bd4f0d5a0e807c0",
       "linked_sha256": "c625d53849416ea28c3bfe1af2dfdb259997f26bf1735568aed3f69b33a37a44"
+    },
+    {
+      "id": "CARDNet",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 132,
+      "compiler_family": "GC",
+      "compiler_version": "1.2.5n",
+      "compiler_flags": [
+        "-char",
+        "unsigned",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-sym",
+        "on",
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-fp",
+        "hard",
+        "-Cpp_exceptions",
+        "off",
+        "-enum",
+        "int",
+        "-warn",
+        "pragmas",
+        "-requireprotos",
+        "-pragma",
+        "cats off",
+        "-D__GEKKO__",
+        "-DSDK_REVISION=1",
+        "-DRELEASE"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "CARDSetVendorID",
+        "CARDGetVendorID",
+        "CARDGetSerialNo",
+        "CARDGetUniqueCode",
+        "CARDGetAttributes",
+        "CARDSetAttributesAsync",
+        "__CARDEnablePerm",
+        "__CARDEnableGlobal",
+        "__CARDEnableCompany"
+      ],
+      "object_sha256": "ece96250d337f30401eac4c105ae97fca2d051c47389bc106403e1c6b85bbd88",
+      "linked_sha256": "6cbbe130632d027f8e875b6d7a3f933b6fba122845ccffeb60893fd48c6c1521"
     }
   ],
   "code_map": {
@@ -39817,13 +39866,6 @@
             "size": 596,
             "kind": "function",
             "name": "__CARDSetStatusExAsync",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801294ec",
-            "size": 132,
-            "kind": "function",
-            "name": "CARDSetAttributes",
             "evidence": "unknown-file"
           }
         ]
