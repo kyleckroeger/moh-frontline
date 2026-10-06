@@ -499,7 +499,10 @@
     "hearingvolume_rows.json",
     "player_rows.json",
     "static_obj_rows.json",
-    "bullet_rows.json"
+    "bullet_rows.json",
+    "player_move.json",
+    "player_transform.json",
+    "static_obj_setpos.json"
   ],
   "progress": {
     "code_bytes": 1414572,

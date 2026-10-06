@@ -1,5 +1,5 @@
-// A fragment of static_obj.cpp (0x800afb3c): CStaticObject's transform wrappers, from
-// GetUpward to GetTMLocalToWorld, each forwarding to the object's transform
+// A fragment of static_obj.cpp (0x800afabc): CStaticObject's transform wrappers, from
+// SetPosition to SetPosition, each forwarding to the object's transform
 // (a CMatrix at +64). The file
 // name is this project's; the original record is static_obj.cpp and the functions
 // around these are not reconstructed. CStaticObject and CMatrix's methods are named by
@@ -48,11 +48,7 @@ public:
 
 class CStaticObject {
 public:
-    void GetUpward(CVector3&) const;
-    void GetForward(CVector3&) const;
-    void GetRightward(CVector3&) const;
-    void GetPosition(CVector3&) const;
-    void GetTMLocalToWorld(CMatrix&) const;
+    void SetPosition(CVector3);
 
     CVector3 UpRow() const { return m_tm.up; }
     CVector3 ForwardRow() const { return m_tm.forward; }
@@ -63,22 +59,6 @@ public:
     CMatrix m_tm;
 };
 
-void CStaticObject::GetUpward(CVector3& v) const {
-    v = UpRow();
-}
-
-void CStaticObject::GetForward(CVector3& v) const {
-    v = ForwardRow();
-}
-
-void CStaticObject::GetRightward(CVector3& v) const {
-    v = RightRow();
-}
-
-void CStaticObject::GetPosition(CVector3& v) const {
-    v = PositionRow();
-}
-
-void CStaticObject::GetTMLocalToWorld(CMatrix& matrix) const {
-    matrix = m_tm;
+void CStaticObject::SetPosition(CVector3 position) {
+    m_tm.SetPos(position);
 }

@@ -1,6 +1,6 @@
 {
-  "id": "player_rows",
-  "source": "src/game/player_rows.cpp",
+  "id": "static_obj_setpos",
+  "source": "src/game/static_obj_setpos.cpp",
   "category": "restored_library",
   "compiler_family": "GC",
   "compiler_version": "1.3.2",
@@ -39,57 +39,33 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800a0050",
-      "size": 180,
+      "address": "0x800afabc",
+      "size": 56,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000ce2c",
-      "size": 40,
+      "address": "0x8000d3f0",
+      "size": 8,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80013f94",
-      "size": 60,
+      "address": "0x800144f8",
+      "size": 12,
       "type": 1
     }
   ],
   "functions": [
     {
-      "name": "GetUpward__13CPlayerObjectCFR8CVector3",
-      "address": "0x800a0050",
-      "size": 36,
-      "binding": 1
-    },
-    {
-      "name": "GetForward__13CPlayerObjectCFR8CVector3",
-      "address": "0x800a0074",
-      "size": 36,
-      "binding": 1
-    },
-    {
-      "name": "GetRightward__13CPlayerObjectCFR8CVector3",
-      "address": "0x800a0098",
-      "size": 36,
-      "binding": 1
-    },
-    {
-      "name": "GetPosition__13CPlayerObjectCFR8CVector3",
-      "address": "0x800a00bc",
-      "size": 36,
-      "binding": 1
-    },
-    {
-      "name": "Orthonormalize__13CPlayerObjectFv",
-      "address": "0x800a00e0",
-      "size": 36,
+      "name": "SetPosition__13CStaticObjectF8CVector3",
+      "address": "0x800afabc",
+      "size": 56,
       "binding": 1
     }
   ],
   "externals": {
-    "Orthonormalize__7CMatrixFv": "0x8008f1e8"
+    "SetPos__7CMatrixF8CVector3": "0x80090728"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -97,6 +73,6 @@
   "local_externals": [],
   "discarded_local_functions": [],
   "sda_externals": [],
-  "original_file": "player.cpp",
-  "original_file_index": 6101
+  "original_file": "static_obj.cpp",
+  "original_file_index": 6731
 }

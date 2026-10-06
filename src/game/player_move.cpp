@@ -1,9 +1,9 @@
-// A fragment of static_obj.cpp (0x800afb3c): CStaticObject's transform wrappers, from
-// GetUpward to GetTMLocalToWorld, each forwarding to the object's transform
-// (a CMatrix at +64). The file
-// name is this project's; the original record is static_obj.cpp and the functions
-// around these are not reconstructed. CStaticObject and CMatrix's methods are named by
-// the mangled symbols; CStaticObject is an inferred non-virtual view with only the
+// A fragment of player.cpp (0x800a0168): CPlayerObject's transform wrappers, from
+// Rotate to SetPosition, each forwarding to the object's transform
+// (a CMatrix at +128). The file
+// name is this project's; the original record is player.cpp and the functions
+// around these are not reconstructed. CPlayerObject and CMatrix's methods are named by
+// the mangled symbols; CPlayerObject is an inferred non-virtual view with only the
 // transform declared, the bodies are inferred from the calls, and the by-value
 // row getters are inferred inline helpers.
 //
@@ -46,39 +46,36 @@ public:
     CVector3 position;
 };
 
-class CStaticObject {
+class CPlayerObject {
 public:
-    void GetUpward(CVector3&) const;
-    void GetForward(CVector3&) const;
-    void GetRightward(CVector3&) const;
-    void GetPosition(CVector3&) const;
-    void GetTMLocalToWorld(CMatrix&) const;
+    void Rotate(CVector3, float);
+    void Move(CVector3);
+    void SetBasis(CVector3, CVector3, CVector3);
+    void SetPosition(CVector3);
 
     CVector3 UpRow() const { return m_tm.up; }
     CVector3 ForwardRow() const { return m_tm.forward; }
     CVector3 RightRow() const { return m_tm.right; }
     CVector3 PositionRow() const { return m_tm.position; }
 
-    unsigned char unknown00[64];
+    unsigned char unknown00[128];
     CMatrix m_tm;
 };
 
-void CStaticObject::GetUpward(CVector3& v) const {
-    v = UpRow();
+void CPlayerObject::Rotate(CVector3 axis, float angle) {
+    m_tm.Rotate(axis, angle);
 }
 
-void CStaticObject::GetForward(CVector3& v) const {
-    v = ForwardRow();
+void CPlayerObject::Move(CVector3 delta) {
+    m_tm.Translate(delta);
 }
 
-void CStaticObject::GetRightward(CVector3& v) const {
-    v = RightRow();
+void CPlayerObject::SetBasis(CVector3 right, CVector3 forward, CVector3 up) {
+    m_tm.SetRight(right);
+    m_tm.SetFront(forward);
+    m_tm.SetUp(up);
 }
 
-void CStaticObject::GetPosition(CVector3& v) const {
-    v = PositionRow();
-}
-
-void CStaticObject::GetTMLocalToWorld(CMatrix& matrix) const {
-    matrix = m_tm;
+void CPlayerObject::SetPosition(CVector3 position) {
+    m_tm.SetPos(position);
 }

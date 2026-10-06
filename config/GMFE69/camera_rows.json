@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x8007a274",
-      "size": 144,
+      "size": 188,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000bf08",
-      "size": 32,
+      "size": 40,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80012e60",
-      "size": 48,
+      "size": 60,
       "type": 1
     }
   ],
@@ -80,9 +80,17 @@
       "address": "0x8007a2e0",
       "size": 36,
       "binding": 1
+    },
+    {
+      "name": "GetTMLocalToWorld__7CCameraCFR7CMatrix",
+      "address": "0x8007a304",
+      "size": 44,
+      "binding": 1
     }
   ],
-  "externals": {},
+  "externals": {
+    "__as__7CMatrixFRC7CMatrix": "0x80090b34"
+  },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},

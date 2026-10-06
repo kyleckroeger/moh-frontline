@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 318864,
+    "matching_code_bytes": 320148,
     "total_executable_code_bytes": 1414572,
-    "percent": 22.54137647288367,
+    "percent": 22.632145977723297,
     "categories": {
       "reconstructed_game": 92272,
-      "restored_library": 226592
+      "restored_library": 227876
     },
-    "matching_functions": 2038
+    "matching_functions": 2062
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -176,7 +176,7 @@
     "config/GMFE69/buffer_io.json": "9a997068c0c387e86e9609ec66493e7caa8d98ea675676441eb2ff729f5d4186",
     "config/GMFE69/bullet_rows.json": "4d2f355467adcff7705308699653183f3280ba4726affc81caa2d87411fccd60",
     "config/GMFE69/bulletfactory.json": "d5681576011cf8586569a65fdaa27b8149000509d5401766546e9c9fea821227",
-    "config/GMFE69/camera_rows.json": "41b621c742d46129a9a0f32dc5c17b78075f8646f0c6ea75a548fda053317bc3",
+    "config/GMFE69/camera_rows.json": "c0d70de291df3643c72de96b2beb64dc2290c5f5c09e2de8c95673fc7d21201f",
     "config/GMFE69/cdbgeom.json": "5a109535b401c445086faf5c376577d4b6f060dae9fd6a6071fdfecf36255cdf",
     "config/GMFE69/cdbobject.json": "05d0a5d951c8fd3d451e360560441b26335e47a75eac59645e9848879f9b01b8",
     "config/GMFE69/coda.json": "ed79629f16e36603a2a74fe3bfd2db4c7043efb597de702316a222bcbb355440",
@@ -240,7 +240,7 @@
     "config/GMFE69/gcSystem.json": "3bf2743737fe9c041930fdcb9879f7d17600a25c1ffc836927c0901688b92aea",
     "config/GMFE69/global_destructor_chain.json": "0fe0a3698440cd1f1bff61944bd62409272132d09eb6b5c82b9745b82413e6fa",
     "config/GMFE69/hearingvolume.json": "e8aff4213b28d2f4046c3a9b25e9c4d289c97b8a4f6aad7802217f6faf9faa28",
-    "config/GMFE69/hearingvolume_rows.json": "29ae6acca97c6bbe61b59131895024e82d7e5b232e26906c025d58050f0b634f",
+    "config/GMFE69/hearingvolume_rows.json": "73b213aa8f22014d8a81f302790467b294fb239077aafc92e908e80f8a373fdd",
     "config/GMFE69/hierobject.json": "f2b07428fc55483edb8cef681c572b6c3a560b38528f22ca681d5f862e3711b8",
     "config/GMFE69/hlafile.json": "3ca3b38bf7bda52bff5a0e1826aecf7d2679095f435266c2cafd7c1c66d48184",
     "config/GMFE69/hlsfile.json": "949cb6bbf006231f6e840512648466c8cc1f095827bbb723bf5ff1c4a55603e5",
@@ -260,7 +260,7 @@
     "config/GMFE69/k_rem_pio2.json": "98e7c06d536b5d074d8001e65314d859cc90af96052300f3d60796c07912caec",
     "config/GMFE69/k_sin.json": "83303a92dec0945bbc9e8d29698030d3fed1d722b341f4dfd5c163705e01f806",
     "config/GMFE69/k_tan.json": "5e836f5272de8311719911c6d828e87588e253e3c00bf27901135926e0aedd42",
-    "config/GMFE69/light_rows.json": "a7ee57e3839796312a00c5f9d8f9735d83a79ec6837ece86b0db645c6ec04b07",
+    "config/GMFE69/light_rows.json": "0d71869e5f0eb5d28b10837f48c7d7341d9f72731c1f67bbeaaf7f45212c10f8",
     "config/GMFE69/locatbig.json": "951de0b6c115be49b7755a129307e91c30deb6c630ba9c49821cf71f0db076f0",
     "config/GMFE69/main_TRK.json": "53a7c3f8fdc516d26210c5002897d55d0bb651015e4e46852c26248d117ade9b",
     "config/GMFE69/mainloop.json": "2994436609fef577d03fa3220d0c44d5933025297dcfae7a7880dded142e765a",
@@ -308,12 +308,14 @@
     "config/GMFE69/path_stop.json": "ea39677943098a390aa61caf7768cf3ecf8344a7686ce2005a80f2484b7ccfc9",
     "config/GMFE69/pathxSND.json": "711dcdf3a5a5a7b4124ae70e377c5e863dc39c8de8a0de785b3dc3921c685fa0",
     "config/GMFE69/player.json": "3da0c4cee17b1719306604f17cd111a3daf02a1570b02b9e882d2a8f93852850",
-    "config/GMFE69/player_rows.json": "cd1a92b1a4c6a616a9d63cc0381be8fd4ea00acbd702485b0e529d79184c8467",
+    "config/GMFE69/player_move.json": "d60dc4d33138d282609289741c3424eb26840287de1ea2961cc1c73c5d3e1260",
+    "config/GMFE69/player_rows.json": "83cd7d26e4ed41b3e84003c53cec28c94332a64565bf0f6f6b2db068df9bb866",
+    "config/GMFE69/player_transform.json": "85cde8b775b0a9a98a2ff816fc68e35d5e619c7bae3bcdace0a2d40e9a0d7b87",
     "config/GMFE69/player_weapon_object.json": "2c451ab555672599946bb97ca631b2a316350d8f99e8e9b77cf7f8f648d219df",
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "783f8a208ba56bd06cf3ec79323a7284235c48faf9f47f52bb7424e4ed450c28",
+    "config/GMFE69/project.json": "2af3f014c7e2bb731abad0b7b9ef501afc35a31ac44075499b0dc7152356ed43",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -459,7 +461,8 @@
     "config/GMFE69/ssysinit.json": "bc5cc6f00077822fc429b11faedcdcc3313e5befafecc1981d8ef797cb9cbfc6",
     "config/GMFE69/ssysreal.json": "3b9fb3ecf4cd22c2c1d2c57eab822d87cdfdb5e946081517b26a19ceb8db67e1",
     "config/GMFE69/ssysserv.json": "49f2852bbf809fe6219540041d9217ec9f6389f59e15723314a1482fc110739b",
-    "config/GMFE69/static_obj_rows.json": "c9ce268a35426a156ab8b129bd78d0f62341dbe28260c6b198866f1dae95e2fd",
+    "config/GMFE69/static_obj_rows.json": "2f46a5a159e4d2c74e31aa17ad0344bd62bd53a0805fde5891029c744affe398",
+    "config/GMFE69/static_obj_setpos.json": "c4925188bb268e069abc0f93d74505e735ba58e13dc91ca4ff7ebbe980652e7d",
     "config/GMFE69/staticmesh.json": "071c3dfaf63f3f12842d683773b40701155453fefded8bd3d2c02b83dbbe8492",
     "config/GMFE69/stimemul.json": "8daf6f44288a9589aaf8719ff8e636e2f4d7d00296603d9d8ce6bcbc2ff41088",
     "config/GMFE69/stream.json": "8277e72562d242f63690ec9510eaccda4fb71178d7b9a7542104386ed895d599",
@@ -1513,7 +1516,7 @@
     "src/game/bsutil_size.cpp": "79519dc3d1158664204a44a09651f4eb839da7ec06fa1d830eeece172595c74c",
     "src/game/bullet_rows.cpp": "dca369ca22fe6f04ad8bc5b8a9470015b6c0f863c0fbb4584f620fc73d9f399c",
     "src/game/bulletfactory.cpp": "d6ee2336a34566955cb6050fa4d9fe885b64ee577b00c606ce91fbd748bc3f4a",
-    "src/game/camera_rows.cpp": "7cf4112a9df4552e5aae7f03e23d1136fd0670dc86e2f05f8f0b7b74c3738c92",
+    "src/game/camera_rows.cpp": "f76a03e6166f7f2afa6d28d66506030df416a02c44b54e8b583a7c6238d64e45",
     "src/game/cdbgeom.cpp": "dbb319b1ba8edc52c87f565f57a506fb7e3934a7195ac17ae7d79e86ac4e8c06",
     "src/game/cdbobject.cpp": "8d9ba3051b730eaceb1df207075b6d193ad9ee06b403ef50da260ff8821c0e51",
     "src/game/collisionvolume.cpp": "43ba2b786b6016be28ed111443666151b7721d434b959794c048a582f6b8b826",
@@ -1538,7 +1541,7 @@
     "src/game/framework.cpp": "8cebad26aba8fe4a9a9ece0492c0bf7bb34882a1eec7dd48a1b3b93d0830914f",
     "src/game/gcSystem.cpp": "e97d4933fe4ba1c46e72d853db6ff53b0c8136020bef2237c66ad38a0d1e1068",
     "src/game/hearingvolume.cpp": "60c5c156b6483fd8b538aec12fe17bfbe67f89d90750f57d4bf72ca6b9716d6b",
-    "src/game/hearingvolume_rows.cpp": "229d55d0607a3a391215e29446ca1da7932aec8d3eafa0f9c16727c7e8168677",
+    "src/game/hearingvolume_rows.cpp": "0a512f6b7973404a5afa698bedc79a84b6386bacadd4419f718ed92f09e98681",
     "src/game/hierobject.cpp": "c837a9242fb1b897ee014e5dab2008cd0ca7a1a7323b6bfc77c8b0e4fec7d4d3",
     "src/game/hwvideodisplaylist.cpp": "fe8e660f0b288020cf2eaa33d3dbe1d4cdcfda4142ceb040328033e34140aadf",
     "src/game/input.cpp": "9b914f9339fceba59b141fcb97b7cce47a6e04470aac30a23f30a5f69e35fae9",
@@ -1547,7 +1550,7 @@
     "src/game/isexportdefs.cpp": "cfddaccff8e4f85109db6b8879e41d64279a7954d8ae854d4bc0f7b9263974bf",
     "src/game/ispausegroup.cpp": "0c753a0282f658f20f6b2ac5993ba1dbf816d060854fe6d7b1214ce27300b93a",
     "src/game/ispauselibrary.cpp": "401366234b5be8c2c4373684294ab2f4cb1e03911118fb1f984429b39d9b5c3c",
-    "src/game/light_rows.cpp": "c5033aa7963afdec46dceb95b375fd360ff3c99c69b30bab7746a77cd50d77ac",
+    "src/game/light_rows.cpp": "ee305d6a4bbdcda116b02c0c3b0c0665b2487928f78c5472c8e50ee310d03f88",
     "src/game/matrix.cpp": "a42439e00d156a43e00b9a97bbc6bc8e80386e2c5f4bd7aaec6a2c9bb1aac0c0",
     "src/game/matstack.cpp": "6634a4f6e298738943789d4f05c03cb1b8cf92892785cdac08855af4fec0cf58",
     "src/game/memory.cpp": "75e50f5f66acd16755a070f59afef29e6869b97dede92fada6399d2931c1b27c",
@@ -1556,7 +1559,9 @@
     "src/game/orient.cpp": "031b0d870db82013b99a554649dfe99038d03705b3309d14909ed0094ee43304",
     "src/game/particlesystem.cpp": "607e86d3b543cf145f040775529ad9b026329e27b0d8a9fdb6a25f9739288e61",
     "src/game/player.cpp": "5d6de79298166b94651df7f614dd61e0fd190ffe6084abb5575e5f6212fb19fc",
-    "src/game/player_rows.cpp": "0d9e6f3dd2cd76c54c09321fb822bffaa3c7a15eddcb6a3d044d545c82ae8637",
+    "src/game/player_move.cpp": "5e2eb4b450bcab05f2a04c415cc6aba5d9359bdbc9cd2591040e1cfaee5d39de",
+    "src/game/player_rows.cpp": "68d9a49c41d34e6d53ff2e8edd324694a0a4c1340a8e398a943915ffbf5ccbc7",
+    "src/game/player_transform.cpp": "454f1e45aa73d68416d93734f198e0141bc17f9c57cb769be949e3a726da345e",
     "src/game/player_weapon_object.cpp": "1fd752be827cdffac6452a0457941d3237b13d77dec02900a4a7dac4c597d1fa",
     "src/game/popup.cpp": "64e2a7db93328be02cadb3f465f1cd9936b3f19d0b6ca82315d38ea6681b4133",
     "src/game/projectilebullet.cpp": "cdac318e5bfe1930442fa86d43227ce01dc8c4d8c571ac800610814275ec44e2",
@@ -1581,7 +1586,8 @@
     "src/game/soundtable.cpp": "a871dc12cd0c9ada5788da7883313efc873ddbe60f7cc1a31746e95f6eafff08",
     "src/game/sphere.cpp": "4d34d3b5e628d4a4b11203cd131974547a14c3f6c9f515a7faecf39a78efe66e",
     "src/game/sprite.cpp": "bc15c2b65f957f90ba36ae02628c870761a9a18da28ef55e964a2382df205aa4",
-    "src/game/static_obj_rows.cpp": "f9e27da3e09194128f83c6598e543910ac2f9ff273c2b1ec8153ca72b14c5830",
+    "src/game/static_obj_rows.cpp": "eebbe9899681bc25656fa953c1b1b02723564a4f9326aa07ca9ef7b8a133316c",
+    "src/game/static_obj_setpos.cpp": "ea2f9f6f3c92c82c6b6f95d2684b80f5562b01253b34e01a6f4091cfc6bd6791",
     "src/game/staticmesh.cpp": "3a8bd609a8efecaa00960dcdd8fdfc554ba8f0d50b782532f6cbb7243d255224",
     "src/game/surfacetype.cpp": "3499ce5dc7d066f093e39c158e9b096e37683df4d6b6d234eb9b08395d411390",
     "src/game/swvideodisplaylist.cpp": "604fff141650e041f635fbf1c136dd328c6e3151200a1ce6d9bd90d82e1caa00",
@@ -23080,8 +23086,8 @@
     {
       "id": "light_rows",
       "category": "restored_library",
-      "functions": 4,
-      "code_bytes": 144,
+      "functions": 17,
+      "code_bytes": 804,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -23113,14 +23119,14 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "57b9eb5280c66b0aaa65a3779476e49d2b2ca771845a6ba8f04121ede39eca3e",
-      "linked_sha256": "e2faf125447bdd1bf2a189d285ef89f527a9307259b51ecf29c349fa2e5d0451"
+      "object_sha256": "f705696ccec9403880e4f5b87519b93bf8f133a5b73b70e1321cb9b6c9392572",
+      "linked_sha256": "ba54c6ef0fffa06e3643d57b9a5e23a3c4191e4415d34fc8f3b1abfd897306d0"
     },
     {
       "id": "camera_rows",
       "category": "restored_library",
-      "functions": 4,
-      "code_bytes": 144,
+      "functions": 5,
+      "code_bytes": 188,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -23152,14 +23158,14 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "825d043923093dd220e8da011612ab9d13b36a669baa7aa53dfadabbfa9b7963",
-      "linked_sha256": "720db5edbf6da108469f6ab14c14e03334aaa59e0ede6fd60b03c2946e04228b"
+      "object_sha256": "cf8ebb8920ca7027dfbf97e1f00c429d5b337b915a1b565f72214b510e4ece04",
+      "linked_sha256": "5915a386d93d393b1588f11706b3d1d41102ca9c7cc4422c05af7a2c3b4bc23d"
     },
     {
       "id": "hearingvolume_rows",
       "category": "restored_library",
-      "functions": 4,
-      "code_bytes": 144,
+      "functions": 5,
+      "code_bytes": 188,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -23191,14 +23197,14 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "c48e1965e29b175fec807e2a4a2501cb58752e784561c06ccfbf745aa5b17944",
-      "linked_sha256": "cec3a168082ab433099957063589f3c4fbbdbcbd0fee6156e6749d70ecee6a8e"
+      "object_sha256": "e3fe7ae984c3208368939c3a7d8acb2a8b91766f2c99d865892c28702527e656",
+      "linked_sha256": "18a71cb5a02558a1705e08e3b64949721052ffcfdfa59bdb064f48bf430b341d"
     },
     {
       "id": "player_rows",
       "category": "restored_library",
-      "functions": 4,
-      "code_bytes": 144,
+      "functions": 5,
+      "code_bytes": 180,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -23230,14 +23236,14 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "5662792c24eaa6f7bcfd851e4fa78e69ff3442733b3d6b81ad24505a70515860",
-      "linked_sha256": "886b56f9e798250f47e565fa634de27c88eada692a852818134101a3b7275242"
+      "object_sha256": "2213ba86a8738e45e9a603399e0b3f108f98d666e04bfcc93acaa78d3e927219",
+      "linked_sha256": "5db9297fed81f962a0cf1a5c217a64a69706994080ae00caa8f26672984165d6"
     },
     {
       "id": "static_obj_rows",
       "category": "restored_library",
-      "functions": 4,
-      "code_bytes": 144,
+      "functions": 5,
+      "code_bytes": 188,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -23269,8 +23275,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "10229817278783009e70a0848e6f3eefa4231f0fc8ab1275f28ea3d5d199ad5f",
-      "linked_sha256": "42ea3d2fdbfff61b33d090b1d8729485f4a77746d2ae399fae1f75fe1813e957"
+      "object_sha256": "c0753589c48b4f056272cdf415c9a43c9ad944f9c58255ef339106dfce24212c",
+      "linked_sha256": "ac59c07ec02babfb5983ca1c9c947e8eb8db952a2056fb44d0035962747d7260"
     },
     {
       "id": "bullet_rows",
@@ -23310,6 +23316,123 @@
       "discarded_functions": [],
       "object_sha256": "f5a7d27d83cb6b56341e4fc698b6ee1be419224782569f805f6c98342f5ae394",
       "linked_sha256": "be960c952ca7e2a613bca1f8f9ec701f2166ef5367f24a541d4400b8d33f2a8e"
+    },
+    {
+      "id": "player_move",
+      "category": "restored_library",
+      "functions": 4,
+      "code_bytes": 316,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "bbfadcdaf0e712d796dc6562abd543c81b0baa323b9a447967a12d5a0ece0a91",
+      "linked_sha256": "86f26215901f88c87ff29643794fd7a3b0b38b7c7dffed016936406dbaa35962"
+    },
+    {
+      "id": "player_transform",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 84,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "f3ff44d8ec345791529876f4a2a29662bc7f440925abde79010dd286dd68b75c",
+      "linked_sha256": "d5ae796a1605c3ee14b7b49f97bf49adafeec39fd0de7025dca88f5be48617b4"
+    },
+    {
+      "id": "static_obj_setpos",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 56,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "57cb6732afbc431f06a65d40e48757f54d5430fc1838c5130e6bd5ef0c51571e",
+      "linked_sha256": "34406e3a0fac19598f5f3ce2588f7d2e240aee99dc7734c92cc227ca40b3bbb0"
     }
   ],
   "code_map": {
@@ -31194,97 +31317,6 @@
             "evidence": "exception-index"
           },
           {
-            "address": "0x80077fbc",
-            "size": 44,
-            "kind": "function",
-            "name": "GetTMLocalToWorld__6CLightCFR7CMatrix",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80077fe8",
-            "size": 36,
-            "kind": "function",
-            "name": "Orthonormalize__6CLightFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007800c",
-            "size": 36,
-            "kind": "function",
-            "name": "Yaw__6CLightFf",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80078030",
-            "size": 36,
-            "kind": "function",
-            "name": "Roll__6CLightFf",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80078054",
-            "size": 36,
-            "kind": "function",
-            "name": "Pitch__6CLightFf",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80078078",
-            "size": 56,
-            "kind": "function",
-            "name": "Rotate__6CLightF8CVector3f",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800780b0",
-            "size": 56,
-            "kind": "function",
-            "name": "Move__6CLightF8CVector3",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800780e8",
-            "size": 148,
-            "kind": "function",
-            "name": "SetBasis__6CLightF8CVector38CVector38CVector3",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007817c",
-            "size": 56,
-            "kind": "function",
-            "name": "SetPosition__6CLightF8CVector3",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800781b4",
-            "size": 36,
-            "kind": "function",
-            "name": "SetTMLocalToWorld__6CLightFRC7CMatrix",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800781d8",
-            "size": 44,
-            "kind": "function",
-            "name": "Transform__6CLightFRC7CMatrix",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80078204",
-            "size": 40,
-            "kind": "function",
-            "name": "PreTransform__6CLightFRC7CMatrix",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007822c",
-            "size": 36,
-            "kind": "function",
-            "name": "Reset__6CLightFv",
-            "evidence": "exception-index"
-          },
-          {
             "address": "0x80078250",
             "size": 168,
             "kind": "function",
@@ -31598,13 +31630,6 @@
             "kind": "function",
             "name": "IsDrawEnabled__7CCameraCFv",
             "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007a304",
-            "size": 44,
-            "kind": "function",
-            "name": "GetTMLocalToWorld__7CCameraCFR7CMatrix",
-            "evidence": "exception-index"
           },
           {
             "address": "0x8007a330",
@@ -34359,13 +34384,6 @@
             "evidence": "between-same-file"
           },
           {
-            "address": "0x80098b94",
-            "size": 44,
-            "kind": "function",
-            "name": "GetTMLocalToWorld__14CHearingVolumeCFR7CMatrix",
-            "evidence": "exception-index"
-          },
-          {
             "address": "0x80098bc0",
             "size": 204,
             "kind": "function",
@@ -34968,13 +34986,6 @@
             "evidence": "exception-index"
           },
           {
-            "address": "0x800a00e0",
-            "size": 36,
-            "kind": "function",
-            "name": "Orthonormalize__13CPlayerObjectFv",
-            "evidence": "exception-index"
-          },
-          {
             "address": "0x800a0104",
             "size": 80,
             "kind": "function",
@@ -34996,52 +35007,10 @@
             "evidence": "between-same-file"
           },
           {
-            "address": "0x800a0168",
-            "size": 56,
-            "kind": "function",
-            "name": "Rotate__13CPlayerObjectF8CVector3f",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800a01a0",
-            "size": 56,
-            "kind": "function",
-            "name": "Move__13CPlayerObjectF8CVector3",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800a01d8",
-            "size": 148,
-            "kind": "function",
-            "name": "SetBasis__13CPlayerObjectF8CVector38CVector38CVector3",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800a026c",
-            "size": 56,
-            "kind": "function",
-            "name": "SetPosition__13CPlayerObjectF8CVector3",
-            "evidence": "exception-index"
-          },
-          {
             "address": "0x800a02a4",
             "size": 172,
             "kind": "function",
             "name": "SetTMLocalToWorld__13CPlayerObjectFRC7CMatrix",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800a0350",
-            "size": 44,
-            "kind": "function",
-            "name": "Transform__13CPlayerObjectFRC7CMatrix",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800a037c",
-            "size": 40,
-            "kind": "function",
-            "name": "PreTransform__13CPlayerObjectFRC7CMatrix",
             "evidence": "exception-index"
           },
           {
@@ -35983,24 +35952,10 @@
             "evidence": "exception-index"
           },
           {
-            "address": "0x800afabc",
-            "size": 56,
-            "kind": "function",
-            "name": "SetPosition__13CStaticObjectF8CVector3",
-            "evidence": "exception-index"
-          },
-          {
             "address": "0x800afaf4",
             "size": 72,
             "kind": "function",
             "name": "SetTMLocalToWorld__13CStaticObjectFRC7CMatrix",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800afbcc",
-            "size": 44,
-            "kind": "function",
-            "name": "GetTMLocalToWorld__13CStaticObjectCFR7CMatrix",
             "evidence": "exception-index"
           },
           {

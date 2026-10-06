@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x80098b04",
-      "size": 144,
+      "size": 188,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000cbc8",
-      "size": 32,
+      "size": 40,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80013cd0",
-      "size": 48,
+      "size": 60,
       "type": 1
     }
   ],
@@ -80,9 +80,17 @@
       "address": "0x80098b70",
       "size": 36,
       "binding": 1
+    },
+    {
+      "name": "GetTMLocalToWorld__14CHearingVolumeCFR7CMatrix",
+      "address": "0x80098b94",
+      "size": 44,
+      "binding": 1
     }
   ],
-  "externals": {},
+  "externals": {
+    "__as__7CMatrixFRC7CMatrix": "0x80090b34"
+  },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
