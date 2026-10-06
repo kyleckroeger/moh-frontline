@@ -1,0 +1,70 @@
+{
+  "id": "hwvideodisplaylist",
+  "source": "src/game/hwvideodisplaylist.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8010296c",
+      "size": 108,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SetScale__7GCHW_VDFff",
+      "address": "0x8010296c",
+      "size": 52,
+      "binding": 1
+    },
+    {
+      "name": "SetPosition__7GCHW_VDFfff",
+      "address": "0x801029a0",
+      "size": 56,
+      "binding": 1
+    }
+  ],
+  "externals": {},
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "hwvideodisplaylist.cpp",
+  "original_file_index": 10127
+}

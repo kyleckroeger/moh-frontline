@@ -413,7 +413,11 @@
     "rcmp_mpc_codec.json",
     "swvideodisplaylist.json",
     "animated_volume.json",
-    "cdbgeom.json"
+    "cdbgeom.json",
+    "bulletfactory.json",
+    "IStudioFuncs.json",
+    "hwvideodisplaylist.json",
+    "weaponfactory.json"
   ],
   "progress": {
     "code_bytes": 1414572,

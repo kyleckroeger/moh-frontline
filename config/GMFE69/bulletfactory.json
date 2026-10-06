@@ -1,0 +1,91 @@
+{
+  "id": "bulletfactory",
+  "source": "src/game/bulletfactory.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800cd7ac",
+      "size": 160,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000e360",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80015164",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "CanBulletTypeCook__14CBulletFactoryFbi",
+      "address": "0x800cd7ac",
+      "size": 52,
+      "binding": 1
+    },
+    {
+      "name": "GetBulletSprite__14CBulletFactoryFbi",
+      "address": "0x800cd7e0",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "DestroyBullet__14CBulletFactoryFP7CBullet",
+      "address": "0x800cd810",
+      "size": 60,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DestroyBullet__102CBulletFactoryHelper<17CProjectileBullet,33ProjectileBulletProperties_struct,22EProjectileBulletTypes>FP17CProjectileBullet": "0x800ce3d8",
+    "DestroyBullet__90CBulletFactoryHelper<13CThrownBullet,29ThrownBulletProperties_struct,18EThrownBulletTypes>FP13CThrownBullet": "0x800cdeec"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "bulletfactory.cpp",
+  "original_file_index": 7891
+}
