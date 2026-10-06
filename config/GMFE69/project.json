@@ -453,7 +453,8 @@
     "stream.json",
     "sfxrevc.json",
     "saemsstr.json",
-    "scene.json"
+    "scene.json",
+    "hlafile.json"
   ],
   "progress": {
     "code_bytes": 1414572,

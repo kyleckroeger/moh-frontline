@@ -1,0 +1,111 @@
+{
+  "id": "hlafile",
+  "source": "src/ea/hlafile.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8014b3c0",
+      "size": 976,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x8033eda0",
+      "size": 28,
+      "type": 8
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f388",
+      "size": 20,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "ASYNCFILE_restore",
+      "address": "0x8014b3c0",
+      "size": 240,
+      "binding": 1
+    },
+    {
+      "name": "ASYNCFILE_load",
+      "address": "0x8014b4b0",
+      "size": 276,
+      "binding": 1
+    },
+    {
+      "name": "ASYNCFILE_read",
+      "address": "0x8014b5c4",
+      "size": 304,
+      "binding": 1
+    },
+    {
+      "name": "ASYNCFILE_getstatus",
+      "address": "0x8014b6f4",
+      "size": 156,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "ASYNCFILE_cancel": "0x8014b9dc",
+    "FILESYS_callbackop": "0x80148624",
+    "FILESYS_open": "0x80148c38",
+    "FILESYS_read": "0x80148d7c",
+    "MUTEX_destroy": "0x80152100",
+    "MUTEX_lock": "0x8015212c",
+    "MUTEX_unlock": "0x80152150",
+    "SYNCTASK_run": "0x80152394",
+    "THREAD_iscurrent": "0x8015206c",
+    "THREAD_yield": "0x80151fbc",
+    "_restgpr_27": "0x80138a5c",
+    "_savegpr_27": "0x80138a10",
+    "gFileSysOpts": "0x80190f38",
+    "loadfileopencallback__FiiPv": "0x8014ad90",
+    "readfilereadcallback__FiiPv": "0x8014af90"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [
+    "loadfileopencallback__FiiPv",
+    "readfilereadcallback__FiiPv"
+  ],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "hlafile.cpp",
+  "original_file_index": 12144
+}
