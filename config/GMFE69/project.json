@@ -355,7 +355,8 @@
     "UISActionProcess.json",
     "UISUtils.json",
     "soundtable.json",
-    "animst.json"
+    "animst.json",
+    "input.json"
   ],
   "progress": {
     "code_bytes": 1414572,

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 258812,
+    "matching_code_bytes": 259620,
     "total_executable_code_bytes": 1414572,
-    "percent": 18.29613480261167,
+    "percent": 18.35325455332072,
     "categories": {
-      "reconstructed_game": 61808,
+      "reconstructed_game": 62616,
       "restored_library": 197004
     },
-    "matching_functions": 1407
+    "matching_functions": 1416
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -178,6 +178,7 @@
     "config/GMFE69/initosalloc.json": "5324f4e73a3982e763bab556d4b226d91ef242cc4b14e07a057a1fe18a367ae0",
     "config/GMFE69/inittmr.json": "7755f1641b77990ae66e1ef55ad3b56891762a7784c3a1f993f458cc6bc71f24",
     "config/GMFE69/initvblt.json": "554084076489dbae1fed3c4188edc39c814244a8b70ee237e98293269aee6202",
+    "config/GMFE69/input.json": "828af3a4556a93f2d6e7c6cca35627c18aba744db48565021f8f277269c4bd79",
     "config/GMFE69/isShellGroup.json": "fb2aea8e1fb5357a5c99b30450f95fb25d60066fb795346e9238568ba1eab8ac",
     "config/GMFE69/isShellLibrary.json": "4b838340878f1a37c48a9cb7f4530ff56b7d4e6144ae8049588d0d6545da6de6",
     "config/GMFE69/isexportdefs.json": "c69bbee01c63b955558f005792858feb77dfb7dfe20284280ec564085fd8294d",
@@ -222,7 +223,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "09917ccae3fd84e54ae8138b5a100840bbfeffaa87149b2328b5cfd1405f3b4f",
+    "config/GMFE69/project.json": "a8030357d1c92b565789bcbebb2d39be7fbcfb62b9540c1f9af6cbe41fe29bc8",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1303,6 +1304,7 @@
     "src/game/fader.cpp": "fcc29dce43a0cf9eca978df224fba99596b634584e886a18cb434749daf4a4e0",
     "src/game/framework.cpp": "8cebad26aba8fe4a9a9ece0492c0bf7bb34882a1eec7dd48a1b3b93d0830914f",
     "src/game/gcSystem.cpp": "e97d4933fe4ba1c46e72d853db6ff53b0c8136020bef2237c66ad38a0d1e1068",
+    "src/game/input.cpp": "9b914f9339fceba59b141fcb97b7cce47a6e04470aac30a23f30a5f69e35fae9",
     "src/game/isShellGroup.cpp": "a276f86c558cbb5460692a1b2ae338e44366b0b6f9b45abc5406e266afaf1835",
     "src/game/isShellLibrary.cpp": "ae9a7d394bea82036581aa3df912b060eb78489f9beca039208986f25250b068",
     "src/game/isexportdefs.cpp": "cfddaccff8e4f85109db6b8879e41d64279a7954d8ae854d4bc0f7b9263974bf",
@@ -17170,6 +17172,45 @@
       "discarded_functions": [],
       "object_sha256": "63499412c646c66020616a292c4531b4a8a57dd82228446ef2126847ee00aae7",
       "linked_sha256": "9005124ff593f43050382e5af3e5c1351b32bdff7f3f87d5239cabb0a9565cac"
+    },
+    {
+      "id": "input",
+      "category": "reconstructed_game",
+      "functions": 9,
+      "code_bytes": 808,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "deferred,auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "1d5ef92176d7c1838875362de598403f85c57c6750daaeb14a856bb12ad2c5a9",
+      "linked_sha256": "f75c8a11a209b533000fc18a099cdaa60738b95250b88585ceca2af058dcac6c"
     }
   ],
   "code_map": {
@@ -28224,73 +28265,10 @@
         ]
       },
       {
-        "name": "Unmatched files/input.cpp [inferred file group]",
+        "name": "Unmatched files/input.cpp [symbol evidence]",
         "file_record": 81,
         "file_name": "input.cpp",
         "ranges": [
-          {
-            "address": "0x80084958",
-            "size": 172,
-            "kind": "function",
-            "name": "Reset__13CInputManagerFv",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80084a04",
-            "size": 8,
-            "kind": "function",
-            "name": "VerifyAnalog__13CInputManagerFv",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x80084a0c",
-            "size": 96,
-            "kind": "function",
-            "name": "IsReady__13CInputManagerFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80084a6c",
-            "size": 112,
-            "kind": "function",
-            "name": "SetFeedback__13CInputManagerFUlllff",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80084adc",
-            "size": 124,
-            "kind": "function",
-            "name": "ResetActuatorState__13CInputManagerFl",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80084b58",
-            "size": 188,
-            "kind": "function",
-            "name": "GetValueAnyPlayer__13CInputManagerFUl",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80084c14",
-            "size": 40,
-            "kind": "function",
-            "name": "GetValue__13CInputManagerFUlUl",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80084c3c",
-            "size": 36,
-            "kind": "function",
-            "name": "SetKeymap__13CInputManagerFUlP6KEYMAP",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80084c60",
-            "size": 32,
-            "kind": "function",
-            "name": "Shutdown__13CInputManagerFv",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x80084c80",
             "size": 1220,
