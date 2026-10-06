@@ -579,7 +579,8 @@
     "bsbifunc_mood.json",
     "bsbifunc_corpse.json",
     "bsbifunc_distance.json",
-    "bsbifunc_coverleave.json"
+    "bsbifunc_coverleave.json",
+    "bsbifunc_obstacle.json"
   ],
   "progress": {
     "code_bytes": 1414572,
