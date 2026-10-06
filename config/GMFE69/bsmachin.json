@@ -1,0 +1,326 @@
+{
+  "id": "bsmachin",
+  "source": "src/game/bsmachin.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80036d2c",
+      "size": 5192,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000a264",
+      "size": 144,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80011144",
+      "size": 216,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x80198010",
+      "size": 132,
+      "type": 8
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034da20",
+      "size": 4,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034e7d8",
+      "size": 60,
+      "type": 8
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x8034f730",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "BSOpCodeFunc_TRACE__Fv",
+      "address": "0x80036d2c",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_BREAK__Fv",
+      "address": "0x80036d3c",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_RETURN__Fv",
+      "address": "0x80036d60",
+      "size": 80,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_BIFNCALL__Fv",
+      "address": "0x80036db0",
+      "size": 84,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_FNCALL__Fv",
+      "address": "0x80036e04",
+      "size": 84,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_GP__Fv",
+      "address": "0x80036e58",
+      "size": 112,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_LS__Fv",
+      "address": "0x80036ec8",
+      "size": 64,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_LM__Fv",
+      "address": "0x80036f08",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_SM__Fv",
+      "address": "0x80036f38",
+      "size": 60,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_LG__Fv",
+      "address": "0x80036f74",
+      "size": 56,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_SG__Fv",
+      "address": "0x80036fac",
+      "size": 56,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_LW__Fv",
+      "address": "0x80036fe4",
+      "size": 56,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_SW__Fv",
+      "address": "0x8003701c",
+      "size": 56,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_PUSH__Fv",
+      "address": "0x80037054",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_POP__Fv",
+      "address": "0x8003707c",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_CAST__Fv",
+      "address": "0x800370a4",
+      "size": 132,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_NE__Fv",
+      "address": "0x80037128",
+      "size": 320,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_EQ__Fv",
+      "address": "0x80037268",
+      "size": 292,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_LTE__Fv",
+      "address": "0x8003738c",
+      "size": 312,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_LT__Fv",
+      "address": "0x800374c4",
+      "size": 300,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_GTE__Fv",
+      "address": "0x800375f0",
+      "size": 312,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_GT__Fv",
+      "address": "0x80037728",
+      "size": 300,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_NOT__Fv",
+      "address": "0x80037854",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_OR__Fv",
+      "address": "0x80037878",
+      "size": 72,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_AND__Fv",
+      "address": "0x800378c0",
+      "size": 72,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_NEG__Fv",
+      "address": "0x80037908",
+      "size": 120,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_MULT__Fv",
+      "address": "0x80037980",
+      "size": 292,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_DIV__Fv",
+      "address": "0x80037aa4",
+      "size": 292,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_SUB__Fv",
+      "address": "0x80037bc8",
+      "size": 292,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_ADD__Fv",
+      "address": "0x80037cec",
+      "size": 292,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_JMP__Fv",
+      "address": "0x80037e10",
+      "size": 28,
+      "binding": 1
+    },
+    {
+      "name": "BSOpCodeFunc_BNE__Fv",
+      "address": "0x80037e2c",
+      "size": 68,
+      "binding": 1
+    },
+    {
+      "name": "BSExecuteThread__FP8BSObjectP22BSMachineThread_struct",
+      "address": "0x80037e70",
+      "size": 312,
+      "binding": 1
+    },
+    {
+      "name": "BSDestroyThread__FP22BSMachineThread_struct",
+      "address": "0x80037fa8",
+      "size": 92,
+      "binding": 1
+    },
+    {
+      "name": "BSCreateThread__FP8BSObjectP13BSCode_structP22BSMachineThread_structPv",
+      "address": "0x80038004",
+      "size": 292,
+      "binding": 1
+    },
+    {
+      "name": "BSEndMachine__Fv",
+      "address": "0x80038128",
+      "size": 76,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "BSFileDeleteClass__FP14BSClass_struct": "0x80036a30",
+    "BSMessageRemoveHandler__FP28BSMessageRegistration_struct": "0x80039eb0",
+    "BSRegisterMessage__FP33BSCode_MessageHandlerEntry_structP8BSObjectUsP22BSMachineThread_structPP28BSMessageRegistration_struct": "0x8003a1bc",
+    "LoadPropertyData__FP18xyzProperty_Structi": "0x80038408",
+    "g_iCurrentBIFIndex": "0x8034e77c",
+    "g_pBuiltInFunctions": "0x8034e778",
+    "g_pcClassList": "0x8034e7d0"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [
+    "BSMachineGetFreeMessageList__Fv"
+  ],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [
+    "BSMachineGetFreeMessageList__Fv"
+  ],
+  "sda_externals": [
+    "g_iCurrentBIFIndex",
+    "g_pBuiltInFunctions",
+    "g_pcClassList"
+  ],
+  "original_file": "bsmachin.cpp",
+  "original_file_index": 1201
+}

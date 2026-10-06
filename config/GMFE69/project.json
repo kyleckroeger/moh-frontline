@@ -309,7 +309,8 @@
     "locatbig.json",
     "spktplay.json",
     "salloc.json",
-    "aramalloc.json"
+    "aramalloc.json",
+    "bsmachin.json"
   ],
   "progress": {
     "code_bytes": 1414572,

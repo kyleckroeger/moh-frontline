@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 233688,
+    "matching_code_bytes": 238880,
     "total_executable_code_bytes": 1414572,
-    "percent": 16.520049880812007,
+    "percent": 16.88708669477411,
     "categories": {
-      "reconstructed_game": 42668,
+      "reconstructed_game": 47860,
       "restored_library": 191020
     },
-    "matching_functions": 1147
+    "matching_functions": 1183
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -110,6 +110,7 @@
     "config/GMFE69/baseline.json": "36a2b85cf4193e53afac79bdd2a8fdbf8dfb1880cae89e119463f2c81461b42f",
     "config/GMFE69/bmem.json": "6f2cc24cb578401f28e36031abc716a23a3beb45bf6c43c10ede6c273e9070b2",
     "config/GMFE69/bsearch.json": "dd287b9523a5f289e22dc32f273d0f9756b610c9280ec41b84aac1d7ea50912b",
+    "config/GMFE69/bsmachin.json": "99e6f626f2cdb4c5eddca656c56ef9cc28369e547992ff630f5c3bbc93fa72ef",
     "config/GMFE69/bstimer.json": "f6c1bc76d8200192cc1dc0fcc0d071b489cc158c09f820ee351e4190d480c6ae",
     "config/GMFE69/buffer_io.json": "9a997068c0c387e86e9609ec66493e7caa8d98ea675676441eb2ff729f5d4186",
     "config/GMFE69/coda.json": "ed79629f16e36603a2a74fe3bfd2db4c7043efb597de702316a222bcbb355440",
@@ -192,7 +193,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "1482798b5d6909eea940aecc20869be411db948915fb099ed0d3db6f6ce7cb97",
+    "config/GMFE69/project.json": "2a86d4ae9adba0cb981513d39f30aa3d83a08f53b10570e37911bf048d9288f0",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1222,6 +1223,7 @@
     "src/game/LinkedList.cpp": "3007b79180a5844b8b799dc4fc11618f6b5da77679e6c73c6f388fec501beb2a",
     "src/game/MallocInit.cpp": "ba35f4c9ac530c717f81930ab9aa3a203ea81844e4776914ae6b51acf4188a74",
     "src/game/anim.cpp": "9e086af4631ac941623f4e90cc4d858d9a4a1ddde96c1433e494b2f9411978d3",
+    "src/game/bsmachin.cpp": "29ef7c9c19942e3dc51d97c49266ac9b237c8658ffef55d4536c8968e7d44b1e",
     "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
     "src/game/dmgeom.cpp": "6f176541b44727ce39e90fbc33d60d1c7cd572e20cde4bc86401f647cd9f7f14",
     "src/game/framework.cpp": "8cebad26aba8fe4a9a9ece0492c0bf7bb34882a1eec7dd48a1b3b93d0830914f",
@@ -15129,6 +15131,47 @@
       "discarded_functions": [],
       "object_sha256": "097ab4374600d30231c965763b6ad321bbbffa670071f72884c44272ae9d3ed9",
       "linked_sha256": "a8061df76d921f228d0b134c1ca69c504bd2b3580ac676e2214327d98278bfa9"
+    },
+    {
+      "id": "bsmachin",
+      "category": "reconstructed_game",
+      "functions": 36,
+      "code_bytes": 5192,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "BSMachineGetFreeMessageList__Fv"
+      ],
+      "object_sha256": "ad432ae4132eb851587c2f8b85c2909ab4c688a74713ba863bd4f0d5a0e807c0",
+      "linked_sha256": "c625d53849416ea28c3bfe1af2dfdb259997f26bf1735568aed3f69b33a37a44"
     }
   ],
   "code_map": {
@@ -18886,258 +18929,6 @@
             "size": 692,
             "kind": "function",
             "name": "BSOpCodeFunc_NEXTSTATE__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80036d2c",
-            "size": 16,
-            "kind": "function",
-            "name": "BSOpCodeFunc_TRACE__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80036d3c",
-            "size": 36,
-            "kind": "function",
-            "name": "BSOpCodeFunc_BREAK__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80036d60",
-            "size": 80,
-            "kind": "function",
-            "name": "BSOpCodeFunc_RETURN__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80036db0",
-            "size": 84,
-            "kind": "function",
-            "name": "BSOpCodeFunc_BIFNCALL__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80036e04",
-            "size": 84,
-            "kind": "function",
-            "name": "BSOpCodeFunc_FNCALL__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80036e58",
-            "size": 112,
-            "kind": "function",
-            "name": "BSOpCodeFunc_GP__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80036ec8",
-            "size": 64,
-            "kind": "function",
-            "name": "BSOpCodeFunc_LS__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80036f08",
-            "size": 48,
-            "kind": "function",
-            "name": "BSOpCodeFunc_LM__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80036f38",
-            "size": 60,
-            "kind": "function",
-            "name": "BSOpCodeFunc_SM__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80036f74",
-            "size": 56,
-            "kind": "function",
-            "name": "BSOpCodeFunc_LG__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80036fac",
-            "size": 56,
-            "kind": "function",
-            "name": "BSOpCodeFunc_SG__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80036fe4",
-            "size": 56,
-            "kind": "function",
-            "name": "BSOpCodeFunc_LW__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8003701c",
-            "size": 56,
-            "kind": "function",
-            "name": "BSOpCodeFunc_SW__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80037054",
-            "size": 40,
-            "kind": "function",
-            "name": "BSOpCodeFunc_PUSH__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8003707c",
-            "size": 40,
-            "kind": "function",
-            "name": "BSOpCodeFunc_POP__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800370a4",
-            "size": 132,
-            "kind": "function",
-            "name": "BSOpCodeFunc_CAST__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80037128",
-            "size": 320,
-            "kind": "function",
-            "name": "BSOpCodeFunc_NE__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80037268",
-            "size": 292,
-            "kind": "function",
-            "name": "BSOpCodeFunc_EQ__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8003738c",
-            "size": 312,
-            "kind": "function",
-            "name": "BSOpCodeFunc_LTE__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800374c4",
-            "size": 300,
-            "kind": "function",
-            "name": "BSOpCodeFunc_LT__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800375f0",
-            "size": 312,
-            "kind": "function",
-            "name": "BSOpCodeFunc_GTE__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80037728",
-            "size": 300,
-            "kind": "function",
-            "name": "BSOpCodeFunc_GT__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80037854",
-            "size": 36,
-            "kind": "function",
-            "name": "BSOpCodeFunc_NOT__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80037878",
-            "size": 72,
-            "kind": "function",
-            "name": "BSOpCodeFunc_OR__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800378c0",
-            "size": 72,
-            "kind": "function",
-            "name": "BSOpCodeFunc_AND__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80037908",
-            "size": 120,
-            "kind": "function",
-            "name": "BSOpCodeFunc_NEG__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80037980",
-            "size": 292,
-            "kind": "function",
-            "name": "BSOpCodeFunc_MULT__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80037aa4",
-            "size": 292,
-            "kind": "function",
-            "name": "BSOpCodeFunc_DIV__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80037bc8",
-            "size": 292,
-            "kind": "function",
-            "name": "BSOpCodeFunc_SUB__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80037cec",
-            "size": 292,
-            "kind": "function",
-            "name": "BSOpCodeFunc_ADD__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80037e10",
-            "size": 28,
-            "kind": "function",
-            "name": "BSOpCodeFunc_JMP__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80037e2c",
-            "size": 68,
-            "kind": "function",
-            "name": "BSOpCodeFunc_BNE__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80037e70",
-            "size": 312,
-            "kind": "function",
-            "name": "BSExecuteThread__FP8BSObjectP22BSMachineThread_struct",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80037fa8",
-            "size": 92,
-            "kind": "function",
-            "name": "BSDestroyThread__FP22BSMachineThread_struct",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80038004",
-            "size": 292,
-            "kind": "function",
-            "name": "BSCreateThread__FP8BSObjectP13BSCode_structP22BSMachineThread_structPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80038128",
-            "size": 76,
-            "kind": "function",
-            "name": "BSEndMachine__Fv",
             "evidence": "exception-index"
           },
           {
