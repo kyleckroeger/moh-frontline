@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 268260,
+    "matching_code_bytes": 269048,
     "total_executable_code_bytes": 1414572,
-    "percent": 18.96404000644718,
+    "percent": 19.01974590194066,
     "categories": {
-      "reconstructed_game": 68380,
+      "reconstructed_game": 69168,
       "restored_library": 199880
     },
-    "matching_functions": 1511
+    "matching_functions": 1517
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -104,6 +104,7 @@
     "config/GMFE69/SNDI_mult16.json": "833732210b2687248ee9e85d7d585acc47190e661085eec78d0ddad969eb0951",
     "config/GMFE69/SNDI_root1x.json": "ea826a27a8d9e2588fd750844842c1e363c3555078469ac393e6172f6aedada7",
     "config/GMFE69/SNDI_sin.json": "0b60fa9265dea81e4c4dc40bdaf11377f21325b62ab47bfd58ada88b7602fee2",
+    "config/GMFE69/SearchNodeList.json": "94a6f88f4b8062b0b71ee5f431cf4a7f102d07ca517660d3fe098a7fd2a44a2c",
     "config/GMFE69/Soldier_object.json": "d625d33bbfdcbd4ae922099756d0a2525feb495afdd309517e996dc20e2f2aff",
     "config/GMFE69/UISActionProcess.json": "2a99d24d9da29f023bab9396c2424e8dafe6ce9bdaa87904306b5ea85783af91",
     "config/GMFE69/UISEvent.json": "494508d3a1bc6ee076038b4f42906c60c3d009f45520a50f128c75aed4f00631",
@@ -239,7 +240,7 @@
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/pathxSND.json": "711dcdf3a5a5a7b4124ae70e377c5e863dc39c8de8a0de785b3dc3921c685fa0",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "c0e091ece0d184f9977835b2cc05a590688fadb2883aadc2357dbf66cfa06ff4",
+    "config/GMFE69/project.json": "b2da39cabe4e2e40612d3719992b63ed058fdd7522811682614d5c67a960b36b",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1307,6 +1308,7 @@
     "src/game/LinkedList.cpp": "3007b79180a5844b8b799dc4fc11618f6b5da77679e6c73c6f388fec501beb2a",
     "src/game/MallocInit.cpp": "ba35f4c9ac530c717f81930ab9aa3a203ea81844e4776914ae6b51acf4188a74",
     "src/game/MathFun.cpp": "5a60cf13aeb557c033e5adb906365756165d8401c8d9f239c72e95a9c96b96df",
+    "src/game/SearchNodeList.cpp": "738d75054ffdc5c611f06f3c0f8d330d60226794efc3684079e2280494a4d65c",
     "src/game/Soldier_object.cpp": "92bf858d3c8b06c691309b702079f4c10d3da7935ed4b50d4e27764fa7eeca41",
     "src/game/UISActionProcess.c": "0c8322629537a363a11f51d7aa0ddaf2fa57f6d24c22fb15f45f76e6566d5f7e",
     "src/game/UISEvent.c": "a9b324a04b57cdf40fbb819827d2073be6fa1b9fa1be2f1c0757e46dd3747a82",
@@ -17949,6 +17951,45 @@
       "discarded_functions": [],
       "object_sha256": "9f57e39f984d30f7090e3be815538ff9e404e809a690abb03818c1458c9e5d77",
       "linked_sha256": "ca88846c5b2f701046466cc553c3ba533d99620db146558c3e357be4b57f76f0"
+    },
+    {
+      "id": "SearchNodeList",
+      "category": "reconstructed_game",
+      "functions": 6,
+      "code_bytes": 788,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "2b0cc11b15358cd0181f55400f35dd9f9beae32064b479780b6dc85a25c55896",
+      "linked_sha256": "16f2b80bf26f411685c546f3a3e80bbf908dc569fd45c0c13d8c0b211360837a"
     }
   ],
   "code_map": {
@@ -23874,55 +23915,6 @@
             "kind": "function",
             "name": "__arraydtor$741",
             "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/SearchNodeList.cpp [symbol evidence]",
-        "file_record": 36,
-        "file_name": "SearchNodeList.cpp",
-        "ranges": [
-          {
-            "address": "0x80056414",
-            "size": 128,
-            "kind": "function",
-            "name": "Clear__16CSearchNodeQueueFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80056494",
-            "size": 184,
-            "kind": "function",
-            "name": "PopFirst__16CSearchNodeQueueFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8005654c",
-            "size": 248,
-            "kind": "function",
-            "name": "ReplaceElement__16CSearchNodeQueueFP11CSearchNodeP11CSearchNode",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80056644",
-            "size": 96,
-            "kind": "function",
-            "name": "Insert__16CSearchNodeQueueFP11CSearchNode",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800566a4",
-            "size": 84,
-            "kind": "function",
-            "name": "__dt__15CSearchNodeListFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800566f8",
-            "size": 48,
-            "kind": "function",
-            "name": "__ct__15CSearchNodeListFv",
-            "evidence": "exception-index"
           }
         ]
       },

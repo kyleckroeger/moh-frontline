@@ -373,7 +373,8 @@
     "font.json",
     "AIFilter.json",
     "collisionvolume.json",
-    "ipad.json"
+    "ipad.json",
+    "SearchNodeList.json"
   ],
   "progress": {
     "code_bytes": 1414572,

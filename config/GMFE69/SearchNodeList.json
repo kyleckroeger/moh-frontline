@@ -1,0 +1,111 @@
+{
+  "id": "SearchNodeList",
+  "source": "src/game/SearchNodeList.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80056414",
+      "size": 788,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000ac14",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80011da4",
+      "size": 36,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "Clear__16CSearchNodeQueueFv",
+      "address": "0x80056414",
+      "size": 128,
+      "binding": 1
+    },
+    {
+      "name": "PopFirst__16CSearchNodeQueueFv",
+      "address": "0x80056494",
+      "size": 184,
+      "binding": 1
+    },
+    {
+      "name": "ReplaceElement__16CSearchNodeQueueFP11CSearchNodeP11CSearchNode",
+      "address": "0x8005654c",
+      "size": 248,
+      "binding": 1
+    },
+    {
+      "name": "Insert__16CSearchNodeQueueFP11CSearchNode",
+      "address": "0x80056644",
+      "size": 96,
+      "binding": 1
+    },
+    {
+      "name": "__dt__15CSearchNodeListFv",
+      "address": "0x800566a4",
+      "size": 84,
+      "binding": 1
+    },
+    {
+      "name": "__ct__15CSearchNodeListFv",
+      "address": "0x800566f8",
+      "size": 48,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "__ct__11CLinkedListFv": "0x800536dc",
+    "__dl__FPv": "0x8001ca2c",
+    "__dt__11CLinkedListFv": "0x800536a0",
+    "__dt__11CSearchNodeFv": "0x80056210"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "SearchNodeList.cpp",
+  "original_file_index": 2354
+}
