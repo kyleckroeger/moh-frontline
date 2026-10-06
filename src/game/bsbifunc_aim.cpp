@@ -1,17 +1,19 @@
-// A fragment of bsbifunc.cpp (0x8003394c): AI built-ins that report a good
-// time to fire (always), enable target aim (no effect), return the squared
-// distance to the target (in 3D, or from the stored target position when the
-// target flag is set; and in the plane), continue a spline path walk (states
-// 2, 4 and 6 first continue the A* traversal; walk state 1) and stop it (walk
-// state 0). Each reaches the script object's AI object through the scene
-// node's AI doodad and its filter, and pops the built-in's arguments; results
-// go through an integer/float union. The file name is this project's; the
-// original record is bsbifunc.cpp and the built-ins around these are not
+// A fragment of bsbifunc.cpp (0x8003394c): AI built-ins that report a good time
+// to fire (always), enable target aim (no effect), return the squared distance
+// to the target (in 3D, or from the stored target position when the target flag
+// is set; and in the plane), continue a spline path walk (states 2, 4 and 6
+// first continue the A* traversal; walk state 1) and stop it (walk state 0),
+// start one forward on the spline path for an id (the second argument as a
+// flag), and return the scene node's script object and the address of the AI
+// doodad's match list (+16). Each reaches the script object's AI object through
+// the scene node's AI doodad and its filter, and pops the built-in's arguments;
+// results go through an integer/float union. The file name is this project's;
+// the original record is bsbifunc.cpp and the built-ins around these are not
 // reconstructed. The functions, classes and globals are named by the mangled
 // symbols; ISceneNode is declared with its virtual functions in the order of
-// __vt__10ISceneNode (GetAIDoodad at +204), and the doodad, filter, traversal
-// and CAIObject views are inferred (members at their offsets, names not
-// original).
+// __vt__10ISceneNode (GetScriptObject at +96, GetAIDoodad at +204), and the
+// doodad, filter, filter-global, traversal and CAIObject views are inferred
+// (members at their offsets, names not original).
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
@@ -82,6 +84,14 @@ public:
 };
 
 class CAIFilterObject;
+class CAISplinePath;
+
+class CAIFilterGlobal {
+public:
+    CAISplinePath* GetSplinePath(unsigned long, bool) const;
+
+    unsigned char unknown00[24];
+};
 
 union BSValueView {
     int i;
@@ -100,6 +110,7 @@ public:
     float GetDistanceSquaredXYZReal();
     float GetDistanceSquaredXYZReal(CAIObject*);
     float GetDistanceSquaredXYReal(CAIObject*);
+    void StartSplinePathWalkForward(CAISplinePath*);
 
     unsigned char unknown000[8];
     CAIFilterObject* m_filter;
@@ -121,6 +132,8 @@ struct CAIFilterView {
 struct AIDoodadView {
     void* unknown00;
     CAIFilterView* filter;
+    unsigned char unknown08[8];
+    int matchList;
 };
 
 struct BSBuiltinView {
@@ -133,6 +146,7 @@ struct BSBuiltinView {
 
 extern BSBuiltinView* g_pBuiltInFunctions;
 extern int g_iCurrentBIFIndex;
+extern CAIFilterGlobal g_aigAIFilterGlobalObject;
 
 inline CAIObject* GetAIObject(void* object) {
     return ((ISceneNode*)object)->GetAIDoodad()->filter->object;
@@ -188,4 +202,30 @@ void BIFunc_AIContinueSplinePathWalk(int** stack, void* object) {
 void BIFunc_AIStopSplinePathWalk(int** stack, void* object) {
     GetAIObject(object)->m_walkState = 0;
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+void BIFunc_AIStartSplinePathWalk(int** stack, void* object) {
+    bool forward;
+    CAIFilterView* filter;
+    unsigned long id;
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    id = *(*stack - (count - 1));
+    forward = *(*stack - (count - 2)) != 0;
+    filter = ((ISceneNode*)object)->GetAIDoodad()->filter;
+    filter->object->StartSplinePathWalkForward(g_aigAIFilterGlobalObject.GetSplinePath(id, forward));
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+void BIFunc_AIGetSoldierPointer(int** stack, void* object) {
+    BSValueView value;
+    value.i = ((ISceneNode*)object)->GetScriptObject();
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    *(BSValueView*)*stack = value;
+}
+
+void BIFunc_AIGetSoldierMatchListStruct(int** stack, void* object) {
+    BSValueView value;
+    value.i = (int)&((ISceneNode*)object)->GetAIDoodad()->matchList;
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    *(BSValueView*)*stack = value;
 }

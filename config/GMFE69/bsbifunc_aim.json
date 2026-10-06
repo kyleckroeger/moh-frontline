@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x8003394c",
-      "size": 732,
+      "size": 1176,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000a12c",
-      "size": 40,
+      "size": 64,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80010f88",
-      "size": 60,
+      "size": 96,
       "type": 1
     }
   ],
@@ -67,6 +67,12 @@
       "name": "BIFunc_AIStopSplinePathWalk__FPPiPv",
       "address": "0x80033bb8",
       "size": 112,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_AIStartSplinePathWalk__FPPiPv",
+      "address": "0x80033c28",
+      "size": 224,
       "binding": 1
     },
     {
@@ -92,6 +98,18 @@
       "address": "0x80033a74",
       "size": 128,
       "binding": 1
+    },
+    {
+      "name": "BIFunc_AIGetSoldierPointer__FPPiPv",
+      "address": "0x80033d08",
+      "size": 108,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_AIGetSoldierMatchListStruct__FPPiPv",
+      "address": "0x80033d74",
+      "size": 112,
+      "binding": 1
     }
   ],
   "externals": {
@@ -99,6 +117,9 @@
     "GetDistanceSquaredXYReal__9CAIObjectFP9CAIObject": "0x8004d53c",
     "GetDistanceSquaredXYZReal__9CAIObjectFP9CAIObject": "0x8004d590",
     "GetDistanceSquaredXYZReal__9CAIObjectFv": "0x8004d564",
+    "GetSplinePath__15CAIFilterGlobalCFUlb": "0x8005d6d4",
+    "StartSplinePathWalkForward__9CAIObjectFP13CAISplinePath": "0x8004cd80",
+    "g_aigAIFilterGlobalObject": "0x801c6cd4",
     "g_iCurrentBIFIndex": "0x8034e77c",
     "g_pBuiltInFunctions": "0x8034e778"
   },
