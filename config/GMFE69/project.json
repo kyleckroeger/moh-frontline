@@ -326,7 +326,8 @@
     "viewport.json",
     "threads.json",
     "srandom.json",
-    "supxaf.json"
+    "supxaf.json",
+    "supxalf.json"
   ],
   "progress": {
     "code_bytes": 1414572,

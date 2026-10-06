@@ -1,0 +1,79 @@
+{
+  "id": "supxalf",
+  "source": "src/ea/supxalf.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8016456c",
+      "size": 216,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SFILTER_unpackgetframexalf__FPv",
+      "address": "0x8016456c",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "SFILTER_unpackxalfrestore__FPv",
+      "address": "0x80164574",
+      "size": 44,
+      "binding": 1
+    },
+    {
+      "name": "SFILTER_unpackxalfinit__FPvP16UNPACKINITPARAMS",
+      "address": "0x801645a0",
+      "size": 164,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "SFILTER_unpackxalf__FPviPvPvi": "0x80164370",
+    "__ct__Q23SND12CEAXABLKDecfFv": "0x80168a08",
+    "__dl__Q23SND12CEAXABLKDecfFPv": "0x801689e0",
+    "__nw__Q23SND12CEAXABLKDecfFUl": "0x801689b8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "supxalf.cpp",
+  "original_file_index": 13110
+}
