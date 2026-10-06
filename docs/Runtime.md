@@ -62,6 +62,13 @@ SN's linker emits weak definitions as global. `validate_object` checks each
 kept function's binding (weak, global or local) in the compiled object; the
 linked comparison then treats weak and global alike.
 
+## Reconstructions without a matching reference (`src/msl/`)
+
+- `signal.c`: `raise` with a six-entry handler table; signal 1 (`SIGABRT`)
+  with the default handler returns 0 instead of exiting.
+- `uart_console_io.c`: the Wind Waker source with `__init_uart_console`
+  inlined, `__write_console` weak and no `__close_console`.
+
 ## Open work
 
 - No reference links these, so they need reconstruction from the
@@ -69,8 +76,8 @@ linked comparison then treats weak and global alike.
   (`__throw`, `ExPPC_*`, about 5 KB), `mslsupp.c`'s file hooks (`__open_file`
   and the rest; Pikmin 2 has only placeholder stubs), `buffer_io.c`'s
   `__load_buffer` and `setvbuf`, `ansi_files.c`'s file-table helpers,
-  `fopen`/`freopen`/`fread`, `bsearch`, `strstr`, `atoi`, `raise`,
-  `clearerr`, `NewMore.cp`, `uart_console_io.c`'s `__write_console`, and the
+  `fopen`/`freopen`/`fread`, `bsearch`, `strstr`, `atoi`, `clearerr`,
+  `NewMore.cp`, and the
   `pow`/`cosf` wrappers.
 - MetroTRK: Frontline links the Wind Waker's revision (117 of 118 function
   sizes agree), but the Wind Waker decompilation marks most TRK files

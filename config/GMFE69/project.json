@@ -170,7 +170,9 @@
     "SNDI_mult16.json",
     "sexithndl.json",
     "slinkmix.json",
-    "SNDI_findprime.json"
+    "SNDI_findprime.json",
+    "signal.json",
+    "uart_console_io.json"
   ],
   "progress": {
     "code_bytes": 1414572,

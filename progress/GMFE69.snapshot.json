@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 199904,
+    "matching_code_bytes": 200276,
     "total_executable_code_bytes": 1414572,
-    "percent": 14.131765650670308,
+    "percent": 14.15806335767992,
     "categories": {
       "reconstructed_game": 12484,
-      "restored_library": 187420
+      "restored_library": 187792
     },
-    "matching_functions": 861
+    "matching_functions": 863
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -146,7 +146,7 @@
     "config/GMFE69/nubevent.json": "d6afc4bc3a93eb5ab6fc791d166d4243a4fee57863e76656a656235d2e20e0f2",
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "764579cc1d3d27a0680673f1df6cf651f56f78079bd020fa89e42147ed0c7203",
+    "config/GMFE69/project.json": "ead10d598a908d2951eef93cde67c964b6bd48489166e6a4b3c8a25c4ef4d6ba",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -174,6 +174,7 @@
     "config/GMFE69/sfmixer.json": "4d0d491f26ed08d9b8ae2279f2e06d5da6cec1d677f4475c494bd811fbf7db49",
     "config/GMFE69/sfsplit.json": "38efa1f83aa3e5f039e7829ec2e0453d864e51267b2a7aa615b5f99bb815a122",
     "config/GMFE69/sfsrc.json": "ec214b854de58ec9d4a94738f7e2d01b63142489e2a6767301f1d19df63708bf",
+    "config/GMFE69/signal.json": "11e4665069a531c20eb3bf1455bab453a4193e7fcc258de91c6db16275813b7f",
     "config/GMFE69/slinkmix.json": "0d66b0e0297a0e7e7bf0c13cc7f212971c66ee4114cf017c282deb2b452f6755",
     "config/GMFE69/spantoaz.json": "0e3c799ee99a0820131c59ca50dbae62300eb93899d8495888384884db8c42db",
     "config/GMFE69/ssine.json": "ab1e72c303f947cc940dd1d39e24614bd8f638dd228ea71235c2d724f37d0729",
@@ -182,6 +183,7 @@
     "config/GMFE69/targcont.json": "b2ca2a623eb919a56e51a2a987564851f0820315980336f1c08791bf38a03769",
     "config/GMFE69/target.json": "f7e8d7b660fd35f21cdc13385271d7b73fabda6669a0d112db63b3b1f3e8b3b2",
     "config/GMFE69/target_options.json": "89566eaeb8524e74b697e212fd6b56f53c2276681df67bd4ab9ac2fdf4761b95",
+    "config/GMFE69/uart_console_io.json": "c12ad27f08ae82aef8dffc7980694bcb0a18c94f53658fab67915a668275a538",
     "config/GMFE69/usr_put.json": "fc210d4609484140e85306a13eed93ea270caf0897407db3637436d79074440e",
     "config/GMFE69/vi.json": "3341dbca41fdd83ec556de88bdc9cedb4cbd6a7c397486637cd9b6ed88713655",
     "config/GMFE69/w_acos.json": "a345c047f5199566fd9a6302a59458cf71ad12d620db8cb118380c70a6b63e86",
@@ -969,6 +971,8 @@
     "src/ea/ssine.c": "93302d8c4f67ab20ec7e2ead484fb1726b447d5e118755a655f69a2b8479136c",
     "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
     "src/game/propdat.cpp": "b1e26b00f10be619cc409432f6748e200a0064248119fafa81774718c305885d",
+    "src/msl/signal.c": "38550f6b4c1ab95b94663077e5a4135fbeb15f00b541dbc5d9aad91e3c2e7e9e",
+    "src/msl/uart_console_io.c": "ebc3c2826a594fe07935597a55732f43f6f5fb0cd8f25d8b4e99b56bb3ce0900",
     "src/prime/LICENSE.PrimeDecomp": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
     "src/prime/NOTICE": "2304a8d6a92dae039b32a3eb93b1ef80b3b4c205dc03fa134d023a526ab81cdd",
     "src/prime/runtime/CPlusLibPPC.cpp": "44a5aa781055458140830b5cb32c0fbb92a277ef67d59be7e85fb5e9ee08825b",
@@ -9322,6 +9326,114 @@
       "discarded_functions": [],
       "object_sha256": "8a3085550e4ff80f377b7191473cfa9f840c000f89560df853a9770c5dbcde97",
       "linked_sha256": "916bc1130ba8e00ef08a1f6515ae08645e0dab21b37c88a614d4ebc3620b287b"
+    },
+    {
+      "id": "signal",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 176,
+      "compiler_family": "GC",
+      "compiler_version": "1.3",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-pragma",
+        "warn_notinlined off",
+        "-maxerrors",
+        "1",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-fp_contract",
+        "on",
+        "-str",
+        "reuse",
+        "-multibyte",
+        "-DVERSION=0",
+        "-DNDEBUG=1",
+        "-O4,p",
+        "-use_lmw_stmw",
+        "on",
+        "-str",
+        "reuse,pool,readonly",
+        "-common",
+        "off",
+        "-inline",
+        "deferred,auto",
+        "-char",
+        "signed"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "c21b7bbc2feb41baa5c19eebb149a127b07a37669f6426327f29a2de2ff3af19",
+      "linked_sha256": "dd18fb667204764797f8a22b055d805256717a415be7ad60dd9c585ba6b402f8"
+    },
+    {
+      "id": "uart_console_io",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 196,
+      "compiler_family": "GC",
+      "compiler_version": "1.3",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-pragma",
+        "warn_notinlined off",
+        "-maxerrors",
+        "1",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-fp_contract",
+        "on",
+        "-str",
+        "reuse",
+        "-multibyte",
+        "-DVERSION=0",
+        "-DNDEBUG=1",
+        "-O4,p",
+        "-use_lmw_stmw",
+        "on",
+        "-str",
+        "reuse,pool,readonly",
+        "-common",
+        "off",
+        "-inline",
+        "deferred,auto",
+        "-char",
+        "signed"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "f468d840369b110c69aa0308e4aa6d0f948eab9c64302037023c22bcf2c560a4",
+      "linked_sha256": "1d3b5d4c0bdd8ef2a321642c5b4e452ff621bb10a57aed97599c73057760f3f5"
     }
   ],
   "code_map": {
@@ -35961,20 +36073,6 @@
         ]
       },
       {
-        "name": "Unmatched files/signal.c [symbol evidence]",
-        "file_record": 324,
-        "file_name": "signal.c",
-        "ranges": [
-          {
-            "address": "0x8013fd04",
-            "size": 176,
-            "kind": "function",
-            "name": "raise",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
         "name": "Unknown file/.text @ 8013fdb4",
         "ranges": [
           {
@@ -35995,20 +36093,6 @@
             "kind": "function",
             "name": "atoi",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/uart_console_io.c [symbol evidence]",
-        "file_record": 327,
-        "file_name": "uart_console_io.c",
-        "ranges": [
-          {
-            "address": "0x8014054c",
-            "size": 196,
-            "kind": "function",
-            "name": "__write_console",
-            "evidence": "private-reference"
           }
         ]
       },
