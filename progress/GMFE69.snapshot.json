@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 195028,
+    "matching_code_bytes": 195548,
     "total_executable_code_bytes": 1414572,
-    "percent": 13.78706774911422,
+    "percent": 13.823827984719053,
     "categories": {
-      "reconstructed_game": 7744,
+      "reconstructed_game": 8264,
       "restored_library": 187284
     },
-    "matching_functions": 824
+    "matching_functions": 829
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -141,7 +141,7 @@
     "config/GMFE69/nubevent.json": "d6afc4bc3a93eb5ab6fc791d166d4243a4fee57863e76656a656235d2e20e0f2",
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "398b97623e7b22a22d6ff6137a99c238ab0bfdeaeeb4c0b97c692a313767f492",
+    "config/GMFE69/project.json": "54205d9ad8be20d34a671d185e5b02e24d3a6beb2811a9783d73a44432a5a67c",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -158,7 +158,11 @@
     "config/GMFE69/s_sin.json": "72a9c31b228d23acc079c9dd985ac8f6cdb2115b9df2cf5acd29882938696942",
     "config/GMFE69/s_tan.json": "4d4245a72ecbda130924076021f01024ffa5f912437d596842d21aa4b2ac1390",
     "config/GMFE69/scanf.json": "8b6c8c106b3e30ef33cf95e2b2598aa1fa8faba019ccbe4cde367c2c19efc736",
-    "config/GMFE69/sfir8.json": "6f2ed0999536ea81aaa7bf92bd085b56c83981bacb67275d8d910fba1c548290",
+    "config/GMFE69/sfamplf.json": "f2055f056c33fe889e26800d67a3788e0eccd06289947e0981269db127938573",
+    "config/GMFE69/sfbpffir8.json": "de218ba9b3c8c46c391c49586d14857bc31b1585d72a18bbaee7c86960cdef43",
+    "config/GMFE69/sfhpffir8.json": "99ec1729eb512ffd4b8b5216f481dd3d55a9caddd665a3b6ee05f0cc0592888f",
+    "config/GMFE69/sfir8.json": "459b24a90eca89e5932743c53efe19a45d677b7a11d0921eca0cbc4ced223129",
+    "config/GMFE69/sflpffir8.json": "fc0810d492825bf9fbb6c2e9fc4dfbc7fac4cb50d500c1a46ed7cd20de73fa0d",
     "config/GMFE69/string.json": "e6454998be307b09afe6355ffe0a3db4e36e82f2473bdf518fff7c7e67e776ff",
     "config/GMFE69/strtoul.json": "f78ce35bf10a20248e7ba6a255fc9a431224cd5abdcd08160729e3ec87d1ce09",
     "config/GMFE69/targcont.json": "b2ca2a623eb919a56e51a2a987564851f0820315980336f1c08791bf38a03769",
@@ -930,7 +934,11 @@
     "src/ea/fontnull.cpp": "f5c2dfb2e21956fc5d3a1b11c46ae763d9b5cd956badc5e3db912b1e59a9d641",
     "src/ea/meminitadr.cpp": "95eed033a03deab2f0918e8b1a92183e8cf0a9bb94d793f3558d6aa13d112d8d",
     "src/ea/rcmp_mpc_codec_chunk_types.cpp": "b996231c1c402b6ecdd813bb69df3ae8a3580e537b71dd9fa91e238690bb3635",
+    "src/ea/sfamplf.c": "a010b5be32cb20315ea4bba8c494534d0c19e4441c94e1f1720e46eb27527e23",
+    "src/ea/sfbpffir8.c": "07177a65e1ff2f629987f9660a5884e3344122f4fdf22801eb02d4162db5ffc1",
+    "src/ea/sfhpffir8.c": "3968479ea12285464a0ada10990721361a6d0e9ff0eebc958c237b3919138f20",
     "src/ea/sfir8.c": "c89f8d7ae6555fb4e9a57c39b74c65bb989aca35d110111a1bcbf4547149235b",
+    "src/ea/sflpffir8.c": "84bb2eb896dbfb5d1fa403fa2f365fb2d6937e76270066de201d6b3169d3c8b4",
     "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
     "src/game/propdat.cpp": "b1e26b00f10be619cc409432f6748e200a0064248119fafa81774718c305885d",
     "src/prime/LICENSE.PrimeDecomp": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
@@ -8460,8 +8468,6 @@
         "reuse",
         "-use_lmw_stmw",
         "on",
-        "-fp_contract",
-        "on",
         "-lang",
         "c++"
       ],
@@ -8586,6 +8592,162 @@
       "discarded_functions": [],
       "object_sha256": "cf2108c67d62ecd9f690a7687466c2b6f029a36fa1709aec5d67a6a4ac8b6c54",
       "linked_sha256": "bdd117db59881bfae30432f092cbe21898dd1597dca03a937ab4d9ea68a68c7a"
+    },
+    {
+      "id": "sfamplf",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 112,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "428765ab40323d42c1b9ed6d4851a22e7167d743877d678716e9d284d75d0f6f",
+      "linked_sha256": "41ab8fd6df883d08520eaa1abbe08e9975f04e16db8c0969603af5c94031b207"
+    },
+    {
+      "id": "sfhpffir8",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 116,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "32261d6de1568ad458faf4c961f1a05fc47576196542049c90c8bb117566ac98",
+      "linked_sha256": "24b474a8d8b55cf1a8118f1e4e43448fe379ca48cd33c96a922de67e04af0967"
+    },
+    {
+      "id": "sflpffir8",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 124,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "7aea9723f902235c07649d09bec0b4af08e161628a5b379f0fc77d23f5b02d56",
+      "linked_sha256": "041028bc4382e40d26080de7c0e34131dcf12d0de0ceae299d8436da57f2ff4a"
+    },
+    {
+      "id": "sfbpffir8",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 168,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "289fb3b0f2e3ef3aa4d08fea3243c012f5ce3bd07b3e2d8b876d4775bc886fed",
+      "linked_sha256": "5c4fe312992a3c9f04cc80e31d01bcb709ff5ee2a2a2743fef268ad3de776055"
     }
   ],
   "code_map": {
@@ -39129,20 +39291,6 @@
         ]
       },
       {
-        "name": "Unmatched files/sflpffir8.c [symbol evidence]",
-        "file_record": 535,
-        "file_name": "sflpffir8.c",
-        "ranges": [
-          {
-            "address": "0x801651e0",
-            "size": 124,
-            "kind": "function",
-            "name": "SFILTER_modifyLPFFIR8__FP8LPFSTATEPi",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
         "name": "Unknown file/.text @ 8016525c",
         "ranges": [
           {
@@ -39158,20 +39306,6 @@
             "kind": "function",
             "name": "SFILTER_createHPFFIR8__FP8HPFSTATE",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/sfhpffir8.c [symbol evidence]",
-        "file_record": 536,
-        "file_name": "sfhpffir8.c",
-        "ranges": [
-          {
-            "address": "0x80165344",
-            "size": 116,
-            "kind": "function",
-            "name": "SFILTER_modifyHPFFIR8__FP8HPFSTATEPi",
-            "evidence": "private-reference"
           }
         ]
       },
@@ -39195,20 +39329,6 @@
         ]
       },
       {
-        "name": "Unmatched files/sfbpffir8.c [symbol evidence]",
-        "file_record": 537,
-        "file_name": "sfbpffir8.c",
-        "ranges": [
-          {
-            "address": "0x801654a0",
-            "size": 168,
-            "kind": "function",
-            "name": "SFILTER_modifyBPFFIR8__FP8BPFSTATEPi",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
         "name": "Unknown file/.text @ 80165548",
         "ranges": [
           {
@@ -39217,27 +39337,6 @@
             "kind": "function",
             "name": "SFILTER_amplf__FPviPvPvi",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/sfamplf.c [symbol evidence]",
-        "file_record": 538,
-        "file_name": "sfamplf.c",
-        "ranges": [
-          {
-            "address": "0x801656c4",
-            "size": 56,
-            "kind": "function",
-            "name": "SFILTER_createAMPLF__FP10AMPLFSTATE",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x801656fc",
-            "size": 56,
-            "kind": "function",
-            "name": "SFILTER_modifyAMPLF__FP10AMPLFSTATEPi",
-            "evidence": "private-reference"
           }
         ]
       },

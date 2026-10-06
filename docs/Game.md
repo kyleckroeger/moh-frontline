@@ -118,6 +118,10 @@ two differences, both shown by the verified units:
 - `-str reuse` without `readonly`: string literals are in `.data`/`.sdata`
   (`"Gekko PowerPC"`, `"RAM"`).
 
+The sound library (`SNDI_*`, `SFILTER_*`) never fuses multiply-adds, so its
+units are built without `-fp_contract on`; `sfir8.c` and the filter fragments
+verify that way.
+
 Some files are named `.c` but have C++-mangled names (`sfir8.c`); they are built
 with `-lang c++`. Struct and parameter types are views; where the code does not
 establish a type, the source comments say so.
@@ -129,4 +133,7 @@ establish a type, the source comments say so.
 | `sfir8.c` | 1 | 40 | Clears an eight-float FIR history |
 | `cpudetect.cpp` | 1 | 80 | Fills the static `cpuinfo` from the bus clock word at `0x800000FC` |
 | `meminitadr.cpp` | 1 | 80 | One `MEMCLASS_create` call (`"RAM"`, 32-byte alignment) |
-
+| `sfamplf.c` (fragment) | 2 | 112 | Amplifier create/modify; the gain is `parameter / 256`. `SFILTER_amplf` at the start of the file is still unassigned |
+| `sflpffir8.c` (fragment) | 1 | 124 | Low-pass FIR modify: `2 * (p0 >> 8) / (p1 >> 8)`, then `calcFIRCoeffs(fir, 2)` |
+| `sfhpffir8.c` (fragment) | 1 | 116 | High-pass FIR modify: `(p0 >> 7) / (p1 >> 8)`, then `calcFIRCoeffs(fir, 3)` |
+| `sfbpffir8.c` (fragment) | 1 | 168 | Band-pass FIR modify; the parameters are read into locals before either store |

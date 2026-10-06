@@ -152,7 +152,11 @@
     "sfir8.json",
     "fontnull.json",
     "cpudetect.json",
-    "meminitadr.json"
+    "meminitadr.json",
+    "sfamplf.json",
+    "sfhpffir8.json",
+    "sflpffir8.json",
+    "sfbpffir8.json"
   ],
   "progress": {
     "code_bytes": 1414572,
