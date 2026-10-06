@@ -28,7 +28,9 @@ extern int TRKDoFlushCache(TRKBuffer*);
 extern int TRKDoContinue(TRKBuffer*);
 extern int TRKDoStep(TRKBuffer*);
 extern int TRKDoStop(TRKBuffer*);
+extern int TRKDoSetOption(TRKBuffer*);
 
+// Frontline dispatches command 0x17 to TRKDoSetOption.
 struct DispatchEntry gTRKDispatchTable[33] = {
 	{ &TRKDoUnsupported },   { &TRKDoConnect },        { &TRKDoDisconnect },
 	{ &TRKDoReset },         { &TRKDoVersions },       { &TRKDoSupportMask },
@@ -37,7 +39,7 @@ struct DispatchEntry gTRKDispatchTable[33] = {
 	{ &TRKDoUnsupported },   { &TRKDoUnsupported },    { &TRKDoUnsupported },
 	{ &TRKDoUnsupported },   { &TRKDoReadMemory },     { &TRKDoWriteMemory },
 	{ &TRKDoReadRegisters }, { &TRKDoWriteRegisters }, { &TRKDoUnsupported },
-	{ &TRKDoUnsupported },   { &TRKDoFlushCache },     { &TRKDoUnsupported },
+	{ &TRKDoUnsupported },   { &TRKDoFlushCache },     { &TRKDoSetOption },
 	{ &TRKDoContinue },      { &TRKDoStep },           { &TRKDoStop },
 	{ &TRKDoUnsupported },   { &TRKDoUnsupported },    { &TRKDoUnsupported },
 	{ &TRKDoUnsupported },   { &TRKDoUnsupported },
@@ -55,6 +57,7 @@ BOOL TRKDispatchMessage(TRKBuffer* buffer) {
 	error = DS_DispatchError;
 	TRKSetBufferPosition(buffer, 0);
 	TRKReadBuffer1_ui8(buffer, &command);
+	command &= 0xFF; // as in Pikmin's dispatch.c; Frontline masks the byte
 	if (command < gTRKDispatchTableSize) {
 		error = gTRKDispatchTable[command].fn(buffer);
 	}
