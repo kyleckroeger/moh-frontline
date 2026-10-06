@@ -119,8 +119,9 @@ two differences, both shown by the verified units:
   (`"Gekko PowerPC"`, `"RAM"`).
 
 The sound library (`SNDI_*`, `SFILTER_*`) never fuses multiply-adds, so its
-units are built without `-fp_contract on`; `sfir8.c` and the filter fragments
-verify that way.
+units are built without `-fp_contract on`. A sound filter starts with its
+process function and an optional input filter (`+0x8`) that is run first; the
+filter files share that layout.
 
 Some files are named `.c` but have C++-mangled names (`sfir8.c`); they are built
 with `-lang c++`. Struct and parameter types are views; where the code does not
@@ -130,10 +131,10 @@ establish a type, the source comments say so.
 | --- | ---: | ---: | --- |
 | `fontnull.cpp` | 1 | 4 | Static `NULL_draw` referenced by the global `FONTnulldriver` table (20 bytes; only the draw entry is established) |
 | `rcmp_mpc_codec_chunk_types.cpp` | 1 | 28 | Loop over a one-entry anonymous-namespace `ChunkTypes` table (`'MPCh'`) |
-| `sfir8.c` | 1 | 40 | Clears an eight-float FIR history |
+| `sfir8.c` | 2 | 244 | Eight-tap symmetric FIR (eight history samples, five coefficients) and its reset |
 | `cpudetect.cpp` | 1 | 80 | Fills the static `cpuinfo` from the bus clock word at `0x800000FC` |
 | `meminitadr.cpp` | 1 | 80 | One `MEMCLASS_create` call (`"RAM"`, 32-byte alignment) |
-| `sfamplf.c` (fragment) | 2 | 112 | Amplifier create/modify; the gain is `parameter / 256`. `SFILTER_amplf` at the start of the file is still unassigned |
-| `sflpffir8.c` (fragment) | 1 | 124 | Low-pass FIR modify: `2 * (p0 >> 8) / (p1 >> 8)`, then `calcFIRCoeffs(fir, 2)` |
-| `sfhpffir8.c` (fragment) | 1 | 116 | High-pass FIR modify: `(p0 >> 7) / (p1 >> 8)`, then `calcFIRCoeffs(fir, 3)` |
-| `sfbpffir8.c` (fragment) | 1 | 168 | Band-pass FIR modify; the parameters are read into locals before either store |
+| `sfamplf.c` | 3 | 492 | Amplifier filter: process (gain loop, unrolled by the compiler), create, modify (`parameter / 256`) |
+| `sflpffir8.c` | 3 | 356 | Low-pass FIR; its process filters the requested count after the input filter succeeds (the other two use the input's returned count). Modify: `2 * (p0 >> 8) / (p1 >> 8)` |
+| `sfhpffir8.c` | 3 | 348 | High-pass FIR. Modify: `(p0 >> 7) / (p1 >> 8)` |
+| `sfbpffir8.c` | 3 | 400 | Band-pass FIR; modify reads its parameters into locals before either store |

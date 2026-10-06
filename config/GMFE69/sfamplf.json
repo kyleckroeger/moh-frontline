@@ -37,8 +37,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x801656c4",
-      "size": 112,
+      "address": "0x80165548",
+      "size": 492,
       "type": 1
     },
     {
@@ -49,6 +49,12 @@
     }
   ],
   "functions": [
+    {
+      "name": "SFILTER_amplf__FPviPvPvi",
+      "address": "0x80165548",
+      "size": 380,
+      "binding": 1
+    },
     {
       "name": "SFILTER_createAMPLF__FP10AMPLFSTATE",
       "address": "0x801656c4",
@@ -62,9 +68,7 @@
       "binding": 1
     }
   ],
-  "externals": {
-    "SFILTER_amplf__FPviPvPvi": "0x80165548"
-  },
+  "externals": {},
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},

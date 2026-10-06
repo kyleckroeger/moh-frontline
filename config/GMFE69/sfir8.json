@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x80165004",
-      "size": 40,
+      "size": 244,
       "type": 1
     },
     {
@@ -53,6 +53,12 @@
       "name": "SNDI_fir8init__FP11SNDFIRSTATE",
       "address": "0x80165004",
       "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "SNDI_fir8__FP11SNDFIRSTATEiPvPv",
+      "address": "0x8016502c",
+      "size": 204,
       "binding": 1
     }
   ],

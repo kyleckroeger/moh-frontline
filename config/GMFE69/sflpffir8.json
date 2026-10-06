@@ -37,8 +37,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x801651e0",
-      "size": 124,
+      "address": "0x801650f8",
+      "size": 356,
       "type": 1
     },
     {
@@ -50,6 +50,18 @@
   ],
   "functions": [
     {
+      "name": "SFILTER_lpfFIR8__FPviPvPvi",
+      "address": "0x801650f8",
+      "size": 148,
+      "binding": 1
+    },
+    {
+      "name": "SFILTER_createLPFFIR8__FP8LPFSTATE",
+      "address": "0x8016518c",
+      "size": 84,
+      "binding": 1
+    },
+    {
       "name": "SFILTER_modifyLPFFIR8__FP8LPFSTATEPi",
       "address": "0x801651e0",
       "size": 124,
@@ -57,6 +69,8 @@
     }
   ],
   "externals": {
+    "SNDI_fir8__FP11SNDFIRSTATEiPvPv": "0x8016502c",
+    "SNDI_fir8init__FP11SNDFIRSTATE": "0x80165004",
     "calcFIRCoeffs__FP11SNDFIRSTATEi": "0x80164c4c"
   },
   "undefined_in_discarded_code": [],
