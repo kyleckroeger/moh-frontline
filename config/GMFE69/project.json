@@ -380,7 +380,8 @@
     "hearingvolume.json",
     "player_weapon_object.json",
     "Pause.json",
-    "objcreate.json"
+    "objcreate.json",
+    "Moh2.json"
   ],
   "progress": {
     "code_bytes": 1414572,
