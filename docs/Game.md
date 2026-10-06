@@ -196,6 +196,7 @@ establish a type, the source comments say so.
 | `slinklst.c`, `ssysserv.c`, `sgettag.c`, `sstrstat.c` | 10 | 1,316 | Doubly linked lists, sound server clients and `SNDSYS_service`, the header tag reader, request status (64-bit helpers return `SINT64` in r3/r4) |
 | `sfilter.c`, `supf.c` | 6 | 720 | Mixer filter chains (insert by priority, remove, connect ports) and the 16-bit PCM unpacker |
 | `sbremove.c` | 1 | 360 | `SNDbankremove`: stop the bank's voices, run user-data callbacks per timbre, free sample memory (recursive for -1) |
+| `seffect.c` | 3 | 568 | Effect bus lookup (`switch` on the bus flags), bus set-up and master send levels |
 | More sound files: `sbvalid.c`, `sst3dpos.c`, `ssthold.c`, `sctlfilt.c`, `shipass.c`, `slowpass.c`, `sstgetrp.c`, `sstopall.c`, `sstautov.c`, `sattrdef.c`, `scalcfx.c`, `sballoc.c`, `sbhdrcpy.c`, `sctrldry.cpp`, `stimemul.c` | 17 | 1,768 | Bank slots, voice controls applied to each platform voice (`iSNDpatchkey` loop), stream setters and defaults; record members are inferred views |
 | `memblock.cpp` | 1 | 44 | `MEM_initblock` writes a block header ('BM', flags, size, neighbour links); the name and tail-size arguments are not stored |
 | `memlist.cpp` | 5 | 464 | Address-ordered circular free list (`FREE_find`, `FREE_findlargest`, `FREE_gettotalfree`, `FREE_add`, `FREE_remove`) with the class's 'BS' sentinel; `FREE_findlargest` needs the operand order of `0 > size - 1 ? 0 : size - 1` for its branchless max |

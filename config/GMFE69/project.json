@@ -292,7 +292,8 @@
     "sbremove.json",
     "memfill.json",
     "initvblt.json",
-    "memcopy.json"
+    "memcopy.json",
+    "seffect.json"
   ],
   "progress": {
     "code_bytes": 1414572,
