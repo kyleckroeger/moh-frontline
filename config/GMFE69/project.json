@@ -375,7 +375,8 @@
     "collisionvolume.json",
     "ipad.json",
     "SearchNodeList.json",
-    "audioplayer.json"
+    "audioplayer.json",
+    "sbasync.json"
   ],
   "progress": {
     "code_bytes": 1414572,
