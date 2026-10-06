@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x80033728",
-      "size": 244,
+      "size": 548,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000a114",
-      "size": 16,
+      "size": 24,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80010f64",
-      "size": 24,
+      "size": 36,
       "type": 1
     }
   ],
@@ -67,6 +67,12 @@
       "name": "BIFunc_AIStartAStarPathWalkWithCurrentTarget__FPPiPv",
       "address": "0x800337a0",
       "size": 124,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_AIStartAStarPathWalk__FPPiPv",
+      "address": "0x8003381c",
+      "size": 304,
       "binding": 1
     }
   ],

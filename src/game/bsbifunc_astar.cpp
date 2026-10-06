@@ -1,12 +1,15 @@
 // A fragment of bsbifunc.cpp (0x80033728): AI built-ins that start an A* path
-// walk to the move point or to the current target, returning the result. Each
-// reaches the script object's AI object through the scene node's AI doodad and
-// its filter, and pops the built-in's arguments. The file name is this
-// project's; the original record is bsbifunc.cpp and the built-ins around these
-// are not reconstructed. The functions, classes and globals are named by the
-// mangled symbols; ISceneNode is declared with its virtual functions in the
-// order of __vt__10ISceneNode (GetAIDoodad at +204), and the doodad, filter and
-// CAIObject views are inferred (members at their offsets, names not original).
+// walk to the move point, to the current target, or to the AI object of a given
+// script object (reached through its user object's scene node, AI doodad and
+// filter; false when there is none), returning the result. Each reaches the
+// script object's AI object through the scene node's AI doodad and its filter,
+// and pops the built-in's arguments. The file name is this project's; the
+// original record is bsbifunc.cpp and the built-ins around these are not
+// reconstructed. The functions, classes and globals are named by the mangled
+// symbols; ISceneNode is declared with its virtual functions in the order of
+// __vt__10ISceneNode (GetAIDoodad at +204) and BSGO_Basic in the order of
+// __vt__10BSGO_Basic, and the script-object, doodad, filter and CAIObject views
+// are inferred (members at their offsets, names not original).
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
@@ -128,6 +131,20 @@ struct AIDoodadView {
     CAIFilterView* filter;
 };
 
+class BSGO_Basic {
+    unsigned char unknown00[12];
+
+public:
+    virtual void Destroy();
+    virtual int GetScriptData();
+    virtual ISceneNode* GetSceneNode();
+};
+
+struct BSObjectView {
+    unsigned char unknown00[12];
+    BSGO_Basic* user;
+};
+
 struct BSBuiltinView {
     void (*function)(int**, void*);
     unsigned char unknown04[6];
@@ -168,3 +185,34 @@ void BIFunc_AIStartAStarPathWalkWithCurrentTarget(int** stack, void* object) {
     **stack = result;
 }
 
+
+inline CAIFilterView* GetAIFilter(BSObjectView* script) {
+    if (script && script->user) {
+        ISceneNode* node = script->user->GetSceneNode();
+        if (node) {
+            AIDoodadView* doodad = node->GetAIDoodad();
+            if (doodad)
+                return doodad->filter;
+        }
+    }
+    return 0;
+}
+
+void BIFunc_AIStartAStarPathWalk(int** stack, void* object) {
+    CAIObject* ai;
+    CAIObject* target;
+    BSObjectView* script;
+    script = *(BSObjectView**)(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1));
+    ai = GetAIObject(object);
+    target = 0;
+    CAIFilterView* filter = GetAIFilter(script);
+    if (filter)
+        target = filter->object;
+    bool result;
+    if (target)
+        result = ai->StartAStarPathWalk(target);
+    else
+        result = false;
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    **stack = result;
+}
