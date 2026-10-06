@@ -81,3 +81,9 @@ linked comparison then treats weak and global alike.
   the target (`msg.c`, `dispatch.c`, `notify.c`, `support.c`, `nubinit.c`,
   `msgbuf.c`, `serpoll.c`, `msghndlr.c`, `targimpl.c`, `dolphin_trk.c`,
   `dolphin_trk_glue.c`, `mem_TRK.c`), plus the assembly `targsupp.s`.
+- `msgbuf.c` is an inlining puzzle: the target's readers inline `TRKReadBuffer`
+  while its appenders call `TRKAppendBuffer` out of line (`TRKAppendBuffer1_ui16`
+  is 84 bytes). With `-inline deferred,auto` both are inlined; with plain
+  `-inline auto` and source in address order, neither is. Compiler releases
+  GC/1.1 to 2.0 do not change this, and Sunshine's settings (no auto-inlining)
+  break the readers. The Wind Waker's own build has the same mismatch.
