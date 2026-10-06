@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 271412,
+    "matching_code_bytes": 271532,
     "total_executable_code_bytes": 1414572,
-    "percent": 19.18686358842109,
+    "percent": 19.195346719714514,
     "categories": {
-      "reconstructed_game": 71532,
+      "reconstructed_game": 71652,
       "restored_library": 199880
     },
-    "matching_functions": 1588
+    "matching_functions": 1604
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -246,7 +246,7 @@
     "config/GMFE69/pathxSND.json": "711dcdf3a5a5a7b4124ae70e377c5e863dc39c8de8a0de785b3dc3921c685fa0",
     "config/GMFE69/player_weapon_object.json": "2c451ab555672599946bb97ca631b2a316350d8f99e8e9b77cf7f8f648d219df",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "1901a07bffaa523a23d7126e84594a815d6d89d7e9dc466bd5e41588e2852baa",
+    "config/GMFE69/project.json": "a1b8c5a524457a11a1ab0ef65b91a138cfe49db6d42961db0e5d064314503fc7",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -393,6 +393,7 @@
     "config/GMFE69/vector.json": "ed0c381a8941389959ee9a5125f981d7d8d997be92b8b26fd01ae6f758938e5c",
     "config/GMFE69/vi.json": "3341dbca41fdd83ec556de88bdc9cedb4cbd6a7c397486637cd9b6ed88713655",
     "config/GMFE69/viewport.json": "0c53affef7597c4529b9ccbb9623f6ac0f2cc68e6b22e144da649abeacb6ec1c",
+    "config/GMFE69/volume_query_test.json": "d0782921ae4b5629f4c0cbaa88fb03687e1afb912f931845fbbec2a041eb2728",
     "config/GMFE69/w_acos.json": "a345c047f5199566fd9a6302a59458cf71ad12d620db8cb118380c70a6b63e86",
     "config/GMFE69/w_asin.json": "6ef38372a66e69e06862a0052ea7b2f9ae81b1c04e8a466f5a130c1acc0c145f",
     "config/GMFE69/w_atan2.json": "402b21748cf6b931e5860dd52e20681cac8648006dfd7e3b5c41144243ed05a6",
@@ -1371,6 +1372,7 @@
     "src/game/trig.cpp": "5f3032fa44b1d5ddca67665564f3e280e9585d9fb7883e6e5d6398c9e032da74",
     "src/game/vector.cpp": "418a16a82127cea03fd102a27d28bf20ccd7f83caafb1ff1425f09bd38ed113d",
     "src/game/viewport.cpp": "2cf32aa14139d6cd4facb7be15588ff0c937cf61b2e16e0d1c904bdf305423f5",
+    "src/game/volume_query_test.cpp": "dfabcded647a5ca39c7833cec01e21238ee0464e97bf280c0a07be25e1b72bad",
     "src/game/world_object.cpp": "fb23848a360e439658289be801ce9a3893c571554861f742698a693af8d600e5",
     "src/msl/NewMore.cp": "cb60e70e586609256a8ff5c7a4b0efbdf7586b7fa7e3cb43b7f84e309e87c1be",
     "src/msl/bsearch.c": "e18222caa9298644a58b0d497c283f472396491e6297b39abb4865632978533a",
@@ -18277,6 +18279,45 @@
       "discarded_functions": [],
       "object_sha256": "222e3655dab9a83a21f370259312ffab520452dc4dac6c79337c73ad3b812e1c",
       "linked_sha256": "37c79e802ba86c282c0c0edfa5a7a1811c442ccc0bf1163dcbc805f1d09d1369"
+    },
+    {
+      "id": "volume_query_test",
+      "category": "reconstructed_game",
+      "functions": 16,
+      "code_bytes": 120,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "2dc13d4d00d3b9784f4de4893f783ecc67dde90c2a6669c3c80b82c3b02a7fae",
+      "linked_sha256": "1ddfda0d99e3478325259e7fd3a1e50f80f852bb7204b96857ce773167247923"
     }
   ],
   "code_map": {
@@ -18939,7 +18980,7 @@
         ]
       },
       {
-        "name": "Unmatched files/volume_query_test.cpp [inferred file group]",
+        "name": "Unmatched files/volume_query_test.cpp [symbol evidence]",
         "file_record": 4,
         "file_name": "volume_query_test.cpp",
         "ranges": [
@@ -18956,118 +18997,6 @@
             "kind": "function",
             "name": "__dt__7IVolumeFv",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001c0c0",
-            "size": 8,
-            "kind": "function",
-            "name": "Create__7IVolumeCFv",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x8001c0c8",
-            "size": 4,
-            "kind": "function",
-            "name": "TransformedCopy__7IVolumeFRC7IVolumeRC7CMatrix",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x8001c0cc",
-            "size": 8,
-            "kind": "function",
-            "name": "TestCollision__7IVolumeCFRC9CTriangleR10CCollisionb",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x8001c0d4",
-            "size": 8,
-            "kind": "function",
-            "name": "TestCollision__7IVolumeCFRC6CPlaneR10CCollisionb",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x8001c0dc",
-            "size": 8,
-            "kind": "function",
-            "name": "TestCollision__7IVolumeCFRC6CLine3R10CCollisionb",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x8001c0e4",
-            "size": 8,
-            "kind": "function",
-            "name": "TestCollision__7IVolumeCF8CVector3R10CCollisionb",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x8001c0ec",
-            "size": 8,
-            "kind": "function",
-            "name": "TestCollision__7IVolumeCFRC12CWorldVolumeR10CCollisionb",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x8001c0f4",
-            "size": 8,
-            "kind": "function",
-            "name": "TestCollision__7IVolumeCFRC15CAnimatedVolumeR10CCollisionb",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x8001c0fc",
-            "size": 8,
-            "kind": "function",
-            "name": "TestCollision__7IVolumeCFRC9CVolFiberR10CCollisionb",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x8001c104",
-            "size": 8,
-            "kind": "function",
-            "name": "TestCollision__7IVolumeCFRC10CCDBObjectR10CCollisionb",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x8001c10c",
-            "size": 8,
-            "kind": "function",
-            "name": "TestCollision__7IVolumeCFRC11CVolCapsuleR10CCollisionb",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x8001c114",
-            "size": 8,
-            "kind": "function",
-            "name": "TestCollision__7IVolumeCFRC10CVolSphereR10CCollisionb",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x8001c11c",
-            "size": 8,
-            "kind": "function",
-            "name": "TestCollision__7IVolumeCFRC7CVolBoxR10CCollisionb",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x8001c124",
-            "size": 8,
-            "kind": "function",
-            "name": "TestCollision__7IVolumeCFRC7IVolumeR10CCollisionb",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x8001c12c",
-            "size": 8,
-            "kind": "function",
-            "name": "TestVisibility__7IVolumeCFR12CDrawContext",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x8001c134",
-            "size": 4,
-            "kind": "function",
-            "name": "GetExtents__7IVolumeCFR8CVector3R8CVector3",
-            "evidence": "same-class (inferred)"
           }
         ]
       },

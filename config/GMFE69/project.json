@@ -381,7 +381,8 @@
     "player_weapon_object.json",
     "Pause.json",
     "objcreate.json",
-    "Moh2.json"
+    "Moh2.json",
+    "volume_query_test.json"
   ],
   "progress": {
     "code_bytes": 1414572,
