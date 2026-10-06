@@ -276,7 +276,13 @@
     "sautovol.json",
     "s3dlow.json",
     "slib.json",
-    "smixptch.json"
+    "smixptch.json",
+    "smixhip.json",
+    "sbpatinf.json",
+    "susercb.json",
+    "sclnt100.json",
+    "sgetdata.json",
+    "sststat.json"
   ],
   "progress": {
     "code_bytes": 1414572,

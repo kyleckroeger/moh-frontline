@@ -1,0 +1,72 @@
+{
+  "id": "sbpatinf",
+  "source": "src/ea/sbpatinf.c",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80159870",
+      "size": 228,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SNDBANK_patchinfo",
+      "address": "0x80159870",
+      "size": 228,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "SNDBANKI_getppatch__FP8BANKVER5i": "0x8015937c",
+    "SNDBANKI_valid__Fi": "0x80159768",
+    "SNDI_patchtohdr__FPvP11TAGGEDPATCHP15SNDSAMPLEFORMATP13SNDSAMPLEATTRP13SNDSAMPLEDESC": "0x8015f120",
+    "SNDMEMI_free__FPv": "0x80158ff0",
+    "SNDSYS_entercritical": "0x80153554",
+    "SNDSYS_leavecritical": "0x80153588",
+    "_restgpr_26": "0x80138a58",
+    "_savegpr_26": "0x80138a0c",
+    "sndgs": "0x80340860"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "sbpatinf.c",
+  "original_file_index": 12692
+}
