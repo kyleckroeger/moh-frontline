@@ -527,7 +527,8 @@
     "cdbobject_csg.json",
     "cdbobject_ivolume.json",
     "csg_volume_ivolume.json",
-    "fiber_ivolume.json"
+    "fiber_ivolume.json",
+    "cdbgeom_volbox.json"
   ],
   "progress": {
     "code_bytes": 1414572,
