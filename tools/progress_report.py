@@ -82,13 +82,13 @@ def capture(root):
             "target": report["target"], "original_elf_sha256": report["original_elf_sha256"],
             "dol_sha1": report["dol_sha1"], "runtime_tested": False,
             "progress": report["progress"], "input_sha256": report["input_sha256"],
-            "units": report["units"], "code_map": build_code_map(original, accepted, file_owners(original))}
+            "units": report["units"], "code_map": build_code_map(original, accepted, file_owners(original, units))}
 
 
-def file_owners(original):
+def file_owners(original, units=None):
     """Functions' recovered files (see file_map.py), keyed by (name, address)."""
     from file_map import build_file_map
-    _, items, _, _ = build_file_map(original)
+    _, items, _, _ = build_file_map(original, units)
     return {(e["name"], e["address"]): (e["owner"], e["evidence"])
             for entries in items.values() for e in entries if e["owner"] is not None and e["size"]}
 

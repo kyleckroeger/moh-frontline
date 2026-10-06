@@ -1135,12 +1135,12 @@
     "tools/compilers.json": "a7d66ea0a76c35649ab1313e5c6d8257cbee1f2790e230fafbbfb47fd6fa0367",
     "tools/data_strip.py": "5f93d413babda2d4bfcb7bd17bf840bfdf72aefd9d47f169510d3aa800589568",
     "tools/dependencies.py": "904789a0085a12fbc9405b95f47e5b827a33850738bf7e2aa2b3c3ed548da118",
-    "tools/file_map.py": "3b17864b22df195bc3256d63620cf57a171db1333d5e7d39d2d85f029b4fd93b",
+    "tools/file_map.py": "01c2996472bee139aad5b50c663c3df6bf2513aa9724989c0bb648ef36425d00",
     "tools/formats.py": "3124d742d0518c913dfc575602bba63befbd9e0e78220e5a85059cda277f8f81",
     "tools/import_disc.py": "a76b0fc8a963fa5e26e432e8261c26f199989c7e2fc2c90cf0116878db15597b",
     "tools/objdiff_config.py": "4133276adf513df6f4aad3d70df298f0bb0f8ced4ae1abc72703e8e0dc9bb13a",
     "tools/port_unit.py": "01286576bff146da77b51212ed583cf1f552875952673e7d8c738af528ca406b",
-    "tools/progress_report.py": "18f16a51268af84afa8c58e6be719abd94f5ffba16592ed0adcdbd94b9c67b9d",
+    "tools/progress_report.py": "6f77d4f04165a2875275be1fe3d5a84fe128690c3b850c7ea3aaf1e1e307be1f",
     "tools/project_build.py": "8079d8cc43e58510528ee1109e7752dd9da30b28c92feff41d0af158ad132c5a",
     "tools/reconstruct.py": "ae713fceeb3eef9f113af483ad5e3d5d6f1123fc424d0595099247e3e07a4cf2",
     "tools/sdk_build.py": "cff29a4f5465e49f7ee95483c25a200b6d0c025f428cae6064a67d297872369f",
@@ -34844,33 +34844,28 @@
             "size": 176,
             "kind": "function",
             "name": "__open_file",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80137d48",
-        "ranges": [
+            "evidence": "between-same-file"
+          },
           {
             "address": "0x80137d48",
             "size": 180,
             "kind": "function",
             "name": "__write_file",
-            "evidence": "unknown-file"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x80137dfc",
             "size": 180,
             "kind": "function",
             "name": "__read_file",
-            "evidence": "unknown-file"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x80137eb0",
             "size": 132,
             "kind": "function",
             "name": "__close_console",
-            "evidence": "unknown-file"
+            "evidence": "between-same-file"
           }
         ]
       },

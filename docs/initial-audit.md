@@ -82,21 +82,28 @@ a range wrapping to `0x0` at the end of `.sbss2`.
 | Rule | Evidence | Symbols placed |
 | --- | --- | ---: |
 | local-symbol | Private symbols follow their file record | 10,282 |
+| verified-unit | The item lies inside a byte-verified unit (`config/GMFE69`) | 662 |
+| verified-unit (no file record) | Inside a verified unit whose file has only global symbols, so no record | 40 |
 | exception-index | A function's private `extabindex` entry points to it | 2,230 |
-| private-reference | A global's bytes refer to one file's private symbol | 446 |
+| private-reference | A global's bytes refer to one file's private symbol | 257 |
 | same-address | An object starts at a file's private section marker | 11 |
 | table-target | A `.ctors`/`.dtors` word goes with the routine it calls | 51 |
-| between-same-file | Contributions follow file-record (link) order in every section | 1,288 |
+| between-same-file | Contributions follow file-record (link) order in every section | 1,057 |
 | same-class (inferred) | A C++ method goes with its class's other methods | 134 |
 | between-same-file (inferred) | Link order around inferred placements | 85 |
-| unresolved | | 1,235 |
+| unresolved |  | 953 |
 
 The link-order rule holds without exception: file contributions appear in
 file-record order in every section except `.ctors`/`.dtors`, where the MW
 runtime's entries come first (`__init_cpp_exceptions.cpp`,
 `global_destructor_chain.c`; renamed to `.ctors$10`, `.dtors$10`/`$15` as in
 other CodeWarrior decompilations). Against the functions of every verified unit,
-the strong rules have placed every function correctly. A sole-caller rule was
+the strong rules have placed every function correctly. `file_map.py` and the
+progress snapshot's code map also take the verified units as evidence (a
+contradiction is an error); `baseline.py`'s split does not, so it depends on
+the original only. The remaining unresolved code is mostly EA's sound and system
+C libraries, whose files have only global symbols and so no record; file
+boundaries leave no padding in `.text`. A sole-caller rule was
 tried and rejected, scoring 2 of 6.
 
 `baseline.py` now splits the image into **535 objects**: 357 per-file objects

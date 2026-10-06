@@ -12,6 +12,10 @@ Evidence, strongest first:
    file, if the link order allows it. A function belongs to the file whose
    (private) exception-index entry points to it.
 4. A global between two items of the same file belongs to that file.
+Verified units, when supplied, add byte-verified ownership: every item inside
+a unit's section ranges belongs to the unit's file record. An item of a unit
+whose file has no record (only global symbols) is settled but has no ordinal;
+it is never attached to a neighbour. A conflict with rules 1-3 is an error.
 Only when those stall, a weaker rule is applied; it and everything placed
 using its results are labeled as inference:
 5. same-class: a C++ method goes with the other methods of its class.
@@ -75,14 +79,16 @@ def relocations_by_address(elf):
     return result
 
 
-def build_file_map(elf):
+def build_file_map(elf, units=None):
+    """units: optional verified unit manifests used as ownership evidence."""
     symbols = list(elf.symbols())
     sections = {s["index"]: s for s in elf.sections if s["flags"] & 2 and s["size"]}
-    files, owner_of_local = [], {}
+    files, owner_of_local, ordinal_of_record = [], {}, {}
     current = None
     for index, symbol in enumerate(symbols):
         if symbol["type"] == 4:
             current = len(files)
+            ordinal_of_record[index] = current
             files.append(symbol["name"].replace("\\", "/").rsplit("/", 1)[-1])
         elif symbol["binding"] == 0 and symbol["section"] in sections and current is not None:
             owner_of_local[index] = current
@@ -128,7 +134,7 @@ def build_file_map(elf):
                               if e["owner"] is not None and (weak or "inferred" not in e["evidence"]))
             keys = [a for a, _ in anchored]
             for entry in entries:
-                if entry["owner"] is not None:
+                if entry["owner"] is not None or entry["evidence"] is not None:
                     continue
                 cut = bisect.bisect_right(keys, entry["address"])
                 before = max((o for _, o in anchored[:cut]), default=None)
@@ -183,6 +189,26 @@ def build_file_map(elf):
             function = functions.get(entry.get("target"))
             if entry["owner"] is None and function is not None and function["owner"] is not None:
                 entry.update(owner=function["owner"], evidence="table-target")
+    for unit in units or []:
+        record = unit.get("original_file_index")
+        if unit.get("original_file") is not None and record not in ordinal_of_record:
+            raise ValueError(f"Unit {unit['id']} names no original file record")
+        owner = ordinal_of_record.get(record) if unit.get("original_file") is not None else None
+        for section in unit["sections"]:
+            start = int(section["address"], 16)
+            end = start + section["size"]
+            for section_index, entries in items.items():
+                if sections[section_index]["name"] != section.get("target_name", section["name"]):
+                    continue
+                for entry in entries:
+                    if not start <= entry["address"] < end:
+                        continue
+                    if entry["owner"] is not None and entry["owner"] != owner:
+                        raise ValueError(f"Verified unit {unit['id']} contradicts {entry['evidence']} "
+                                         f"for {entry['name']}")
+                    if entry["owner"] is None:
+                        entry.update(owner=owner, evidence="verified-unit" if owner is not None
+                                     else "verified-unit (no file record)")
     while assign(False):
         pass
     while assign(True):
@@ -191,7 +217,7 @@ def build_file_map(elf):
     for section_index, entries in items.items():
         name = sections[section_index]["name"]
         for entry in entries:
-            if entry["owner"] is None and entry["size"]:
+            if entry["owner"] is None and entry["size"] and entry["evidence"] is None:
                 unresolved.append((name, entry["name"], entry["address"]))
     return files, items, sections, unresolved
 
@@ -261,9 +287,15 @@ def splits_text(files, owned, header):
     return "\n\n".join(blocks) + "\n"
 
 
+def verified_units():
+    from setup import CONFIG
+    project = json.loads((CONFIG / "project.json").read_text())
+    return [json.loads((CONFIG / name).read_text()) for name in project["units"]]
+
+
 def main():
     _, elf = load_target()
-    files, items, sections, unresolved = build_file_map(elf)
+    files, items, sections, unresolved = build_file_map(elf, verified_units())
     owned, guessed = ranges(files, items, sections)
     counts = defaultdict(int)
     for entries in items.values():
