@@ -91,6 +91,9 @@ and layouts it marks as descriptive stay descriptive here.
 | `anim.cpp` | 11 | 532 | — | Animation module start-up, the user-opcode callback stacks and the global `g_AnimDB` (constructed by `__sinit_anim_cpp`) |
 | `orient.cpp` | 2 | 300 | — | Fixed-point (one turn = 0x1000000) shortest-way angle interpolation, `extern "C"` names; the 64-bit product shape fixes where the difference is taken |
 | `memory.cpp` | 7 | 748 | `DWI_alloc`/`DWI_allocalign` and the global `operator new`/`new[]`/`delete`/`delete[]` on the REAL heap; `DWI_alloc` is inlined into the `new` forms (hence two `memset` calls), and the `throw()` deletes keep their exception-spec frames |
+| `framework.cpp` | 2 | 8 | Empty `FRAMEWORK::Init`/`Restore` |
+| `isexportdefs.cpp` | 1 | 16 | `NullifyScreenAndLibrary` |
+| `isShellGroup.cpp`, `ispausegroup.cpp`, `isShellLibrary.cpp`, `ispauselibrary.cpp` (fragments) | 4 | 56 | One-line selectors of the shell/pause screen and library tables; the files' string data is not reconstructed |
 | `trig.cpp` (fragment) | 4 | 272 | `MathArcTan2`, `MathSinCos`, `MathCosf`, `MathSinf`. `MathLLAngleInit` (Taylor tables) is left out: 4 instructions differ (element 0 of `_Math_TaylorConst` is addressed through a copied base register), and a 12-byte object the linker stripped sits between the tables |
 
 ## Endian conversions
@@ -176,6 +179,8 @@ establish a type, the source comments say so.
 | `memunused.cpp` | 1 | 64 | `MEM_totalunused` (its own file record starts at 0x8014f4b8, between `memclass.cpp` and `memalloc.cpp`) |
 | `meminit.cpp` | 1 | 136 | `MEM_init`: the largest OS-heap block becomes the default class; `MEM_restore` is registered as an exit handler |
 | `memrestore.cpp` | 1 | 372 | `MEM_restore`: clears duplicate `memclass` entries, then removes the classes and frees their OS-heap blocks |
+| `debugger.cpp`, `fontdriver.cpp`, `timer.cpp` | 4 | 28 | `DEBUG_break` (empty), `FONT_installdriver`, `TIMER_gettick`/`TIMER_getfrequency` |
+| `coda.cpp` | 2 | 16 | `SND::CODASetNew`/`CODASetDelete` allocation hooks |
 | `memblock.cpp` | 1 | 44 | `MEM_initblock` writes a block header ('BM', flags, size, neighbour links); the name and tail-size arguments are not stored |
 | `memlist.cpp` | 5 | 464 | Address-ordered circular free list (`FREE_find`, `FREE_findlargest`, `FREE_gettotalfree`, `FREE_add`, `FREE_remove`) with the class's 'BS' sentinel; `FREE_findlargest` needs the operand order of `0 > size - 1 ? 0 : size - 1` for its branchless max |
 | `memstd.cpp` | 1 | 8 | `MEM_size` |

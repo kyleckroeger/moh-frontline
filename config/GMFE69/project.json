@@ -206,7 +206,17 @@
     "memblock.json",
     "memstd.json",
     "meminit.json",
-    "memrestore.json"
+    "memrestore.json",
+    "debugger.json",
+    "fontdriver.json",
+    "timer.json",
+    "coda.json",
+    "framework.json",
+    "isexportdefs.json",
+    "isShellGroup.json",
+    "ispausegroup.json",
+    "isShellLibrary.json",
+    "ispauselibrary.json"
   ],
   "progress": {
     "code_bytes": 1414572,

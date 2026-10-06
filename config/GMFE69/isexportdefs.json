@@ -1,0 +1,70 @@
+{
+  "id": "isexportdefs",
+  "source": "src/game/isexportdefs.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8008b00c",
+      "size": 16,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "NullifyScreenAndLibrary__Fv",
+      "address": "0x8008b00c",
+      "size": 16,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "LibraryInfo": "0x8034ea9c",
+    "ScreenInfo": "0x8034ea98"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "LibraryInfo",
+    "ScreenInfo"
+  ],
+  "original_file": "isexportdefs.cpp",
+  "original_file_index": 5231
+}
