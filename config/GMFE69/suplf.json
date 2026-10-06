@@ -1,0 +1,78 @@
+{
+  "id": "suplf",
+  "source": "src/ea/suplf.c",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80161ca4",
+      "size": 276,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SFILTER_unpacklfgetframe__FPv",
+      "address": "0x80161ca4",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "SFILTER_unpacklf__FPviPvPvi",
+      "address": "0x80161cac",
+      "size": 200,
+      "binding": 1
+    },
+    {
+      "name": "SFILTER_unpacklfinit__FPvP16UNPACKINITPARAMS",
+      "address": "0x80161d74",
+      "size": 68,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "_restgpr_27": "0x80138a5c",
+    "_savegpr_27": "0x80138a10",
+    "sndmix": "0x80340eb0"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "suplf.c",
+  "original_file_index": 13069
+}

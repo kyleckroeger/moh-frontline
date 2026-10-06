@@ -302,7 +302,8 @@
     "sx87d16.json",
     "supmutf.json",
     "supmutpf.json",
-    "suppf.json"
+    "suppf.json",
+    "suplf.json"
   ],
   "progress": {
     "code_bytes": 1414572,
