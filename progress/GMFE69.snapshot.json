@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 271532,
+    "matching_code_bytes": 271760,
     "total_executable_code_bytes": 1414572,
-    "percent": 19.195346719714514,
+    "percent": 19.211464669172017,
     "categories": {
-      "reconstructed_game": 71652,
+      "reconstructed_game": 71880,
       "restored_library": 199880
     },
-    "matching_functions": 1604
+    "matching_functions": 1626
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -245,8 +245,9 @@
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/pathxSND.json": "711dcdf3a5a5a7b4124ae70e377c5e863dc39c8de8a0de785b3dc3921c685fa0",
     "config/GMFE69/player_weapon_object.json": "2c451ab555672599946bb97ca631b2a316350d8f99e8e9b77cf7f8f648d219df",
+    "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "a1b8c5a524457a11a1ab0ef65b91a138cfe49db6d42961db0e5d064314503fc7",
+    "config/GMFE69/project.json": "1b82df62478c6046f8294687e305a8df86c34e87f28015ebb2384f7c919511e3",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1361,6 +1362,7 @@
     "src/game/objcreate.cpp": "a8ec01efb52c079a05a8d23f4da6a48069b76b8f72381051618d38351aee33c9",
     "src/game/orient.cpp": "031b0d870db82013b99a554649dfe99038d03705b3309d14909ed0094ee43304",
     "src/game/player_weapon_object.cpp": "1fd752be827cdffac6452a0457941d3237b13d77dec02900a4a7dac4c597d1fa",
+    "src/game/popup.cpp": "64e2a7db93328be02cadb3f465f1cd9936b3f19d0b6ca82315d38ea6681b4133",
     "src/game/propdat.cpp": "b1e26b00f10be619cc409432f6748e200a0064248119fafa81774718c305885d",
     "src/game/rcmpbase.cpp": "ff8d5797157a414f7fcd5f34456614259a93f8fe1feb92ea2fdaeb740ee14eb3",
     "src/game/real_bridge.cpp": "3528e557dcb6116823246402f1003e63fd82246a624dcbc2f18e5ee8b9bf8e41",
@@ -18318,6 +18320,45 @@
       "discarded_functions": [],
       "object_sha256": "2dc13d4d00d3b9784f4de4893f783ecc67dde90c2a6669c3c80b82c3b02a7fae",
       "linked_sha256": "1ddfda0d99e3478325259e7fd3a1e50f80f852bb7204b96857ce773167247923"
+    },
+    {
+      "id": "popup",
+      "category": "reconstructed_game",
+      "functions": 22,
+      "code_bytes": 228,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "deferred,auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "bb6e3d7a597f76aed120095741b1b6636323dac7d98f5763413f893ddc05535a",
+      "linked_sha256": "8c878bab5e1a48a7ab7350ddbac234528b4133d773be0fa272f5e7e7c39d3d3f"
     }
   ],
   "code_map": {
@@ -33204,160 +33245,6 @@
             "size": 124,
             "kind": "function",
             "name": "MoveTop__12PopUpMessageFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf768",
-            "size": 8,
-            "kind": "function",
-            "name": "GetString__12PopUpMessageFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf770",
-            "size": 8,
-            "kind": "function",
-            "name": "Get_top__12PopUpMessageFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf778",
-            "size": 8,
-            "kind": "function",
-            "name": "Get_a__12PopUpMessageFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf780",
-            "size": 8,
-            "kind": "function",
-            "name": "Get_b__12PopUpMessageFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf788",
-            "size": 8,
-            "kind": "function",
-            "name": "Get_g__12PopUpMessageFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf790",
-            "size": 8,
-            "kind": "function",
-            "name": "Get_r__12PopUpMessageFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf798",
-            "size": 8,
-            "kind": "function",
-            "name": "Get_onScreenTime__12PopUpMessageFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf7a0",
-            "size": 8,
-            "kind": "function",
-            "name": "Get_property__12PopUpMessageFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf7a8",
-            "size": 8,
-            "kind": "function",
-            "name": "Get_screenLocY__12PopUpMessageFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf7b0",
-            "size": 8,
-            "kind": "function",
-            "name": "Get_screenLocX__12PopUpMessageFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf7b8",
-            "size": 8,
-            "kind": "function",
-            "name": "Get_placement__12PopUpMessageFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf7c0",
-            "size": 8,
-            "kind": "function",
-            "name": "Available__12PopUpMessageFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf7c8",
-            "size": 40,
-            "kind": "function",
-            "name": "SetString__12PopUpMessageFPCc",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800bf7f0",
-            "size": 8,
-            "kind": "function",
-            "name": "ChangeAvailability__12PopUpMessageFUc",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf7f8",
-            "size": 8,
-            "kind": "function",
-            "name": "Set_bottom__12PopUpMessageFUs",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf800",
-            "size": 8,
-            "kind": "function",
-            "name": "Set_top__12PopUpMessageFUs",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf808",
-            "size": 20,
-            "kind": "function",
-            "name": "Set_rgba__12PopUpMessageFUcUcUcUc",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf81c",
-            "size": 12,
-            "kind": "function",
-            "name": "Set_textSize__12PopUpMessageFUc",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf828",
-            "size": 8,
-            "kind": "function",
-            "name": "Set_onScreenTime__12PopUpMessageFf",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf830",
-            "size": 8,
-            "kind": "function",
-            "name": "Set_property__12PopUpMessageFUc",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf838",
-            "size": 12,
-            "kind": "function",
-            "name": "Set_screenLocs__12PopUpMessageFUsUs",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf844",
-            "size": 8,
-            "kind": "function",
-            "name": "Set_placement__12PopUpMessageFUc",
             "evidence": "between-same-file"
           },
           {

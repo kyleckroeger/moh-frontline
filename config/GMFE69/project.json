@@ -382,7 +382,8 @@
     "Pause.json",
     "objcreate.json",
     "Moh2.json",
-    "volume_query_test.json"
+    "volume_query_test.json",
+    "popup.json"
   ],
   "progress": {
     "code_bytes": 1414572,

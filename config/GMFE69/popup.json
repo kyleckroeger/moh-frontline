@@ -1,0 +1,204 @@
+{
+  "id": "popup",
+  "source": "src/game/popup.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "deferred,auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800bf768",
+      "size": 228,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000dbf8",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80014a98",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "GetString__12PopUpMessageFv",
+      "address": "0x800bf768",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Get_top__12PopUpMessageFv",
+      "address": "0x800bf770",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Get_a__12PopUpMessageFv",
+      "address": "0x800bf778",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Get_b__12PopUpMessageFv",
+      "address": "0x800bf780",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Get_g__12PopUpMessageFv",
+      "address": "0x800bf788",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Get_r__12PopUpMessageFv",
+      "address": "0x800bf790",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Get_onScreenTime__12PopUpMessageFv",
+      "address": "0x800bf798",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Get_property__12PopUpMessageFv",
+      "address": "0x800bf7a0",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Get_screenLocY__12PopUpMessageFv",
+      "address": "0x800bf7a8",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Get_screenLocX__12PopUpMessageFv",
+      "address": "0x800bf7b0",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Get_placement__12PopUpMessageFv",
+      "address": "0x800bf7b8",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Available__12PopUpMessageFv",
+      "address": "0x800bf7c0",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "SetString__12PopUpMessageFPCc",
+      "address": "0x800bf7c8",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "ChangeAvailability__12PopUpMessageFUc",
+      "address": "0x800bf7f0",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Set_bottom__12PopUpMessageFUs",
+      "address": "0x800bf7f8",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Set_top__12PopUpMessageFUs",
+      "address": "0x800bf800",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Set_rgba__12PopUpMessageFUcUcUcUc",
+      "address": "0x800bf808",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "Set_textSize__12PopUpMessageFUc",
+      "address": "0x800bf81c",
+      "size": 12,
+      "binding": 1
+    },
+    {
+      "name": "Set_onScreenTime__12PopUpMessageFf",
+      "address": "0x800bf828",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Set_property__12PopUpMessageFUc",
+      "address": "0x800bf830",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Set_screenLocs__12PopUpMessageFUsUs",
+      "address": "0x800bf838",
+      "size": 12,
+      "binding": 1
+    },
+    {
+      "name": "Set_placement__12PopUpMessageFUc",
+      "address": "0x800bf844",
+      "size": 8,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "strncpy": "0x8013fffc"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "popup.cpp",
+  "original_file_index": 7392
+}
