@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 238880,
+    "matching_code_bytes": 239256,
     "total_executable_code_bytes": 1414572,
-    "percent": 16.88708669477411,
+    "percent": 16.913667172826834,
     "categories": {
       "reconstructed_game": 47860,
-      "restored_library": 191020
+      "restored_library": 191396
     },
-    "matching_functions": 1183
+    "matching_functions": 1185
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -182,7 +182,7 @@
     "config/GMFE69/memunused.json": "3d7f29fa1955bab00027cdd115e8a829932fafb9008b4328198cc302b14f4a5f",
     "config/GMFE69/misc_io.json": "ce7d57c797416feb92a3a89e4ce5412b18b2a322ecac1667ffdca9c454e2e8f1",
     "config/GMFE69/mpc_7xx_603e.json": "815f349dc1383d438a3836cb5ba5bd2db4279c6d017721a52804a4fd42e85507",
-    "config/GMFE69/mslsupp.json": "2541b92f398de9b87693f46cf3c1788ca2567585937933406e7e83b347675dd5",
+    "config/GMFE69/mslsupp.json": "3356ce84580021d5df9f41c0ada4620bbb19bda532f75c8dd505f99f4f229da3",
     "config/GMFE69/mtx.json": "61ba8caa4839c1bb759b694d83cff465e9a2e293d606c43603098ae206217583",
     "config/GMFE69/mtx44.json": "6ec8c80e78a896f985eb769ac01b97ff684e2d83116660d2c740123270c0ddf5",
     "config/GMFE69/mtxvec.json": "bb6a4f09ca854ab9a727be34f0a20df7f53e0e081e1b83581418b88de9987009",
@@ -1244,7 +1244,7 @@
     "src/game/vector.cpp": "418a16a82127cea03fd102a27d28bf20ccd7f83caafb1ff1425f09bd38ed113d",
     "src/msl/NewMore.cp": "cb60e70e586609256a8ff5c7a4b0efbdf7586b7fa7e3cb43b7f84e309e87c1be",
     "src/msl/bsearch.c": "e18222caa9298644a58b0d497c283f472396491e6297b39abb4865632978533a",
-    "src/msl/mslsupp.c": "b218ce6eb031f2b74fc27abb2c18cfe43e63a47161ada8703531fd06c18964b0",
+    "src/msl/mslsupp.c": "dd035227b8e683320b6147ec006a50b26ba14f315be2755a3d573476e16eb2e8",
     "src/msl/signal.c": "38550f6b4c1ab95b94663077e5a4135fbeb15f00b541dbc5d9aad91e3c2e7e9e",
     "src/msl/uart_console_io.c": "ebc3c2826a594fe07935597a55732f43f6f5fb0cd8f25d8b4e99b56bb3ce0900",
     "src/msl/w_pow.c": "ffa2dc29129da5fe0529f988e8859f6462f8b332fda949eaeed158d11b7b5752",
@@ -5209,8 +5209,8 @@
     {
       "id": "mslsupp",
       "category": "restored_library",
-      "functions": 7,
-      "code_bytes": 1212,
+      "functions": 9,
+      "code_bytes": 1588,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -5264,8 +5264,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "18a3b1ed0a36b3948a80865d911bb3be84cf0628f324d313de8d3b9de8a64eca",
-      "linked_sha256": "5262d6ee5fd20b00a76ecd726143987053eccef06d25aa57f0ff1fd4c6fdd993"
+      "object_sha256": "367e905bd391acc3ad177c3ed65f5eedcccebd1681d2065c3f6a419b703ba94f",
+      "linked_sha256": "830e0b6bb27652f863b3c7b2b7a5a479067bc07c55461e5f522e3335f20c47ca"
     },
     {
       "id": "__init_cpp_exceptions",
@@ -40707,25 +40707,6 @@
             "size": 56,
             "kind": "function",
             "name": "TRKEXICallBack",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80137f34",
-        "ranges": [
-          {
-            "address": "0x80137f34",
-            "size": 188,
-            "kind": "function",
-            "name": "__TRK_write_console",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80137ff0",
-            "size": 188,
-            "kind": "function",
-            "name": "__read_console",
             "evidence": "unknown-file"
           }
         ]

@@ -59,7 +59,7 @@
     {
       "name": ".text",
       "address": "0x80137a78",
-      "size": 1212,
+      "size": 1588,
       "type": 1
     }
   ],
@@ -105,10 +105,23 @@
       "address": "0x80137eb0",
       "size": 132,
       "binding": 1
+    },
+    {
+      "name": "__TRK_write_console",
+      "address": "0x80137f34",
+      "size": 188,
+      "binding": 1
+    },
+    {
+      "name": "__read_console",
+      "address": "0x80137ff0",
+      "size": 188,
+      "binding": 1
     }
   ],
   "externals": {
     "GetTRKConnected": "0x80134d18",
+    "GetUseSerialIO": "0x80137a5c",
     "TRKAccessFile": "0x80137060",
     "TRKCloseFile": "0x80137070",
     "TRKOpenFile": "0x80137068",

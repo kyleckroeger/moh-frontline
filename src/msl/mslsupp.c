@@ -16,6 +16,7 @@ typedef struct {
 } __file_modes;
 
 int GetTRKConnected(void);
+u8 GetUseSerialIO(void);
 u8 TRKAccessFile(u8 command, unsigned long handle, size_t* length, unsigned char* buffer);
 u8 TRKOpenFile(u8 command, unsigned long name, u8 mode, unsigned long* handle);
 u8 TRKCloseFile(u8 command, unsigned long handle);
@@ -170,6 +171,54 @@ int __close_console(unsigned long handle) {
         return 1;
 
     switch (TRKCloseFile(0xD3, handle)) {
+    case 0:
+        return 0;
+    case 2:
+        return 2;
+    case 1:
+    default:
+        return 1;
+    }
+}
+
+int __TRK_write_console(unsigned long handle, unsigned char* buffer, size_t* count, void* idle) {
+    size_t length;
+    u8 result;
+
+    if (!GetUseSerialIO())
+        return 1;
+    if (!GetTRKConnected())
+        return 1;
+
+    length = *count;
+    result = TRKAccessFile(0xD0, 1, &length, buffer);
+    *count = length;
+
+    switch (result) {
+    case 0:
+        return 0;
+    case 2:
+        return 2;
+    case 1:
+    default:
+        return 1;
+    }
+}
+
+int __read_console(unsigned long handle, unsigned char* buffer, size_t* count, void* idle) {
+    size_t length;
+    u8 result;
+
+    if (!GetUseSerialIO())
+        return 1;
+    if (!GetTRKConnected())
+        return 1;
+
+    length = *count;
+    result = TRKAccessFile(0xD1, 0, &length, buffer);
+    *count = length;
+
+    switch (result) {
     case 0:
         return 0;
     case 2:

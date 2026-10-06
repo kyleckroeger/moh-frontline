@@ -71,8 +71,10 @@ linked comparison then treats weak and global alike.
 - `bsearch.c`: checks its arguments, compares element 0, then binary-searches
   elements 1 to `num - 1`.
 - `mslsupp.c`: MetroTRK's MSL file hooks (`__open_file`, `__read_file`,
-  `__write_file`, `__position_file`, `__close_file`, `__close_console`) and
-  the local `convertFileMode`. The original object has debug sections and is
+  `__write_file`, `__position_file`, `__close_file`, `__close_console`,
+  `__TRK_write_console`, `__read_console`) and the local `convertFileMode`.
+  The console hooks check `GetUseSerialIO` and repeat the file access on
+  stdout/stdin instead of calling `__write_file`/`__read_file`. The original object has debug sections and is
   built with inlining off (the TRK profile otherwise); `convertFileMode`
   takes the mode by pointer and returns a full-width value.
 - `w_pow.c`: fdlibm's `_IEEE_LIBM` `pow` wrapper.
