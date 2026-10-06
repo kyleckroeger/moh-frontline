@@ -394,7 +394,12 @@
     "Screen.json",
     "staticmesh.json",
     "attachobject.json",
-    "animated.json"
+    "animated.json",
+    "skybox.json",
+    "compartment.json",
+    "Tank_object.json",
+    "player.json",
+    "UIStudio.json"
   ],
   "progress": {
     "code_bytes": 1414572,
