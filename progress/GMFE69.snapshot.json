@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 239764,
+    "matching_code_bytes": 240340,
     "total_executable_code_bytes": 1414572,
-    "percent": 16.949579095302326,
+    "percent": 16.990298125510755,
     "categories": {
       "reconstructed_game": 47860,
-      "restored_library": 191904
+      "restored_library": 192480
     },
-    "matching_functions": 1197
+    "matching_functions": 1198
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -56,7 +56,7 @@
     "config/GMFE69/GXPixel.json": "8a078293429864d0af0f5181a695a381b0144714e2ac2281d6ce38136aeeb262",
     "config/GMFE69/GXStubs.json": "f982b70601475f696346533ae77d4424c28e7ff3e577f677e69199958fa00fdc",
     "config/GMFE69/GXTev.json": "4b28b0baa32d270c71bc6725d0b291fc2236dc9f6f6d0c104edb0ba1fa3b4399",
-    "config/GMFE69/GXTexture.json": "fee53b58bcc52dee50e933340ae77066267452c98410a66575d8acd6d920c0bc",
+    "config/GMFE69/GXTexture.json": "984d5a48aeb260459a8f09c39e303b5e2f48a9bab79353bb86eb06e8a2d1fc69",
     "config/GMFE69/GXTransform.json": "38225301a6fd0d656301839a81128f2235b7fbe70c809990d1beeb45d8a5182b",
     "config/GMFE69/Gecko_ExceptionPPC.json": "40e29a739fe917c560f5eb9768fcab768f7b2d6fafcf2e45c14439d96526b39e",
     "config/GMFE69/LinkedList.json": "602f883f2de084765f8942b8e59f71e78eba4a2f6decd323bf7ba7b64498ec81",
@@ -1006,7 +1006,7 @@
     "src/dolsdk2001/gx/GXSave.c": "b27c1ee3460da8ab130e3a3e40190f6ccc057cf42818ac4567de7728fc071fb3",
     "src/dolsdk2001/gx/GXStubs.c": "d4fe05a2f0242d9a57e28640f98155cd2db169571f2eccd8ea8407546d053f48",
     "src/dolsdk2001/gx/GXTev.c": "2133c9c81f3af1f92e2f206385730793bfd4d5e4e439dd86841063add19417d4",
-    "src/dolsdk2001/gx/GXTexture.c": "966705cc525b6ebf8218cb739cb01a7d6972a03321800ccf028375fedf957406",
+    "src/dolsdk2001/gx/GXTexture.c": "e41892209f54dd073dfb595ad4f5bed8841d2b6fb0cf323d2352ca6b2e538468",
     "src/dolsdk2001/gx/GXTransform.c": "8e66108896275d89af0e84a76099bf3bdf295ec9ded0e4cfa384b7757a46358b",
     "src/dolsdk2001/gx/GXVerifRAS.c": "13083b45c8b04fca4d9d5dff1d3afd3cc5aceb6453ced3f314ffca1a8f1ec903",
     "src/dolsdk2001/gx/GXVerifXF.c": "f6d2ac4150d8d30923eb7bd867d2388997f731a8b3b3b414213219b1288ced0c",
@@ -4811,8 +4811,8 @@
     {
       "id": "GXTexture",
       "category": "restored_library",
-      "functions": 17,
-      "code_bytes": 2936,
+      "functions": 18,
+      "code_bytes": 3512,
       "compiler_family": "GC",
       "compiler_version": "1.2.5n",
       "compiler_flags": [
@@ -4878,8 +4878,8 @@
         "GXSetTexCoordBias",
         "__GXGetSUTexSize"
       ],
-      "object_sha256": "d893b336bbd133cd055c5908dbc22f7cf0cbd48c069abb5ff49ab67d03370a29",
-      "linked_sha256": "769f0244fbcb028f4672213ca3253615758fdbfa815453d131b9fbdfd38f5d87"
+      "object_sha256": "795eb40f8398a28380713d21d60e2e92ac92e08bfe5314de741b5e70e595753b",
+      "linked_sha256": "e8c46facde3c2618f618d3bd44a39f7bcc3ec750aecf392f22c7f76b7622cb18"
     },
     {
       "id": "ar",
@@ -39824,18 +39824,6 @@
             "size": 132,
             "kind": "function",
             "name": "CARDSetAttributes",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8012e584",
-        "ranges": [
-          {
-            "address": "0x8012e584",
-            "size": 576,
-            "kind": "function",
-            "name": "__GXSetTmemConfig",
             "evidence": "unknown-file"
           }
         ]

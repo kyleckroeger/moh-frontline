@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8012da0c",
-      "size": 2936,
+      "size": 3512,
       "type": 1
     },
     {
@@ -172,6 +172,12 @@
       "address": "0x8012e408",
       "size": 380,
       "binding": 1
+    },
+    {
+      "name": "__GXSetTmemConfig",
+      "address": "0x8012e584",
+      "size": 576,
+      "binding": 1
     }
   ],
   "externals": {
@@ -223,13 +229,13 @@
     "commit": "eb1234c45e6df75757c652c835507ca89674f9a8",
     "path": "src/gx/GXTexture.c"
   },
-  "original_file": "GXTexture.c",
-  "original_file_index": 11391,
   "local_externals": [],
   "discarded_local_functions": [
     "__GXGetTexTileShift"
   ],
   "sda_externals": [
     "gx"
-  ]
+  ],
+  "original_file": "GXTexture.c",
+  "original_file_index": 11391
 }
