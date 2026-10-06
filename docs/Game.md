@@ -115,6 +115,8 @@ and layouts it marks as descriptive stay descriptive here.
 | `projectilebullet.cpp` (fragment) | 5 | 40 | — | `CProjectileBullet` weak bounding-volume, damage, fired-by and cast accessors |
 | `world_volume.cpp` (fragment) | 5 | 40 | — | Weak `CWorldVolume::TestCollision` defaults (no collision) for triangles, planes, points, world volumes and CDB objects |
 | `cdbobject.cpp` (fragment) | 5 | 40 | — | The same weak `TestCollision` defaults for `CCDBObject` |
+| `cdbgeom.cpp` (fragment) | 5 | 156 | — | Weak `CCDBVolBox` collision tests: none against world volumes, otherwise the `CVolBox` base tests (point by value, CDB object, box, generic volume) |
+| `animated_volume.cpp` (fragment) | 8 | 360 | — | `CAnimatedVolume` collision tests: the `CVolSphere` base tests for triangles, planes, points, capsules, spheres and boxes; against CDB objects and generic volumes it swaps the collision order and calls the other volume's test (virtual order of `__vt__7IVolume`) |
 | `Screen.cpp` (fragment) | 4 | 32 | — | `CScreen` depth and frame formats (by address) and width and height (inferred offsets) |
 | `staticmesh.cpp` (fragment) | 3 | 36 | — | Weak `CStaticMesh::IsFoggingEnabled` (a `bool` bit-field) and `CStaticAnimMesh` ticks per frame and frame count from its animation header |
 | `attachobject.cpp` (fragment) | 4 | 28 | — | `CStaticObject` weak casts, draw-enabled flag (`bool` bit-field at +480) and attached light |

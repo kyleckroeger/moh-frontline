@@ -1,0 +1,126 @@
+{
+  "id": "animated_volume",
+  "source": "src/game/animated_volume.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800bfca8",
+      "size": 444,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000dc64",
+      "size": 64,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80014b10",
+      "size": 96,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "TestCollision__15CAnimatedVolumeCFRC7IVolumeR10CCollisionb",
+      "address": "0x800bfdf0",
+      "size": 116,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__15CAnimatedVolumeCFRC7CVolBoxR10CCollisionb",
+      "address": "0x800bfdd0",
+      "size": 32,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__15CAnimatedVolumeCFRC10CVolSphereR10CCollisionb",
+      "address": "0x800bfdb0",
+      "size": 32,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__15CAnimatedVolumeCFRC11CVolCapsuleR10CCollisionb",
+      "address": "0x800bfd90",
+      "size": 32,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__15CAnimatedVolumeCFRC10CCDBObjectR10CCollisionb",
+      "address": "0x800bfd1c",
+      "size": 116,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__15CAnimatedVolumeCF8CVector3R10CCollisionb",
+      "address": "0x800bfce8",
+      "size": 52,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__15CAnimatedVolumeCFRC6CPlaneR10CCollisionb",
+      "address": "0x800bfcc8",
+      "size": 32,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__15CAnimatedVolumeCFRC9CTriangleR10CCollisionb",
+      "address": "0x800bfca8",
+      "size": 32,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "SwapOrder__10CCollisionFv": "0x800c79c4",
+    "TestCollision__10CVolSphereCF8CVector3R10CCollisionb": "0x800cb31c",
+    "TestCollision__10CVolSphereCFRC10CVolSphereR10CCollisionb": "0x800cb764",
+    "TestCollision__10CVolSphereCFRC11CVolCapsuleR10CCollisionb": "0x800cb5dc",
+    "TestCollision__10CVolSphereCFRC6CPlaneR10CCollisionb": "0x800cab08",
+    "TestCollision__10CVolSphereCFRC7CVolBoxR10CCollisionb": "0x800cb940",
+    "TestCollision__10CVolSphereCFRC9CTriangleR10CCollisionb": "0x800cab00"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "animated_volume.cpp",
+  "original_file_index": 7412
+}

@@ -411,7 +411,9 @@
     "animemot.json",
     "fontdraw.json",
     "rcmp_mpc_codec.json",
-    "swvideodisplaylist.json"
+    "swvideodisplaylist.json",
+    "animated_volume.json",
+    "cdbgeom.json"
   ],
   "progress": {
     "code_bytes": 1414572,

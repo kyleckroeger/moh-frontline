@@ -1,0 +1,105 @@
+{
+  "id": "cdbgeom",
+  "source": "src/game/cdbgeom.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8006a680",
+      "size": 156,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000b5e8",
+      "size": 32,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800127dc",
+      "size": 48,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "TestCollision__10CCDBVolBoxCFRC7IVolumeR10CCollisionb",
+      "address": "0x8006a6fc",
+      "size": 32,
+      "binding": 2
+    },
+    {
+      "name": "TestCollision__10CCDBVolBoxCFRC7CVolBoxR10CCollisionb",
+      "address": "0x8006a6dc",
+      "size": 32,
+      "binding": 2
+    },
+    {
+      "name": "TestCollision__10CCDBVolBoxCFRC10CCDBObjectR10CCollisionb",
+      "address": "0x8006a6bc",
+      "size": 32,
+      "binding": 2
+    },
+    {
+      "name": "TestCollision__10CCDBVolBoxCF8CVector3R10CCollisionb",
+      "address": "0x8006a688",
+      "size": 52,
+      "binding": 2
+    },
+    {
+      "name": "TestCollision__10CCDBVolBoxCFRC12CWorldVolumeR10CCollisionb",
+      "address": "0x8006a680",
+      "size": 8,
+      "binding": 2
+    }
+  ],
+  "externals": {
+    "TestCollision__7CVolBoxCF8CVector3R10CCollisionb": "0x800c271c",
+    "TestCollision__7CVolBoxCFRC10CCDBObjectR10CCollisionb": "0x800c2898",
+    "TestCollision__7CVolBoxCFRC7CVolBoxR10CCollisionb": "0x800c37d0",
+    "TestCollision__7CVolBoxCFRC7IVolumeR10CCollisionb": "0x800c50d8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "cdbgeom.cpp",
+  "original_file_index": 3230
+}

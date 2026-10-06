@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 273820,
+    "matching_code_bytes": 274420,
     "total_executable_code_bytes": 1414572,
-    "percent": 19.35709175637578,
+    "percent": 19.399507412842894,
     "categories": {
-      "reconstructed_game": 73940,
+      "reconstructed_game": 74540,
       "restored_library": 199880
     },
-    "matching_functions": 1735
+    "matching_functions": 1748
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -129,6 +129,7 @@
     "config/GMFE69/anim.json": "6c0f7deb10acc52b25def57dae0a0ea6329965cecfc7a591ba086eda441dd7a8",
     "config/GMFE69/anim_obj.json": "1fb127f32bc123fbf0681c3a0ff716eced3621257c89eb83b7fac576055a52ef",
     "config/GMFE69/animated.json": "287709fae92d1f2bc9baa748743d62ba1a49a85cf0e889096e17c7c94c0d6984",
+    "config/GMFE69/animated_volume.json": "7d1c85b24d6774d0fda4ac1fcae8f10f8f1689c5af247d311403d1602def7bb4",
     "config/GMFE69/animchan.json": "6342a434b5e2b62c447c6545e0b905bc97dfb3e202fb456a6608dfe74f9cd25b",
     "config/GMFE69/animdb.json": "bb5f95b38785b1dbd10de555e7a48050f9187bed1d9ce716634786e1f809c851",
     "config/GMFE69/animemot.json": "c7d83591715a7a509a95952392cf6b2629a0b42fb7129ab7cd01172398e19c97",
@@ -154,6 +155,7 @@
     "config/GMFE69/bstimer.json": "f6c1bc76d8200192cc1dc0fcc0d071b489cc158c09f820ee351e4190d480c6ae",
     "config/GMFE69/bsutil.json": "13765752a33dc76e39372b30249944a615461f0ea3f9a39a276cc311ffbc3ea4",
     "config/GMFE69/buffer_io.json": "9a997068c0c387e86e9609ec66493e7caa8d98ea675676441eb2ff729f5d4186",
+    "config/GMFE69/cdbgeom.json": "5a109535b401c445086faf5c376577d4b6f060dae9fd6a6071fdfecf36255cdf",
     "config/GMFE69/cdbobject.json": "05d0a5d951c8fd3d451e360560441b26335e47a75eac59645e9848879f9b01b8",
     "config/GMFE69/coda.json": "ed79629f16e36603a2a74fe3bfd2db4c7043efb597de702316a222bcbb355440",
     "config/GMFE69/collisionvolume.json": "4b42015c953c1335d95d5edae0ec810f53e76935e2b6b0e446fd20b039dbc795",
@@ -264,7 +266,7 @@
     "config/GMFE69/player_weapon_object.json": "2c451ab555672599946bb97ca631b2a316350d8f99e8e9b77cf7f8f648d219df",
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "fa22bb1f6d53ebf9012b855664d7e6e1234cf4830d714abce09cae364e4396b9",
+    "config/GMFE69/project.json": "6dee0941a62cd0a3e4a8d5bce8d5914b5064a71a05b8701338614f47e542259b",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
@@ -1365,6 +1367,7 @@
     "src/game/anim.cpp": "9e086af4631ac941623f4e90cc4d858d9a4a1ddde96c1433e494b2f9411978d3",
     "src/game/anim_obj.cpp": "725abd73fe56c11fd2c8b08a127d30cfc73d5b6527fc15d9000668ac993e7dd7",
     "src/game/animated.cpp": "7201a9c7fc7443902e3ff26bebada1970237b53aeeb9d6727209e4572908d76d",
+    "src/game/animated_volume.cpp": "f62030622d9d9f6dfe61d463a94a3ecc33d2b6dedb85bb42aa8040c5ff0d85db",
     "src/game/animchan.cpp": "221d21b6310330f8d36e7a5735a51dcfdb4f162c8d5651ef577e1ee2c9ca6030",
     "src/game/animdb.cpp": "2ad9555c6c6df924ebfa81b4d627ee1284c7634ec8c91330edafca9d2753c2ac",
     "src/game/animemot.cpp": "5cc0324f67d1e2382a71ff9718e51aa98cf08b875326f70fcf8b590829164231",
@@ -1381,6 +1384,7 @@
     "src/game/bsschedule.cpp": "03573e4203501782b94b4ed70853989b43110a29ecee0af5d0eed5e4baf9919c",
     "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
     "src/game/bsutil.cpp": "f03c5b5ec3e47256dacde20a490fde3a873782516ee578d6fd469ab5025e49a2",
+    "src/game/cdbgeom.cpp": "dbb319b1ba8edc52c87f565f57a506fb7e3934a7195ac17ae7d79e86ac4e8c06",
     "src/game/cdbobject.cpp": "8d9ba3051b730eaceb1df207075b6d193ad9ee06b403ef50da260ff8821c0e51",
     "src/game/collisionvolume.cpp": "7630050bd871009d72d7c476d8176402a9d2475ce5e0d3100183e5e3d51c5ef2",
     "src/game/compartment.cpp": "0f672d3fdb0861873ed8382e8e30b6a38756d059ec6156f3d6cc61c4ef0cc866",
@@ -19509,6 +19513,84 @@
       "discarded_functions": [],
       "object_sha256": "62cb28129d64c2d6bc997922ed809db6850d28b78b5453d4316f9692d8fe8134",
       "linked_sha256": "b1281589b1ef310ba14e7c49299bc4dde345710843ef796ce9bbc81b097423d9"
+    },
+    {
+      "id": "animated_volume",
+      "category": "reconstructed_game",
+      "functions": 8,
+      "code_bytes": 444,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "7d45b4ad0c821048e62c9bafeb413d86efb9e4141ab9a12cc60420b543e32114",
+      "linked_sha256": "de85da8acf799ccbe74562e3a437bf690054587207640877cff109c50e168aaf"
+    },
+    {
+      "id": "cdbgeom",
+      "category": "reconstructed_game",
+      "functions": 5,
+      "code_bytes": 156,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "8d03bf40adee4dbe4efb1744073d6589b067d5cbcc6eff65c313113934de4034",
+      "linked_sha256": "21f3fc716a122dd8aa2b39931b9b801428c11292a9118d5328f5cb2e466685f2"
     }
   ],
   "code_map": {
@@ -26682,41 +26764,6 @@
             "size": 96,
             "kind": "function",
             "name": "__dt__10CCDBVolBoxFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8006a680",
-            "size": 8,
-            "kind": "function",
-            "name": "TestCollision__10CCDBVolBoxCFRC12CWorldVolumeR10CCollisionb",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8006a688",
-            "size": 52,
-            "kind": "function",
-            "name": "TestCollision__10CCDBVolBoxCF8CVector3R10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8006a6bc",
-            "size": 32,
-            "kind": "function",
-            "name": "TestCollision__10CCDBVolBoxCFRC10CCDBObjectR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8006a6dc",
-            "size": 32,
-            "kind": "function",
-            "name": "TestCollision__10CCDBVolBoxCFRC7CVolBoxR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8006a6fc",
-            "size": 32,
-            "kind": "function",
-            "name": "TestCollision__10CCDBVolBoxCFRC7IVolumeR10CCollisionb",
             "evidence": "exception-index"
           },
           {
@@ -34066,62 +34113,6 @@
             "size": 120,
             "kind": "function",
             "name": "TestCollision__15CAnimatedVolumeCFRC9CVolFiberR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800bfca8",
-            "size": 32,
-            "kind": "function",
-            "name": "TestCollision__15CAnimatedVolumeCFRC9CTriangleR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800bfcc8",
-            "size": 32,
-            "kind": "function",
-            "name": "TestCollision__15CAnimatedVolumeCFRC6CPlaneR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800bfce8",
-            "size": 52,
-            "kind": "function",
-            "name": "TestCollision__15CAnimatedVolumeCF8CVector3R10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800bfd1c",
-            "size": 116,
-            "kind": "function",
-            "name": "TestCollision__15CAnimatedVolumeCFRC10CCDBObjectR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800bfd90",
-            "size": 32,
-            "kind": "function",
-            "name": "TestCollision__15CAnimatedVolumeCFRC11CVolCapsuleR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800bfdb0",
-            "size": 32,
-            "kind": "function",
-            "name": "TestCollision__15CAnimatedVolumeCFRC10CVolSphereR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800bfdd0",
-            "size": 32,
-            "kind": "function",
-            "name": "TestCollision__15CAnimatedVolumeCFRC7CVolBoxR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800bfdf0",
-            "size": 116,
-            "kind": "function",
-            "name": "TestCollision__15CAnimatedVolumeCFRC7IVolumeR10CCollisionb",
             "evidence": "exception-index"
           },
           {
