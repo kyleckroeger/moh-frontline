@@ -576,7 +576,9 @@
     "bsbifunc_dump.json",
     "bsbifunc_ambselect.json",
     "bsbifunc_jaw.json",
-    "bsbifunc_mood.json"
+    "bsbifunc_mood.json",
+    "bsbifunc_corpse.json",
+    "bsbifunc_distance.json"
   ],
   "progress": {
     "code_bytes": 1414572,
