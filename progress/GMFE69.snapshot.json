@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 208608,
+    "matching_code_bytes": 209844,
     "total_executable_code_bytes": 1414572,
-    "percent": 14.747075440486592,
+    "percent": 14.83445169280885,
     "categories": {
       "reconstructed_game": 17188,
-      "restored_library": 191420
+      "restored_library": 192656
     },
-    "matching_functions": 952
+    "matching_functions": 957
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -149,6 +149,7 @@
     "config/GMFE69/mbstring.json": "9de9f46cc9601517195f1c54fab48fb7e78bb2f47d69f7aa83c76823aea418d9",
     "config/GMFE69/mem.json": "ca3c317259aa8b4ae29fb186b81dae2190665955e0af421cfa574e77be7bb350",
     "config/GMFE69/mem_funcs.json": "cdc21eee7ec690a2964eff60bc9e230f0115ca0eb200b536179c0a35c292ae7a",
+    "config/GMFE69/memclass.json": "df204516364d5a81e1b59db1bec8bc22d93dcae30bee54eea0d7cccb76d82f2b",
     "config/GMFE69/meminitadr.json": "381fcfbcbb6c274bbc1966d84f43a5ba64175efe3e51b4f0b3824230aa348172",
     "config/GMFE69/misc_io.json": "ce7d57c797416feb92a3a89e4ce5412b18b2a322ecac1667ffdca9c454e2e8f1",
     "config/GMFE69/mpc_7xx_603e.json": "815f349dc1383d438a3836cb5ba5bd2db4279c6d017721a52804a4fd42e85507",
@@ -161,7 +162,7 @@
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "0ae8d937d9a431cc0a78a38b3da60ec7658ec81d438bf80d35e620ba0d6f5df3",
+    "config/GMFE69/project.json": "8c70941dcec0479d91ed1a8f56d36b233c571054c153bf54901444c9e6996315",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -198,6 +199,7 @@
     "config/GMFE69/string.json": "dfcf9ebcd504cab3afb3e06b74c7e218ecadac89ebde48c40659fcaeb0a01628",
     "config/GMFE69/strtoul.json": "96027a37123019cd24fdaf9c4ec6caa8228464cf8362a2b3ba7e36acdb35dad5",
     "config/GMFE69/surfacetype.json": "86dc7dabf78f07ec11a9d5eca99eb78762ddd2392826818716ae3082c324a362",
+    "config/GMFE69/systask.json": "72ab78a87c62946f502623a9bc8fad993fcddee8643de447770dd905097bc03f",
     "config/GMFE69/system.json": "9394480cdf8454b27c4fa4f94aba62c452a439fc1c1cde6698ff33bbcf26375f",
     "config/GMFE69/targcont.json": "b2ca2a623eb919a56e51a2a987564851f0820315980336f1c08791bf38a03769",
     "config/GMFE69/target.json": "f7e8d7b660fd35f21cdc13385271d7b73fabda6669a0d112db63b3b1f3e8b3b2",
@@ -980,6 +982,7 @@
     "src/ea/idct.cpp": "b3f69a37bb85fc0cad5293848e9add29eb184e02082723c04d1ab7aec557a8a4",
     "src/ea/initosalloc.cpp": "de7adefcde275593a6ed8ebcae40eef5f82e0fcd932e4569270e2bad4db8fe64",
     "src/ea/inittmr.cpp": "2b8bc47a5536adecefaedb4c74d54e5a0509db63fdfef428e0975b1dcabababa",
+    "src/ea/memclass.cpp": "ee817bfb9f719cf31446fcc3bfd9df5922fd9ab43fc344c85507a1f7226c34fa",
     "src/ea/meminitadr.cpp": "95eed033a03deab2f0918e8b1a92183e8cf0a9bb94d793f3558d6aa13d112d8d",
     "src/ea/rcmp_mpc_codec_chunk_types.cpp": "b996231c1c402b6ecdd813bb69df3ae8a3580e537b71dd9fa91e238690bb3635",
     "src/ea/sexithndl.c": "b5dc86e69a579d07c16f0ef7558d5928fb5c5271c2748f3833c203e624a60019",
@@ -997,6 +1000,7 @@
     "src/ea/spantoaz.c": "e31c00ca71938e75d62f7465384c809d31a6bd0daa4b46f9d2576df1cbe2775c",
     "src/ea/ssine.c": "93302d8c4f67ab20ec7e2ead484fb1726b447d5e118755a655f69a2b8479136c",
     "src/ea/ssysreal.c": "08872d0af87f62ff0a9c5171fb908b629202f85e585ef45923d546f90b77f4f8",
+    "src/ea/systask.cpp": "064e88a22a3eb4ce2abeccd180f0df17d49e86028b44b3fc0a54e8cf7365d4bb",
     "src/ea/timerthread.cpp": "e2ee2dfbb74893029f0693bb5b76212bdd70223c892d9fd963984794c6193628",
     "src/game/LinkedList.cpp": "3007b79180a5844b8b799dc4fc11618f6b5da77679e6c73c6f388fec501beb2a",
     "src/game/MallocInit.cpp": "ba35f4c9ac530c717f81930ab9aa3a203ea81844e4776914ae6b51acf4188a74",
@@ -10414,6 +10418,84 @@
       "discarded_functions": [],
       "object_sha256": "5a5c5786f8c3bf8c0e965cd67b9b761313bd1aaa9287963201eac7e315096f6c",
       "linked_sha256": "0cb4489db3b11679e603e0a7eaeee87699269394dd616ecd5a8d9b4daffb6d74"
+    },
+    {
+      "id": "memclass",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 464,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "2b841751b7b6934978f9ca4e58408afb35d1becba8cc1c40bb09dd57db732f57",
+      "linked_sha256": "11d84cf47276736fb68b803954d008a5550cc27ead1ea091d5e12511a2d50451"
+    },
+    {
+      "id": "systask",
+      "category": "restored_library",
+      "functions": 4,
+      "code_bytes": 772,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "ce3df68703711127818bfbabc9cccc52f31cb73c41f1b873805d6884aa334089",
+      "linked_sha256": "79c81e774206f0ec3ebcf24d2be67e34c985bdd226767663427ec669c5a0776f"
     }
   ],
   "code_map": {
@@ -37474,20 +37556,6 @@
         ]
       },
       {
-        "name": "Unmatched files/memclass.cpp [symbol evidence]",
-        "file_record": 381,
-        "file_name": "memclass.cpp",
-        "ranges": [
-          {
-            "address": "0x8014f268",
-            "size": 464,
-            "kind": "function",
-            "name": "MEMCLASS_create",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
         "name": "Unknown file/.text @ 8014f438",
         "ranges": [
           {
@@ -37952,41 +38020,6 @@
             "kind": "function",
             "name": "MUTEX_unlock",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/systask.cpp [symbol evidence]",
-        "file_record": 415,
-        "file_name": "systask.cpp",
-        "ranges": [
-          {
-            "address": "0x80152174",
-            "size": 48,
-            "kind": "function",
-            "name": "SYNCTASK_init",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x801521a4",
-            "size": 408,
-            "kind": "function",
-            "name": "SYNCTASK_add",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8015233c",
-            "size": 88,
-            "kind": "function",
-            "name": "SYNCTASK_del",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80152394",
-            "size": 228,
-            "kind": "function",
-            "name": "SYNCTASK_run",
-            "evidence": "private-reference"
           }
         ]
       },

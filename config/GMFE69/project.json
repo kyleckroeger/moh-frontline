@@ -194,7 +194,9 @@
     "ssysreal.json",
     "initosalloc.json",
     "abortmsg.json",
-    "orient.json"
+    "orient.json",
+    "memclass.json",
+    "systask.json"
   ],
   "progress": {
     "code_bytes": 1414572,

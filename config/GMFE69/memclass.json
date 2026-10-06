@@ -1,0 +1,84 @@
+{
+  "id": "memclass",
+  "source": "src/ea/memclass.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8014f268",
+      "size": 464,
+      "type": 1
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034e5c0",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x803519b8",
+      "size": 8,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "MEMCLASS_create",
+      "address": "0x8014f268",
+      "size": 464,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "FREE_add__FP8MEMCLASSP8MEMBLOCK": "0x8014fe8c",
+    "MEM_fill": "0x80150db4",
+    "MEM_initblock__FP8MEMBLOCKPCciiiP8MEMBLOCKP8MEMBLOCK": "0x8014fd40",
+    "MUTEX_create": "0x801520d8",
+    "_restgpr_21": "0x80138a44",
+    "_savegpr_21": "0x801389f8",
+    "memclass": "0x8033ee20",
+    "sprintf": "0x8013dab4",
+    "strcpy": "0x80140040"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "memclass.cpp",
+  "original_file_index": 12355
+}
