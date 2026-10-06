@@ -426,7 +426,8 @@
     "bsfile.json",
     "dmmorph.json",
     "AISplinePath.json",
-    "csg_volume.json"
+    "csg_volume.json",
+    "quaternion.json"
   ],
   "progress": {
     "code_bytes": 1414572,

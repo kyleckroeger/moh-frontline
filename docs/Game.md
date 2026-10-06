@@ -129,6 +129,7 @@ and layouts it marks as descriptive stay descriptive here.
 | `player.cpp` (fragment) | 3 | 16 | — | `CPlayerObject` weak AI-doodad accessor (+36) and identity casts |
 | `UIStudio.c` (fragment) | 3 | 28 | — | Registration of the client transform, resource and message callbacks in the studio record (inferred slots; deferred inlining, reverse order) |
 | `matrix.cpp` (fragment) | 4 | 112 | — | `CMatrix` row setters (position, up, front, right) copying a by-value `CVector3` coordinate by coordinate (rows of 16 bytes, inferred) |
+| `quaternion.cpp` (fragment) | 1 | 204 | — | `CQuaternion::EndianSwap`: the vector part, then the scalar (stored first), through the inlined float `EndianSwap`/`ChangeEndian` helpers of `propdat.cpp` |
 | `rcmp_main.cpp` (fragment) | 2 | 84 | — | `RCMP_Initialize` (framework `Init`, then the RCMP system REAL defaults) and `RCMP_Shutdown` (framework `Restore`) on `g_fw` |
 | `IStudio.cpp` (fragment) | 2 | 80 | — | `IStudio` screen activation and loading forwarded to the UI studio (`UISSetScreenActive`, `UISLoadScreen` with zero extra parameters) |
 | `IStudioFuncs.cpp` (fragment) | 2 | 116 | — | Unloading and loading the shell big file (`g_pLevelBigFile`, loaded through `TLT_LoadFileNormal` with alignment 256) |
