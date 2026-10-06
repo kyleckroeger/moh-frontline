@@ -327,7 +327,8 @@
     "threads.json",
     "srandom.json",
     "supxaf.json",
-    "supxalf.json"
+    "supxalf.json",
+    "supxapf.json"
   ],
   "progress": {
     "code_bytes": 1414572,
