@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 356672,
+    "matching_code_bytes": 357736,
     "total_executable_code_bytes": 1414572,
-    "percent": 25.214128372398154,
+    "percent": 25.289345469866504,
     "categories": {
       "reconstructed_game": 91828,
-      "restored_library": 264844
+      "restored_library": 265908
     },
-    "matching_functions": 2373
+    "matching_functions": 2377
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -219,7 +219,7 @@
     "config/GMFE69/bsbifunc_shake.json": "9af46b055f38bd105bfbcb4ead37d7ec0eb5c4a82d9e3cd72e861962920e021a",
     "config/GMFE69/bsbifunc_soundbank.json": "7f77f59eea466b689cbd7e612d33fdfcc8d162dc187b4a5441cebe3a6b29a904",
     "config/GMFE69/bsbifunc_stop.json": "8f7fb238dfd5d8d55d8b8728ff38039a116982a0d6415c5624f5a9f55beb5c65",
-    "config/GMFE69/bsbifunc_translate.json": "3de117c71c085443f170097f719a25dd93ad7c97a17fefabe618e84e34c0ffbf",
+    "config/GMFE69/bsbifunc_translate.json": "8ad52cc399317cae040e568745ec73b6612182f345e479ebf44a2d9a191a884b",
     "config/GMFE69/bsbifunc_vibration.json": "265edf7233487928d89153abf3226c1ead2fce219f81ea95edaf5767999cbaac",
     "config/GMFE69/bsearch.json": "dd287b9523a5f289e22dc32f273d0f9756b610c9280ec41b84aac1d7ea50912b",
     "config/GMFE69/bsevents.json": "4d5e6958dc99d81cad43c900fad33dc5196739566f1e0212d9186c0a693aa6c3",
@@ -1635,7 +1635,7 @@
     "src/game/bsbifunc_shake.cpp": "24364ceeefd9b2d4dc0004d49a1f4d758381ddb8101515ccb30fae9ae0a469cf",
     "src/game/bsbifunc_soundbank.cpp": "b87b5a6d71a2911bdb0d17df14125ade5016530a19742435620c92d6045f74c5",
     "src/game/bsbifunc_stop.cpp": "39ec02ecb5fb86d764ba39b6565aa769334d211a5698ee23ba1cd0e205df2316",
-    "src/game/bsbifunc_translate.cpp": "0cc24c7e83265bfdb516a920dfef15c6d11d6c1013dea0726cea02bd015d4aae",
+    "src/game/bsbifunc_translate.cpp": "d1915d1a5106223f684829156d43feab4702a6fdc447b2532addd9941ddc195e",
     "src/game/bsbifunc_vibration.cpp": "43ba02afe369628880a3cfa0c998d04397a1cc2ca9bec847caf3b60f5b910065",
     "src/game/bsevents.cpp": "1b5e58c1b9e2c631a8d1f8ac7839f9c533133df991df9974c5d73760c3af352b",
     "src/game/bsfile.cpp": "af375447dad6c73a39950974ef6a4ac7c892bbbb7541fba3b32587c6d1c69cab",
@@ -26081,8 +26081,8 @@
     {
       "id": "bsbifunc_translate",
       "category": "restored_library",
-      "functions": 1,
-      "code_bytes": 424,
+      "functions": 5,
+      "code_bytes": 1488,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -26114,8 +26114,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "e4588719eea461f33f570f904138a14b1ccd88f3ab07c249b998a5d9c59835bf",
-      "linked_sha256": "6bec45f7481577f484de0a1e2f7c879aeea9f5d07e68314df239b13f0bc66b28"
+      "object_sha256": "fc08cefdba1f9e824d6529240817889fd032d31609dbbe213937caf1c2893714",
+      "linked_sha256": "bc4e5a0032b4e983aadaa5f450e0b40e4e72fb567c6053302e053a5beafc4cfe"
     },
     {
       "id": "bsbifunc_mountedmg",
@@ -27733,34 +27733,6 @@
             "size": 528,
             "kind": "function",
             "name": "BIFunc_RotateRel__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80028b64",
-            "size": 232,
-            "kind": "function",
-            "name": "BIFunc_StopMotionPlayback__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80028c4c",
-            "size": 320,
-            "kind": "function",
-            "name": "BIFunc_StartMotionPlayback__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80028d8c",
-            "size": 288,
-            "kind": "function",
-            "name": "BIFunc_HierObjectPlayAnimation__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80028eac",
-            "size": 224,
-            "kind": "function",
-            "name": "BIFunc_StaticObjectPlayAnimation__FPPiPv",
             "evidence": "exception-index"
           },
           {

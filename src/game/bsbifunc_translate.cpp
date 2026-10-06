@@ -1,17 +1,21 @@
-// A fragment of bsbifunc.cpp (0x800289bc): the script built-in that moves the
+// A fragment of bsbifunc.cpp (0x800289bc): script built-ins that move the
 // script object's static object (or, for a sub-object index other than -1, that
 // sub-object of its hierarchy object) relative to its position by script, with
-// a delta, a speed and a completion event. It reads its arguments below the
-// script stack top and pops the built-in's arguments. The file name is this
-// project's; the original record is bsbifunc.cpp and the built-ins around it
-// are not reconstructed. The functions, classes and globals are named by the
-// mangled symbols; ISceneNode is declared with its virtual functions in the
-// order of __vt__10ISceneNode (AsStaticObject at +116, AsHierObject at +124),
-// IMovingSceneNode's and CStaticObject's after them in the order of
-// __vt__13CStaticObject (TranslateFromScript at +304; the unnamed entry at +300
-// as a placeholder) and BSGO_Basic in the order of __vt__10BSGO_Basic; the
-// vector view (four floats, 8-byte aligned, built by an inline constructor),
-// script-object and built-in record views are inferred.
+// a delta, a speed and a completion event, stop and start a motion playback (on
+// the static object for a negative sub-object index, otherwise on that
+// sub-object), and play an animation on a hierarchy sub-object (after fetching
+// the static object, unused) or on the static object. Each reads its arguments
+// below the script stack top and pops the built-in's arguments. The file name
+// is this project's; the original record is bsbifunc.cpp and the built-ins
+// around these are not reconstructed. The functions, classes and globals are
+// named by the mangled symbols; ISceneNode is declared with its virtual
+// functions in the order of __vt__10ISceneNode (AsStaticObject at +116,
+// AsHierObject at +124), IMovingSceneNode's and CStaticObject's after them in
+// the order of __vt__13CStaticObject (TranslateFromScript at +304,
+// StartMotionPlayback at +316; the unnamed entry at +300 as a placeholder) and
+// BSGO_Basic in the order of __vt__10BSGO_Basic; the vector view (four floats,
+// 8-byte aligned, built by an inline constructor), script-object and built-in
+// record views are inferred.
 class CVector3 {
 public:
     CVector3(float ax, float ay, float az) : x(ax), y(ay), z(az) {}
@@ -132,6 +136,8 @@ public:
     virtual void* AsThrownObject();
     virtual void* AsWeaponObject();
     virtual void* AsHierTankObject();
+    void StopMotionPlayback();
+    void PlayAnimation(int, int, int, EBSEventEnum);
 };
 
 class CHierObject {
@@ -182,5 +188,50 @@ void BIFunc_TranslateRel(int** stack, void*) {
         g_pBSObject->user->GetSceneNode()->AsHierObject()->GetSubObject(sub)->TranslateFromScript(delta, speed, event);
     else
         g_pBSObject->user->GetSceneNode()->AsStaticObject()->TranslateFromScript(delta, speed, event);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+void BIFunc_StopMotionPlayback(int** stack, void*) {
+    int sub = *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1));
+    if (sub < 0)
+        g_pBSObject->user->GetSceneNode()->AsStaticObject()->StopMotionPlayback();
+    else
+        g_pBSObject->user->GetSceneNode()->AsHierObject()->GetSubObject(sub)->StopMotionPlayback();
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+void BIFunc_StartMotionPlayback(int** stack, void*) {
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    int sub = *(*stack - (count - 1));
+    int motion = *(*stack - (count - 2));
+    int mode = *(*stack - (count - 3));
+    EBSEventEnum event = (EBSEventEnum)*(*stack - (count - 4));
+    if (sub < 0)
+        g_pBSObject->user->GetSceneNode()->AsStaticObject()->StartMotionPlayback(motion, mode, event);
+    else
+        g_pBSObject->user->GetSceneNode()->AsHierObject()->GetSubObject(sub)->StartMotionPlayback(motion, mode, event);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+void BIFunc_HierObjectPlayAnimation(int** stack, void*) {
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    int sub = *(*stack - (count - 1));
+    int animation = *(*stack - (count - 2));
+    int mode = *(*stack - (count - 3));
+    int blend = *(*stack - (count - 4));
+    EBSEventEnum event = (EBSEventEnum)*(*stack - (count - 5));
+    CStaticObject* object = g_pBSObject->user->GetSceneNode()->AsStaticObject();
+    g_pBSObject->user->GetSceneNode()->AsHierObject()->GetSubObject(sub)->PlayAnimation(animation, mode, blend, event);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+void BIFunc_StaticObjectPlayAnimation(int** stack, void*) {
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    int animation = *(*stack - (count - 1));
+    int mode = *(*stack - (count - 2));
+    int blend = *(*stack - (count - 3));
+    EBSEventEnum event = (EBSEventEnum)*(*stack - (count - 4));
+    CStaticObject* object = g_pBSObject->user->GetSceneNode()->AsStaticObject();
+    object->PlayAnimation(animation, mode, blend, event);
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
 }

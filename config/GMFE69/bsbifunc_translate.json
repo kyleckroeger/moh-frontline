@@ -40,23 +40,47 @@
     {
       "name": ".text",
       "address": "0x800289bc",
-      "size": 424,
+      "size": 1488,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009c54",
-      "size": 8,
+      "size": 40,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80010844",
-      "size": 12,
+      "size": 60,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "BIFunc_StopMotionPlayback__FPPiPv",
+      "address": "0x80028b64",
+      "size": 232,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_StartMotionPlayback__FPPiPv",
+      "address": "0x80028c4c",
+      "size": 320,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_StaticObjectPlayAnimation__FPPiPv",
+      "address": "0x80028eac",
+      "size": 224,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_HierObjectPlayAnimation__FPPiPv",
+      "address": "0x80028d8c",
+      "size": 288,
+      "binding": 1
+    },
     {
       "name": "BIFunc_TranslateRel__FPPiPv",
       "address": "0x800289bc",
@@ -66,6 +90,8 @@
   ],
   "externals": {
     "GetSubObject__11CHierObjectFi": "0x8009bd38",
+    "PlayAnimation__13CStaticObjectFiii12EBSEventEnum": "0x800af90c",
+    "StopMotionPlayback__13CStaticObjectFv": "0x800af7c0",
     "g_iCurrentBIFIndex": "0x8034e77c",
     "g_pBSObject": "0x8034e7e0",
     "g_pBuiltInFunctions": "0x8034e778"
