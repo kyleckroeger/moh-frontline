@@ -450,7 +450,9 @@
     "debug_prof.json",
     "alarm.json",
     "toilet.json",
-    "stream.json"
+    "stream.json",
+    "sfxrevc.json",
+    "saemsstr.json"
   ],
   "progress": {
     "code_bytes": 1414572,
