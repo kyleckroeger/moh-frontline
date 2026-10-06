@@ -470,7 +470,8 @@
     "path.json",
     "path_stop.json",
     "Pause_tail.json",
-    "targimpl_head.json"
+    "targimpl_head.json",
+    "propdat_bsp.json"
   ],
   "progress": {
     "code_bytes": 1414572,
