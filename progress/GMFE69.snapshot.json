@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 259620,
+    "matching_code_bytes": 259992,
     "total_executable_code_bytes": 1414572,
-    "percent": 18.35325455332072,
+    "percent": 18.379552260330332,
     "categories": {
-      "reconstructed_game": 62616,
+      "reconstructed_game": 62988,
       "restored_library": 197004
     },
-    "matching_functions": 1416
+    "matching_functions": 1421
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -126,6 +126,7 @@
     "config/GMFE69/baseline.json": "36a2b85cf4193e53afac79bdd2a8fdbf8dfb1880cae89e119463f2c81461b42f",
     "config/GMFE69/bmem.json": "6f2cc24cb578401f28e36031abc716a23a3beb45bf6c43c10ede6c273e9070b2",
     "config/GMFE69/bsearch.json": "dd287b9523a5f289e22dc32f273d0f9756b610c9280ec41b84aac1d7ea50912b",
+    "config/GMFE69/bsevents.json": "4d5e6958dc99d81cad43c900fad33dc5196739566f1e0212d9186c0a693aa6c3",
     "config/GMFE69/bsmachin.json": "99e6f626f2cdb4c5eddca656c56ef9cc28369e547992ff630f5c3bbc93fa72ef",
     "config/GMFE69/bsschedule.json": "05081ad4065280f633b1f7b1f78a5650b603ee6d40b792db93b1084b188c2d07",
     "config/GMFE69/bstimer.json": "f6c1bc76d8200192cc1dc0fcc0d071b489cc158c09f820ee351e4190d480c6ae",
@@ -223,7 +224,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "a8030357d1c92b565789bcbebb2d39be7fbcfb62b9540c1f9af6cbe41fe29bc8",
+    "config/GMFE69/project.json": "ffd3f1ba01eadeb9d74efdbe846a5c4b294de8f566544af21fc2758561d952f4",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1293,6 +1294,7 @@
     "src/game/animseq.cpp": "41ae1e334e9a48b7d9b8fa506401aa98bb74422f5ff869e6865e116682792658",
     "src/game/animst.cpp": "c21b2120a38a43ccf28537b31f9f22c5b5d21d59cf2d48951276464a65bf4bf9",
     "src/game/animwgt.cpp": "001c05d29d185c0a4f21712270ddb62c29fc3808bede837c4acdb3ad1c63af1c",
+    "src/game/bsevents.cpp": "1b5e58c1b9e2c631a8d1f8ac7839f9c533133df991df9974c5d73760c3af352b",
     "src/game/bsmachin.cpp": "29ef7c9c19942e3dc51d97c49266ac9b237c8658ffef55d4536c8968e7d44b1e",
     "src/game/bsschedule.cpp": "03573e4203501782b94b4ed70853989b43110a29ecee0af5d0eed5e4baf9919c",
     "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
@@ -17211,6 +17213,45 @@
       "discarded_functions": [],
       "object_sha256": "1d5ef92176d7c1838875362de598403f85c57c6750daaeb14a856bb12ad2c5a9",
       "linked_sha256": "f75c8a11a209b533000fc18a099cdaa60738b95250b88585ceca2af058dcac6c"
+    },
+    {
+      "id": "bsevents",
+      "category": "reconstructed_game",
+      "functions": 5,
+      "code_bytes": 372,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "376fa71490040bd33cfb5294bd36ccc5478f9eba6deb1eb31d96f596edd492dd",
+      "linked_sha256": "20c2267bc51aed6d28e74f8fd716d0c3df7443b20a2718563b9c2bae205f420f"
     }
   ],
   "code_map": {
@@ -20736,41 +20777,6 @@
         "file_record": 13,
         "file_name": "bsevents.cpp",
         "ranges": [
-          {
-            "address": "0x80034d2c",
-            "size": 24,
-            "kind": "function",
-            "name": "BSEventCurrentlyProcessingMessages__Fb",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80034d44",
-            "size": 44,
-            "kind": "function",
-            "name": "BSEventIsEventMemoryBlock__FPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80034d70",
-            "size": 76,
-            "kind": "function",
-            "name": "BSEventCheckMemBlockReferenceCount__FPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80034dbc",
-            "size": 52,
-            "kind": "function",
-            "name": "BSEventGetEventMemoryBlock__FUi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80034df0",
-            "size": 176,
-            "kind": "function",
-            "name": "BSEventFindDeclaredState__FUsP22BSMachineThread_structPP31BSCode_EventHandlerEntry_struct",
-            "evidence": "between-same-file"
-          },
           {
             "address": "0x80034ea0",
             "size": 892,
