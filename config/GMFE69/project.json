@@ -513,7 +513,8 @@
     "weapon_bullet.json",
     "bulletfactory_init.json",
     "particlesystem_emit.json",
-    "particlesystem_color.json"
+    "particlesystem_color.json",
+    "anim_obj_volumes.json"
   ],
   "progress": {
     "code_bytes": 1414572,
