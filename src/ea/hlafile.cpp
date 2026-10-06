@@ -1,16 +1,18 @@
 // EA's asynchronous file layer, from ASYNCFILE_restore to the end of the
-// file:
-// shutting down (cancel every request, wait until none has a file operation
-// running, free the table and destroy the mutex), queueing a whole-file load
-// or a read (take a request from the free list, give it a fresh id, start the
-// file-system operation and its completion callback) and reporting whether a
-// request is still busy, releasing a finished request (waiting for its
-// operation, reporting its byte counts) and cancelling one (cancelling its
-// operation, freeing it when it never started). The function and static names come from the
-// symbols; the 48-byte request layout, the options view and the inline
-// helpers are inferred; the operation handle is volatile (completion
-// callbacks clear it, and the target reloads it). The file's small statics
-// and mutex are defined here in their original order.
+// file: shutting down (cancel every request, wait until none has a file
+// operation running, free the table and destroy the mutex), queueing a
+// whole-file load or a read (take a request from the free list, give it a
+// fresh id, start the file-system operation and its completion callback),
+// reporting whether a request is still busy, releasing a finished request
+// (waiting for its operation, reporting its byte counts) and cancelling one
+// (cancelling its operation, freeing it when it never started). The function
+// and static names come from the symbols; the 48-byte request layout, the
+// options view and the inline helpers are inferred; the operation handle is
+// volatile (completion callbacks clear it, and the target reloads it). The
+// file's small statics and mutex are defined here in their original order.
+// ASYNCFILE_init before this run is drafted in
+// scratch/lib/hlafile_init_wip.cpp (the free-list stores are scheduled
+// differently).
 extern "C" {
 int FILESYS_waitop(int);
 int FILESYS_cancelop(int);

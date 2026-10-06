@@ -1249,7 +1249,7 @@
     "src/ea/fontdriver.cpp": "799464786df81aa82291f1d18699c4c4d2283338c1e6c75e4e508bc368470f9c",
     "src/ea/fontinit.cpp": "23ee3e1e4457de8dba71c1b08e1355e02844f0753acb1b2cdf4d8bc9ab7e7fa3",
     "src/ea/fontnull.cpp": "f5c2dfb2e21956fc5d3a1b11c46ae763d9b5cd956badc5e3db912b1e59a9d641",
-    "src/ea/hlafile.cpp": "dd43c9ba284c67b42bd733764642ba790a051632a7a3c8ba4bb3246f81a739e8",
+    "src/ea/hlafile.cpp": "5b4d6d664b41d3d8d33ffdb8c5b894b10d12187ec7d6d55060314e252f7ac150",
     "src/ea/hlsfile.cpp": "c8095cd394607595fc29daf20812c5430140171a6214048367943aa62f453105",
     "src/ea/idct.cpp": "b3f69a37bb85fc0cad5293848e9add29eb184e02082723c04d1ab7aec557a8a4",
     "src/ea/initosalloc.cpp": "4947ccd21ff1ff25a35565783cff19911daddc3bebc8bd4b31e22056e208885a",
