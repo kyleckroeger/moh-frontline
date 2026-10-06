@@ -1,0 +1,70 @@
+{
+  "id": "stream_greedy",
+  "source": "src/ea/stream_greedy.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8014ce78",
+      "size": 240,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "STREAM_setgreedystate",
+      "address": "0x8014ce78",
+      "size": 124,
+      "binding": 1
+    },
+    {
+      "name": "STREAM_taphandle",
+      "address": "0x8014cef4",
+      "size": 116,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "FILESYS_priorityop": "0x801486a0"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "stream.cpp",
+  "original_file_index": 12162
+}

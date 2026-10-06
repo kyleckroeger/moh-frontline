@@ -480,7 +480,10 @@
     "targimpl_post.json",
     "anim_obj_yaw.json",
     "font_draw.json",
-    "SearchNode_tail.json"
+    "SearchNode_tail.json",
+    "stream_prio.json",
+    "stream_greedy.json",
+    "Pause_unpause.json"
   ],
   "progress": {
     "code_bytes": 1414572,

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 316324,
+    "matching_code_bytes": 316764,
     "total_executable_code_bytes": 1414572,
-    "percent": 22.361816860506217,
+    "percent": 22.39292167524877,
     "categories": {
       "reconstructed_game": 92616,
-      "restored_library": 223708
+      "restored_library": 224148
     },
-    "matching_functions": 1977
+    "matching_functions": 1983
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -109,6 +109,7 @@
     "config/GMFE69/Padclamp.json": "570f443e7a228e96a9e869248c68a59a1d9e68052c20523d1c9a482772bfe76b",
     "config/GMFE69/Pause.json": "b063c4ce574ebecceddfcb098ea0b9243fef9f018ff3caefa44c49a24eb1f7cd",
     "config/GMFE69/Pause_tail.json": "26967286342184e9d13103ed1637baac7b86538e6cd10c1337c94375748a31bb",
+    "config/GMFE69/Pause_unpause.json": "9bbd1d82dfd49787ec8312a1d1aee131d1e26de5ff95b5ae102cdda6854c9048",
     "config/GMFE69/SIBios.json": "ef42fc4b95402bef0544ec5fe1a10c75781171f56afba7954318d42020fd6c1a",
     "config/GMFE69/SISamplingRate.json": "e4def7467ec8d82fdb9730412721675a9ea0e7ce572d5b8b63e89c3bdfe1eb84",
     "config/GMFE69/SNDI_cos.json": "d5c3aefe8e26c1df224218b53070a0f6cfec997ed7abca69e4c32fdf3cdcbe3a",
@@ -300,7 +301,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "1320475d39f783daa1095e9a43d0c5c410c19250590d34879e5d90a0174ca7df",
+    "config/GMFE69/project.json": "54bb67c3a7c48f517c8b0ed7b79b9b8b9506ba42ee572bdc2d38646eeff20d9e",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -448,6 +449,8 @@
     "config/GMFE69/staticmesh.json": "071c3dfaf63f3f12842d683773b40701155453fefded8bd3d2c02b83dbbe8492",
     "config/GMFE69/stimemul.json": "8daf6f44288a9589aaf8719ff8e636e2f4d7d00296603d9d8ce6bcbc2ff41088",
     "config/GMFE69/stream.json": "8277e72562d242f63690ec9510eaccda4fb71178d7b9a7542104386ed895d599",
+    "config/GMFE69/stream_greedy.json": "77583c21fa80ff74971d838cae1c76b034a18651a84e2c3b45685be860a11ca3",
+    "config/GMFE69/stream_prio.json": "4cf3cfbea3ac4b8c244e2ec4265f1b240882a12d4300f3bb36365594c5a4ced4",
     "config/GMFE69/string.json": "dfcf9ebcd504cab3afb3e06b74c7e218ecadac89ebde48c40659fcaeb0a01628",
     "config/GMFE69/strtoul.json": "96027a37123019cd24fdaf9c4ec6caa8228464cf8362a2b3ba7e36acdb35dad5",
     "config/GMFE69/supf.json": "01af0bb9502db26aa7168c7276e2d96e72d874dfdc8f8d9367ae66df0f929e63",
@@ -1411,6 +1414,8 @@
     "src/ea/ssysserv.c": "c652ea041a804d456cc780e25f0ecfa648623be37c1c1bd170e18555761ec31d",
     "src/ea/stimemul.c": "fe4a33747721800f1d82a72032bc415a12b399b6a6ebdc8bed634faeb2ed7494",
     "src/ea/stream.cpp": "ff6fbe91e4fb7434b3ea3168c02462d0ed053646cae55960906871acad5620fb",
+    "src/ea/stream_greedy.cpp": "9412503c870be2372b668e0a1c74a0158e4b70174435ca411b82661db6594a38",
+    "src/ea/stream_prio.cpp": "78e45fbfeaf50cbbd39f4f2543003d4b23b0bf084724f61f1a8124ec88df293b",
     "src/ea/supf.c": "6887947b6223d085d1b4ae151937fb4107e5f1338b36fe73fd37bb15718a7cf9",
     "src/ea/suplf.c": "dfe878bc5bc53b45e72bb0ed6608b43d00ace2d55bb924f9cd199a5c04123aad",
     "src/ea/supmutf.c": "9dd420f031cc5c776078ad4d7385adfbd4be1c6fe16b6832cf0130623106f98e",
@@ -1448,6 +1453,7 @@
     "src/game/Moh2.cpp": "de6c92093366f02578f9e8b8d2f69e0de0bece31142f95b7a51ed02dd533c3fb",
     "src/game/Pause.cpp": "8cb08efb80ca5f837f5fe7e9f2755ec247d10282133bd0f6d5229a573779951e",
     "src/game/Pause_tail.cpp": "310007d04a15e06e5d13ad63bc14571c9fafd2fb56d66851af547fb37e6c1e27",
+    "src/game/Pause_unpause.cpp": "ce619ade12ef215f4aa85cb7d5f8e9a7b23aa483a4180d456210c0df3c22cfa1",
     "src/game/Screen.cpp": "7ee74460c46aef1832de0e8aad39f65a7b2dedad15386f1ed8f1657a47566cae",
     "src/game/SearchNode.cpp": "6b76164fd42a19131dcf90f9fe0ec86b20e0ef3d9c948defd80b5441bde9d333",
     "src/game/SearchNodeList.cpp": "738d75054ffdc5c611f06f3c0f8d330d60226794efc3684079e2280494a4d65c",
@@ -22491,6 +22497,123 @@
       "discarded_functions": [],
       "object_sha256": "37db2d5823a2d71d796e53297a2be61b39c701cee4e7e584f826e174ad333335",
       "linked_sha256": "c5d9eddca13a421a7ca561e41528c9f99d89bfba8d473df4b455a796200ebb63"
+    },
+    {
+      "id": "stream_prio",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 72,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "51b19474dab150fdf3242a14503d54a956d94b7c449b017c1632c998906b6d51",
+      "linked_sha256": "2892de193f0bc4015cf82a3f169fdd8a9759181f60935151f4a0ec0df071bfca"
+    },
+    {
+      "id": "stream_greedy",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 240,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "c0c6a772a7f28c1a9dfa5a297c2a0c7cd025023355f5270ae5b0ea0e8a70da83",
+      "linked_sha256": "857274e142447034392f048cc6fb369221763cb4d993584a3a2baff2798a05f3"
+    },
+    {
+      "id": "Pause_unpause",
+      "category": "restored_library",
+      "functions": 3,
+      "code_bytes": 128,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "40ec848c3a2658d8beb22ca203535e2179272445fc5b474d693e9b5c62d261d7",
+      "linked_sha256": "b06d6fdedb81bc2e786dd7155b9408e8fb14218f8597b534e6fb4246dde93c8f"
     }
   ],
   "code_map": {
@@ -39045,27 +39168,6 @@
             "evidence": "between-same-file"
           },
           {
-            "address": "0x800dd758",
-            "size": 44,
-            "kind": "function",
-            "name": "PauseShutdown__5PauseFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800dd784",
-            "size": 76,
-            "kind": "function",
-            "name": "UnpauseGame__5PauseFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800dd7d0",
-            "size": 8,
-            "kind": "function",
-            "name": "bIsGamePaused__5PauseFv",
-            "evidence": "between-same-file"
-          },
-          {
             "address": "0x800dd7d8",
             "size": 436,
             "kind": "function",
@@ -43466,31 +43568,10 @@
             "evidence": "between-same-file"
           },
           {
-            "address": "0x8014cd98",
-            "size": 72,
-            "kind": "function",
-            "name": "STREAM_setpriority",
-            "evidence": "between-same-file"
-          },
-          {
             "address": "0x8014cde0",
             "size": 152,
             "kind": "function",
             "name": "STREAM_setgreedylevel",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8014ce78",
-            "size": 124,
-            "kind": "function",
-            "name": "STREAM_setgreedystate",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8014cef4",
-            "size": 116,
-            "kind": "function",
-            "name": "STREAM_taphandle",
             "evidence": "between-same-file"
           },
           {
