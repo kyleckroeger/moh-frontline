@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 313688,
+    "matching_code_bytes": 314968,
     "total_executable_code_bytes": 1414572,
-    "percent": 22.175470743094024,
+    "percent": 22.265957476890538,
     "categories": {
       "reconstructed_game": 92616,
-      "restored_library": 221072
+      "restored_library": 222352
     },
-    "matching_functions": 1958
+    "matching_functions": 1961
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -467,7 +467,7 @@
     "config/GMFE69/targcont.json": "b2ca2a623eb919a56e51a2a987564851f0820315980336f1c08791bf38a03769",
     "config/GMFE69/target.json": "f7e8d7b660fd35f21cdc13385271d7b73fabda6669a0d112db63b3b1f3e8b3b2",
     "config/GMFE69/target_options.json": "89566eaeb8524e74b697e212fd6b56f53c2276681df67bd4ab9ac2fdf4761b95",
-    "config/GMFE69/targimpl.json": "120a97ca8bf81e79090544d6935262508da24826ee73745aa959cfdc8ea80201",
+    "config/GMFE69/targimpl.json": "4ad26e4555e8bd03b88046ace467ae932290620320087ae93d82981fe61c3440",
     "config/GMFE69/targimpl_head.json": "bba72b93b0a6be18a8fbf6320b28193045d402eea0b8f197caea4d2112fa0eb2",
     "config/GMFE69/texpack.json": "e72b98cff12a06a8815f3de46a2dddeaaff0a28ea13a88b19df4444349d53607",
     "config/GMFE69/threads.json": "d264cbc64f178174ef4e3e782c684e2b008abf5eb3ac641e9bd1236e522459c8",
@@ -1766,7 +1766,7 @@
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/exception.s": "362944d0842db00a4192be6747cb9a21acf08acd04ee48e5a58b0ad615e59a97",
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/flush_cache.c": "74d00b1ce946e215e802d49076d72718cba3299ed46d59a8103ea3c157a091eb",
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/mpc_7xx_603e.c": "f01b0d4b9eb846a5d367fd2c1b6749a53174232a01e693a3674bf5551fbc328c",
-    "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl.c": "f7f79d9b8134a1f4f930cb39c0639cf97eab1260e1d165b9cecee7743668b225",
+    "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl.c": "c91886ab096963681e400c8055d30c4be95c08c8cef13811372d3aa0820a6bfd",
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl_head.c": "f757b9176c43c44e8cbf10ae39fafee58b2fe2a44e6f46ce97ea3ddef0f82c83",
     "src/tww/amcstubs/AmcExi2Stubs.c": "b03f8845bf930e4846506376b0a81d97bab493ce8d394868a38d3626403fb9a3",
     "src/tww/dolphin/os/OSReboot.c": "feae9cfa95a2a8b82339c8864bb2ad99e1fb5c20b683c238f3e90375b0a12322",
@@ -20963,8 +20963,8 @@
     {
       "id": "targimpl",
       "category": "restored_library",
-      "functions": 5,
-      "code_bytes": 1552,
+      "functions": 8,
+      "code_bytes": 2832,
       "compiler_family": "GC",
       "compiler_version": "1.3",
       "compiler_flags": [
@@ -21014,10 +21014,14 @@
         "-sdata2",
         "0"
       ],
-      "strip_unused": false,
-      "discarded_functions": [],
-      "object_sha256": "7708cd5adb6fcd2fdaaebc97a6ce1f95e2796adeedb5761da634d95a5864440b",
-      "linked_sha256": "3b7412ec2261a9eb4e40de37c955248c367c55e8daadb8b92cacaf97067a4738"
+      "strip_unused": true,
+      "discarded_functions": [
+        "TRKPPCAccessSpecialReg",
+        "TRKPPCAccessPairedSingleRegister",
+        "TRKPPCAccessSPR"
+      ],
+      "object_sha256": "0802704bb8ba0ecfffc8025c066d002232e9b8d51bcd11848ec83f5d43b76fd0",
+      "linked_sha256": "dcc1166e2d43f7bc9aa3f8e1db736394f0c6582b827368cc96293b78873b66d1"
     },
     {
       "id": "renderlist",
@@ -42663,27 +42667,6 @@
             "size": 96,
             "kind": "function",
             "name": "TRKTargetCPUType",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8013654c",
-            "size": 164,
-            "kind": "function",
-            "name": "TRKTargetSupportMask",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x801365f0",
-            "size": 36,
-            "kind": "function",
-            "name": "TRKTargetVersions",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80136614",
-            "size": 1080,
-            "kind": "function",
-            "name": "TRKTargetAccessExtended2",
             "evidence": "between-same-file"
           }
         ]

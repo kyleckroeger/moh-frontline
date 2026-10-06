@@ -61,19 +61,19 @@
     "src/tww/PowerPC_EABI_Support/Runtime/Inc",
     "src/tww/PowerPC_EABI_Support/MetroTRK"
   ],
-  "strip_unused": false,
+  "strip_unused": true,
   "source_root": "src/tww",
   "sections": [
     {
       "name": ".text",
-      "address": "0x80136a4c",
-      "size": 1552,
+      "address": "0x8013654c",
+      "size": 2832,
       "type": 1
     },
     {
       "name": ".rodata",
       "address": "0x8017b198",
-      "size": 16,
+      "size": 96,
       "type": 1
     },
     {
@@ -94,6 +94,24 @@
       "name": "TRKTargetAccessMemory",
       "address": "0x80136dec",
       "size": 332,
+      "binding": 1
+    },
+    {
+      "name": "TRKTargetSupportMask",
+      "address": "0x8013654c",
+      "size": 164,
+      "binding": 1
+    },
+    {
+      "name": "TRKTargetVersions",
+      "address": "0x801365f0",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "TRKTargetAccessExtended2",
+      "address": "0x80136614",
+      "size": 1080,
       "binding": 1
     },
     {
@@ -130,12 +148,17 @@
     "TRKTargetTranslate": "0x80137160",
     "TRK_flush_cache": "0x801356d8",
     "TRK_ppc_memcpy": "0x801357dc",
+    "TRKvalue128_temp": "0x80331fcc",
     "__TRK_get_MSR": "0x801357cc",
     "__TRK_set_MSR": "0x801357d4",
     "gTRKCPUState": "0x80331b08"
   },
   "undefined_in_discarded_code": [],
-  "discarded_functions": [],
+  "discarded_functions": [
+    "TRKPPCAccessSpecialReg",
+    "TRKPPCAccessPairedSingleRegister",
+    "TRKPPCAccessSPR"
+  ],
   "upstream": {
     "repository": "https://github.com/zeldaret/tww",
     "commit": "a1854d47ce5aa9d0f21c7fb5a71aaade63659693",

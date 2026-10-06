@@ -1,12 +1,15 @@
 /* Frontline's target implementation, the functions at the end of the file
-   record: register-block and memory access and the memory-range check. The
-   bodies are Pikmin's CC0 targimpl.c (https://github.com/doldecomp/pikmin),
-   compiled with the TWW headers plus Pikmin's DSVersions/DSCPUType types and
-   MSR bits (Dolphin/PPCArch.h), at GC 1.3 like mem_TRK.c. The other
-   functions of the file are declared only: the head (MSR access, memcpy,
-   interrupt and exception handlers) is the separate unit targimpl_head.c, and
-   the middle (FP register access, support requests, stop
-   information, the interrupt check, extended-2 access) differs; the full
+   record: the support mask and versions, register-block and memory access
+   and the memory-range check. The bodies are Pikmin's CC0 targimpl.c
+   (https://github.com/doldecomp/pikmin), compiled with the TWW headers plus
+   Pikmin's DSVersions/DSCPUType types and MSR bits (Dolphin/PPCArch.h), at
+   GC 1.3 like mem_TRK.c; TRKTargetAccessExtended2 and the SPR, paired-single
+   and special-register helpers are TWW's (they have no symbols in Frontline:
+   with deferred inlining they are inlined into Extended2 and discarded). The
+   other functions of the file are declared only: the head (MSR access,
+   memcpy, interrupt and exception handlers) is the separate unit
+   targimpl_head.c, and the middle (FP register access, support requests,
+   stop information, the interrupt check, CPU type) differs; the full
    Pikmin-based draft is scratch/lib/targimpl_pik.c. The CPU and TRK state,
    the save state and the 128-bit temporary are declared extern: they follow
    TRK_saved_exceptionID in .bss and are left with the rest of the file.
@@ -402,13 +405,107 @@ DSError TRKTargetAccessExtended1(u32 firstRegister, u32 lastRegister, TRKBuffer*
 	return error;
 }
 
-DSError TRKTargetAccessExtended2(u32 firstRegister, u32 lastRegister, TRKBuffer* b, size_t* registerStorageSize, BOOL read);
+DSError TRKTargetAccessExtended2(u32 firstRegister, u32 lastRegister, TRKBuffer* b,
+                                 size_t* registerStorageSize, BOOL read) {
+    TRKExceptionStatus savedException;
+    u32 i;
+    u32 value_buf0[1];
+    u32 value_buf[2];
+    DSError err;
+    u32 access_func[10];
+
+    if (lastRegister > 0x1f)
+        return DS_InvalidRegister;
+
+    /*
+    ** Save any existing exception status and clear the exception flag.
+    ** This allows detection of exceptions that occur ONLY within this
+    ** function.
+    */
+
+    savedException = gTRKExceptionStatus;
+    gTRKExceptionStatus.exceptionDetected = FALSE;
+
+    TRKPPCAccessSPR(value_buf0, SPR_HID2, TRUE);
+
+    value_buf0[0] |= 0xA0000000;
+    TRKPPCAccessSPR(value_buf0, SPR_HID2, FALSE);
+
+    value_buf0[0] = 0;
+    TRKPPCAccessSPR(value_buf0, SPR_GQR0, FALSE);
+
+    *registerStorageSize = 0;
+    err = DS_NoError;
+
+    for (i = firstRegister; (i <= lastRegister) && (err == DS_NoError); i++) {
+        if (read) {
+            err = TRKPPCAccessPairedSingleRegister((u64*)value_buf, i, read);
+            err = TRKAppendBuffer1_ui64(b, *(u64*)value_buf);
+        } else {
+            err = TRKReadBuffer1_ui64(b, (u64*)value_buf);
+            err = TRKPPCAccessPairedSingleRegister((u64*)value_buf, i, read);
+        }
+
+        *registerStorageSize += sizeof(u64);
+    }
+
+    if (gTRKExceptionStatus.exceptionDetected) {
+        *registerStorageSize = 0;
+        err = DS_CWDSException;
+    }
+
+    gTRKExceptionStatus = savedException;
+
+    return err;
+}
 
 
-DSError TRKTargetVersions(DSVersions* versions);
+DSError TRKTargetVersions(DSVersions* versions)
+{
+	versions->kernelMajor   = 0;
+	versions->kernelMinor   = 10;
+	versions->protocolMajor = 1;
+	versions->protocolMinor = 10;
+	return DS_NoError;
+}
 
 
-DSError TRKTargetSupportMask(u8 mask[32]);
+DSError TRKTargetSupportMask(u8 mask[32])
+{
+	mask[0]    = 0x7a;
+	mask[1]    = 0;
+	mask[2]    = 0x4f;
+	mask[3]    = 7;
+	mask[4]    = 0;
+	mask[5]    = 0;
+	mask[6]    = 0;
+	mask[7]    = 0;
+	mask[8]    = 0;
+	mask[9]    = 0;
+	mask[10]   = 0;
+	mask[0xb]  = 0;
+	mask[0xc]  = 0;
+	mask[0xd]  = 0;
+	mask[0xe]  = 0;
+	mask[0xf]  = 0;
+	mask[0x10] = 1;
+	mask[0x11] = 0;
+	mask[0x12] = 3;
+	mask[0x13] = 0;
+	mask[0x14] = 0;
+	mask[0x15] = 0;
+	mask[0x16] = 0;
+	mask[0x17] = 0;
+	mask[0x18] = 0;
+	mask[0x19] = 0;
+	mask[0x1a] = 3;
+	mask[0x1b] = 0;
+	mask[0x1c] = 0;
+	mask[0x1d] = 0;
+	mask[0x1e] = 0;
+	mask[0x1f] = 0x80;
+	return DS_NoError;
+}
 
 
 extern BOOL gTRKBigEndian;
@@ -473,9 +570,52 @@ void TRKTargetSetStopped(uint stopped);
 u32 TRKTargetStop();
 
 
-DSError TRKPPCAccessSPR(void* value, u32 spr_register_num, BOOL read);
+DSError TRKPPCAccessSPR(void* value, u32 spr_register_num, BOOL read) {
+    /* Initialize instruction array with nop */
 
-DSError TRKPPCAccessPairedSingleRegister(void* srcDestPtr, u32 psr, BOOL read);
+    u32 access_func[10] = {INSTR_NOP, INSTR_NOP, INSTR_NOP, INSTR_NOP, INSTR_NOP,
+                           INSTR_NOP, INSTR_NOP, INSTR_NOP, INSTR_NOP, INSTR_NOP};
+    /*
+    ** Construct a small assembly function to perform the
+    ** requested access and call it.  The read/write function
+    ** is in the form:
+    **
+    ** read:
+    **        mfspr    r4, spr_register_num
+    **        stw      r4, 0(r3)
+    **        blr
+    **
+    ** write:
+    **        lwz      r4, 0(r3)
+    **        mtspr    spr_register_num, r4
+    **        blr
+    **
+    */
+
+    if (read) {
+        access_func[0] = INSTR_MFSPR(4, spr_register_num);
+        access_func[1] = (u32)INSTR_STW(4, 0, 3);
+    } else {
+        access_func[0] = (u32)INSTR_LWZ(4, 0, 3);
+        access_func[1] = INSTR_MTSPR(spr_register_num, 4);
+    }
+
+    return TRKPPCAccessSpecialReg(value, access_func, read);
+}
+
+DSError TRKPPCAccessPairedSingleRegister(void* srcDestPtr, u32 psr, BOOL read) {
+    // all nop by default
+    u32 instructionData[] = {INSTR_NOP, INSTR_NOP, INSTR_NOP, INSTR_NOP, INSTR_NOP,
+                             INSTR_NOP, INSTR_NOP, INSTR_NOP, INSTR_NOP, INSTR_NOP};
+
+    if (read) {
+        instructionData[0] = INSTR_PSQ_ST(psr, 0, 3, 0, 0);  // psq_st psr, 0(r3), 0, 0
+    } else {
+        instructionData[0] = INSTR_PSQ_L(psr, 0, 3, 0, 0);  // psq_l psr, 0(r3), 0, 0
+    }
+
+    return TRKPPCAccessSpecialReg(srcDestPtr, instructionData, read);
+}
 
 #define FP_FPSCR_ACCESS 32
 #define FP_FPECR_ACCESS 33
@@ -485,7 +625,65 @@ DSError TRKPPCAccessFPRegister(void* srcDestPtr, u32 fpr, BOOL read);
 
 #define DEBUG_VECTORREG_ACCESS 0
 
-DSError TRKPPCAccessSpecialReg(void* value, u32* access_func, BOOL read);
+DSError TRKPPCAccessSpecialReg(void* value, u32* access_func, BOOL read) {
+#if defined(__MWERKS__)
+#pragma unused(read)
+#elif defined(__GNUC__)
+    UNUSED(read);
+#endif
+
+    typedef void (*asm_access_type)(void*, void*);
+
+    asm_access_type asm_access;
+
+    /*
+    ** Construct a small assembly function to perform the
+    ** requested access and call it.  The read/write function
+    ** is in the form:
+    **
+    **        <access_func>
+    **        blr
+    */
+
+    /*
+    ** Put blr instruction at the end of access function (it should be
+    ** a 5-instruction array w/the last one empty).
+    */
+
+    access_func[9] = INSTR_BLR;
+
+    /*
+    ** Now that the instruction array is built, get a function pointer to it.
+    */
+
+    asm_access = (asm_access_type)access_func;
+
+#if DEBUG_VECTORREG_ACCESS
+
+    __puts("\r\nasm_access: ");
+    __puthex8((u32)asm_access);
+    __puts("   access_func: ");
+    __puthex8((u32)access_func);
+
+    for (i = 0; i < 10; i++) {
+        __puts("\r\ninst[");
+        __puthex2(i);
+        __puts("]: ");
+        __puthex8(access_func[i]);
+        __puts("  ;  ");
+        __puthex8(*((u32*)asm_access + i));
+    }
+
+    __puts("\r\n");
+
+#endif
+
+    // Flush cache
+    TRK_flush_cache((u32)access_func, (sizeof(access_func) * 10));
+    (*asm_access)((u32*)value, (void*)&TRKvalue128_temp);
+
+    return DS_NoError;
+}
 
 void TRKTargetSetInputPendingPtr(void* ptr);
 
