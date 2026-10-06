@@ -1,0 +1,125 @@
+{
+  "id": "AIFilter_astar",
+  "source": "src/game/AIFilter_astar.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8005d5d4",
+      "size": 396,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000b208",
+      "size": 64,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x8001223c",
+      "size": 72,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "DisableCollidingAStarPathNodes__15CAIFilterGlobalFPC7IVolume",
+      "address": "0x8005d5d4",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "EnableAllAStarPathNodes__15CAIFilterGlobalFv",
+      "address": "0x8005d5f8",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "GetClosestAStarPathNode__15CAIFilterGlobalCFRC21CAIFilterRealPositionRC20CAIFilterRealVector3",
+      "address": "0x8005d61c",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "GetAStarPathNodeByIndex__15CAIFilterGlobalCFi",
+      "address": "0x8005d640",
+      "size": 56,
+      "binding": 1
+    },
+    {
+      "name": "CreateAStarPathNodeList__15CAIFilterGlobalFPvP18BPDPathFindingNodei",
+      "address": "0x8005d678",
+      "size": 92,
+      "binding": 1
+    },
+    {
+      "name": "GetSplinePath__15CAIFilterGlobalCFUlb",
+      "address": "0x8005d6d4",
+      "size": 88,
+      "binding": 1
+    },
+    {
+      "name": "ResetSplinePathManager__15CAIFilterGlobalFPvP11BPDPolyPathi",
+      "address": "0x8005d72c",
+      "size": 52,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DisableCollidingNodes__13CPathNodeListFPC7IVolume": "0x80054810",
+    "EnableAll__13CPathNodeListFv": "0x80055028",
+    "GetClosestNode__13CPathNodeListCFRC21CAIFilterRealPositionRC20CAIFilterRealVector3": "0x8005552c",
+    "GetPathNodeByID__13CPathNodeListCFi": "0x80055790",
+    "ResetGlobalList__9CAIObjectFv": "0x8004ec60",
+    "Reset__11CSearchNodeFv": "0x80055fc8",
+    "__ct__13CPathNodeListFPvP18BPDPathFindingNodei": "0x800557a0",
+    "__dl__FPv": "0x8001ca2c",
+    "__nw__FUl": "0x8001cb60",
+    "recent_sounds": "0x801c6db8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [
+    "recent_sounds"
+  ],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "AIFilter.cpp",
+  "original_file_index": 2575
+}

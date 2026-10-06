@@ -514,7 +514,8 @@
     "bulletfactory_init.json",
     "particlesystem_emit.json",
     "particlesystem_color.json",
-    "anim_obj_volumes.json"
+    "anim_obj_volumes.json",
+    "AIFilter_astar.json"
   ],
   "progress": {
     "code_bytes": 1414572,
