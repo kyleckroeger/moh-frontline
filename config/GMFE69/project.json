@@ -295,7 +295,9 @@
     "memcopy.json",
     "seffect.json",
     "sbadd.json",
-    "vector.json"
+    "vector.json",
+    "smixc.json",
+    "sfxrev.json"
   ],
   "progress": {
     "code_bytes": 1414572,

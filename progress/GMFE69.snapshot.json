@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 227604,
+    "matching_code_bytes": 228240,
     "total_executable_code_bytes": 1414572,
-    "percent": 16.08995512423546,
+    "percent": 16.1349157200906,
     "categories": {
-      "reconstructed_game": 36584,
+      "reconstructed_game": 37220,
       "restored_library": 191020
     },
-    "matching_functions": 1112
+    "matching_functions": 1114
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -189,7 +189,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "8203a048a40e279076545f3c555a34d365578863ccfac99102b0da0532f398ca",
+    "config/GMFE69/project.json": "ce649dcc896a7e59c8a82cf99fa1ba37fda935d20c5219d66e09d0d10d8a33e5",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -237,6 +237,7 @@
     "config/GMFE69/sfsplit.json": "38efa1f83aa3e5f039e7829ec2e0453d864e51267b2a7aa615b5f99bb815a122",
     "config/GMFE69/sfsrc.json": "ec214b854de58ec9d4a94738f7e2d01b63142489e2a6767301f1d19df63708bf",
     "config/GMFE69/sfxlevel.json": "d9983bfc694a5b63484e800e9bcc4eaf39b354abc5d3605cc89b1b6959048ea3",
+    "config/GMFE69/sfxrev.json": "8ad871503b98219e95bf063090f5a0ac46894bfe8f07ec0759411d3e654a68c4",
     "config/GMFE69/sgetdata.json": "a28a08c3d3d8be7272dabffc0a2720543b091881baff0e1c7988c82978e4918a",
     "config/GMFE69/sgetpvol.json": "ee69cb8b807ef51113d974130ba2eeed9be612d7b0e7f42078fdaf455158f022",
     "config/GMFE69/sgettag.json": "73b507f500d3409b0fbef821e9d07368ad18c50f36d76bd48f453f8c4c994f77",
@@ -252,6 +253,7 @@
     "config/GMFE69/slowpass.json": "86bcb6af76bf115d442202e3711fedc6c8d03888bdb3ad22656c8a33a11456d8",
     "config/GMFE69/smasterv.json": "1245cb91ada7f2ff389f9047ab175039c6eda03400cce7c5a9dfbdf2c43c88a6",
     "config/GMFE69/smemhigh.json": "ea6b341d40e7ab890ab17969892078adf62f1c2986c1d12a97bd0035e3c25156",
+    "config/GMFE69/smixc.json": "02df5e7acacf931ac3a7d7e050a3362b8bb65dabdaf1fcebe5bbea843ba2b101",
     "config/GMFE69/smixfram.json": "d51872b43a7c17cc24a25006ba590aa09cb544d5c2c3cf82734f9da270731eb7",
     "config/GMFE69/smixhip.json": "4a68e74acc78bdfaacebfbe6adad36c62e7fd215878203935887f97448739d71",
     "config/GMFE69/smixptch.json": "3ee346a2468c72ab7527f27bcf6828417178cbb8b0f2d6e04fbe0403fd87e159",
@@ -1134,6 +1136,7 @@
     "src/ea/sfsplit.c": "c646089a4b40c6be760e9f276a65a43aa37c75b467b1fcc77fcdea8095e653df",
     "src/ea/sfsrc.c": "45a8e856a1ed709b59d651d51f19953d9ea89dfcf997a63da0a14576e32ae00f",
     "src/ea/sfxlevel.c": "d5cc428d31c9b52511b7f1d89cc4f71b91b5d211dd371c967a25db2c13e3d5cf",
+    "src/ea/sfxrev.c": "caaf966f65acfa80284e06a6250db58dc8d251791d6199b80bd1aa25cdd563bb",
     "src/ea/sgetdata.c": "096ddd2dc98110c34425bdb3de01ab682d37bd2e9742004166afaa1627ae5f89",
     "src/ea/sgetpvol.c": "01014858d4c5a5b4d701b63b2de5fe2371ec80bc3743918050253bb49a21382e",
     "src/ea/sgettag.c": "87aac6e484c3dad29d22f0042085ddcd0cdc61b350f4cc33646fb8e706143860",
@@ -1148,6 +1151,7 @@
     "src/ea/slowpass.c": "50974ba23d1b0adf20b719306eb2457171fdbc979b397a59ed0865bbf60fcb38",
     "src/ea/smasterv.c": "8dd6bc618f934b245a33bf94dd6adda38c24ac8858394d3ce088a96f525f0232",
     "src/ea/smemhigh.cpp": "19480b666796ebdee8028af12b3caa2477681e1d6cc63303029e78a56649d1c4",
+    "src/ea/smixc.c": "d72ae89323bd6d4b639820f99931a5b3e179e87bad9466dd45091ab22f60f90d",
     "src/ea/smixfram.c": "f9b2f944adf9a8e1e4cfc3dd30ce49ba917154599824ac5c528febb47dff988a",
     "src/ea/smixhip.c": "9c4a7a18f876ffc3e83e6a7c36d95de022bcc5ad2e1324cf0d1981305d2d9a0c",
     "src/ea/smixptch.c": "47a348d834dba9fe0175a712c545385b61ba841ff47a27dc7fb70381cc7723fb",
@@ -14555,6 +14559,84 @@
       "discarded_functions": [],
       "object_sha256": "584968affeba8bc040b22d4bc7f887c54b84e992c538457f22c7375207b074a8",
       "linked_sha256": "d704a3dc029c01c16c86423c5880b9fd7e0252391dbd52d6e5af8a727fb09e33"
+    },
+    {
+      "id": "smixc",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 292,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "3c04a9d6d2187e5141c9d337fb206e26092ac2308bb8f4fdc8c86d3a1c3c2374",
+      "linked_sha256": "0b6415dc6b2edf02f4141da27c217c10b885aeca7fd437a1d4c40e00d1042eec"
+    },
+    {
+      "id": "sfxrev",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 344,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "40facdd0b22dcce9783116d050f13338ecf15d0aab469d5774c41465585bdbd2",
+      "linked_sha256": "97523c726429d4b7e9b085197873d43498ce5fb3b3d22f188a87609649a14a81"
     }
   ],
   "code_map": {
@@ -43155,15 +43237,8 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 80167974",
+        "name": "Unknown file/.text @ 80167a98",
         "ranges": [
-          {
-            "address": "0x80167974",
-            "size": 292,
-            "kind": "function",
-            "name": "mixc",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x80167a98",
             "size": 384,
@@ -43217,20 +43292,6 @@
             "kind": "function",
             "name": "MIX_restorereverb",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/sfxrev.c [symbol evidence]",
-        "file_record": 549,
-        "file_name": "sfxrev.c",
-        "ranges": [
-          {
-            "address": "0x801686c0",
-            "size": 344,
-            "kind": "function",
-            "name": "MIXI_reverbblock",
-            "evidence": "private-reference"
           }
         ]
       },

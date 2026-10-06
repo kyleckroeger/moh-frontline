@@ -199,6 +199,7 @@ establish a type, the source comments say so.
 | `sbremove.c` | 1 | 360 | `SNDbankremove`: stop the bank's voices, run user-data callbacks per timbre, free sample memory (recursive for -1) |
 | `seffect.c` | 3 | 568 | Effect bus lookup (`switch` on the bus flags), bus set-up and master send levels |
 | `sbadd.c` | 2 | 576 | `SNDbankadd` (download samples in 4 KB pieces, resolve patches) and the per-timbre user-data callback |
+| `smixc.c`, `sfxrev.c` | 2 | 636 | `mixc` (scaled add into a mix buffer) and `MIXI_reverbblock` (comb filter with a one-pole low-pass in the feedback, 1e-30 anti-denormal offset) |
 | More sound files: `sbvalid.c`, `sst3dpos.c`, `ssthold.c`, `sctlfilt.c`, `shipass.c`, `slowpass.c`, `sstgetrp.c`, `sstopall.c`, `sstautov.c`, `sattrdef.c`, `scalcfx.c`, `sballoc.c`, `sbhdrcpy.c`, `sctrldry.cpp`, `stimemul.c` | 17 | 1,768 | Bank slots, voice controls applied to each platform voice (`iSNDpatchkey` loop), stream setters and defaults; record members are inferred views |
 | `memblock.cpp` | 1 | 44 | `MEM_initblock` writes a block header ('BM', flags, size, neighbour links); the name and tail-size arguments are not stored |
 | `memlist.cpp` | 5 | 464 | Address-ordered circular free list (`FREE_find`, `FREE_findlargest`, `FREE_gettotalfree`, `FREE_add`, `FREE_remove`) with the class's 'BS' sentinel; `FREE_findlargest` needs the operand order of `0 > size - 1 ? 0 : size - 1` for its branchless max |
