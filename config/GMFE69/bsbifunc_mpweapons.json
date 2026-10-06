@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x8001f0dc",
-      "size": 880,
+      "size": 1328,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009944",
-      "size": 40,
+      "size": 56,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x800103dc",
-      "size": 60,
+      "size": 84,
       "type": 1
     }
   ],
@@ -85,6 +85,18 @@
       "name": "BIFunc_MPCreateWeaponByType__FPPiPv",
       "address": "0x8001f390",
       "size": 188,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_MPCreateAmmoByWeaponSetID__FPPiPv",
+      "address": "0x8001f44c",
+      "size": 224,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_MPCreateWeaponByWeaponSetID__FPPiPv",
+      "address": "0x8001f52c",
+      "size": 224,
       "binding": 1
     }
   ],

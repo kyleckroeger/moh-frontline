@@ -1,12 +1,14 @@
 // A fragment of bsbifunc.cpp (0x8001f0dc): multiplayer weapon-set built-ins.
 // The weapon type and the ammo and weapon pickup prompts come from the player
 // weapon table for the CRC in the given weapon-set slot; creating ammo or a
-// weapon by type looks the script object's trigger CRC up in the set (the
-// ammo entries 19 slots on, the weapons one slot on) and creates the object
-// from the first match, returning it (or 0). Each reads its argument below
-// the script stack top, pops the built-in's arguments and writes the result
-// to the new top through an integer union. The file name is this project's;
-// the original record is bsbifunc.cpp and the built-ins around these are not
+// weapon by type looks the script object's trigger CRC up in the set (the ammo
+// entries 19 slots on, the weapons one slot on) and creates the object from the
+// first match, returning it (or 0); creating ammo or a weapon by weapon-set id
+// (1-based, checked against the set's count) sets the trigger's CRC from that
+// slot (ammo 18 slots on) and creates the object. Each reads its argument below
+// the script stack top, pops the built-in's arguments and writes the result to
+// the new top through an integer union. The file name is this project's; the
+// original record is bsbifunc.cpp and the built-ins around these are not
 // reconstructed. The functions and globals are named by the mangled symbols;
 // the weapon-set, trigger and built-in record views are inferred (members at
 // their offsets, names not original).
@@ -127,6 +129,30 @@ void BIFunc_MPCreateWeaponByType(int** stack, void*) {
             value.i = *CreateObject(trigger, core->createArgument, 0);
             break;
         }
+    }
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    *(BSValueView*)*stack = value;
+}
+
+void BIFunc_MPCreateAmmoByWeaponSetID(int** stack, void*) {
+    BSValueView value;
+    int slot = *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1));
+    value.i = 0;
+    if (slot > 0 && slot <= g_pMPWeaponSet->data->count) {
+        g_pBSObject->trigger->core->crc = g_pMPWeaponSet->data->slots[slot + 18].crc;
+        value.i = *CreateObject(g_pBSObject->trigger, g_pBSObject->trigger->core->createArgument, 0);
+    }
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    *(BSValueView*)*stack = value;
+}
+
+void BIFunc_MPCreateWeaponByWeaponSetID(int** stack, void*) {
+    BSValueView value;
+    int slot = *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1));
+    value.i = 0;
+    if (slot > 0 && slot <= g_pMPWeaponSet->data->count) {
+        g_pBSObject->trigger->core->crc = g_pMPWeaponSet->data->slots[slot].crc;
+        value.i = *CreateObject(g_pBSObject->trigger, g_pBSObject->trigger->core->createArgument, 0);
     }
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
     *(BSValueView*)*stack = value;

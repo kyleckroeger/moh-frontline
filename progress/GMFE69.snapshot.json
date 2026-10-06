@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 342912,
+    "matching_code_bytes": 343360,
     "total_executable_code_bytes": 1414572,
-    "percent": 24.241395984085646,
+    "percent": 24.273066340914426,
     "categories": {
       "reconstructed_game": 91828,
-      "restored_library": 251084
+      "restored_library": 251532
     },
-    "matching_functions": 2311
+    "matching_functions": 2313
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -196,7 +196,7 @@
     "config/GMFE69/bsbifunc_mmg.json": "298fb27926ff3496580c5bd122ea5d62501f6f7104e22d90251f0742d8c1ea22",
     "config/GMFE69/bsbifunc_movewalk.json": "336c99c87985acd294023a0fdeb4182ec9cafbcbe5cf87b13b90bb3f70af3ee2",
     "config/GMFE69/bsbifunc_mpplayer.json": "954a9cf601c7bc1558ae303fe4920353ea2917d2530651e782d4231707204a16",
-    "config/GMFE69/bsbifunc_mpweapons.json": "18b890eaf98a0a1b15dde33035a19aa85c501ceb8a3398072d2e5dcbf17113d8",
+    "config/GMFE69/bsbifunc_mpweapons.json": "17cf2141abe39a03caa783b672b7f9b8158abf0fdd2089d6247c38d191603fc1",
     "config/GMFE69/bsbifunc_objective.json": "bffc4e275e62a0a525e381743951cc8862a0a76a78197d15b8ec885eb1316e37",
     "config/GMFE69/bsbifunc_playercoll.json": "ab884f11a2ebc69a27c57dadc40a247943e24f6dfb9e7457c21d205f49e1434a",
     "config/GMFE69/bsbifunc_random.json": "260441a8650cc9bb1e8c04e38c433d458916db15f62b52232900d13d8453d553",
@@ -1594,7 +1594,7 @@
     "src/game/bsbifunc_mmg.cpp": "a1d4efa0ea72ef2b3bad132cf4f53c8696d7b72e06a1e88a825a976f0f8f311b",
     "src/game/bsbifunc_movewalk.cpp": "f012b1b58b4e1cd6daada0f4fe2c91ebc0fa6d0bf96166ccd7fa07e0e9235418",
     "src/game/bsbifunc_mpplayer.cpp": "163a34d3170b06d3fc48c48495bdc0939633b0e053a311dfdcd3520331b5c699",
-    "src/game/bsbifunc_mpweapons.cpp": "2992bce1a4e5fef1e893940e1d081c67cc1cd769685b6c88bb97de340ca76e85",
+    "src/game/bsbifunc_mpweapons.cpp": "60f55e2ba2822e978931459a6e6c911c33908e3389f781316b66d5526cbea797",
     "src/game/bsbifunc_objective.cpp": "d33f6c2c69abefe5709022ad49bb8cdc7a468d1ff2f80168cafd6cc9089edde4",
     "src/game/bsbifunc_playercoll.cpp": "2bdfafe8b7c97bbf568dfb1e44de1041676b75d8dc62ed48d1fb9f806acdae52",
     "src/game/bsbifunc_random.cpp": "c03a2a5c9c702e88e884d1e2dfbc9f60078b981aa383df7d745b4ae7ae5bdd55",
@@ -25226,8 +25226,8 @@
     {
       "id": "bsbifunc_mpweapons",
       "category": "restored_library",
-      "functions": 5,
-      "code_bytes": 880,
+      "functions": 7,
+      "code_bytes": 1328,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -25259,8 +25259,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "40eddc4d751774fac89487e275a41debbadd703eebdd4fb88dad727d09b0b810",
-      "linked_sha256": "7700c51e1afeebb006a96909d9d3202c5bba23a8c24dbcbd8ba6224d143df2f5"
+      "object_sha256": "2ddca4a542ae956679855ee43ae541c7ae0a539d67074e409335fd134fca9aca",
+      "linked_sha256": "2fa2016026621ccdb9109fa1d51df6f5901d077b0400a3fb15bbd024a8349b08"
     },
     {
       "id": "bsbifunc_objective",
@@ -26631,20 +26631,6 @@
             "size": 220,
             "kind": "function",
             "name": "BIFunc_MPAddPlayerAmmo__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001f44c",
-            "size": 224,
-            "kind": "function",
-            "name": "BIFunc_MPCreateAmmoByWeaponSetID__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001f52c",
-            "size": 224,
-            "kind": "function",
-            "name": "BIFunc_MPCreateWeaponByWeaponSetID__FPPiPv",
             "evidence": "exception-index"
           },
           {
