@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 268024,
+    "matching_code_bytes": 268260,
     "total_executable_code_bytes": 1414572,
-    "percent": 18.947356514903447,
+    "percent": 18.96404000644718,
     "categories": {
-      "reconstructed_game": 68144,
+      "reconstructed_game": 68380,
       "restored_library": 199880
     },
-    "matching_functions": 1510
+    "matching_functions": 1511
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -191,6 +191,7 @@
     "config/GMFE69/inittmr.json": "7755f1641b77990ae66e1ef55ad3b56891762a7784c3a1f993f458cc6bc71f24",
     "config/GMFE69/initvblt.json": "554084076489dbae1fed3c4188edc39c814244a8b70ee237e98293269aee6202",
     "config/GMFE69/input.json": "828af3a4556a93f2d6e7c6cca35627c18aba744db48565021f8f277269c4bd79",
+    "config/GMFE69/ipad.json": "fe62ef6fabba51edecb03f6464270668d31d21e6f39e87cfc575288ec7a94707",
     "config/GMFE69/isShellGroup.json": "fb2aea8e1fb5357a5c99b30450f95fb25d60066fb795346e9238568ba1eab8ac",
     "config/GMFE69/isShellLibrary.json": "4b838340878f1a37c48a9cb7f4530ff56b7d4e6144ae8049588d0d6545da6de6",
     "config/GMFE69/isexportdefs.json": "c69bbee01c63b955558f005792858feb77dfb7dfe20284280ec564085fd8294d",
@@ -238,7 +239,7 @@
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/pathxSND.json": "711dcdf3a5a5a7b4124ae70e377c5e863dc39c8de8a0de785b3dc3921c685fa0",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "d7fd21b0acd0a2a66e25c9e914aca23c9b6a1505105e7190ae212dc1e31292a4",
+    "config/GMFE69/project.json": "c0e091ece0d184f9977835b2cc05a590688fadb2883aadc2357dbf66cfa06ff4",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1170,6 +1171,7 @@
     "src/ea/initosalloc.cpp": "4947ccd21ff1ff25a35565783cff19911daddc3bebc8bd4b31e22056e208885a",
     "src/ea/inittmr.cpp": "2b8bc47a5536adecefaedb4c74d54e5a0509db63fdfef428e0975b1dcabababa",
     "src/ea/initvblt.cpp": "a3a42c3bc4407ed5a92562dcfa09205e537dab818b4a2eb4be90b5277c056da6",
+    "src/ea/ipad.cpp": "a14bbc51e2978782915128143189e4eb8d4af5c1907756e67001303383c6b168",
     "src/ea/locatbig.cpp": "ca45ed414f16861187ae9feb34372cec3e208f72a2f3123058e6f7b1dc395275",
     "src/ea/memblock.cpp": "9c22c07fb0234fb28e395fc44ebaa5d07b2ae93122bdbfb90b8e1b0da347e3ef",
     "src/ea/memclass.cpp": "a4eb43ad53e833f091a4ae51184503b05c3e24aa61a702e685f1358fe820fdc2",
@@ -17908,6 +17910,45 @@
       "discarded_functions": [],
       "object_sha256": "bfdec580d3da257bf6d3a7f6ad2c47f704f82b6465317d5fb190326571976583",
       "linked_sha256": "8b1bba6713b781e7888ee6a7ade0022a4a7729f58099746e46cac35317b1f605"
+    },
+    {
+      "id": "ipad",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 236,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "9f57e39f984d30f7090e3be815538ff9e404e809a690abb03818c1458c9e5d77",
+      "linked_sha256": "ca88846c5b2f701046466cc553c3ba533d99620db146558c3e357be4b57f76f0"
     }
   ],
   "code_map": {
@@ -42011,14 +42052,12 @@
             "kind": "function",
             "name": "iPAD_init__Fv",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8014f028",
-            "size": 236,
-            "kind": "function",
-            "name": "iPAD_update__Fv",
-            "evidence": "unknown-file"
-          },
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 8014f114",
+        "ranges": [
           {
             "address": "0x8014f114",
             "size": 340,

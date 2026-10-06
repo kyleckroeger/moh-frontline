@@ -372,7 +372,8 @@
     "world_object.json",
     "font.json",
     "AIFilter.json",
-    "collisionvolume.json"
+    "collisionvolume.json",
+    "ipad.json"
   ],
   "progress": {
     "code_bytes": 1414572,
