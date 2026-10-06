@@ -1,0 +1,210 @@
+{
+  "id": "anim_obj",
+  "source": "src/game/anim_obj.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8009361c",
+      "size": 344,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000c7f8",
+      "size": 48,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80013910",
+      "size": 72,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SetBasis__11CAnimObjectF8CVector38CVector38CVector3",
+      "address": "0x8009365c",
+      "size": 4,
+      "binding": 2
+    },
+    {
+      "name": "Roll__11CAnimObjectFf",
+      "address": "0x80093658",
+      "size": 4,
+      "binding": 2
+    },
+    {
+      "name": "Pitch__11CAnimObjectFf",
+      "address": "0x80093654",
+      "size": 4,
+      "binding": 2
+    },
+    {
+      "name": "Rotate__11CAnimObjectF8CVector3f",
+      "address": "0x80093650",
+      "size": 4,
+      "binding": 2
+    },
+    {
+      "name": "Transform__11CAnimObjectFRC7CMatrix",
+      "address": "0x8009364c",
+      "size": 4,
+      "binding": 2
+    },
+    {
+      "name": "PreTransform__11CAnimObjectFRC7CMatrix",
+      "address": "0x80093648",
+      "size": 4,
+      "binding": 2
+    },
+    {
+      "name": "SetTMLocalToWorld__11CAnimObjectFRC7CMatrix",
+      "address": "0x800936e4",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "DetachFloatingBone__11CAnimObjectFv",
+      "address": "0x80093644",
+      "size": 4,
+      "binding": 2
+    },
+    {
+      "name": "AttachFloatingBone__11CAnimObjectFv",
+      "address": "0x80093640",
+      "size": 4,
+      "binding": 2
+    },
+    {
+      "name": "GetAttachPointMatrix__11CAnimObjectFPcP7CMatrix",
+      "address": "0x80093638",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "DetachObject__11CAnimObjectFPc",
+      "address": "0x80093630",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "AttachObject__11CAnimObjectFP13CStaticObjectPci",
+      "address": "0x80093628",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "GetLightVolume__11CAnimObjectFv",
+      "address": "0x80093708",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "ExitLightVolume__11CAnimObjectFP14BPDLightVolume",
+      "address": "0x8009372c",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "EnterLightVolume__11CAnimObjectFP14BPDLightVolume",
+      "address": "0x80093750",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "AsAnimObject__11CAnimObjectFv",
+      "address": "0x80093624",
+      "size": 4,
+      "binding": 2
+    },
+    {
+      "name": "AsAnimObject__11CAnimObjectCFv",
+      "address": "0x80093620",
+      "size": 4,
+      "binding": 2
+    },
+    {
+      "name": "UpdateLocalBoundingVolume__11CAnimObjectFQ210ISceneNode11EVolumeTypeRC8CVector3RC8CVector3",
+      "address": "0x8009361c",
+      "size": 4,
+      "binding": 2
+    },
+    {
+      "name": "Destroy__11CAnimObjectFv",
+      "address": "0x80093660",
+      "size": 4,
+      "binding": 1
+    },
+    {
+      "name": "MarkForDestruction__11CAnimObjectFi",
+      "address": "0x80093664",
+      "size": 60,
+      "binding": 1
+    },
+    {
+      "name": "SetAttached__11CAnimObjectFb",
+      "address": "0x800936a0",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "AttachToLocation__11CAnimObjectFRC7CMatrix",
+      "address": "0x800936b0",
+      "size": 52,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "AddVolume__19CLightVolumeManagerFP14BPDLightVolume": "0x80078ee4",
+    "GetVolume__19CLightVolumeManagerFv": "0x80078a3c",
+    "MarkForDestruction__8ISubjectFi": "0x800d8148",
+    "RemoveVolume__19CLightVolumeManagerFP14BPDLightVolume": "0x80078df8",
+    "Remove__6CSceneFR10ISceneNode": "0x800dc190",
+    "__as__7CMatrixFRC7CMatrix": "0x80090b34",
+    "g_scene": "0x8019484c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "anim_obj.cpp",
+  "original_file_index": 5634
+}

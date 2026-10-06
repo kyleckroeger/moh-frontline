@@ -345,7 +345,8 @@
     "sst.json",
     "filedev.json",
     "rcmpbase.json",
-    "matstack.json"
+    "matstack.json",
+    "anim_obj.json"
   ],
   "progress": {
     "code_bytes": 1414572,

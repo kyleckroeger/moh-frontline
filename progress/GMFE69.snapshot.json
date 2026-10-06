@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 255172,
+    "matching_code_bytes": 255516,
     "total_executable_code_bytes": 1414572,
-    "percent": 18.03881315337784,
+    "percent": 18.063131463085654,
     "categories": {
-      "reconstructed_game": 58168,
+      "reconstructed_game": 58512,
       "restored_library": 197004
     },
-    "matching_functions": 1345
+    "matching_functions": 1367
   },
   "input_sha256": {
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
@@ -108,6 +108,7 @@
     "config/GMFE69/ai.json": "57c30f25d932fdeb3f89033a5520f9d2de67dc88142e1f33a09be06723837827",
     "config/GMFE69/alloc.json": "fb00980764751afb051dcf8d20531d16fad345cbb4ab5446ac3f13dae1d82c1e",
     "config/GMFE69/anim.json": "6c0f7deb10acc52b25def57dae0a0ea6329965cecfc7a591ba086eda441dd7a8",
+    "config/GMFE69/anim_obj.json": "1fb127f32bc123fbf0681c3a0ff716eced3621257c89eb83b7fac576055a52ef",
     "config/GMFE69/animchan.json": "6342a434b5e2b62c447c6545e0b905bc97dfb3e202fb456a6608dfe74f9cd25b",
     "config/GMFE69/animdb.json": "bb5f95b38785b1dbd10de555e7a48050f9187bed1d9ce716634786e1f809c851",
     "config/GMFE69/animintf.json": "e91af6bf29eeff53f9eebe801ede9cf93426f363777b7aeba4ab4fbbfc53a675",
@@ -215,7 +216,7 @@
     "config/GMFE69/orient.json": "72f98d12bf7b19da6ff9a44a8ce663105d3d9487243682393bb08cac62bb16bd",
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
-    "config/GMFE69/project.json": "36c7556089ecaec9ad615a2e714b98bbff81dd2933401a7a83bef09bc68e6865",
+    "config/GMFE69/project.json": "4741daf8cb78f7267ebdc096e372af0fd776af2a9ea43f10692636999e42cc0d",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/qsort.json": "277ba29abda5c2279b4e2863c6a9b8fbe0b1f4f180473d48b6a194e2e91b7498",
@@ -1270,6 +1271,7 @@
     "src/game/MallocInit.cpp": "ba35f4c9ac530c717f81930ab9aa3a203ea81844e4776914ae6b51acf4188a74",
     "src/game/MathFun.cpp": "5a60cf13aeb557c033e5adb906365756165d8401c8d9f239c72e95a9c96b96df",
     "src/game/anim.cpp": "9e086af4631ac941623f4e90cc4d858d9a4a1ddde96c1433e494b2f9411978d3",
+    "src/game/anim_obj.cpp": "725abd73fe56c11fd2c8b08a127d30cfc73d5b6527fc15d9000668ac993e7dd7",
     "src/game/animchan.cpp": "221d21b6310330f8d36e7a5735a51dcfdb4f162c8d5651ef577e1ee2c9ca6030",
     "src/game/animdb.cpp": "2ad9555c6c6df924ebfa81b4d627ee1284c7634ec8c91330edafca9d2753c2ac",
     "src/game/animintf.cpp": "30da38919557e3702eab8683fdc04613b8d4720da1b24216908f957e8ce63ca5",
@@ -16754,6 +16756,45 @@
       "discarded_functions": [],
       "object_sha256": "cd3eb2c58faaba25b9427bb86dae8da305f649ced4f6dbaa27e84e71bb95c3f3",
       "linked_sha256": "c77914564307e60e2183cee45a6b7ed542cc4feda5d12fb2c5ff5c57407ab917"
+    },
+    {
+      "id": "anim_obj",
+      "category": "reconstructed_game",
+      "functions": 22,
+      "code_bytes": 344,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "c090925ec8da4feda7542e3744ef558904e287e5a186dda0177cca3a2d6a81f6",
+      "linked_sha256": "ba03ef943f73a0ed7c909a20513c31bdffc0f5215d35b53d38fb7e640303134b"
     }
   ],
   "code_map": {
@@ -29105,164 +29146,10 @@
         ]
       },
       {
-        "name": "Unmatched files/anim_obj.cpp [inferred file group]",
+        "name": "Unmatched files/anim_obj.cpp [symbol evidence]",
         "file_record": 107,
         "file_name": "anim_obj.cpp",
         "ranges": [
-          {
-            "address": "0x8009361c",
-            "size": 4,
-            "kind": "function",
-            "name": "UpdateLocalBoundingVolume__11CAnimObjectFQ210ISceneNode11EVolumeTypeRC8CVector3RC8CVector3",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80093620",
-            "size": 4,
-            "kind": "function",
-            "name": "AsAnimObject__11CAnimObjectCFv",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80093624",
-            "size": 4,
-            "kind": "function",
-            "name": "AsAnimObject__11CAnimObjectFv",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80093628",
-            "size": 8,
-            "kind": "function",
-            "name": "AttachObject__11CAnimObjectFP13CStaticObjectPci",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80093630",
-            "size": 8,
-            "kind": "function",
-            "name": "DetachObject__11CAnimObjectFPc",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80093638",
-            "size": 8,
-            "kind": "function",
-            "name": "GetAttachPointMatrix__11CAnimObjectFPcP7CMatrix",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80093640",
-            "size": 4,
-            "kind": "function",
-            "name": "AttachFloatingBone__11CAnimObjectFv",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80093644",
-            "size": 4,
-            "kind": "function",
-            "name": "DetachFloatingBone__11CAnimObjectFv",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80093648",
-            "size": 4,
-            "kind": "function",
-            "name": "PreTransform__11CAnimObjectFRC7CMatrix",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x8009364c",
-            "size": 4,
-            "kind": "function",
-            "name": "Transform__11CAnimObjectFRC7CMatrix",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80093650",
-            "size": 4,
-            "kind": "function",
-            "name": "Rotate__11CAnimObjectF8CVector3f",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80093654",
-            "size": 4,
-            "kind": "function",
-            "name": "Pitch__11CAnimObjectFf",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80093658",
-            "size": 4,
-            "kind": "function",
-            "name": "Roll__11CAnimObjectFf",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x8009365c",
-            "size": 4,
-            "kind": "function",
-            "name": "SetBasis__11CAnimObjectF8CVector38CVector38CVector3",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80093660",
-            "size": 4,
-            "kind": "function",
-            "name": "Destroy__11CAnimObjectFv",
-            "evidence": "between-same-file (inferred)"
-          },
-          {
-            "address": "0x80093664",
-            "size": 60,
-            "kind": "function",
-            "name": "MarkForDestruction__11CAnimObjectFi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800936a0",
-            "size": 16,
-            "kind": "function",
-            "name": "SetAttached__11CAnimObjectFb",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800936b0",
-            "size": 52,
-            "kind": "function",
-            "name": "AttachToLocation__11CAnimObjectFRC7CMatrix",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800936e4",
-            "size": 36,
-            "kind": "function",
-            "name": "SetTMLocalToWorld__11CAnimObjectFRC7CMatrix",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80093708",
-            "size": 36,
-            "kind": "function",
-            "name": "GetLightVolume__11CAnimObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8009372c",
-            "size": 36,
-            "kind": "function",
-            "name": "ExitLightVolume__11CAnimObjectFP14BPDLightVolume",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80093750",
-            "size": 36,
-            "kind": "function",
-            "name": "EnterLightVolume__11CAnimObjectFP14BPDLightVolume",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x80093774",
             "size": 36,
