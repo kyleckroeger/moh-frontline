@@ -1,0 +1,94 @@
+{
+  "id": "camera_rows",
+  "source": "src/game/camera_rows.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8007a274",
+      "size": 144,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000bf08",
+      "size": 32,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80012e60",
+      "size": 48,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "GetUpward__7CCameraCFR8CVector3",
+      "address": "0x8007a274",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "GetForward__7CCameraCFR8CVector3",
+      "address": "0x8007a298",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "GetRightward__7CCameraCFR8CVector3",
+      "address": "0x8007a2bc",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "GetPosition__7CCameraCFR8CVector3",
+      "address": "0x8007a2e0",
+      "size": 36,
+      "binding": 1
+    }
+  ],
+  "externals": {},
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "camera.cpp",
+  "original_file_index": 3766
+}

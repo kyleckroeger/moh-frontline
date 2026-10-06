@@ -144,6 +144,7 @@ and layouts it marks as descriptive stay descriptive here.
 | `collisionvolume.cpp` (fragment) | 7 | 160 | — | `CCollisionVolume` start, through an inferred non-virtual view: weak collision-id and script accessors and identity casts, `Destroy` (first virtual of the script object's user) and `MarkForDestruction` (subject, then removal from `g_scene`). The bullet handler follows; the row accessors later in the file copy a 16-byte row that the view cannot reproduce without inventing a type |
 | `collisionvolume_rows.cpp` (fragment of `collisionvolume.cpp`) | 7 | 204 | — | `0x80098134`: the bounding-volume getters (the `IVolume` pointer at `+112`, as `Init` takes it), the row accessors `GetUpward`/`GetForward`/`GetRightward`/`GetPosition` (two `lfd`/`stfd` pairs each, double-pair `CVector3` view) and `GetTMLocalToWorld` (`CMatrix::operator=` from `+48`). A second unit of the record; the bullet handler and `BeginUpdate` before it are not reconstructed |
 | `hearingvolume.cpp` (fragment) | 3 | 168 | — | `CHearingVolume` weak collision-id accessors (inferred non-virtual view) and `PlayBulletWhizBys`, which plays the whiz-by sound at the bullet's position and heading (virtual calls in the order of `__vt__10ISceneNode`; 16-byte `CVector3` passed by value) for the scene's first player. The bullet handler follows and is not reconstructed |
+| `hearingvolume_rows.cpp` (fragment of `hearingvolume.cpp`) | 4 | 144 | — | `CHearingVolume` row accessors (`0x80098b04`; transform at `+48`), double-pair `CVector3` view. A second unit of the record |
 | `ShellMenu.cpp` (fragment) | 6 | 48 | — | `CShellMenu` stage, mission, difficulty and controller-setting getters and the stage and mission setters (members named after the accessors, inferred offsets) |
 | `thrown_obj.cpp` (fragment) | 6 | 40 | — | `CThrownObject` weak defaults (object type 4, cast, empty script translate/rotate/scale) and `SetDeleted` (a bit in the flag byte at +756, inferred bit-field view) |
 | `thrownbullet.cpp` (fragment) | 6 | 48 | — | `CThrownBullet` weak bounding-volume, collision-enabled, attached-light, damage (through the weapon record) and cast accessors; the velocity getter that follows copies a 16-byte vector as doublewords |
@@ -162,6 +163,7 @@ and layouts it marks as descriptive stay descriptive here.
 | `compartment.cpp` (fragment) | 3 | 32 | — | `CCompartment` visibility and draw-enabled queries and the static shadow-texture setter on `g_CptShadowBin` |
 | `Tank_object.cpp` (fragment) | 3 | 20 | — | `CTankObject` weak AI-doodad accessors (doodad at +1856) and cast |
 | `player.cpp` (fragment) | 3 | 16 | — | `CPlayerObject` weak AI-doodad accessor (+36) and identity casts |
+| `player_rows.cpp` (fragment of `player.cpp`) | 4 | 144 | — | `CPlayerObject` row accessors (`0x800a0050`; transform at `+128`), double-pair `CVector3` view. A second unit of the record |
 | `UIStudio.c` (fragment) | 3 | 28 | — | Registration of the client transform, resource and message callbacks in the studio record (inferred slots; deferred inlining, reverse order) |
 | `matrix.cpp` (fragment) | 4 | 112 | — | `CMatrix` row setters (position, up, front, right) copying a by-value `CVector3` coordinate by coordinate (rows of 16 bytes, inferred) |
 | `quaternion.cpp` (fragment) | 1 | 204 | — | `CQuaternion::EndianSwap`: the vector part, then the scalar (stored first), through the inlined float `EndianSwap`/`ChangeEndian` helpers of `propdat.cpp` |
@@ -223,6 +225,10 @@ and layouts it marks as descriptive stay descriptive here.
 | `isexportdefs.cpp` | 1 | 16 | `NullifyScreenAndLibrary` |
 | `isShellGroup.cpp`, `ispausegroup.cpp`, `isShellLibrary.cpp`, `ispauselibrary.cpp` (fragments) | 4 | 56 | One-line selectors of the shell/pause screen and library tables; the files' string data is not reconstructed |
 | `trig.cpp` (fragment) | 4 | 272 | `MathArcTan2`, `MathSinCos`, `MathCosf`, `MathSinf`. `MathLLAngleInit` (Taylor tables) is left out: 4 instructions differ (element 0 of `_Math_TaylorConst` is addressed through a copied base register), and a 12-byte object the linker stripped sits between the tables |
+| `light_rows.cpp` (fragment of `light.cpp`) | 4 | 144 | — | `CLight` row accessors (`0x80077f2c`; transform at `+112`), two `lfd`/`stfd` pairs each with the double-pair `CVector3` view; the rest of the file is not reconstructed |
+| `camera_rows.cpp` (fragment of `camera.cpp`) | 4 | 144 | — | `CCamera` row accessors (`0x8007a274`; transform at `+64`), double-pair `CVector3` view; the rest of the file is not reconstructed |
+| `static_obj_rows.cpp` (fragment of `static_obj.cpp`) | 4 | 144 | — | `CStaticObject` row accessors (`0x800afb3c`; transform at `+64`), double-pair `CVector3` view; the rest of the file is not reconstructed |
+| `bullet_rows.cpp` (fragment of `bullet.cpp`) | 2 | 72 | — | `CBullet::GetRightward` and `GetUp` (`0x800ccb84`; weak, transform at `+64`), double-pair `CVector3` view; the rest of the file is not reconstructed |
 
 ## Endian conversions
 

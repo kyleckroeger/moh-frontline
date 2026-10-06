@@ -1,0 +1,94 @@
+{
+  "id": "static_obj_rows",
+  "source": "src/game/static_obj_rows.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800afb3c",
+      "size": 144,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000d400",
+      "size": 32,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80014510",
+      "size": 48,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "GetUpward__13CStaticObjectCFR8CVector3",
+      "address": "0x800afb3c",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "GetForward__13CStaticObjectCFR8CVector3",
+      "address": "0x800afb60",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "GetRightward__13CStaticObjectCFR8CVector3",
+      "address": "0x800afb84",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "GetPosition__13CStaticObjectCFR8CVector3",
+      "address": "0x800afba8",
+      "size": 36,
+      "binding": 1
+    }
+  ],
+  "externals": {},
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "static_obj.cpp",
+  "original_file_index": 6731
+}
