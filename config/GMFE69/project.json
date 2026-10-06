@@ -590,7 +590,9 @@
     "bsbifunc_soundoffset.json",
     "bsbifunc_soundinfo.json",
     "bsbifunc_fog.json",
-    "bsbifunc_animevent.json"
+    "bsbifunc_animevent.json",
+    "bsbifunc_corpsesearch.json",
+    "bsbifunc_targetsearch.json"
   ],
   "progress": {
     "code_bytes": 1414572,
