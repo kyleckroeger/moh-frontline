@@ -620,7 +620,8 @@
     "bulletfactory_sprites.json",
     "matrix_endian.json",
     "sound_endian.json",
-    "weaponfactory_params.json"
+    "weaponfactory_params.json",
+    "stretch.json"
   ],
   "progress": {
     "code_bytes": 1414572,

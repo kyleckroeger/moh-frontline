@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 409460,
+    "matching_code_bytes": 409900,
     "total_executable_code_bytes": 1414572,
-    "percent": 28.945857828374944,
+    "percent": 28.976962643117496,
     "categories": {
-      "reconstructed_game": 133156,
+      "reconstructed_game": 133596,
       "restored_library": 276304
     },
-    "matching_functions": 2526
+    "matching_functions": 2527
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -426,7 +426,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "49040907e3f7a0ebc68495c770eabe0ff56bfcb4502cc1b3ff2f9e20b6a03a6d",
+    "config/GMFE69/project.json": "b468e47eb6ee395e0aa2d6ef0c02a31fda261c71a81e7af8816b23850a3fdb11",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -583,6 +583,7 @@
     "config/GMFE69/stream.json": "8277e72562d242f63690ec9510eaccda4fb71178d7b9a7542104386ed895d599",
     "config/GMFE69/stream_greedy.json": "77583c21fa80ff74971d838cae1c76b034a18651a84e2c3b45685be860a11ca3",
     "config/GMFE69/stream_prio.json": "4cf3cfbea3ac4b8c244e2ec4265f1b240882a12d4300f3bb36365594c5a4ced4",
+    "config/GMFE69/stretch.json": "9dae3ee6e6b7d04d31d1d77e5a80a5534992da7485a0f84d22d7bbc63e5dc566",
     "config/GMFE69/string.json": "dfcf9ebcd504cab3afb3e06b74c7e218ecadac89ebde48c40659fcaeb0a01628",
     "config/GMFE69/strtoul.json": "96027a37123019cd24fdaf9c4ec6caa8228464cf8362a2b3ba7e36acdb35dad5",
     "config/GMFE69/supf.json": "01af0bb9502db26aa7168c7276e2d96e72d874dfdc8f8d9367ae66df0f929e63",
@@ -1560,6 +1561,7 @@
     "src/ea/stream.cpp": "ff6fbe91e4fb7434b3ea3168c02462d0ed053646cae55960906871acad5620fb",
     "src/ea/stream_greedy.cpp": "9412503c870be2372b668e0a1c74a0158e4b70174435ca411b82661db6594a38",
     "src/ea/stream_prio.cpp": "78e45fbfeaf50cbbd39f4f2543003d4b23b0bf084724f61f1a8124ec88df293b",
+    "src/ea/stretch.c": "ee57f26e69055ee4d65ebc19c03a895da6badd9bc262a26c99808ab396ea8eb1",
     "src/ea/supf.c": "6887947b6223d085d1b4ae151937fb4107e5f1338b36fe73fd37bb15718a7cf9",
     "src/ea/suplf.c": "dfe878bc5bc53b45e72bb0ed6608b43d00ace2d55bb924f9cd199a5c04123aad",
     "src/ea/supmutf.c": "9dd420f031cc5c776078ad4d7385adfbd4be1c6fe16b6832cf0130623106f98e",
@@ -28271,6 +28273,45 @@
       "discarded_functions": [],
       "object_sha256": "720c91663eb2ce18b92c8c5a3ba88978bd013f3480f1db405708d7a478b12de4",
       "linked_sha256": "fa6d4069a6283be903a955c56f50560a0456af555c4d19503109eac9b043b6e2"
+    },
+    {
+      "id": "stretch",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 440,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "0432aaa3aac7e41eeffbb367fb4d5a9d8b82ec2ff88b780a151b423a3dfcd971",
+      "linked_sha256": "ddecd54a6e36d1309ad6a9198f6e66e3d164a70e90991262c65ceaf74496f8a5"
     }
   ],
   "code_map": {
@@ -46669,14 +46710,7 @@
             "size": 312,
             "kind": "function",
             "name": "stretchframesneeded__FPvi",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x80166dd8",
-            "size": 440,
-            "kind": "function",
-            "name": "stretch__FPviPfPf",
-            "evidence": "private-reference"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x80166f90",
