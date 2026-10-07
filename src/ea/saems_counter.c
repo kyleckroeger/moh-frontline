@@ -1,4 +1,10 @@
-/* A fragment of saems.c (0x80155228): the AEMS range-trigger, envelope and
+/* A fragment of saems.c (0x80154e54): the AEMS input-parameter and static
+   components (no update), the trigger (a set output fires once, then clears),
+   the oscillator (a step from the rate over the input period in mode 2; a
+   16-bit phase driving sine, square, saw or triangle waves, unipolar or
+   bipolar), the player (clamps its inputs, picks a sound from its table on a
+   rising play input and hands it to the stream, player or bank hook of
+   sndaems by the sound id's top bits), and the range-trigger, envelope and
    counter components' updates. The range trigger fires (output, hold count
    and armed flag set to 1) when its input enters the on range while
    disarmed, counts the hold down, and re-arms when the input enters the off
@@ -45,6 +51,22 @@ struct AEMSCOUNTERDEFVIEW {
     unsigned char up;
 };
 
+struct AEMSOSCDEFVIEW {
+    unsigned char unknown00[12];
+    short waveform;
+    short polarity;
+};
+
+struct AEMSPLAYERTABLEVIEW {
+    int* sounds;
+    short count;
+};
+
+struct AEMSPLAYERDEFVIEW {
+    unsigned char unknown00[12];
+    AEMSPLAYERTABLEVIEW* table;
+};
+
 struct AEMSRANGETRIGDEFVIEW {
     unsigned char unknown00[12];
     int onMin;
@@ -89,11 +111,13 @@ union AEMSSTATEVIEW {
     int value;
     short* samples;
     unsigned short* counts;
+    unsigned short step;
 };
 
 struct AEMSCOMPDYNAMIC {
     void* def;
-    unsigned char unknown04[8];
+    signed char mode;
+    unsigned char unknown05[7];
     int* in;
     AEMSOUTPUTVIEW out;
     AEMSSTATEVIEW state0;
@@ -102,6 +126,7 @@ struct AEMSCOMPDYNAMIC {
         short* samples;
         int* values;
         short round;
+        unsigned int phase;
         struct {
             short stage;
             short trigger;
@@ -111,12 +136,20 @@ struct AEMSCOMPDYNAMIC {
         int value;
         short* samples;
     } state2;
+    unsigned char unknown20[12];
+    unsigned short sound;
+    unsigned char playing;
 };
 
 struct SNDAEMSVIEW {
     int unknown00;
     int rate;
-    unsigned char unknown08[35];
+    unsigned char unknown08[16];
+    void (*playerUpdate)(AEMSCOMPDYNAMIC*);
+    unsigned char unknown1c[4];
+    void (*bankUpdate)(AEMSCOMPDYNAMIC*);
+    void (*streamUpdate)(AEMSCOMPDYNAMIC*);
+    unsigned char unknown28[3];
     unsigned char handlerCount;
     void (*handlers[6])(int, int*);
 };
@@ -126,6 +159,98 @@ extern void (*SNDAEMS_beginevent)(int*);
 
 void SNDAEMSI_destroyinstance(MODULE*, int);
 unsigned int iSNDrandom();
+int iSNDsin(int);
+
+void AEMSI_updateinparam(AEMSCOMPDYNAMIC*, MODULE*) {
+}
+
+void AEMSI_updatetrigger(AEMSCOMPDYNAMIC* comp, MODULE*) {
+    if (comp->out.value >= 1) {
+        if (comp->state0.value == 0)
+            comp->state0.value = 1;
+        else
+            comp->out.value = comp->state0.value = 0;
+    }
+}
+
+void AEMSI_updatestatic(AEMSCOMPDYNAMIC*, MODULE*) {
+}
+
+void AEMSI_updateoscillator(AEMSCOMPDYNAMIC* comp, MODULE*) {
+    AEMSOSCDEFVIEW* def = (AEMSOSCDEFVIEW*)comp->def;
+
+    if (comp->mode == 2) {
+        int period = comp->in[0];
+        int step;
+
+        if (period <= 0)
+            period = 1;
+        step = (sndaems.rate << 16) / period;
+        if (step > 0xFFFF)
+            step = 0xFFFF;
+        comp->state0.step = step;
+    }
+    comp->state1.phase += comp->state0.step;
+    if (comp->state1.phase >= 0x10000)
+        comp->state1.phase -= 0x10000;
+    if (def->waveform == 0) {
+        comp->out.value = (comp->in[1] * iSNDsin(comp->state1.phase >> 6)) >> 16;
+        if (def->polarity == 1) {
+            comp->out.value += comp->in[1];
+            comp->out.value >>= 1;
+        }
+    } else if (def->waveform == 1) {
+        if (comp->state1.phase >= 0x8000)
+            comp->out.value = comp->in[1];
+        else if (def->polarity == 1)
+            comp->out.value = 0;
+        else
+            comp->out.value = -comp->in[1];
+    } else if (def->waveform == 2 && def->polarity == 1) {
+        comp->out.value = (comp->state1.phase * comp->in[1]) >> 16;
+    } else if (def->waveform == 2) {
+        comp->out.value = (comp->state1.phase * comp->in[1]) >> 15;
+        comp->out.value -= comp->in[1];
+    } else if (def->waveform == 3 && def->polarity == 0) {
+        if (comp->state1.phase < 0x8000)
+            comp->out.value = (comp->state1.phase * comp->in[1]) >> 14;
+        else
+            comp->out.value = ((0x10000 - comp->state1.phase) * comp->in[1]) >> 14;
+        comp->out.value -= comp->in[1];
+    } else if (def->waveform == 3) {
+        if (comp->state1.phase < 0x8000)
+            comp->out.value = (comp->state1.phase * comp->in[1]) >> 15;
+        else
+            comp->out.value = ((0x10000 - comp->state1.phase) * comp->in[1]) >> 15;
+    }
+}
+
+void SNDAEMSI_updateplayer(AEMSCOMPDYNAMIC* comp, MODULE*) {
+    AEMSPLAYERDEFVIEW* def = (AEMSPLAYERDEFVIEW*)comp->def;
+
+    if (comp->in[0] > 0xFFFF)
+        comp->in[0] = 0xFFFF;
+    else if (comp->in[0] < 0)
+        comp->in[0] = 0;
+    if (comp->in[2] > 0x7FFF)
+        comp->in[2] = 0x7FFF;
+    else if (comp->in[2] < 0)
+        comp->in[2] = 0;
+    if (comp->playing != comp->in[7] && comp->in[7] == 1 && comp->playing == 0) {
+        AEMSPLAYERTABLEVIEW* table = def->table;
+        int index = comp->in[6];
+
+        if (index >= table->count)
+            index = table->count - 1;
+        comp->sound = table->sounds[index];
+    }
+    if (comp->sound >= 0xC000)
+        sndaems.streamUpdate(comp);
+    else if (comp->sound >= 0x8000)
+        sndaems.playerUpdate(comp);
+    else if (comp->sound >= 0x4000)
+        sndaems.bankUpdate(comp);
+}
 
 void AEMSI_updaterangetrig(AEMSCOMPDYNAMIC* comp, MODULE*) {
     int in;

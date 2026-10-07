@@ -37,12 +37,24 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80155228",
-      "size": 808,
+      "address": "0x80154e54",
+      "size": 1788,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "AEMSI_updateoscillator__FP15AEMSCOMPDYNAMICP6MODULE",
+      "address": "0x80154e90",
+      "size": 624,
+      "binding": 1
+    },
+    {
+      "name": "AEMSI_updatestatic__FP15AEMSCOMPDYNAMICP6MODULE",
+      "address": "0x80154e8c",
+      "size": 4,
+      "binding": 1
+    },
     {
       "name": "AEMSI_updatecounter__FP15AEMSCOMPDYNAMICP6MODULE",
       "address": "0x801554a4",
@@ -60,10 +72,29 @@
       "address": "0x80155228",
       "size": 152,
       "binding": 1
+    },
+    {
+      "name": "SNDAEMSI_updateplayer__FP15AEMSCOMPDYNAMICP6MODULE",
+      "address": "0x80155100",
+      "size": 296,
+      "binding": 1
+    },
+    {
+      "name": "AEMSI_updatetrigger__FP15AEMSCOMPDYNAMICP6MODULE",
+      "address": "0x80154e58",
+      "size": 52,
+      "binding": 1
+    },
+    {
+      "name": "AEMSI_updateinparam__FP15AEMSCOMPDYNAMICP6MODULE",
+      "address": "0x80154e54",
+      "size": 4,
+      "binding": 1
     }
   ],
   "externals": {
     "__div2i": "0x80138b60",
+    "iSNDsin__Fi": "0x8015f85c",
     "sndaems": "0x80340410"
   },
   "undefined_in_discarded_code": [],
