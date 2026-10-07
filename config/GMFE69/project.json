@@ -616,7 +616,8 @@
     "hierobject_tree.json",
     "cdbgeom_fiber.json",
     "AISplinePath_segment.json",
-    "bsmessage_group.json"
+    "bsmessage_group.json",
+    "bulletfactory_sprites.json"
   ],
   "progress": {
     "code_bytes": 1414572,
