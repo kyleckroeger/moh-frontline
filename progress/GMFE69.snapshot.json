@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 366800,
+    "matching_code_bytes": 367064,
     "total_executable_code_bytes": 1414572,
-    "percent": 25.930104653563056,
+    "percent": 25.948767542408586,
     "categories": {
       "reconstructed_game": 91828,
-      "restored_library": 274972
+      "restored_library": 275236
     },
-    "matching_functions": 2430
+    "matching_functions": 2431
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -233,7 +233,7 @@
     "config/GMFE69/bsbifunc_soundbank.json": "953f79f6ae04f00170c9e5245a5581db89aa85bef02d2cbd9ed36da433695690",
     "config/GMFE69/bsbifunc_soundinfo.json": "3465cb516f1e9d1253d41d0498e284b9941ba9c209efbcdb2765863ed48c8fdc",
     "config/GMFE69/bsbifunc_soundoffset.json": "709678d0ed2c2d95d746761c510c8cd0f929455caad7894e1c5516e0df32b2f6",
-    "config/GMFE69/bsbifunc_stop.json": "8f7fb238dfd5d8d55d8b8728ff38039a116982a0d6415c5624f5a9f55beb5c65",
+    "config/GMFE69/bsbifunc_stop.json": "41f1f940d94ed670182016ea5f63f79541f61f1bce8ce79e7a9001b0912d68b8",
     "config/GMFE69/bsbifunc_targetsearch.json": "2b27728d62c708c6c51af4da13d8e94cdab7a12237ccbf90439417ee911119c7",
     "config/GMFE69/bsbifunc_translate.json": "8ad52cc399317cae040e568745ec73b6612182f345e479ebf44a2d9a191a884b",
     "config/GMFE69/bsbifunc_vibration.json": "265edf7233487928d89153abf3226c1ead2fce219f81ea95edaf5767999cbaac",
@@ -1665,7 +1665,7 @@
     "src/game/bsbifunc_soundbank.cpp": "bf3d972cc013dc2178064dd14e14ea34351993e32fa3c868a9d1a1f6771d43e9",
     "src/game/bsbifunc_soundinfo.cpp": "0023474fa9fffff7a8047144d4464b788743b091cddd546a435ef4b82db39bdd",
     "src/game/bsbifunc_soundoffset.cpp": "61a054ee0cbb2341a1b1f2c0bf65d0a3fe56981c35615ed2b4ac0e1023134af2",
-    "src/game/bsbifunc_stop.cpp": "39ec02ecb5fb86d764ba39b6565aa769334d211a5698ee23ba1cd0e205df2316",
+    "src/game/bsbifunc_stop.cpp": "87aed18c9707f23dfd25b31db66d17a05d8f554625042c0e8bd6e10875f4c05f",
     "src/game/bsbifunc_targetsearch.cpp": "2284c553e4ea9300571a2398758d5689a9ee64f7cb7050ec33af28c6c783daee",
     "src/game/bsbifunc_translate.cpp": "d1915d1a5106223f684829156d43feab4702a6fdc447b2532addd9941ddc195e",
     "src/game/bsbifunc_vibration.cpp": "43ba02afe369628880a3cfa0c998d04397a1cc2ca9bec847caf3b60f5b910065",
@@ -25138,8 +25138,8 @@
     {
       "id": "bsbifunc_stop",
       "category": "restored_library",
-      "functions": 4,
-      "code_bytes": 696,
+      "functions": 5,
+      "code_bytes": 960,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -25171,8 +25171,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "a571910870ab7052ac0fcb6fb0b8be422b1b289c11cf6f40a6e2283752a1f25f",
-      "linked_sha256": "7e03edd8fb2a3195f930e46f1a2417d3d3fa571e3fef849b7326f13143365b97"
+      "object_sha256": "03d37be79d5e355e4bb732f9e7829876ad9fa4b0cbeba9f2e27335e65114cf7f",
+      "linked_sha256": "1edc22794c9eb598fc54c560aaff145f3210bd8e6491a98a0b7b0150cbb97b92"
     },
     {
       "id": "bsbifunc_level",
@@ -28438,13 +28438,6 @@
             "size": 116,
             "kind": "function",
             "name": "BIFunc_StartGrenadeHold__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8002e0b4",
-            "size": 264,
-            "kind": "function",
-            "name": "BIFunc_RegisterBuddyPlayerCheck__FPPiPv",
             "evidence": "exception-index"
           },
           {

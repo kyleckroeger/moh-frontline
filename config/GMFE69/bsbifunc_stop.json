@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x8002ddfc",
-      "size": 696,
+      "size": 960,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009dec",
-      "size": 32,
+      "size": 40,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80010aa8",
-      "size": 48,
+      "size": 60,
       "type": 1
     }
   ],
@@ -80,9 +80,16 @@
       "address": "0x8002de98",
       "size": 180,
       "binding": 1
+    },
+    {
+      "name": "BIFunc_RegisterBuddyPlayerCheck__FPPiPv",
+      "address": "0x8002e0b4",
+      "size": 264,
+      "binding": 1
     }
   ],
   "externals": {
+    "Register__10BSScheduleFP8BSObjectUsbiii": "0x8003ab5c",
     "Unregister__10BSScheduleFP35BSScheduleRegistrationRecord_struct": "0x8003aaf4",
     "Unregister__10BSScheduleFP8BSObject": "0x8003aa58",
     "g_BuddyPlayerCheckSchedule": "0x8019751c",
