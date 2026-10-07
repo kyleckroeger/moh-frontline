@@ -7,7 +7,9 @@
    pointers, allocates each module's instance slots and component offsets,
    resolves the system's parameter and trigger references to module and
    component indices in this bank, and records the bank's name and user
-   value). The system layout, the trigger and parameter records and the
+   value) and SNDAEMSI_removemodulebank (unresolves the references to the
+   bank, destroys every instance, frees the module lists and removes the
+   bank's sound banks). The system layout, the trigger and parameter records and the
    sndaems and sndgs views are inferred. */
 struct AEMSCOMPDEFVIEW;
 
@@ -61,7 +63,9 @@ struct AEMSCOMPINFOVIEW {
 
 extern AEMSCOMPINFOVIEW aemscompinfo[];
 
-struct MODULEINSTANCE;
+struct MODULEINSTANCE {
+    int id;
+};
 
 /* inferred: a module's runtime lists (instance slots, live count, component
    data offsets) */
@@ -83,7 +87,8 @@ struct AEMSMODULEVIEW {
 
 /* inferred: a loaded bank's name and user value */
 struct AEMSBANKINFOVIEW {
-    unsigned char unknown00[8];
+    int soundBank;
+    int soundBank2;
     char* name;
     int user;
 };
@@ -172,6 +177,8 @@ void SNDAEMS_linkbank();
 void AEMSI_timerupdate();
 void* SNDMEMI_allocz(int);
 void SNDMEMI_free(void*);
+int SNDAEMSI_destroyinstance(struct MODULE*, int);
+extern "C" void SNDbankremove(int);
 
 void SNDAEMSI_restore() {
     SNDAEMS_removesystem();
@@ -359,4 +366,47 @@ void SNDAEMSI_resolvemodulebank(MODULEBANK* bank, char* name, int user) {
     }
     bank->info->user = user;
     SNDSYS_leavecritical();
+}
+
+int SNDAEMSI_removemodulebank(int index) {
+    MODULEBANK* bank;
+    int i;
+
+    SNDSYS_entercritical();
+    bank = sndaems.banks[index];
+    if (bank->info->name)
+        SNDMEMI_free(bank->info->name);
+    for (i = 0; i < sndaems.system->paramCount; i++) {
+        if (bank->id == sndaems.system->params[i].bank)
+            sndaems.system->params[i].resolvedBank = 0xFFFF;
+    }
+    for (i = 0; i < sndaems.system->refCount; i++) {
+        AEMSTRIGREFVIEW* ref = &sndaems.system->refs[i];
+
+        if (ref->bank == bank->id)
+            ref->resolvedBank = 0xFFFF;
+    }
+    for (i = 0; i < bank->moduleCount; i++) {
+        AEMSMODULEVIEW* module = bank->version >= 8 ? (AEMSMODULEVIEW*)(bank->modules + i * 28)
+                                                    : (AEMSMODULEVIEW*)(bank->modules + i * 20);
+        int j;
+
+        for (j = 0; j < module->slots; j++) {
+            MODULEINSTANCE* instance = module->list->instances[j];
+
+            if (instance)
+                SNDAEMSI_destroyinstance((struct MODULE*)module, instance->id);
+        }
+        SNDMEMI_free(module->list->offsets);
+        SNDMEMI_free(module->list->instances);
+        SNDMEMI_free(module->list);
+    }
+    if (bank->info->soundBank >= 0)
+        SNDbankremove(bank->info->soundBank);
+    if (bank->info->soundBank2 >= 0)
+        SNDbankremove(bank->info->soundBank2);
+    SNDMEMI_free(bank->info);
+    sndaems.banks[index] = 0;
+    SNDSYS_leavecritical();
+    return 0;
 }
