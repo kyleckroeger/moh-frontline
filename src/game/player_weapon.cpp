@@ -1,27 +1,31 @@
-// A fragment of player.cpp (0x8009f194): CPlayerObject's motion and camera
-// shakes, then its current-weapon queries. ShakeCamera adds random offsets to
-// the two angles: a quarter of the camera shake's strength, faded in or out
-// over its time (counting down clears the flag at the end), and a quarter of
-// the motion shake's amount, which steps towards the strength scaled by the
-// squared speed (velocity at +600, full at the speed whose square is
-// 0.0084196). DoMotionShake stores the strength
-// and time, restarts the elapsed time and flags the shake while the strength
-// is positive; StopCameraShake and StartCameraShake take the time's magnitude
-// (counting down or up), store a rate of -1 or 1 per second over it (1 for a
-// zero time) and clear or set the shake flag. Their constants are entries of
-// the file's .sdata2 pool. While the mounted-weapon flag is set the weapon
-// queries read the mounted weapon; otherwise the selected slot's weapon
-// object's weapon, with 0 (or null) when no slot is selected: the reserve and
-// clip ammo counts and the bullet sprite. GetWeaponByCRC returns the weapon
-// object in the slot GetWeaponInfoByCRC finds; GetWeaponInfoByCRC maps a
-// weapon-name CRC to a slot and two ids, reporting unknown CRCs; GetWeapon,
-// GetCurrentWeapon and GetCurrentPlayerWeapon follow. The file name is this
-// project's; the original record is player.cpp and CycleWeapon after these is
-// not reconstructed. The classes and functions are named by the mangled
-// symbols; CPlayerObject, CPlayerWeaponObject and CWeapon are inferred
-// non-virtual views (members at their offsets, names not original) and the
-// result types and the angle parameter names are inferred.
+// A fragment of player.cpp (0x8009f148): CPlayerObject's spline-path
+// movement (StopPath clears the on-path flag; MoveOnPath sets it, stores the
+// path and the next one, restarts the time and sets a rate of 1/59.94 (the
+// NTSC field rate) over the speed), its motion and camera shakes, then its
+// current-weapon queries. ShakeCamera adds random offsets to the two angles:
+// a quarter of the camera shake's strength, faded in or out over its time
+// (counting down clears the flag at the end), and a quarter of the motion
+// shake's amount, which steps towards the strength scaled by the squared
+// speed (velocity at +600, full at the speed whose square is 0.0084196).
+// DoMotionShake stores the strength and time, restarts the elapsed time and
+// flags the shake while the strength is positive; StopCameraShake and
+// StartCameraShake take the time's magnitude (counting down or up), store a
+// rate of -1 or 1 per second over it (1 for a zero time) and clear or set
+// the shake flag. Their constants are entries of the file's .sdata2 pool.
+// While the mounted-weapon flag is set the weapon queries read the mounted
+// weapon; otherwise the selected slot's weapon object's weapon, with 0 (or
+// null) when no slot is selected: the reserve and clip ammo counts and the
+// bullet sprite. GetWeaponByCRC returns the weapon object in the slot
+// GetWeaponInfoByCRC finds; GetWeaponInfoByCRC maps a weapon-name CRC to a
+// slot and two ids, reporting unknown CRCs; GetWeapon, GetCurrentWeapon and
+// GetCurrentPlayerWeapon follow. The file name is this project's; the
+// original record is player.cpp and CycleWeapon after these is not
+// reconstructed. The classes and functions are named by the mangled symbols;
+// CPlayerObject, CPlayerWeaponObject and CWeapon are inferred non-virtual
+// views (members at their offsets, names not original) and the result types
+// and the angle parameter names are inferred.
 class CSprite;
+class CAISplinePath;
 
 void DebugMsg(const char*, ...);
 
@@ -50,6 +54,8 @@ public:
     CPlayerWeaponObject* GetWeapon(int) const;
     CWeapon* GetCurrentWeapon() const;
     CPlayerWeaponObject* GetCurrentPlayerWeapon() const;
+    void StopPath();
+    void MoveOnPath(CAISplinePath*, CAISplinePath*, float);
     void ShakeCamera(float&, float&, float);
     void DoMotionShake(float, float);
     void StopCameraShake(float);
@@ -62,7 +68,9 @@ public:
     unsigned char unknown264[305];
     unsigned char unknown395a : 2;
     unsigned char m_cameraShaking : 1;
-    unsigned char unknown395b : 5;
+    unsigned char unknown395b : 1;
+    unsigned char m_onPath : 1;
+    unsigned char unknown395c : 3;
     unsigned char m_usingMountedWeapon : 1;
     unsigned char unknown396b : 7;
     unsigned char unknown397a : 5;
@@ -75,11 +83,28 @@ public:
     float m_motionShakeStrength;
     float m_motionShakeTime;
     float m_motionShakeElapsed;
-    unsigned char unknown3b8[164];
+    unsigned char unknown3b8[72];
+    CAISplinePath* m_path;
+    CAISplinePath* m_nextPath;
+    float m_pathTime;
+    float m_pathRate;
+    unsigned char unknown410[76];
     int m_currentWeapon;
     CPlayerWeaponObject* m_weapons[96];
     CWeapon* m_mountedWeapon;
 };
+
+void CPlayerObject::StopPath() {
+    m_onPath = 0;
+}
+
+void CPlayerObject::MoveOnPath(CAISplinePath* path, CAISplinePath* nextPath, float speed) {
+    m_onPath = 1;
+    m_path = path;
+    m_nextPath = nextPath;
+    m_pathTime = 0.0f;
+    m_pathRate = (1.0f / 59.94f) * (1.0f / speed);
+}
 
 float MathFunRandomReal(float, float);
 

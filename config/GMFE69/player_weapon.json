@@ -39,8 +39,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8009f194",
-      "size": 2648,
+      "address": "0x8009f148",
+      "size": 2724,
       "type": 1
     },
     {
@@ -63,6 +63,18 @@
     }
   ],
   "functions": [
+    {
+      "name": "StopPath__13CPlayerObjectFv",
+      "address": "0x8009f148",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "MoveOnPath__13CPlayerObjectFP13CAISplinePathP13CAISplinePathf",
+      "address": "0x8009f15c",
+      "size": 56,
+      "binding": 1
+    },
     {
       "name": "ShakeCamera__13CPlayerObjectFRfRff",
       "address": "0x8009f194",
@@ -157,29 +169,35 @@
       "section": ".sdata2",
       "offset": 0,
       "size": 4,
-      "address": "0x8035053c"
+      "address": "0x80350540"
     },
     {
       "section": ".sdata2",
       "offset": 4,
       "size": 4,
-      "address": "0x80350540"
+      "address": "0x80350564"
     },
     {
       "section": ".sdata2",
       "offset": 8,
       "size": 4,
-      "address": "0x80350578"
+      "address": "0x8035053c"
     },
     {
       "section": ".sdata2",
       "offset": 12,
       "size": 4,
-      "address": "0x80350594"
+      "address": "0x80350578"
     },
     {
       "section": ".sdata2",
       "offset": 16,
+      "size": 4,
+      "address": "0x80350594"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 20,
       "size": 4,
       "address": "0x803505e0"
     }
