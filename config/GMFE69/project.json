@@ -758,7 +758,18 @@
     "bulletfactory_thrown_ctor.json",
     "bulletfactory_thrown_pool.json",
     "bulletfactory_projectile_ctor.json",
-    "bulletfactory_projectile_pool.json"
+    "bulletfactory_projectile_pool.json",
+    "AIFilter_fastvec.json",
+    "cdbobject_fastvec_branch.json",
+    "cdbobject_fastvec_trigroup.json",
+    "cdbobject_fastvec_frame.json",
+    "compartment_fastvec_tri.json",
+    "anim_obj_fastvec.json",
+    "player_fastvec.json",
+    "scene_fastvec_node.json",
+    "scene_fastvec_commands.json",
+    "scene_fastvec_pairs.json",
+    "scene_fastvec_shadow.json"
   ],
   "progress": {
     "code_bytes": 1414572,
