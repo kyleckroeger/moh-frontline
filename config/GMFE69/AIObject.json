@@ -39,24 +39,30 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8004d53c",
-      "size": 164,
+      "address": "0x8004d41c",
+      "size": 452,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000a8a0",
-      "size": 32,
+      "address": "0x8000a898",
+      "size": 40,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x800119fc",
-      "size": 48,
+      "address": "0x800119f0",
+      "size": 60,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "SetTarget__9CAIObjectFP9CAIObject",
+      "address": "0x8004d41c",
+      "size": 288,
+      "binding": 1
+    },
     {
       "name": "GetDistanceSquaredXYReal__9CAIObjectFP9CAIObject",
       "address": "0x8004d53c",
@@ -83,6 +89,7 @@
     }
   ],
   "externals": {
+    "CalculateTargetPosition__9CAIObjectFv": "0x8004db08",
     "GetDistanceSquaredXYReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition": "0x8005a6d0",
     "GetDistanceSquaredXYZReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition": "0x8005a6f4",
     "GetDistanceXYZReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition": "0x8005a7b0"

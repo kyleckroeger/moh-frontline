@@ -6,19 +6,19 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 392536,
+    "matching_code_bytes": 392824,
     "total_executable_code_bytes": 1414572,
-    "percent": 27.74945354495918,
+    "percent": 27.7698130600634,
     "categories": {
-      "reconstructed_game": 115936,
+      "reconstructed_game": 116224,
       "restored_library": 276600
     },
-    "matching_functions": 2464
+    "matching_functions": 2465
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
     "config/GMFE69/AIFilter_astar.json": "d6b6ce53e9b9114cfe7754e17823f8928d98ce99d0c7b57a9e3eded44c43c484",
-    "config/GMFE69/AIObject.json": "24a53c7094486ea0a42c24edf3fa121e00d44edc31088b88f645f9fb08b66c2b",
+    "config/GMFE69/AIObject.json": "138358950c6e28b9683f422017cf6c4b23b5a3c311de1f390c48fa0421f07260",
     "config/GMFE69/AIPlayerDoodad.json": "5ab45909efeb94b828331a8b68a46467e9cb19518255f572f32340c24b98dff2",
     "config/GMFE69/AIPlayerObject.json": "89824370512e8f14345d260f39b95516cf337b026e7e61b8d6013d4d3664516a",
     "config/GMFE69/AISoldierDoodad.json": "2ff63fd49039400e569490a49c8f89bc08ec427340dabd46764dc1812cdf00c9",
@@ -1564,7 +1564,7 @@
     "src/ea/timerthread.cpp": "e2ee2dfbb74893029f0693bb5b76212bdd70223c892d9fd963984794c6193628",
     "src/game/AIFilter.cpp": "f07b9b59492ad0297b6a3567e44a9931c993d85dec42bf59089f1d58322d8e93",
     "src/game/AIFilter_astar.cpp": "dfb5331542cc3964e587f11594ee7e8cce3f74bbe9751b82fcc3e87c00cd79da",
-    "src/game/AIObject.cpp": "cdf645a510ac632a534b0e06beadf41b4992c5e9bc6aa844fb9d0c78bb1b0ad7",
+    "src/game/AIObject.cpp": "b4ab75d50b21694a50a17c62a111b53efcbc7b8e5284ffff26e9e6310f24f911",
     "src/game/AIPlayerDoodad.cpp": "218144f1416be0e264e2255e27e05126728778a56d650e5705a961e69003196e",
     "src/game/AIPlayerObject.cpp": "b1e57451819617f12a53f7185419f09b4ece3035859b25fcedb2752ec9d226bf",
     "src/game/AISoldierDoodad.cpp": "a70f1395b35f9773c7b6bbcd36e3da76824a4604449b9d8b5472447931a9754a",
@@ -19508,8 +19508,8 @@
     {
       "id": "AIObject",
       "category": "reconstructed_game",
-      "functions": 4,
-      "code_bytes": 164,
+      "functions": 5,
+      "code_bytes": 452,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -19541,8 +19541,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "2931155e64074fcaf2e5679af263f1f9582b1c268dacec6462da0952e82e2ec6",
-      "linked_sha256": "c83ed47e50f3b1b3e1f18d0004fbc02503fdb8b3d5efa93e1907df05182ca29b"
+      "object_sha256": "4d93c180f83cb1d3d1524dff946c09daeb3778a9801df119857b75cecd803fcb",
+      "linked_sha256": "1baaa1542d88e3c087c34144dd99dcb360882cf86ca01ebf870772ac26ca2e40"
     },
     {
       "id": "matrix",
@@ -30443,13 +30443,6 @@
             "kind": "function",
             "name": "SetNonAITarget__9CAIObjectFP8BSObject",
             "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8004d41c",
-            "size": 288,
-            "kind": "function",
-            "name": "SetTarget__9CAIObjectFP9CAIObject",
-            "evidence": "exception-index"
           },
           {
             "address": "0x8004d5e0",
