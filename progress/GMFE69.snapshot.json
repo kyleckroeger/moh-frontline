@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 463524,
+    "matching_code_bytes": 463852,
     "total_executable_code_bytes": 1414572,
-    "percent": 32.76779124710513,
+    "percent": 32.79097847264049,
     "categories": {
-      "reconstructed_game": 247120,
+      "reconstructed_game": 247448,
       "restored_library": 216404
     },
-    "matching_functions": 2788
+    "matching_functions": 2792
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -137,6 +137,7 @@
     "config/GMFE69/ShellMenu.json": "8dd6d4ec65f514a1f54b37bc84805970f0bea890598fe1b03be548df82af6f74",
     "config/GMFE69/ShellMenu_audio.json": "026af524cf3fe574304b285b6fac8ad8f8d3836cbebcd0388ca6645fee826edf",
     "config/GMFE69/ShellMenu_audioset.json": "769e5ea905a0b9c3ab000ba3b8864176581af5c5b7f57d8b6b459934a863d4bb",
+    "config/GMFE69/ShellMenu_buttons.json": "f96859f9b99070291ff1f4479a92a9737ddb08d62fcd07cd9877c93d3a2bd056",
     "config/GMFE69/ShellMenu_card.json": "64a3dc1b5adbecb090de83d5f1ac156eb76d5557501bd3499d53be0199f7c8db",
     "config/GMFE69/ShellMenu_cardquery.json": "a62188697027b88aa4a536c3f1ed038884979039cf4401a136e0177306df8608",
     "config/GMFE69/ShellMenu_cardsize.json": "739e680e3c92dd8606a0dcd8295a2591be22f9b01ca695b56e21d4853646ff04",
@@ -452,7 +453,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "15153f2eb54198f2796e9120a0826d11d5a03b8907b22a70f28ae959f642774b",
+    "config/GMFE69/project.json": "f5b182f0fe932fbe435eced237a6260f99e55bd155c6948902570f0d8f25429b",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "bd4b85e3a27ac50301d2ad04642bca1abf864b5f74397505530539b31bf4c0d1",
@@ -1722,6 +1723,7 @@
     "src/game/ShellMenu.cpp": "e03b478aa25e400ae26b61840f1147b0b0293e518a216ca8e670c39aab756f38",
     "src/game/ShellMenu_audio.cpp": "14c39e840cc8b6e6b8bc8de416c4a3e2ff18c600d6d5432e179a8c07c01f94b6",
     "src/game/ShellMenu_audioset.cpp": "bc7dfb9b03d7f2d725dfc970d26f4bf01ca4dedbabe7094df01d8419515df8d6",
+    "src/game/ShellMenu_buttons.cpp": "19cab253d4e3b1aa1ada749ee4f1b3b4cee40aca9b520a71f4a7129fa1633f7b",
     "src/game/ShellMenu_card.cpp": "360c40a30ae8561bcc938899f84adc18104343aa89f688077a8c3667dcad0ddd",
     "src/game/ShellMenu_cardquery.cpp": "14bed4e6741ebc072c6770bbde04a3f4c7e82ba846bfb1ba9f3770ccf628b1ad",
     "src/game/ShellMenu_cardsize.cpp": "c2551c932c46ea513a170685cbaf3bc3fb154d51112828f63941ab0dd1e1fa0a",
@@ -30952,6 +30954,45 @@
       "discarded_functions": [],
       "object_sha256": "c596c8a0fabc6a8e34e8a97794677bd720abddb84c56f624f1f0ed8114c6d69f",
       "linked_sha256": "2ab5b0041ece50e33bfc9b3343476fa7c6857ae76a8c9ac1399d497cecee79ad"
+    },
+    {
+      "id": "ShellMenu_buttons",
+      "category": "reconstructed_game",
+      "functions": 4,
+      "code_bytes": 328,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "04599153e3b6c3304fb7ab5d3a4c9002f0cf58a93a55d2843f61005020aaa8d0",
+      "linked_sha256": "3d2d5c747ce0d8c09450b46db35186a9ff02ca8075ffca401e174720f4c470e4"
     }
   ],
   "code_map": {
@@ -43931,34 +43972,6 @@
             "kind": "function",
             "name": "PlayCreditsSlideShow__10CShellMenuFv",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x800e14f8",
-            "size": 8,
-            "kind": "function",
-            "name": "Get_LanguageSubtitleIndex__10CShellMenuFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800e1500",
-            "size": 8,
-            "kind": "function",
-            "name": "Get_LanguageSuffix__10CShellMenuFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800e1508",
-            "size": 156,
-            "kind": "function",
-            "name": "RetrieveShellControllerButtons__10CShellMenuFPci",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800e15a4",
-            "size": 156,
-            "kind": "function",
-            "name": "CopyControllerButtons__10CShellMenuFPci",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x800e1640",

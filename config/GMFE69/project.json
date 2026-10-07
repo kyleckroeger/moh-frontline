@@ -685,7 +685,8 @@
     "ShellMenu_cardsize.json",
     "ShellMenu_options.json",
     "ShellMenu_audio.json",
-    "ShellMenu_audioset.json"
+    "ShellMenu_audioset.json",
+    "ShellMenu_buttons.json"
   ],
   "progress": {
     "code_bytes": 1414572,
