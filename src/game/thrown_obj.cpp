@@ -28,8 +28,8 @@
 // defaults are inline in the original (weak symbols), so they are defined
 // __declspec(weak). CStaticMesh's virtual functions follow
 // __vt__11CStaticMesh; the draw context's matrix pointer, the vector helpers
-// and the quaternion layout are inferred. ConstrainVelocity and the rest of
-// the file are not part of this unit.
+// and the quaternion layout are inferred. OnCollision and the rest of the
+// file are not part of this unit.
 extern inline float sqrtf(float x)
 {
     const double _half = .5;
@@ -55,14 +55,14 @@ struct VECTOR3VIEW {
 
 class CVector3 {
 public:
+    float Dot(const CVector3& o) const { return v.x * o.v.x + v.y * o.v.y + v.z * o.v.z; }
     float LengthSq() const { return v.x * v.x + v.y * v.y + v.z * v.z; }
     void Normalize() {
         float length = sqrtf(LengthSq());
         if (length != 0.0f) {
-            float inverse = 1.0f / length;
-            v.x *= inverse;
-            v.y *= inverse;
-            v.z *= inverse;
+            v.x *= 1.0f / length;
+            v.y *= 1.0f / length;
+            v.z *= 1.0f / length;
         }
     }
     CVector3& operator*=(float f) {
@@ -179,7 +179,11 @@ struct COLLISIONVIEW {
 };
 
 struct THROWNPROPSVIEW {
-    unsigned char unknown00[68];
+    unsigned char unknown00[52];
+    float friction;
+    unsigned char unknown38[4];
+    float restitution;
+    unsigned char unknown40[4];
     float minRollSpeed;
     unsigned char unknown48[28];
     float impulseScale;
@@ -189,6 +193,8 @@ struct THROWNDEFVIEW {
     unsigned char unknown0[8];
     THROWNPROPSVIEW* properties;
 };
+
+extern const float CONTACT_EPSILON;
 
 void PlayImpactSound(unsigned short, unsigned short, CVector3, bool);
 
@@ -325,6 +331,7 @@ public:
     void AttemptUpdate(float);
     void BeginUpdate(float);
     void Draw(CDrawContext&);
+    void ConstrainVelocity();
     void SetBounds(const CVector3& low, const CVector3& high) {
         m_bounds[0]->key = low.v.x;
         m_bounds[2]->key = low.v.y;
@@ -569,4 +576,73 @@ void CThrownObject::Draw(CDrawContext& context) {
     if (m_mesh->IsLightingEnabled())
         CStaticMesh::SetLightVolume(m_lightVolumes.GetVolume());
     m_mesh->Draw(context, m_drawMode);
+}
+
+void CThrownObject::ConstrainVelocity() {
+    if (flag2) {
+        CVector3 normal;
+        CVector3 normalPart;
+        CVector3 pos;
+        float dot;
+        float d;
+        float tx, ty, tz;
+
+        m_force.Normalize();
+        normal = m_force;
+        dot = m_velocity.Dot(normal);
+        if (dot < 0.0f) {
+            normal *= 2.0f * dot;
+            m_velocity.v.x -= normal.v.x;
+            m_velocity.v.y -= normal.v.y;
+            m_velocity.v.z -= normal.v.z;
+        } else {
+            flag2 = 0;
+            return;
+        }
+        d = m_force.Dot(m_velocity);
+        normalPart.v.x = d * m_force.v.x;
+        normalPart.v.y = d * m_force.v.y;
+        normalPart.v.z = d * m_force.v.z;
+        tx = m_velocity.v.x - normalPart.v.x;
+        ty = m_velocity.v.y - normalPart.v.y;
+        tz = m_velocity.v.z - normalPart.v.z;
+        if (!m_impactSound || flag1)
+            normalPart *= m_definition->properties->restitution;
+        if (normalPart.LengthSq() < 0.0001f) {
+            normalPart.v.z = 0.0f;
+            normalPart.v.y = 0.0f;
+            normalPart.v.x = 0.0f;
+        }
+        if (flag1) {
+            float f = 1.0f - m_definition->properties->friction;
+            tx *= f;
+            ty *= f;
+            tz *= f;
+        } else if (!m_impactSound) {
+            float f = 1.0f - m_definition->properties->friction;
+            f *= f;
+            f *= f;
+            f *= f;
+            tx *= f;
+            ty *= f;
+            tz *= f;
+        }
+        normalPart.v.x += tx;
+        normalPart.v.y += ty;
+        normalPart.v.z += tz;
+        m_velocity = normalPart;
+        if (!flag1) {
+            CVector3 row = PositionRow();
+            CVector3 offset;
+            float e = 2.0f * CONTACT_EPSILON;
+
+            offset.v.x = e * m_force.v.x;
+            offset.v.y = e * m_force.v.y;
+            offset.v.z = e * m_force.v.z;
+            pos.v.x = row.v.x + offset.v.x;
+            pos.v.y = row.v.y + offset.v.y;
+            pos.v.z = row.v.z + offset.v.z;
+            m_tm.SetPos(pos);
+        }
+    }
 }

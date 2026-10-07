@@ -40,25 +40,25 @@
     {
       "name": ".text",
       "address": "0x800b4d14",
-      "size": 2912,
+      "size": 3784,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000d784",
-      "size": 64,
+      "size": 72,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80014738",
-      "size": 96,
+      "size": 108,
       "type": 1
     },
     {
       "name": ".sdata2",
       "address": "0x80350930",
-      "size": 44,
+      "size": 48,
       "type": 1
     }
   ],
@@ -91,6 +91,12 @@
       "name": "BeginUpdate__13CThrownObjectFf",
       "address": "0x800b5458",
       "size": 280,
+      "binding": 1
+    },
+    {
+      "name": "ConstrainVelocity__13CThrownObjectFv",
+      "address": "0x800b5874",
+      "size": 872,
       "binding": 1
     },
     {
@@ -150,6 +156,7 @@
   ],
   "externals": {
     "BuildRot__7CMatrixF8CVector3f": "0x80090980",
+    "CONTACT_EPSILON": "0x80350ba8",
     "DeleteSpecialThrownObject__FP13CThrownObject": "0x8003eb40",
     "ForceUpdateProximityTriggerStatus__FP10BSGO_Basicb": "0x8004618c",
     "GetMatrix__11CQuaternionCFR7CMatrix": "0x80091c9c",
@@ -172,6 +179,7 @@
   "local_externals": [],
   "discarded_local_functions": [],
   "sda_externals": [
+    "CONTACT_EPSILON",
     "s_ClassInit__7CMatrix"
   ],
   "original_file": "thrown_obj.cpp",
