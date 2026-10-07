@@ -40,25 +40,25 @@
     {
       "name": ".text",
       "address": "0x800b4d14",
-      "size": 1220,
+      "size": 1860,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000d784",
-      "size": 40,
+      "size": 48,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80014738",
-      "size": 60,
+      "size": 72,
       "type": 1
     },
     {
       "name": ".sdata2",
       "address": "0x80350930",
-      "size": 28,
+      "size": 32,
       "type": 1
     }
   ],
@@ -73,6 +73,12 @@
       "name": "CommitUpdate__13CThrownObjectFv",
       "address": "0x800b50c4",
       "size": 276,
+      "binding": 1
+    },
+    {
+      "name": "AttemptUpdate__13CThrownObjectFf",
+      "address": "0x800b51d8",
+      "size": 640,
       "binding": 1
     },
     {
@@ -134,7 +140,8 @@
     "DeleteSpecialThrownObject__FP13CThrownObject": "0x8003eb40",
     "GetRadius__10CVolSphereCFv": "0x800cba28",
     "MarkForDestruction__13CStaticObjectFi": "0x800ae870",
-    "PlayImpactSound__FUsUs8CVector3b": "0x800eb17c"
+    "PlayImpactSound__FUsUs8CVector3b": "0x800eb17c",
+    "SetPos__7CMatrixF8CVector3": "0x80090728"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],

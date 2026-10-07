@@ -6,17 +6,21 @@
 // the definition's factor, through SetVelocity and plays the impact sound
 // when enabled) and CommitUpdate (while alive: register the volume with a new
 // collider, constrain the velocity, keep the position and velocity, and
-// update the flag bits; otherwise mark for destruction). The class and enum
+// update the flag bits; otherwise mark for destruction) and AttemptUpdate
+// (gravity on the z velocity while falling, the clamp, the step from the
+// saved position, then the sorted bounds from the collider's extent or the
+// position). The class and enum
 // names come from the mangled symbols; the members and the flag byte are
 // inferred views, the result types are inferred, ISceneNode's virtual
 // functions follow __vt__13CThrownObject (CThrownObject declares its
-// destructor first, so its vtable is not emitted here), the collider view and
-// the state-saving helpers are inferred, CBullet's
+// destructor first, so its vtable is not emitted here), the collider view
+// (virtual entries at +16 and +72 used, the rest placeholders), the bounds
+// entries and the state, clamp and bounds helpers are inferred, CBullet's
 // AsProjectile and GetVelocity are at +320 and +324 of __vt__7CBullet (the
 // earlier entries are placeholders named by offset), the vector operators are
 // inferred inline helpers, and sqrtf is the MSL inline square root. The
 // defaults are inline in the original (weak symbols), so they are defined
-// __declspec(weak). AttemptUpdate and the rest of the file are not part of
+// __declspec(weak). BeginUpdate and the rest of the file are not part of
 // this unit.
 struct VECTOR3VIEW {
     float x;
@@ -180,9 +184,18 @@ void DeleteSpecialThrownObject(CThrownObject*);
 
 class CDrawContext;
 
-struct TMVIEW {
+class CMatrix {
+public:
+    void SetPos(CVector3);
+
     unsigned char rows[48];
     CVector3 position;
+};
+
+/* inferred: an entry of a sorted bounds list, keyed by the float at +8 */
+struct BOUNDVIEW {
+    unsigned char unknown0[8];
+    float key;
 };
 
 /* inferred: the object the thrown object's volume is registered with */
@@ -190,7 +203,21 @@ class COLLIDERVIEW {
 public:
     virtual void unknown08();
     virtual void unknown0c();
-    virtual void unknown10(CVolSphere*, TMVIEW*);
+    virtual void unknown10(CVolSphere*, CMatrix*);
+    virtual void unknown14();
+    virtual void unknown18();
+    virtual void unknown1c();
+    virtual void unknown20();
+    virtual void unknown24();
+    virtual void unknown28();
+    virtual void unknown2c();
+    virtual void unknown30();
+    virtual void unknown34();
+    virtual void unknown38();
+    virtual void unknown3c();
+    virtual void unknown40();
+    virtual void unknown44();
+    virtual void unknown48(CVector3&, CVector3&);
 };
 
 class ISceneNode {
@@ -206,6 +233,10 @@ public:
     virtual void OnCollision(const CCollision&);
     virtual void CommitUpdate();
     virtual void Draw(CDrawContext&);
+    virtual void GetLocalBoundingVolume();
+    virtual void GetWorldBoundingVolume();
+    virtual void GetTMLocalToWorld(CMatrix&) const;
+    virtual void GetPosition(CVector3&) const;
 };
 
 class CStaticObject : public ISceneNode {
@@ -218,12 +249,34 @@ public:
     virtual ~CThrownObject();
     void Destroy();
     void CommitUpdate();
+    void AttemptUpdate(float);
+    void SetBounds(const CVector3& low, const CVector3& high) {
+        m_bounds[0]->key = low.v.x;
+        m_bounds[2]->key = low.v.y;
+        m_bounds[1]->key = high.v.x;
+        m_bounds[3]->key = high.v.y;
+    }
     CVector3 PositionRow() const { return m_tm.position; }
     void SaveState() {
         m_savedPosition = PositionRow();
         m_lastVelocity = m_velocity;
     }
     void SetVelocity(CVector3&);
+    void ClampVelocity() {
+        CVolSphere* sphere = m_sphere;
+        if (m_owner != -1) {
+            float speed = sqrtf(m_velocity.v.x * m_velocity.v.x + m_velocity.v.y * m_velocity.v.y + m_velocity.v.z * m_velocity.v.z);
+            float limit = 2.0f * sphere->GetRadius();
+
+            if (limit < speed) {
+                float scale = limit / speed;
+
+                m_velocity.v.x *= scale;
+                m_velocity.v.y *= scale;
+                m_velocity.v.z *= scale;
+            }
+        }
+    }
     void HandleBulletCollision(CBullet*, const CCollision&);
     void MarkForDestruction(int);
     int GetObjectType() const;
@@ -233,8 +286,10 @@ public:
     void ScaleFromScript(float, float, EBSEventEnum);
     void SetDeleted(bool);
 
-    unsigned char unknown004[60];
-    TMVIEW m_tm;
+    unsigned char unknown004[8];
+    BOUNDVIEW* m_bounds[4];
+    unsigned char unknown01C[36];
+    CMatrix m_tm;
     unsigned char unknown080[140];
     CVolSphere* m_sphere;
     COLLIDERVIEW* m_collider;
@@ -249,7 +304,9 @@ public:
     float m_lifetime;
     unsigned char unknown284[4];
     CVector3 m_lastVelocity;
-    unsigned char unknown298[48];
+    CVector3 m_force;
+    CVector3 m_step;
+    unsigned char unknown2B8[16];
     THROWNDEFVIEW* m_definition;
     unsigned char unknown2CC[40];
     unsigned char flag0 : 1;
@@ -346,6 +403,37 @@ void CThrownObject::CommitUpdate() {
             flag2 = 0;
         } else {
             MarkForDestruction(0);
+        }
+    }
+}
+
+void CThrownObject::AttemptUpdate(float dt) {
+    if (!deleted) {
+        CVector3 pos;
+        CVector3 low;
+        CVector3 high;
+        CVector3 position;
+
+        m_force.v.z = 0.0f;
+        m_force.v.y = 0.0f;
+        m_force.v.x = 0.0f;
+        if (flag0 && m_holder)
+            m_velocity.v.z = -0.00545535097f * dt + m_lastVelocity.v.z;
+        ClampVelocity();
+        m_step.v.x = dt * m_velocity.v.x;
+        m_step.v.y = dt * m_velocity.v.y;
+        m_step.v.z = dt * m_velocity.v.z;
+        pos.v.x = m_savedPosition.v.x + m_step.v.x;
+        pos.v.y = m_savedPosition.v.y + m_step.v.y;
+        pos.v.z = m_savedPosition.v.z + m_step.v.z;
+        m_tm.SetPos(pos);
+        if (m_lastCollider) {
+            m_lastCollider->unknown10(m_sphere, &m_tm);
+            m_lastCollider->unknown48(low, high);
+            SetBounds(low, high);
+        } else {
+            GetPosition(position);
+            SetBounds(position, position);
         }
     }
 }
