@@ -40,20 +40,27 @@
     {
       "name": ".text",
       "address": "0x800f0644",
-      "size": 284,
+      "size": 504,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000f5f8",
-      "size": 16,
+      "size": 24,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x800161f0",
-      "size": 24,
+      "size": 36,
       "type": 1
+    },
+    {
+      "name": ".rodata",
+      "address": "0x8017a094",
+      "size": 38,
+      "type": 1,
+      "input_alignment": 4
     }
   ],
   "functions": [
@@ -68,12 +75,21 @@
       "address": "0x800f06dc",
       "size": 132,
       "binding": 1
+    },
+    {
+      "name": "IsEncodingCorrect__11CMemoryCardFi",
+      "address": "0x800f0760",
+      "size": 220,
+      "binding": 1
     }
   ],
   "externals": {
+    "CARDGetResultCode": "0x80123ae0",
+    "CARDMountAsync": "0x80126f84",
     "CARDProbe": "0x80126804",
     "CARDProbeEx": "0x8012683c",
-    "CARDUnmount": "0x801271c0"
+    "CARDUnmount": "0x801271c0",
+    "DebugMsg__FPCce": "0x80018c88"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
