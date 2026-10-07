@@ -40,7 +40,7 @@
     {
       "name": ".text",
       "address": "0x800c53a8",
-      "size": 76,
+      "size": 176,
       "type": 1
     },
     {
@@ -61,6 +61,12 @@
       "name": "Create__7CVolBoxCFv",
       "address": "0x800c53a8",
       "size": 76,
+      "binding": 1
+    },
+    {
+      "name": "__as__7CVolBoxFRC7CVolBox",
+      "address": "0x800c53f4",
+      "size": 100,
       "binding": 1
     }
   ],

@@ -1,12 +1,14 @@
 // A fragment of box.cpp (0x800c53a8): CVolBox::Create allocates a new,
 // default-constructed box (80 bytes) through DWI_alloc (no name, flag 1024;
-// the inline class operator new is inferred from the call); the inline
-// constructors set the IVolume and CVolBox virtual tables. IVolume and
-// CVolBox are named by the mangled symbols; IVolume's virtual functions are
-// declared in the order of __vt__7IVolume, CVolBox declares its destructor
-// first (defined elsewhere, so its virtual table is not emitted here), and
-// its data is an inferred block of the size the allocation shows. The rest of
-// the file is not part of this unit.
+// the inline class operator new is inferred from the call; the inline
+// constructors set the IVolume and CVolBox virtual tables), and the
+// assignment operator (unless assigning to itself: three floats and four
+// 16-byte vectors). IVolume and CVolBox are named by the mangled symbols;
+// IVolume's virtual functions are declared in the order of __vt__7IVolume,
+// CVolBox declares its destructor first (defined elsewhere, so its virtual
+// table is not emitted here), and its members are inferred from the copy
+// (their meaning is not known). The rest of the file is not part of this
+// unit.
 void* DWI_alloc(const char*, int, int);
 
 class CMatrix;
@@ -42,6 +44,11 @@ public:
     virtual bool TestCollision(const CTriangle&, CCollision&, bool) const;
 };
 
+/* inferred: a 16-byte vector, copied as two doubles */
+struct CVector3View {
+    double pair[2];
+};
+
 class CVolBox : public IVolume {
 public:
     virtual ~CVolBox();
@@ -49,9 +56,25 @@ public:
 
     static void* operator new(unsigned long size) { return DWI_alloc(0, size, 1024); }
 
-    unsigned char data[76];
+    CVolBox& operator=(const CVolBox&);
+
+    float m_values[3];
+    CVector3View m_vectors[4];
 };
 
 IVolume* CVolBox::Create() const {
     return new CVolBox;
+}
+
+CVolBox& CVolBox::operator=(const CVolBox& other) {
+    if (&other != this) {
+        m_values[0] = other.m_values[0];
+        m_values[1] = other.m_values[1];
+        m_values[2] = other.m_values[2];
+        m_vectors[0] = other.m_vectors[0];
+        m_vectors[1] = other.m_vectors[1];
+        m_vectors[2] = other.m_vectors[2];
+        m_vectors[3] = other.m_vectors[3];
+    }
+    return *this;
 }
