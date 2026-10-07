@@ -660,7 +660,8 @@
     "sdrv_master.json",
     "sdrv_dry.json",
     "sdrv_timemult.json",
-    "sdrv_restore.json"
+    "sdrv_restore.json",
+    "smemman_free.json"
   ],
   "progress": {
     "code_bytes": 1414572,
