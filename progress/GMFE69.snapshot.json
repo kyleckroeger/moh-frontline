@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 523772,
+    "matching_code_bytes": 524132,
     "total_executable_code_bytes": 1414572,
-    "percent": 37.02688869848972,
+    "percent": 37.052338092369986,
     "categories": {
-      "reconstructed_game": 304812,
+      "reconstructed_game": 305172,
       "restored_library": 218960
     },
-    "matching_functions": 3229
+    "matching_functions": 3230
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -238,7 +238,7 @@
     "config/GMFE69/bsbifunc_appendprompt.json": "7ee7db63bf8c53644486247dba4de7ab65aecf865440f80011b35b41b2561680",
     "config/GMFE69/bsbifunc_astar.json": "fb69b3584dd1374403b62a03aa279fee8264dde51edf07738cc52dc7c04d1602",
     "config/GMFE69/bsbifunc_asweapon.json": "679fb405217e4bc27ab8407137279a2e0ad52b0f55522b20d64f14f3bdabddca",
-    "config/GMFE69/bsbifunc_attach.json": "80869a9deead4eb8cd6f02490f73683490b9d877096271081597f7ff6f1e9dea",
+    "config/GMFE69/bsbifunc_attach.json": "dd734e422b406236be51e524f6cd0fef9d552912888cf0e2cc1040d0b1cd85a5",
     "config/GMFE69/bsbifunc_cheats.json": "4e4c4ed7102ff06795f1c3baac5d659de0d3537625937ab60a95afe14bce7a76",
     "config/GMFE69/bsbifunc_choosetarget.json": "fd982638090a2b0c4775ff96a3f7647c18704182aa583c5b57d1016d523b3262",
     "config/GMFE69/bsbifunc_collision.json": "3f683d5a0e4811eea3ad8426b7b5918d37a53eb0c769155b6377d5cf1b124f13",
@@ -1911,7 +1911,7 @@
     "src/game/bsbifunc_appendprompt.cpp": "9363002b062d0e45a5383fcd24fb735af2b221c5b50df6af07a3a62a48f9183d",
     "src/game/bsbifunc_astar.cpp": "46da81738b36a76fca2ca1e1b59c3cbbc091a5b091be1cd5d552c63725b640e1",
     "src/game/bsbifunc_asweapon.cpp": "3c53dce32e3bce18844ca5958af8a5ceb1ae9907d8e77484f83fd92b7dd943cd",
-    "src/game/bsbifunc_attach.cpp": "53dfbd9882c6b61ab450b794391766e03bd8eb4c9ad123ddc696d7f64b6d1da9",
+    "src/game/bsbifunc_attach.cpp": "316e282d009f4744640d32c1c6010f8c42a9218f1d4bc0c977fefc011f6d9351",
     "src/game/bsbifunc_cheats.cpp": "00acc9dd5e35f49e1ca1b6831beff946c72290dffeba51e1fef6dc6406fd10cd",
     "src/game/bsbifunc_choosetarget.cpp": "8eb2ab614b3c3c35daf74a9f78f14ae07767e11c1238d1790ec2f7d1eb052415",
     "src/game/bsbifunc_collision.cpp": "630c3ce69b93d5207dee4e8f9a05f1e76af8390b71b864f691b0636b44d1823c",
@@ -26087,8 +26087,8 @@
     {
       "id": "bsbifunc_attach",
       "category": "reconstructed_game",
-      "functions": 8,
-      "code_bytes": 2076,
+      "functions": 9,
+      "code_bytes": 2436,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -26120,8 +26120,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "2ed8edda2c90d1cb8da561524850367333736f88f16ecbc3f4aadb1163c53aca",
-      "linked_sha256": "31da66b440185657a611c29f6d721c9359fe959670205d3cb8a28f191fa2bac6"
+      "object_sha256": "2e200a22df18fef4e09106514b2630bce7a6b86b7b844de469188e1aca67352a",
+      "linked_sha256": "63e9d4318be22c14f51df58714a5718c7cad58591c5018c029a0a2e2a4214d73"
     },
     {
       "id": "bsbifunc_grenade",
@@ -35941,13 +35941,6 @@
             "size": 432,
             "kind": "function",
             "name": "BIFunc_DetachFromSoldier__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8002587c",
-            "size": 360,
-            "kind": "function",
-            "name": "BIFunc_AttachToSoldierEmptyHand__FPPiPv",
             "evidence": "exception-index"
           },
           {

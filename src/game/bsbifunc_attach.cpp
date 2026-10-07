@@ -1,8 +1,12 @@
-// A fragment of bsbifunc.cpp (0x800259e4): script built-ins that attach a
-// script object's scene node to the calling soldier (CSoldierObject::AttachObject,
-// to "lt_hand" for mode 0 or "rt_hand" for mode 1) and remove it from the scene,
-// detach the first player from a prop (the given script object's, otherwise
-// the running script object's) and reset a float of the player (+4660) to 1,
+// A fragment of bsbifunc.cpp (0x8002587c): script built-ins that attach a
+// script object's scene node to the calling soldier's empty hand (if the node
+// is in the scene, try "rt_hand" then "lt_hand", returning 1, 0 or -1 and
+// removing an attached node from the scene; otherwise report the trigger's id),
+// attach a script object's scene node to the calling soldier
+// (CSoldierObject::AttachObject, to "lt_hand" for mode 0 or "rt_hand" for mode
+// 1) and remove it from the scene, detach the first player from a prop (the
+// given script object's, otherwise the running script object's) and reset a
+// float of the player (+4660) to 1,
 // detach a scene node (a given script object's, otherwise the calling node)
 // from a prop, attach the first player to a prop (the given script object's,
 // otherwise the running script object's), detach a node from a waypoint
@@ -168,6 +172,8 @@ struct TriggerCoreView {
     float y;
     float z;
     CQuaternion rotation;
+    unsigned char unknown2c[12];
+    short id;
 };
 
 struct TriggerObject_struct {
@@ -183,6 +189,7 @@ struct BSObjectView {
 
 class CScene {
 public:
+    bool IsNodeInScene(const ISceneNode*) const;
     void Remove(ISceneNode&);
     CPlayerObject* GetPlayer(int) const;
 
@@ -272,6 +279,13 @@ public:
     virtual bool AttachObject(CStaticObject*, char*, int);
 };
 
+void DebugMsg(const char*, ...);
+
+union BSValueView {
+    int i;
+    float f;
+};
+
 struct BSBuiltinView {
     void (*function)(int**, void*);
     unsigned char unknown04[6];
@@ -285,6 +299,34 @@ extern int g_iCurrentBIFIndex;
 
 inline int BSArgBool(int** stack, int index) {
     return *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - index)) != 0;
+}
+
+void BIFunc_AttachToSoldierEmptyHand(int** stack, void* object) {
+    BSValueView value;
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    value.i = -1;
+    BSObjectView* prop = *(BSObjectView**)(*stack - (count - 1));
+    int arg = *(*stack - (count - 2));
+    CSoldierObject* soldier = (CSoldierObject*)object;
+    ISceneNode* node = prop->user->GetSceneNode();
+    if (!g_scene.IsNodeInScene(node)) {
+        if (prop)
+            DebugMsg("Prop %d has already been attached or destroyed. "
+                     "Check with Designers for possible duplicate ID.\n",
+                     prop->trigger->core->id);
+    } else {
+        if (!soldier->AttachObject((CStaticObject*)node, "rt_hand", arg)) {
+            if (!soldier->AttachObject((CStaticObject*)node, "lt_hand", arg))
+                goto done;
+            value.i = 0;
+        } else {
+            value.i = 1;
+        }
+        g_scene.Remove(*node);
+    }
+done:
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    *(BSValueView*)*stack = value;
 }
 
 void BIFunc_AttachToSoldier(int** stack, void* object) {

@@ -39,24 +39,30 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800259e4",
-      "size": 2076,
+      "address": "0x8002587c",
+      "size": 2436,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x80009b7c",
-      "size": 56,
+      "address": "0x80009b74",
+      "size": 64,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80010700",
-      "size": 84,
+      "address": "0x800106f4",
+      "size": 96,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "BIFunc_AttachToSoldierEmptyHand__FPPiPv",
+      "address": "0x8002587c",
+      "size": 360,
+      "binding": 1
+    },
     {
       "name": "BIFunc_DetachFromWaypoint__FPPiPv",
       "address": "0x80025dd0",
@@ -111,10 +117,12 @@
     "AttachObject__17CAttachableObjectFP13CPlayerObjectib": "0x80097944",
     "AttachObject__17CAttachableObjectFP13CStaticObjecti": "0x80097c0c",
     "AttachToLocation__11CAnimObjectFRC7CMatrix": "0x800936b0",
+    "DebugMsg__FPCce": "0x80018c88",
     "DetachObject__17CAttachableObjectFP10ISceneNode": "0x80097738",
     "GetMatrix__11CQuaternionCFR7CMatrix": "0x80091c9c",
     "GetPlayer__6CSceneCFi": "0x800d8274",
     "InitClass__7CMatrixFv": "0x80090b78",
+    "IsNodeInScene__6CSceneCFPC10ISceneNode": "0x800d8214",
     "Remove__6CSceneFR10ISceneNode": "0x800dc190",
     "SetAttached__11CAnimObjectFb": "0x800936a0",
     "SetPos__7CMatrixF8CVector3": "0x80090728",
@@ -138,20 +146,27 @@
   "original_file": "bsbifunc.cpp",
   "original_file_index": 443,
   "pooled_sections": [
-    ".sdata2"
+    ".sdata2",
+    ".rodata"
   ],
   "pool_references": [
+    {
+      "section": ".rodata",
+      "offset": 0,
+      "size": 97,
+      "address": "0x8016e904"
+    },
     {
       "section": ".sdata2",
       "offset": 0,
       "size": 8,
-      "address": "0x8034f65c"
+      "address": "0x8034f664"
     },
     {
       "section": ".sdata2",
       "offset": 8,
       "size": 8,
-      "address": "0x8034f664"
+      "address": "0x8034f65c"
     },
     {
       "section": ".sdata2",
