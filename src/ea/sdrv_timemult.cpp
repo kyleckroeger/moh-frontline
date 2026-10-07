@@ -1,5 +1,7 @@
 /* A fragment of the sound driver (snddrv.c, 0x8016c1e8): the time
-   multiplier of a mixer voice's channels. sndgs is named by its symbol; its
+   multiplier and the low-pass cutoff (the value over half the output rate at
+   +42; the constants are entries of the file's .sdata2 pool) of a mixer
+   voice's channels. sndgs is named by its symbol; its
    view and the voice records are inferred. */
 extern "C" char sndgs[];
 
@@ -15,6 +17,8 @@ struct SNDVOICEVIEW {
 
 extern "C" void MIX_settimemult(int, int);
 
+extern "C" void MIX_setlowpass(int, float);
+
 int SNDPLATFORM_timemult(int voice, int value) {
     SNDVOICEVIEW* sound = &(*(SNDVOICEVIEW**)(sndgs + 468))[voice];
     int i;
@@ -24,4 +28,15 @@ int SNDPLATFORM_timemult(int voice, int value) {
             MIX_settimemult(sound->channels[i] - *(unsigned char*)(sndgs + 51), value);
     }
     return 0;
+}
+
+void SNDPLATFORM_lowpass(int voice, int value) {
+    SNDVOICEVIEW* sound = &(*(SNDVOICEVIEW**)(sndgs + 468))[voice];
+    int i;
+
+    if (sound->flags & 4) {
+        int cutoff = value * (1.0f / (0.5f * *(unsigned short*)(sndgs + 42)));
+        for (i = 0; i < sound->count; i++)
+            MIX_setlowpass(sound->channels[i] - *(unsigned char*)(sndgs + 51), cutoff);
+    }
 }

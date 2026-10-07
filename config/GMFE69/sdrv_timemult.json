@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8016c1e8",
-      "size": 136,
+      "size": 380,
       "type": 1
     }
   ],
@@ -48,11 +48,20 @@
       "address": "0x8016c1e8",
       "size": 136,
       "binding": 1
+    },
+    {
+      "name": "SNDPLATFORM_lowpass__Fii",
+      "address": "0x8016c270",
+      "size": 244,
+      "binding": 1
     }
   ],
   "externals": {
+    "MIX_setlowpass": "0x80161420",
     "MIX_settimemult": "0x80161304",
+    "_restgpr_26": "0x80138a58",
     "_restgpr_27": "0x80138a5c",
+    "_savegpr_26": "0x80138a0c",
     "_savegpr_27": "0x80138a10",
     "sndgs": "0x80340860"
   },
@@ -63,5 +72,34 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "snddrv.c",
-  "original_file_index": 13274
+  "original_file_index": 13274,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80351c98"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x80351c90"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 8,
+      "address": "0x80351c78"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 16,
+      "size": 8,
+      "address": "0x80351ca0"
+    }
+  ]
 }
