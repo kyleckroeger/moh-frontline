@@ -22,6 +22,9 @@ struct BSScheduleRegistrationRecord_struct {
 typedef bool (*BSScheduleCallback)(BSObject*, int, int, int, int*, int*);
 
 void* BSUtilGetMemory(int, int);
+enum ETimerReplaceMethod {};
+void BSRegisterTimerEvent(int, unsigned short, BSObject*, void*, ETimerReplaceMethod);
+void BSObjectTriggerEvent(BSObject*, unsigned short, void*, BSObject*, bool);
 
 static BSScheduleRegistrationRecord_struct* g_AllRecords;
 static BSScheduleRegistrationRecord_struct* g_FreeRecordList;
@@ -62,8 +65,11 @@ private:
 // The file is compiled with deferred inlining, which emits functions in
 // reverse source order (Unregister(BSObject*) inlines the record version
 // defined above it), so the source lists them from the end of the image.
-// BSSchedule::Update, the first function in the image, would come last here;
-// it is not reconstructed.
+// BSSchedule::Update, the first function in the image, comes last: every
+// m_field14 calls it runs up to m_field18 live records through the callback
+// (each returning event data and a delay: a delayed timer event or an
+// immediate trigger, then dropping one-shot records) and frees records whose
+// object stamp has changed, resuming from where it stopped next time.
 
 int BSScheduleGetMemoryRequirements() {
     return 4096;
@@ -180,4 +186,43 @@ void BSSchedule::Unregister(BSObject* object) {
 
     if (record)
         Unregister(record);
+}
+
+void BSSchedule::Update() {
+    m_field10++;
+    if (m_field10 != m_field14)
+        return;
+    m_field10 = 0;
+    if (!m_head)
+        return;
+    BSScheduleRegistrationRecord_struct* record = m_head;
+    int processed = 0;
+    while (processed < m_count) {
+        if (record->field04 == record->object->field10) {
+            if (++processed <= m_field18) {
+                BSScheduleRegistrationRecord_struct* current = record;
+                record = record->next;
+                int data;
+                int delay = 0;
+                if (m_callback(current->object, current->field08, current->field0C, current->field10, &data, &delay)) {
+                    if (delay)
+                        BSRegisterTimerEvent(delay, current->field1E, current->object, (void*)data, (ETimerReplaceMethod)1);
+                    else
+                        BSObjectTriggerEvent(current->object, current->field1E, (void*)data, 0, false);
+                    if (current->field1C)
+                        Unregister(current);
+                }
+            } else {
+                m_head = record;
+                return;
+            }
+        } else {
+            BSScheduleRegistrationRecord_struct* current = record;
+            record = record->next;
+            Unregister(current);
+        }
+        if (m_count == 0)
+            return;
+    }
+    m_head = record;
 }

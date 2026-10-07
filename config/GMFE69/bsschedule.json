@@ -39,20 +39,20 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8003aa58",
-      "size": 784,
+      "address": "0x8003a844",
+      "size": 1316,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000a3cc",
-      "size": 16,
+      "address": "0x8000a3c4",
+      "size": 24,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80011360",
-      "size": 24,
+      "address": "0x80011354",
+      "size": 36,
       "type": 1
     },
     {
@@ -63,6 +63,12 @@
     }
   ],
   "functions": [
+    {
+      "name": "Update__10BSScheduleFv",
+      "address": "0x8003a844",
+      "size": 532,
+      "binding": 1
+    },
     {
       "name": "Unregister__10BSScheduleFP8BSObject",
       "address": "0x8003aa58",
@@ -131,6 +137,8 @@
     }
   ],
   "externals": {
+    "BSObjectTriggerEvent__FP8BSObjectUsPvP8BSObjectb": "0x8003a46c",
+    "BSRegisterTimerEvent__FiUsP8BSObjectPv19ETimerReplaceMethod": "0x8003ae40",
     "BSUtilGetMemory__Fii": "0x8003b83c",
     "__dl__FPv": "0x8001ca2c"
   },

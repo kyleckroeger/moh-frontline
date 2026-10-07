@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 508616,
+    "matching_code_bytes": 509148,
     "total_executable_code_bytes": 1414572,
-    "percent": 35.95546921613039,
+    "percent": 35.993077764864566,
     "categories": {
-      "reconstructed_game": 289656,
+      "reconstructed_game": 290188,
       "restored_library": 218960
     },
-    "matching_functions": 3184
+    "matching_functions": 3185
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -302,7 +302,7 @@
     "config/GMFE69/bsmachin.json": "99e6f626f2cdb4c5eddca656c56ef9cc28369e547992ff630f5c3bbc93fa72ef",
     "config/GMFE69/bsmessage_group.json": "be3633a7d9e8f96fdc5f33c69976264536ed53f031b3be33c9f0ce5ca02ee25f",
     "config/GMFE69/bsobject.json": "41480f6a7bea111add9b38059f1c44261dd07a1e993a72d69f0db4556248260f",
-    "config/GMFE69/bsschedule.json": "05081ad4065280f633b1f7b1f78a5650b603ee6d40b792db93b1084b188c2d07",
+    "config/GMFE69/bsschedule.json": "9ca90e8e437e4fb063781358dea8cc08f762b7a480aca88f8aefbb97d6b1fa74",
     "config/GMFE69/bstimer.json": "f6c1bc76d8200192cc1dc0fcc0d071b489cc158c09f820ee351e4190d480c6ae",
     "config/GMFE69/bsutil.json": "13765752a33dc76e39372b30249944a615461f0ea3f9a39a276cc311ffbc3ea4",
     "config/GMFE69/bsutil_size.json": "22d7f6eb60fe6fbf22a734095d077d76f7275871be7080cc43dca0b554c0e12b",
@@ -1973,7 +1973,7 @@
     "src/game/bsmachin.cpp": "29ef7c9c19942e3dc51d97c49266ac9b237c8658ffef55d4536c8968e7d44b1e",
     "src/game/bsmessage_group.cpp": "5214f38619c6804d07d5fc59be77cdee96b3158ed1da037f5a2a371e9bbfc28a",
     "src/game/bsobject.cpp": "c6feb51c0a025f79f8cfc2b874e88d97395dfd9ed0dc26ca8318087fd80e7bb4",
-    "src/game/bsschedule.cpp": "03573e4203501782b94b4ed70853989b43110a29ecee0af5d0eed5e4baf9919c",
+    "src/game/bsschedule.cpp": "abd4446f3f7acae81285dc7cd98e756227f35e4540b31cd17a68ae48319b9c56",
     "src/game/bstimer.cpp": "89e446be8c07e7caa46a2c9fca5d0d538bb030d14305e3a3a02a0ddf4da7bb1f",
     "src/game/bsutil.cpp": "f03c5b5ec3e47256dacde20a490fde3a873782516ee578d6fd469ab5025e49a2",
     "src/game/bsutil_size.cpp": "79519dc3d1158664204a44a09651f4eb839da7ec06fa1d830eeece172595c74c",
@@ -17268,8 +17268,8 @@
     {
       "id": "bsschedule",
       "category": "reconstructed_game",
-      "functions": 11,
-      "code_bytes": 784,
+      "functions": 12,
+      "code_bytes": 1316,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -17301,8 +17301,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "65576c0680272557ab1f6d6f976eaeee15229a2589415a25530dee2cc9c5f32b",
-      "linked_sha256": "da9c575895b91496629b93600ab9c90631aa3d88d3573753f50547856a732b25"
+      "object_sha256": "f9f30743dada02a4578cc17c49fa4973c4a381613016830db838a9651b80cb27",
+      "linked_sha256": "265a12a12e3efc52b6f1c08f36a2364e086e9b817fca5b25aa7e560bc18633ed"
     },
     {
       "id": "dolphin_trk_glue",
@@ -36522,20 +36522,6 @@
             "kind": "function",
             "name": "BSMessageGetMemoryRequirements__Fv",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/bsschedule.cpp [symbol evidence]",
-        "file_record": 18,
-        "file_name": "bsschedule.cpp",
-        "ranges": [
-          {
-            "address": "0x8003a844",
-            "size": 532,
-            "kind": "function",
-            "name": "Update__10BSScheduleFv",
-            "evidence": "exception-index"
           }
         ]
       },
