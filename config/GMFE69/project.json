@@ -634,7 +634,8 @@
     "staticobjfactory_helmet.json",
     "staticobjfactory_compare.json",
     "Tank_object_weapons.json",
-    "Tank_object_update.json"
+    "Tank_object_update.json",
+    "Tank_object_draw.json"
   ],
   "progress": {
     "code_bytes": 1414572,
