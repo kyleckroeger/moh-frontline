@@ -722,7 +722,12 @@
     "cdbobject_offsetptr.json",
     "compartment_weak.json",
     "compartment_offsetptr.json",
-    "compartment_fastvec.json"
+    "compartment_fastvec.json",
+    "particlesystem_weak.json",
+    "particlesystem_rotation.json",
+    "particlesystem_active.json",
+    "particlesystem_validate.json",
+    "particlesystem_moving.json"
   ],
   "progress": {
     "code_bytes": 1414572,
