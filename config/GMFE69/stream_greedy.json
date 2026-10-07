@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8014cde0",
-      "size": 392,
+      "size": 1344,
       "type": 1
     }
   ],
@@ -60,17 +60,41 @@
       "address": "0x8014cef4",
       "size": 116,
       "binding": 1
+    },
+    {
+      "name": "STREAM_queuefile",
+      "address": "0x8014cf68",
+      "size": 432,
+      "binding": 1
+    },
+    {
+      "name": "STREAM_queuemem",
+      "address": "0x8014d118",
+      "size": 520,
+      "binding": 1
     }
   ],
   "externals": {
-    "FILESYS_priorityop": "0x801486a0"
+    "FILESYS_priorityop": "0x801486a0",
+    "MUTEX_lock": "0x8015212c",
+    "MUTEX_unlock": "0x80152150",
+    "_restgpr_27": "0x80138a5c",
+    "_savegpr_27": "0x80138a10",
+    "requestidcounter": "0x8034f3a0",
+    "startnextrequest__FP15STREAMHEADERtagi": "0x8014c0b0",
+    "strncpy": "0x8013fffc"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
-  "local_externals": [],
+  "local_externals": [
+    "requestidcounter",
+    "startnextrequest__FP15STREAMHEADERtagi"
+  ],
   "discarded_local_functions": [],
-  "sda_externals": [],
+  "sda_externals": [
+    "requestidcounter"
+  ],
   "original_file": "stream.cpp",
   "original_file_index": 12162
 }
