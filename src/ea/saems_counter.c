@@ -1,4 +1,9 @@
-/* A fragment of saems.c (0x80154e54): the AEMS input-parameter and static
+/* A fragment of saems.c (0x80154c44): the module update pass (the timer
+   update runs every loaded bank's modules for timer 0; a module whose timer
+   matches updates each active instance's components through the
+   aemscompinfo table, copies their links' outputs to inputs, and destroys the
+   instance once its end component's input is set; bank records are 28 bytes
+   from version 8, 20 before), then the AEMS input-parameter and static
    components (no update), the trigger (a set output fires once, then clears),
    the oscillator (a step from the rate over the input period in mode 2; a
    16-bit phase driving sine, square, saw or triangle waves, unipolar or
@@ -20,6 +25,62 @@
    MODULE are named by the mangled symbols; the component and definition
    layouts are inferred, as in saems.c. */
 struct MODULE;
+struct AEMSCOMPDYNAMIC;
+
+/* inferred: a component definition's kind (an index into aemscompinfo) */
+struct AEMSCOMPDEFHEADERVIEW {
+    unsigned char unknown00[4];
+    unsigned char kind;
+};
+
+/* inferred: a connection copying one component's output to another's input */
+struct AEMSLINKVIEW {
+    int* from;
+    int* to;
+};
+
+/* inferred: a module instance (its id, active flag and components; the
+   component at +24 ends the instance) */
+struct AEMSINSTANCEVIEW {
+    int id;
+    unsigned char active;
+    unsigned char unknown05[7];
+    int componentCount;
+    AEMSCOMPDYNAMIC** components;
+    unsigned char unknown14[4];
+    AEMSCOMPDYNAMIC* end;
+};
+
+struct AEMSINSTANCELISTVIEW {
+    AEMSINSTANCEVIEW** instances;
+};
+
+/* inferred: a module (instance count, update timer and instances) */
+struct AEMSMODULEVIEW {
+    unsigned char unknown00[2];
+    short instanceCount;
+    unsigned char unknown04[2];
+    short timer;
+    unsigned char unknown08[8];
+    AEMSINSTANCELISTVIEW* instances;
+};
+
+/* inferred: a loaded module bank (version, module count and records, which
+   are 28 bytes from version 8 and 20 bytes before) */
+struct AEMSBANKVIEW {
+    unsigned char unknown00[2];
+    unsigned char version;
+    unsigned char unknown03[9];
+    int moduleCount;
+    char* modules;
+};
+
+struct AEMSCOMPINFOVIEW {
+    void (*update)(AEMSCOMPDYNAMIC*, MODULE*);
+    unsigned char unknown04[4];
+};
+
+extern AEMSCOMPINFOVIEW aemscompinfo[];
 
 struct AEMSCOMPDEFVIEW {
     unsigned char unknown00[12];
@@ -117,7 +178,9 @@ union AEMSSTATEVIEW {
 struct AEMSCOMPDYNAMIC {
     void* def;
     signed char mode;
-    unsigned char unknown05[7];
+    unsigned char unknown05;
+    unsigned short linkCount;
+    AEMSLINKVIEW* links;
     int* in;
     AEMSOUTPUTVIEW out;
     AEMSSTATEVIEW state0;
@@ -144,7 +207,9 @@ struct AEMSCOMPDYNAMIC {
 struct SNDAEMSVIEW {
     int unknown00;
     int rate;
-    unsigned char unknown08[16];
+    unsigned char unknown08[4];
+    AEMSBANKVIEW** banks;
+    unsigned char unknown10[8];
     void (*playerUpdate)(AEMSCOMPDYNAMIC*);
     unsigned char unknown1c[4];
     void (*bankUpdate)(AEMSCOMPDYNAMIC*);
@@ -158,8 +223,56 @@ extern SNDAEMSVIEW sndaems;
 extern void (*SNDAEMS_beginevent)(int*);
 
 void SNDAEMSI_destroyinstance(MODULE*, int);
+void SNDAEMSI_updatemodules(int);
 unsigned int iSNDrandom();
 int iSNDsin(int);
+
+void SNDAEMSI_updatemodule(int, int, int);
+
+void AEMSI_timerupdate() {
+    SNDAEMSI_updatemodules(0);
+}
+
+void SNDAEMSI_updatemodules(int timer) {
+    int bank;
+    int module;
+
+    for (bank = 0; bank < 16; bank++) {
+        if (sndaems.banks[bank]) {
+            for (module = 0; module < sndaems.banks[bank]->moduleCount; module++)
+                SNDAEMSI_updatemodule(bank, module, timer);
+        }
+    }
+}
+
+void SNDAEMSI_updatemodule(int bank, int index, int timer) {
+    AEMSBANKVIEW* modules = sndaems.banks[bank];
+    AEMSMODULEVIEW* module = modules->version >= 8 ? (AEMSMODULEVIEW*)(modules->modules + index * 28)
+                                                   : (AEMSMODULEVIEW*)(modules->modules + index * 20);
+    AEMSINSTANCEVIEW* instance;
+    int i;
+
+    if (timer == module->timer) {
+        for (i = 0; i < module->instanceCount; i++) {
+            instance = module->instances->instances[i];
+
+            if (instance && instance->active) {
+                int c;
+
+                for (c = 0; c < instance->componentCount; c++) {
+                    AEMSCOMPDYNAMIC* comp = instance->components[c];
+                    int k;
+
+                    aemscompinfo[((AEMSCOMPDEFHEADERVIEW*)comp->def)->kind].update(comp, (MODULE*)module);
+                    for (k = 0; k < comp->linkCount; k++)
+                        *comp->links[k].to = *comp->links[k].from;
+                }
+                if (instance->end->in[0] > 0)
+                    SNDAEMSI_destroyinstance((MODULE*)module, instance->id);
+            }
+        }
+    }
+}
 
 void AEMSI_updateinparam(AEMSCOMPDYNAMIC*, MODULE*) {
 }

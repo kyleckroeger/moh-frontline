@@ -37,8 +37,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80154e54",
-      "size": 1788,
+      "address": "0x80154c44",
+      "size": 2316,
       "type": 1
     }
   ],
@@ -90,10 +90,34 @@
       "address": "0x80154e54",
       "size": 4,
       "binding": 1
+    },
+    {
+      "name": "AEMSI_timerupdate__Fv",
+      "address": "0x80154c44",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "SNDAEMSI_updatemodules__Fi",
+      "address": "0x80154c68",
+      "size": 144,
+      "binding": 1
+    },
+    {
+      "name": "SNDAEMSI_updatemodule__Fiii",
+      "address": "0x80154cf8",
+      "size": 348,
+      "binding": 1
     }
   ],
   "externals": {
+    "SNDAEMSI_destroyinstance__FP6MODULEi": "0x80156508",
     "__div2i": "0x80138b60",
+    "_restgpr_24": "0x80138a50",
+    "_restgpr_27": "0x80138a5c",
+    "_savegpr_24": "0x80138a04",
+    "_savegpr_27": "0x80138a10",
+    "aemscompinfo": "0x801933e0",
     "iSNDsin__Fi": "0x8015f85c",
     "sndaems": "0x80340410"
   },
