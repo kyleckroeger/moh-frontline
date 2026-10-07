@@ -40,7 +40,7 @@
     {
       "name": ".text",
       "address": "0x8004d41c",
-      "size": 452,
+      "size": 504,
       "type": 1
     },
     {
@@ -85,6 +85,12 @@
       "name": "GetDistanceXYZReal__9CAIObjectFP9CAIObject",
       "address": "0x8004d5b8",
       "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "GetCoordinateAxisDirection__9CAIObjectFP20CAIFilterRealVector3P20CAIFilterRealVector3P20CAIFilterRealVector3",
+      "address": "0x8004d5e0",
+      "size": 52,
       "binding": 1
     }
   ],

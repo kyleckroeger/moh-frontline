@@ -1,10 +1,11 @@
-// CAIObject::SetTarget and the distance helpers: squared XY, squared XYZ (to
-// another object or to the target position) and XYZ distance between AI
-// objects' real positions, forwarded to CAIFilterRealPosition. The class names
-// come from the mangled symbols; the position (+24), target (+196) and target
-// position (+240) members are inferred from offsets, the other members SetTarget
-// uses are named by offset, and CAIObject is a non-virtual view. The rest of
-// the file is not part of this unit.
+// CAIObject::SetTarget, the distance helpers and GetCoordinateAxisDirection.
+// The distance helpers (squared XY, squared XYZ to another object or to the
+// target position, XYZ between AI objects' real positions) forward to
+// CAIFilterRealPosition. The class names come from the mangled symbols; the
+// position (+24), axis directions (+112), target (+196) and target position
+// (+240) members are inferred from offsets, the other members SetTarget uses
+// are named by offset, and CAIObject is a non-virtual view. The rest of the
+// file is not part of this unit.
 class CAIFilterRealPosition {
 public:
     float GetDistanceSquaredXYReal(const CAIFilterRealPosition&) const;
@@ -16,8 +17,23 @@ public:
     float z;
 };
 
+// The axis members' 16-byte stride and doubleword copies show an 8-byte
+// aligned vector inside CAIFilterRealVector3 (inferred).
+class CVector3 {
+public:
+    float x;
+    float y;
+    float z;
+} __attribute__((aligned(8)));
+
+class CAIFilterRealVector3 {
+public:
+    CVector3 v;
+};
+
 class CAIObject {
 public:
+    void GetCoordinateAxisDirection(CAIFilterRealVector3*, CAIFilterRealVector3*, CAIFilterRealVector3*);
     CAIObject* SetTarget(CAIObject*);
     void CalculateTargetPosition();
     float GetDistanceSquaredXYReal(CAIObject*);
@@ -27,7 +43,9 @@ public:
 
     unsigned char unknown000[24];
     CAIFilterRealPosition m_position;
-    unsigned char unknown024[156];
+    unsigned char unknown024[76];
+    CAIFilterRealVector3 m_axis[3];
+    unsigned char unknown0a0[32];
     bool m_unknown0c0;
     unsigned char unknown0c1[3];
     CAIObject* m_target;
@@ -101,4 +119,11 @@ float CAIObject::GetDistanceSquaredXYZReal(CAIObject* other) {
 
 float CAIObject::GetDistanceXYZReal(CAIObject* other) {
     return m_position.GetDistanceXYZReal(other->m_position);
+}
+
+void CAIObject::GetCoordinateAxisDirection(CAIFilterRealVector3* forward, CAIFilterRealVector3* left,
+                                           CAIFilterRealVector3* up) {
+    *forward = m_axis[0];
+    *left = m_axis[1];
+    *up = m_axis[2];
 }
