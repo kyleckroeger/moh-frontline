@@ -4,13 +4,27 @@
 // bounding volumes, the identity as its transform), copies of header inlines
 // emitted in this file (so they are defined __declspec(weak)). The classes
 // are named by the mangled symbols; IMovingSceneNode and ISceneNode are
-// non-virtual views. GetPosition and the direction getters after these use
-// the file's .sdata2 pool and are not part of this unit, nor is the rest of
-// the file.
+// non-virtual views. GetPosition (the origin) and the unit direction getters
+// follow; their constants are entries of the file's .sdata2 pool, and the
+// CVector3 view and its three-float setter are inferred. The rest of the file
+// is not part of this unit.
 struct BPDLightVolume;
 class CCollision;
 class CDrawContext;
 class IVolume;
+
+class CVector3 {
+public:
+    void Set(float x_, float y_, float z_) {
+        x = x_;
+        y = y_;
+        z = z_;
+    }
+
+    float x;
+    float y;
+    float z;
+} __attribute__((aligned(8)));
 
 class CMatrix {
 public:
@@ -41,6 +55,10 @@ public:
     IVolume* GetLocalBoundingVolume(EVolumeType) const;
     IVolume* GetWorldBoundingVolume(EVolumeType) const;
     void GetTMLocalToWorld(CMatrix&) const;
+    void GetPosition(CVector3&) const;
+    void GetRightward(CVector3&) const;
+    void GetForward(CVector3&) const;
+    void GetUpward(CVector3&) const;
 };
 
 __declspec(weak) void IMovingSceneNode::EnterLightVolume(BPDLightVolume*) {
@@ -95,4 +113,20 @@ __declspec(weak) IVolume* ISceneNode::GetWorldBoundingVolume(EVolumeType) const 
 
 __declspec(weak) void ISceneNode::GetTMLocalToWorld(CMatrix& matrix) const {
     matrix.Ident();
+}
+
+__declspec(weak) void ISceneNode::GetPosition(CVector3& position) const {
+    position.x = position.y = position.z = 0.0f;
+}
+
+__declspec(weak) void ISceneNode::GetRightward(CVector3& direction) const {
+    direction.Set(1.0f, 0.0f, 0.0f);
+}
+
+__declspec(weak) void ISceneNode::GetForward(CVector3& direction) const {
+    direction.Set(0.0f, 1.0f, 0.0f);
+}
+
+__declspec(weak) void ISceneNode::GetUpward(CVector3& direction) const {
+    direction.Set(0.0f, 0.0f, 1.0f);
 }

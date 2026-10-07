@@ -40,7 +40,7 @@
     {
       "name": ".text",
       "address": "0x8001ae94",
-      "size": 108,
+      "size": 200,
       "type": 1
     },
     {
@@ -57,6 +57,30 @@
     }
   ],
   "functions": [
+    {
+      "name": "GetUpward__10ISceneNodeCFR8CVector3",
+      "address": "0x8001af44",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "GetForward__10ISceneNodeCFR8CVector3",
+      "address": "0x8001af2c",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "GetRightward__10ISceneNodeCFR8CVector3",
+      "address": "0x8001af14",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "GetPosition__10ISceneNodeCFR8CVector3",
+      "address": "0x8001af00",
+      "size": 20,
+      "binding": 2
+    },
     {
       "name": "GetTMLocalToWorld__10ISceneNodeCFR7CMatrix",
       "address": "0x8001aedc",
@@ -164,5 +188,22 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "Moh2.cpp",
-  "original_file_index": 1
+  "original_file_index": 1,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034f568"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x8034f550"
+    }
+  ]
 }

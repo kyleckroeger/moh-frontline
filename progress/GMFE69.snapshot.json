@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 479612,
+    "matching_code_bytes": 479724,
     "total_executable_code_bytes": 1414572,
-    "percent": 33.905096382510045,
+    "percent": 33.91301397171724,
     "categories": {
-      "reconstructed_game": 263208,
+      "reconstructed_game": 263320,
       "restored_library": 216404
     },
-    "matching_functions": 3046
+    "matching_functions": 3051
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -96,8 +96,8 @@
     "config/GMFE69/MemoryCardGC_probe.json": "d166a1c3b3e167d590a0382180d9bb5c44ed14ccf9d640f30eba7a1706494d68",
     "config/GMFE69/MemoryCardGC_status.json": "ab7d017e14aa9150f02b61c6f34de1053b45008da4f31d5695aca901f0d63dc3",
     "config/GMFE69/Moh2.json": "5f1f093ff156a9f0b0641ede8edc5664e6e11dfc10ed0e6ad1e75fa8d857054d",
-    "config/GMFE69/Moh2_movingnode.json": "cbf20d8da337437e553e129a3ffa68dacc063e17ad2fe36cdd92d14c72464a27",
-    "config/GMFE69/Moh2_scenenode.json": "96ada3932c0da749cd75efd10b76cc5b8a07e92d5c7f6f388e02224d6617a10f",
+    "config/GMFE69/Moh2_movingnode.json": "962deb2e9faaf25ed287b741aac7a4269d61089104e86d4d9f89da92ce3ba287",
+    "config/GMFE69/Moh2_scenenode.json": "b47f2986d660c39bea9475b1514866c58be901c1f9b43c79a49fc90a604bab9c",
     "config/GMFE69/NMWException.json": "993919adc03819f768ac97f37687a067894f1324f0097fa28477b34baf8f9157",
     "config/GMFE69/NewMore.json": "a73fc17ffb36c223ebeace7005486781fe8461b7cdeead36cec2f2532fdd9aea",
     "config/GMFE69/OS.json": "1545bcf993357bb6d3a55d38f18f89d1633c3ce0a893f0c196874fe2f0113f54",
@@ -1818,8 +1818,8 @@
     "src/game/MemoryCardGC_probe.cpp": "b112a0a62455dadd65658648534aeb4d088c93068fae94683c5648c54f2d5b97",
     "src/game/MemoryCardGC_status.cpp": "bb609eb01a4392fb17f4b857c88593b5cc89b764f01b5bcc9c93d26513478a8e",
     "src/game/Moh2.cpp": "de6c92093366f02578f9e8b8d2f69e0de0bece31142f95b7a51ed02dd533c3fb",
-    "src/game/Moh2_movingnode.cpp": "35f30b84ea959ae9115a257f184fb7dc59862f62ec2fec2530a1988066f25b8d",
-    "src/game/Moh2_scenenode.cpp": "eaa0e9dcda439570a261bd90d288767692a4e9eb4e52b8a02df1d0bfc9b2da12",
+    "src/game/Moh2_movingnode.cpp": "1ddb6655d9d1c4666a2d6d2065f5da6d0896e7cbf563c7539b5750fd399afff6",
+    "src/game/Moh2_scenenode.cpp": "f26229e634619bdb5091b4605f43d55167a264eee0b7c6fc3d3502c0bbfd1c52",
     "src/game/PathNodeList_hashmap.cpp": "522d28711d39f28e6493d57afc12e848b3a0dba2f4b8c6b8dc44b1c061813aeb",
     "src/game/Pause.cpp": "2d6d321b8fcd54038857a76293913fd0c891dd06d69d5bda64af7fe8b1519da8",
     "src/game/Pause_tail.cpp": "310007d04a15e06e5d13ad63bc14571c9fafd2fb56d66851af547fb37e6c1e27",
@@ -32334,8 +32334,8 @@
     {
       "id": "Moh2_movingnode",
       "category": "reconstructed_game",
-      "functions": 14,
-      "code_bytes": 56,
+      "functions": 15,
+      "code_bytes": 76,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -32367,14 +32367,14 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "cb77c68c7592e9eaace3c03bee3a805a6ae5600a9d3f6ee46a92055a2ed4b944",
-      "linked_sha256": "cff3abda4699b8ba107e68235529c75edcaafea4ba77007d07e908c5e38cb075"
+      "object_sha256": "3ab6de3072d30088c44e19fc4387b6e0fff48636ffca101bde7199848ed6cf9c",
+      "linked_sha256": "f24b7e687490b2a0c83f8f2377dbcc641e2636f6e70795ca38df17752ed05ba5"
     },
     {
       "id": "Moh2_scenenode",
       "category": "reconstructed_game",
-      "functions": 16,
-      "code_bytes": 108,
+      "functions": 20,
+      "code_bytes": 200,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -32406,8 +32406,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "c760cc1660d4728ac3c375e0da7b18f6b08e95dfdd5304041aa28ff5d10d4515",
-      "linked_sha256": "c7c44937b93fedfa42b1de711e9da07eef6a053d6d7224d029747b166a9f6213"
+      "object_sha256": "f45773d27039952d220fb19922c9156a2dae7e14727273305692d3094e6fa29a",
+      "linked_sha256": "221a16cdb62b11e20af814504cf342dced6ffab79fca4d9b04635b1cfaae4ef3"
     },
     {
       "id": "propdat_offsetptr",
@@ -35391,41 +35391,6 @@
             "kind": "function",
             "name": "__dt__13IDestructibleFv",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001ae80",
-            "size": 20,
-            "kind": "function",
-            "name": "GetWorldLinearVelocity__16IMovingSceneNodeCFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001af00",
-            "size": 20,
-            "kind": "function",
-            "name": "GetPosition__10ISceneNodeCFR8CVector3",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001af14",
-            "size": 24,
-            "kind": "function",
-            "name": "GetRightward__10ISceneNodeCFR8CVector3",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001af2c",
-            "size": 24,
-            "kind": "function",
-            "name": "GetForward__10ISceneNodeCFR8CVector3",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001af44",
-            "size": 24,
-            "kind": "function",
-            "name": "GetUpward__10ISceneNodeCFR8CVector3",
-            "evidence": "between-same-file"
           }
         ]
       },
