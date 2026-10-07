@@ -20,8 +20,10 @@
    output directly; otherwise a rising trigger (input 0 positive while the
    previous trigger was zero) steps the output up or down and wraps it between
    the limits; the trigger is remembered. The file name is this project's; the
-   original record is saems.c (src/ea/saems.c holds the multiplexer onward), and
-   AEMSI_updaterandom between them is not reconstructed. AEMSCOMPDYNAMIC and
+   original record is saems.c (src/ea/saems.c holds the multiplexer onward).
+   AEMSI_updaterandom, last here, picks an output on a rising trigger: a
+   weighted percentage, a uniform value, or (mode 2) a shuffle that counts how
+   often each value was used and starts a new round when all are used. AEMSCOMPDYNAMIC and
    MODULE are named by the mangled symbols; the component and definition
    layouts are inferred, as in saems.c. */
 struct MODULE;
@@ -437,4 +439,54 @@ void AEMSI_updatecounter(AEMSCOMPDYNAMIC* comp, MODULE*) {
         }
     }
     comp->state0.value = comp->in[0];
+}
+
+void AEMSI_updaterandom(AEMSCOMPDYNAMIC* comp, MODULE*) {
+    AEMSRANDOMDEFVIEW* def = (AEMSRANDOMDEFVIEW*)comp->def;
+    int found = 0;
+    int start;
+    int i;
+    int sum;
+    int r;
+    if (comp->in[0] > 0 && comp->state2.value == 0) {
+        if (def->mode == 2) {
+            start = iSNDrandom() % (def->max + 1 - def->min);
+            while (!found) {
+                for (i = start; i <= def->max - def->min && !found; i++) {
+                    if (comp->state0.counts[i] != comp->state1.round) {
+                        comp->state0.counts[i]++;
+                        found = 1;
+                        comp->out.value = i + def->min;
+                    }
+                }
+                for (i = 0; i < start && !found; i++) {
+                    if (comp->state0.counts[i] != comp->state1.round) {
+                        comp->state0.counts[i]++;
+                        found = 1;
+                        comp->out.value = i + def->min;
+                    }
+                }
+                if (!found) {
+                    if (comp->out.value == start + def->min)
+                        start++;
+                    if (start > def->max)
+                        start = def->min;
+                    comp->state1.round++;
+                }
+            }
+        } else if (def->mode == 0) {
+            r = iSNDrandom() % 100;
+            sum = 0;
+            for (i = 0; i <= def->max - def->min; i++) {
+                sum += def->weights[i];
+                if (sum > r) {
+                    comp->out.value = i + def->min;
+                    break;
+                }
+            }
+        } else if (def->mode == 1) {
+            comp->out.value = def->min + iSNDrandom() % (def->max + 1 - def->min);
+        }
+    }
+    comp->state2.value = comp->in[0];
 }

@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x80154c44",
-      "size": 2316,
+      "size": 2872,
       "type": 1
     }
   ],
@@ -53,6 +53,12 @@
       "name": "AEMSI_updatestatic__FP15AEMSCOMPDYNAMICP6MODULE",
       "address": "0x80154e8c",
       "size": 4,
+      "binding": 1
+    },
+    {
+      "name": "AEMSI_updaterandom__FP15AEMSCOMPDYNAMICP6MODULE",
+      "address": "0x80155550",
+      "size": 556,
       "binding": 1
     },
     {
@@ -118,6 +124,7 @@
     "_savegpr_24": "0x80138a04",
     "_savegpr_27": "0x80138a10",
     "aemscompinfo": "0x801933e0",
+    "iSNDrandom__Fv": "0x8015f934",
     "iSNDsin__Fi": "0x8015f85c",
     "sndaems": "0x80340410"
   },
