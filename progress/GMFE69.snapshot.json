@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 464864,
+    "matching_code_bytes": 465004,
     "total_executable_code_bytes": 1414572,
-    "percent": 32.862519546548356,
+    "percent": 32.87241653305735,
     "categories": {
-      "reconstructed_game": 248460,
+      "reconstructed_game": 248600,
       "restored_library": 216404
     },
-    "matching_functions": 2802
+    "matching_functions": 2804
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -150,6 +150,7 @@
     "config/GMFE69/ShellMenu_pass.json": "14a65a0950e859830e698be5b8e289c8c89b60afa92994cbc1db745ab864d944",
     "config/GMFE69/ShellMenu_playtime.json": "3b3c7b8389541f4d06200f606affc6f6566b59480b27e4ab4064ce3f241ee65d",
     "config/GMFE69/ShellMenu_shelloff.json": "430dbe73903cc3650bd72d4d1cd0bf888d498540ea67e997ba6b19e3e4f129ee",
+    "config/GMFE69/ShellMenu_sku.json": "fef82c287c947c62f56cf95df7d729e299f8b11279a01b0153056c8ee77dc184",
     "config/GMFE69/ShellMenu_stats.json": "7b5a42b2eac606cdd7e392272bdd1a58b79a96dee59c6e275f9c65e0e0412994",
     "config/GMFE69/Soldier_object.json": "d625d33bbfdcbd4ae922099756d0a2525feb495afdd309517e996dc20e2f2aff",
     "config/GMFE69/Soldier_object_bone.json": "e4f2a7a48d19d9417887d9971eea8d7ce0b1019be0f80d2989dedf337a41825b",
@@ -458,7 +459,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "49e05a2855268df4d1a28d96f46a0e3d877ac0b128dd051da6d7a70b293cc4fe",
+    "config/GMFE69/project.json": "425c479c2070a28febfa2b07298eaeccd3b9e3593441df80b3403d8ca6e04c10",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "bd4b85e3a27ac50301d2ad04642bca1abf864b5f74397505530539b31bf4c0d1",
@@ -1741,6 +1742,7 @@
     "src/game/ShellMenu_pass.cpp": "e3c09b5f0f35cfc0b140ac9dac92f626512649c870f49c0daded18b149bb8bdd",
     "src/game/ShellMenu_playtime.cpp": "bab10c8b07350c545d7ebf229469a9df13b14421fbd2e8c54c467f3a279e4cba",
     "src/game/ShellMenu_shelloff.cpp": "79284183edaef91b3810c92f6399a9d8197e221fff7d660fc8f859aba8a86731",
+    "src/game/ShellMenu_sku.cpp": "500c373b0f96f60369e6cfd8a04aeeda0da8e3bf80b8eb2b180d523fe65291ec",
     "src/game/ShellMenu_stats.cpp": "92b47c2788687b9e9b16dd1309429c8298205506a9ed83a6af655dd89918d648",
     "src/game/Soldier_object.cpp": "92bf858d3c8b06c691309b702079f4c10d3da7935ed4b50d4e27764fa7eeca41",
     "src/game/Soldier_object_bone.cpp": "8fa474389a05090df7d8e919f4fbfbe8dc37381836397d77ffaa327127206032",
@@ -31198,6 +31200,45 @@
       "discarded_functions": [],
       "object_sha256": "1ba6cdfab112e7e5b003bd13f07ad961e3f0cb67b09659d02268c9c1b26981b1",
       "linked_sha256": "df50292b2ebbcca7f8520520d39cbba91befa304a5fef46b8e4b4b83ec89f137"
+    },
+    {
+      "id": "ShellMenu_sku",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 140,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "930f5171bc17aefee3b0d5e686e9a4a30b64e480cfc34aa89f8618f6b4a73525",
+      "linked_sha256": "5d195b151d6b42585dd4645fc5dbe4815c4f188d71747695cf1e2bcd0e447f2a"
     }
   ],
   "code_map": {
@@ -44057,20 +44098,6 @@
             "size": 236,
             "kind": "function",
             "name": "MoveStatsIntoProperAreaForIstudio__10CShellMenuFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800de420",
-            "size": 8,
-            "kind": "function",
-            "name": "GetSKUMode__10CShellMenuFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800de428",
-            "size": 132,
-            "kind": "function",
-            "name": "SetupAllPlayersButtonsForMultiplayerGame__10CShellMenuFv",
             "evidence": "exception-index"
           },
           {
