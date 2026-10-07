@@ -40,7 +40,19 @@
     {
       "name": ".text",
       "address": "0x800b1bd0",
-      "size": 136,
+      "size": 404,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000d498",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800145f4",
+      "size": 12,
       "type": 1
     }
   ],
@@ -55,6 +67,18 @@
       "name": "GetLocalBoundingVolume__13CStaticObjectCFQ210ISceneNode11EVolumeType",
       "address": "0x800b1c14",
       "size": 68,
+      "binding": 1
+    },
+    {
+      "name": "SetWorldBoundingVolume__13CStaticObjectFQ210ISceneNode11EVolumeTypeP7IVolume",
+      "address": "0x800b1c58",
+      "size": 224,
+      "binding": 1
+    },
+    {
+      "name": "SetLocalBoundingVolume__13CStaticObjectFQ210ISceneNode11EVolumeTypeP7IVolume",
+      "address": "0x800b1d38",
+      "size": 44,
       "binding": 1
     }
   ],
