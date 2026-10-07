@@ -711,7 +711,9 @@
     "box_create.json",
     "sphere_create.json",
     "light_statics.json",
-    "light_visible.json"
+    "light_visible.json",
+    "matrix_ps.json",
+    "matrix_multiply.json"
   ],
   "progress": {
     "code_bytes": 1414572,
