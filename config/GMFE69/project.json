@@ -651,7 +651,9 @@
     "stream_cb.json",
     "path_restore.json",
     "sst_queue.json",
-    "spkt_tail.json"
+    "spkt_tail.json",
+    "sdrv_range.json",
+    "sdrv_pkt.json"
   ],
   "progress": {
     "code_bytes": 1414572,
