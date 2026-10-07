@@ -31,6 +31,11 @@
    header, request, type and tap tables and the 32-byte aligned buffer out
    in the given memory, picks the minimum read from the buffer size, chains
    the free requests, and returns the first tap as the handle.
+   STREAM_setfilter sets a chunk type's match (the last type only matches
+   everything) and its tap (or -1/-2) while the stream is idle;
+   STREAM_destroy kills the stream, waits (running the sync tasks on the
+   owning thread) until it stops reading, clears the magic, and closes the
+   file. Handles are checked by the same inline test as in stream.cpp.
    STREAMHEADERtag and REQUESTSTRUCTtag are named by the mangled symbols;
    their members, the other views and the helpers' signatures are
    inferred. */
@@ -111,6 +116,12 @@ void MUTEX_unlock(void*);
 void MEM_copy(void*, const void*, int);
 void MEM_clear(void*, int);
 void MUTEX_create(void*);
+void MUTEX_destroy(void*);
+bool THREAD_iscurrent(int);
+void SYNCTASK_run(int);
+void THREAD_yield(int);
+bool FILESYS_closesync(int, int);
+void STREAM_kill(int);
 }
 
 static void restartstream(STREAMHEADERtag*, int);
@@ -516,4 +527,59 @@ extern "C" int STREAM_create(int requests, int types, int taps, void* memory, in
         tap->size = 0;
     }
     return (int)header->lists;
+}
+
+/* inferred: a valid handle is a non-null tap whose header carries the
+   stream magic */
+static inline int validhandle(int handle, CHUNKLISTVIEW** out, STREAMHEADERtag** header) {
+    int error;
+    if (handle == 0) {
+        error = 1;
+    } else if (((CHUNKLISTVIEW*)handle)->header->magic != 0x4D525453) {
+        error = 1;
+    } else {
+        *out = (CHUNKLISTVIEW*)handle;
+        *header = ((CHUNKLISTVIEW*)handle)->header;
+        error = 0;
+    }
+    return error;
+}
+
+extern "C" void STREAM_setfilter(int handle, int type, int mask, int value, int tap) {
+    CHUNKLISTVIEW* stream;
+    STREAMHEADERtag* header;
+    CHUNKTYPEVIEW* entry;
+
+    if (validhandle(handle, &stream, &header) != 0)
+        return;
+    if (type < 1 || type > header->typeCount)
+        return;
+    if (type == header->typeCount && (mask | value) != 0)
+        return;
+    if ((tap < 1 && tap != -1 && tap != -2) || tap > header->listCount)
+        return;
+    if (header->state != 0)
+        return;
+    entry = &header->types[type - 1];
+    entry->mask = mask;
+    entry->value = value;
+    entry->type = tap;
+}
+
+extern "C" void STREAM_destroy(int handle) {
+    CHUNKLISTVIEW* stream;
+    STREAMHEADERtag* header;
+
+    if (validhandle(handle, &stream, &header) != 0)
+        return;
+    STREAM_kill(handle);
+    while (header->state == 1) {
+        if (THREAD_iscurrent(0))
+            SYNCTASK_run(0);
+        THREAD_yield(0);
+    }
+    header->magic = 0;
+    MUTEX_destroy(header->mutex);
+    if (header->handle)
+        FILESYS_closesync(header->handle, 100);
 }

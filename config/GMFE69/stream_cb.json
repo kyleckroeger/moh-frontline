@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8014bb68",
-      "size": 4292,
+      "size": 4656,
       "type": 1
     }
   ],
@@ -96,19 +96,37 @@
       "address": "0x8014c5d8",
       "size": 1620,
       "binding": 1
+    },
+    {
+      "name": "STREAM_setfilter",
+      "address": "0x8014cc2c",
+      "size": 180,
+      "binding": 1
+    },
+    {
+      "name": "STREAM_destroy",
+      "address": "0x8014cce0",
+      "size": 184,
+      "binding": 1
     }
   ],
   "externals": {
     "FILESYS_callbackop": "0x80148624",
     "FILESYS_close": "0x80148cd0",
+    "FILESYS_closesync": "0x8014a130",
     "FILESYS_completeop": "0x80148a84",
     "FILESYS_open": "0x80148c38",
     "FILESYS_read": "0x80148d7c",
     "MEM_clear": "0x80151050",
     "MEM_copy": "0x80150880",
     "MUTEX_create": "0x801520d8",
+    "MUTEX_destroy": "0x80152100",
     "MUTEX_lock": "0x8015212c",
     "MUTEX_unlock": "0x80152150",
+    "STREAM_kill": "0x8014d6dc",
+    "SYNCTASK_run": "0x80152394",
+    "THREAD_iscurrent": "0x8015206c",
+    "THREAD_yield": "0x80151fbc",
     "_restgpr_16": "0x80138a30",
     "_restgpr_26": "0x80138a58",
     "_savegpr_16": "0x801389e4",
