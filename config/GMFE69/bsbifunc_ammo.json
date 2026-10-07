@@ -40,23 +40,35 @@
     {
       "name": ".text",
       "address": "0x80027280",
-      "size": 408,
+      "size": 544,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009bf4",
-      "size": 8,
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x800107b4",
-      "size": 12,
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x8034f618",
+      "size": 8,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "BIFunc_SetGrenadeTimer__FPPiPv",
+      "address": "0x80027418",
+      "size": 136,
+      "binding": 1
+    },
     {
       "name": "BIFunc_GetPlayerAmmo__FPPiPv",
       "address": "0x80027280",

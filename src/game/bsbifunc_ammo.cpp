@@ -1,17 +1,20 @@
 // A fragment of bsbifunc.cpp (0x80027280): the script built-in that returns
 // ammunition information for a weapon slot of the calling node's player
 // (otherwise the first player): the low nine bits of the request select the
-// slot, and flag 0x200 asks for the weapon's property value, 0x400 whether the
-// weapon is selectable, 0x800 the clip ammunition, 0x1000 whether the clip is
-// full, and no flag the clip plus reserve ammunition (-1 without a weapon). It
-// reads its argument below the script stack top, pops the built-in's arguments
-// and writes the result to the new top through its address. The file name is
-// this project's; the original record is bsbifunc.cpp and the built-ins around
-// it are not reconstructed. The functions, classes and globals are named by the
+// slot, and flag 0x200 asks for the weapon's property value, 0x400 whether
+// the weapon is selectable, 0x800 the clip ammunition, 0x1000 whether the
+// clip is full, and no flag the clip plus reserve ammunition (-1 without a
+// weapon). It reads its argument below the script stack top, pops the
+// built-in's arguments and writes the result to the new top through its
+// address. BIFunc_SetGrenadeTimer after it sets a grenade object's timer
+// (+144, inferred) from an integer argument. The file name is this
+// project's; the original record is bsbifunc.cpp and the built-ins around it
+// are not reconstructed. The functions, classes and globals are named by the
 // mangled symbols; ISceneNode is declared with its virtual functions in the
-// order of __vt__10ISceneNode (AsPlayerObject at +156), and the player-weapon
-// (its weapon at +12516), weapon, weapon-property, scene and built-in record
-// views are inferred (members at their offsets, names not original).
+// order of __vt__10ISceneNode (AsPlayerObject at +156), and the
+// player-weapon (its weapon at +12516), weapon, weapon-property, scene and
+// built-in record views are inferred (members at their offsets, names not
+// original).
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
@@ -129,6 +132,11 @@ struct BSBuiltinView {
 extern BSBuiltinView* g_pBuiltInFunctions;
 extern int g_iCurrentBIFIndex;
 
+struct GrenadeTimerView {
+    unsigned char unknown00[144];
+    float timer;
+};
+
 void BIFunc_GetPlayerAmmo(int** stack, void* object) {
     int request = *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1));
     int value = 0;
@@ -154,4 +162,12 @@ void BIFunc_GetPlayerAmmo(int** stack, void* object) {
     }
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
     **stack = *(int*)&value;
+}
+
+void BIFunc_SetGrenadeTimer(int** stack, void*) {
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    GrenadeTimerView* grenade = (GrenadeTimerView*)*(*stack - (count - 1));
+    int time = *(*stack - (count - 2));
+    grenade->timer = time;
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
 }
