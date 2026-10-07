@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x8009e814",
-      "size": 5940,
+      "size": 6204,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000cdd4",
-      "size": 80,
+      "size": 88,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80013f10",
-      "size": 120,
+      "size": 132,
       "type": 1
     },
     {
@@ -193,6 +193,12 @@
       "name": "CycleWeapon__13CPlayerObjectFii",
       "address": "0x8009fbec",
       "size": 860,
+      "binding": 1
+    },
+    {
+      "name": "ApplyForceTo__13CPlayerObjectF8CVector3f",
+      "address": "0x8009ff48",
+      "size": 264,
       "binding": 1
     }
   ],
@@ -337,6 +343,12 @@
       "offset": 84,
       "size": 8,
       "address": "0x80350610"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 92,
+      "size": 4,
+      "address": "0x80350618"
     }
   ]
 }

@@ -39,17 +39,19 @@
 // multiplayer, has the player's soldier select its matching weapon
 // (re-attaching it to the left or right hand, by its weapon flag; the dead
 // detach branch is the compiled shape of the inferred inline), then sends
-// the weapon's sound event. The file name is this project's; the original
-// record is player.cpp. The classes and functions are named by the mangled
-// symbols; the current-weapon lookups they inline are inferred helpers
-// (GetCurrentWeapon and GetCurrentPlayerWeapon are defined later in the
-// file, so they are not what is inlined); CAnimObject and CSoldierObject are
-// virtual views whose earlier slots are placeholders and the weapon objects
-// are cast to it; CAISplinePath's inline expansion by segment and the
-// CVector3 helpers are inferred, as is the use of MSL's inline sqrtf;
-// CPlayerObject, CPlayerWeaponObject and CWeapon are inferred non-virtual
-// views (members at their offsets, names not original) and the result types
-// and the angle parameter names are inferred.
+// the weapon's sound event. ApplyForceTo flags the force and stores its
+// direction (normalised) times 1/512 of the scale. The file name is this
+// project's; the original record is player.cpp. The classes and functions
+// are named by the mangled symbols; the current-weapon lookups they inline
+// are inferred helpers (GetCurrentWeapon and GetCurrentPlayerWeapon are
+// defined later in the file, so they are not what is inlined); CAnimObject
+// and CSoldierObject are virtual views whose earlier slots are placeholders
+// and the weapon objects are cast to it; CAISplinePath's inline expansion by
+// segment and the CVector3 helpers are inferred (its assignment copies it as
+// a doubleword pair, through an inferred union view), as is the use of MSL's
+// inline sqrtf; CPlayerObject, CPlayerWeaponObject and CWeapon are inferred
+// non-virtual views (members at their offsets, names not original) and the
+// result types and the angle parameter names are inferred.
 class CSprite;
 
 namespace std {
@@ -71,11 +73,20 @@ inline float sqrtf(float x)
 }
 }
 
+// Two doubles: CVector3's copies move it as a doubleword pair.
+union CVector3Pair {
+    double pair[2];
+    float v[4];
+};
+
 class CVector3 {
 public:
     CVector3() {}
     CVector3(float x_, float y_, float z_) : x(x_), y(y_), z(z_) {}
-    CVector3 operator-(const CVector3& o) const { return CVector3(x - o.x, y - o.y, z - o.z); }
+    CVector3 operator=(const CVector3& other) {
+        *(CVector3Pair*)this = *(const CVector3Pair*)&other;
+        return *this;
+    }
     CVector3& operator*=(float f) {
         x *= f;
         y *= f;
@@ -85,8 +96,11 @@ public:
     float LengthSq() const { return x * x + y * y + z * z; }
     void Normalize() {
         float length = std::sqrtf(LengthSq());
-        if (length != 0.0f)
-            *this *= 1.0f / length;
+        if (length != 0.0f) {
+            x *= 1.0f / length;
+            y *= 1.0f / length;
+            z *= 1.0f / length;
+        }
     }
     void Cross(const CVector3& a, const CVector3& b) {
         x = a.y * b.z - a.z * b.y;
@@ -462,6 +476,7 @@ public:
         return 0;
     }
     bool CycleWeapon(int, int);
+    void ApplyForceTo(CVector3, float);
     void StartGrenadeCook();
     void FireMyWeapon(float);
     void SetFallingDamageState(bool);
@@ -480,7 +495,8 @@ public:
     BSObject* m_script;
     unsigned char unknown254[4];
     CVector3 m_velocity;
-    unsigned char unknown268[32];
+    unsigned char unknown268[16];
+    CVector3 m_force;
     CVector3 m_position;
     unsigned char unknown298[4];
     float m_angle29c;
@@ -492,7 +508,8 @@ public:
     unsigned char m_cameraShaking : 1;
     unsigned char unknown395b : 1;
     unsigned char m_onPath : 1;
-    unsigned char unknown395c : 2;
+    unsigned char m_forceApplied : 1;
+    unsigned char unknown395c : 1;
     unsigned char m_flag395 : 1;
     unsigned char m_usingMountedWeapon : 1;
     unsigned char unknown396b : 7;
@@ -915,4 +932,12 @@ bool CPlayerObject::CycleWeapon(int direction, int only) {
         }
     }
     return false;
+}
+
+void CPlayerObject::ApplyForceTo(CVector3 force, float scale) {
+    m_forceApplied = 1;
+    float strength = scale / 512.0f;
+    m_force = force;
+    m_force.Normalize();
+    m_force *= strength;
 }
