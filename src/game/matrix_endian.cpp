@@ -1,8 +1,14 @@
 // A fragment of matrix.cpp (0x8008ebf0): CMatrix::EndianSwap (each element,
 // column by column), GetGAMECUBEMatrix34 (the transposed upper 3x4) and
-// TibToMOHFL (negates the first row and swaps the second and third). CMatrix
+// TibToMOHFL (negates the first row and swaps the second and third), then
+// ToEulerXZY and ToEulerXYZ (asin/atan2 of the rotation entries, with the
+// +-pi/2 cases when the sine entry reaches +-1; the constants are entries of
+// the file's .sdata2 pool). CMatrix
 // is named by the mangled symbols; the 4x4 float layout is inferred. The
 // byte-order helpers are the inlined ones described in propdat.cpp (inferred).
+extern "C" double atan2(double, double);
+extern "C" double asin(double);
+
 inline void ChangeEndian(short& value) {
     unsigned char bytes[2];
     *reinterpret_cast<short*>(bytes) = value;
@@ -37,6 +43,8 @@ public:
     void EndianSwap();
     void GetGAMECUBEMatrix34(float (&)[3][4]) const;
     void TibToMOHFL();
+    void ToEulerXZY(float&, float&, float&) const;
+    void ToEulerXYZ(float&, float&, float&) const;
 
     float m[4][4];
 } __attribute__((aligned(16)));
@@ -75,5 +83,41 @@ void CMatrix::TibToMOHFL() {
         float t = m[1][i];
         m[1][i] = m[2][i];
         m[2][i] = t;
+    }
+}
+
+void CMatrix::ToEulerXZY(float& x, float& y, float& z) const {
+    if (m[0][1] < 1.0f) {
+        if (m[0][1] > -1.0f) {
+            y = atan2(-m[0][2], m[0][0]);
+            z = asin(m[0][1]);
+            x = atan2(-m[2][1], m[1][1]);
+        } else {
+            x = -(float)atan2(m[1][2], m[2][2]);
+            z = -1.5707964f;
+            y = 0.0f;
+        }
+    } else {
+        x = atan2(m[1][2], m[2][2]);
+        z = 1.5707964f;
+        y = 0.0f;
+    }
+}
+
+void CMatrix::ToEulerXYZ(float& x, float& y, float& z) const {
+    if (m[0][2] < 1.0f) {
+        if (m[0][2] > -1.0f) {
+            x = asin(-m[1][2]);
+            y = atan2(-m[0][2], m[2][2]);
+            z = atan2(m[0][1], m[0][0]);
+        } else {
+            x = -1.5707964f;
+            y = -(float)atan2(m[1][0], m[1][1]);
+            z = 0.0f;
+        }
+    } else {
+        x = 1.5707964f;
+        y = atan2(m[1][0], m[1][1]);
+        z = 0.0f;
     }
 }
