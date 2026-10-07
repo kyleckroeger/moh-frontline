@@ -1,5 +1,6 @@
-// A fragment of sphere.cpp (0x800cb4f0): CVolSphere's double-dispatch
-// collision tests. Against CDB objects, capsules, world volumes and CSG
+// A fragment of sphere.cpp (0x800cb31c): CVolSphere's point test (as the
+// sphere-sphere test below, with the point as a sphere of radius 0), then its
+// double-dispatch collision tests. Against CDB objects, capsules, world volumes and CSG
 // volumes the collision order is swapped and the other volume tests against
 // the sphere; against a fiber the collision's line flag is set and the sphere
 // tests the fiber's line; an animated volume is tested as a sphere. The
@@ -119,6 +120,47 @@ public:
 };
 
 class CAnimatedVolume : public CVolSphere {};
+
+int CVolSphere::TestCollision(CVector3 point, CCollision& collision, bool flag) const {
+    CVector3 direction;
+    direction.d.v[0] = point.d.v[0] - m_center.d.v[0];
+    direction.d.v[1] = point.d.v[1] - m_center.d.v[1];
+    direction.d.v[2] = point.d.v[2] - m_center.d.v[2];
+    float distance = sqrtf(direction.d.v[0] * direction.d.v[0] + direction.d.v[1] * direction.d.v[1] +
+                           direction.d.v[2] * direction.d.v[2]);
+    if (distance != 0.0f) {
+        direction.d.v[0] *= 1.0f / distance;
+        direction.d.v[1] *= 1.0f / distance;
+        direction.d.v[2] *= 1.0f / distance;
+    }
+    float separation = distance - m_radius;
+    int result;
+    if (separation > CONTACT_EPSILON)
+        result = 1;
+    else if (separation < -CONTACT_EPSILON)
+        result = 3;
+    else
+        result = 2;
+    if (flag) {
+        if (result > collision.m_result)
+            collision.m_result = result;
+        if (result == 2) {
+            SClsnContact contact;
+            contact.m_separation = separation;
+            float radius = m_radius;
+            contact.m_vector0 = direction;
+            direction.d.v[0] *= radius;
+            direction.d.v[1] *= radius;
+            direction.d.v[2] *= radius;
+            contact.m_vector1.d.v[0] = m_center.d.v[0] + direction.d.v[0];
+            contact.m_vector1.d.v[1] = m_center.d.v[1] + direction.d.v[1];
+            contact.m_vector1.d.v[2] = m_center.d.v[2] + direction.d.v[2];
+            contact.m_index = 0;
+            collision.AddContact(contact);
+        }
+    }
+    return result;
+}
 
 int CVolSphere::TestCollision(const CCDBObject& other, CCollision& collision, bool flag) const {
     collision.SwapOrder();

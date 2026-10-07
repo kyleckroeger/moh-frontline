@@ -39,20 +39,20 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800cb4f0",
-      "size": 1104,
+      "address": "0x800cb31c",
+      "size": 1572,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000e15c",
-      "size": 56,
+      "address": "0x8000e154",
+      "size": 64,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80014f6c",
-      "size": 84,
+      "address": "0x80014f60",
+      "size": 96,
       "type": 1
     }
   ],
@@ -97,6 +97,12 @@
       "name": "TestCollision__10CVolSphereCFRC12CWorldVolumeR10CCollisionb",
       "address": "0x800cb650",
       "size": 116,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__10CVolSphereCF8CVector3R10CCollisionb",
+      "address": "0x800cb31c",
+      "size": 468,
       "binding": 1
     }
   ],

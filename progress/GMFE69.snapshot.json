@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 506500,
+    "matching_code_bytes": 506968,
     "total_executable_code_bytes": 1414572,
-    "percent": 35.805883334323035,
+    "percent": 35.83896754636738,
     "categories": {
-      "reconstructed_game": 287540,
+      "reconstructed_game": 288008,
       "restored_library": 218960
     },
-    "matching_functions": 3172
+    "matching_functions": 3173
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -685,7 +685,7 @@
     "config/GMFE69/spatkey.json": "bff5557b5581c610bdbc37b7db14e72fd656663c3acd429102ca9df7415d39f4",
     "config/GMFE69/sphere.json": "bf041b0323612fd4816234bb61471a66d8b61a146e4fe73f95bd0a9b603e8dbc",
     "config/GMFE69/sphere_create.json": "395ed45342967108320d0960ba95d8b1ad516a3da23b4c8ff7be84edf3a2bacc",
-    "config/GMFE69/sphere_dispatch.json": "c5afdffd3555cd0a2f8d6e0de406ec77706db6ad7b16d540090c166c821bff5b",
+    "config/GMFE69/sphere_dispatch.json": "c3454e7344a0d4c3bad05c5e860d52a722abd2ff2a8f1b94af206b4ce404289d",
     "config/GMFE69/spitch.json": "cb62e278b14f38415e8e5c27bbf52bcb5b5b0ac7ab471e9b1f556e22165a42ff",
     "config/GMFE69/spkt_tail.json": "09a61ff089beb5f06d9d0915c33abd8b88b2060d11ffddbfba679d0e1fe4da2a",
     "config/GMFE69/spktctoh.json": "32d07778d065bdc4f91fa7df1767303ac49ef857665a89458d479dc436b49e8e",
@@ -2137,7 +2137,7 @@
     "src/game/soundtable.cpp": "999b27bcde4106fdba28d8fd6a8b9b6b2b609e615746b1d1ae2216d3fa33a481",
     "src/game/sphere.cpp": "e1538a9191090541d7ecf265002ecb8f7306968a70e94f4286c7ea3800c0d889",
     "src/game/sphere_create.cpp": "4f2ad9592bc15cab266e199a7fbbd785d9d756c7d11b527e660c3059b0109505",
-    "src/game/sphere_dispatch.cpp": "d20f47d69cbd012f08898cccfd5ccdfbeb7777dd8e4d2bbfb553f35c670304e9",
+    "src/game/sphere_dispatch.cpp": "239974e0157852c05cde75174e5b367d62c47bb56ad27e7aad2f59f156cc1b83",
     "src/game/sprite.cpp": "bc15c2b65f957f90ba36ae02628c870761a9a18da28ef55e964a2382df205aa4",
     "src/game/static_obj_bounds.cpp": "42758ce058b28a87feece41d46488b520f1033fcb93e1a8d01f7fc6fbc13e617",
     "src/game/static_obj_commit.cpp": "082c0322d4e466d5c2e15078dbeccedc79d79457460620dd246269727958ece6",
@@ -24408,8 +24408,8 @@
     {
       "id": "sphere_dispatch",
       "category": "reconstructed_game",
-      "functions": 7,
-      "code_bytes": 1104,
+      "functions": 8,
+      "code_bytes": 1572,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -24441,8 +24441,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "f719d078dad1eaa76ba1ee2d92c70eba94e31edd2fde5d09a67d5cc89f433eaa",
-      "linked_sha256": "d8be51b835a47d5601e3749bc1afa685064cffacbe80bd6fd37e55b336a97756"
+      "object_sha256": "9ea36e0fb16ce0bf31ac2dc9b0b3f16e127a073d667ba31e87fc17c7f2801c5a",
+      "linked_sha256": "6a0bd84a092d004d47005f44f1dfb5e91405422e11f9f4a645a4b7bdfbebc279"
     },
     {
       "id": "capsule_dispatch",
@@ -44716,13 +44716,6 @@
             "size": 1748,
             "kind": "function",
             "name": "TestCollision__10CVolSphereCFRC6CLine3R10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cb31c",
-            "size": 468,
-            "kind": "function",
-            "name": "TestCollision__10CVolSphereCF8CVector3R10CCollisionb",
             "evidence": "exception-index"
           },
           {
