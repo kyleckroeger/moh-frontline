@@ -1,0 +1,126 @@
+{
+  "id": "ShellMenu_stats",
+  "source": "src/game/ShellMenu_stats.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800e6950",
+      "size": 520,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000f178",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80015c98",
+      "size": 24,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "Add_MPShotLocation__10CShellMenuFiii14EShotLocations",
+      "address": "0x800e6950",
+      "size": 80,
+      "binding": 1
+    },
+    {
+      "name": "Add_MPShotFired__10CShellMenuFii",
+      "address": "0x800e69a0",
+      "size": 60,
+      "binding": 1
+    },
+    {
+      "name": "ResetMPPlayersStats__10CShellMenuFv",
+      "address": "0x800e69dc",
+      "size": 76,
+      "binding": 1
+    },
+    {
+      "name": "Set_shotLocation__10CShellMenuFUi14EShotLocationsb",
+      "address": "0x800e6a28",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "Set_enemiesKilled__10CShellMenuFUib",
+      "address": "0x800e6a50",
+      "size": 168,
+      "binding": 1
+    },
+    {
+      "name": "Set_hitsTaken__10CShellMenuFUib",
+      "address": "0x800e6af8",
+      "size": 32,
+      "binding": 1
+    },
+    {
+      "name": "Set_hits__10CShellMenuFUib",
+      "address": "0x800e6b18",
+      "size": 32,
+      "binding": 1
+    },
+    {
+      "name": "Set_shotsFired__10CShellMenuFUib",
+      "address": "0x800e6b38",
+      "size": 32,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "GetCurrentWeapon__13CPlayerObjectCFv": "0x8009fb78",
+    "GetPlayer__6CSceneCFi": "0x800d8274",
+    "g_bMPEndLevel": "0x8034e9ec",
+    "g_scene": "0x8019484c",
+    "memset": "0x80009410"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "g_bMPEndLevel"
+  ],
+  "original_file": "ShellMenu.cpp",
+  "original_file_index": 8612
+}

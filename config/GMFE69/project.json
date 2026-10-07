@@ -677,7 +677,8 @@
     "pathx_query.json",
     "pathx_overhead.json",
     "publisher_reset.json",
-    "UIStudio_active.json"
+    "UIStudio_active.json",
+    "ShellMenu_stats.json"
   ],
   "progress": {
     "code_bytes": 1414572,
