@@ -780,7 +780,10 @@
     "buddy_veciter_info_dtor.json",
     "buddy_vec_path_end.json",
     "buddy_veciter_path_dtor.json",
-    "buddy_vec_path_begin.json"
+    "buddy_vec_path_begin.json",
+    "buddy_vec_path_dtor.json",
+    "buddy_vec_info_dtor.json",
+    "scene_vec_dtor.json"
   ],
   "progress": {
     "code_bytes": 1414572,
