@@ -40,7 +40,7 @@
     {
       "name": ".text",
       "address": "0x80063490",
-      "size": 88,
+      "size": 708,
       "type": 1
     },
     {
@@ -67,6 +67,48 @@
       "name": "DMAToARAMCallback__FUl",
       "address": "0x80063490",
       "size": 44,
+      "binding": 1
+    },
+    {
+      "name": "AnimFileGetStateInfo",
+      "address": "0x800634e8",
+      "size": 80,
+      "binding": 1
+    },
+    {
+      "name": "AnimFileGetStateTransList",
+      "address": "0x80063538",
+      "size": 184,
+      "binding": 1
+    },
+    {
+      "name": "AnimFileGetStateAnimList",
+      "address": "0x800635f0",
+      "size": 240,
+      "binding": 1
+    },
+    {
+      "name": "AnimFileGetStateCallbackID",
+      "address": "0x800636e0",
+      "size": 80,
+      "binding": 1
+    },
+    {
+      "name": "AnimFileGetAnimation",
+      "address": "0x80063730",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "AnimFileGetFileNum",
+      "address": "0x80063744",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "AnimFileGetObjectType",
+      "address": "0x8006374c",
+      "size": 8,
       "binding": 1
     }
   ],
