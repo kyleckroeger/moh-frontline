@@ -13,14 +13,19 @@
    counter wraps to 0 when negative), stuffs the start trigger and the event's
    parameters and, when an instance was created, the globals; updateevent and
    endevent stuff the parameters and the update or end trigger. Each runs the
-   modules once. The system layout, the trigger and parameter records and the
+   modules once. SNDAEMSI_setglobal clamps a global's value to each
+   referencing parameter's range and writes it into every instance of the
+   parameter's module in a loaded bank (reusing the loop counter for the
+   minimum and a separate field pointer reproduce the original's register use;
+   found with decomp-permuter), then records it. The system layout, the trigger and parameter records and the
    sndaems and sndgs views are inferred. */
 struct AEMSCOMPDEFVIEW;
 
 /* inferred: a parameter or trigger reference, by ids as loaded, then
    resolved to the bank id and module and component indices */
 struct AEMSPARAMREFVIEW {
-    unsigned char unknown00[8];
+    int min;
+    int max;
     unsigned short bank;
     unsigned short module;
     unsigned int component;
@@ -69,6 +74,9 @@ extern AEMSCOMPINFOVIEW aemscompinfo[];
 
 struct MODULEINSTANCE {
     int id;
+    unsigned char active;
+    unsigned char unknown05[3];
+    char* data;
 };
 
 /* inferred: a module's runtime lists (instance slots, live count, component
@@ -476,5 +484,52 @@ int SNDAEMSI_endevent(int id, void* data) {
     }
     SNDAEMSI_stufftrigger(trigger, 2, id);
     SNDAEMSI_updatemodules(1);
+    return 0;
+}
+
+int SNDAEMSI_setglobal(int index, int value) {
+    char* field;
+    int j;
+    MODULEINSTANCE* instance;
+    int b;
+    AEMSREFLISTVIEW* list;
+    AEMSPARAMREFVIEW* ref;
+    AEMSMODULEVIEW* module;
+    int i;
+    MODULEBANK* bank;
+
+    if (index >= sndaems.system->globalCount)
+        return -8;
+    list = &sndaems.system->globals[index];
+    for (i = 0; i < list->count; i++) {
+        ref = &sndaems.system->params[list->refs[i]];
+
+        if (value > ref->max)
+            value = ref->max;
+        else {
+            j = ref->min;
+            if (value < j)
+                value = j;
+        }
+        for (b = 0; b < 16; b++) {
+            if (sndaems.banks[b] && ref->resolvedBank == sndaems.banks[b]->id)
+                break;
+        }
+        if (b < 16) {
+            bank = sndaems.banks[b];
+            module = bank->version >= 8 ? (AEMSMODULEVIEW*)(bank->modules + ref->resolvedModule * 28)
+                                                        : (AEMSMODULEVIEW*)(bank->modules + ref->resolvedModule * 20);
+            for (j = 0; j < module->slots; j++) {
+                instance = module->list->instances[j];
+
+                if (instance) {
+                    field = instance->data + module->list->offsets[ref->resolvedComponent];
+                    *(int*)(field + 16) = value;
+                    instance->active = 1;
+                }
+            }
+        }
+    }
+    sndaems.globalState[index] = value;
     return 0;
 }

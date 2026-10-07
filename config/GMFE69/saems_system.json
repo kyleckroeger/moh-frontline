@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8015385c",
-      "size": 3168,
+      "size": 3680,
       "type": 1
     }
   ],
@@ -80,6 +80,12 @@
       "binding": 1
     },
     {
+      "name": "SNDAEMSI_setglobal__Fii",
+      "address": "0x801544bc",
+      "size": 512,
+      "binding": 1
+    },
+    {
       "name": "SNDAEMSI_updateevent__FiPv",
       "address": "0x80154370",
       "size": 180,
@@ -95,7 +101,6 @@
   "externals": {
     "AEMSI_timerupdate__Fv": "0x80154c44",
     "SNDAEMSI_destroyinstance__FP6MODULEi": "0x80156508",
-    "SNDAEMSI_setglobal__Fii": "0x801544bc",
     "SNDAEMSI_stuffparam__Fiiii": "0x801546bc",
     "SNDAEMSI_stufftrigger__Fiii": "0x80154920",
     "SNDAEMSI_updatemodules__Fi": "0x80154c68",
