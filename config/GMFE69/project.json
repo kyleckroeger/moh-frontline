@@ -732,7 +732,20 @@
     "AIObject_weak.json",
     "staticmesh_offsetptr.json",
     "hierobject_weak.json",
-    "animplayer_weak.json"
+    "animplayer_weak.json",
+    "attachobject_type.json",
+    "hearingvolume_bullet.json",
+    "Soldier_object_lighting.json",
+    "Soldier_object_velocity.json",
+    "Soldier_object_lit.json",
+    "static_obj_type.json",
+    "static_obj_firedby.json",
+    "staticobjfactory_weak.json",
+    "bullet_draw.json",
+    "bullet_asbullet.json",
+    "projectilebullet_init.json",
+    "thrownbullet_init.json",
+    "hwvideodisplaylist_draw.json"
   ],
   "progress": {
     "code_bytes": 1414572,
