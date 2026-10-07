@@ -713,7 +713,9 @@
     "light_statics.json",
     "light_visible.json",
     "matrix_ps.json",
-    "matrix_multiply.json"
+    "matrix_multiply.json",
+    "player_vec_add.json",
+    "player_vec_sub.json"
   ],
   "progress": {
     "code_bytes": 1414572,
