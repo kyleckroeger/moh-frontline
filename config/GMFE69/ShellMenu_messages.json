@@ -1,0 +1,99 @@
+{
+  "id": "ShellMenu_messages",
+  "source": "src/game/ShellMenu_messages.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800e558c",
+      "size": 1160,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000f148",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80015c50",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "GetWeaponMessageForTotalStats__10CShellMenuFv",
+      "address": "0x800e558c",
+      "size": 328,
+      "binding": 1
+    },
+    {
+      "name": "GetEvalMessageForTotalStats__10CShellMenuFv",
+      "address": "0x800e56d4",
+      "size": 204,
+      "binding": 1
+    },
+    {
+      "name": "GetWeaponMessage__10CShellMenuFv",
+      "address": "0x800e57a0",
+      "size": 328,
+      "binding": 1
+    },
+    {
+      "name": "GetEvalMessage__10CShellMenuFv",
+      "address": "0x800e58e8",
+      "size": 300,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "emptyString": "0x8034e2d8",
+    "rand": "0x8013fc54"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "emptyString"
+  ],
+  "original_file": "ShellMenu.cpp",
+  "original_file_index": 8612
+}
