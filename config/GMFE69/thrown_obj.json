@@ -40,7 +40,25 @@
     {
       "name": ".text",
       "address": "0x800b4d14",
-      "size": 40,
+      "size": 444,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000d784",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80014738",
+      "size": 36,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x80350930",
+      "size": 28,
       "type": 1
     }
   ],
@@ -70,6 +88,18 @@
       "binding": 2
     },
     {
+      "name": "MarkForDestruction__13CThrownObjectFi",
+      "address": "0x800b4d6c",
+      "size": 72,
+      "binding": 1
+    },
+    {
+      "name": "Destroy__13CThrownObjectFv",
+      "address": "0x800b4d3c",
+      "size": 48,
+      "binding": 1
+    },
+    {
       "name": "GetObjectType__13CThrownObjectCFv",
       "address": "0x800b4d14",
       "size": 8,
@@ -80,9 +110,19 @@
       "address": "0x800b4d2c",
       "size": 16,
       "binding": 1
+    },
+    {
+      "name": "SetVelocity__13CThrownObjectFR8CVector3",
+      "address": "0x800b4db4",
+      "size": 284,
+      "binding": 1
     }
   ],
-  "externals": {},
+  "externals": {
+    "DeleteSpecialThrownObject__FP13CThrownObject": "0x8003eb40",
+    "GetRadius__10CVolSphereCFv": "0x800cba28",
+    "MarkForDestruction__13CStaticObjectFi": "0x800ae870"
+  },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
