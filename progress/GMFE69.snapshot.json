@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 517896,
+    "matching_code_bytes": 518500,
     "total_executable_code_bytes": 1414572,
-    "percent": 36.611498036155105,
+    "percent": 36.654196463665336,
     "categories": {
-      "reconstructed_game": 298936,
+      "reconstructed_game": 299540,
       "restored_library": 218960
     },
-    "matching_functions": 3208
+    "matching_functions": 3212
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -522,7 +522,7 @@
     "config/GMFE69/player_weapon_drawenabled.json": "af72358eb27d827370c188a11c8476c390a14426de1aab2adce0e2c0533ccff1",
     "config/GMFE69/player_weapon_object.json": "2c451ab555672599946bb97ca631b2a316350d8f99e8e9b77cf7f8f648d219df",
     "config/GMFE69/player_weapon_selectable.json": "3c9aab472205a638765db1eed076195405ab13e048cfd2a3066bf9ab3b6bacb8",
-    "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
+    "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
     "config/GMFE69/project.json": "6488439f7f30f4767d97bef96a93f33e64e994572591f205481ffa602ca78ba8",
@@ -2094,7 +2094,7 @@
     "src/game/player_weapon_drawenabled.cpp": "38a90c25715e1cb193ea2adfb7cbb12b6914fbb8ec8a7c770c70457725d465e4",
     "src/game/player_weapon_object.cpp": "1fd752be827cdffac6452a0457941d3237b13d77dec02900a4a7dac4c597d1fa",
     "src/game/player_weapon_selectable.cpp": "948a057eff27a7b565104c23d7cfddef4a5202207c2c4342f63865c782cd2741",
-    "src/game/popup.cpp": "64e2a7db93328be02cadb3f465f1cd9936b3f19d0b6ca82315d38ea6681b4133",
+    "src/game/popup.cpp": "f7338a66e75f7f7549049f217d4e923f74433a9a8e5a97385b60b74aca1831a7",
     "src/game/projectilebullet.cpp": "cdac318e5bfe1930442fa86d43227ce01dc8c4d8c571ac800610814275ec44e2",
     "src/game/projectilebullet_init.cpp": "1bf690f6a8f05572d21b3ea732d5ccfa9e224321ae9333907cfd7edb49256cef",
     "src/game/propdat.cpp": "b1e26b00f10be619cc409432f6748e200a0064248119fafa81774718c305885d",
@@ -19139,8 +19139,8 @@
     {
       "id": "popup",
       "category": "reconstructed_game",
-      "functions": 22,
-      "code_bytes": 228,
+      "functions": 26,
+      "code_bytes": 832,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -19172,8 +19172,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "bb6e3d7a597f76aed120095741b1b6636323dac7d98f5763413f893ddc05535a",
-      "linked_sha256": "8c878bab5e1a48a7ab7350ddbac234528b4133d773be0fa272f5e7e7c39d3d3f"
+      "object_sha256": "8b6c423e2f56bfdae7981d898de797a1f799612d956492384913567c56b12558",
+      "linked_sha256": "26a76de8d7031efcddca312a60c88c4316072659ba38bbd979d70cb0b24bcef1"
     },
     {
       "id": "particlesystem",
@@ -44044,34 +44044,6 @@
             "size": 500,
             "kind": "function",
             "name": "Scroll__12PopUpMessageFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800bf6ec",
-            "size": 124,
-            "kind": "function",
-            "name": "MoveTop__12PopUpMessageFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800bf84c",
-            "size": 204,
-            "kind": "function",
-            "name": "Reset__12PopUpMessageFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800bf918",
-            "size": 60,
-            "kind": "function",
-            "name": "__dt__12PopUpMessageFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800bf954",
-            "size": 216,
-            "kind": "function",
-            "name": "__ct__12PopUpMessageFv",
             "evidence": "exception-index"
           }
         ]

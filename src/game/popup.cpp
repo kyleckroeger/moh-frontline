@@ -1,15 +1,25 @@
-// PopUpMessage: the accessors in the middle of the file (the getters,
-// SetString and the setters, from GetString to Set_placement). PopUpMessage is
-// named by the mangled symbols; the members are inferred from the accessors'
-// offsets and their names follow the accessor names. The file is compiled with
-// -inline deferred,auto, so the functions are listed in reverse image order.
-// The scrolling functions before them and Reset, the destructor and the
-// constructor after them are not part of this unit (draft of the whole file
-// in scratch/lib/popup_wip.cpp; Scroll is off and the small data of the tail
-// cannot be placed on its own).
+// PopUpMessage: from MoveTop to the end of the file (moving the message's top
+// line up, the getters, SetString and the setters, Reset with its default
+// placement, timing and colour, the destructor and the constructor).
+// PopUpMessage is named by the mangled symbols; the members are inferred from
+// the accessors' offsets and their names follow the accessor names; g_screen
+// is viewed through an inferred record (its height scale at +0x2C). The file
+// is compiled with -inline deferred,auto, so the functions are listed in
+// reverse image order. The scrolling and display-time functions before them
+// are not part of this unit (draft of the whole file in
+// scratch/lib/popup_wip.cpp; Scroll is off). The constants are entries of the
+// file's .sdata2 pool.
 extern "C" {
+void* memset(void*, int, unsigned long);
 char* strncpy(char*, const char*, unsigned long);
 }
+
+struct CScreenView {
+    unsigned char field00[44];
+    float scale;
+};
+
+extern CScreenView g_screen;
 
 class PopUpMessage {
 public:
@@ -58,6 +68,31 @@ public:
     unsigned char available;
     char string[50];
 };
+
+PopUpMessage::PopUpMessage() {
+    Reset();
+}
+
+PopUpMessage::~PopUpMessage() {
+}
+
+void PopUpMessage::Reset() {
+    onScreenTime = 5.0f;
+    screenLocX = 320;
+    screenLocY = 12.0f * g_screen.scale;
+    top = 12.0f * g_screen.scale;
+    bottom = 88.0f * g_screen.scale;
+    field16 = 4;
+    a = 35;
+    b = 35;
+    g = 35;
+    r = 35;
+    textSize = 22;
+    property = 1;
+    placement = 4;
+    available = 1;
+    memset(string, 0, 50);
+}
 
 void PopUpMessage::Set_placement(unsigned char value) {
     placement = value;
@@ -149,4 +184,21 @@ unsigned short PopUpMessage::Get_top() {
 
 char* PopUpMessage::GetString() {
     return string;
+}
+
+void PopUpMessage::MoveTop() {
+    switch (placement) {
+    case 0:
+        top += textSize;
+        break;
+    case 1:
+        top -= textSize;
+        break;
+    case 2:
+        top -= textSize;
+        break;
+    case 4:
+        top += textSize;
+        break;
+    }
 }
