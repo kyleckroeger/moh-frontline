@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 460024,
+    "matching_code_bytes": 460508,
     "total_executable_code_bytes": 1414572,
-    "percent": 32.52036658438029,
+    "percent": 32.5545818805971,
     "categories": {
-      "reconstructed_game": 243620,
+      "reconstructed_game": 244104,
       "restored_library": 216404
     },
-    "matching_functions": 2752
+    "matching_functions": 2754
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -138,7 +138,7 @@
     "config/GMFE69/ShellMenu_card.json": "64a3dc1b5adbecb090de83d5f1ac156eb76d5557501bd3499d53be0199f7c8db",
     "config/GMFE69/ShellMenu_levels.json": "f2ef8f3404387c4a7efd85a6c8445fbd6cc1eec9e119bc83a32a605a48b3d5fb",
     "config/GMFE69/ShellMenu_mp.json": "037109fed947531faaa2af3093a2bfc2c77bd2d60c9bebfbc9fc8470328123c4",
-    "config/GMFE69/ShellMenu_stats.json": "a562353c2a038e380f54331335ef5f102faf421de75fca2afcfdd97a2f856162",
+    "config/GMFE69/ShellMenu_stats.json": "7575fcfc92994d3bf366d013c7ff6dbb14e7a1ec869c591b67525b3ede492371",
     "config/GMFE69/Soldier_object.json": "d625d33bbfdcbd4ae922099756d0a2525feb495afdd309517e996dc20e2f2aff",
     "config/GMFE69/Soldier_object_bone.json": "e4f2a7a48d19d9417887d9971eea8d7ce0b1019be0f80d2989dedf337a41825b",
     "config/GMFE69/Tank_object.json": "fa415f3ca15d6b7facea57a6c0f6cfa35329f2386377df8d73bd4f8f6a8ad599",
@@ -1716,7 +1716,7 @@
     "src/game/ShellMenu_card.cpp": "360c40a30ae8561bcc938899f84adc18104343aa89f688077a8c3667dcad0ddd",
     "src/game/ShellMenu_levels.cpp": "7725919006107aa8c2dee7d6142fb64ed999096ac96d51e9d55c418630259a7b",
     "src/game/ShellMenu_mp.cpp": "ddb7136cf97d30ad3178c7add969b38cb66835043dc1fbbe8467d8057fd8de99",
-    "src/game/ShellMenu_stats.cpp": "e744507dc5676306935126319ba629de32e62732ee1d31a3e8b20a78b0b3939b",
+    "src/game/ShellMenu_stats.cpp": "6ebf02486f7a1716213f43ff0b3dcbf1a45bd1937967e1f0be279f0bb7f6ac81",
     "src/game/Soldier_object.cpp": "92bf858d3c8b06c691309b702079f4c10d3da7935ed4b50d4e27764fa7eeca41",
     "src/game/Soldier_object_bone.cpp": "8fa474389a05090df7d8e919f4fbfbe8dc37381836397d77ffaa327127206032",
     "src/game/Tank_object.cpp": "898b0122c0c2efaf7919e2f4c17241cd68d0733d4f8fda2f2473ec61eb2df9d5",
@@ -30630,8 +30630,8 @@
     {
       "id": "ShellMenu_stats",
       "category": "reconstructed_game",
-      "functions": 8,
-      "code_bytes": 520,
+      "functions": 10,
+      "code_bytes": 1004,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -30663,8 +30663,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "924047328e445bf71a1ee4748f8bf381c46e70ba25b32bfc7813c6fb94864fbc",
-      "linked_sha256": "29e43ff073e8bf35fab4da11a997f3d2575124a75b37d9d7e11bcceeb67a3949"
+      "object_sha256": "4a7aae4410ff6e82d3765d7198c5482daa51470d62fd63f6e1a87447c9267971",
+      "linked_sha256": "ae7b37fba46b370ab88a4f69fcc68626b6fc889b3563bb3a386cbf26548301f4"
     }
   ],
   "code_map": {
@@ -44043,20 +44043,6 @@
             "kind": "function",
             "name": "Add_MPPlayerKilled__10CShellMenuFii",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x800e6b58",
-            "size": 300,
-            "kind": "function",
-            "name": "ResetCurrentLevelStats__10CShellMenuFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800e6c84",
-            "size": 184,
-            "kind": "function",
-            "name": "GetSecretsStatus__10CShellMenuFPi",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x800e6d3c",

@@ -40,7 +40,7 @@
     {
       "name": ".text",
       "address": "0x800e6950",
-      "size": 520,
+      "size": 1004,
       "type": 1
     },
     {
@@ -54,9 +54,28 @@
       "address": "0x80015c98",
       "size": 24,
       "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018a444",
+      "size": 44,
+      "type": 1,
+      "input_alignment": 4
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x80350f38",
+      "size": 4,
+      "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "GetSecretsStatus__10CShellMenuFPi",
+      "address": "0x800e6c84",
+      "size": 184,
+      "binding": 1
+    },
     {
       "name": "Add_MPShotLocation__10CShellMenuFiii14EShotLocations",
       "address": "0x800e6950",
@@ -103,6 +122,12 @@
       "name": "Set_shotsFired__10CShellMenuFUib",
       "address": "0x800e6b38",
       "size": 32,
+      "binding": 1
+    },
+    {
+      "name": "ResetCurrentLevelStats__10CShellMenuFv",
+      "address": "0x800e6b58",
+      "size": 300,
       "binding": 1
     }
   ],
