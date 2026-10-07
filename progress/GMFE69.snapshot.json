@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 433112,
+    "matching_code_bytes": 433624,
     "total_executable_code_bytes": 1414572,
-    "percent": 30.61788300630862,
+    "percent": 30.654077699827226,
     "categories": {
-      "reconstructed_game": 216708,
+      "reconstructed_game": 217220,
       "restored_library": 216404
     },
-    "matching_functions": 2642
+    "matching_functions": 2644
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -469,7 +469,7 @@
     "config/GMFE69/s_modf.json": "19c80bbeaa8c51ee3125929c7519ced093a1c194a026b3ab10541bbaafda3e7a",
     "config/GMFE69/s_sin.json": "72a9c31b228d23acc079c9dd985ac8f6cdb2115b9df2cf5acd29882938696942",
     "config/GMFE69/s_tan.json": "4d4245a72ecbda130924076021f01024ffa5f912437d596842d21aa4b2ac1390",
-    "config/GMFE69/saems.json": "50f8d592402e733677d4399bdfa8b84c0f96708e7a8df85e55f535de5ebea0c8",
+    "config/GMFE69/saems.json": "fe0d07bd3362ac0184a9ea0bc793c0e903247b946ac26ec2518319848005ed0c",
     "config/GMFE69/saems_counter.json": "3e346e1d9d1fda1dda81fc6468b8e1d4055019789be2236d28935b281d2900c1",
     "config/GMFE69/saemsbnk.json": "db233fe8fbe78cba5f80a5de0563dc43d10c2674341dc7db4aad9510e38cdf06",
     "config/GMFE69/saemsmbf.json": "9d1f3a67e7571c37fd9c6e06055fff47aabc3daaf8f79ec572c128fc536778d9",
@@ -1478,7 +1478,7 @@
     "src/ea/rcmp_mpc_codec_chunk_types.cpp": "b996231c1c402b6ecdd813bb69df3ae8a3580e537b71dd9fa91e238690bb3635",
     "src/ea/recon.cpp": "c5c64caa6ea1c3d2628df3727a02c83fcd5096723e7b00c450a11edac740e0d8",
     "src/ea/s3dlow.c": "b79405b9175ff0299ba213a824c1599ebc4384af549addcc8725867ebc0390ce",
-    "src/ea/saems.c": "20861240ea5d8a85e2317ca23d67d1ab63ac435d497812cec4a6dbdaaf9d89e6",
+    "src/ea/saems.c": "a7256854497f147d27a57c869a8011c45472d3635d297bc70654c00ff67a23ff",
     "src/ea/saems_counter.c": "a531ab437ab79cad420778586ea9a361656ba5a331cc938e4044fcd9000a5372",
     "src/ea/saemsbnk.c": "62cc427660617f21c471faeb28515e7d2687a54aeedd22d79959a66aa4f1fd2a",
     "src/ea/saemsmbf.c": "f2652c771e371053f2d20fafef5314ac866617f821c2edea6a7ad7464d997ee7",
@@ -20873,8 +20873,8 @@
     {
       "id": "saems",
       "category": "reconstructed_game",
-      "functions": 18,
-      "code_bytes": 1968,
+      "functions": 20,
+      "code_bytes": 2480,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -20906,8 +20906,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "5482d198ad80447f0856372ec0bfca56a3bc5cebde65c0cfcd109bb841d5a219",
-      "linked_sha256": "5535777ed56dc52bad86aa291ae2ed020775c6eea29ed658c67efd64c040e4c1"
+      "object_sha256": "921a665b2efe6d9f80b0f4fca4f95ab345b97397b94ee44598361a7c397159cc",
+      "linked_sha256": "19381fbc34e24a95cfa2739c2ee210eae20d0c0998a6ebca363be5b07ef1e237"
     },
     {
       "id": "snddrv",
@@ -46058,22 +46058,8 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 80155f2c",
+        "name": "Unknown file/.text @ 8015612c",
         "ranges": [
-          {
-            "address": "0x80155f2c",
-            "size": 424,
-            "kind": "function",
-            "name": "SNDAEMSI_updateramp__FP15AEMSCOMPDYNAMICP6MODULE",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x801560d4",
-            "size": 88,
-            "kind": "function",
-            "name": "SNDAEMSI_updatemerge__FP15AEMSCOMPDYNAMICP6MODULE",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x8015612c",
             "size": 988,

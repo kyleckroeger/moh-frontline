@@ -1,7 +1,10 @@
 /* The AEMS module updaters from the multiplexer to the event sender: each
    reads the component's inputs and writes its output (arithmetic with
    clamping, table lookups, delays, extremes), destroys the instance or sends
-   an event when the inputs change. AEMSCOMPDYNAMIC and MODULE are named by
+   an event when the inputs change; the ramp moves its output toward a target
+   over a duration in 36-bit fixed point (restarting when the target or
+   duration changes, clamping at the target) and the merge pulses once when
+   any input is set. AEMSCOMPDYNAMIC and MODULE are named by
    the mangled symbols; the component layout, the per-component static
    definitions it points to, the sndaems view and the event buffer's size
    (from the stack frame) are inferred. */
@@ -57,7 +60,18 @@ struct AEMSCOMPDYNAMIC {
         short* samples;
         int* values;
     } state1;
-    short* read;
+    union {
+        short* read;
+        int target;
+    };
+    unsigned char unknown20[20];
+    long long* step;
+    long long* current;
+};
+
+struct AEMSMERGEDEFVIEW {
+    unsigned char unknown00[5];
+    unsigned char inputs;
 };
 
 struct SNDAEMSVIEW {
@@ -255,5 +269,47 @@ void SNDAEMSI_updatesend(AEMSCOMPDYNAMIC* comp, MODULE*) {
         SNDAEMS_beginevent(event);
         for (i = 0; i < sndaems.handlerCount; i++)
             sndaems.handlers[i](comp->state0.value, event);
+    }
+}
+
+void SNDAEMSI_updateramp(AEMSCOMPDYNAMIC* comp, MODULE*) {
+    int out = comp->out.value;
+
+    if (comp->in[2] == out)
+        return;
+    if (comp->in[2] != comp->target || comp->in[0] != comp->state0.value) {
+        comp->state1.value = out;
+        *comp->current = (long long)comp->out.value << 36;
+        comp->target = comp->in[2];
+        comp->state0.value = comp->in[0];
+        if (comp->state0.value <= 0) {
+            comp->out.value = comp->target;
+            return;
+        }
+        *comp->step = ((long long)sndaems.rate * (comp->target - comp->state1.value)) << 24;
+        *comp->step /= comp->state0.value;
+    } else {
+        int rising = out < comp->target;
+
+        *comp->current += *comp->step * comp->in[1];
+        comp->out.value = *comp->current >> 36;
+        if ((rising && comp->out.value > comp->target) || (!rising && comp->out.value < comp->target))
+            comp->out.value = comp->target;
+    }
+}
+
+void SNDAEMSI_updatemerge(AEMSCOMPDYNAMIC* comp, MODULE*) {
+    AEMSMERGEDEFVIEW* def = (AEMSMERGEDEFVIEW*)comp->def;
+    int i;
+
+    if (comp->out.value == 1) {
+        comp->out.value = 0;
+        return;
+    }
+    for (i = 0; i < def->inputs; i++) {
+        if (comp->in[i] > 0) {
+            comp->out.value = 1;
+            return;
+        }
     }
 }

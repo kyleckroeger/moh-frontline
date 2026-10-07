@@ -38,11 +38,23 @@
     {
       "name": ".text",
       "address": "0x8015577c",
-      "size": 1968,
+      "size": 2480,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "SNDAEMSI_updatemerge__FP15AEMSCOMPDYNAMICP6MODULE",
+      "address": "0x801560d4",
+      "size": 88,
+      "binding": 1
+    },
+    {
+      "name": "SNDAEMSI_updateramp__FP15AEMSCOMPDYNAMICP6MODULE",
+      "address": "0x80155f2c",
+      "size": 424,
+      "binding": 1
+    },
     {
       "name": "AEMSI_updatetable2__FP15AEMSCOMPDYNAMICP6MODULE",
       "address": "0x80155a8c",
