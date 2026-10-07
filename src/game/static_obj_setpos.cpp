@@ -1,4 +1,6 @@
-// A fragment of static_obj.cpp (0x800af90c): CStaticObject's PlayAnimation
+// A fragment of static_obj.cpp (0x800af7c0): CStaticObject's Stop- and
+// StartMotionPlayback (clamps the key range, saves the starting rotation and
+// position and, unless a flag defers it, jumps to the first key), PlayAnimation
 // (clamps the frame range and records speed, range and event, reversing for a
 // negative speed over a descending range), the light-volume forwards to its
 // manager (+608), SetBasis (sets the transform's rows and refreshes the
@@ -50,16 +52,25 @@ public:
 };
 
 struct BPDLightVolume;
+
+
 enum EBSEventEnum {};
 
 class CQuaternion {
 public:
     void SetFromMatrix(const CMatrix&);
+    void GetMatrix(CMatrix&) const;
 
     float x;
     float y;
     float z;
     float w;
+};
+
+// A motion key (inferred): position, then rotation.
+struct StaticMotionKey {
+    CVector3 position;
+    CQuaternion rotation;
 };
 
 class CLightVolumeManager {
@@ -71,6 +82,8 @@ public:
 
 class CStaticObject {
 public:
+    void StopMotionPlayback();
+    void StartMotionPlayback(int, int, EBSEventEnum);
     void PlayAnimation(int, int, int, EBSEventEnum);
     BPDLightVolume* GetLightVolume();
     void ExitLightVolume(BPDLightVolume*);
@@ -85,7 +98,12 @@ public:
 
     unsigned char unknown00[64];
     CMatrix m_tm;
-    unsigned char unknown080[256];
+    unsigned char unknown080[160];
+    CVector3 m_motionPosition;
+    CVector3 m_savedPosition;
+    CQuaternion m_motionStart;
+    CQuaternion m_motionRotation;
+    unsigned char unknown160[32];
     CQuaternion m_rotation;
     unsigned char unknown190[80];
     unsigned char m_flag80 : 1;
@@ -104,9 +122,47 @@ public:
     unsigned char unknown20c[4];
     int m_speed;
     int m_frame;
-    unsigned char unknown218[72];
+    EBSEventEnum m_motionEvent;
+    int m_motionFrame;
+    int m_motionEnd;
+    int m_motionKeyCount;
+    unsigned char unknown228[8];
+    int m_motionKey;
+    unsigned char unknown234[20];
+    StaticMotionKey* m_motionKeys;
+    unsigned char unknown24c[20];
     CLightVolumeManager m_lightVolumes;
 };
+
+void CStaticObject::StopMotionPlayback() {
+    m_flag04 = 0;
+}
+
+void CStaticObject::StartMotionPlayback(int frame, int end, EBSEventEnum event) {
+    if (!m_motionKeys)
+        return;
+    if (frame < 0)
+        frame = 0;
+    if (frame >= m_motionKeyCount)
+        frame = m_motionKeyCount - 1;
+    if (end < 0)
+        end = 0;
+    if (end >= m_motionKeyCount)
+        end = m_motionKeyCount;
+    m_motionFrame = frame;
+    m_motionKey = frame;
+    m_motionEnd = end;
+    m_motionEvent = event;
+    m_motionStart.SetFromMatrix(m_tm);
+    m_savedPosition = PositionRow();
+    if (!m_flag08) {
+        m_motionRotation = m_motionKeys[m_motionKey].rotation;
+        m_motionPosition = m_motionKeys[m_motionKey].position;
+        m_motionRotation.GetMatrix(m_tm);
+        m_tm.SetPos(m_motionPosition);
+    }
+    m_flag04 = 1;
+}
 
 void CStaticObject::PlayAnimation(int speed, int start, int end, EBSEventEnum event) {
     if (speed < 0 && start > end) {

@@ -39,20 +39,20 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800af90c",
-      "size": 488,
+      "address": "0x800af7c0",
+      "size": 820,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000d3d0",
-      "size": 40,
+      "address": "0x8000d3c8",
+      "size": 48,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x800144c8",
-      "size": 60,
+      "address": "0x800144bc",
+      "size": 72,
       "type": 1
     }
   ],
@@ -88,6 +88,18 @@
       "binding": 1
     },
     {
+      "name": "StartMotionPlayback__13CStaticObjectFii12EBSEventEnum",
+      "address": "0x800af7d4",
+      "size": 312,
+      "binding": 1
+    },
+    {
+      "name": "StopMotionPlayback__13CStaticObjectFv",
+      "address": "0x800af7c0",
+      "size": 20,
+      "binding": 1
+    },
+    {
       "name": "PlayAnimation__13CStaticObjectFiii12EBSEventEnum",
       "address": "0x800af90c",
       "size": 164,
@@ -96,6 +108,7 @@
   ],
   "externals": {
     "AddVolume__19CLightVolumeManagerFP14BPDLightVolume": "0x80078ee4",
+    "GetMatrix__11CQuaternionCFR7CMatrix": "0x80091c9c",
     "GetVolume__19CLightVolumeManagerFv": "0x80078a3c",
     "RemoveVolume__19CLightVolumeManagerFP14BPDLightVolume": "0x80078df8",
     "SetFromMatrix__11CQuaternionFRC7CMatrix": "0x80091990",

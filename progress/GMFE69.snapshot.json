@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 410332,
+    "matching_code_bytes": 410664,
     "total_executable_code_bytes": 1414572,
-    "percent": 29.007501915773815,
+    "percent": 29.03097191235229,
     "categories": {
-      "reconstructed_game": 134084,
+      "reconstructed_game": 134416,
       "restored_library": 276248
     },
-    "matching_functions": 2532
+    "matching_functions": 2534
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -577,7 +577,7 @@
     "config/GMFE69/ssysreal.json": "3b9fb3ecf4cd22c2c1d2c57eab822d87cdfdb5e946081517b26a19ceb8db67e1",
     "config/GMFE69/ssysserv.json": "49f2852bbf809fe6219540041d9217ec9f6389f59e15723314a1482fc110739b",
     "config/GMFE69/static_obj_rows.json": "2f46a5a159e4d2c74e31aa17ad0344bd62bd53a0805fde5891029c744affe398",
-    "config/GMFE69/static_obj_setpos.json": "a731787b89455b49142be41d056634297675578e15d6e126e09a6e27ea7285a5",
+    "config/GMFE69/static_obj_setpos.json": "d7bdfc9de85becd4155412932302a2f76c1c2e8b7f961fdc45f195b8505bc691",
     "config/GMFE69/staticmesh.json": "071c3dfaf63f3f12842d683773b40701155453fefded8bd3d2c02b83dbbe8492",
     "config/GMFE69/stimemul.json": "8daf6f44288a9589aaf8719ff8e636e2f4d7d00296603d9d8ce6bcbc2ff41088",
     "config/GMFE69/stream.json": "8277e72562d242f63690ec9510eaccda4fb71178d7b9a7542104386ed895d599",
@@ -1822,7 +1822,7 @@
     "src/game/sphere_dispatch.cpp": "05d6af484258a663264a56295ca03eca8812108226674e0e37c59d46eb7322a7",
     "src/game/sprite.cpp": "bc15c2b65f957f90ba36ae02628c870761a9a18da28ef55e964a2382df205aa4",
     "src/game/static_obj_rows.cpp": "eebbe9899681bc25656fa953c1b1b02723564a4f9326aa07ca9ef7b8a133316c",
-    "src/game/static_obj_setpos.cpp": "75ade6852b2bc47924a8f2ec260c7d3155d248b75acb96c9b4371834f4cb0432",
+    "src/game/static_obj_setpos.cpp": "52edf8723664a2320de16c04ee7ce9ba45f6964b0f6725cffb865bd78533b568",
     "src/game/staticmesh.cpp": "3a8bd609a8efecaa00960dcdd8fdfc554ba8f0d50b782532f6cbb7243d255224",
     "src/game/surfacetype.cpp": "3499ce5dc7d066f093e39c158e9b096e37683df4d6b6d234eb9b08395d411390",
     "src/game/swvideodisplaylist.cpp": "604fff141650e041f635fbf1c136dd328c6e3151200a1ce6d9bd90d82e1caa00",
@@ -23636,8 +23636,8 @@
     {
       "id": "static_obj_setpos",
       "category": "reconstructed_game",
-      "functions": 6,
-      "code_bytes": 488,
+      "functions": 8,
+      "code_bytes": 820,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -23669,8 +23669,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "c8de449b706e01694efb69167b69002cce0dd779d7d98908f3a90e8f2d14fd2e",
-      "linked_sha256": "e131c48b7479e7ad9ac74a3422e1139ef7bff20c82e5e43504954a52782a2602"
+      "object_sha256": "7dd16c5a475a8f4691a59ec10cada807386d5ac6920996466f1a78cf486ec2f2",
+      "linked_sha256": "360a88b0c56f48df5be7975789d02ed600767245fa17c714de86edb0c46172e4"
     },
     {
       "id": "anim_obj_tm",
@@ -38395,20 +38395,6 @@
             "kind": "function",
             "name": "TranslateFromScript__13CStaticObjectFR8CVector3R8CVector312EBSEventEnum",
             "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800af7c0",
-            "size": 20,
-            "kind": "function",
-            "name": "StopMotionPlayback__13CStaticObjectFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800af7d4",
-            "size": 312,
-            "kind": "function",
-            "name": "StartMotionPlayback__13CStaticObjectFii12EBSEventEnum",
-            "evidence": "exception-index"
           },
           {
             "address": "0x800afaf4",
