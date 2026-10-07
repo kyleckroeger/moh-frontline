@@ -7,24 +7,30 @@
 // request from the free list (giving it a new id in the upper bits of its
 // index), fill it in (a file name, or a memory block whose size is found by
 // walking its chunks to the end chunk when it is not given), append it to
-// the queue, and start an idle stream; they return the request handle. The
-// file name is this project's; the original record is stream.cpp
-// (stream_cb.cpp, stream_prio.cpp and stream.cpp hold other parts of it).
-// The handle check is the same inferred inline as in stream.cpp;
-// STREAMHEADERtag is named by the mangled symbols, the request counter by
-// its local symbol, and the header, request and handle layouts and the
-// helpers are inferred. STREAM_cancelrequest, next in the file, is drafted
-// in scratch/game/stream_cancel_wip.cpp (one register differs).
+// the queue, and start an idle stream; they return the request handle.
+// STREAM_cancelrequest frees a request still queued, or marks a running one
+// cancelled (state 4) and then, tap by tap, frees its chunks (when the tap's
+// first chunk lies before the request's data, by walking the request's
+// chunks and freeing those of the tap's type, returning their bytes to the
+// buffered count; when it lies inside, by getting and releasing chunks until
+// the tap leaves the request). The file name is this project's; the original
+// record is stream.cpp (stream_cb.cpp, stream_prio.cpp and stream.cpp hold
+// other parts of it). The handle check is the same inferred inline as in
+// stream.cpp; STREAMHEADERtag and REQUESTSTRUCTtag are named by the mangled
+// symbols, the request counter by its local symbol, and the header, request
+// and handle layouts and the helpers are inferred. STREAM_kill, next in the
+// file, is drafted in scratch/game/stream_kill_wip.cpp (the original keeps
+// the header pointer in a stack slot).
 // EA's streaming layer. Every public function validates the handle through
 // the same inline check (non-null handle whose header carries the stream
 // magic). STREAMHEADERtag is named by the mangled symbols; the header and
 // handle layouts, the magic's meaning and the inline helper are inferred.
-/* inferred: a stream request (REQUESTSTRUCTtag in the mangled names) */
-struct REQUESTVIEW {
+/* a stream request: named by the mangled symbols, members inferred */
+struct REQUESTSTRUCTtag {
     int index;
     int state;
-    REQUESTVIEW* prev;
-    REQUESTVIEW* next;
+    REQUESTSTRUCTtag* prev;
+    REQUESTSTRUCTtag* next;
     int type;
     char filename[256];
     unsigned char* source;
@@ -36,7 +42,7 @@ struct REQUESTVIEW {
 struct STREAMHEADERtag {
     int magic;
     unsigned char mutex[28];
-    REQUESTVIEW* requests;
+    REQUESTSTRUCTtag* requests;
     int requestCount;
     unsigned char unknown28[8];
     unsigned char* taps;
@@ -53,10 +59,10 @@ struct STREAMHEADERtag {
     unsigned char* read;
     unsigned char* requestStart;
     unsigned char unknown64[4];
-    REQUESTVIEW* first;
-    REQUESTVIEW* current;
-    REQUESTVIEW* last;
-    REQUESTVIEW* free;
+    REQUESTSTRUCTtag* first;
+    REQUESTSTRUCTtag* current;
+    REQUESTSTRUCTtag* last;
+    REQUESTSTRUCTtag* free;
     unsigned char unknown78[264];
     int fileOp;
 };
@@ -73,10 +79,13 @@ int FILESYS_priorityop(int, int);
 void MUTEX_lock(void*);
 void MUTEX_unlock(void*);
 char* strncpy(char*, const char*, int);
+unsigned char* STREAM_get(int);
+void STREAM_release(int, unsigned char*);
 }
 
 // File-local in the original (defined elsewhere in the file).
 void startnextrequest(STREAMHEADERtag*, int);
+void freerequest(STREAMHEADERtag*, REQUESTSTRUCTtag*);
 extern int requestidcounter;
 
 #define STREAM_GET32(p) (((p)[3] << 24) | ((p)[2] << 16) | ((p)[1] << 8) | (p)[0])
@@ -144,8 +153,8 @@ extern "C" int STREAM_buffersize(int handle);
 
 /* inferred: takes a request from the free list and gives it a new id in the
    upper bits of its index */
-static inline REQUESTVIEW* allocrequest(STREAMHEADERtag* header) {
-    REQUESTVIEW* request;
+static inline REQUESTSTRUCTtag* allocrequest(STREAMHEADERtag* header) {
+    REQUESTSTRUCTtag* request;
 
     MUTEX_lock(header->mutex);
     if (header->free == 0) {
@@ -162,7 +171,7 @@ static inline REQUESTVIEW* allocrequest(STREAMHEADERtag* header) {
 }
 
 /* inferred: appends a request to the queue */
-static inline void addrequest(STREAMHEADERtag* header, REQUESTVIEW* request) {
+static inline void addrequest(STREAMHEADERtag* header, REQUESTSTRUCTtag* request) {
     MUTEX_lock(header->mutex);
     if (header->last == 0) {
         request->prev = 0;
@@ -192,7 +201,7 @@ static inline int startstream(STREAMHEADERtag* header) {
 extern "C" int STREAM_queuefile(int handle, const char* name, int size, int id) {
     STREAMHANDLEVIEW* stream;
     STREAMHEADERtag* header;
-    REQUESTVIEW* request;
+    REQUESTSTRUCTtag* request;
 
     if (validhandle(handle, &stream, &header) != 0)
         return 0;
@@ -218,7 +227,7 @@ extern "C" int STREAM_queuefile(int handle, const char* name, int size, int id) 
 extern "C" int STREAM_queuemem(int handle, unsigned char* data, int size, int id) {
     STREAMHANDLEVIEW* stream;
     STREAMHEADERtag* header;
-    REQUESTVIEW* request;
+    REQUESTSTRUCTtag* request;
 
     if (validhandle(handle, &stream, &header) != 0)
         return 0;
@@ -244,4 +253,127 @@ extern "C" int STREAM_queuemem(int handle, unsigned char* data, int size, int id
     if (startstream(header))
         startnextrequest(header, 0);
     return request->index;
+}
+
+/* inferred: the request a handle names, if it is in use */
+static inline REQUESTSTRUCTtag* findrequest(STREAMHEADERtag* header, int handle) {
+    int index = handle & 0xFF;
+    REQUESTSTRUCTtag* request;
+
+    if (index >= header->requestCount)
+        return 0;
+    request = &header->requests[index];
+    if (handle != request->index)
+        return 0;
+    if (request->state == 0)
+        return 0;
+    return request;
+}
+
+/* inferred: stores a little-endian word */
+static inline void put32(unsigned char* p, unsigned int value) {
+    p[0] = value;
+    p[1] = value >> 8;
+    p[2] = value >> 16;
+    p[3] = value >> 24;
+}
+
+/* inferred: returns bytes to the buffer, entering greedy mode (and raising
+   a running read's priority) when the count drops below the level */
+static inline void subbuffered(STREAMHEADERtag* header, int size) {
+    int before;
+    int after;
+
+    MUTEX_lock(header->mutex);
+    before = header->buffered;
+    after = before - size;
+    header->buffered = after;
+    MUTEX_unlock(header->mutex);
+    if (before >= header->greedyLevel && after < header->greedyLevel) {
+        header->greedyState = 1;
+        if (header->state == 1)
+            FILESYS_priorityop(header->fileOp, header->priorityClass);
+    }
+}
+
+/* inferred: whether a buffer address lies in [start, end) of the ring */
+static inline int inrange(unsigned char* p, unsigned char* start, unsigned char* end) {
+    if (start <= end)
+        return p >= start && p < end;
+    return p >= start || p < end;
+}
+
+extern "C" void STREAM_cancelrequest(int handle, int requestHandle) {
+    STREAMHANDLEVIEW* stream;
+    STREAMHEADERtag* header;
+    STREAMHANDLEVIEW* tap;
+    unsigned char* chunk;
+    unsigned char* read = 0;
+    unsigned char* start = 0;
+    unsigned char* end = 0;
+    int size;
+    int type;
+    int i;
+    int done;
+    REQUESTSTRUCTtag* request;
+    int word;
+
+    if (validhandle(handle, &stream, &header) != 0)
+        return;
+    MUTEX_lock(header->mutex);
+    request = findrequest(header, requestHandle);
+    if (!request || request->state == 4) {
+        done = 1;
+    } else if (request->state == 1) {
+        freerequest(header, request);
+        done = 1;
+    } else {
+        request->state = 4;
+        read = header->read;
+        if (request == header->first)
+            start = read;
+        else
+            start = request->start;
+        if (!request->next || request->next->state == 1)
+            end = header->requestStart;
+        else
+            end = request->next->start;
+        done = 0;
+    }
+    MUTEX_unlock(header->mutex);
+    if (done)
+        return;
+    for (i = 0; i < header->tapCount; i++) {
+        tap = &((STREAMHANDLEVIEW*)header->taps)[i];
+        if (tap->size <= 0)
+            continue;
+        if (inrange(tap->first, read, start)) {
+            type = tap->number << 24;
+            chunk = start;
+            while (chunk != end) {
+                if (STREAM_GET32(chunk) == -1) {
+                    chunk = header->chunkStart;
+                    continue;
+                }
+                word = STREAM_GET32(chunk + 4);
+                size = word & 0xFFFFFF;
+                if (type == (word & ~0xFFFFFF)) {
+                    MUTEX_lock(header->mutex);
+                    tap->size -= size;
+                    MUTEX_unlock(header->mutex);
+                    subbuffered(header, size);
+                    chunk[0] = 0xFE;
+                    chunk[1] = 0xFF;
+                    chunk[2] = 0xFF;
+                    chunk[3] = 0xFF;
+                    put32(chunk + 4, size);
+                }
+                chunk += size;
+            }
+        } else if (inrange(tap->first, start, end)) {
+            do {
+                STREAM_release((int)tap, STREAM_get((int)tap));
+            } while (tap->size > 0 && inrange(tap->first, start, end));
+        }
+    }
 }
