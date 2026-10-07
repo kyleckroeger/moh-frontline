@@ -39,20 +39,20 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80098b04",
-      "size": 188,
+      "address": "0x80098950",
+      "size": 624,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000cbc8",
-      "size": 40,
+      "address": "0x8000cbb0",
+      "size": 64,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80013cd0",
-      "size": 60,
+      "address": "0x80013cac",
+      "size": 96,
       "type": 1
     }
   ],
@@ -86,9 +86,41 @@
       "address": "0x80098b94",
       "size": 44,
       "binding": 1
+    },
+    {
+      "name": "GetWorldBoundingVolume__14CHearingVolumeCFQ210ISceneNode11EVolumeType",
+      "address": "0x80098af4",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "GetLocalBoundingVolume__14CHearingVolumeCFQ210ISceneNode11EVolumeType",
+      "address": "0x80098afc",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "CommitUpdate__14CHearingVolumeFv",
+      "address": "0x80098950",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "AttemptUpdate__14CHearingVolumeFf",
+      "address": "0x80098974",
+      "size": 288,
+      "binding": 1
+    },
+    {
+      "name": "BeginUpdate__14CHearingVolumeFf",
+      "address": "0x80098a94",
+      "size": 96,
+      "binding": 1
     }
   ],
   "externals": {
+    "SetPos__7CMatrixF8CVector3": "0x80090728",
+    "Translate__7CMatrixF8CVector3": "0x80090660",
     "__as__7CMatrixFRC7CMatrix": "0x80090b34"
   },
   "undefined_in_discarded_code": [],
