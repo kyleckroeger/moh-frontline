@@ -37,12 +37,18 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8014dae0",
-      "size": 748,
+      "address": "0x8014d974",
+      "size": 1112,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "STREAM_get",
+      "address": "0x8014d974",
+      "size": 364,
+      "binding": 1
+    },
     {
       "name": "STREAM_release",
       "address": "0x8014dae0",
@@ -78,6 +84,8 @@
     "FILESYS_priorityop": "0x801486a0",
     "MUTEX_lock": "0x8015212c",
     "MUTEX_unlock": "0x80152150",
+    "_restgpr_27": "0x80138a5c",
+    "_savegpr_27": "0x80138a10",
     "restartstream__FP15STREAMHEADERtagi": "0x8014c23c"
   },
   "undefined_in_discarded_code": [],

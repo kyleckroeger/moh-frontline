@@ -1,13 +1,15 @@
-// EA's streaming layer, the end of the file: releasing a chunk (marking it
-// free, returning its bytes to the buffer, leaving greedy mode or restarting
-// a stalled stream) and the queries for the stream's table, state,
-// end-of-stream test and buffered size. Chunk headers are little-endian words
-// (an id, -2 when free, then the size). Every public function
-// validates its (integer) handle through the same inline check: a non-null
-// handle whose header carries the stream magic. STREAMHEADERtag is named by
-// the mangled symbols; the header and handle layouts and the inline helper
-// are inferred. Earlier parts of the file are in stream_cb.cpp,
-// stream_prio.cpp and stream_greedy.cpp.
+// EA's streaming layer, the end of the file: getting a tap's next chunk
+// (clearing the type from its size word, taking its bytes from the tap's
+// count, and finding the tap's following chunk, skipping wrap markers),
+// releasing a chunk (marking it free, returning its bytes to the buffer,
+// leaving greedy mode or restarting a stalled stream) and the queries for the
+// stream's table, state, end-of-stream test and buffered size. Chunk headers
+// are little-endian words (an id, -2 when free, then the size with the type
+// in its high byte). Every public function validates its (integer) handle
+// through the same inline check: a non-null handle whose header carries the
+// stream magic. STREAMHEADERtag is named by the mangled symbols; the header
+// and handle layouts and the inline helper are inferred. Earlier parts of
+// the file are in stream_cb.cpp, stream_prio.cpp and stream_greedy.cpp.
 struct STREAMHEADERtag {
     int magic;
     unsigned char mutex[44];
@@ -37,8 +39,9 @@ void restartstream(STREAMHEADERtag*, int);
 
 struct STREAMHANDLEVIEW {
     STREAMHEADERtag* header;
-    int unknown04;
-    void* table;
+    int tag;
+    int table;
+    unsigned char* chunk;
 };
 
 static inline int validhandle(int handle, STREAMHANDLEVIEW** out, STREAMHEADERtag** header) {
@@ -56,6 +59,43 @@ static inline int validhandle(int handle, STREAMHANDLEVIEW** out, STREAMHEADERta
 }
 
 #define STREAM_GET32(p) (((p)[3] << 24) | ((p)[2] << 16) | ((p)[1] << 8) | (p)[0])
+
+extern "C" unsigned char* STREAM_get(int handle) {
+    STREAMHEADERtag* header;
+    STREAMHANDLEVIEW* stream;
+    unsigned char* chunk;
+    unsigned int size;
+    int remaining;
+    int info;
+    unsigned char* next;
+    int tag;
+    if (validhandle(handle, &stream, &header) != 0)
+        return 0;
+    if (stream->table == 0)
+        return 0;
+    chunk = stream->chunk;
+    size = STREAM_GET32(chunk + 4) & 0xFFFFFF;
+    chunk[4] = size;
+    chunk[5] = size >> 8;
+    chunk[6] = size >> 16;
+    chunk[7] = size >> 24;
+    MUTEX_lock(header->mutex);
+    remaining = stream->table - size;
+    stream->table = remaining;
+    MUTEX_unlock(header->mutex);
+    if (remaining > 0) {
+        tag = stream->tag << 24;
+        next = chunk + size;
+        while (((info = STREAM_GET32(next + 4)) & ~0xFFFFFF) != tag) {
+            if (STREAM_GET32(next) == -1)
+                next = header->chunkStart;
+            else
+                next += info & 0xFFFFFF;
+        }
+        stream->chunk = next;
+    }
+    return chunk;
+}
 
 extern "C" void STREAM_release(int handle, unsigned char* chunk) {
     STREAMHANDLEVIEW* stream;
@@ -103,7 +143,7 @@ extern "C" void* STREAM_gettable(int handle) {
     STREAMHEADERtag* header;
     if (validhandle(handle, &stream, &header) != 0)
         return 0;
-    return stream->table;
+    return (void*)stream->table;
 }
 
 extern "C" int STREAM_state(int handle) {
@@ -121,7 +161,7 @@ extern "C" int STREAM_isendofstream(int handle) {
     if (validhandle(handle, &stream, &header) != 0)
         return 0;
     result = 0;
-    if (header->state == 0 && (int)stream->table == 0)
+    if (header->state == 0 && stream->table == 0)
         result = 1;
     return result;
 }
