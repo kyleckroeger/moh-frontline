@@ -9,7 +9,9 @@
 // update the flag bits; otherwise mark for destruction) and AttemptUpdate
 // (gravity on the z velocity while falling, the clamp, the step from the
 // saved position, then the sorted bounds from the collider's extent or the
-// position). The class and enum
+// position), and BeginUpdate (light volumes, saved state, proximity triggers,
+// a pending impact sound, and the lifetime countdown by whole ticks while
+// held). The class and enum
 // names come from the mangled symbols; the members and the flag byte are
 // inferred views, the result types are inferred, ISceneNode's virtual
 // functions follow __vt__13CThrownObject (CThrownObject declares its
@@ -20,8 +22,8 @@
 // earlier entries are placeholders named by offset), the vector operators are
 // inferred inline helpers, and sqrtf is the MSL inline square root. The
 // defaults are inline in the original (weak symbols), so they are defined
-// __declspec(weak). BeginUpdate and the rest of the file are not part of
-// this unit.
+// __declspec(weak). Draw and the rest of the file are not part of this
+// unit.
 struct VECTOR3VIEW {
     float x;
     float y;
@@ -184,6 +186,19 @@ void DeleteSpecialThrownObject(CThrownObject*);
 
 class CDrawContext;
 
+class CLightVolumeManager {
+public:
+    void Update(float);
+
+    unsigned char unknown00[32];
+};
+
+class BSGO_Basic {
+    unsigned char unknown00[36];
+};
+
+void ForceUpdateProximityTriggerStatus(BSGO_Basic*, bool);
+
 class CMatrix {
 public:
     void SetPos(CVector3);
@@ -250,6 +265,7 @@ public:
     void Destroy();
     void CommitUpdate();
     void AttemptUpdate(float);
+    void BeginUpdate(float);
     void SetBounds(const CVector3& low, const CVector3& high) {
         m_bounds[0]->key = low.v.x;
         m_bounds[2]->key = low.v.y;
@@ -300,7 +316,8 @@ public:
     CVector3 m_velocity;
     unsigned char unknown170[108];
     int m_owner;
-    unsigned char unknown1E0[160];
+    unsigned char unknown1E0[128];
+    CLightVolumeManager m_lightVolumes;
     float m_lifetime;
     unsigned char unknown284[4];
     CVector3 m_lastVelocity;
@@ -308,7 +325,8 @@ public:
     CVector3 m_step;
     unsigned char unknown2B8[16];
     THROWNDEFVIEW* m_definition;
-    unsigned char unknown2CC[40];
+    int m_pendingSound;
+    BSGO_Basic m_scriptObject;
     unsigned char flag0 : 1;
     unsigned char flag1 : 1;
     unsigned char flag2 : 1;
@@ -435,5 +453,22 @@ void CThrownObject::AttemptUpdate(float dt) {
             GetPosition(position);
             SetBounds(position, position);
         }
+    }
+}
+
+void CThrownObject::BeginUpdate(float dt) {
+    m_lightVolumes.Update(dt);
+    m_savedPosition = PositionRow();
+    m_lastVelocity = m_velocity;
+    ForceUpdateProximityTriggerStatus(&m_scriptObject, true);
+    if (m_pendingSound > 0) {
+        if (m_impactSound == 1)
+            PlayImpactSound(m_pendingSound, 4, m_savedPosition, false);
+        m_pendingSound = -1;
+    }
+    if (m_lifetime > 0.0f && m_holder) {
+        m_lifetime -= (int)dt;
+        if (m_lifetime < 0.0f)
+            m_lifetime = 0.0f;
     }
 }

@@ -40,25 +40,25 @@
     {
       "name": ".text",
       "address": "0x800b4d14",
-      "size": 1860,
+      "size": 2140,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000d784",
-      "size": 48,
+      "size": 56,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80014738",
-      "size": 72,
+      "size": 84,
       "type": 1
     },
     {
       "name": ".sdata2",
       "address": "0x80350930",
-      "size": 32,
+      "size": 40,
       "type": 1
     }
   ],
@@ -79,6 +79,12 @@
       "name": "AttemptUpdate__13CThrownObjectFf",
       "address": "0x800b51d8",
       "size": 640,
+      "binding": 1
+    },
+    {
+      "name": "BeginUpdate__13CThrownObjectFf",
+      "address": "0x800b5458",
+      "size": 280,
       "binding": 1
     },
     {
@@ -138,10 +144,12 @@
   ],
   "externals": {
     "DeleteSpecialThrownObject__FP13CThrownObject": "0x8003eb40",
+    "ForceUpdateProximityTriggerStatus__FP10BSGO_Basicb": "0x8004618c",
     "GetRadius__10CVolSphereCFv": "0x800cba28",
     "MarkForDestruction__13CStaticObjectFi": "0x800ae870",
     "PlayImpactSound__FUsUs8CVector3b": "0x800eb17c",
-    "SetPos__7CMatrixF8CVector3": "0x80090728"
+    "SetPos__7CMatrixF8CVector3": "0x80090728",
+    "Update__19CLightVolumeManagerFf": "0x80079070"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
