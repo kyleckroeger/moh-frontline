@@ -5,8 +5,9 @@
 // records and sets each last shooter to -1. The current level's counters count
 // shots fired, hits, hits taken, enemies killed (and kills per weapon type of
 // the first player's current weapon) and hits per shot location; resetting
-// the level clears them with the level timer and flags, and the secrets'
-// status is read from ten 2-bit fields. The classes,
+// the level clears them with the level timer and flags, the secrets' status is
+// read and set through ten 2-bit fields and the medals' status read from ten
+// bit-fields (the seventh two bits wide). The classes,
 // enums and functions are named by the mangled symbols; CShellMenu, the
 // records, the weapon view and the counter names are inferred (the scene view
 // only needs a size outside small data), and the unused
@@ -56,6 +57,8 @@ public:
     void Set_shotsFired(unsigned int, bool);
     void ResetCurrentLevelStats();
     void GetSecretsStatus(int*);
+    void SetIndividualSecretsStatus(int, int);
+    void GetMedalStatus(int*);
 
     unsigned char unknown0000[14];
     unsigned char m_flag14;
@@ -70,7 +73,19 @@ public:
     unsigned char m_secret8 : 2;
     unsigned char m_secret9 : 2;
     unsigned char m_secret10 : 2;
-    unsigned char unknown0017[265];
+    unsigned char unknown0017;
+    unsigned char m_medal1 : 1;
+    unsigned char m_medal2 : 1;
+    unsigned char m_medal3 : 1;
+    unsigned char m_medal4 : 1;
+    unsigned char m_medal5 : 1;
+    unsigned char m_medal6 : 1;
+    unsigned char m_medal7 : 2;
+    unsigned char m_medal8 : 1;
+    unsigned char m_medal9 : 1;
+    unsigned char m_medal10 : 1;
+    unsigned char unknown0019 : 5;
+    unsigned char unknown001a[262];
     unsigned int m_shotsFired;
     unsigned int m_hits;
     unsigned int m_hitsTaken;
@@ -207,6 +222,82 @@ void CShellMenu::GetSecretsStatus(int* status) {
             break;
         case 10:
             value = m_secret10;
+            break;
+        }
+        status[i] = value;
+    }
+}
+
+void CShellMenu::SetIndividualSecretsStatus(int secret, int status) {
+    switch (secret) {
+        case 1:
+            m_secret1 = status;
+            break;
+        case 2:
+            m_secret2 = status;
+            break;
+        case 3:
+            m_secret3 = status;
+            break;
+        case 4:
+            m_secret4 = status;
+            break;
+        case 5:
+            m_secret5 = status;
+            break;
+        case 6:
+            m_secret6 = status;
+            break;
+        case 7:
+            m_secret7 = status;
+            break;
+        case 8:
+            m_secret8 = status;
+            break;
+        case 9:
+            m_secret9 = status;
+            break;
+        case 10:
+            m_secret10 = status;
+            break;
+    }
+}
+
+void CShellMenu::GetMedalStatus(int* status) {
+    int value = 0;
+    int i;
+
+    for (i = 0; i < 9; i++) {
+        switch (i + 1) {
+        case 1:
+            value = m_medal1;
+            break;
+        case 2:
+            value = m_medal2;
+            break;
+        case 3:
+            value = m_medal3;
+            break;
+        case 4:
+            value = m_medal4;
+            break;
+        case 5:
+            value = m_medal5;
+            break;
+        case 6:
+            value = m_medal6;
+            break;
+        case 7:
+            value = m_medal7;
+            break;
+        case 8:
+            value = m_medal8;
+            break;
+        case 9:
+            value = m_medal9;
+            break;
+        case 10:
+            value = m_medal10;
             break;
         }
         status[i] = value;

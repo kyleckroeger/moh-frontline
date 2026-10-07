@@ -40,7 +40,7 @@
     {
       "name": ".text",
       "address": "0x800e6950",
-      "size": 1004,
+      "size": 1380,
       "type": 1
     },
     {
@@ -58,7 +58,7 @@
     {
       "name": ".data",
       "address": "0x8018a444",
-      "size": 44,
+      "size": 132,
       "type": 1,
       "input_alignment": 4
     },
@@ -73,6 +73,12 @@
     {
       "name": "GetSecretsStatus__10CShellMenuFPi",
       "address": "0x800e6c84",
+      "size": 184,
+      "binding": 1
+    },
+    {
+      "name": "GetMedalStatus__10CShellMenuFPi",
+      "address": "0x800e6dfc",
       "size": 184,
       "binding": 1
     },
@@ -128,6 +134,12 @@
       "name": "ResetCurrentLevelStats__10CShellMenuFv",
       "address": "0x800e6b58",
       "size": 300,
+      "binding": 1
+    },
+    {
+      "name": "SetIndividualSecretsStatus__10CShellMenuFii",
+      "address": "0x800e6d3c",
+      "size": 192,
       "binding": 1
     }
   ],
