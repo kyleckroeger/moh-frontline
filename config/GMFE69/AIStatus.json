@@ -39,24 +39,36 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80051e4c",
-      "size": 64,
+      "address": "0x80051cd0",
+      "size": 444,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000aa64",
-      "size": 8,
+      "address": "0x8000aa5c",
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80011bdc",
-      "size": 12,
+      "address": "0x80011bd0",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80183598",
+      "size": 56,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "MatchStatusList__9CAIStatusFP14aistatus_matchi",
+      "address": "0x80051cd0",
+      "size": 380,
+      "binding": 1
+    },
     {
       "name": "__dt__9CAIStatusFv",
       "address": "0x80051e4c",
@@ -71,14 +83,25 @@
     }
   ],
   "externals": {
-    "__dl__FPv": "0x8001ca2c"
+    "ComputeStatusDistance__9CAIObjectFP9CAIObject": "0x8004d2bc",
+    "ComputeStatusExponentialDistance__9CAIObjectFP9CAIObject": "0x8004d164",
+    "ComputeStatusIsEnemy__9CAIObjectFP9CAIObject": "0x8004ce7c",
+    "ComputeStatusLOSValue__9CAIObjectFP9CAIObject": "0x8004cf48",
+    "ComputeStatusThreatValue__9CAIObjectFP9CAIObject": "0x8004d0fc",
+    "ComputeStatusVisibility__9CAIObjectFP9CAIObject": "0x8004d310",
+    "__dl__FPv": "0x8001ca2c",
+    "s_paioAttacker__9CAIStatus": "0x8034e8f0",
+    "s_paioTarget__9CAIStatus": "0x8034e8f4"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": [],
+  "sda_externals": [
+    "s_paioAttacker__9CAIStatus",
+    "s_paioTarget__9CAIStatus"
+  ],
   "original_file": "AIStatus.cpp",
   "original_file_index": 2109
 }
