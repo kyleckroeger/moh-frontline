@@ -749,7 +749,12 @@
     "avplayer_chunk_delete.json",
     "avplayer_audio_delete.json",
     "hwvideodisplaylist_delete.json",
-    "rcmp_main_delete.json"
+    "rcmp_main_delete.json",
+    "scene_cmppairs.json",
+    "scene_vec_end.json",
+    "scene_veciter_dtor.json",
+    "scene_vec_begin.json",
+    "scene_veciter_plus.json"
   ],
   "progress": {
     "code_bytes": 1414572,
