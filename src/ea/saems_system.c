@@ -9,7 +9,11 @@
    component indices in this bank, and records the bank's name and user
    value) and SNDAEMSI_removemodulebank (unresolves the references to the
    bank, destroys every instance, frees the module lists and removes the
-   bank's sound banks). The system layout, the trigger and parameter records and the
+   bank's sound banks). SNDAEMSI_beginevent takes the next instance id (the
+   counter wraps to 0 when negative), stuffs the start trigger and the event's
+   parameters and, when an instance was created, the globals; updateevent and
+   endevent stuff the parameters and the update or end trigger. Each runs the
+   modules once. The system layout, the trigger and parameter records and the
    sndaems and sndgs views are inferred. */
 struct AEMSCOMPDEFVIEW;
 
@@ -179,6 +183,10 @@ void* SNDMEMI_allocz(int);
 void SNDMEMI_free(void*);
 int SNDAEMSI_destroyinstance(struct MODULE*, int);
 extern "C" void SNDbankremove(int);
+int SNDAEMSI_stufftrigger(int, int, int);
+int SNDAEMSI_stuffparam(int, int, int, int);
+int SNDAEMSI_setglobal(int, int);
+void SNDAEMSI_updatemodules(int);
 
 void SNDAEMSI_restore() {
     SNDAEMS_removesystem();
@@ -408,5 +416,65 @@ int SNDAEMSI_removemodulebank(int index) {
     SNDMEMI_free(bank->info);
     sndaems.banks[index] = 0;
     SNDSYS_leavecritical();
+    return 0;
+}
+
+int SNDAEMSI_beginevent(void* data) {
+    int* event = (int*)data;
+    int id = sndaems.unknown00;
+    int i;
+    int trigger = event[0];
+    int* values = event + 1;
+    int created;
+    int result = -8;
+
+    if ((sndaems.unknown00 = id + 1) < 0)
+        sndaems.unknown00 = 0;
+    created = SNDAEMSI_stufftrigger(trigger, 0, id);
+    for (i = 0; i < sndaems.system->triggers[trigger].paramCount; i++) {
+        if (SNDAEMSI_stuffparam(*values, trigger, i, id) == 0)
+            result = 0;
+        values++;
+    }
+    if (created >= 0) {
+        for (i = 0; i < sndaems.system->globalCount; i++)
+            SNDAEMSI_setglobal(i, sndaems.globalState[i]);
+    } else if (result < 0) {
+        id = created;
+    }
+    SNDAEMSI_updatemodules(1);
+    return id;
+}
+
+int SNDAEMSI_updateevent(int id, void* data) {
+    int* event = (int*)data;
+    int i;
+    int trigger = event[0];
+    int* values = event + 1;
+    int result = -8;
+
+    for (i = 0; i < sndaems.system->triggers[trigger].paramCount; i++) {
+        if (SNDAEMSI_stuffparam(*values, trigger, i, id) >= 0)
+            result = 0;
+        values++;
+    }
+    if (SNDAEMSI_stufftrigger(trigger, 1, id) >= 0)
+        result = 0;
+    SNDAEMSI_updatemodules(1);
+    return result;
+}
+
+int SNDAEMSI_endevent(int id, void* data) {
+    int* event = (int*)data;
+    int i;
+    int trigger = event[0];
+    int* values = event + 1;
+
+    for (i = 0; i < sndaems.system->triggers[trigger].paramCount; i++) {
+        SNDAEMSI_stuffparam(*values, trigger, i, id);
+        values++;
+    }
+    SNDAEMSI_stufftrigger(trigger, 2, id);
+    SNDAEMSI_updatemodules(1);
     return 0;
 }

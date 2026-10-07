@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8015385c",
-      "size": 2552,
+      "size": 3168,
       "type": 1
     }
   ],
@@ -72,11 +72,33 @@
       "address": "0x80154074",
       "size": 480,
       "binding": 1
+    },
+    {
+      "name": "SNDAEMSI_beginevent__FPv",
+      "address": "0x80154254",
+      "size": 284,
+      "binding": 1
+    },
+    {
+      "name": "SNDAEMSI_updateevent__FiPv",
+      "address": "0x80154370",
+      "size": 180,
+      "binding": 1
+    },
+    {
+      "name": "SNDAEMSI_endevent__FiPv",
+      "address": "0x80154424",
+      "size": 152,
+      "binding": 1
     }
   ],
   "externals": {
     "AEMSI_timerupdate__Fv": "0x80154c44",
     "SNDAEMSI_destroyinstance__FP6MODULEi": "0x80156508",
+    "SNDAEMSI_setglobal__Fii": "0x801544bc",
+    "SNDAEMSI_stuffparam__Fiiii": "0x801546bc",
+    "SNDAEMSI_stufftrigger__Fiii": "0x80154920",
+    "SNDAEMSI_updatemodules__Fi": "0x80154c68",
     "SNDAEMS_linkbank__Fv": "0x80157778",
     "SNDAEMS_removemodulebank": "0x8034e668",
     "SNDAEMS_removesystem": "0x8034e664",
@@ -89,8 +111,12 @@
     "SNDbankremove": "0x80159600",
     "_restgpr_23": "0x80138a4c",
     "_restgpr_24": "0x80138a50",
+    "_restgpr_25": "0x80138a54",
+    "_restgpr_26": "0x80138a58",
     "_savegpr_23": "0x80138a00",
     "_savegpr_24": "0x80138a04",
+    "_savegpr_25": "0x80138a08",
+    "_savegpr_26": "0x80138a0c",
     "aemscompinfo": "0x801933e0",
     "memset": "0x80009410",
     "sndaems": "0x80340410",
