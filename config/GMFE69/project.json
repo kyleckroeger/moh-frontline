@@ -680,7 +680,8 @@
     "UIStudio_active.json",
     "ShellMenu_stats.json",
     "scene_shutdown.json",
-    "ShellMenu_pass.json"
+    "ShellMenu_pass.json",
+    "ShellMenu_cardquery.json"
   ],
   "progress": {
     "code_bytes": 1414572,
