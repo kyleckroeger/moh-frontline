@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 389364,
+    "matching_code_bytes": 392536,
     "total_executable_code_bytes": 1414572,
-    "percent": 27.5252161077697,
+    "percent": 27.74945354495918,
     "categories": {
-      "reconstructed_game": 112764,
+      "reconstructed_game": 115936,
       "restored_library": 276600
     },
-    "matching_functions": 2461
+    "matching_functions": 2464
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -328,6 +328,7 @@
     "config/GMFE69/gcSystem.json": "3bf2743737fe9c041930fdcb9879f7d17600a25c1ffc836927c0901688b92aea",
     "config/GMFE69/getbits.json": "b9fe0dd162306306e1f39356422acba5e25693c9575875cf14003c97b852d30d",
     "config/GMFE69/getblk.json": "2098f50b2d5c8abaa4d8c0a2a770f0e894fe24ddfe9251b7f676ac258b85fca6",
+    "config/GMFE69/getpic.json": "c92c299a39d9394c5ba16c007e89eddce5dcf73e54c8930e5ba21078898cba82",
     "config/GMFE69/getvlc.json": "77db77821435a705cc4cac966fc3a2f4ebbd4327e55395878628760177a47341",
     "config/GMFE69/global_destructor_chain.json": "0fe0a3698440cd1f1bff61944bd62409272132d09eb6b5c82b9745b82413e6fa",
     "config/GMFE69/hearingvolume.json": "e8aff4213b28d2f4046c3a9b25e9c4d289c97b8a4f6aad7802217f6faf9faa28",
@@ -412,7 +413,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "1a484d84345dfa77c26e3c4838a5ccf03499c26aa4b4fe1d9e96799fdc159abf",
+    "config/GMFE69/project.json": "72118f90cf9d92dd04cde1e228233828025a3d2a8de1376cfb5d7ce9becd94a9",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -1401,6 +1402,7 @@
     "src/ea/fontnull.cpp": "f5c2dfb2e21956fc5d3a1b11c46ae763d9b5cd956badc5e3db912b1e59a9d641",
     "src/ea/getbits.cpp": "323da114300bf7f7dfca115b3fefd296934e41c454a5a30a283350e4118e2812",
     "src/ea/getblk.cpp": "a9369a21cf466a7a1bdf1d27b1354c2d698ef6ea456c858918cf3eed0656d53a",
+    "src/ea/getpic.cpp": "a845a0d5c23c2ee58f4ab73d74167c5be44a9e99ec943e244795df0ab9850e27",
     "src/ea/getvlc.cpp": "29e34e61054a5753c4f7d278fc4f41bff003d9c0dcaf2adf0a831c6528ad9914",
     "src/ea/hlafile.cpp": "5b4d6d664b41d3d8d33ffdb8c5b894b10d12187ec7d6d55060314e252f7ac150",
     "src/ea/hlsfile.cpp": "c8095cd394607595fc29daf20812c5430140171a6214048367943aa62f453105",
@@ -27615,6 +27617,45 @@
       "discarded_functions": [],
       "object_sha256": "954e68fd1e0b84d0eeb29babf682cd05f249921c4445993511c211c6b258b0f0",
       "linked_sha256": "a453a3f3ac534a26b0dd8950a635c2a07ef7ece44de615f2c893e38e49c7dea7"
+    },
+    {
+      "id": "getpic",
+      "category": "reconstructed_game",
+      "functions": 3,
+      "code_bytes": 3172,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto,deferred",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "7b5a1a73553e54d0d0d0c1fa36f7f263179b4e7b5cc3dac13e2668ac775982d0",
+      "linked_sha256": "bcf968a6de93f7d28aa957dd85406767c98d80f8f0d57f579489f46a5ec2ac31"
     }
   ],
   "code_map": {
@@ -43812,27 +43853,6 @@
             "size": 904,
             "kind": "function",
             "name": "Update_Picture_Buffers__FP18MPC_CODEC_INTERNAL",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80100db8",
-            "size": 852,
-            "kind": "function",
-            "name": "slice__Fi",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8010110c",
-            "size": 1496,
-            "kind": "function",
-            "name": "decode_macroblock__FPiPiPiPiPiPA2_A2_iPiPA2_iPi",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x801016e4",
-            "size": 824,
-            "kind": "function",
-            "name": "Add_Block__Fiiiii",
             "evidence": "local-file-symbol"
           }
         ]
