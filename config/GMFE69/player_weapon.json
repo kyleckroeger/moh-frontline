@@ -39,8 +39,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8009f464",
-      "size": 1928,
+      "address": "0x8009f394",
+      "size": 2136,
       "type": 1
     },
     {
@@ -63,6 +63,24 @@
     }
   ],
   "functions": [
+    {
+      "name": "DoMotionShake__13CPlayerObjectFff",
+      "address": "0x8009f394",
+      "size": 64,
+      "binding": 1
+    },
+    {
+      "name": "StopCameraShake__13CPlayerObjectFf",
+      "address": "0x8009f3d4",
+      "size": 72,
+      "binding": 1
+    },
+    {
+      "name": "StartCameraShake__13CPlayerObjectFff",
+      "address": "0x8009f41c",
+      "size": 72,
+      "binding": 1
+    },
     {
       "name": "GetCurrentWeaponReserveAmoCount__13CPlayerObjectCFv",
       "address": "0x8009f464",
@@ -123,5 +141,28 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "player.cpp",
-  "original_file_index": 6101
+  "original_file_index": 6101,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80350540"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x8035053c"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 4,
+      "address": "0x803505e0"
+    }
+  ]
 }

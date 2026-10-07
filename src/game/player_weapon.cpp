@@ -1,16 +1,21 @@
-// A fragment of player.cpp (0x8009f464): CPlayerObject's current-weapon
-// queries. While the mounted-weapon flag is set they read the mounted weapon;
-// otherwise the selected slot's weapon object's weapon, with 0 (or null) when
-// no slot is selected: the reserve and clip ammo counts and the bullet sprite.
-// GetWeaponByCRC returns the weapon object in the slot GetWeaponInfoByCRC
-// finds; GetWeaponInfoByCRC maps a weapon-name CRC to a slot and two ids,
-// reporting unknown CRCs; GetWeapon, GetCurrentWeapon and
-// GetCurrentPlayerWeapon follow. The file name is this project's; the original
-// record is player.cpp and the camera-shake functions before these (pooled
-// .sdata2 constants) and CycleWeapon after them are not reconstructed. The classes and
-// functions are named by the mangled symbols; CPlayerObject,
-// CPlayerWeaponObject and CWeapon are inferred non-virtual views (members at
-// their offsets, names not original) and the result types are inferred.
+// A fragment of player.cpp (0x8009f394): CPlayerObject's motion and camera
+// shakes, then its current-weapon queries. DoMotionShake stores the strength
+// and time, restarts the elapsed time and flags the shake while the strength
+// is positive; StopCameraShake and StartCameraShake take the time's magnitude
+// (counting down or up), store a rate of -1 or 1 per second over it (1 for a
+// zero time) and clear or set the shake flag. Their constants are entries of
+// the file's .sdata2 pool. While the mounted-weapon flag is set the weapon
+// queries read the mounted weapon; otherwise the selected slot's weapon
+// object's weapon, with 0 (or null) when no slot is selected: the reserve and
+// clip ammo counts and the bullet sprite. GetWeaponByCRC returns the weapon
+// object in the slot GetWeaponInfoByCRC finds; GetWeaponInfoByCRC maps a
+// weapon-name CRC to a slot and two ids, reporting unknown CRCs; GetWeapon,
+// GetCurrentWeapon and GetCurrentPlayerWeapon follow. The file name is this
+// project's; the original record is player.cpp and ShakeCamera before these
+// and CycleWeapon after them are not reconstructed. The classes and functions
+// are named by the mangled symbols; CPlayerObject, CPlayerWeaponObject and
+// CWeapon are inferred non-virtual views (members at their offsets, names not
+// original) and the result types are inferred.
 class CSprite;
 
 void DebugMsg(const char*, ...);
@@ -40,15 +45,63 @@ public:
     CPlayerWeaponObject* GetWeapon(int) const;
     CWeapon* GetCurrentWeapon() const;
     CPlayerWeaponObject* GetCurrentPlayerWeapon() const;
+    void DoMotionShake(float, float);
+    void StopCameraShake(float);
+    void StartCameraShake(float, float);
 
-    unsigned char unknown000[918];
+    unsigned char unknown000[917];
+    unsigned char unknown395a : 2;
+    unsigned char m_cameraShaking : 1;
+    unsigned char unknown395b : 5;
     unsigned char m_usingMountedWeapon : 1;
     unsigned char unknown396b : 7;
-    unsigned char unknown397[197];
+    unsigned char unknown397a : 5;
+    unsigned char m_motionShaking : 1;
+    unsigned char unknown397b : 2;
+    unsigned char unknown398[8];
+    float m_cameraShakeStrength;
+    float m_cameraShakeRate;
+    float m_cameraShakeTime;
+    float m_motionShakeStrength;
+    float m_motionShakeTime;
+    float m_motionShakeElapsed;
+    unsigned char unknown3b8[164];
     int m_currentWeapon;
     CPlayerWeaponObject* m_weapons[96];
     CWeapon* m_mountedWeapon;
 };
+
+void CPlayerObject::DoMotionShake(float strength, float time) {
+    m_motionShakeStrength = strength;
+    m_motionShakeTime = time;
+    m_motionShakeElapsed = 0.0f;
+    if (strength > 0.0f)
+        m_motionShaking = 1;
+    else
+        m_motionShaking = 0;
+}
+
+void CPlayerObject::StopCameraShake(float time) {
+    if (time < 0.0f)
+        time = -time;
+    m_cameraShakeTime = -time;
+    if (time == 0.0f) {
+        m_cameraShaking = 0;
+        time = 1.0f;
+    }
+    m_cameraShakeRate = -1.0f / time;
+}
+
+void CPlayerObject::StartCameraShake(float strength, float time) {
+    if (time < 0.0f)
+        time = -time;
+    m_cameraShakeStrength = strength;
+    m_cameraShakeTime = time;
+    if (time == 0.0f)
+        time = 1.0f;
+    m_cameraShakeRate = 1.0f / time;
+    m_cameraShaking = 1;
+}
 
 int CPlayerObject::GetCurrentWeaponReserveAmoCount() const {
     if (m_usingMountedWeapon)
