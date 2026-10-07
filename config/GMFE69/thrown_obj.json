@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800b4d14",
-      "size": 444,
+      "size": 944,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000d784",
-      "size": 24,
+      "size": 32,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80014738",
-      "size": 36,
+      "size": 48,
       "type": 1
     },
     {
@@ -63,6 +63,12 @@
     }
   ],
   "functions": [
+    {
+      "name": "HandleBulletCollision__13CThrownObjectFP7CBulletRC10CCollision",
+      "address": "0x800b4ed0",
+      "size": 500,
+      "binding": 1
+    },
     {
       "name": "ScaleFromScript__13CThrownObjectFff12EBSEventEnum",
       "address": "0x800b4d28",
@@ -121,7 +127,8 @@
   "externals": {
     "DeleteSpecialThrownObject__FP13CThrownObject": "0x8003eb40",
     "GetRadius__10CVolSphereCFv": "0x800cba28",
-    "MarkForDestruction__13CStaticObjectFi": "0x800ae870"
+    "MarkForDestruction__13CStaticObjectFi": "0x800ae870",
+    "PlayImpactSound__FUsUs8CVector3b": "0x800eb17c"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],

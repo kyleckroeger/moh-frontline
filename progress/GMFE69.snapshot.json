@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 418120,
+    "matching_code_bytes": 418620,
     "total_executable_code_bytes": 1414572,
-    "percent": 29.55805713671697,
+    "percent": 29.593403517106236,
     "categories": {
-      "reconstructed_game": 201716,
+      "reconstructed_game": 202216,
       "restored_library": 216404
     },
-    "matching_functions": 2578
+    "matching_functions": 2579
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -628,7 +628,7 @@
     "config/GMFE69/texpack.json": "e72b98cff12a06a8815f3de46a2dddeaaff0a28ea13a88b19df4444349d53607",
     "config/GMFE69/threads.json": "d264cbc64f178174ef4e3e782c684e2b008abf5eb3ac641e9bd1236e522459c8",
     "config/GMFE69/threads_current.json": "d67345101e55cef32123d176a89cc9c1735c957bf68e3f47494940f744ea29f3",
-    "config/GMFE69/thrown_obj.json": "01f7dbd6d14a67a56bb546504a5d4ebe3cabfe11551fdb48890e336853b678df",
+    "config/GMFE69/thrown_obj.json": "93b23ad3032ebedb17e08c744a43fcc488713682304ee041bcea4599126023e3",
     "config/GMFE69/thrownbullet.json": "c7fcb36666daf14bfafc0deeae23d847dc7180f3b492f57599caefdd16d65377",
     "config/GMFE69/timer.json": "ae3403f8235fadb3bdcbcd4f4648ddf27c185cdab7db3542519793fce7267534",
     "config/GMFE69/timerthread.json": "993154fd5f472860102c81015ebb43aaf30afcf22cd46655a20003306ccdd50c",
@@ -1856,7 +1856,7 @@
     "src/game/swvideodisplaylist.cpp": "604fff141650e041f635fbf1c136dd328c6e3151200a1ce6d9bd90d82e1caa00",
     "src/game/system.cpp": "a6b1bce950e974ebaf7e6c7afc31ecab8f41566550163428c632534bc8f78b83",
     "src/game/texpack.cpp": "170a3a9592cbea2d199a09aba976cc93963f0104100915e1f5d9d23eaf30f61a",
-    "src/game/thrown_obj.cpp": "87d4548c375f1ff7169ae7e3982ab06c30a61b2534360f01afada667eef55116",
+    "src/game/thrown_obj.cpp": "08b777eb2a54b5dc4a04e4a507bfcc573c7ae84970e9de06badde6987db73fc5",
     "src/game/thrownbullet.cpp": "63c247c0b65dba2577e06ff79bcf90d35b2a39d37d239b7d50cc477802819eed",
     "src/game/toilet.cpp": "5fb3e7686ffd121fdb310a7f2791f2e901a61a38b53a86b45a1579252471747f",
     "src/game/toilet_briefing.cpp": "83e25c15b5673c7a84c8efccd089ed6beba245f9c7ffef2c287001ebc6685a2b",
@@ -18942,8 +18942,8 @@
     {
       "id": "thrown_obj",
       "category": "reconstructed_game",
-      "functions": 9,
-      "code_bytes": 444,
+      "functions": 10,
+      "code_bytes": 944,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -18975,8 +18975,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "3d168da4e6a31342e80a7a88a0025bc09571f7b07b499e7ffe19a01d9175372d",
-      "linked_sha256": "e2c8607f865e406f511526d0a3fe63e4eca753a05359ba1291638af242ebd6ef"
+      "object_sha256": "03ba5f176b1d6f4960642fb6cfb923c266ceeed9fc8ca1338dcf9280fb27435a",
+      "linked_sha256": "421efc01fcd34e7b126297d67545fb28c1f68b0acb8233b674cca17e83d1a053"
     },
     {
       "id": "thrownbullet",
@@ -39182,13 +39182,6 @@
         "file_record": 121,
         "file_name": "thrown_obj.cpp",
         "ranges": [
-          {
-            "address": "0x800b4ed0",
-            "size": 500,
-            "kind": "function",
-            "name": "HandleBulletCollision__13CThrownObjectFP7CBulletRC10CCollision",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x800b50c4",
             "size": 276,
