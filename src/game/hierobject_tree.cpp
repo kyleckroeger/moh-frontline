@@ -5,13 +5,13 @@
 // id from the mesh's attach-point table), GetSubObject, SetRotation and Init
 // (links the object under its root's sub-object at the parent index, taking
 // the attach point's matrix, and resets the buffer at +1680 to its 32-entry
-// inline storage), and the destructor. The classes are named by the mangled
-// symbols; the members, the attach-point record, the buffer class and the
-// flag-byte bit-field view are inferred from offsets, and each class declares
-// a non-inline virtual ahead of its destructor so that no virtual table is
-// emitted here. The constructors after the destructor are not part of the
-// unit: their exception cleanup makes the compiler emit weak copies of the
-// base and buffer destructors, which the original link dropped.
+// inline storage), the destructor and the two constructors. The classes are
+// named by the mangled symbols; the members, the attach-point record, the
+// buffer class and the flag-byte bit-field view are inferred from offsets,
+// and each class declares a non-inline virtual ahead of its destructor so
+// that no virtual table is emitted here. The constructors' exception cleanup
+// makes the compiler emit a weak copy of CAttachableObject's destructor; the
+// original linker kept an earlier file's copy.
 void DebugMsg(const char*, ...);
 extern "C" void MEM_free(void*);
 
@@ -233,4 +233,11 @@ void CHierObject::Init(CHierObject* root, int index, int parentIndex, int attach
 }
 
 CHierObject::~CHierObject() {
+}
+
+CHierObject::CHierObject(CStaticMesh* mesh, int a, int b, int c, int d, int e, CStaticObject::MotionFrame* frame)
+    : CAttachableObject(mesh, a, b, c, d, e, frame) {
+}
+
+CHierObject::CHierObject() {
 }

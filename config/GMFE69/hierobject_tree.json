@@ -34,26 +34,38 @@
   "include_dirs": [
     "include/dolphin-sdk/libc"
   ],
-  "strip_unused": false,
+  "strip_unused": true,
   "source_root": "src/game",
   "sections": [
     {
       "name": ".text",
       "address": "0x8009ba2c",
-      "size": 1536,
+      "size": 1808,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000ccbc",
-      "size": 32,
-      "type": 1
+      "size": 128,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 144,
+      "stripped_objects": [
+        "@197",
+        "@201"
+      ]
     },
     {
       "name": "extabindex",
       "address": "0x80013e20",
-      "size": 48,
-      "type": 1
+      "size": 72,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 96,
+      "stripped_objects": [
+        "@198",
+        "@202"
+      ]
     },
     {
       "name": ".rodata",
@@ -98,6 +110,18 @@
       "address": "0x8009bd6c",
       "size": 536,
       "binding": 1
+    },
+    {
+      "name": "__ct__11CHierObjectFP11CStaticMeshiiiiiPQ213CStaticObject11MotionFrame",
+      "address": "0x8009c02c",
+      "size": 136,
+      "binding": 1
+    },
+    {
+      "name": "__ct__11CHierObjectFv",
+      "address": "0x8009c0b4",
+      "size": 136,
+      "binding": 1
     }
   ],
   "externals": {
@@ -108,15 +132,21 @@
     "Init__13CStaticObjectFv": "0x800b1b28",
     "MEM_free": "0x8014f83c",
     "__as__7CMatrixFRC7CMatrix": "0x80090b34",
+    "__ct__10CCSGVolumeFv": "0x800c9268",
+    "__ct__17CAttachableObjectFP11CStaticMeshiiiiiPQ213CStaticObject11MotionFrame": "0x80097cf8",
+    "__ct__17CAttachableObjectFv": "0x80097d7c",
     "__dl__FPv": "0x8001ca2c",
     "__dt__10CCSGVolumeFv": "0x800c920c",
     "__dt__13CStaticObjectFv": "0x800b1d64",
+    "__dt__17CAttachableObjectFv": "0x800971f8",
     "__vt__11CHierObject": "0x801879e4",
     "__vt__17CAttachableObject": "0x80187500",
     "s_ClassInit__7CMatrix": "0x8034eab0"
   },
   "undefined_in_discarded_code": [],
-  "discarded_functions": [],
+  "discarded_functions": [
+    "__dt__17CHierObjectBufferFv"
+  ],
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
@@ -124,5 +154,8 @@
     "s_ClassInit__7CMatrix"
   ],
   "original_file": "hierobject.cpp",
-  "original_file_index": 5972
+  "original_file_index": 5972,
+  "weak_duplicates": [
+    "__dt__17CAttachableObjectFv"
+  ]
 }
