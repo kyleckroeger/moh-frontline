@@ -28,7 +28,7 @@ void UISAddThreadAction(UISInfo_t* info, UISThreadActionT action, UISThreadGroup
                         UISParam_t* params);
 void UISProcessThreadAction(UISInfo_t* info, unsigned char activation);
 
-extern "C" void UISSetScreenActive(UISInfo_t* info, short screen, short control) {
+extern "C" void UISSetScreenActive(UISInfo_t* info, unsigned short screen, unsigned short control) {
     UISThreadGroupInfoT group;
 
     group.s.s0 = screen;

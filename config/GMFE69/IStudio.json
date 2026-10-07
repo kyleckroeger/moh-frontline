@@ -39,24 +39,36 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8008b6ec",
-      "size": 80,
+      "address": "0x8008b660",
+      "size": 220,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000c4a8",
-      "size": 16,
+      "address": "0x8000c498",
+      "size": 32,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80013568",
-      "size": 24,
+      "address": "0x80013550",
+      "size": 48,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "iSirenUpdate__7IStudioFUl",
+      "address": "0x8008b660",
+      "size": 68,
+      "binding": 1
+    },
+    {
+      "name": "iSirenDrawProcessFnc__7IStudioFUl",
+      "address": "0x8008b6a4",
+      "size": 72,
+      "binding": 1
+    },
     {
       "name": "iSirenActivateScreen__7IStudioFUsUs",
       "address": "0x8008b6ec",
@@ -71,15 +83,22 @@
     }
   ],
   "externals": {
+    "Ident__12CMatrixStackFv": "0x80090d90",
+    "UISDrawObjects": "0x80087fac",
+    "UISIdleProcess": "0x80087f08",
     "UISLoadScreen": "0x80088770",
-    "UISSetScreenActive": "0x8008825c"
+    "UISSetScreenActive": "0x8008825c",
+    "g_matStack": "0x8034eab8",
+    "iSirenEventProcessFnc__7IStudioFv": "0x8008b01c"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": [],
+  "sda_externals": [
+    "g_matStack"
+  ],
   "original_file": "IStudio.cpp",
   "original_file_index": 5235
 }

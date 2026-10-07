@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 459364,
+    "matching_code_bytes": 459504,
     "total_executable_code_bytes": 1414572,
-    "percent": 32.47370936226647,
+    "percent": 32.48360634877546,
     "categories": {
-      "reconstructed_game": 242960,
+      "reconstructed_game": 243100,
       "restored_library": 216404
     },
-    "matching_functions": 2742
+    "matching_functions": 2744
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -82,7 +82,7 @@
     "config/GMFE69/GXTexture.json": "984d5a48aeb260459a8f09c39e303b5e2f48a9bab79353bb86eb06e8a2d1fc69",
     "config/GMFE69/GXTransform.json": "38225301a6fd0d656301839a81128f2235b7fbe70c809990d1beeb45d8a5182b",
     "config/GMFE69/Gecko_ExceptionPPC.json": "40e29a739fe917c560f5eb9768fcab768f7b2d6fafcf2e45c14439d96526b39e",
-    "config/GMFE69/IStudio.json": "23741560316c9e63c4239ffda7d0c87027d873d4efc4a3d64a0735dbcf2f315d",
+    "config/GMFE69/IStudio.json": "2c7685c7651790e4e8069629df78de3135a14717212cc801e06467f43c148ed2",
     "config/GMFE69/IStudioFuncs.json": "a76dc75d5f0f0d9af8e5cde0ab73c9d5fe0e7bce64f599ea63e2ae40aab335b5",
     "config/GMFE69/LinkedList.json": "602f883f2de084765f8942b8e59f71e78eba4a2f6decd323bf7ba7b64498ec81",
     "config/GMFE69/MallocInit.json": "8084909a7be143dbe22e68d1ec13bf2de5447a3ce15fc2023dff212530d007d1",
@@ -1692,7 +1692,7 @@
     "src/game/AITankObject.cpp": "d08f8aaea2eb44b990720c13ef97541d442300a050d416fb99b0a64607996f73",
     "src/game/AnimObjFactory.cpp": "2e2b57fc04c9964fdce19f6a41496489c097cd607462f4cb7bd82763e1df4ab8",
     "src/game/ConfigGC.cpp": "35750548ef3be7d73255922d6d95a4fa99fe3ae468addf410d4d636ab925abce",
-    "src/game/IStudio.cpp": "02443b5cf9cd73ad24c7e1e4525f498ca333a0f93d0975a8c293d41d0335cf7a",
+    "src/game/IStudio.cpp": "475da8a6cac14dba071556791d28fa6fb39f7fb4ec8a0f04509aa437a3bd75ef",
     "src/game/IStudioFuncs.cpp": "b165a33f98e96f81832733bc9c7f57c198951e7c5297b42486c1184a62b9a756",
     "src/game/LinkedList.cpp": "3007b79180a5844b8b799dc4fc11618f6b5da77679e6c73c6f388fec501beb2a",
     "src/game/MallocInit.cpp": "ba35f4c9ac530c717f81930ab9aa3a203ea81844e4776914ae6b51acf4188a74",
@@ -1725,7 +1725,7 @@
     "src/game/UISEvent.c": "a9b324a04b57cdf40fbb819827d2073be6fa1b9fa1be2f1c0757e46dd3747a82",
     "src/game/UISUtils.c": "2e101b81ca9b5914c365c0afa440b86886d07e54d6257f711e93bac63363577e",
     "src/game/UIStudio.c": "0c976854e73e490693e1a4a9a96506de7032024bc92eb6971d7485c49b822474",
-    "src/game/UIStudio_active.c": "14172478758f81a213429f7fac131912c83c4f830641e55ad3265d81c966e8df",
+    "src/game/UIStudio_active.c": "65f9fb1ea6af8be25aba72e9387ba85f94281ae6d24788b0b04ea987e9be3772",
     "src/game/UserInterface.cpp": "246cfbd81f55f78b7d667c7a95cbfb8a07c794e664b534516baca34b65840a87",
     "src/game/alarm.cpp": "758bb9a1e937336151aa37ab17fd2b09abf28f61a0cdaa37197476b3ac8f707c",
     "src/game/anim.cpp": "9e086af4631ac941623f4e90cc4d858d9a4a1ddde96c1433e494b2f9411978d3",
@@ -19808,8 +19808,8 @@
     {
       "id": "IStudio",
       "category": "reconstructed_game",
-      "functions": 2,
-      "code_bytes": 80,
+      "functions": 4,
+      "code_bytes": 220,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -19841,8 +19841,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "9c285abfa6ff7bcb0374ce074a8d6b162159079f3cda180c4ce3333a6ce79a16",
-      "linked_sha256": "bfb3182d62502f01d5882967ef4b950e334a66deacc284e85b3982dc171186fe"
+      "object_sha256": "8ccc380187397cf795d7f1746a957170afebd1c00f4c21397fa2d5f99d1f9f3e",
+      "linked_sha256": "b5fa10a7288c8056a7466823f845da42409cec5f64e5ef7066fab7325d3c5de2"
     },
     {
       "id": "avplayer",
@@ -38171,20 +38171,6 @@
             "size": 128,
             "kind": "function",
             "name": "iSirenShutDown__7IStudioFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8008b660",
-            "size": 68,
-            "kind": "function",
-            "name": "iSirenUpdate__7IStudioFUl",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8008b6a4",
-            "size": 72,
-            "kind": "function",
-            "name": "iSirenDrawProcessFnc__7IStudioFUl",
             "evidence": "exception-index"
           },
           {
