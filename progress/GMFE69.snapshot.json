@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 415920,
+    "matching_code_bytes": 416912,
     "total_executable_code_bytes": 1414572,
-    "percent": 29.402533063004217,
+    "percent": 29.472660281696513,
     "categories": {
       "reconstructed_game": 135236,
-      "restored_library": 280684
+      "restored_library": 281676
     },
-    "matching_functions": 2563
+    "matching_functions": 2573
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -141,6 +141,7 @@
     "config/GMFE69/Soldier_object.json": "d625d33bbfdcbd4ae922099756d0a2525feb495afdd309517e996dc20e2f2aff",
     "config/GMFE69/Soldier_object_bone.json": "ddd66961cbbf345cc7d36a2251e1776f6c114fdfd18a27643aa0bc8aae6a143b",
     "config/GMFE69/Tank_object.json": "fa415f3ca15d6b7facea57a6c0f6cfa35329f2386377df8d73bd4f8f6a8ad599",
+    "config/GMFE69/Tank_object_update.json": "61c9dd00a849faff2d6138fa8da125fe976992d0c06ce013848605439b37847e",
     "config/GMFE69/Tank_object_weapons.json": "053fd7889c88090854424f6abd9434145b91787be467d1406a302f5827d9df3c",
     "config/GMFE69/UISActionProcess.json": "2a99d24d9da29f023bab9396c2424e8dafe6ce9bdaa87904306b5ea85783af91",
     "config/GMFE69/UISEvent.json": "494508d3a1bc6ee076038b4f42906c60c3d009f45520a50f128c75aed4f00631",
@@ -433,7 +434,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "8abcf0631c775cd49b1fa74cadfdfacde9f972ea477f3bfed82f33a34e56f834",
+    "config/GMFE69/project.json": "fa7f62855f223da1038d4df2c9fd71964cc18394edd4cfe00fb99764d068da0d",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -1640,6 +1641,7 @@
     "src/game/Soldier_object.cpp": "92bf858d3c8b06c691309b702079f4c10d3da7935ed4b50d4e27764fa7eeca41",
     "src/game/Soldier_object_bone.cpp": "8fa474389a05090df7d8e919f4fbfbe8dc37381836397d77ffaa327127206032",
     "src/game/Tank_object.cpp": "898b0122c0c2efaf7919e2f4c17241cd68d0733d4f8fda2f2473ec61eb2df9d5",
+    "src/game/Tank_object_update.cpp": "5b68539e218386ead26c19036821428f52b6bf0869390f7875df91f93af99243",
     "src/game/Tank_object_weapons.cpp": "1415a1a1b44ea5b2a66b695f2b3f3a2ddd8cc1da66abe1be699d1045ef740fb4",
     "src/game/UISActionProcess.c": "0c8322629537a363a11f51d7aa0ddaf2fa57f6d24c22fb15f45f76e6566d5f7e",
     "src/game/UISEvent.c": "a9b324a04b57cdf40fbb819827d2073be6fa1b9fa1be2f1c0757e46dd3747a82",
@@ -28806,6 +28808,45 @@
       "discarded_functions": [],
       "object_sha256": "ab8ed3694122c8e1c902d2f42717d878dc7d53481f7b6f5cce00dcd1726b1ec7",
       "linked_sha256": "c88add26ff2b8ad449a18df1d69acb72fb76f51b1f58bb03ce1923c3bda8abb8"
+    },
+    {
+      "id": "Tank_object_update",
+      "category": "restored_library",
+      "functions": 10,
+      "code_bytes": 992,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "e315cc7173aece75f395933c873d8176d33318574cb495d90fcfd8dfe85c2a24",
+      "linked_sha256": "c0d163646612b498b0e148d0f7462df6ff9cd6e3201b472368e0f336ad0800d1"
     }
   ],
   "code_map": {
@@ -39096,7 +39137,7 @@
         ]
       },
       {
-        "name": "Unmatched files/Tank_object.cpp [inferred file group]",
+        "name": "Unmatched files/Tank_object.cpp [symbol evidence]",
         "file_record": 120,
         "file_name": "Tank_object.cpp",
         "ranges": [
@@ -39113,76 +39154,6 @@
             "kind": "function",
             "name": "HandleBulletCollision__11CTankObjectFP7CBulletRC10CCollision",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x800b4934",
-            "size": 32,
-            "kind": "function",
-            "name": "CommitUpdate__11CTankObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800b4954",
-            "size": 32,
-            "kind": "function",
-            "name": "AttemptUpdate__11CTankObjectFf",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800b4974",
-            "size": 156,
-            "kind": "function",
-            "name": "UpdateAI__11CTankObjectFf",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800b4a10",
-            "size": 128,
-            "kind": "function",
-            "name": "BeginUpdate__11CTankObjectFf",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800b4a90",
-            "size": 136,
-            "kind": "function",
-            "name": "__dt__11CTankObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800b4b18",
-            "size": 144,
-            "kind": "function",
-            "name": "CleanUp__11CTankObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800b4ba8",
-            "size": 40,
-            "kind": "function",
-            "name": "InitAI__11CTankObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800b4bd0",
-            "size": 160,
-            "kind": "function",
-            "name": "__ct__11CTankObjectFP11CStaticMeshiiiiiPQ213CStaticObject11MotionFrame",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800b4c70",
-            "size": 160,
-            "kind": "function",
-            "name": "__ct__11CTankObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800b4d10",
-            "size": 4,
-            "kind": "function",
-            "name": "VerifyAIDataSize__11CTankObjectFv",
-            "evidence": "same-class (inferred)"
           }
         ]
       },
