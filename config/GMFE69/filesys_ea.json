@@ -38,13 +38,13 @@
     {
       "name": ".text",
       "address": "0x801482ec",
-      "size": 948,
+      "size": 2704,
       "type": 1
     },
     {
       "name": ".data",
       "address": "0x80190f70",
-      "size": 153,
+      "size": 204,
       "type": 1
     },
     {
@@ -102,20 +102,84 @@
       "address": "0x80148624",
       "size": 124,
       "binding": 1
+    },
+    {
+      "name": "FILESYS_priorityop",
+      "address": "0x801486a0",
+      "size": 324,
+      "binding": 1
+    },
+    {
+      "name": "FILESYS_cancelop",
+      "address": "0x801487e4",
+      "size": 412,
+      "binding": 1
+    },
+    {
+      "name": "FILESYS_waitop",
+      "address": "0x80148980",
+      "size": 260,
+      "binding": 1
+    },
+    {
+      "name": "FILESYS_completeop",
+      "address": "0x80148a84",
+      "size": 268,
+      "binding": 1
+    },
+    {
+      "name": "FILESYS_exists",
+      "address": "0x80148b90",
+      "size": 168,
+      "binding": 1
+    },
+    {
+      "name": "FILESYS_open",
+      "address": "0x80148c38",
+      "size": 152,
+      "binding": 1
+    },
+    {
+      "name": "FILESYS_close",
+      "address": "0x80148cd0",
+      "size": 172,
+      "binding": 1
     }
   ],
   "externals": {
     "MEM_fill": "0x80150db4",
     "OSInitMutex": "0x80114330",
+    "OSLockMutex": "0x80114368",
+    "OSUnlockMutex": "0x80114444",
     "REAL_abortmessage": "0x80151078",
+    "SYNCTASK_run": "0x80152394",
+    "THREAD_iscurrent": "0x8015206c",
+    "THREAD_yield": "0x80151fbc",
+    "_restgpr_27": "0x80138a5c",
+    "_savegpr_27": "0x80138a10",
+    "freehandle__FP10HANDLE_def": "0x80149e68",
+    "freeop__FP17FILEOPERATION_def": "0x80149d68",
     "gFileSysOpts": "0x80190f38",
+    "iFILE_ExecCommand__FP17FILEOPERATION_def": "0x8014975c",
+    "iFILE_perror__FP17FILEOPERATION_def": "0x80149c64",
     "initfiledev__Fv": "0x801478a0",
-    "killfiledev__Fv": "0x8014790c"
+    "killfiledev__Fv": "0x8014790c",
+    "reservehandle__Fv": "0x80149db8",
+    "reserveop__Fv": "0x80149c68",
+    "stopreadfile__FP10HANDLE_def": "0x801482e0",
+    "strncpy": "0x8013fffc"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
-  "local_externals": [],
+  "local_externals": [
+    "freehandle__FP10HANDLE_def",
+    "freeop__FP17FILEOPERATION_def",
+    "iFILE_ExecCommand__FP17FILEOPERATION_def",
+    "iFILE_perror__FP17FILEOPERATION_def",
+    "reservehandle__Fv",
+    "reserveop__Fv"
+  ],
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "filesys.cpp",

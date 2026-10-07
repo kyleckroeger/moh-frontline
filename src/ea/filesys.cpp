@@ -13,19 +13,52 @@
 // record slot in the low byte (an inferred union); the status is volatile
 // (it is reloaded around the depth update) and the validity check is an
 // inferred inline helper that takes the handle by value.
+// Then the operation queue: FILESYS_priorityop re-sorts a queued operation by
+// its new priority, FILESYS_cancelop flags the active operation (stopping a
+// read) or unlinks a queued one and reports -1 to its callback,
+// FILESYS_waitop runs or yields to the file thread until the operation has a
+// status, and FILESYS_completeop returns the result for the operation's kind
+// (the handle, the status, a position or count, or 1; a write extends the
+// handle's size) and frees it. FILESYS_exists, FILESYS_open and FILESYS_close
+// reserve an operation (and a handle, named by the request) and queue it;
+// closing a handle that another record still refers to is reported.
+// FILEOPERATION_def and HANDLE_def are named by the mangled helper symbols;
+// their members are inferred from offsets (the handle's name ends at +260,
+// where its size is kept).
 struct OSMutex {
     unsigned char unknown00[24];
 };
 
 extern "C" {
 void OSInitMutex(OSMutex*);
+void OSLockMutex(OSMutex*);
+void OSUnlockMutex(OSMutex*);
+bool THREAD_iscurrent(int);
+void SYNCTASK_run(int);
+void THREAD_yield(int);
+char* strncpy(char*, const char*, unsigned long);
 void MEM_fill(void*, int, int);
 void REAL_abortmessage(const char*, ...);
 int FILESYS_overhead(int, int, int);
 int FILESYS_initadr(int, int, int, void*);
 }
 
+struct HANDLE_def {
+    unsigned char unknown000[5];
+    char name[255];
+    int unknown104;
+};
+
+struct FILEOPERATION_def;
+
 void initfiledev();
+void stopreadfile(HANDLE_def*);
+void freehandle(HANDLE_def*);
+void freeop(FILEOPERATION_def*);
+FILEOPERATION_def* reserveop();
+HANDLE_def* reservehandle();
+void iFILE_perror(FILEOPERATION_def*);
+void iFILE_ExecCommand(FILEOPERATION_def*);
 void killfiledev();
 
 struct FILESYSOPTSVIEW {
@@ -47,30 +80,43 @@ union FILEOPID {
 
 typedef void (*FILEOPCALLBACK)(int, int, int);
 
-struct FILEOPVIEW {
-    unsigned short serial;
-    unsigned char unknown02[6];
+struct FILEOPERATION_def {
+    FILEOPID id;
+    int cancelled;
     volatile int status;
-    unsigned char unknown0c[8];
+    int error;
+    int priority;
     int callbackData;
-    unsigned char unknown18[16];
+    int unknown18;
+    int unknown1c;
+    unsigned char unknown20[4];
+    HANDLE_def* handle;
     FILEOPCALLBACK callback;
-    unsigned char unknown2c[4];
+    FILEOPERATION_def* next;
+};
+
+/* inferred: a list of records that refer to an open handle */
+struct FILELINKVIEW {
+    unsigned char unknown00[12];
+    HANDLE_def* handle;
+    unsigned char unknown10[4];
+    FILELINKVIEW* next;
 };
 
 struct FILEDEVICEVIEW {
     int operations;
     int handles;
     int unknown08;
-    unsigned char unknown0c[4];
+    int unknown0c;
     int callbackDepth;
-    unsigned char unknown14[4];
+    FILEOPERATION_def* active;
     union {
         char* memory;
-        FILEOPVIEW* ops;
+        FILEOPERATION_def* ops;
     };
     char* handleMemory;
-    unsigned char unknown20[8];
+    FILEOPERATION_def* queue;
+    FILELINKVIEW* links;
 };
 
 extern FILESYSOPTSVIEW gFileSysOpts;
@@ -141,7 +187,7 @@ extern "C" void FILESYS_restore() {
     }
 }
 
-static inline FILEOPVIEW* getop(int op) {
+static inline FILEOPERATION_def* getop(int op) {
     FILEOPID id;
 
     id.value = op;
@@ -151,7 +197,7 @@ static inline FILEOPVIEW* getop(int op) {
 static inline bool validop(FILEOPID id) {
     bool valid = false;
 
-    if (id.value && id.parts.serial == gFileDevice.ops[id.parts.slot].serial)
+    if (id.value && id.parts.serial == gFileDevice.ops[id.parts.slot].id.parts.serial)
         valid = true;
     return valid;
 }
@@ -163,7 +209,7 @@ extern "C" int FILESYS_opstatus(int op) {
 }
 
 extern "C" void FILESYS_callbackop(int op, FILEOPCALLBACK callback) {
-    FILEOPVIEW* record = getop(op);
+    FILEOPERATION_def* record = getop(op);
 
     record->callback = callback;
     if (record->status) {
@@ -171,4 +217,191 @@ extern "C" void FILESYS_callbackop(int op, FILEOPCALLBACK callback) {
         callback(op, record->status, record->callbackData);
         gFileDevice.callbackDepth--;
     }
+}
+
+extern "C" void FILESYS_priorityop(int op, int priority) {
+    FILEOPERATION_def* record = getop(op);
+    FILEOPERATION_def* prev;
+    FILEOPERATION_def* entry;
+    int old;
+
+    OSLockMutex(&FileMutex);
+    old = record->priority;
+    record->priority = priority;
+    if (gFileDevice.unknown0c >= 2 && record != gFileDevice.active && record->status == 0 && old != priority) {
+        prev = 0;
+        for (entry = gFileDevice.queue; entry && entry != record; entry = entry->next)
+            prev = entry;
+        if (!entry) {
+            OSUnlockMutex(&FileMutex);
+            return;
+        }
+        if (prev)
+            prev->next = record->next;
+        else
+            gFileDevice.queue = record->next;
+        record->next = gFileDevice.queue;
+        prev = 0;
+        while (record->next && record->next->priority <= record->priority) {
+            prev = record->next;
+            record->next = record->next->next;
+        }
+        if (prev)
+            prev->next = record;
+        else
+            gFileDevice.queue = record;
+    }
+    OSUnlockMutex(&FileMutex);
+}
+
+extern "C" void FILESYS_cancelop(int op) {
+    int cancelled = 0;
+
+    OSLockMutex(&FileMutex);
+    if (validop(*(FILEOPID*)&op) && ((FILEOPID*)&op)->parts.unknown2 != 3 && ((FILEOPID*)&op)->parts.unknown2 != 10) {
+        FILEOPERATION_def* record = &gFileDevice.ops[((FILEOPID*)&op)->parts.slot];
+        FILEOPERATION_def* prev;
+        FILEOPERATION_def* entry;
+
+        if (gFileDevice.active == record) {
+            record->cancelled = 1;
+            cancelled = 1;
+        } else {
+            if (record->status != 1) {
+                prev = 0;
+                for (entry = gFileDevice.queue; entry && entry != record; entry = entry->next)
+                    prev = entry;
+                if (!entry) {
+                    OSUnlockMutex(&FileMutex);
+                    return;
+                }
+                if (prev)
+                    prev->next = record->next;
+                else
+                    gFileDevice.queue = record->next;
+                cancelled = 2;
+                gFileDevice.unknown0c--;
+            }
+            record->status = -1;
+        }
+        if (cancelled == 1 && record->id.parts.unknown2 == 4)
+            stopreadfile(record->handle);
+        else if (cancelled == 2 && record->callback)
+            record->callback(record->id.value, -1, record->callbackData);
+    }
+    OSUnlockMutex(&FileMutex);
+}
+
+extern "C" int FILESYS_waitop(int op) {
+    FILEOPERATION_def* record = &gFileDevice.ops[((FILEOPID*)&op)->parts.slot];
+
+    if (!validop(*(FILEOPID*)&op))
+        return -3;
+    do {
+        if (THREAD_iscurrent(0))
+            SYNCTASK_run(0);
+        else
+            THREAD_yield(10);
+        if (!validop(*(FILEOPID*)&op))
+            return -3;
+    } while (record->status == 0);
+    return record->status;
+}
+
+extern "C" int FILESYS_completeop(int op) {
+    FILEOPERATION_def* record = getop(op);
+    int result = 0;
+
+    switch (record->status) {
+    case 1:
+        switch (record->id.parts.unknown2) {
+        case 2:
+        case 9:
+            result = (int)record->handle;
+            break;
+        case 3:
+        case 7:
+        case 10:
+            result = record->status;
+            break;
+        case 6:
+        case 8:
+            result = record->unknown18;
+            break;
+        case 4:
+            result = record->unknown1c;
+            break;
+        case 5: {
+            int end;
+
+            result = record->unknown1c;
+            end = record->unknown1c + record->unknown18;
+            if (end > record->handle->unknown104)
+                record->handle->unknown104 = end;
+            break;
+        }
+        case 11:
+            result = 1;
+            break;
+        }
+        break;
+    case -2:
+    case -1:
+        if (record->id.parts.unknown2 == 2 || record->id.parts.unknown2 == 9)
+            freehandle(record->handle);
+        break;
+    }
+    freeop(record);
+    return result;
+}
+
+extern "C" int FILESYS_exists(const char* name, int priority, int callbackData) {
+    FILEOPERATION_def* op = reserveop();
+
+    op->id.parts.unknown2 = 8;
+    op->callbackData = callbackData;
+    op->unknown18 = 1;
+    op->priority = priority;
+    if (!(op->handle = reservehandle())) {
+        op->error = 2;
+        iFILE_perror(op);
+    }
+    strncpy(op->handle->name, name, 255);
+    iFILE_ExecCommand(op);
+    return op->id.value;
+}
+
+extern "C" int FILESYS_open(const char* name, int mode, int priority, int callbackData) {
+    FILEOPERATION_def* op = reserveop();
+
+    op->id.parts.unknown2 = 2;
+    op->callbackData = callbackData;
+    op->unknown18 = mode;
+    op->priority = priority;
+    if (!(op->handle = reservehandle())) {
+        op->error = 2;
+        iFILE_perror(op);
+    }
+    strncpy(op->handle->name, name, 255);
+    iFILE_ExecCommand(op);
+    return op->id.value;
+}
+
+extern "C" int FILESYS_close(HANDLE_def* handle, int priority, int callbackData) {
+    FILEOPERATION_def* op = reserveop();
+    FILELINKVIEW* link = gFileDevice.links;
+
+    op->id.parts.unknown2 = 3;
+    op->priority = priority;
+    op->callbackData = callbackData;
+    op->handle = handle;
+    for (; link; link = link->next) {
+        if (link->handle == handle) {
+            op->error = 3;
+            iFILE_perror(op);
+            break;
+        }
+    }
+    iFILE_ExecCommand(op);
+    return op->id.value;
 }
