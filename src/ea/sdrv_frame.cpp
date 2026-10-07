@@ -1,4 +1,5 @@
-/* A fragment of the sound driver (snddrv.c, 0x8016c3e8): the current frame
+/* A fragment of the sound driver (snddrv.c, 0x8016c364): the high-pass
+   setting of a mixer voice's channels, and the current frame
    of a voice (for an AX voice, its playback address minus the start, scaled
    by 7/8 for type 18 samples; otherwise the software mixer's frame).
    SNDPLATFORM_stop after it is drafted in scratch/path/sdrv_stop_wip.cpp.
@@ -10,6 +11,7 @@ extern "C" {
 extern char sndgs[];
 int MIX_getframe(int);
 }
+extern "C" void MIX_sethighpass(int, int);
 
 /* inferred: an AX voice parameter block, as far as it is read here */
 struct _AXVPB {
@@ -42,6 +44,16 @@ struct SNDDRVVIEW {
 };
 
 extern SNDDRVVIEW snddrv;
+
+void SNDPLATFORM_highpass(int voice, int value) {
+    SNDVOICEVIEW* sound = &(*(SNDVOICEVIEW**)(sndgs + 468))[voice];
+    int i;
+
+    if (sound->flags & 4) {
+        for (i = 0; i < sound->count; i++)
+            MIX_sethighpass(sound->channels[i] - *(unsigned char*)(sndgs + 51), value);
+    }
+}
 
 int SNDPLATFORM_getcurframe(int voice) {
     SNDDRVVOICE* driver = &snddrv.voices[voice];
