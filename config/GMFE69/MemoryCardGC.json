@@ -39,20 +39,20 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800f09f4",
-      "size": 164,
+      "address": "0x800f083c",
+      "size": 604,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000f620",
-      "size": 16,
+      "address": "0x8000f610",
+      "size": 32,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x8001622c",
-      "size": 24,
+      "address": "0x80016214",
+      "size": 48,
       "type": 1
     },
     {
@@ -63,6 +63,18 @@
     }
   ],
   "functions": [
+    {
+      "name": "OpenSlot__11CMemoryCardFi",
+      "address": "0x800f083c",
+      "size": 236,
+      "binding": 1
+    },
+    {
+      "name": "QuerySlot__11CMemoryCardFi",
+      "address": "0x800f0928",
+      "size": 204,
+      "binding": 1
+    },
     {
       "name": "Initialize__11CMemoryCardFv",
       "address": "0x800f09f4",
@@ -84,6 +96,9 @@
   ],
   "externals": {
     "CARDInit": "0x801238f0",
+    "CARDProbe": "0x80126804",
+    "CARDProbeEx": "0x8012683c",
+    "CARDUnmount": "0x801271c0",
     "__dl__FPv": "0x8001ca2c",
     "memset": "0x80009410"
   },
