@@ -1,4 +1,9 @@
-/* A fragment of Frontline's targimpl.c (0x801362d0): TRKTargetInterrupt,
+/* A fragment of Frontline's targimpl.c (0x801361ac): TRKTargetAddStopInfo,
+   which appends the PC, the instruction there and the exception ID and then,
+   in Frontline's version (written from the image; Pikmin's and Sunshine's
+   stop at the exception ID), the low halfword of each GPR as a 32-bit value
+   and of each FPR as a 64-bit value, returning the last append's result;
+   TRKTargetInterrupt,
    which on a breakpoint or exception event checks a pending step (the static
    trace and step-check helpers and TRKTargetSetStopped inlined, as in
    targimpl_step.c) and otherwise stops and notifies; TRKPostInterruptEvent,
@@ -393,7 +398,29 @@ DSError TRKTargetInterrupt(TRKEvent* event)
 /**
  * @TODO: Documentation
  */
-DSError TRKTargetAddStopInfo(TRKBuffer* buffer);
+DSError TRKTargetAddStopInfo(TRKBuffer* buffer)
+{
+	DSError error;
+	u32 instruction;
+	int i;
+
+	error = TRKAppendBuffer1_ui32(buffer, gTRKCPUState.Default.PC);
+	if (error == DS_NoError) {
+		error = TRKTargetReadInstruction(&instruction, gTRKCPUState.Default.PC);
+	}
+	if (error == DS_NoError)
+		error = TRKAppendBuffer1_ui32(buffer, instruction);
+	if (error == DS_NoError)
+		error = TRKAppendBuffer1_ui16(buffer, gTRKCPUState.Extended1.exceptionID);
+	if (error == DS_NoError) {
+		for (i = 0; i < 32; i++)
+			error = TRKAppendBuffer1_ui32(buffer, (u16)gTRKCPUState.Default.GPR[i]);
+		for (i = 0; i < 32; i++)
+			error = TRKAppendBuffer1_ui64(buffer, (u16)gTRKCPUState.Float.FPR[i]);
+	}
+
+	return error;
+}
 
 /**
  * @TODO: Documentation

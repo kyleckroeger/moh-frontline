@@ -66,8 +66,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x801362d0",
-      "size": 636,
+      "address": "0x801361ac",
+      "size": 928,
       "type": 1
     }
   ],
@@ -76,6 +76,12 @@
       "name": "TRKPostInterruptEvent",
       "address": "0x8013642c",
       "size": 192,
+      "binding": 1
+    },
+    {
+      "name": "TRKTargetAddStopInfo",
+      "address": "0x801361ac",
+      "size": 292,
       "binding": 1
     },
     {
@@ -92,6 +98,9 @@
     }
   ],
   "externals": {
+    "TRKAppendBuffer1_ui16": "0x80131c14",
+    "TRKAppendBuffer1_ui32": "0x80131bb0",
+    "TRKAppendBuffer1_ui64": "0x80131b28",
     "TRKConstructEvent": "0x80131048",
     "TRKDoNotifyStopped": "0x80135600",
     "TRKPostEvent": "0x80131060",
