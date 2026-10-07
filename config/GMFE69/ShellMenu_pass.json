@@ -1,0 +1,100 @@
+{
+  "id": "ShellMenu_pass",
+  "source": "src/game/ShellMenu_pass.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800dfa18",
+      "size": 656,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000edd0",
+      "size": 32,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80015a58",
+      "size": 48,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "PassSecretsToIStudio__10CShellMenuFPi",
+      "address": "0x800dfa18",
+      "size": 292,
+      "binding": 1
+    },
+    {
+      "name": "PassMedalStatusToIStudio__10CShellMenuFPi",
+      "address": "0x800dfb3c",
+      "size": 68,
+      "binding": 1
+    },
+    {
+      "name": "PassLevelsRatingsToIStudio__10CShellMenuFPi",
+      "address": "0x800dfb80",
+      "size": 68,
+      "binding": 1
+    },
+    {
+      "name": "PassLevelsCompletedToIStudio__10CShellMenuFPi",
+      "address": "0x800dfbc4",
+      "size": 228,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "GetAllLevelsStarStatus__10CShellMenuFPi": "0x800e8424",
+    "GetLevelUnlockedStatus__10CShellMenuFPi": "0x800e82a8",
+    "GetMedalStatus__10CShellMenuFPi": "0x800e6dfc",
+    "GetSecretsStatus__10CShellMenuFPi": "0x800e6c84",
+    "memcpy": "0x800094f8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "ShellMenu.cpp",
+  "original_file_index": 8612
+}
