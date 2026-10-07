@@ -1,7 +1,8 @@
-// Fragment of the packet player: creation of a player in caller-supplied
-// memory. SNDPKTPLAY_overhead before it (4 instructions differ) and the rest
-// of the file (start, submit, ...) are not reconstructed. Player records and
-// the sndgs/sndpps globals are accessed through inferred members.
+// Fragment of the packet player: the memory a player needs (a 100-byte
+// record, 24 bytes per packet and the platform's share) and creation of a
+// player in caller-supplied memory. SNDPKTPLAY_start after it is not
+// reconstructed (spkt_tail.cpp holds the rest of the file). Player records
+// and the sndgs/sndpps globals are accessed through inferred members.
 struct SNDPKTPLAYER {
     int handle;
     char field4[20];
@@ -26,6 +27,12 @@ void SNDSYS_leavecritical(void);
 }
 int SNDPLATFORM_packetoverhead(void);
 int SNDPLATFORM_packetplaycreate(int, void*);
+
+extern "C" int SNDPKTPLAY_overhead(int packets) {
+    int size = 100 + packets * 24 + SNDPLATFORM_packetoverhead();
+
+    return size;
+}
 
 extern "C" int SNDPKTPLAY_create(int arg0, int arg1, int arg2, char* memory, unsigned int size) {
     int i;

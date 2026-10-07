@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 456860,
+    "matching_code_bytes": 457140,
     "total_executable_code_bytes": 1414572,
-    "percent": 32.29669468927704,
+    "percent": 32.31648866229503,
     "categories": {
-      "reconstructed_game": 240456,
+      "reconstructed_game": 240736,
       "restored_library": 216404
     },
-    "matching_functions": 2718
+    "matching_functions": 2725
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -324,6 +324,7 @@
     "config/GMFE69/e_pow.json": "e6c83f5e3be5e99bc505061239912ce9f8fa394c9f37a38034ece7786dea460d",
     "config/GMFE69/e_rem_pio2.json": "9a217bc41cbc7dbd160fd9b8170c55fb494d44d9f79f1a2cc3cecf82078e7391",
     "config/GMFE69/eaxadecf.json": "e095322fde507f7d6d85b9294940f8c4af5079fd98e5f52618a059d444cb4aff",
+    "config/GMFE69/eaxadecf_state.json": "1ff14c07304ea5528a72341167912d021ffedf9bff5f17f2009b26802934e0ab",
     "config/GMFE69/exit.json": "3b07cadf08ece16c20653f652a53f18b61ca67f91a03125fec625b819e229da3",
     "config/GMFE69/fader.json": "2f6cb9bb69c2af087ea1d104d2a440645a4f409908fa987aef0750a6273d4297",
     "config/GMFE69/fader_color.json": "04b9cd494bd4be9c60d0d816d832a217306237f4c69e8eeb5ab9d758c32599b9",
@@ -439,7 +440,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "a9a563c0d4e3f93b5c0b68621990c7f45d09b19c82e4ea7cd7f676bc73dc7469",
+    "config/GMFE69/project.json": "da23634fc15e7f2f63be9abd5f5fe8c1c6ecf462c0daf9e8418c428280929034",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "bd4b85e3a27ac50301d2ad04642bca1abf864b5f74397505530539b31bf4c0d1",
@@ -508,6 +509,7 @@
     "config/GMFE69/sdrv_restore.json": "cbb39cd1f8899fc9a6ccdf2d982d751c011d1e89a4941c305514c5d4460a30ac",
     "config/GMFE69/sdrv_timemult.json": "f5a869e1618a7a0599bf6cb445657085994dd1838a585e3c537aff6de73792b7",
     "config/GMFE69/sdspmix.json": "4b6ea6f75b8bcbf98246ed2495d6179e165cc32bc0fd1ddb13ce99b0e755de69",
+    "config/GMFE69/sdspmix_vol.json": "cd8ce38b44ea6802d34ce708f88cfd919da24784e5a667003095da4aab25351b",
     "config/GMFE69/seffect.json": "1f2e675cdc34dcfe499834a7adf6256a18d28d06f23e058f49a77fa789234528",
     "config/GMFE69/serpoll.json": "faaac3f7ba5c4c9dd3ae24cedf33edd4c3e11a903a07b7e45f9a6c29abd5ba7b",
     "config/GMFE69/sexithndl.json": "6c5ce5b1a58d2ddb2c89bc93ff456205622350a9281cc71a3231093184cedeff",
@@ -549,6 +551,8 @@
     "config/GMFE69/smemman_free.json": "9d1970b7571223294042123a4c80c199b802ca1900dddcdbe11cc2ee124727ce",
     "config/GMFE69/smixc.json": "02df5e7acacf931ac3a7d7e050a3362b8bb65dabdaf1fcebe5bbea843ba2b101",
     "config/GMFE69/smixer.json": "2ff9d9a8c952ddc00ce6c9de4df2ab0090ae102c9a5b040edcbc642f0cd59922",
+    "config/GMFE69/smixer_dry.json": "08fb2043e1a9bc4a1dd232a98b76b0cbfe91a47dab00386a183028478ed19d6c",
+    "config/GMFE69/smixer_reset.json": "58c23a15b2de4fe8c811d7c48458987d9edc48707f992093db3ca0ba98a0d67f",
     "config/GMFE69/smixfram.json": "d51872b43a7c17cc24a25006ba590aa09cb544d5c2c3cf82734f9da270731eb7",
     "config/GMFE69/smixfx.json": "5c0cd28c1b30f61605379c29c03cd20fdfefaead06442c015f44c047c2531b0b",
     "config/GMFE69/smixhip.json": "4a68e74acc78bdfaacebfbe6adad36c62e7fd215878203935887f97448739d71",
@@ -573,7 +577,7 @@
     "config/GMFE69/spitch.json": "cb62e278b14f38415e8e5c27bbf52bcb5b5b0ac7ab471e9b1f556e22165a42ff",
     "config/GMFE69/spkt_tail.json": "09a61ff089beb5f06d9d0915c33abd8b88b2060d11ffddbfba679d0e1fe4da2a",
     "config/GMFE69/spktctoh.json": "32d07778d065bdc4f91fa7df1767303ac49ef857665a89458d479dc436b49e8e",
-    "config/GMFE69/spktplay.json": "45b55139a484b930a3aa11919d892bd54910f394d38f43eeb03266bd631e60c4",
+    "config/GMFE69/spktplay.json": "e3031d7fd2e6d5b807dad340cd7e7036ccf5f939c9ee55219901d340525a540e",
     "config/GMFE69/splysdef.json": "1638d2f55f48444894a7ccfb52aff3a616b52b1a6e9df0c16050153b8210b5d2",
     "config/GMFE69/spoutlat.json": "4553cd58f368d1b6f94792e9bfc0e27722cb316ad252e27044d73174905b56bb",
     "config/GMFE69/sprite.json": "0933ea1071f921fad8ffcf3344607706a17b49a286504c8b6cea232463983d07",
@@ -1447,6 +1451,7 @@
     "src/ea/cpudetect.cpp": "82ad74ceba8d5dcd8eda8284a31e54ca3a660ce35f0909967bfb80204e8081e7",
     "src/ea/debugger.cpp": "b0711b163c768b8390ea6365a85df7956af716b54562db26832d845fcf84421b",
     "src/ea/eaxadecf.cpp": "0f0479301f8ee5e4c8dd76563e3baae9003cbc9503e21289a559dd3161583ccf",
+    "src/ea/eaxadecf_state.cpp": "73c049a051a480e5d30db9b87346e7034eb13e3fdcea47e77a64e5a0cb51728e",
     "src/ea/exit.cpp": "74497f5488a200cd082a1769249e659f5cd17b94ee5c7e6b2b4f3b240c9f1923",
     "src/ea/filedev.cpp": "cb36b6354374cee49383e978a2f329ab48bddca0107bf61a0453c99ecec7735d",
     "src/ea/filedev_head.cpp": "3851c87514f333f4254a3affa8b86f1dbe4b845c98598af3373027bd962ffa3f",
@@ -1532,6 +1537,7 @@
     "src/ea/sdrv_restore.cpp": "5345d3d0f4f713ac0bde0e83211ba68536fb21bf42533fd95f541c37eba5a4ce",
     "src/ea/sdrv_timemult.cpp": "b3941da0c7dc46c19a2beefbaa044f3d8d0da47522426ddd0dfbe5ce9eb17ae8",
     "src/ea/sdspmix.c": "f3f163faad33f649346ac0465f922f12142b3153ac1623ddbee56c9feb8aef2e",
+    "src/ea/sdspmix_vol.c": "40deff583f950a67e69e904c2aa0805a222980e1eb7ffa08e6af95a6cc38ae0a",
     "src/ea/seffect.c": "6470b7ac2e0167459da612e29801943ce71964f2f306dfcdbe4697ff88bb99f7",
     "src/ea/sexithndl.c": "b5dc86e69a579d07c16f0ef7558d5928fb5c5271c2748f3833c203e624a60019",
     "src/ea/sfamplf.c": "b5e0e1378b6b933600349577efcd46e525d10547f4a340f22efb78ac6441dde6",
@@ -1569,6 +1575,8 @@
     "src/ea/smemman_free.c": "549f4906315d73f1bef30401bdac0031dbd68022ad3f11626e0a2a2e6aaf309f",
     "src/ea/smixc.c": "d72ae89323bd6d4b639820f99931a5b3e179e87bad9466dd45091ab22f60f90d",
     "src/ea/smixer.c": "42f20d586014ed92c3f870b261de87733f26d111fdf95ebe384c1da426216d28",
+    "src/ea/smixer_dry.c": "3f9c2be825d4e024a1ac72bf67ce11121e2a63fb6969230dac903d17911ce285",
+    "src/ea/smixer_reset.c": "8061f975db5e5e97f5aeec01fde18019bc8797a92f96b7e6a9d607d82ac80655",
     "src/ea/smixfram.c": "f9b2f944adf9a8e1e4cfc3dd30ce49ba917154599824ac5c528febb47dff988a",
     "src/ea/smixfx.c": "c1520eb4498f4529f1ee66a4bb3a2f70f129c04f2e0a8bd395ddb913d2d45f37",
     "src/ea/smixhip.c": "9c4a7a18f876ffc3e83e6a7c36d95de022bcc5ad2e1324cf0d1981305d2d9a0c",
@@ -1585,7 +1593,7 @@
     "src/ea/spitch.c": "9880d05515ac794b22e9801c80b806d0eaac31f46401279ea9dc837c22a9cac0",
     "src/ea/spkt_tail.cpp": "87c0889a97c01eb03ea6c5f1ef5293f544f8dfeb7bff8cd1791cb5607f10031d",
     "src/ea/spktctoh.c": "5c25e3007e80c474014cc2bb2237e8372a1c5ba7f43cf83b926cd39d91d4b51b",
-    "src/ea/spktplay.c": "48d15ed02f2a4c9a4f389daf268bec5b542afa5784d0a3dad2020f4c6f33520b",
+    "src/ea/spktplay.c": "5bebcd30f37701116b896c740679bd2abd20aea8ebee722b45d8d88084a920f1",
     "src/ea/splysdef.c": "a9c0c6934ca3223c106baf17159de83aaa7db16687efecd10df82ded2b1d5a28",
     "src/ea/spoutlat.c": "a1d7da3e55226f65c8871111fb1c3c281232dcaefa174cf0551e91a99e313408",
     "src/ea/srandom.c": "e751340e45d9620e14ad2823eb0e0b70cbcd88fcff49af8df2446129115c8c87",
@@ -15724,8 +15732,8 @@
     {
       "id": "spktplay",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 268,
+      "functions": 2,
+      "code_bytes": 324,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -15757,8 +15765,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "c0413a8416a10b642cc8c977ffb3ce027a53522be709bdd02c31738120bb1d38",
-      "linked_sha256": "b2d039b56b307f8bea671b3c940d7bb1d50ea9eb8bc3d502f0654f50d54e6d70"
+      "object_sha256": "a34c5ce417f80daf40170570aeccc9594bd0e51ad6a5f11b4852cfdc56142d7f",
+      "linked_sha256": "d8516515161b148f484bad5d0dea37eb7a77e399428900bebec77493f4760d4f"
     },
     {
       "id": "salloc",
@@ -29966,6 +29974,162 @@
       "discarded_functions": [],
       "object_sha256": "6409648f2550b43f4ca6be71c482dd1eaa775dabfc4e1fdf3ee3fa1b56d904b9",
       "linked_sha256": "eed459c023946d8588ba5e9a4e69baffe5b3220f0d676271d126986b937946a4"
+    },
+    {
+      "id": "sdspmix_vol",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 72,
+      "compiler_family": "GC",
+      "compiler_version": "1.3",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "04106eb7f2a52ce172f876344dd57969d52570b8cd47110ab5cb37fb8d46d367",
+      "linked_sha256": "14f94a30e4e1470584e19d30c4dde308ed0f974ca9006c591114ce0f1921340b"
+    },
+    {
+      "id": "eaxadecf_state",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 56,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "37700aab092b4887e95f0e31eb4ee8dce281c8f3062893b5f94eb8f8c8de3c04",
+      "linked_sha256": "3bc5bc10dad649238066009decc413c45778782b4e10a288ac067d3231754e15"
+    },
+    {
+      "id": "smixer_reset",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 44,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "5f4be302ed0cf5b2fdd3c2f5421a15ddfa49e3606ef8e0426150cec4aed60602",
+      "linked_sha256": "f04784e12a379dd4d8c4bd67d9ca1102f1f0c8e9ad99dce9fd1aac572e835f50"
+    },
+    {
+      "id": "smixer_dry",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 52,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "70fa723d5b2fe139a811f03b5e72d8ce100a10d6fb1ad93c9d0d556c38dc46da",
+      "linked_sha256": "6e3e59bd04780e5ec4570b78856ad9cece66c6fd304347b731fc0510604ec15f"
     }
   ],
   "code_map": {
@@ -46719,18 +46883,6 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 8015a6d8",
-        "ranges": [
-          {
-            "address": "0x8015a6d8",
-            "size": 56,
-            "kind": "function",
-            "name": "SNDPKTPLAY_overhead",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/spktplay.c [symbol evidence]",
         "file_record": 445,
         "file_name": "spktplay.c",
@@ -46941,13 +47093,6 @@
             "evidence": "between-same-file"
           },
           {
-            "address": "0x80160590",
-            "size": 44,
-            "kind": "function",
-            "name": "MIX_reset",
-            "evidence": "between-same-file"
-          },
-          {
             "address": "0x801605bc",
             "size": 580,
             "kind": "function",
@@ -46959,20 +47104,13 @@
             "size": 92,
             "kind": "function",
             "name": "MIX_play",
-            "evidence": "private-reference"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x8016085c",
             "size": 204,
             "kind": "function",
             "name": "MIX_stop",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80160928",
-            "size": 52,
-            "kind": "function",
-            "name": "SNDMIX_setdrygain",
             "evidence": "between-same-file"
           },
           {
@@ -47313,7 +47451,7 @@
         ]
       },
       {
-        "name": "Unmatched files/eaxadecf.cpp [inferred file group]",
+        "name": "Unmatched files/eaxadecf.cpp [symbol evidence]",
         "file_record": 551,
         "file_name": "eaxadecf.cpp",
         "ranges": [
@@ -47322,21 +47460,7 @@
             "size": 1088,
             "kind": "function",
             "name": "Decode__Q23SND12CEAXABLKDecfFPPfi",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80168ea0",
-            "size": 36,
-            "kind": "function",
-            "name": "GetState__Q23SND12CEAXABLKDecfFv",
-            "evidence": "same-class (inferred)"
-          },
-          {
-            "address": "0x80168ec4",
-            "size": 20,
-            "kind": "function",
-            "name": "SetState__Q23SND12CEAXABLKDecfFPQ23SND8XAFSTATE",
-            "evidence": "same-class (inferred)"
+            "evidence": "between-same-file"
           }
         ]
       },
@@ -47467,28 +47591,14 @@
             "size": 264,
             "kind": "function",
             "name": "SNDDRV_DSPMixerInit__Fi",
-            "evidence": "private-reference"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x8016d1d8",
             "size": 272,
             "kind": "function",
             "name": "SNDDRV_DSPMixerInitChannel__FP6_AXVPBUliUsUs",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8016d2e8",
-            "size": 28,
-            "kind": "function",
-            "name": "SNDDRV_DSPMixerReleaseChannel__FP6_AXVPB",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x8016d304",
-            "size": 44,
-            "kind": "function",
-            "name": "SNDDRV_DSPMixerSetVol__FP6_AXVPBi",
-            "evidence": "private-reference"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x8016d330",
