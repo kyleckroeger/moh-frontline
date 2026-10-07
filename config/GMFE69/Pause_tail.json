@@ -1,7 +1,7 @@
 {
   "id": "Pause_tail",
   "source": "src/game/Pause_tail.cpp",
-  "category": "restored_library",
+  "category": "reconstructed_game",
   "compiler_family": "GC",
   "compiler_version": "1.3.2",
   "compiler_flags": [
