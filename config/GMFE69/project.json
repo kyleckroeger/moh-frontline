@@ -617,7 +617,8 @@
     "cdbgeom_fiber.json",
     "AISplinePath_segment.json",
     "bsmessage_group.json",
-    "bulletfactory_sprites.json"
+    "bulletfactory_sprites.json",
+    "matrix_endian.json"
   ],
   "progress": {
     "code_bytes": 1414572,
