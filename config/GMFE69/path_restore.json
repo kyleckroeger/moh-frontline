@@ -1,0 +1,71 @@
+{
+  "id": "path_restore",
+  "source": "src/ea/path_restore.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8010ed14",
+      "size": 316,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "PATHI_eventrestore__Fs",
+      "address": "0x8010ed14",
+      "size": 316,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "PATHI_enternode__Fiii": "0x8010f748",
+    "PATHI_queuenode__FP9PATHTRACKUi": "0x8010e54c",
+    "PATHX_volume": "0x800e8940",
+    "pfstate": "0x8034ef68"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "pfstate"
+  ],
+  "original_file": "path.c",
+  "original_file_index": 10551
+}
