@@ -593,7 +593,6 @@
     "bsbifunc_prompt.json",
     "bsbifunc_appendprompt.json",
     "bsbifunc_asweapon.json",
-    "bsbifunc_staticcollision.json",
     "recon.json",
     "motion.json",
     "getvlc.json",

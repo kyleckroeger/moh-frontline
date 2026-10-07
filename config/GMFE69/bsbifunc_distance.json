@@ -40,19 +40,25 @@
     {
       "name": ".text",
       "address": "0x8002e874",
-      "size": 544,
+      "size": 2028,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009e2c",
-      "size": 24,
+      "size": 40,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80010b08",
-      "size": 36,
+      "size": 60,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80182a60",
+      "size": 96,
       "type": 1
     }
   ],
@@ -64,9 +70,21 @@
       "binding": 1
     },
     {
+      "name": "BIFunc_CreateChildFallingObject__FPPiPv",
+      "address": "0x8002ea94",
+      "size": 580,
+      "binding": 1
+    },
+    {
       "name": "BIFunc_DestroyThrownObject__FPPiPv",
       "address": "0x8002e9c8",
       "size": 132,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_CreateChildThrownObject__FPPiPv",
+      "address": "0x8002ece0",
+      "size": 896,
       "binding": 1
     },
     {
@@ -74,15 +92,27 @@
       "address": "0x8002e874",
       "size": 340,
       "binding": 1
+    },
+    {
+      "name": "SetCollisionId__13CStaticObjectF7EClsnId",
+      "address": "0x8002ecd8",
+      "size": 8,
+      "binding": 2
     }
   ],
   "externals": {
     "BSObjectTriggerEvent__FP8BSObjectUsPvP8BSObjectb": "0x8003a46c",
+    "CreateSpecialThrownObject__FP20TriggerObject_structii": "0x8003ebb4",
+    "GetMatrix__11CQuaternionCFR7CMatrix": "0x80091c9c",
+    "InitClass__7CMatrixFv": "0x80090b78",
     "Register__10BSScheduleFP8BSObjectUsbiii": "0x8003ab5c",
+    "SetPos__7CMatrixF8CVector3": "0x80090728",
+    "SetVelocity__13CThrownObjectFR8CVector3": "0x800b4db4",
     "g_DistanceToTargetSchedule": "0x8019747c",
     "g_iCurrentBIFIndex": "0x8034e77c",
     "g_pBSObject": "0x8034e7e0",
-    "g_pBuiltInFunctions": "0x8034e778"
+    "g_pBuiltInFunctions": "0x8034e778",
+    "s_ClassInit__7CMatrix": "0x8034eab0"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -94,8 +124,38 @@
   "sda_externals": [
     "g_iCurrentBIFIndex",
     "g_pBSObject",
-    "g_pBuiltInFunctions"
+    "g_pBuiltInFunctions",
+    "s_ClassInit__7CMatrix"
   ],
   "original_file": "bsbifunc.cpp",
-  "original_file_index": 443
+  "original_file_index": 443,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034f620"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x8034f640"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 8,
+      "address": "0x8034f628"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 16,
+      "size": 8,
+      "address": "0x8034f630"
+    }
+  ]
 }

@@ -3,24 +3,75 @@
 // object has a target (a stored target position or a target object; the near
 // and far distances squared), otherwise trigger script event 69, returning the
 // registration (0 when none); destroy a thrown object (MarkForDestruction(2));
-// and drop a falling object (a flag of the thrown object, without popping
-// arguments). Each reads its arguments below the script stack top. The file
-// name is this project's; the original record is bsbifunc.cpp and the built-ins
-// around these are not reconstructed. The functions, classes and globals are
+// drop a falling object (a flag of the thrown object, without popping
+// arguments); and create a child falling object and a child thrown object (a
+// special thrown object for the script's trigger, placed at the calling node's
+// transform or else at the trigger's position and rotation; the falling object
+// gets the drop flag clear and zero velocity, the thrown one the normalized
+// direction argument scaled by the speed argument; then a first update and a
+// collision id chosen by the type argument). Between those two is the weak
+// CStaticObject::SetCollisionId (the id at +476), emitted after its first use.
+// Each reads its arguments below the script stack top. The file name is this
+// project's; the original record is bsbifunc.cpp and the built-ins around
+// these are not reconstructed. The functions, classes and globals are
 // named by the mangled symbols; ISceneNode is declared with its virtual
 // functions in the order of __vt__10ISceneNode (GetAIDoodad at +204),
 // IMovingSceneNode's and CStaticObject's after them in the order of
 // __vt__13CStaticObject (AsThrownObject at +320), CAIFilterObject's in the
 // order of its table; the doodad, filter, AI object, schedule (BSSchedule's
-// size is not known), thrown-object and built-in record views and the helpers
-// are inferred.
+// size is not known), thrown-object, trigger, script-object and built-in
+// record views, the helpers, CVector3's inline Normalize and scaling (sqrtf
+// is the SDK's inline) and the collision-id table's meaning are inferred.
+#include <math.h>
+
 class CVector3 {
 public:
+    CVector3(float ax, float ay, float az) : x(ax), y(ay), z(az) {}
+    float Length() const { return sqrtf(x * x + y * y + z * z); }
+    void Normalize() {
+        float length = Length();
+        if (length != 0.0f) {
+            float scale = 1.0f / length;
+            x *= scale;
+            y *= scale;
+            z *= scale;
+        }
+    }
+    CVector3& operator*=(float scale) {
+        x *= scale;
+        y *= scale;
+        z *= scale;
+        return *this;
+    }
+
     float x;
     float y;
     float z;
     float w;
 } __attribute__((aligned(8)));
+
+class CMatrix {
+public:
+    CMatrix() {
+        if (!s_ClassInit)
+            InitClass();
+    }
+    static void InitClass();
+    void SetPos(CVector3);
+
+    float m[4][4];
+    static bool s_ClassInit;
+} __attribute__((aligned(16)));
+
+class CQuaternion {
+public:
+    void GetMatrix(CMatrix&) const;
+
+    float x;
+    float y;
+    float z;
+    float w;
+};
 
 enum EClsnId {};
 class CCollision;
@@ -101,7 +152,26 @@ public:
     virtual void SetTMLocalToWorld(const CMatrix&);
 };
 
-class BSObject;
+struct TriggerCoreView {
+    unsigned char unknown00[16];
+    float x;
+    float y;
+    float z;
+    CQuaternion rotation;
+    unsigned char unknown2c[28];
+    int crc;
+};
+
+struct TriggerObject_struct {
+    unsigned char unknown00[4];
+    TriggerCoreView* core;
+};
+
+class BSObject {
+public:
+    unsigned char unknown00[8];
+    TriggerObject_struct* trigger;
+};
 class BPDLightVolume;
 enum EBSEventEnum {};
 
@@ -132,10 +202,16 @@ public:
     virtual CThrownObject* AsThrownObject();
     virtual void* AsWeaponObject();
     virtual void* AsHierTankObject();
+    virtual void SetCollisionId(EClsnId);
+
+    unsigned char unknown004[472];
+    EClsnId m_collisionId;
 };
 
-class CThrownObject : public ISceneNode {
+class CThrownObject : public IMovingSceneNode {
 public:
+    void SetVelocity(CVector3&);
+
     unsigned char unknown004[756];
     int m_drop;
 };
@@ -184,6 +260,8 @@ extern BSSchedule g_CorpseSearchSchedule;
 extern BSSchedule g_TargetSearchSchedule;
 extern BSSchedule g_DistanceToTargetSchedule;
 extern BSObject* g_pBSObject;
+
+CThrownObject* CreateSpecialThrownObject(TriggerObject_struct*, int, int);
 
 void BSObjectTriggerEvent(BSObject*, unsigned short, void*, BSObject*, bool);
 
@@ -236,4 +314,141 @@ void BIFunc_DestroyThrownObject(int** stack, void* object) {
 void BIFunc_DropFallingObject(int**, void* object) {
     CThrownObject* thrown = ((ISceneNode*)object)->AsStaticObject()->AsThrownObject();
     thrown->m_drop = 1;
+}
+
+void BIFunc_CreateChildFallingObject(int** stack, void* object) {
+    CThrownObject* thrown;
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    int type = *(*stack - (count - 2));
+    thrown = CreateSpecialThrownObject(g_pBSObject->trigger, g_pBSObject->trigger->core->crc, *(*stack - (count - 1)));
+    CMatrix matrix;
+    if (object) {
+        ((ISceneNode*)object)->GetTMLocalToWorld(matrix);
+        thrown->SetTMLocalToWorld(matrix);
+    } else {
+        TriggerCoreView* core = g_pBSObject->trigger->core;
+        CVector3 position(core->x, core->y, core->z);
+        core->rotation.GetMatrix(matrix);
+        matrix.SetPos(position);
+        thrown->SetTMLocalToWorld(matrix);
+    }
+    thrown->m_drop = 0;
+    CVector3 velocity(0.0f, 0.0f, 0.0f);
+    thrown->SetVelocity(velocity);
+    thrown->BeginUpdate(1.0f);
+    int id;
+    int none = id = -1;
+    switch (type) {
+    case 0:
+        id = 0;
+        break;
+    case 1:
+        id = none;
+        break;
+    case 2:
+        id = 15;
+        break;
+    case 3:
+        id = 17;
+        break;
+    case 4:
+        id = 16;
+        break;
+    case 5:
+        id = 19;
+        break;
+    case 6:
+        id = 18;
+        break;
+    case 7:
+        id = 20;
+        break;
+    case 8:
+        id = 24;
+        break;
+    case 9:
+        id = 26;
+        break;
+    case 10:
+        id = 27;
+        break;
+    case 11:
+        id = 1;
+        break;
+    }
+    thrown->SetCollisionId((EClsnId)id);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+__declspec(weak) void CStaticObject::SetCollisionId(EClsnId id) {
+    m_collisionId = id;
+}
+
+void BIFunc_CreateChildThrownObject(int** stack, void* object) {
+    CThrownObject* thrown;
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    float speed = *(float*)(*stack - (count - 2));
+    float dx = *(float*)(*stack - (count - 3));
+    float dy = *(float*)(*stack - (count - 4));
+    float dz = *(float*)(*stack - (count - 5));
+    int type = *(*stack - (count - 6));
+    thrown = CreateSpecialThrownObject(g_pBSObject->trigger, g_pBSObject->trigger->core->crc, *(*stack - (count - 1)));
+    CMatrix matrix;
+    if (object) {
+        ((ISceneNode*)object)->GetTMLocalToWorld(matrix);
+        thrown->SetTMLocalToWorld(matrix);
+    } else {
+        TriggerCoreView* core = g_pBSObject->trigger->core;
+        CVector3 position(core->x, core->y, core->z);
+        core->rotation.GetMatrix(matrix);
+        matrix.SetPos(position);
+        thrown->SetTMLocalToWorld(matrix);
+    }
+    CVector3 velocity(dx, dy, dz);
+    velocity.Normalize();
+    velocity *= speed;
+    thrown->SetVelocity(velocity);
+    thrown->BeginUpdate(1.0f);
+    int id;
+    int none = id = -1;
+    switch (type) {
+    case 0:
+        id = 0;
+        break;
+    case 1:
+        id = none;
+        break;
+    case 2:
+        id = 15;
+        break;
+    case 3:
+        id = 17;
+        break;
+    case 4:
+        id = 16;
+        break;
+    case 5:
+        id = 19;
+        break;
+    case 6:
+        id = 18;
+        break;
+    case 7:
+        id = 20;
+        break;
+    case 8:
+        id = 24;
+        break;
+    case 9:
+        id = 26;
+        break;
+    case 10:
+        id = 27;
+        break;
+    case 11:
+        id = 1;
+        break;
+    }
+    thrown->SetCollisionId((EClsnId)id);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
 }
