@@ -599,7 +599,6 @@
     "bsbifunc_appendprompt.json",
     "bsbifunc_asweapon.json",
     "bsbifunc_staticcollision.json",
-    "bsbifunc_animscript.json",
     "recon.json",
     "motion.json",
     "getvlc.json",
@@ -790,7 +789,8 @@
     "PathNodeList_hashmap.json",
     "scene_vecconst_dtor.json",
     "player_sqrtf.json",
-    "ShellMenu_messages.json"
+    "ShellMenu_messages.json",
+    "bsbifunc_anim.json"
   ],
   "progress": {
     "code_bytes": 1414572,
