@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 411484,
+    "matching_code_bytes": 413316,
     "total_executable_code_bytes": 1414572,
-    "percent": 29.088939976190677,
+    "percent": 29.218449113936938,
     "categories": {
       "reconstructed_game": 135236,
-      "restored_library": 276248
+      "restored_library": 278080
     },
-    "matching_functions": 2539
+    "matching_functions": 2546
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -427,7 +427,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "7e98c09a7247183095c88d894c6c8d87926fff7a065be934317b569bcfe8a6d6",
+    "config/GMFE69/project.json": "e80004b3bb543e5db241ba39946fd3609ccec556b6b0dfba670bb72afa15ca02",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -530,6 +530,8 @@
     "config/GMFE69/smixptch.json": "3ee346a2468c72ab7527f27bcf6828417178cbb8b0f2d6e04fbe0403fd87e159",
     "config/GMFE69/smixtmul.json": "37f93dd19460569e21edd1a0a60fc37651d392a42d8313b9ac31b49488492459",
     "config/GMFE69/snddrv.json": "14cb6c44e004930954fc8f3efa1497d5c6f5e6f1eb4dd3f839cb6ccfa569d194",
+    "config/GMFE69/snddrv_frame.json": "b48b89fb88219b12aaefb3afa03dbcf53e0a0403ce8e1b092822cc888a3f33b3",
+    "config/GMFE69/snddrv_voice.json": "0a4f80caddc23992e6d3cb288a55813e918129a1de767ad4dde1a76930115c34",
     "config/GMFE69/sound.json": "d74b722d4e85fbb126fd03a4f58be228d5cb31fbc8a7baed7337cefc70b15328",
     "config/GMFE69/sound_endian.json": "aece3dd995cbdf57f8084e640a2d0a6a6eaa75d165d5ce47cf388cb5f4a6dffd",
     "config/GMFE69/sound_music.json": "608d7485123101aea968657f352dac78cda55300ff2d6533766c56b8ee1fbbfa",
@@ -1520,6 +1522,8 @@
     "src/ea/smixptch.c": "47a348d834dba9fe0175a712c545385b61ba841ff47a27dc7fb70381cc7723fb",
     "src/ea/smixtmul.c": "904c72fe015bac10ded57e46ac9f7fc9a4acb0218e25e3cbe4091b750336d11f",
     "src/ea/snddrv.c": "b2c7317eaf9685685540cc3440acdf95584674f76562a36e0b043c7375149280",
+    "src/ea/snddrv_frame.c": "57f5896d88ee107f33fa9c6f427319a37092cf55224205ec6c37bd6c493baf38",
+    "src/ea/snddrv_voice.c": "19c231e913635debafde6b32f0c9cb462f8397737c6b54d341f6f8d539c7925d",
     "src/ea/sover.c": "195a5eb257fd99eb0337c24b3f263591fc147eb5c4d343a039faaf66c2cbd950",
     "src/ea/spantoaz.c": "e31c00ca71938e75d62f7465384c809d31a6bd0daa4b46f9d2576df1cbe2775c",
     "src/ea/spatkey.c": "b4dbcbbf95c33db80e3442f28f6846a8e054ab762c3c73d2b45fca7e51d055f9",
@@ -28353,6 +28357,84 @@
       "discarded_functions": [],
       "object_sha256": "28c5bdfcebc419579a67adcabc19dd4948fc141b8eb506e01b7ea57fb0e559b0",
       "linked_sha256": "669162e5f132e332eef3314ba1276ae61bfc24a102603883ad5fa92d000621aa"
+    },
+    {
+      "id": "snddrv_frame",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 208,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "c4460e1052f3ab5b5f57b69ab7d7d164838d9e32998aafcb54629f6d7c9eab6a",
+      "linked_sha256": "a24eff57d5af141b77350d35b91a79355443c1f7cb44ca400aee7099601ca887"
+    },
+    {
+      "id": "snddrv_voice",
+      "category": "restored_library",
+      "functions": 5,
+      "code_bytes": 1624,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "ccfb7f9c02fc2ac85a5fe92682c6ebf3b2c7d1ce4117fa6a6a6ee8f68ebfb417",
+      "linked_sha256": "6cb1bba0c772b5d77ec2e6d539db54ad5db3709b3f4216bb112385f772eabfe9"
     }
   ],
   "code_map": {
@@ -46817,69 +46899,15 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 80168ed8",
-        "ranges": [
-          {
-            "address": "0x80168ed8",
-            "size": 160,
-            "kind": "function",
-            "name": "SNDDRV_freenextframe__Fv",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80168f78",
-            "size": 48,
-            "kind": "function",
-            "name": "SNDDRV_mixvoicefree__Fi",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80168fa8",
-            "size": 220,
-            "kind": "function",
-            "name": "SNDDRV_callbackdropvoice__FPv",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80169084",
-            "size": 460,
-            "kind": "function",
-            "name": "SNDDRV_allocateaxvoice__Fi",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80169250",
-            "size": 308,
-            "kind": "function",
-            "name": "SNDDRV_freeaxvoice__Fii",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80169384",
-            "size": 100,
-            "kind": "function",
-            "name": "SNDDRV_dmcallback__FUl",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/snddrv.c [symbol evidence]",
         "file_record": 552,
         "file_name": "snddrv.c",
         "ranges": [
           {
-            "address": "0x801693e8",
-            "size": 516,
+            "address": "0x80168fa8",
+            "size": 220,
             "kind": "function",
-            "name": "SNDDRV_audiocallback__FPvPv",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x801695ec",
-            "size": 240,
-            "kind": "function",
-            "name": "SNDDRV_initmixer__Fv",
+            "name": "SNDDRV_callbackdropvoice__FPv",
             "evidence": "between-same-file"
           },
           {
