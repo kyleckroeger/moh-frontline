@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8015577c",
-      "size": 2480,
+      "size": 3900,
       "type": 1
     }
   ],
@@ -162,12 +162,36 @@
       "address": "0x8015577c",
       "size": 44,
       "binding": 1
+    },
+    {
+      "name": "SNDAEMSI_destroyinstance__FP6MODULEi",
+      "address": "0x80156508",
+      "size": 432,
+      "binding": 1
+    },
+    {
+      "name": "SNDAEMSI_createinstance__FP10MODULEBANKP6MODULEi",
+      "address": "0x8015612c",
+      "size": 988,
+      "binding": 1
     }
   ],
   "externals": {
-    "SNDAEMSI_destroyinstance__FP6MODULEi": "0x80156508",
+    "SNDAEMSI_reordermodule2__FP6MODULEP14MODULEINSTANCE": "0x80156ca0",
+    "SNDAEMSI_reordermodule__FP6MODULEP14MODULEINSTANCE": "0x801566b8",
+    "SNDAEMSI_streamupdatestatus__FP21AEMSCOMPDYNAMICPLAYER": "0x80157b78",
     "SNDAEMS_beginevent": "0x8034e66c",
+    "SNDMEMI_allocz__Fi": "0x80158d64",
+    "SNDMEMI_free__FPv": "0x80158ff0",
+    "SNDSTRM_purge": "0x8015c028",
+    "SNDstop": "0x8015d148",
     "__div2i": "0x80138b60",
+    "_restgpr_24": "0x80138a50",
+    "_restgpr_25": "0x80138a54",
+    "_savegpr_24": "0x80138a04",
+    "_savegpr_25": "0x80138a08",
+    "aemscompinfo": "0x801933e0",
+    "memset": "0x80009410",
     "sndaems": "0x80340410"
   },
   "undefined_in_discarded_code": [],
