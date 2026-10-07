@@ -39,24 +39,36 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8001fbb0",
-      "size": 208,
+      "address": "0x8001f9f8",
+      "size": 648,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x800099ac",
-      "size": 8,
+      "address": "0x8000999c",
+      "size": 24,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80010478",
-      "size": 12,
+      "address": "0x80010460",
+      "size": 36,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "BIFunc_EjectHelmet__FPPiPv",
+      "address": "0x8001f9f8",
+      "size": 164,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_GetNoiseInfo__FPPiPv",
+      "address": "0x8001fa9c",
+      "size": 276,
+      "binding": 1
+    },
     {
       "name": "BIFunc_SetMySoundInfoStruct__FPPiPv",
       "address": "0x8001fbb0",
@@ -65,6 +77,8 @@
     }
   ],
   "externals": {
+    "EjectHelmet__14CSoldierObjectFP8CVector3": "0x800aac78",
+    "MathFunGetPanAngleDiffNoRoll__FP8CVector3P8CVector3P8CVector3": "0x80093248",
     "g_iCurrentBIFIndex": "0x8034e77c",
     "g_pBuiltInFunctions": "0x8034e778"
   },
@@ -78,5 +92,16 @@
     "g_pBuiltInFunctions"
   ],
   "original_file": "bsbifunc.cpp",
-  "original_file_index": 443
+  "original_file_index": 443,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034f620"
+    }
+  ]
 }
