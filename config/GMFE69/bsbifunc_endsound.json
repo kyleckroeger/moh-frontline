@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x80029ee0",
-      "size": 136,
+      "size": 340,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009cfc",
-      "size": 8,
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80010940",
-      "size": 12,
+      "size": 24,
       "type": 1
     }
   ],
@@ -62,12 +62,20 @@
       "address": "0x80029ee0",
       "size": 136,
       "binding": 1
+    },
+    {
+      "name": "BIFunc_PlaySound__FPPiPv",
+      "address": "0x80029f68",
+      "size": 204,
+      "binding": 1
     }
   ],
   "externals": {
+    "PlaySoundFromTriggerOrObject__FP20TriggerObject_structP8BSObjectPviiR8CVector3": "0x8002a1d4",
     "RemoveSound__13SoundScheduleFib": "0x8004736c",
     "g_SoundSchedule": "0x8034e784",
     "g_iCurrentBIFIndex": "0x8034e77c",
+    "g_pBSObject": "0x8034e7e0",
     "g_pBuiltInFunctions": "0x8034e778"
   },
   "undefined_in_discarded_code": [],
@@ -78,8 +86,20 @@
   "sda_externals": [
     "g_SoundSchedule",
     "g_iCurrentBIFIndex",
+    "g_pBSObject",
     "g_pBuiltInFunctions"
   ],
   "original_file": "bsbifunc.cpp",
-  "original_file_index": 443
+  "original_file_index": 443,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034f620"
+    }
+  ]
 }
