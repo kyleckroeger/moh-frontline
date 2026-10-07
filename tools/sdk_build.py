@@ -3,6 +3,7 @@ import re
 import struct
 from functools import lru_cache
 
+from data_strip import pool_symbol
 from formats import Elf32
 from setup import ROOT
 
@@ -67,17 +68,24 @@ def sdk_link_script(unit, obj, original, tools, work, execute):
         script.append(f"{name} {base:#x} : {{ input.o({name}) }}")
     # SN's linker has no /DISCARD/. Park sections the original linker
     # dead-stripped outside the image; they never enter the rebuilt context.
-    for index, name in enumerate(unit.get("stripped_sections", [])):
+    # Pooled sections (data_strip.py) are parked the same way.
+    parked = unit.get("stripped_sections", []) + unit.get("pooled_sections", [])
+    for index, name in enumerate(parked):
         script.append(f"{name} {stripped_address(index):#x} : {{ input.o({name}) }}")
     originals = list(original.symbols())
-    for index, (name, address) in enumerate(unit["externals"].items()):
+    # A pooled item links at the original address of its identical bytes.
+    pool = {pool_symbol(r["address"]): r["address"] for r in unit.get("pool_references", [])}
+    for index, (name, address) in enumerate(list(unit["externals"].items()) + sorted(pool.items())):
         if name not in small:
             # Template names such as offsetPtr<v>__FRPvi need quoting in the script.
             symbol = f'"{name}"' if not re.fullmatch(r"[A-Za-z0-9_.$@]+", name) else name
             script.append(f"{symbol} = {address};")
             continue
-        target = resolve_external(original, unit, name)
-        section = original.sections[target["section"]]
+        if name in pool:
+            section = next(s for s in original.sections if s["flags"] & 2 and s["type"] == 1
+                           and s["address"] <= int(address, 16) < s["address"] + s["size"])
+        else:
+            section = original.sections[resolve_external(original, unit, name)["section"]]
         flags = "a" + ("w" if section["flags"] & 1 else "")
         kind = "nobits" if section["type"] == 8 else "progbits"
         anchor = f"anchor{index}"

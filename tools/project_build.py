@@ -12,7 +12,7 @@ from formats import Elf32, verify_load_image
 from tool_runner import run, sha256
 from setup import CONFIG, ROOT, setup
 from setup_compiler import setup_compiler
-from data_strip import DUPLICATE_SUFFIX, c_identifier, strip_objects
+from data_strip import DUPLICATE_SUFFIX, c_identifier, pool_item, pool_symbol, strip_objects
 from sdk_build import compile_sdk, resolve_external, sdk_link_script, stripped_address
 
 
@@ -153,6 +153,7 @@ def validate_units(original, units):
                     or kept[0]["type"] != 2 or kept[0]["binding"] != 2
                     or name in unit["discarded_functions"] or name in unit.get("sda_externals", [])):
                 raise ValueError(f"Weak duplicate lacks one retained original copy: {name}")
+        validate_pool(original, unit)
         local_discards = set(unit.get("discarded_local_functions", []))
         if not local_discards <= set(unit["discarded_functions"]) or (local_discards and not unit.get("original_file")):
             raise ValueError("Discarded local function scope is missing")
@@ -192,6 +193,62 @@ def validate_units(original, units):
     return intervals
 
 
+def parked_sections(unit):
+    """Compiler sections linked outside the image: dead-stripped, then pooled."""
+    return unit.get("stripped_sections", []) + unit.get("pooled_sections", [])
+
+
+def validate_pool(original, unit):
+    """Each pooled item links at an original address in the section of its name."""
+    pooled = unit.get("pooled_sections", [])
+    references = unit.get("pool_references", [])
+    placed = {s["name"] for s in unit["sections"]} | set(unit.get("stripped_sections", []))
+    if (len(set(pooled)) != len(pooled) or set(pooled) & placed or bool(pooled) != bool(references)
+            or any(name in CODE_SECTIONS for name in pooled)):
+        raise ValueError("Pooled sections are not distinct compiler data sections")
+    spans = sorted((r["section"], r["offset"], r["offset"] + r["size"]) for r in references)
+    for a, b in zip(spans, spans[1:]):
+        if a[0] == b[0] and b[1] < a[2]:
+            raise ValueError("Pool references overlap")
+    for reference in references:
+        address, size = int(reference["address"], 16), reference["size"]
+        if (reference["section"] not in pooled or not isinstance(size, int) or size <= 0
+                or not isinstance(reference["offset"], int) or reference["offset"] < 0
+                or reference["address"] != f"{address:#x}"):
+            raise ValueError("Invalid pool reference")
+        if not any(s["name"] == reference["section"] and s["flags"] & 2 and s["type"] == 1
+                   and s["address"] <= address < address + size <= s["address"] + s["size"]
+                   for s in original.sections):
+            raise ValueError("Pool reference is outside the original section")
+        if any(pool_symbol(reference["address"]) == name for name in unit["externals"]):
+            raise ValueError("Pool symbol collides with an external")
+
+
+def check_pool(original, obj, unit):
+    """Compiled pool items equal the original bytes they link to."""
+    by_name = {s["name"]: s for s in obj.sections}
+    relocated = {}
+    for rela in obj.sections:
+        if rela["type"] == 4:
+            for offset in range(0, rela["size"], 12):
+                relocated.setdefault(rela["info"], []).append(struct.unpack_from(">I", obj.contents(rela), offset)[0])
+    for reference in unit.get("pool_references", []):
+        section = by_name.get(reference["section"])
+        if section is None or not section["flags"] & 2 or section["type"] != 1:
+            raise ValueError(f"Pooled compiler section is missing: {reference['section']}")
+        start, size = reference["offset"], reference["size"]
+        if pool_item(obj, section, start) != size:
+            raise ValueError(f"Pool item size differs: {reference['section']}+{start:#x}")
+        if any(start - 3 <= where < start + size for where in relocated.get(section["index"], [])):
+            raise ValueError(f"Pool item has relocations: {reference['section']}+{start:#x}")
+        address = int(reference["address"], 16)
+        target = next(s for s in original.sections if s["name"] == reference["section"] and s["flags"] & 2
+                      and s["address"] <= address < s["address"] + s["size"])
+        offset = address - target["address"]
+        if obj.contents(section)[start:start + size] != original.contents(target)[offset:offset + size]:
+            raise ValueError(f"Pool item differs from the original: {unit['id']} {reference['section']}+{start:#x}")
+
+
 def validate_object(obj, unit):
     if obj.kind != 1:
         raise ValueError("Expected a relocatable compiler object")
@@ -205,8 +262,10 @@ def validate_object(obj, unit):
     # MW's linker also dead-strips data. A compiler section that only discarded
     # code references is declared; verify_unit proves the link removed it.
     stripped = set(unit.get("stripped_sections", []))
+    pooled = set(unit.get("pooled_sections", []))
     kept = {s["name"] for s in unit["sections"]}
-    if (len(output) != len(allocated(obj)) or set(output) != kept | stripped or kept & stripped
+    if (len(output) != len(allocated(obj)) or set(output) != kept | stripped | pooled
+            or kept & stripped or (kept | stripped) & pooled
             or (stripped and not unit["strip_unused"])):
         raise ValueError("Unexpected allocated compiler output")
     code = {output[n]["index"]: output[n] for n in CODE_SECTIONS if n in kept}
@@ -251,8 +310,9 @@ def validate_object(obj, unit):
             if actual["flags"] != 3 or obj_symbol["section"] != actual["index"]:
                 raise ValueError("Native vtable compiler section differs")
     absent = set(unit["undefined_in_discarded_code"])
+    pool_names = {pool_symbol(r["address"]) for r in unit.get("pool_references", [])}
     undefined = {s["name"] for s in symbols if s["binding"] and not s["section"] and s["name"]}
-    if undefined != set(unit["externals"]) | absent:
+    if undefined != set(unit["externals"]) | absent | pool_names:
         raise ValueError("Unexpected compiler dependencies")
     discarded = [s for s in functions if s["name"] in unit["discarded_functions"] or s["name"] in duplicates]
     declared_local = set(unit.get("discarded_local_functions", []))
@@ -273,8 +333,19 @@ def validate_object(obj, unit):
         for offset in range(0, section["size"], 12):
             location, info, _ = struct.unpack_from(">IIi", obj.contents(section), offset)
             symbol = symbols[info >> 8]
-            if info & 255 == 109 and not symbol["section"]:
+            if info & 255 == 109 and not symbol["section"] and symbol["name"] not in pool_names:
                 small_externals.add(symbol["name"])
+            if (obj.sections[symbol["section"]]["name"] in pooled if 0 < symbol["section"] < 0xFF00 else False):
+                # Only references the original link removed may stay with a
+                # pooled section; retained ones use the original item.
+                retained = (not any(f["section"] == section["info"] and f["address"] <= location < f["address"] + f["size"]
+                                    for f in discarded)
+                            if section["info"] in code else
+                            obj.sections[section["info"]]["name"] not in pooled | stripped and (
+                                section["info"] not in trimmed or
+                                trimmed[section["info"]][0] <= location < trimmed[section["info"]][1]))
+                if retained:
+                    raise ValueError("Retained code or data references a pooled item that is not listed")
             if symbol["section"] in trimmed:
                 _, _, addend = struct.unpack_from(">IIi", obj.contents(section), offset)
                 start, end = trimmed[symbol["section"]]
@@ -298,7 +369,7 @@ def verify_unit(original, linked, unit):
     if linked.kind != 2:
         raise ValueError("Expected a linked source executable")
     actual_sections = allocated(linked)
-    stripped = unit.get("stripped_sections", [])
+    stripped = parked_sections(unit)
     parked = sorted((s["name"], s["address"]) for s in actual_sections if s["name"] in stripped)
     if parked != sorted((name, stripped_address(i)) for i, name in enumerate(stripped)):
         raise ValueError("Stripped sections were not parked outside the image")
@@ -322,9 +393,10 @@ def verify_unit(original, linked, unit):
     undefined_symbols = [s for s in linked.symbols() if s["binding"] and not s["section"] and s["name"]]
     # SN drops empty anchor sections but keeps their resolved symbol values.
     # Accept only the reviewed SDA externals, at their pinned original address.
-    anchors = set(unit.get("sda_externals", []))
+    pinned = dict(unit["externals"], **{pool_symbol(r["address"]): r["address"] for r in unit.get("pool_references", [])})
+    anchors = set(unit.get("sda_externals", [])) | {pool_symbol(r["address"]) for r in unit.get("pool_references", [])}
     for symbol in undefined_symbols:
-        if symbol["name"] in anchors and (symbol["address"] != int(unit["externals"][symbol["name"]], 16)
+        if symbol["name"] in anchors and (symbol["address"] != int(pinned[symbol["name"]], 16)
                                            or symbol["size"] != 0 or symbol["type"] != 0):
             raise ValueError("Resolved small-data anchor differs")
     undefined = {s["name"] for s in undefined_symbols} - anchors
@@ -483,6 +555,7 @@ def build_project():
         else:
             raise ValueError("Unsupported compiler family")
         # compiled.o stays the hashed compiler output; input.o is what links.
+        check_pool(original, Elf32((work / "compiled.o").read_bytes()), unit)
         (work / "input.o").write_bytes(strip_objects((work / "compiled.o").read_bytes(), unit))
         obj = Elf32((work / "input.o").read_bytes())
         validate_object(obj, unit)

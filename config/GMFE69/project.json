@@ -788,7 +788,8 @@
     "scene_dtor.json",
     "toilet_hashmap.json",
     "PathNodeList_hashmap.json",
-    "scene_vecconst_dtor.json"
+    "scene_vecconst_dtor.json",
+    "player_sqrtf.json"
   ],
   "progress": {
     "code_bytes": 1414572,

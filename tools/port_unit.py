@@ -13,7 +13,7 @@ import struct
 from pathlib import Path
 
 from audit import load_target
-from data_strip import section_chunks
+from data_strip import pool_item, section_chunks
 from formats import Elf32
 from sdk_build import compile_sdk
 from setup import CONFIG, ROOT
@@ -124,12 +124,26 @@ def text_layout(obj, original, locals_, duplicates=()):
     return layout, discarded
 
 
-def match(obj, original, file_index, duplicates=()):
-    """Return section addresses, external addresses and the stripped text layout."""
+def pool_reference(obj, section, offset, target, pool):
+    """Record the original address of the pool object a retained reference uses."""
+    containing = [s for s in obj.symbols() if s["section"] == section["index"] and s["type"] == 1
+                  and s["size"] and s["address"] <= offset < s["address"] + s["size"]]
+    if len(containing) != 1:
+        raise ValueError(f"Pool reference is not inside one compiler object: {section['name']}+{offset:#x}")
+    start = containing[0]["address"]
+    anchor(pool, (section["name"], start, pool_item(obj, section, start)), target - (offset - start))
+
+
+def match(obj, original, file_index, duplicates=(), pooled=()):
+    """Return section addresses, external addresses and the stripped text layout.
+
+    References into a pooled section are recorded per item in `pool` instead
+    of placing the section.
+    """
     symbols = list(obj.symbols())
     locals_ = original.locals_of(file_index)
     names = {s["index"]: s["name"] for s in obj.sections}
-    addresses, externals = {}, {}
+    addresses, externals, pool = {}, {}, {}
     layout, discarded = text_layout(obj, original, locals_, duplicates)
 
     def position(section, offset):
@@ -143,7 +157,8 @@ def match(obj, original, file_index, duplicates=()):
 
     # Named functions and objects anchor their sections.
     for symbol in symbols:
-        if symbol["section"] and symbol["section"] < 0xFF00 and symbol["type"] in (1, 2) and not symbol["name"].startswith("@"):
+        if (symbol["section"] and symbol["section"] < 0xFF00 and symbol["type"] in (1, 2)
+                and not symbol["name"].startswith("@") and names[symbol["section"]] not in pooled):
             target = find(symbol, original, locals_)
             offset = position(symbol["section"], symbol["address"])
             if target is not None and target["size"] == symbol["size"] and offset is not None:
@@ -169,6 +184,8 @@ def match(obj, original, file_index, duplicates=()):
                     raise ValueError(f"Compiled code refers to {symbol['name']} where the original "
                                      f"refers to {osymbol['name']} (at {base + where:#x})")
                 anchor(externals, symbol["name"], target - addend)
+            elif symbol["section"] < 0xFF00 and names[symbol["section"]] in pooled:
+                pool_reference(obj, obj.sections[symbol["section"]], symbol["address"] + addend, target, pool)
             elif symbol["section"] < 0xFF00:
                 offset = position(symbol["section"], symbol["address"] + addend)
                 if offset is None:
@@ -202,12 +219,13 @@ def match(obj, original, file_index, duplicates=()):
             if base is None or where is None or base + where not in original.relocs:
                 continue
             okind, osymbol, oaddend = original.relocs[base + where]
-            if symbol["section"] and symbol["section"] < 0xFF00 and names[symbol["section"]] not in addresses:
+            if (symbol["section"] and symbol["section"] < 0xFF00 and names[symbol["section"]] not in addresses
+                    and names[symbol["section"]] not in pooled):
                 offset = position(symbol["section"], symbol["address"] + addend)
                 if offset is not None and okind == kind:
                     anchor(addresses, names[symbol["section"]], osymbol["address"] + oaddend - offset)
                     changed = True
-    return addresses, externals, layout, discarded
+    return addresses, externals, layout, discarded, pool
 
 
 def referenced(obj, index, kept, addresses):
@@ -298,7 +316,8 @@ def draft(args):
     compile_sdk(unit, compiler, wrapper, work, lambda stage, *a: run(a, work, work / f"{stage}.log"))
     obj = Elf32((work / "compiled.o").read_bytes())
     try:
-        addresses, externals, layout, discarded = match(obj, original, file_index, set(args.weak_duplicate))
+        addresses, externals, layout, discarded, pool = match(obj, original, file_index, set(args.weak_duplicate),
+                                                             set(args.pool))
         kept = [k for kept_, _ in layout.values() for k in kept_]
     except ValueError:
         compare_functions(obj, original, file_index)
@@ -306,7 +325,7 @@ def draft(args):
     sections, stripped = [], []
     dropped = discarded or args.weak_duplicate
     for section in obj.sections:
-        if not section["flags"] & 2 or not section["size"]:
+        if not section["flags"] & 2 or not section["size"] or section["name"] in args.pool:
             continue
         if section["name"] not in addresses:
             if dropped and not referenced(obj, section["index"], kept, addresses):
@@ -366,6 +385,10 @@ def draft(args):
         unit["stripped_sections"] = stripped
     if args.weak_duplicate:
         unit["weak_duplicates"] = sorted(args.weak_duplicate)
+    if args.pool:
+        unit["pooled_sections"] = args.pool
+        unit["pool_references"] = [{"section": name, "offset": start, "size": size, "address": hex(address)}
+                                   for (name, start, size), address in sorted(pool.items())]
     if args.like and "id" in reference:
         unit["adapted_from"] = {"repository": "https://github.com/lifewillbeokay/moh-rising-sun",
                                 "manifest": Path(args.like).name}
@@ -389,5 +412,7 @@ if __name__ == "__main__":
     parser.add_argument("--category", default="restored_library")
     parser.add_argument("--weak-duplicate", action="append", default=[],
                         help="A weak function this unit compiles whose original copy came from another file")
+    parser.add_argument("--pool", action="append", default=[],
+                        help="A compiler data section whose items link at their original pool addresses")
     parser.add_argument("--upstream-path", help="Path of the source in the upstream repository")
     draft(parser.parse_args())

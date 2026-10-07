@@ -194,6 +194,22 @@ The original was linked by the MW linker, unlike Rising Sun's ProDG link:
   `validate_object` treats the duplicate like a discarded function. The
   duplicate's exception records, between kept ones, are `stripped_objects`.
   `port_unit.py --weak-duplicate NAME` drafts all of this.
+- **Pooled constants and strings.** MW collects a file's `@N` floats, doubles
+  and string literals into shared `.sdata2`, `.rodata` or `.data` pools. A
+  fragment compiles only its own entries, so its pool section cannot sit at one
+  original address. The unit lists such sections in `pooled_sections` and each
+  compiler object that retained code refers to in `pool_references` (compiled
+  section, offset and size, and the original address). `data_strip.py` points
+  every retained reference at a new undefined symbol `__pool_<address>`, which
+  the link script pins there (an `.sdata2` anchor for small-data references),
+  and the compiled section is parked like a stripped one. The build requires
+  each listed object to equal the original bytes at its address and to hold no
+  relocations; a retained reference to an unlisted pooled object fails. Code is
+  still compiled and compared byte for byte, and pool bytes earn no credit.
+  `port_unit.py --pool .sdata2` drafts it from the original relocations. It
+  does not help when code reaches several entries through one pool base plus
+  immediate offsets (`PlayGalleryMovie`'s strings): those offsets need the
+  whole original pool layout.
 - **Relocations in removed bytes.** Relocations located in stripped sections,
   trimmed slices or stripped objects are pointed at their own section before
   linking. Otherwise SN keeps a discarded function alive through dead data, such

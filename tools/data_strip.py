@@ -16,13 +16,22 @@ definition and dropped later ones. The compiled copy is renamed
 symbol of the original name, which the unit resolves to the retained copy;
 SN's unused-code stripping then drops the renamed copy.
 
+A unit may list `pooled_sections`: compiler data sections whose objects the
+original file shares with code outside the unit (a pool of `@N` constants or
+strings), so the unit cannot place the section itself. Each compiler object
+that retained code refers to is listed in `pool_references` with the original
+address of identical bytes. Its references are pointed at a new undefined
+symbol, `__pool_<address>`, which the unit resolves to that address, and the
+compiled section is parked like a stripped one. The build compares every
+listed object with the original bytes; pool bytes earn no credit.
+
 A manifest section may set `input_alignment` to 4 when the original linker
 placed an 8-aligned compiler data section at an address that is 4 mod 8 (MW's
 linker did; SN's would pad the start or the size). Only the section header's
 alignment changes; the bytes are still compared with the original.
 
 The rewrite permutes bytes and keeps the file size (apart from the symbol
-tables a weak duplicate moves); the original compiler
+tables that weak duplicates and pool references move); the original compiler
 output is still what the build report hashes.
 """
 import re
@@ -37,48 +46,120 @@ STB_WEAK, STT_FUNC = 2, 2
 DUPLICATE_SUFFIX = "$duplicate"
 
 
-def redirect_weak_duplicates(data, unit):
-    """Rename each listed weak copy and refer to the original name instead.
+def append_symbols(data, obj, renames, additions):
+    """Rename symbols and append undefined globals; return (data, new indices).
 
     The symbol and string tables are rewritten after the end of the file
-    (section headers record where), so no other offset moves.
+    (section headers record where), so no other offset moves. `renames` maps
+    a symbol index to a new name; `additions` lists (name, type) pairs, where
+    a name may be a string-table offset to reuse.
     """
-    names = unit.get("weak_duplicates", [])
-    if not names:
-        return data
-    obj = Elf32(data)
-    symbols = list(obj.symbols())
     symtab = next(s for s in obj.sections if s["type"] == 2)
     strtab = obj.sections[symtab["link"]]
     table = bytearray(obj.contents(symtab))
     strings = bytearray(obj.contents(strtab))
-    redirect = {}
-    for name in names:
-        found = [i for i, s in enumerate(symbols) if s["name"] == name and s["section"]]
-        if (len(found) != 1 or symbols[found[0]]["binding"] != STB_WEAK
-                or symbols[found[0]]["type"] != STT_FUNC
-                or obj.sections[symbols[found[0]]["section"]]["name"] not in (".text", ".init")):
-            raise ValueError(f"Weak duplicate is not one compiled weak function: {name}")
-        index = found[0]
-        original_name = struct.unpack_from(">I", table, index * 16)[0]
+    for index, name in renames.items():
         struct.pack_into(">I", table, index * 16, len(strings))
-        strings += (name + DUPLICATE_SUFFIX).encode() + b"\0"
-        redirect[index] = len(table) // 16
-        table += struct.pack(">IIIBBH", original_name, 0, 0, 1 << 4 | STT_FUNC, 0, 0)
+        strings += name.encode() + b"\0"
+    indices = []
+    for name, kind in additions:
+        if isinstance(name, str):
+            offset = len(strings)
+            strings += name.encode() + b"\0"
+        else:
+            offset = name
+        indices.append(len(table) // 16)
+        table += struct.pack(">IIIBBH", offset, 0, 0, 1 << 4 | kind, 0, 0)
     out = bytearray(data)
-    for rela in obj.sections:
-        if rela["type"] != 4:
-            continue
-        for entry in range(rela["offset"], rela["offset"] + rela["size"], 12):
-            info = struct.unpack_from(">I", data, entry + 4)[0]
-            if info >> 8 in redirect:
-                struct.pack_into(">I", out, entry + 4, redirect[info >> 8] << 8 | info & 255)
     section_headers = struct.unpack_from(">I", data, 32)[0]
     for section, contents in ((symtab, table), (strtab, strings)):
         out += bytes(-len(out) % 4)
         header = section_headers + section["index"] * SECTION_HEADER_SIZE
         struct.pack_into(">II", out, header + 16, len(out), len(contents))
         out += contents
+    return out, indices
+
+
+def redirect_relocations(data, obj, out, target):
+    """Point relocations at new symbols: target(symbol index, addend) -> (index, addend) or None."""
+    for rela in obj.sections:
+        if rela["type"] != 4:
+            continue
+        for entry in range(rela["offset"], rela["offset"] + rela["size"], 12):
+            _, info, addend = struct.unpack_from(">IIi", data, entry)
+            redirect = target(info >> 8, addend)
+            if redirect is not None:
+                struct.pack_into(">Ii", out, entry + 4, redirect[0] << 8 | info & 255, redirect[1])
+
+
+def redirect_weak_duplicates(data, unit):
+    """Rename each listed weak copy and refer to the original name instead."""
+    names = unit.get("weak_duplicates", [])
+    if not names:
+        return data
+    obj = Elf32(data)
+    symbols = list(obj.symbols())
+    symtab = next(s for s in obj.sections if s["type"] == 2)
+    found = []
+    for name in names:
+        matches = [i for i, s in enumerate(symbols) if s["name"] == name and s["section"]]
+        if (len(matches) != 1 or symbols[matches[0]]["binding"] != STB_WEAK
+                or symbols[matches[0]]["type"] != STT_FUNC
+                or obj.sections[symbols[matches[0]]["section"]]["name"] not in (".text", ".init")):
+            raise ValueError(f"Weak duplicate is not one compiled weak function: {name}")
+        found.append(matches[0])
+    # The new global reuses the original name's string-table offset.
+    original_names = [struct.unpack_from(">I", obj.contents(symtab), i * 16)[0] for i in found]
+    out, added = append_symbols(data, obj, {i: symbols[i]["name"] + DUPLICATE_SUFFIX for i in found},
+                                [(offset, STT_FUNC) for offset in original_names])
+    redirect = dict(zip(found, added))
+    redirect_relocations(data, obj, out, lambda index, addend: (redirect[index], addend) if index in redirect else None)
+    return bytes(out)
+
+
+def pool_symbol(address):
+    """The undefined symbol a pooled item's references use."""
+    return f"__pool_{int(address, 16):08x}"
+
+
+def pool_item(obj, section, offset):
+    """Size of the compiler object (an `@N` constant or string) starting at an offset."""
+    starting = [s for s in obj.symbols() if s["section"] == section["index"] and s["type"] == STT_OBJECT
+                and s["size"] and s["address"] == offset]
+    if len(starting) != 1:
+        raise ValueError(f"Pool item is not one compiler object: {section['name']}+{offset:#x}")
+    return starting[0]["size"]
+
+
+def redirect_pool_references(data, unit):
+    """Refer to each listed pool item's original address instead of its compiled copy."""
+    pooled = unit.get("pooled_sections", [])
+    if not pooled:
+        return data
+    obj = Elf32(data)
+    symbols = list(obj.symbols())
+    by_name = {s["name"]: s for s in obj.sections}
+    items = {}  # section index -> [(start, end, address)]
+    for reference in unit.get("pool_references", []):
+        if reference["section"] not in pooled or reference["section"] not in by_name:
+            raise ValueError(f"Pool reference is outside a pooled section: {reference['section']}")
+        start = reference["offset"]
+        items.setdefault(by_name[reference["section"]]["index"], []).append(
+            (start, start + reference["size"], reference["address"]))
+    addresses = sorted({address for group in items.values() for _, _, address in group})
+    out, added = append_symbols(data, obj, {}, [(pool_symbol(a), 0) for a in addresses])
+    symbol_of = dict(zip(addresses, added))
+
+    def target(index, addend):
+        symbol = symbols[index]
+        if symbol["section"] not in items:
+            return None
+        offset = symbol["address"] + addend
+        for start, end, address in items[symbol["section"]]:
+            if start <= offset < end:
+                return symbol_of[address], offset - start
+        return None  # Discarded code's references stay with the parked section.
+    redirect_relocations(data, obj, out, target)
     return bytes(out)
 
 
@@ -129,7 +210,7 @@ def offset_map(bounds, stripped, size):
 
 def strip_objects(data, unit):
     """Return a rewritten object for linking, or the input when nothing applies."""
-    data = redirect_weak_duplicates(data, unit)
+    data = redirect_pool_references(redirect_weak_duplicates(data, unit), unit)
     obj = Elf32(data)
     out = bytearray(data)
     by_name = {s["name"]: s for s in obj.sections}
@@ -150,7 +231,7 @@ def strip_objects(data, unit):
         start = manifest.get("linked_offset", 0)
         if manifest["name"] not in (".text", ".init"):
             dead[section["index"]] = [(0, start), (start + manifest["size"], section["size"])]
-    for name in unit.get("stripped_sections", []):
+    for name in unit.get("stripped_sections", []) + unit.get("pooled_sections", []):
         dead[by_name[name]["index"]] = [(0, by_name[name]["size"])]
 
     section_headers = struct.unpack_from(">I", data, 32)[0]

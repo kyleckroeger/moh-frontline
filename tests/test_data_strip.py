@@ -10,7 +10,7 @@ sys.path.insert(0, str(ROOT / 'tools'))
 from audit import load_target
 from data_strip import strip_objects
 from formats import Elf32
-from project_build import validate_object, validate_units
+from project_build import check_pool, validate_object, validate_units
 from setup import CONFIG
 
 
@@ -146,6 +146,75 @@ class DataStripping(unittest.TestCase):
     def test_unknown_object_fails(self):
         with self.assertRaisesRegex(ValueError, 'not one compiler object'):
             strip_objects(self.compiled, self.mutated('.sbss', ['NoSuchObject']))
+
+
+
+class PoolReferences(unittest.TestCase):
+    """player_sqrtf links its .sdata2 constants inside player.cpp's pool."""
+
+    @classmethod
+    def setUpClass(cls):
+        path = ROOT / 'build/reconstruction/units/player_sqrtf/compiled.o'
+        if not path.exists():
+            raise unittest.SkipTest('Run reconstruct.py first')
+        cls.original_path, cls.original = load_target()
+        cls.unit = json.loads((CONFIG / 'player_sqrtf.json').read_text())
+        cls.compiled = path.read_bytes()
+
+    def copy(self):
+        return json.loads(json.dumps(self.unit))
+
+    def test_references_use_the_original_addresses(self):
+        obj = Elf32(strip_objects(self.compiled, self.unit))
+        targets = list(relocation_targets(obj, '.text'))
+        names = sorted({s['name'] for s in targets if s['name'].startswith('__pool_')})
+        self.assertEqual(names, ['__pool_80350540', '__pool_80350548', '__pool_80350550'])
+        self.assertTrue(all(not s['section'] for s in targets))
+        validate_object(obj, self.unit)
+
+    def test_items_equal_the_original(self):
+        validate_units(self.original, [self.unit])
+        check_pool(self.original, Elf32(self.compiled), self.unit)
+
+    def test_a_changed_constant_fails(self):
+        obj = Elf32(self.compiled)
+        section = next(s for s in obj.sections if s['name'] == '.sdata2')
+        data = bytearray(self.compiled)
+        data[section['offset'] + 16] ^= 1  # 3.0 becomes another double
+        with self.assertRaisesRegex(ValueError, 'Pool item differs from the original'):
+            check_pool(self.original, Elf32(bytes(data)), self.unit)
+
+    def test_another_address_fails(self):
+        unit = self.copy()
+        unit['pool_references'][0]['address'] = '0x80350544'  # the 5.0f between them
+        with self.assertRaisesRegex(ValueError, 'Pool item differs from the original'):
+            check_pool(self.original, Elf32(self.compiled), unit)
+
+    def test_a_partial_object_fails(self):
+        unit = self.copy()
+        unit['pool_references'][1]['size'] = 4
+        with self.assertRaisesRegex(ValueError, 'Pool item size differs'):
+            check_pool(self.original, Elf32(self.compiled), unit)
+
+    def test_an_unlisted_reference_fails(self):
+        unit = self.copy()
+        unit['pool_references'].pop()
+        with self.assertRaisesRegex(ValueError, 'pooled item that is not listed'):
+            validate_object(Elf32(strip_objects(self.compiled, unit)), unit)
+
+    def test_invalid_manifests_fail(self):
+        mutations = [
+            (lambda u: u['pool_references'][0].update(address='0x800a4d48'), 'outside the original section'),
+            (lambda u: u['pool_references'][1].update(offset=12, size=8), 'overlap'),
+            (lambda u: u['sections'].append({'name': '.sdata2', 'address': '0x80350540', 'size': 24, 'type': 1}),
+             'not distinct'),
+            (lambda u: u['pool_references'][0].update(section='.rodata'), 'Invalid pool reference'),
+        ]
+        for mutate, message in mutations:
+            unit = self.copy()
+            mutate(unit)
+            with self.assertRaisesRegex(ValueError, message):
+                validate_units(self.original, [unit])
 
 
 if __name__ == '__main__':
