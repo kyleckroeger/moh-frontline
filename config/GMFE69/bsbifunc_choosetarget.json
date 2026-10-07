@@ -39,24 +39,30 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80034044",
-      "size": 188,
+      "address": "0x80033ee0",
+      "size": 544,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000a17c",
-      "size": 8,
+      "address": "0x8000a174",
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80011000",
-      "size": 12,
+      "address": "0x80010ff4",
+      "size": 24,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "BIFunc_AIChooseTargetByID__FPPiPv",
+      "address": "0x80033ee0",
+      "size": 356,
+      "binding": 1
+    },
     {
       "name": "BIFunc_AIChooseTarget__FPPiPv",
       "address": "0x80034044",
@@ -65,6 +71,8 @@
     }
   ],
   "externals": {
+    "SetNonAITarget__9CAIObjectFP8BSObject": "0x8004d318",
+    "SetTarget__9CAIObjectFP9CAIObject": "0x8004d41c",
     "g_iCurrentBIFIndex": "0x8034e77c",
     "g_pBuiltInFunctions": "0x8034e778"
   },

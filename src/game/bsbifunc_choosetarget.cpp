@@ -1,12 +1,17 @@
-// A fragment of bsbifunc.cpp (0x80034044): the AI built-in that chooses a
-// target (the AI filter's virtual ChooseTarget with the given time, its result
-// returned through an integer/float union) and pops the built-in's arguments.
+// A fragment of bsbifunc.cpp (0x80033ee0): AI built-ins that choose a target by
+// script object (none for 0 or -1, returning false; otherwise that object's AI
+// object, reached through its user object's scene node, AI doodad and filter,
+// or the object itself as a non-AI target, returning true) and choose a target
+// (the AI filter's virtual ChooseTarget with the given time, its result
+// returned through an integer/float union). Each pops the built-in's arguments.
 // The file name is this project's; the original record is bsbifunc.cpp;
-// AISetupTargetMatchList after it is 8 instructions off. The functions, classes
-// and globals are named by the mangled symbols; ISceneNode is declared with its
-// virtual functions in the order of __vt__10ISceneNode and CAIFilterObject in
-// the order of __vt__15CAIFilterObject; the doodad, value and built-in record
-// views are inferred.
+// AISetupTargetMatchList after these is 8 instructions off. The functions,
+// classes and globals are named by the mangled symbols; ISceneNode is declared
+// with its virtual functions in the order of __vt__10ISceneNode,
+// CAIFilterObject in the order of __vt__15CAIFilterObject (its AI object at +8)
+// and BSGO_Basic in the order of __vt__10BSGO_Basic; BSObject (its user object
+// at +12), the doodad, value and built-in record views and the filter helper
+// are inferred.
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
@@ -79,6 +84,27 @@ public:
 
 enum aifilter_target_mode {};
 struct aistatus_match;
+class CAIObject;
+
+class CAIObject {
+public:
+    void SetTarget(CAIObject*);
+    void SetNonAITarget(BSObject*);
+};
+
+class BSGO_Basic {
+    unsigned char unknown00[12];
+
+public:
+    virtual void Destroy();
+    virtual int GetScriptData();
+    virtual ISceneNode* GetSceneNode();
+};
+
+struct BSObject {
+    unsigned char unknown00[12];
+    BSGO_Basic* user;
+};
 
 class CAIFilterObject {
 public:
@@ -88,6 +114,9 @@ public:
     virtual void ResetTargetMatchList(aifilter_target_mode);
     virtual void SetupTargetMatchList(aifilter_target_mode, aistatus_match*, int);
     int ShouldILeaveMMG(BSObject*);
+
+    unsigned char unknown04[4];
+    CAIObject* m_object;
 };
 
 struct AIDoodadView {
@@ -109,6 +138,44 @@ struct BSBuiltinView {
 
 extern BSBuiltinView* g_pBuiltInFunctions;
 extern int g_iCurrentBIFIndex;
+
+inline CAIFilterObject* GetAIFilter(BSObject* script) {
+    if (script && script->user) {
+        ISceneNode* node = script->user->GetSceneNode();
+        if (node) {
+            AIDoodadView* doodad = node->GetAIDoodad();
+            if (doodad)
+                return doodad->filter;
+        }
+    }
+    return 0;
+}
+
+void BIFunc_AIChooseTargetByID(int** stack, void* object) {
+    CAIObject* ai;
+    CAIObject* other;
+    BSObject* target;
+    AIDoodadView* doodad = ((ISceneNode*)object)->GetAIDoodad();
+    target = *(BSObject**)(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1));
+    ai = doodad->filter->m_object;
+    bool result;
+    if (!target || target == (BSObject*)0xffffffff) {
+        ai->SetTarget(0);
+        result = false;
+    } else {
+        other = 0;
+        CAIFilterObject* filter = GetAIFilter(target);
+        if (filter)
+            other = filter->m_object;
+        if (other)
+            ai->SetTarget(other);
+        else
+            ai->SetNonAITarget(target);
+        result = true;
+    }
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    **stack = result;
+}
 
 void BIFunc_AIChooseTarget(int** stack, void* object) {
     BSValueView value;
