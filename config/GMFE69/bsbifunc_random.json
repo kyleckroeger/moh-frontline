@@ -40,23 +40,29 @@
     {
       "name": ".text",
       "address": "0x8002f4cc",
-      "size": 856,
+      "size": 1040,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009e7c",
-      "size": 48,
+      "size": 56,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80010b80",
-      "size": 72,
+      "size": 84,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "BIFunc_PlayerCanCookGrenades__FPPiPv",
+      "address": "0x8002f824",
+      "size": 184,
+      "binding": 1
+    },
     {
       "name": "BIFunc_PlayerCanSwitchWeapon__FPPiPv",
       "address": "0x8002f7b4",
@@ -100,6 +106,8 @@
     "CycleWeapon__13CPlayerObjectFii": "0x8009fbec",
     "MathFunRandomI64__Fxx": "0x80092dd4",
     "MathFunRandomReal__Fff": "0x80092d60",
+    "g_Shell": "0x80195090",
+    "g_bInMultiplayerMode": "0x8034eca5",
     "g_iCurrentBIFIndex": "0x8034e77c",
     "g_pBSObject": "0x8034e7e0",
     "g_pBuiltInFunctions": "0x8034e778"
@@ -110,6 +118,7 @@
   "local_externals": [],
   "discarded_local_functions": [],
   "sda_externals": [
+    "g_bInMultiplayerMode",
     "g_iCurrentBIFIndex",
     "g_pBSObject",
     "g_pBuiltInFunctions"

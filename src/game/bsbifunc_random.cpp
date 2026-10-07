@@ -1,17 +1,19 @@
-// A fragment of bsbifunc.cpp (0x8002f4cc): script built-ins that create a child
-// root hierarchy object (for the script object's trigger), return the script
-// data, return a random float or integer in a range, and switch the player's
-// weapon or test whether the player can. Each reads its arguments below the
-// script stack top (by the built-in's parameter count), pops the arguments and,
-// for a result, writes it to the new top (through its address where the
-// original keeps the value in memory). The file name is this project's; the
-// original record is bsbifunc.cpp and PlayerCanCookGrenades after these is 8
-// instructions off. The functions, classes and globals are named by the mangled
+// A fragment of bsbifunc.cpp (0x8002f4cc): script built-ins that create a
+// child root hierarchy object (for the script object's trigger), return the
+// script data, return a random float or integer in a range, and switch the
+// player's weapon or test whether the player can. Each reads its arguments
+// below the script stack top (by the built-in's parameter count), pops the
+// arguments and, for a result, writes it to the new top (through its address
+// where the original keeps the value in memory). The file name is this
+// project's; the original record is bsbifunc.cpp. PlayerCanCookGrenades
+// after these tests the shell's cook-grenades setting, per player in
+// multiplayer (the player index read into a local first, as the register use
+// shows). The functions, classes and globals are named by the mangled
 // symbols; ISceneNode is declared with its virtual functions in the order of
 // __vt__10ISceneNode and BSGO_Basic in the order of __vt__10BSGO_Basic; the
 // player and weapon views are inferred (members at their offsets, names not
-// original), as are the built-in record view, the integer/float value union and
-// the random-range helpers.
+// original), as are the built-in record view, the integer/float value union
+// and the random-range helpers.
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
@@ -230,3 +232,14 @@ void BIFunc_RegisterTimerEvent(int** stack, void*);
 
 void BIFunc_PlayFacialAnimation(int** stack, void* object);
 
+void BIFunc_PlayerCanCookGrenades(int** stack, void* object) {
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    bool canCook;
+    if (g_bInMultiplayerMode) {
+        int player = ((ISceneNode*)object)->AsPlayerObject()->m_playerIndex;
+        canCook = g_Shell.players[player].canCookGrenades != 0;
+    }
+    else
+        canCook = g_Shell.canCookGrenades != 0;
+    **stack = canCook;
+}

@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800216ec",
-      "size": 304,
+      "size": 488,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009a84",
-      "size": 8,
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x800105bc",
-      "size": 12,
+      "size": 24,
       "type": 1
     }
   ],
@@ -67,6 +67,12 @@
       "name": "BIFunc_SetMGWaypointFlag__FPPiPv",
       "address": "0x80021788",
       "size": 148,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_GetBSObject__FPPiPv",
+      "address": "0x8002181c",
+      "size": 184,
       "binding": 1
     }
   ],

@@ -1,12 +1,13 @@
-// A fragment of bsbifunc.cpp (0x800216ec): built-ins that force the player to a
-// weapon (cycling to it) and set or clear machine-gun waypoint flags in the
-// script object's trigger. Each reads its arguments below the script stack top
-// and pops the built-in's arguments. The file name is this project's; the
-// original record is bsbifunc.cpp; GetBSObject after these is 3 instructions
-// off (branch shape). The functions, classes and globals are named by the
-// mangled symbols; ISceneNode is declared with its virtual functions in the
-// order of __vt__10ISceneNode, and the trigger, player and built-in record
-// views are inferred.
+// A fragment of bsbifunc.cpp (0x800216ec): built-ins that force the player
+// to a weapon (cycling to it) and set or clear machine-gun waypoint flags in
+// the script object's trigger. Each reads its arguments below the script
+// stack top and pops the built-in's arguments. The file name is this
+// project's; the original record is bsbifunc.cpp. GetBSObject after these
+// returns a scene node's script object when its second argument is 0 (a
+// one-case switch, as the branch shape shows). The functions, classes and
+// globals are named by the mangled symbols; ISceneNode is declared with its
+// virtual functions in the order of __vt__10ISceneNode, and the trigger,
+// player and built-in record views are inferred.
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
@@ -122,3 +123,14 @@ void BIFunc_SetMGWaypointFlag(int** stack, void*) {
 
 void BIFunc_GetBSObject(int** stack, void*);
 
+void BIFunc_GetBSObject(int** stack, void*) {
+    BSObject* object = 0;
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    switch (*(*stack - (count - 2))) {
+    case 0:
+        object = ((ISceneNode*)*(*stack - (count - 1)))->GetScriptObject();
+        break;
+    }
+    **stack = *(int*)&object;
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
