@@ -1,7 +1,10 @@
 /* A fragment of Frontline's dolphin_trk_glue.c (0x80137884): EnableEXI2Interrupts
    and TRKInitializeIntDrivenUART, which call the debugger communication
    table's interrupt set-up and initialisation (with TRKEXICallBack as the
-   handler). The file name is this project's; the original record is
+   handler), InitMetroTRKCommTable, which fills the table for the GDEV
+   debugger or the AMC EXI2 stubs (Pikmin's body with the two OSReport
+   messages Frontline's .rodata holds), and TRKEXICallBack, which re-enables
+   the scheduler and loads the saved context for exception 0x500. The file name is this project's; the original record is
    dolphin_trk_glue.c (dolphin_trk_glue.c holds the start of the file) and the
    functions around these are not reconstructed. Structure as in the TWW
    dolphin_trk_glue.c this unit's sibling follows; the file's data is extern. */
@@ -33,9 +36,40 @@ extern DBCommTable gDBCommTable;
 
 asm void TRKLoadContext(OSContext* ctx, u32);
 
-void TRKEXICallBack(s16 param_0, OSContext* ctx);
+void TRKEXICallBack(s16 param_0, OSContext* ctx) {
+    OSEnableScheduler();
+    TRKLoadContext(ctx, 0x500);
+}
 
-int InitMetroTRKCommTable(int hwId);
+int InitMetroTRKCommTable(int hwId) {
+    int result;
+
+    if (hwId == HARDWARE_GDEV) {
+        OSReport("MetroTRK : Set to GDEV hardware\n");
+        result = Hu_IsStub();
+
+        gDBCommTable.initialize_func = (DBCommInitFunc)DBInitComm;
+        gDBCommTable.init_interrupts_func = (DBCommFunc)DBInitInterrupts;
+        gDBCommTable.peek_func = (DBCommFunc)DBQueryData;
+        gDBCommTable.read_func = (DBCommReadFunc)DBRead;
+        gDBCommTable.write_func = (DBCommWriteFunc)DBWrite;
+        gDBCommTable.open_func = (DBCommFunc)DBOpen;
+        gDBCommTable.close_func = (DBCommFunc)DBClose;
+    } else {
+        OSReport("MetroTRK : Set to AMC DDH hardware\n");
+        result = AMC_IsStub();
+
+        gDBCommTable.initialize_func = (DBCommInitFunc)EXI2_Init;
+        gDBCommTable.init_interrupts_func = (DBCommFunc)EXI2_EnableInterrupts;
+        gDBCommTable.peek_func = (DBCommFunc)EXI2_Poll;
+        gDBCommTable.read_func = (DBCommReadFunc)EXI2_ReadN;
+        gDBCommTable.write_func = (DBCommWriteFunc)EXI2_WriteN;
+        gDBCommTable.open_func = (DBCommFunc)EXI2_Reserve;
+        gDBCommTable.close_func = (DBCommFunc)EXI2_Unreserve;
+    }
+
+    return result;
+}
 
 DSError TRKInitializeIntDrivenUART(u32 param_0, u32 param_1, u32 param_2, void* param_3) {
     gDBCommTable.initialize_func(param_3, TRKEXICallBack);
