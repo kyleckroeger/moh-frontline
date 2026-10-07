@@ -695,7 +695,8 @@
     "ShellMenu_sku.json",
     "ShellMenu_load.json",
     "ShellMenu_gallery.json",
-    "scene_query.json"
+    "scene_query.json",
+    "fader_update.json"
   ],
   "progress": {
     "code_bytes": 1414572,

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 465516,
+    "matching_code_bytes": 465604,
     "total_executable_code_bytes": 1414572,
-    "percent": 32.90861122657596,
+    "percent": 32.91483218952446,
     "categories": {
-      "reconstructed_game": 249112,
+      "reconstructed_game": 249200,
       "restored_library": 216404
     },
-    "matching_functions": 2808
+    "matching_functions": 2809
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -346,6 +346,7 @@
     "config/GMFE69/fader.json": "2f6cb9bb69c2af087ea1d104d2a440645a4f409908fa987aef0750a6273d4297",
     "config/GMFE69/fader_color.json": "04b9cd494bd4be9c60d0d816d832a217306237f4c69e8eeb5ab9d758c32599b9",
     "config/GMFE69/fader_init.json": "3388a55d879317007955b8c9005238a1432b8ca1e8e4cb626fa66e141089f84c",
+    "config/GMFE69/fader_update.json": "0c9ed80624a54840959baa642d7316d7a7d4d1a98cc649988e037b8ab85b74d2",
     "config/GMFE69/fiber_ivolume.json": "d1a825b8e099927c327536ecc12276b637e7bf0ae528fbde9fd2a36ea4a6668a",
     "config/GMFE69/file_io.json": "1f7376a3e1cbacd1b77840e0eae4b3069ae28a805f71eb751ebf19dcd296e710",
     "config/GMFE69/filedev.json": "345d10da83f1a2011e5fc4b9278fee1b53e1cdef4497f8fe2b0ee38ca1bafa48",
@@ -461,7 +462,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "61a5bdce0bc62bc4ac59d051bbc125e3a1d367828af6b7516702b591c0dee3b1",
+    "config/GMFE69/project.json": "d1657a8d2ce9cf617cebc0805461a8ff9d0b35d7b70cc94d127e1c0c5129ad41",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "bd4b85e3a27ac50301d2ad04642bca1abf864b5f74397505530539b31bf4c0d1",
@@ -1895,6 +1896,7 @@
     "src/game/fader.cpp": "fcc29dce43a0cf9eca978df224fba99596b634584e886a18cb434749daf4a4e0",
     "src/game/fader_color.cpp": "8c041255266809a9f0daac7f0c18d24e098261f8b38a98feeadc404661a57b72",
     "src/game/fader_init.cpp": "5322ae3c5f852dc5523bc6329437a3f2ce3d9f7d58e6d49ea7205edaa36b2bbe",
+    "src/game/fader_update.cpp": "96e37c287e4dff318305811dc8043fa3f57508ff89228e71f6fe7b5a4f4a868c",
     "src/game/fiber_ivolume.cpp": "8b4057c4cc987999d60d4ca2f2d766d93c2c461947c050961df31e4ae30a0386",
     "src/game/filesys.cpp": "edc914b77e55cfec7501ffc2150c34cefc432d28c3e9aa1eceea55a4cbe755ad",
     "src/game/font.cpp": "20dc282ade8622a6477d4a787b1df38aa6a0af7c35078543606bbd3b26152cf1",
@@ -31362,6 +31364,45 @@
       "discarded_functions": [],
       "object_sha256": "b450a289cc8ac2f046d05f6704ffcb2f104c5622d2be1d23e4c39fa5d77503b7",
       "linked_sha256": "4554bb9f4dbdfdeef0477ecbbc6f5447f77526f0211727d89572d7dfb2f5f8de"
+    },
+    {
+      "id": "fader_update",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 88,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "4aef2115077d9ad9bef5a605afea816b16c7ca9c4efde1f22e0b249013b70a85",
+      "linked_sha256": "40fd6ce63e75f65932b778b2ac079ff7655fda92c1a08838b7e87fc4cad9dd51"
     }
   ],
   "code_map": {
@@ -37579,13 +37620,6 @@
             "size": 108,
             "kind": "function",
             "name": "SetControl__6CFaderFP13CFaderControl",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007bfcc",
-            "size": 88,
-            "kind": "function",
-            "name": "Update__6CFaderFf",
             "evidence": "exception-index"
           },
           {
