@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x80020ab0",
-      "size": 276,
+      "size": 728,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009a24",
-      "size": 24,
+      "size": 32,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x8001052c",
-      "size": 36,
+      "size": 48,
       "type": 1
     }
   ],
@@ -74,12 +74,21 @@
       "address": "0x80020b70",
       "size": 84,
       "binding": 1
+    },
+    {
+      "name": "BIFunc_AttachObjectToFloatingBone__FPPiPv",
+      "address": "0x80020bc4",
+      "size": 452,
+      "binding": 1
     }
   ],
   "externals": {
+    "AttachObjectToFloatingBone__14CSoldierObjectFP13CStaticObjectPci": "0x800a9d44",
     "DetachObjectFromFloatingBone__14CSoldierObjectFv": "0x800a9d34",
     "g_iCurrentBIFIndex": "0x8034e77c",
-    "g_pBuiltInFunctions": "0x8034e778"
+    "g_pBoxList": "0x8034e890",
+    "g_pBuiltInFunctions": "0x8034e778",
+    "g_pTankList": "0x8034e898"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -88,8 +97,27 @@
   "discarded_local_functions": [],
   "sda_externals": [
     "g_iCurrentBIFIndex",
-    "g_pBuiltInFunctions"
+    "g_pBoxList",
+    "g_pBuiltInFunctions",
+    "g_pTankList"
   ],
   "original_file": "bsbifunc.cpp",
-  "original_file_index": 443
+  "original_file_index": 443,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 8,
+      "address": "0x8034f65c"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 8,
+      "address": "0x8034f664"
+    }
+  ]
 }
