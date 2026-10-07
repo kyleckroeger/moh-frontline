@@ -1,14 +1,19 @@
 // CAnimObject, the first functions of the file: empty overrides, attachment
-// flags, the transform setter and light-volume and scene bookkeeping. CAnimObject and the
+// flags, the transform setter and light-volume and scene bookkeeping, then
+// IsVisible (submits the draw data with the transform to the mesh drawer,
+// which decides when there is one; otherwise the camera's point test on the
+// position, read through the virtual GetPosition). CAnimObject and the
 // referenced classes are named by the mangled symbols. This is an inferred,
 // non-virtual view: only the members these functions touch are declared, at
-// their offsets, and the class's virtual table is not reproduced here. The
-// empty overrides are inline in the class in the original (weak symbols,
-// emitted for the vtable), so they are defined __declspec(weak) here.
-// CVector3 view: four floats, 8-byte aligned, overlaid with two doubles. The
-// union is inferred from the code, not the original declaration: whole-vector
-// copies in this file (the row accessors) move each vector as two lfd/stfd
-// pairs, which an implicit copy through the double pair reproduces.
+// their offsets, and the class's virtual table is not reproduced here
+// (IsVisible reaches the drawer's and the scene node's virtual functions
+// through inferred views). The empty overrides are inline in the class in
+// the original (weak symbols, emitted for the vtable), so they are defined
+// __declspec(weak) here. CVector3 view: four floats, 8-byte aligned,
+// overlaid with two doubles. The union is inferred from the code, not the
+// original declaration: whole-vector copies in this file (the row accessors)
+// move each vector as two lfd/stfd pairs, which an implicit copy through the
+// double pair reproduces.
 class CVector3 {
 public:
     union {
@@ -38,7 +43,6 @@ public:
 };
 
 class CStaticObject;
-class CDrawContext;
 class BPDLightVolume;
 
 class CLightVolumeManager {
@@ -67,8 +71,65 @@ public:
 
 extern CScene g_scene;
 
+class CDrawContext;
+
+class CCamera {
+public:
+    bool IsPointVisible(CVector3, CDrawContext&) const;
+};
+
+class CDrawContext {
+public:
+    char data000[212];
+    CCamera* m_camera;
+};
+
+// Inferred: the object drawing the animated mesh, called through the virtuals
+// at +16 and +68 of its table (the earlier slots are placeholders named by
+// offset).
+class AnimDrawerView {
+public:
+    virtual void unknown008();
+    virtual void unknown00c();
+    virtual void unknown010(void*, const CMatrix&);
+    virtual void unknown014();
+    virtual void unknown018();
+    virtual void unknown01c();
+    virtual void unknown020();
+    virtual void unknown024();
+    virtual void unknown028();
+    virtual void unknown02c();
+    virtual void unknown030();
+    virtual void unknown034();
+    virtual void unknown038();
+    virtual void unknown03c();
+    virtual void unknown040();
+    virtual bool unknown044(CDrawContext&);
+};
+
+// Inferred: the scene-node virtual table as far as GetPosition (+64).
+class SceneNodeVirtualView {
+public:
+    virtual void unknown008();
+    virtual void unknown00c();
+    virtual void unknown010();
+    virtual void unknown014();
+    virtual void unknown018();
+    virtual void unknown01c();
+    virtual void unknown020();
+    virtual void unknown024();
+    virtual void unknown028();
+    virtual void unknown02c();
+    virtual void unknown030();
+    virtual void unknown034();
+    virtual void unknown038();
+    virtual void unknown03c();
+    virtual void GetPosition(CVector3&) const;
+};
+
 class CAnimObject {
 public:
+    bool IsVisible(CDrawContext&) const;
     void UpdateLocalBoundingVolume(ISceneNode::EVolumeType, const CVector3&, const CVector3&);
     const CAnimObject* AsAnimObject() const;
     CAnimObject* AsAnimObject();
@@ -112,7 +173,10 @@ public:
 
     char field0000[9024];
     CMatrix m_tm;
-    char field2380[20];
+    void* m_drawData;
+    char field2384[4];
+    AnimDrawerView* m_drawer;
+    char field238C[8];
     int m_collisionId;
     char field2398[24];
     int m_yaw;
@@ -266,4 +330,14 @@ int CAnimObject::GetCollisionId() const {
 
 bool CAnimObject::IsDrawEnabled() const {
     return true;
+}
+
+bool CAnimObject::IsVisible(CDrawContext& context) const {
+    if (m_drawData)
+        m_drawer->unknown010(m_drawData, m_tm);
+    if (m_drawer)
+        return m_drawer->unknown044(context);
+    CVector3 position;
+    ((const SceneNodeVirtualView*)this)->GetPosition(position);
+    return context.m_camera->IsPointVisible(position, context);
 }

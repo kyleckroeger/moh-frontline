@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x8009361c",
-      "size": 924,
+      "size": 1104,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000c7f8",
-      "size": 136,
+      "size": 144,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80013910",
-      "size": 204,
+      "size": 216,
       "type": 1
     },
     {
@@ -208,6 +208,12 @@
       "binding": 1
     },
     {
+      "name": "IsVisible__11CAnimObjectCFR12CDrawContext",
+      "address": "0x800939b8",
+      "size": 180,
+      "binding": 1
+    },
+    {
       "name": "GetUpward__11CAnimObjectCFR8CVector3",
       "address": "0x80093774",
       "size": 36,
@@ -278,6 +284,7 @@
     "AddVolume__19CLightVolumeManagerFP14BPDLightVolume": "0x80078ee4",
     "GetVolume__19CLightVolumeManagerFv": "0x80078a3c",
     "Ident__7CMatrixFv": "0x8008f1b0",
+    "IsPointVisible__7CCameraCF8CVector3R12CDrawContext": "0x80079e6c",
     "MarkForDestruction__8ISubjectFi": "0x800d8148",
     "Orthonormalize__7CMatrixFv": "0x8008f1e8",
     "RemoveVolume__19CLightVolumeManagerFP14BPDLightVolume": "0x80078df8",
