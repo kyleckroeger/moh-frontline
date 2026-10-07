@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x8001f9f8",
-      "size": 648,
+      "size": 1000,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000999c",
-      "size": 24,
+      "size": 40,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80010460",
-      "size": 36,
+      "size": 60,
       "type": 1
     }
   ],
@@ -61,6 +61,12 @@
       "name": "BIFunc_EjectHelmet__FPPiPv",
       "address": "0x8001f9f8",
       "size": 164,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_SetHeadTrackPlayer__FPPiPv",
+      "address": "0x8001fcf0",
+      "size": 240,
       "binding": 1
     },
     {
@@ -74,11 +80,18 @@
       "address": "0x8001fbb0",
       "size": 208,
       "binding": 1
+    },
+    {
+      "name": "BIFunc_GetMySoundInfoStruct__FPPiPv",
+      "address": "0x8001fc80",
+      "size": 112,
+      "binding": 1
     }
   ],
   "externals": {
     "EjectHelmet__14CSoldierObjectFP8CVector3": "0x800aac78",
     "MathFunGetPanAngleDiffNoRoll__FP8CVector3P8CVector3P8CVector3": "0x80093248",
+    "SetHeadTrackPlayer__14CSoldierObjectFbi": "0x800a9bb4",
     "g_iCurrentBIFIndex": "0x8034e77c",
     "g_pBuiltInFunctions": "0x8034e778"
   },
@@ -102,6 +115,12 @@
       "offset": 0,
       "size": 4,
       "address": "0x8034f620"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 8,
+      "address": "0x8034f618"
     }
   ]
 }
