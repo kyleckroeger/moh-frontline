@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 453368,
+    "matching_code_bytes": 454480,
     "total_executable_code_bytes": 1414572,
-    "percent": 32.04983556863843,
+    "percent": 32.12844591862415,
     "categories": {
-      "reconstructed_game": 236964,
+      "reconstructed_game": 238076,
       "restored_library": 216404
     },
-    "matching_functions": 2692
+    "matching_functions": 2699
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -439,7 +439,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "40172082cdfffb0cfb88ef2006ccfe02b9c59234f6fbaee987054ebef60d5855",
+    "config/GMFE69/project.json": "0338273e3265f24fa7bfe4ff657a9926220c6af93f04d5c72707dd093025e7a8",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "bd4b85e3a27ac50301d2ad04642bca1abf864b5f74397505530539b31bf4c0d1",
@@ -561,6 +561,7 @@
     "config/GMFE69/sphere.json": "bf041b0323612fd4816234bb61471a66d8b61a146e4fe73f95bd0a9b603e8dbc",
     "config/GMFE69/sphere_dispatch.json": "f84fa53d2de1aabfd00eef71f3dc778929dada67216a4966bd43e6675f30554d",
     "config/GMFE69/spitch.json": "cb62e278b14f38415e8e5c27bbf52bcb5b5b0ac7ab471e9b1f556e22165a42ff",
+    "config/GMFE69/spkt_tail.json": "b1b862c0d051de01cb621c977d18ba5c57b822604e3f907af62ba984b2b2bf5b",
     "config/GMFE69/spktctoh.json": "32d07778d065bdc4f91fa7df1767303ac49ef857665a89458d479dc436b49e8e",
     "config/GMFE69/spktplay.json": "45b55139a484b930a3aa11919d892bd54910f394d38f43eeb03266bd631e60c4",
     "config/GMFE69/splysdef.json": "1638d2f55f48444894a7ccfb52aff3a616b52b1a6e9df0c16050153b8210b5d2",
@@ -1562,6 +1563,7 @@
     "src/ea/spantoaz.c": "e31c00ca71938e75d62f7465384c809d31a6bd0daa4b46f9d2576df1cbe2775c",
     "src/ea/spatkey.c": "b4dbcbbf95c33db80e3442f28f6846a8e054ab762c3c73d2b45fca7e51d055f9",
     "src/ea/spitch.c": "9880d05515ac794b22e9801c80b806d0eaac31f46401279ea9dc837c22a9cac0",
+    "src/ea/spkt_tail.cpp": "1f8ff3520b2c697d94517257e0dd611fce0a057ec0ce38dae91ae7e3b6746eb5",
     "src/ea/spktctoh.c": "5c25e3007e80c474014cc2bb2237e8372a1c5ba7f43cf83b926cd39d91d4b51b",
     "src/ea/spktplay.c": "48d15ed02f2a4c9a4f389daf268bec5b542afa5784d0a3dad2020f4c6f33520b",
     "src/ea/splysdef.c": "a9c0c6934ca3223c106baf17159de83aaa7db16687efecd10df82ded2b1d5a28",
@@ -29515,6 +29517,45 @@
       "discarded_functions": [],
       "object_sha256": "16dc86e841de734842baaa6028e49ad69db223c223e372dd22d42c7ffd9b8dfb",
       "linked_sha256": "80cc8893d0c3b484e6ca30997b9b0f6d10a92bfe0cb2b85c7f22c03c1385e922"
+    },
+    {
+      "id": "spkt_tail",
+      "category": "reconstructed_game",
+      "functions": 7,
+      "code_bytes": 1112,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "ba743041ae01ffba1e06850f8c06635e9e54065c15bf0173aefe86199ab6185a",
+      "linked_sha256": "f7270cd8351619f29cfeba2a11ae6d8d18ff90554f5a3bbfb8fa0e052d64c40c"
     }
   ],
   "code_map": {
@@ -46285,70 +46326,23 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 8015a81c",
+        "name": "Unmatched files/spktplay.c [symbol evidence]",
+        "file_record": 445,
+        "file_name": "spktplay.c",
         "ranges": [
           {
             "address": "0x8015a81c",
             "size": 812,
             "kind": "function",
             "name": "SNDPKTPLAY_start",
-            "evidence": "unknown-file"
+            "evidence": "between-same-file"
           },
           {
             "address": "0x8015ab48",
             "size": 264,
             "kind": "function",
             "name": "SNDPKTPLAY_submit",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8015ac50",
-            "size": 40,
-            "kind": "function",
-            "name": "SNDPKTPLAY_submitspace",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8015ac78",
-            "size": 36,
-            "kind": "function",
-            "name": "SNDPKTPLAY_framesoutstanding",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8015ac9c",
-            "size": 144,
-            "kind": "function",
-            "name": "SNDPKTPLAY_stop",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8015ad2c",
-            "size": 72,
-            "kind": "function",
-            "name": "SNDPKTPLAY_destroy",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8015ad74",
-            "size": 536,
-            "kind": "function",
-            "name": "SNDPKTPLAYI_get__FiiPiPi",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8015af8c",
-            "size": 104,
-            "kind": "function",
-            "name": "SNDPKTPLAYI_freeframes__Fiii",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8015aff4",
-            "size": 180,
-            "kind": "function",
-            "name": "SNDPKTPLAYI_flushcallbackdata__Fv",
-            "evidence": "unknown-file"
+            "evidence": "between-same-file"
           }
         ]
       },

@@ -476,6 +476,7 @@ establish a type, the source comments say so.
 | `sx87d16.c` | 1 | 392 | `decode16x87`: 16-bit PCM to float |
 | `supmutf.c`, `supmutpf.c`, `suppf.c` | 7 | 1,424 | MicroTalk unpackers (in memory and through the packet player, 432-sample blocks) and the packet-player 16-bit PCM unpacker |
 | `spktplay.c` (fragment) | 1 | 268 | `SNDPKTPLAY_create` (slot search with an early exit, player record in caller memory) |
+| `spkt_tail.cpp` (fragment of `spktplay.c`) | 7 | 1112 | `0x8015ac50`: `SNDPKTPLAY_submitspace`, `SNDPKTPLAY_framesoutstanding`, `SNDPKTPLAY_stop`, `SNDPKTPLAY_destroy`, `SNDPKTPLAYI_get` (next packet of a channel; the primary channel releases delivered packets through deferred callbacks), `SNDPKTPLAYI_freeframes` and `SNDPKTPLAYI_flushcallbackdata` (runs the deferred frames-done/release callbacks queued in `sndpps`). The released-packet index is read as `volatile`; the release-callback fill is written out in the inline (its data is loaded late). `SNDPKTPLAY_submit` before it is 2 lines off (fullness-test load order) |
 | `salloc.c` (fragment) | 1 | 96 | `SNDVOICEI_get`: handle to voice index with ownership check |
 | `aramalloc.cpp` (fragment) | 1 | 116 | `ARAM_NEW_poolmanager`; `ARAM_NEW_pool` differs only in register numbering and the allocator itself is not reconstructed |
 | `suplf.c` | 3 | 276 | Looping 16-bit PCM unpacker (the converter's base is taken into a local before the loop) |
