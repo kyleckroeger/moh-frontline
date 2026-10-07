@@ -5,9 +5,13 @@
 // id from the mesh's attach-point table), GetSubObject, SetRotation and Init
 // (links the object under its root's sub-object at the parent index, taking
 // the attach point's matrix, and resets the buffer at +1680 to its 32-entry
-// inline storage). The classes are named by the mangled symbols; the members,
-// the attach-point record and the flag-byte bit-field view are inferred from
-// offsets.
+// inline storage), and the destructor. The classes are named by the mangled
+// symbols; the members, the attach-point record, the buffer class and the
+// flag-byte bit-field view are inferred from offsets, and each class declares
+// a non-inline virtual ahead of its destructor so that no virtual table is
+// emitted here. The constructors after the destructor are not part of the
+// unit: their exception cleanup makes the compiler emit weak copies of the
+// base and buffer destructors, which the original link dropped.
 void DebugMsg(const char*, ...);
 extern "C" void MEM_free(void*);
 
@@ -42,6 +46,8 @@ class CHierObject;
 
 class CCSGVolume {
 public:
+    CCSGVolume();
+    ~CCSGVolume();
     void Init(int, CHierObject*);
 };
 
@@ -70,20 +76,56 @@ struct MeshView {
     AttachPointTable* attachPoints;
 };
 
+class CStaticMesh;
+
 class CStaticObject {
 public:
+    struct MotionFrame;
+
+    virtual void BeginUpdate(float);
+    virtual ~CStaticObject();
     void Init();
 };
 
-class CHierObject : public CStaticObject {
+class CAttachableObject : public CStaticObject {
 public:
+    CAttachableObject();
+    CAttachableObject(CStaticMesh*, int, int, int, int, int, CStaticObject::MotionFrame*);
+    virtual void BeginUpdate(float);
+    virtual ~CAttachableObject() {}
+};
+
+// The buffer at +1680, with 32-entry inline storage (inferred).
+class CHierObjectBuffer {
+public:
+    CHierObjectBuffer() : m_data(0), m_unknown04(0), m_unknown08(0), m_size(0), m_owned(true), m_unknown14(-1) {}
+    ~CHierObjectBuffer() {
+        if (m_owned && m_data)
+            MEM_free(m_data);
+    }
+
+    unsigned char* m_data;
+    int m_unknown04;
+    int m_unknown08;
+    int m_size;
+    bool m_owned;
+    int m_unknown14;
+    unsigned char m_inline[128];
+};
+
+class CHierObject : public CAttachableObject {
+public:
+    CHierObject();
+    CHierObject(CStaticMesh*, int, int, int, int, int, CStaticObject::MotionFrame*);
+    virtual void BeginUpdate(float);
+    virtual ~CHierObject();
     void Init(CHierObject*, int, int, int, CVector3&);
     bool RemoveObjectFromTree(CHierObject*, int);
     void GetAttachPointMatrix(int, CMatrix&);
     CHierObject* GetSubObject(int);
     void SetRotation(CQuaternion&);
 
-    unsigned char unknown000[48];
+    unsigned char unknown004[44];
     MeshView* m_mesh;
     unsigned char unknown034[332];
     CQuaternion m_rotation;
@@ -105,14 +147,7 @@ public:
     CMatrix m_attachMatrix;
     CVector3 m_offset;
     unsigned char unknown680[16];
-    unsigned char* m_buffer;
-    int m_unknown694;
-    int m_unknown698;
-    int m_bufferSize;
-    bool m_ownsBuffer;
-    unsigned char unknown6a1[3];
-    int m_unknown6a4;
-    unsigned char m_inlineBuffer[128];
+    CHierObjectBuffer m_buffer;
     int m_unknown728;
     unsigned char unknown72c[8];
     int m_unknown734;
@@ -188,11 +223,14 @@ void CHierObject::Init(CHierObject* root, int index, int parentIndex, int attach
         m_subObjects[0] = this;
         m_volume.Init(20, this);
     }
-    if (m_ownsBuffer && m_buffer)
-        MEM_free(m_buffer);
-    m_buffer = m_inlineBuffer;
-    m_bufferSize = 32;
-    m_ownsBuffer = false;
+    if (m_buffer.m_owned && m_buffer.m_data)
+        MEM_free(m_buffer.m_data);
+    m_buffer.m_data = m_buffer.m_inline;
+    m_buffer.m_size = 32;
+    m_buffer.m_owned = false;
     m_unknown728 = -1;
     m_unknown734 = -1;
+}
+
+CHierObject::~CHierObject() {
 }
