@@ -1,4 +1,6 @@
-// A fragment of box.cpp (0x800c53a8): CVolBox::Create allocates a new,
+// A fragment of box.cpp (0x800c52d0): CVolBox::TransformedCopy (copies the
+// three floats, transforms three vectors as directions and the last as a
+// point by the matrix), CVolBox::Create allocates a new,
 // default-constructed box (80 bytes) through DWI_alloc (no name, flag 1024;
 // the inline class operator new is inferred from the call; the inline
 // constructors set the IVolume and CVolBox virtual tables), and the
@@ -11,8 +13,24 @@
 // unit.
 void* DWI_alloc(const char*, int, int);
 
-class CMatrix;
-class CVector3;
+class CVector3 {
+public:
+    union {
+        struct {
+            float x;
+            float y;
+            float z;
+            float w;
+        };
+        double pair[2];
+    };
+} __attribute__((aligned(8)));
+
+class CMatrix {
+public:
+    void TransformVector(CVector3&, CVector3) const;
+    void TransformPoint(CVector3&, CVector3) const;
+};
 class CTriangle;
 class CPlane;
 class CLine3;
@@ -44,23 +62,31 @@ public:
     virtual bool TestCollision(const CTriangle&, CCollision&, bool) const;
 };
 
-/* inferred: a 16-byte vector, copied as two doubles */
-struct CVector3View {
-    double pair[2];
-};
-
 class CVolBox : public IVolume {
 public:
     virtual ~CVolBox();
     virtual IVolume* Create() const;
+    virtual void TransformedCopy(const IVolume&, const CMatrix&);
 
     static void* operator new(unsigned long size) { return DWI_alloc(0, size, 1024); }
 
     CVolBox& operator=(const CVolBox&);
 
     float m_values[3];
-    CVector3View m_vectors[4];
+    CVector3 m_vectors[4];
 };
+
+void CVolBox::TransformedCopy(const IVolume& volume, const CMatrix& matrix) {
+    const CVolBox& other = (const CVolBox&)volume;
+
+    m_values[0] = other.m_values[0];
+    m_values[1] = other.m_values[1];
+    m_values[2] = other.m_values[2];
+    matrix.TransformVector(m_vectors[0], other.m_vectors[0]);
+    matrix.TransformVector(m_vectors[1], other.m_vectors[1]);
+    matrix.TransformVector(m_vectors[2], other.m_vectors[2]);
+    matrix.TransformPoint(m_vectors[3], other.m_vectors[3]);
+}
 
 IVolume* CVolBox::Create() const {
     return new CVolBox;

@@ -40,7 +40,7 @@
     {
       "name": ".text",
       "address": "0x800cbabc",
-      "size": 76,
+      "size": 104,
       "type": 1
     },
     {
@@ -61,6 +61,12 @@
       "name": "Create__10CVolSphereCFv",
       "address": "0x800cbabc",
       "size": 76,
+      "binding": 1
+    },
+    {
+      "name": "__as__10CVolSphereFRC10CVolSphere",
+      "address": "0x800cbb08",
+      "size": 28,
       "binding": 1
     }
   ],
