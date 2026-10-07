@@ -621,7 +621,8 @@
     "matrix_endian.json",
     "sound_endian.json",
     "weaponfactory_params.json",
-    "stretch.json"
+    "stretch.json",
+    "hierobject_draw.json"
   ],
   "progress": {
     "code_bytes": 1414572,
