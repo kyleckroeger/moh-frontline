@@ -671,7 +671,11 @@
     "smixer_stop.json",
     "sfxrevc_prime.json",
     "scalcpitch.json",
-    "sdrv_drop.json"
+    "sdrv_drop.json",
+    "pathx_hold.json",
+    "pathx_end.json",
+    "pathx_query.json",
+    "pathx_overhead.json"
   ],
   "progress": {
     "code_bytes": 1414572,
