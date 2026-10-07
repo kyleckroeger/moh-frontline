@@ -705,7 +705,11 @@
     "static_obj_commit.json",
     "static_obj_bounds.json",
     "Soldier_object_bounds.json",
-    "player_bounds.json"
+    "player_bounds.json",
+    "capsule_create.json",
+    "fiber_create.json",
+    "box_create.json",
+    "sphere_create.json"
   ],
   "progress": {
     "code_bytes": 1414572,
