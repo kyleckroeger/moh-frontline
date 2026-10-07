@@ -39,24 +39,30 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800f0378",
-      "size": 100,
+      "address": "0x800f02c8",
+      "size": 276,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000f5e8",
-      "size": 8,
+      "address": "0x8000f5e0",
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x800161d8",
-      "size": 12,
+      "address": "0x800161cc",
+      "size": 24,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "IsFormated__11CMemoryCardFv",
+      "address": "0x800f02c8",
+      "size": 176,
+      "binding": 1
+    },
     {
       "name": "GetMaxBlocksOnCard__11CMemoryCardFi",
       "address": "0x800f0378",
@@ -65,7 +71,11 @@
     }
   ],
   "externals": {
-    "CARDProbeEx": "0x8012683c"
+    "CARDGetSectorSize": "0x80123c60",
+    "CARDProbeEx": "0x8012683c",
+    "CARDUnmount": "0x801271c0",
+    "DebugMsg__FPCce": "0x80018c88",
+    "MountPortIfRequired__11CMemoryCardFi": "0x800f03dc"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -74,5 +84,22 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "MemoryCardGC.cpp",
-  "original_file_index": 9213
+  "original_file_index": 9213,
+  "pooled_sections": [
+    ".rodata"
+  ],
+  "pool_references": [
+    {
+      "section": ".rodata",
+      "offset": 0,
+      "size": 41,
+      "address": "0x8017a068"
+    },
+    {
+      "section": ".rodata",
+      "offset": 44,
+      "size": 45,
+      "address": "0x80179e1c"
+    }
+  ]
 }
