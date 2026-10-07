@@ -694,7 +694,8 @@
     "ShellMenu_playtime.json",
     "ShellMenu_sku.json",
     "ShellMenu_load.json",
-    "ShellMenu_gallery.json"
+    "ShellMenu_gallery.json",
+    "scene_query.json"
   ],
   "progress": {
     "code_bytes": 1414572,
