@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 472956,
+    "matching_code_bytes": 474668,
     "total_executable_code_bytes": 1414572,
-    "percent": 33.43456536676818,
+    "percent": 33.55559137322102,
     "categories": {
-      "reconstructed_game": 256552,
+      "reconstructed_game": 258264,
       "restored_library": 216404
     },
-    "matching_functions": 3006
+    "matching_functions": 3010
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -306,10 +306,10 @@
     "config/GMFE69/bullet_rows.json": "04f963eead009d03fdc93e869e912722f4de27e7df41deb0f51d96c85794b1a6",
     "config/GMFE69/bulletfactory.json": "d5681576011cf8586569a65fdaa27b8149000509d5401766546e9c9fea821227",
     "config/GMFE69/bulletfactory_init.json": "4b194af230dd50d8427df78f1882da7aa08d422576dc8985afdb312dbab6d505",
-    "config/GMFE69/bulletfactory_projectile_ctor.json": "5dbd40fa6e343ace75641c1438ae483318e1a4b261f2faf2fff63e42093865b4",
+    "config/GMFE69/bulletfactory_projectile_ctor.json": "b415bf0b0ee07179ccb88d205e352e95a78581bc57d36cdec5f3f6568d6efdd8",
     "config/GMFE69/bulletfactory_projectile_pool.json": "d0a441d015833dce6a503491c7302c79764117cd213bb2e57eaebfe9ee3dbb64",
     "config/GMFE69/bulletfactory_sprites.json": "ae311cccd0ef2fe2fcf7da4dc35b195c719409e68b70d0b9fb677f9e129d2722",
-    "config/GMFE69/bulletfactory_thrown_ctor.json": "432527c18137db6a804e66e4f89b671957b3f8f332b6a8979ca0856f269548e5",
+    "config/GMFE69/bulletfactory_thrown_ctor.json": "5bc56bbfbbb13c0d38cda13a6362b98a81761e593324bf6c0c2bfe41500dd90b",
     "config/GMFE69/bulletfactory_thrown_pool.json": "c72b05045b24264f3fce4169a7c503b0cebd24f69da74e897db104aaaf516ba1",
     "config/GMFE69/camera_rows.json": "1b74ab2186218d87b08ef8188d1c247dc7997f17ff2a25340764ea861db80d35",
     "config/GMFE69/capsule_create.json": "7ea379e9f4627abeeeaad959530bebd332ea158e9e77b0b66fe4115669d57173",
@@ -1946,10 +1946,10 @@
     "src/game/bullet_rows.cpp": "61a2169543f0cd466b957ceddfb3f97973bfa5e73bf310829732a37229a1f0a2",
     "src/game/bulletfactory.cpp": "d6ee2336a34566955cb6050fa4d9fe885b64ee577b00c606ce91fbd748bc3f4a",
     "src/game/bulletfactory_init.cpp": "0ebf18ed93f90155ea51cb32053bf74d60a670c1688dd9c97e0b52ac45080c09",
-    "src/game/bulletfactory_projectile_ctor.cpp": "97d653b7e7bbc61f444d893f3e47124deb88f40d9f206b56d82b3fce2a7360a6",
+    "src/game/bulletfactory_projectile_ctor.cpp": "47cb16f200edaf970f6ee720c046450eae06500d76cbcf33753629e800dc51c6",
     "src/game/bulletfactory_projectile_pool.cpp": "46d5fb1d10123952f736e8b7bad7810271ce1ab161d3e14589530b4e8dff4adb",
     "src/game/bulletfactory_sprites.cpp": "b9f54fc574513bbe0ca4b8adf5d9f1a60975f2ad5ffc6f9744650d11e41e4993",
-    "src/game/bulletfactory_thrown_ctor.cpp": "75ecc7debd50bcf0e5e370e510adac4177279040844978334af344c6e380c461",
+    "src/game/bulletfactory_thrown_ctor.cpp": "e4395dc0515217717387866d4c9dbb72929d0eea865ba32b5f0b406065bd0985",
     "src/game/bulletfactory_thrown_pool.cpp": "9833f26e5bd172ba5aaaa3b25a86c6b63760bd1ec4aca397b989ffb3ac67509b",
     "src/game/camera_rows.cpp": "ad6da75e4f2269b17a88cd8f54e5e65003cd57b25bb284dce60bf13894115962",
     "src/game/capsule_create.cpp": "e5bdd4e3000036dbae68266376af90a76a315822e580f2da15283faec1d3127b",
@@ -33793,8 +33793,8 @@
     {
       "id": "bulletfactory_thrown_ctor",
       "category": "reconstructed_game",
-      "functions": 2,
-      "code_bytes": 88,
+      "functions": 4,
+      "code_bytes": 940,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -33826,8 +33826,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "99a3fe1a61ca08d45032f5c264442e0e187d0fcb1c156ed2d2e0292b0fa58ded",
-      "linked_sha256": "359f070d672a88d758e2afbe339dbe7771bee9f06bc23da8f25ce9f270a59ffb"
+      "object_sha256": "20f71ba9f203dd46edc7aa5a898ba424f30ebc0983d9d2762849c3903d63cd3b",
+      "linked_sha256": "f7e346a3516c5bc80cab7d7c85ed2534d6097151182a3268cb913a87c2232f10"
     },
     {
       "id": "bulletfactory_thrown_pool",
@@ -33871,8 +33871,8 @@
     {
       "id": "bulletfactory_projectile_ctor",
       "category": "reconstructed_game",
-      "functions": 2,
-      "code_bytes": 88,
+      "functions": 4,
+      "code_bytes": 948,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -33904,8 +33904,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "a05fd67d949e058683b8b69ace4367e131d040818b529a8aea77a2c460d116ad",
-      "linked_sha256": "9b744c805c9b815a879b0216eaa6b894f2395985cd1c2b914b3d00048a45a485"
+      "object_sha256": "2261632a81f6115b5c89b12c2b1baf4f3654271d8b111220c1fdb00f0c60dd3e",
+      "linked_sha256": "9fd5247c6214834a7ab2bf88318b75e7eec322a568efb46b214dce9596d76270"
     },
     {
       "id": "bulletfactory_projectile_pool",
@@ -44524,34 +44524,6 @@
             "size": 76,
             "kind": "function",
             "name": "__ct__14CBulletFactoryFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cdad8",
-            "size": 424,
-            "kind": "function",
-            "name": "Init__90CBulletFactoryHelper<13CThrownBullet,29ThrownBulletProperties_struct,18EThrownBulletTypes>FP29ThrownBulletProperties_struct",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cdc80",
-            "size": 428,
-            "kind": "function",
-            "name": "Reset__90CBulletFactoryHelper<13CThrownBullet,29ThrownBulletProperties_struct,18EThrownBulletTypes>Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cdfbc",
-            "size": 428,
-            "kind": "function",
-            "name": "Init__102CBulletFactoryHelper<17CProjectileBullet,33ProjectileBulletProperties_struct,22EProjectileBulletTypes>FP33ProjectileBulletProperties_struct",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800ce168",
-            "size": 432,
-            "kind": "function",
-            "name": "Reset__102CBulletFactoryHelper<17CProjectileBullet,33ProjectileBulletProperties_struct,22EProjectileBulletTypes>Fv",
             "evidence": "exception-index"
           }
         ]

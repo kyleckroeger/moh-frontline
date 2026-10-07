@@ -1,6 +1,9 @@
 // A fragment of bulletfactory.cpp (0x800cdf64): the
-// CBulletFactoryHelper<CProjectileBullet,...> constructor and empty
-// destructor.
+// CBulletFactoryHelper<CProjectileBullet,...> constructor (everything
+// cleared), empty destructor, Init (keeps the property table, allocates 64
+// bullets of 368 bytes through the bullet's array new, chains them into the
+// free list and sets the flag) and Reset (deletes and reallocates the array
+// and chains it again).
 // CBulletFactoryHelper, the bullet classes, their properties and type enums
 // are named by the mangled symbols; the helper's members (bullet array, free
 // and used lists, property table, flag), the bullets' list link at +160, the
@@ -106,8 +109,12 @@ public:
     void Init(EThrownBulletTypes, ThrownBulletProperties_struct*, const CVector3&, const CVector3&, float, EClsnId, float,
               ISceneNode*);
 
+    static void* operator new[](unsigned long);
+    CThrownBullet();
+
     unsigned char unknown004[156];
     CThrownBullet* m_next;
+    unsigned char padding0a4[348];
 };
 
 class CProjectileBullet {
@@ -188,8 +195,12 @@ public:
     void Init(EProjectileBulletTypes, ProjectileBulletProperties_struct*, const CVector3&, const CVector3&, float, EClsnId,
               float, ISceneNode*);
 
+    static void* operator new[](unsigned long);
+    CProjectileBullet();
+
     unsigned char unknown004[156];
     CProjectileBullet* m_next;
+    unsigned char padding0a4[204];
 };
 
 template <class Bullet, class Properties, class Types>
@@ -197,6 +208,8 @@ class CBulletFactoryHelper {
 public:
     CBulletFactoryHelper();
     ~CBulletFactoryHelper();
+    void Init(Properties*);
+    void Reset();
     void Shutdown();
     Bullet* CreateBullet(Types, CVector3, CVector3, float, EClsnId, float, ISceneNode*);
     void DestroyBullet(Bullet*);
@@ -219,6 +232,33 @@ __declspec(weak) CBulletFactoryHelper<Bullet, Properties, Types>::CBulletFactory
 
 template <class Bullet, class Properties, class Types>
 __declspec(weak) CBulletFactoryHelper<Bullet, Properties, Types>::~CBulletFactoryHelper() {
+}
+
+template <class Bullet, class Properties, class Types>
+__declspec(weak) void CBulletFactoryHelper<Bullet, Properties, Types>::Init(Properties* properties) {
+    int i;
+
+    m_properties = properties;
+    m_bullets = new Bullet[64];
+    m_free = m_bullets;
+    m_used = 0;
+    for (i = 0; i < 63; i++)
+        m_bullets[i].m_next = &m_bullets[i + 1];
+    m_bullets[63].m_next = 0;
+    m_initialised = true;
+}
+
+template <class Bullet, class Properties, class Types>
+__declspec(weak) void CBulletFactoryHelper<Bullet, Properties, Types>::Reset() {
+    int i;
+
+    delete[] m_bullets;
+    m_bullets = new Bullet[64];
+    m_free = m_bullets;
+    m_used = 0;
+    for (i = 0; i < 63; i++)
+        m_bullets[i].m_next = &m_bullets[i + 1];
+    m_bullets[63].m_next = 0;
 }
 
 template class CBulletFactoryHelper<CProjectileBullet, ProjectileBulletProperties_struct, EProjectileBulletTypes>;
