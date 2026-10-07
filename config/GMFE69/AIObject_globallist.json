@@ -1,0 +1,106 @@
+{
+  "id": "AIObject_globallist",
+  "source": "src/game/AIObject_globallist.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8004ec60",
+      "size": 640,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000a8f0",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80011a74",
+      "size": 24,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "ResetGlobalList__9CAIObjectFv",
+      "address": "0x8004ec60",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "GetGlobalListStart__9CAIObjectFv",
+      "address": "0x8004ec70",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "RemovePointersTo__9CAIObjectFP9CAIObject",
+      "address": "0x8004ec78",
+      "size": 460,
+      "binding": 1
+    },
+    {
+      "name": "RemoveFromGlobalList__9CAIObjectFv",
+      "address": "0x8004ee44",
+      "size": 156,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "BSObjectTriggerEvent__FP8BSObjectUsPvP8BSObjectb": "0x8003a46c",
+    "GetDistanceSquaredXYZReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition": "0x8005a6f4",
+    "RemoveElement__11CLinkedListFP18CLinkedListElement": "0x800535a0",
+    "__dt__11CSearchNodeFv": "0x80056210",
+    "g_iAIObjectCount": "0x8034e8e8",
+    "g_paioAIObjectListStart": "0x8034e8ec"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [
+    "g_paioAIObjectListStart"
+  ],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "g_iAIObjectCount",
+    "g_paioAIObjectListStart"
+  ],
+  "original_file": "AIObject.cpp",
+  "original_file_index": 1752
+}
