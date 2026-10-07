@@ -1,7 +1,8 @@
-// REAL thread helpers: record the main thread, and the alarm handler that
-// wakes a sleeping thread. The alarm and its signal are kept together so the
-// handler can find the signal; that record and the OS structures are
-// inferred views.
+// REAL thread helpers: record the main thread, the alarm handler that wakes a
+// sleeping thread, and THREAD_yield (yield when the delay is zero ticks, else
+// sleep on a signal until an alarm fires). The alarm and its signal are kept
+// together so the handler can find the signal; that record, the OS
+// structures and the tick conversion inline are inferred.
 struct OSAlarm {
     int data[10];
 };
@@ -27,6 +28,12 @@ struct THREADALARM {
 extern "C" {
 OSThread* OSGetCurrentThread(void);
 void SIGNAL_set(SIGNAL*);
+void SIGNAL_create(SIGNAL*);
+void SIGNAL_wait(SIGNAL*);
+void OSYieldThread(void);
+void OSCreateAlarm(OSAlarm*);
+void OSSetAlarm(OSAlarm*, long long, void (*)(OSAlarm*, OSContext*));
+void OSCancelAlarm(OSAlarm*);
 }
 void InitAlarm();
 
@@ -41,6 +48,23 @@ static void AlarmHandler(OSAlarm* alarm, OSContext*) {
     SIGNAL_set(&((THREADALARM*)alarm)->signal);
 }
 
-// THREAD_yield and THREAD_iscurrent follow in the original file. THREAD_yield
-// is drafted in scratch but not matched (the 64-bit tick product lands in
-// other registers), so this unit covers only the functions before it.
+/* inferred: milliseconds to OS timer ticks (the bus clock at 0x800000F8,
+   four bus cycles per tick) */
+static inline long long mstoticks(int ms) {
+    return (long long)ms * (int)((*(unsigned int*)0x800000F8 / 4) / 1000);
+}
+
+extern "C" void THREAD_yield(int ms) {
+    THREADALARM sleep;
+    long long ticks = mstoticks(ms);
+
+    if (!ticks) {
+        OSYieldThread();
+        return;
+    }
+    SIGNAL_create(&sleep.signal);
+    OSCreateAlarm(&sleep.alarm);
+    OSSetAlarm(&sleep.alarm, ticks, AlarmHandler);
+    SIGNAL_wait(&sleep.signal);
+    OSCancelAlarm(&sleep.alarm);
+}

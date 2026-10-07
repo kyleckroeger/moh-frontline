@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x80151f70",
-      "size": 76,
+      "size": 252,
       "type": 1
     },
     {
@@ -60,12 +60,24 @@
       "address": "0x80151f70",
       "size": 40,
       "binding": 1
+    },
+    {
+      "name": "THREAD_yield",
+      "address": "0x80151fbc",
+      "size": 176,
+      "binding": 1
     }
   ],
   "externals": {
     "InitAlarm__Fv": "0x80151b8c",
+    "OSCancelAlarm": "0x80110ee0",
+    "OSCreateAlarm": "0x80110ba0",
     "OSGetCurrentThread": "0x80115aec",
-    "SIGNAL_set": "0x801524ac"
+    "OSSetAlarm": "0x80110dfc",
+    "OSYieldThread": "0x8011605c",
+    "SIGNAL_create": "0x80152478",
+    "SIGNAL_set": "0x801524ac",
+    "SIGNAL_wait": "0x801524e0"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],

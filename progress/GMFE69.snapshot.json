@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 457508,
+    "matching_code_bytes": 457684,
     "total_executable_code_bytes": 1414572,
-    "percent": 32.34250359826152,
+    "percent": 32.354945524158545,
     "categories": {
-      "reconstructed_game": 241104,
+      "reconstructed_game": 241280,
       "restored_library": 216404
     },
-    "matching_functions": 2727
+    "matching_functions": 2728
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -655,7 +655,7 @@
     "config/GMFE69/targimpl_step.json": "af21179a871f347eb9860734b1f76b78804b0ef5c60add3e7eb6bec30743bf53",
     "config/GMFE69/targimpl_stop.json": "44420ea2f5a10a88f1937520601413bebbee631af8fb0062ca1e98dd7204b3ce",
     "config/GMFE69/texpack.json": "e72b98cff12a06a8815f3de46a2dddeaaff0a28ea13a88b19df4444349d53607",
-    "config/GMFE69/threads.json": "d264cbc64f178174ef4e3e782c684e2b008abf5eb3ac641e9bd1236e522459c8",
+    "config/GMFE69/threads.json": "7ff759b6a25e060f4b0e42e0a441b2c1fa6dbd23dbaf68600e832b617feeb943",
     "config/GMFE69/threads_current.json": "d67345101e55cef32123d176a89cc9c1735c957bf68e3f47494940f744ea29f3",
     "config/GMFE69/thrown_obj.json": "bd01ec174db980900c8347de44aceb41594e3b38e73ae7135acbd48d4e6c877f",
     "config/GMFE69/thrown_obj_cleanup.json": "c8e717e59178ab4e8516acd36d2f1e1ee3e1c5d7aeda1b35f144cf2adbb44a73",
@@ -1650,7 +1650,7 @@
     "src/ea/sx87d16.c": "c1dd596abc75c11f30754a6dba703855646d4b8f22e144410e386724486258d4",
     "src/ea/syncfile.cpp": "1124a93e16dfa598b23ce2eb2fce4d0e31b5609a4ad58910f0fc836dbe9891f3",
     "src/ea/systask.cpp": "064e88a22a3eb4ce2abeccd180f0df17d49e86028b44b3fc0a54e8cf7365d4bb",
-    "src/ea/threads.cpp": "4aca18d1643d4756519e5c0caebd686a45930fb884894501da9bbf87da1d0c11",
+    "src/ea/threads.cpp": "fd4f9695cadc3fa5bc9418f503fcd36547bbaa709cffdddea638e91f4666b905",
     "src/ea/threads_current.cpp": "a57b181325a67145184b55a35bb2b59cb2e158805f759818ea825b02be75bd7c",
     "src/ea/timer.cpp": "5fbb8bd406632aa10e62ca1c8523eee1e88d3fcd17e3edcdf1b3d7cfd0f19708",
     "src/ea/timerthread.cpp": "e2ee2dfbb74893029f0693bb5b76212bdd70223c892d9fd963984794c6193628",
@@ -16519,8 +16519,8 @@
     {
       "id": "threads",
       "category": "reconstructed_game",
-      "functions": 2,
-      "code_bytes": 76,
+      "functions": 3,
+      "code_bytes": 252,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -16552,8 +16552,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "e54f7416081859a9de0142d8a8b0a736a1c29b5b81a457c4a53bccee9e26eb50",
-      "linked_sha256": "825ff6e0f756e2e6fc10045b714ed2f67f6797d5000a96feb41d673134dccc9f"
+      "object_sha256": "7a606aff7f234ace85749606b2e991890c11a5f0b4a8117a384ef2904283617a",
+      "linked_sha256": "6f9cbbf59280a69ac90f340620dbb2107576ad24681843ba7f9a65950a378345"
     },
     {
       "id": "srandom",
@@ -46737,20 +46737,6 @@
             "kind": "function",
             "name": "stricmp",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/threads.cpp [symbol evidence]",
-        "file_record": 413,
-        "file_name": "threads.cpp",
-        "ranges": [
-          {
-            "address": "0x80151fbc",
-            "size": 176,
-            "kind": "function",
-            "name": "THREAD_yield",
-            "evidence": "between-same-file"
           }
         ]
       },
