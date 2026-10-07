@@ -39,24 +39,36 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800deb60",
-      "size": 968,
+      "address": "0x800dea7c",
+      "size": 1196,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000ed40",
-      "size": 48,
+      "address": "0x8000ed38",
+      "size": 56,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x800159b0",
-      "size": 72,
+      "address": "0x800159a4",
+      "size": 84,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "Get_NumPlayers__10CShellMenuFv",
+      "address": "0x800dea7c",
+      "size": 80,
+      "binding": 1
+    },
+    {
+      "name": "Pass_ActiveWindowsToIStudio__10CShellMenuFPi",
+      "address": "0x800deacc",
+      "size": 148,
+      "binding": 1
+    },
     {
       "name": "Save_ActiveWindowsFromIStudio__10CShellMenuFPi",
       "address": "0x800deb60",
@@ -140,6 +152,7 @@
     "IsReady__14CDeviceManagerFi": "0x800841b4",
     "g_inputMgr": "0x801ec80c",
     "memcpy": "0x800094f8",
+    "memset": "0x80009410",
     "strcpy": "0x80140040"
   },
   "undefined_in_discarded_code": [],

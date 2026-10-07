@@ -1,6 +1,7 @@
-// A fragment of ShellMenu.cpp (0x800deb60): CShellMenu's multiplayer settings
-// as exchanged with the interface studio. The active windows are saved and
-// counted; the active players are those whose controller is ready and whose
+// A fragment of ShellMenu.cpp (0x800dea7c): CShellMenu's multiplayer settings
+// as exchanged with the interface studio. The player count is the number of
+// open windows (also stored); the open windows are passed out (others as 0)
+// and saved and counted; the active players are those whose controller is ready and whose
 // window is open (else -1); the level settings, per-player controller value,
 // model and team colour, name (at most ten characters) and advanced settings
 // are copied out to (Pass...) or in from (Setup...) the studio's integer
@@ -14,6 +15,7 @@
 // types are inferred.
 extern "C" {
 void* memcpy(void*, const void*, unsigned long);
+void* memset(void*, int, unsigned long);
 char* strcpy(char*, const char*);
 }
 
@@ -42,6 +44,8 @@ struct SoundOptionsView {
 
 class CShellMenu {
 public:
+    int Get_NumPlayers();
+    void Pass_ActiveWindowsToIStudio(int*);
     void Save_ActiveWindowsFromIStudio(int*);
     void SetActivePlayers(int*);
     void PassMultiPlayerLevelSettingsToIStudio(int*);
@@ -77,6 +81,35 @@ public:
     unsigned char unknown14cc[1024];
     int m_activeWindows[4];
 };
+
+int CShellMenu::Get_NumPlayers() {
+    int count = 0;
+    if (m_activeWindows[0] != 0)
+        count++;
+    if (m_activeWindows[1] != 0)
+        count++;
+    if (m_activeWindows[2] != 0)
+        count++;
+    if (m_activeWindows[3] != 0)
+        count++;
+    m_activeWindowCount = count;
+    return count;
+}
+
+void CShellMenu::Pass_ActiveWindowsToIStudio(int* out) {
+    int windows[4];
+
+    memset(windows, 0, sizeof(windows));
+    if (m_activeWindows[0] > 0)
+        windows[0] = m_activeWindows[0];
+    if (m_activeWindows[1] > 0)
+        windows[1] = m_activeWindows[1];
+    if (m_activeWindows[2] > 0)
+        windows[2] = m_activeWindows[2];
+    if (m_activeWindows[3] > 0)
+        windows[3] = m_activeWindows[3];
+    memcpy(out, windows, sizeof(windows));
+}
 
 void CShellMenu::Save_ActiveWindowsFromIStudio(int* windows) {
     int count = 0;
