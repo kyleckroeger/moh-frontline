@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 466284,
+    "matching_code_bytes": 466440,
     "total_executable_code_bytes": 1414572,
-    "percent": 32.962903266853864,
+    "percent": 32.97393133753531,
     "categories": {
-      "reconstructed_game": 249880,
+      "reconstructed_game": 250036,
       "restored_library": 216404
     },
-    "matching_functions": 2818
+    "matching_functions": 2820
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -467,7 +467,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "37103eca9971dab429c20b673d4dad67b14ee33873ae36b9ceda2a681285c361",
+    "config/GMFE69/project.json": "e1800f33a4c20c161a1140bf033fa5b79d026d6b9b02b3b0bc8ff2c61eceaaf9",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "bd4b85e3a27ac50301d2ad04642bca1abf864b5f74397505530539b31bf4c0d1",
@@ -648,6 +648,7 @@
     "config/GMFE69/ssysinit.json": "bc5cc6f00077822fc429b11faedcdcc3313e5befafecc1981d8ef797cb9cbfc6",
     "config/GMFE69/ssysreal.json": "3b9fb3ecf4cd22c2c1d2c57eab822d87cdfdb5e946081517b26a19ceb8db67e1",
     "config/GMFE69/ssysserv.json": "49f2852bbf809fe6219540041d9217ec9f6389f59e15723314a1482fc110739b",
+    "config/GMFE69/static_obj_commit.json": "1e9efe044d9950abbd21c280932160eb8c7e7501ec2a053a3f563811ab6a0289",
     "config/GMFE69/static_obj_rows.json": "9a108ce0139e64467e8345ddb5f5ae7bb8bc9432e686a074a2f8790afdaf36eb",
     "config/GMFE69/static_obj_setpos.json": "b26ef7d2ae082779e19ef1acefbcb891313d92c5cdabd2d3d8431e7afd42152a",
     "config/GMFE69/staticmesh.json": "071c3dfaf63f3f12842d683773b40701155453fefded8bd3d2c02b83dbbe8492",
@@ -1974,6 +1975,7 @@
     "src/game/sphere.cpp": "e1538a9191090541d7ecf265002ecb8f7306968a70e94f4286c7ea3800c0d889",
     "src/game/sphere_dispatch.cpp": "05d6af484258a663264a56295ca03eca8812108226674e0e37c59d46eb7322a7",
     "src/game/sprite.cpp": "bc15c2b65f957f90ba36ae02628c870761a9a18da28ef55e964a2382df205aa4",
+    "src/game/static_obj_commit.cpp": "082c0322d4e466d5c2e15078dbeccedc79d79457460620dd246269727958ece6",
     "src/game/static_obj_rows.cpp": "eebbe9899681bc25656fa953c1b1b02723564a4f9326aa07ca9ef7b8a133316c",
     "src/game/static_obj_setpos.cpp": "69cdfc4c8de5a0ea500c11997f419afc8402acd720f86eed210e942a4d3db064",
     "src/game/staticmesh.cpp": "3a8bd609a8efecaa00960dcdd8fdfc554ba8f0d50b782532f6cbb7243d255224",
@@ -31608,6 +31610,45 @@
       "discarded_functions": [],
       "object_sha256": "c00d77ac1350a69bbedf532476e9ac15662f6cce9728ed3ee92e44b9050d53fd",
       "linked_sha256": "6af66dfb2ae883271174a56d02118acf6b93472a34f38c2b3d1021bc6f223784"
+    },
+    {
+      "id": "static_obj_commit",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 156,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "8e98246495b5e3895c165e460428be0059d52ee09c0da29e6defedc8e875f7f6",
+      "linked_sha256": "51d780d5b9c28c3b895e63e7f25b1b0aace3f52ef0db682dafe6a15e51661349"
     }
   ],
   "code_map": {
@@ -41620,20 +41661,6 @@
             "size": 340,
             "kind": "function",
             "name": "CommitUpdate__13CStaticObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800b031c",
-            "size": 64,
-            "kind": "function",
-            "name": "CommitPathMotionUpdate__13CStaticObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800b035c",
-            "size": 92,
-            "kind": "function",
-            "name": "CommitAnimMotionUpdate__13CStaticObjectFv",
             "evidence": "exception-index"
           },
           {

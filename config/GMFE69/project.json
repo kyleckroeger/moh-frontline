@@ -701,7 +701,8 @@
     "player_weapon_donereload.json",
     "player_weapon_selectable.json",
     "debug_prof_bins.json",
-    "animated_finish.json"
+    "animated_finish.json",
+    "static_obj_commit.json"
   ],
   "progress": {
     "code_bytes": 1414572,
