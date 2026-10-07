@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 490608,
+    "matching_code_bytes": 490828,
     "total_executable_code_bytes": 1414572,
-    "percent": 34.68243398003071,
+    "percent": 34.69798638740198,
     "categories": {
-      "reconstructed_game": 274204,
+      "reconstructed_game": 274424,
       "restored_library": 216404
     },
-    "matching_functions": 3105
+    "matching_functions": 3107
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -242,7 +242,7 @@
     "config/GMFE69/bsbifunc_cheats.json": "4e4c4ed7102ff06795f1c3baac5d659de0d3537625937ab60a95afe14bce7a76",
     "config/GMFE69/bsbifunc_choosetarget.json": "fd982638090a2b0c4775ff96a3f7647c18704182aa583c5b57d1016d523b3262",
     "config/GMFE69/bsbifunc_collision.json": "3f683d5a0e4811eea3ad8426b7b5918d37a53eb0c769155b6377d5cf1b124f13",
-    "config/GMFE69/bsbifunc_cook.json": "b842fc1bd2e90191e3c6755961c9f7caacbf8eaf640ed222ada27538c6b5fae5",
+    "config/GMFE69/bsbifunc_cook.json": "b51926e8510b156aa39d1fa132c0b093fe0323539bf7ebdfa6731ffd8bffef16",
     "config/GMFE69/bsbifunc_corpse.json": "ef013d1c9ed3c04470065d3ccea8e82ff29ee821ee8a43e7753b5e719d7f3a7d",
     "config/GMFE69/bsbifunc_corpsesearch.json": "cf6c12648437f063dd63c5a31374c8eb6ecad98632914b850441c716558d9c5d",
     "config/GMFE69/bsbifunc_cover.json": "a3ea5a60daf69ca5b869e8e34544f2777ef34fa64fc4aba66a2e71c6c44b900c",
@@ -1917,7 +1917,7 @@
     "src/game/bsbifunc_cheats.cpp": "00acc9dd5e35f49e1ca1b6831beff946c72290dffeba51e1fef6dc6406fd10cd",
     "src/game/bsbifunc_choosetarget.cpp": "8eb2ab614b3c3c35daf74a9f78f14ae07767e11c1238d1790ec2f7d1eb052415",
     "src/game/bsbifunc_collision.cpp": "630c3ce69b93d5207dee4e8f9a05f1e76af8390b71b864f691b0636b44d1823c",
-    "src/game/bsbifunc_cook.cpp": "41de8182e849cb310bcc5c97e3f2d237f0581a51aa81f2a54b235ef43c776741",
+    "src/game/bsbifunc_cook.cpp": "55e3ed96cfac8204a6a0b7b1c1e9fed5d9d53e0cc7a071d61265c8f3d09eb362",
     "src/game/bsbifunc_corpse.cpp": "91736f8a4669a2c35b8a3b03dfd9ddad9d13e2ace0ec7cee779f9567ab69c6f9",
     "src/game/bsbifunc_corpsesearch.cpp": "4e0524c80d742ef1e8e25273ebd6fc26c428368a5b10d20b5a6ba7b8525b5efb",
     "src/game/bsbifunc_cover.cpp": "3d6b80c8f329ec9c74249e9e598582a363031511da2944f930cfcd6a1d4edca2",
@@ -25148,8 +25148,8 @@
     {
       "id": "bsbifunc_cook",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 100,
+      "functions": 3,
+      "code_bytes": 320,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -25181,8 +25181,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "4b14f3d2a1b5aed28c978d7b87436e5a97bb97b53900b5e1a243b030e8231513",
-      "linked_sha256": "3a6bf1534fbfb35b8f119eb6267aab1dc6b90805b187fd69b2107c50f035daa8"
+      "object_sha256": "8cabf1cf122e789418ffde9dfbc029d23b7be6458ddab492a7d87aedc6b3d83b",
+      "linked_sha256": "e8c90ec636f97ca12b9675b071194298d85137a4eb2063a9d322d785c249d2c8"
     },
     {
       "id": "bsbifunc_holdtime",
@@ -36263,20 +36263,6 @@
             "size": 6224,
             "kind": "function",
             "name": "BIFunc_GetObjInfo__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8002dcac",
-            "size": 104,
-            "kind": "function",
-            "name": "BIFunc_StopGrenadeHold__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8002dd14",
-            "size": 116,
-            "kind": "function",
-            "name": "BIFunc_StartGrenadeHold__FPPiPv",
             "evidence": "exception-index"
           },
           {
