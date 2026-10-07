@@ -37,12 +37,18 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8014e518",
-      "size": 68,
+      "address": "0x8014e480",
+      "size": 220,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "FONT_switchcase__Fi",
+      "address": "0x8014e480",
+      "size": 152,
+      "binding": 0
+    },
     {
       "name": "FONT_drawtexta",
       "address": "0x8014e518",
