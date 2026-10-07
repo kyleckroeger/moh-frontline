@@ -18,7 +18,7 @@
     "off",
     "-O4,p",
     "-inline",
-    "auto",
+    "on",
     "-pragma",
     "cats off",
     "-nosyspath",
@@ -38,11 +38,17 @@
     {
       "name": ".text",
       "address": "0x8014bee0",
-      "size": 860,
+      "size": 1756,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "restartstream__FP15STREAMHEADERtagi",
+      "address": "0x8014c23c",
+      "size": 896,
+      "binding": 0
+    },
     {
       "name": "opencallback__FiiPv",
       "address": "0x8014bee0",
@@ -73,10 +79,12 @@
     "FILESYS_close": "0x80148cd0",
     "FILESYS_completeop": "0x80148a84",
     "FILESYS_open": "0x80148c38",
+    "FILESYS_read": "0x80148d7c",
+    "MEM_copy": "0x80150880",
     "MUTEX_lock": "0x8015212c",
     "MUTEX_unlock": "0x80152150",
+    "freerequest__FP15STREAMHEADERtagP16REQUESTSTRUCTtag": "0x8014bb68",
     "parsechunks__FP15STREAMHEADERtag": "0x8014bbf0",
-    "restartstream__FP15STREAMHEADERtagi": "0x8014c23c",
     "strcmp": "0x8013fed4",
     "strcpy": "0x80140040"
   },
@@ -84,8 +92,8 @@
   "discarded_functions": [],
   "upstream": {},
   "local_externals": [
-    "parsechunks__FP15STREAMHEADERtag",
-    "restartstream__FP15STREAMHEADERtagi"
+    "freerequest__FP15STREAMHEADERtagP16REQUESTSTRUCTtag",
+    "parsechunks__FP15STREAMHEADERtag"
   ],
   "discarded_local_functions": [],
   "sda_externals": [],
