@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 458040,
+    "matching_code_bytes": 458472,
     "total_executable_code_bytes": 1414572,
-    "percent": 32.3801121469957,
+    "percent": 32.41065141965202,
     "categories": {
-      "reconstructed_game": 241636,
+      "reconstructed_game": 242068,
       "restored_library": 216404
     },
-    "matching_functions": 2730
+    "matching_functions": 2732
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -440,7 +440,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "ae287b8d3956a1b7e81c97001dc8602fc1f63de55c577e9b563c63fd10ad65c5",
+    "config/GMFE69/project.json": "c97baa2988c60cadb020b7e237ae9dc709689f7dced4b922d36f8424f832f0d3",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "bd4b85e3a27ac50301d2ad04642bca1abf864b5f74397505530539b31bf4c0d1",
@@ -494,6 +494,7 @@
     "config/GMFE69/sbremove.json": "9116966e0a4af54871d355ceb5f88cafb659766b12e39879b128dfd8649f75da",
     "config/GMFE69/sbvalid.json": "863cd244b11a9ed40c9fc6be27ba563a378f41b8c056b17c470d2542642cff7e",
     "config/GMFE69/scalcfx.json": "dcf000d282f99f538f32548197301e551a344bc7825d4af12e83db9bf708aff2",
+    "config/GMFE69/scalcpitch.json": "1044f6870d3247c40bf595714395ad94aa4011f16aa3a571ec5a334a2cd63a36",
     "config/GMFE69/scanf.json": "8b6c8c106b3e30ef33cf95e2b2598aa1fa8faba019ccbe4cde367c2c19efc736",
     "config/GMFE69/scene.json": "f6c9a8b19f28e3eb26520cf536804107387532f4b48ac2fef4eaa9a57a03639f",
     "config/GMFE69/sclnt100.json": "1240eb5a92ecbe7c25755312ec960a23192c75240675f6cecbbd3c91b2f54fc5",
@@ -501,6 +502,7 @@
     "config/GMFE69/sctrldry.json": "561b4b93070d6a4cbfb714e3f6de5824f583795298bba426606a1ad4803dc401",
     "config/GMFE69/sdfx.json": "6985d96463b5ccc311927984ccfb649a26f4ecd6d154e532138a036ae75a2d70",
     "config/GMFE69/sdrv_destroy.json": "eb43eaf6d815ee8e419bedd3905843d912973bd37748594e46866c49abc21914",
+    "config/GMFE69/sdrv_drop.json": "ade7c591ad819991e592af3460f0b8749b57b9fceec8692c23c001d8cb5885b6",
     "config/GMFE69/sdrv_dry.json": "ddb331302c2ddf0123a7f2bb136b1c082f50f3d4090e9ceb709c134862fed5ed",
     "config/GMFE69/sdrv_frame.json": "42f435d55fcef394ea606cec76cc059e2a157cacd9d3138bf8ab2248c41b856c",
     "config/GMFE69/sdrv_master.json": "1215b2edb2f96ca59c1581d454d24638811519e86394aac1f2741cbc2a3f836a",
@@ -1528,11 +1530,13 @@
     "src/ea/sbremove.c": "26dd4db3e8b310787ea3f1d6aa09605f2eebf0c64908a3ee8408d15d29e3da9b",
     "src/ea/sbvalid.c": "9ee5cfd72307b1db2bed61b641eadeebcfc1650a951751ace625be64ec24c10f",
     "src/ea/scalcfx.c": "85fda0fc3ffdc7563b22f679957d60cf1299536991c8cb699928150067286be5",
+    "src/ea/scalcpitch.c": "9ddaa5ca31c6eb80a94779fe20dfaef74839e59dbc2623c32951dfecfa4c96f7",
     "src/ea/sclnt100.c": "b66db7c5dd3ac2f356f6d1a28160a54beae4ba3a0b9c96c20bce6ef6d59fddca",
     "src/ea/sctlfilt.c": "f0ee0f9939f8a8bf3d378bd02f819abd234a5da38120e7e84861b2ec0a3b180b",
     "src/ea/sctrldry.cpp": "98429e0252980217b230bcd6d5250668bdac5623e921d3124d66481497622d43",
     "src/ea/sdfx.c": "9d83385a1a795ded1328d0f6f4b30339b8a2c7b14b2b7243908abdcbf11ef50a",
     "src/ea/sdrv_destroy.cpp": "192ca1a74e1cec68f228d11355e246b12c3c1b08d0c9b8b09daa1029cf950d72",
+    "src/ea/sdrv_drop.c": "203a1db7bd77ff377c124e0ef2816fde0ed1602965342325b96d4b36ff240a4e",
     "src/ea/sdrv_dry.cpp": "a9fed6b626e1a66c849ca4852b168c3cda74caf6313ad85f226e5530ba470e81",
     "src/ea/sdrv_frame.cpp": "c99a23fb9784a05655cfa524273d551374ebab5c10ce24c3e7cce1d30a764b3c",
     "src/ea/sdrv_master.cpp": "a488ed4fc6f6b0c200689556d0c6dd961f042f6186e518be88496f1e5816f26e",
@@ -30294,6 +30298,84 @@
       "discarded_functions": [],
       "object_sha256": "6b18470cfefa6eac25e40e47bb97273f5511282d0512ae4a1d63a4a728ff9ee1",
       "linked_sha256": "186120926f6c9d21b834fded62deb7f834acd62a8a2075d1adae5caec9f425c9"
+    },
+    {
+      "id": "scalcpitch",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 212,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "9a6f0ce0be08220380ce6f96ada46dac518a3f2a7c98dd9ca25bcd7c1c1110e7",
+      "linked_sha256": "ca1c12dd1218cedd7cad293034dee1a46c4b1a09c9a4056425e5ffa41928fc33"
+    },
+    {
+      "id": "sdrv_drop",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 220,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "6b0f61159066f05038eb531835b6cd3badb515c31d7f83eca438b38b97f7d195",
+      "linked_sha256": "d6b107ca0f547ebf67ea7b57f1db2f0f18e1a522fcf5a37927c8837c9913c4bb"
     }
   ],
   "code_map": {
@@ -47114,13 +47196,6 @@
             "kind": "function",
             "name": "iSNDdetunetolinear__Fi",
             "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8015e03c",
-            "size": 212,
-            "kind": "function",
-            "name": "iSNDcalcpitch__Fi",
-            "evidence": "unknown-file"
           }
         ]
       },
@@ -47598,13 +47673,6 @@
         "file_record": 552,
         "file_name": "snddrv.c",
         "ranges": [
-          {
-            "address": "0x80168fa8",
-            "size": 220,
-            "kind": "function",
-            "name": "SNDDRV_callbackdropvoice__FPv",
-            "evidence": "between-same-file"
-          },
           {
             "address": "0x801696dc",
             "size": 1172,
