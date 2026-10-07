@@ -2,9 +2,10 @@
 // (deletes the GUI sprites, shuts both bullet helpers down, frees the two
 // property arrays and clears the initialised flag), Reset (resets both
 // helpers) and Init (loads the bullet parameters and GUI sprites, initialises
-// each helper with its property array and sets the flag). The file name is
-// this project's; the original record is bulletfactory.cpp and the destructor
-// after these is not reconstructed. The classes, the helper template and the
+// each helper with its property array and sets the flag), then the
+// destructor (the helpers' destructors) and the constructor (constructs both
+// helpers, clears the flag and the property pointers). The file name is
+// this project's; the original record is bulletfactory.cpp. The classes, the helper template and the
 // property and type names come from the mangled symbols; CBulletFactory is an
 // inferred non-virtual view (members at their offsets, names not original).
 class CProjectileBullet;
@@ -17,6 +18,8 @@ enum EThrownBulletTypes {};
 template <class Bullet, class Properties, class Types>
 class CBulletFactoryHelper {
 public:
+    CBulletFactoryHelper();
+    ~CBulletFactoryHelper();
     void Init(Properties*);
     void Reset();
     void Shutdown();
@@ -26,6 +29,8 @@ public:
 
 class CBulletFactory {
 public:
+    CBulletFactory();
+    ~CBulletFactory();
     void Shutdown();
     void Reset();
     void Init();
@@ -62,4 +67,13 @@ void CBulletFactory::Init() {
     m_projectiles.Init(m_projectileProperties);
     m_thrown.Init(m_thrownProperties);
     m_initialised = true;
+}
+
+CBulletFactory::~CBulletFactory() {
+}
+
+CBulletFactory::CBulletFactory() {
+    m_initialised = false;
+    m_projectileProperties = 0;
+    m_thrownProperties = 0;
 }

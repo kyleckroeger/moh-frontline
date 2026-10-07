@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 479336,
+    "matching_code_bytes": 479512,
     "total_executable_code_bytes": 1414572,
-    "percent": 33.88558518053517,
+    "percent": 33.898027106432195,
     "categories": {
-      "reconstructed_game": 262932,
+      "reconstructed_game": 263108,
       "restored_library": 216404
     },
-    "matching_functions": 3043
+    "matching_functions": 3045
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -317,7 +317,7 @@
     "config/GMFE69/bullet_draw.json": "094d31966b0f5d63864f43d166790e5c9f0549c3cce656f8fd959a57de16a6b8",
     "config/GMFE69/bullet_rows.json": "04f963eead009d03fdc93e869e912722f4de27e7df41deb0f51d96c85794b1a6",
     "config/GMFE69/bulletfactory.json": "ef77b1567d451a726bf128c4491067160f2c9ef66d2481fd6981d85e28c61a21",
-    "config/GMFE69/bulletfactory_init.json": "4b194af230dd50d8427df78f1882da7aa08d422576dc8985afdb312dbab6d505",
+    "config/GMFE69/bulletfactory_init.json": "3700c7c215f7a95846821dada9e248307d7298a7f3316c4b987478e9f180de9c",
     "config/GMFE69/bulletfactory_projectile_ctor.json": "b415bf0b0ee07179ccb88d205e352e95a78581bc57d36cdec5f3f6568d6efdd8",
     "config/GMFE69/bulletfactory_projectile_pool.json": "d0a441d015833dce6a503491c7302c79764117cd213bb2e57eaebfe9ee3dbb64",
     "config/GMFE69/bulletfactory_sprites.json": "ae311cccd0ef2fe2fcf7da4dc35b195c719409e68b70d0b9fb677f9e129d2722",
@@ -1987,7 +1987,7 @@
     "src/game/bullet_draw.cpp": "09df292753cae3ef115faaa9d446070b7a605ae7f70bceff59a555dad9e17add",
     "src/game/bullet_rows.cpp": "61a2169543f0cd466b957ceddfb3f97973bfa5e73bf310829732a37229a1f0a2",
     "src/game/bulletfactory.cpp": "30a1dfed133da377fe27dc08135a3e2f022d21e8c278aa03c655122a53f68ce1",
-    "src/game/bulletfactory_init.cpp": "0ebf18ed93f90155ea51cb32053bf74d60a670c1688dd9c97e0b52ac45080c09",
+    "src/game/bulletfactory_init.cpp": "1544cfb56bcd665918a179dbc362a3c4f478f860de1e81f03cf10e543bacebff",
     "src/game/bulletfactory_projectile_ctor.cpp": "47cb16f200edaf970f6ee720c046450eae06500d76cbcf33753629e800dc51c6",
     "src/game/bulletfactory_projectile_pool.cpp": "46d5fb1d10123952f736e8b7bad7810271ce1ab161d3e14589530b4e8dff4adb",
     "src/game/bulletfactory_sprites.cpp": "b9f54fc574513bbe0ca4b8adf5d9f1a60975f2ad5ffc6f9744650d11e41e4993",
@@ -24323,8 +24323,8 @@
     {
       "id": "bulletfactory_init",
       "category": "reconstructed_game",
-      "functions": 3,
-      "code_bytes": 232,
+      "functions": 5,
+      "code_bytes": 408,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -24356,8 +24356,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "aec073fc14efbce91b952ca178d47b7e84fc2c28ecb2276e3e46282ca8491dc1",
-      "linked_sha256": "4f658c9d6d194b63f77e71a0e5713f4f519f59a89bff27e5e86afcddb92cde80"
+      "object_sha256": "6c0e6de74a64aee28bb157e7267ee7ea8204248416d4f0dec46fc6f97990bc08",
+      "linked_sha256": "e1a28b0b6505a391a60cccd20fc3b4d053b84b0780031893f300a9011d4a95c3"
     },
     {
       "id": "particlesystem_emit",
@@ -45572,27 +45572,6 @@
             "size": 180,
             "kind": "function",
             "name": "__ct__7CBulletFv",
-            "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/bulletfactory.cpp [symbol evidence]",
-        "file_record": 136,
-        "file_name": "bulletfactory.cpp",
-        "ranges": [
-          {
-            "address": "0x800cd9d0",
-            "size": 100,
-            "kind": "function",
-            "name": "__dt__14CBulletFactoryFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cda34",
-            "size": 76,
-            "kind": "function",
-            "name": "__ct__14CBulletFactoryFv",
             "evidence": "exception-index"
           }
         ]

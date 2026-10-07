@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800cd8e8",
-      "size": 232,
+      "size": 408,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000e370",
-      "size": 24,
+      "size": 60,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x8001517c",
-      "size": 36,
+      "size": 60,
       "type": 1
     }
   ],
@@ -74,6 +74,18 @@
       "address": "0x800cd97c",
       "size": 84,
       "binding": 1
+    },
+    {
+      "name": "__dt__14CBulletFactoryFv",
+      "address": "0x800cd9d0",
+      "size": 100,
+      "binding": 1
+    },
+    {
+      "name": "__ct__14CBulletFactoryFv",
+      "address": "0x800cda34",
+      "size": 76,
+      "binding": 1
     }
   ],
   "externals": {
@@ -86,7 +98,12 @@
     "Reset__90CBulletFactoryHelper<13CThrownBullet,29ThrownBulletProperties_struct,18EThrownBulletTypes>Fv": "0x800cdc80",
     "Shutdown__102CBulletFactoryHelper<17CProjectileBullet,33ProjectileBulletProperties_struct,22EProjectileBulletTypes>Fv": "0x800ce318",
     "Shutdown__90CBulletFactoryHelper<13CThrownBullet,29ThrownBulletProperties_struct,18EThrownBulletTypes>Fv": "0x800cde2c",
-    "__dla__FPv": "0x8001c9e8"
+    "__ct__102CBulletFactoryHelper<17CProjectileBullet,33ProjectileBulletProperties_struct,22EProjectileBulletTypes>Fv": "0x800cdf64",
+    "__ct__90CBulletFactoryHelper<13CThrownBullet,29ThrownBulletProperties_struct,18EThrownBulletTypes>Fv": "0x800cda80",
+    "__dl__FPv": "0x8001ca2c",
+    "__dla__FPv": "0x8001c9e8",
+    "__dt__102CBulletFactoryHelper<17CProjectileBullet,33ProjectileBulletProperties_struct,22EProjectileBulletTypes>Fv": "0x800cdf80",
+    "__dt__90CBulletFactoryHelper<13CThrownBullet,29ThrownBulletProperties_struct,18EThrownBulletTypes>Fv": "0x800cda9c"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
