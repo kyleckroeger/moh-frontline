@@ -40,19 +40,25 @@
     {
       "name": ".text",
       "address": "0x80105258",
-      "size": 220,
+      "size": 484,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000fcf4",
-      "size": 24,
+      "size": 48,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80016a6c",
-      "size": 36,
+      "size": 72,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x80351340",
+      "size": 4,
       "type": 1
     }
   ],
@@ -85,6 +91,24 @@
       "name": "ReleaseFrame__Q24RCMP7DECODERFPQ24RCMP5FRAME",
       "address": "0x80105304",
       "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "GetFrame__Q24RCMP7DECODERFUi",
+      "address": "0x80105334",
+      "size": 136,
+      "binding": 1
+    },
+    {
+      "name": "GetFrameRate__Q24RCMP7DECODERFv",
+      "address": "0x801053bc",
+      "size": 64,
+      "binding": 1
+    },
+    {
+      "name": "GetCurrentFrameNumber__Q24RCMP7DECODERFv",
+      "address": "0x801053fc",
+      "size": 64,
       "binding": 1
     }
   ],

@@ -2,10 +2,11 @@
 // record (0x80105258): the CODEC_IDATA constructor (streamer, chunk get and
 // release callbacks, a value), the CHUNK constructor, and DECODER::ReleaseChunk
 // and GetChunk (a pending chunk first, otherwise the get callback) and
-// ReleaseFrame (forwarded to the chosen codec). The file name is this
-// project's; the original record is rcmpbase.cpp (rcmpbase.cpp holds the
-// decoder's codec choice and destructor) and the frame queries between are not
-// reconstructed. RCMP, DECODER, CODEC, CHUNK, CODEC_IDATA, STREAMER and FRAME
+// ReleaseFrame (forwarded to the chosen codec), then the frame queries
+// forwarded to the chosen codec (GetFrame first fetches a pending chunk while
+// no codec is chosen; without a codec they return null, 0.0f and 0). The file
+// name is this project's; the original record is rcmpbase.cpp (rcmpbase.cpp
+// holds the decoder's codec choice and destructor, which follow). RCMP, DECODER, CODEC, CHUNK, CODEC_IDATA, STREAMER and FRAME
 // are named by the mangled symbols and RTTI; members and the codec's virtual
 // function names are inferred. The global RCMP_SYSTEM is declared extern.
 // RCMP (the movie player) base: the decoder that feeds stream chunks to the
@@ -123,11 +124,19 @@ void DECODER::ReleaseFrame(FRAME* frame) {
     m_codec->ReleaseFrame(frame);
 }
 
-FRAME* DECODER::GetFrame(unsigned int frame);
+FRAME* DECODER::GetFrame(unsigned int frame) {
+    if (!m_codec && !m_pending)
+        m_idata.m_getChunk(this, m_idata.m_streamer, &m_pending);
+    return !m_codec ? 0 : m_codec->GetFrame(frame);
+}
 
-float DECODER::GetFrameRate();
+float DECODER::GetFrameRate() {
+    return !m_codec ? 0.0f : m_codec->GetFrameRate();
+}
 
-unsigned int DECODER::GetCurrentFrameNumber();
+unsigned int DECODER::GetCurrentFrameNumber() {
+    return !m_codec ? 0 : m_codec->GetCurrentFrameNumber();
+}
 
 void DECODER::FreeChosenCodec();
 

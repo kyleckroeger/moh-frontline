@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 461328,
+    "matching_code_bytes": 461592,
     "total_executable_code_bytes": 1414572,
-    "percent": 32.61254994443549,
+    "percent": 32.63121283328102,
     "categories": {
-      "reconstructed_game": 244924,
+      "reconstructed_game": 245188,
       "restored_library": 216404
     },
-    "matching_functions": 2761
+    "matching_functions": 2764
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -463,7 +463,7 @@
     "config/GMFE69/rcmp_mpc_codec.json": "e1d5f9bfd6806cda57979040abb360cd8c565a61d55ad2591e1542a82db7a8f1",
     "config/GMFE69/rcmp_mpc_codec_chunk_types.json": "42f8600fb47568b4635edb3182a0d6d788bb94c0419a514e14604d564197d33d",
     "config/GMFE69/rcmpbase.json": "76b2fde8c7d557b1a3f2efbb80e56fc580819831e852f1291c81fbfaadf10fe3",
-    "config/GMFE69/rcmpbase_head.json": "b9d16016fb49b58d2b204d8cd1f7c534d6461e0c75aad565c483a883c5f3d19d",
+    "config/GMFE69/rcmpbase_head.json": "d540a32fd2ee0c6aa11949b937349b14632e82700f345a96d1285949d00add37",
     "config/GMFE69/real_bridge.json": "fb24361e052cc387b259a75299cf4cd5cac5657115be7c0281dad09bdf4242ab",
     "config/GMFE69/recon.json": "ee4b39c3b8dc4b27b464b1aa560194e9d855a693eff202d41e169eec78679960",
     "config/GMFE69/renderlist.json": "0e4fcd5e151e262ff2ec97c60d2bb1d66cb1eb357837646eb64ef10d2a43d188",
@@ -1914,7 +1914,7 @@
     "src/game/rcmp_main.cpp": "d1a6c353fcb80c172333374b81ccc9e59532feb9aeaddf7a08c9934cd76efdee",
     "src/game/rcmp_mpc_codec.cpp": "f47b0ab072c4eaf59deb234dd6278ee02871d4ab7b6c83b55e113189ffad84c6",
     "src/game/rcmpbase.cpp": "ff8d5797157a414f7fcd5f34456614259a93f8fe1feb92ea2fdaeb740ee14eb3",
-    "src/game/rcmpbase_head.cpp": "2dc97c38aae95a9168366901cc309001ef88a46e866374a39d5172cbac6cdfa9",
+    "src/game/rcmpbase_head.cpp": "44e2a39c331ccd17e6c72f6afa4f2b52a0274e15e923f971e54360d3dd83382f",
     "src/game/real_bridge.cpp": "3528e557dcb6116823246402f1003e63fd82246a624dcbc2f18e5ee8b9bf8e41",
     "src/game/renderlist.cpp": "5236dd688778b89b3d4b6cba52021ad3ae4dd27fdf84d672038c78294306bfd0",
     "src/game/scene.cpp": "5a6e68bfdae9428ac19481084c64018aec36832400df2981d05ebb3dfb9dac35",
@@ -22973,8 +22973,8 @@
     {
       "id": "rcmpbase_head",
       "category": "reconstructed_game",
-      "functions": 5,
-      "code_bytes": 220,
+      "functions": 8,
+      "code_bytes": 484,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -23006,8 +23006,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "161b0dfcaba0d38fcc74fff2a47dc62a0d9d9e74425bebbe580d98b51b00e64b",
-      "linked_sha256": "8865c93a20a2d0ed25c4a4dbe3a54edc773341edc11cf645392df3e969b59f6b"
+      "object_sha256": "748f558001728abd4c65b04f8ccabf85111631d1375d2e836e6f86d8e98b62a9",
+      "linked_sha256": "92b8f54e1bcbeee6b2e2ad9d79d0971e6be26e360e1f075209253783820af67f"
     },
     {
       "id": "threads_current",
@@ -46027,27 +46027,6 @@
         "file_record": 180,
         "file_name": "rcmpbase.cpp",
         "ranges": [
-          {
-            "address": "0x80105334",
-            "size": 136,
-            "kind": "function",
-            "name": "GetFrame__Q24RCMP7DECODERFUi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x801053bc",
-            "size": 64,
-            "kind": "function",
-            "name": "GetFrameRate__Q24RCMP7DECODERFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x801053fc",
-            "size": 64,
-            "kind": "function",
-            "name": "GetCurrentFrameNumber__Q24RCMP7DECODERFv",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x80105560",
             "size": 80,
