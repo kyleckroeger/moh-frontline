@@ -1,23 +1,29 @@
-// A fragment of bsbifunc.cpp (0x80025bdc): script built-ins that detach a scene
-// node (a given script object's, otherwise the calling node) from a prop,
-// attach the first player to a prop (the given script object's, otherwise the
-// running script object's), detach a node from a waypoint (restoring collision
-// id 5 from 27), the weak CAnimObject::SetCollisionId (the id at +9108), attach
-// a node to a waypoint's trigger position and rotation (switching collision id
-// 5 to 27) and attach a node to a prop as a player, animated or static object.
-// Each reads its arguments below the script stack top and pops the built-in's
-// arguments. The file name is this project's; the original record is
-// bsbifunc.cpp and the built-ins around these are not reconstructed. The
-// functions, classes and globals are named by the mangled symbols; ISceneNode
-// is declared with its virtual functions in the order of __vt__10ISceneNode
-// (GetCollisionId at +88, SetCollisionId at +92, AsStaticObject at +116,
-// AsAnimObject at +140, AsPlayerObject at +156) and BSGO_Basic in the order of
-// __vt__10BSGO_Basic; CAnimObject derives from ISceneNode (its destructor
-// declared first and defined elsewhere), the prop's scene node is used as the
-// CAttachableObject, CMatrix's constructor is an inline view (initialising the
-// class once), and the trigger, script-object, scene and built-in record views,
-// the vector view (four floats, 8-byte aligned) and the boolean argument helper
-// are inferred.
+// A fragment of bsbifunc.cpp (0x800259e4): script built-ins that attach a
+// script object's scene node to the calling soldier (CSoldierObject::AttachObject,
+// to "lt_hand" for mode 0 or "rt_hand" for mode 1) and remove it from the scene,
+// detach the first player from a prop (the given script object's, otherwise
+// the running script object's) and reset a float of the player (+4660) to 1,
+// detach a scene node (a given script object's, otherwise the calling node)
+// from a prop, attach the first player to a prop (the given script object's,
+// otherwise the running script object's), detach a node from a waypoint
+// (restoring collision id 5 from 27), the weak CAnimObject::SetCollisionId (the
+// id at +9108), attach a node to a waypoint's trigger position and rotation
+// (switching collision id 5 to 27) and attach a node to a prop as a player,
+// animated or static object. Each reads its arguments below the script stack
+// top and pops the built-in's arguments. The file name is this project's; the
+// original record is bsbifunc.cpp and the built-ins around these are not
+// reconstructed. The functions, classes and globals are named by the mangled
+// symbols; ISceneNode is declared with its virtual functions in the order of
+// __vt__10ISceneNode (GetCollisionId at +88, SetCollisionId at +92,
+// AsStaticObject at +116, AsAnimObject at +140, AsPlayerObject at +156) and
+// BSGO_Basic in the order of __vt__10BSGO_Basic; CSoldierObject is a view whose
+// virtual AttachObject is at +308 of __vt__14CSoldierObject, with placeholders
+// for the entries before it; CAnimObject and the CPlayerObject view derive from
+// ISceneNode (CAnimObject's destructor declared first and defined elsewhere),
+// the prop's scene node is used as the CAttachableObject, CMatrix's constructor
+// is an inline view (initialising the class once), and the player field, the
+// trigger, script-object, scene and built-in record views, the vector view
+// (four floats, 8-byte aligned) and the boolean argument helper are inferred.
 enum EClsnId {};
 class CStaticObject;
 class CAnimObject;
@@ -133,6 +139,12 @@ public:
     EClsnId m_collisionId;
 };
 
+class CPlayerObject : public ISceneNode {
+public:
+    unsigned char unknown0004[4656];
+    float m_unknown1234;
+};
+
 class CAttachableObject {
 public:
     void DetachObject(ISceneNode*);
@@ -171,6 +183,7 @@ struct BSObjectView {
 
 class CScene {
 public:
+    void Remove(ISceneNode&);
     CPlayerObject* GetPlayer(int) const;
 
     unsigned char unknown000[328];
@@ -178,6 +191,86 @@ public:
 
 extern CScene g_scene;
 extern BSObjectView* g_pBSObject;
+
+class CSoldierObject {
+public:
+    virtual void unknown008();
+    virtual void unknown00c();
+    virtual void unknown010();
+    virtual void unknown014();
+    virtual void unknown018();
+    virtual void unknown01c();
+    virtual void unknown020();
+    virtual void unknown024();
+    virtual void unknown028();
+    virtual void unknown02c();
+    virtual void unknown030();
+    virtual void unknown034();
+    virtual void unknown038();
+    virtual void unknown03c();
+    virtual void unknown040();
+    virtual void unknown044();
+    virtual void unknown048();
+    virtual void unknown04c();
+    virtual void unknown050();
+    virtual void unknown054();
+    virtual void unknown058();
+    virtual void unknown05c();
+    virtual void unknown060();
+    virtual void unknown064();
+    virtual void unknown068();
+    virtual void unknown06c();
+    virtual void unknown070();
+    virtual void unknown074();
+    virtual void unknown078();
+    virtual void unknown07c();
+    virtual void unknown080();
+    virtual void unknown084();
+    virtual void unknown088();
+    virtual void unknown08c();
+    virtual void unknown090();
+    virtual void unknown094();
+    virtual void unknown098();
+    virtual void unknown09c();
+    virtual void unknown0a0();
+    virtual void unknown0a4();
+    virtual void unknown0a8();
+    virtual void unknown0ac();
+    virtual void unknown0b0();
+    virtual void unknown0b4();
+    virtual void unknown0b8();
+    virtual void unknown0bc();
+    virtual void unknown0c0();
+    virtual void unknown0c4();
+    virtual void unknown0c8();
+    virtual void unknown0cc();
+    virtual void unknown0d0();
+    virtual void unknown0d4();
+    virtual void unknown0d8();
+    virtual void unknown0dc();
+    virtual void unknown0e0();
+    virtual void unknown0e4();
+    virtual void unknown0e8();
+    virtual void unknown0ec();
+    virtual void unknown0f0();
+    virtual void unknown0f4();
+    virtual void unknown0f8();
+    virtual void unknown0fc();
+    virtual void unknown100();
+    virtual void unknown104();
+    virtual void unknown108();
+    virtual void unknown10c();
+    virtual void unknown110();
+    virtual void unknown114();
+    virtual void unknown118();
+    virtual void unknown11c();
+    virtual void unknown120();
+    virtual void unknown124();
+    virtual void unknown128();
+    virtual void unknown12c();
+    virtual void unknown130();
+    virtual bool AttachObject(CStaticObject*, char*, int);
+};
 
 struct BSBuiltinView {
     void (*function)(int**, void*);
@@ -192,6 +285,37 @@ extern int g_iCurrentBIFIndex;
 
 inline int BSArgBool(int** stack, int index) {
     return *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - index)) != 0;
+}
+
+void BIFunc_AttachToSoldier(int** stack, void* object) {
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    BSObjectView* prop = *(BSObjectView**)(*stack - (count - 1));
+    int mode = *(*stack - (count - 2));
+    int arg = *(*stack - (count - 3));
+    CSoldierObject* soldier = (CSoldierObject*)object;
+    ISceneNode* node = prop->user->GetSceneNode();
+    switch (mode) {
+    case 0:
+        soldier->AttachObject((CStaticObject*)node, "lt_hand", arg);
+        break;
+    case 1:
+        soldier->AttachObject((CStaticObject*)node, "rt_hand", arg);
+        break;
+    }
+    g_scene.Remove(*node);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+void BIFunc_DetachPlayerFromProp(int** stack, void*) {
+    BSObjectView* prop = *(BSObjectView**)(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1));
+    if (!prop)
+        prop = g_pBSObject;
+    CAttachableObject* attachable = (CAttachableObject*)prop->user->GetSceneNode();
+    CPlayerObject* player = g_scene.GetPlayer(0);
+    attachable->DetachObject(player);
+    player = g_scene.GetPlayer(0);
+    player->m_unknown1234 = 1.0f;
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
 }
 
 void BIFunc_DetachFromProp(int** stack, void* object) {
