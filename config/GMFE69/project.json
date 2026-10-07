@@ -710,7 +710,8 @@
     "fiber_create.json",
     "box_create.json",
     "sphere_create.json",
-    "light_statics.json"
+    "light_statics.json",
+    "light_visible.json"
   ],
   "progress": {
     "code_bytes": 1414572,
