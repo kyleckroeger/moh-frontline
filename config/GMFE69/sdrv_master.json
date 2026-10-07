@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8016b600",
-      "size": 48,
+      "size": 176,
       "type": 1
     }
   ],
@@ -47,6 +47,12 @@
       "name": "SNDDRV_getmastervoice__Fi",
       "address": "0x8016b600",
       "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "SNDDRV_getsamplechan__Fi",
+      "address": "0x8016b630",
+      "size": 128,
       "binding": 1
     }
   ],
