@@ -39,12 +39,42 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800d618c",
-      "size": 96,
+      "address": "0x800d605c",
+      "size": 400,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000e7d0",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80015530",
+      "size": 24,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "Draw__7CWeaponFR12CDrawContext",
+      "address": "0x800d605c",
+      "size": 104,
+      "binding": 1
+    },
+    {
+      "name": "BeginUpdate__7CWeaponFf",
+      "address": "0x800d60c4",
+      "size": 88,
+      "binding": 1
+    },
+    {
+      "name": "DoneReloading__7CWeaponFv",
+      "address": "0x800d611c",
+      "size": 112,
+      "binding": 1
+    },
     {
       "name": "ReloadSingle__7CWeaponFv",
       "address": "0x800d618c",
@@ -64,7 +94,11 @@
       "binding": 1
     }
   ],
-  "externals": {},
+  "externals": {
+    "BeginUpdate__13CStaticObjectFf": "0x800b1248",
+    "Draw__13CStaticObjectFR12CDrawContext": "0x800b013c",
+    "ForceUpdateProximityTriggerStatus__FP10BSGO_Basicb": "0x8004618c"
+  },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
