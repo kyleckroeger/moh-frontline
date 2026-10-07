@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 414856,
+    "matching_code_bytes": 415260,
     "total_executable_code_bytes": 1414572,
-    "percent": 29.327315965535867,
+    "percent": 29.355875840890388,
     "categories": {
       "reconstructed_game": 135236,
-      "restored_library": 279620
+      "restored_library": 280024
     },
-    "matching_functions": 2556
+    "matching_functions": 2559
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -432,7 +432,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "2121010b6e50666dcdebfbcce394fb9474f2077f79f5671934d7a0d9b65b3446",
+    "config/GMFE69/project.json": "405db8444e1a566279e65b306264febe82bc3b5860eaa10af3b132e144c84bc5",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -588,6 +588,8 @@
     "config/GMFE69/static_obj_rows.json": "2f46a5a159e4d2c74e31aa17ad0344bd62bd53a0805fde5891029c744affe398",
     "config/GMFE69/static_obj_setpos.json": "b26ef7d2ae082779e19ef1acefbcb891313d92c5cdabd2d3d8431e7afd42152a",
     "config/GMFE69/staticmesh.json": "071c3dfaf63f3f12842d683773b40701155453fefded8bd3d2c02b83dbbe8492",
+    "config/GMFE69/staticobjfactory_compare.json": "e9386c729e2c0978f4c1c4a7b9510cda633bec445729dd928ad482787e5ddd53",
+    "config/GMFE69/staticobjfactory_helmet.json": "1ae118889a656615ae891cfee132dbb42e8d42de926282a401ad10f07914fcbb",
     "config/GMFE69/stimemul.json": "8daf6f44288a9589aaf8719ff8e636e2f4d7d00296603d9d8ce6bcbc2ff41088",
     "config/GMFE69/stream.json": "8277e72562d242f63690ec9510eaccda4fb71178d7b9a7542104386ed895d599",
     "config/GMFE69/stream_greedy.json": "77583c21fa80ff74971d838cae1c76b034a18651a84e2c3b45685be860a11ca3",
@@ -1842,6 +1844,8 @@
     "src/game/static_obj_rows.cpp": "eebbe9899681bc25656fa953c1b1b02723564a4f9326aa07ca9ef7b8a133316c",
     "src/game/static_obj_setpos.cpp": "69cdfc4c8de5a0ea500c11997f419afc8402acd720f86eed210e942a4d3db064",
     "src/game/staticmesh.cpp": "3a8bd609a8efecaa00960dcdd8fdfc554ba8f0d50b782532f6cbb7243d255224",
+    "src/game/staticobjfactory_compare.cpp": "713d08159595fa45ee2498632dc7666ad6ee3deca9c5d03887be732880e0a9c2",
+    "src/game/staticobjfactory_helmet.cpp": "9b5a4f644352cb9549448714ea358a2644373c8bd515fddc78342451d20e9e8d",
     "src/game/surfacetype.cpp": "3499ce5dc7d066f093e39c158e9b096e37683df4d6b6d234eb9b08395d411390",
     "src/game/swvideodisplaylist.cpp": "604fff141650e041f635fbf1c136dd328c6e3151200a1ce6d9bd90d82e1caa00",
     "src/game/system.cpp": "a6b1bce950e974ebaf7e6c7afc31ecab8f41566550163428c632534bc8f78b83",
@@ -28681,6 +28685,86 @@
       "discarded_functions": [],
       "object_sha256": "30b039a16b7cfbfed104dc20cf33496d2836ed80eb592d1a5d0a40a7aec99000",
       "linked_sha256": "0224a8d2a4dc3804074a3e5ed0b6549a7d53faebb9c58c5d00e164525143c013"
+    },
+    {
+      "id": "staticobjfactory_helmet",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 320,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "__dt__12MESHSLOTVIEWFv"
+      ],
+      "object_sha256": "0a0594c250c1e3624af86fb81a042fb598722666a8284b4cccaa43105759e20f",
+      "linked_sha256": "38eef85b701bd825db5a3c027c58a2ef2c124a5e8a0b3f29a7a328d4cc6c4a67"
+    },
+    {
+      "id": "staticobjfactory_compare",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 84,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "cb736e4bcaabaef6ad0daa00c621b151273c59841614c75d8009a35864bdd74d",
+      "linked_sha256": "f9340d4a9de6ac41cf4bb92c835645259cfcde0719b34c69a2aca98142870921"
     }
   ],
   "code_map": {
@@ -38913,20 +38997,6 @@
             "evidence": "exception-index"
           },
           {
-            "address": "0x800b240c",
-            "size": 160,
-            "kind": "function",
-            "name": "DoesHelmetTypeStopBullets__20CStaticObjectFactoryFi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800b24ac",
-            "size": 160,
-            "kind": "function",
-            "name": "__dt__20StaticObjectTemplateFv",
-            "evidence": "exception-index"
-          },
-          {
             "address": "0x800b254c",
             "size": 3376,
             "kind": "function",
@@ -38981,18 +39051,6 @@
             "kind": "function",
             "name": "AllocateStaticObject__20CStaticObjectFactoryFii",
             "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 800b4314",
-        "ranges": [
-          {
-            "address": "0x800b4314",
-            "size": 84,
-            "kind": "function",
-            "name": "CompareStaticObjectDefinitions__FPCvPCv",
-            "evidence": "unknown-file"
           }
         ]
       },
