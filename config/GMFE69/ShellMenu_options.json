@@ -39,24 +39,30 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800df210",
-      "size": 440,
+      "address": "0x800df1cc",
+      "size": 508,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000ed88",
-      "size": 8,
+      "address": "0x8000ed80",
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80015a1c",
-      "size": 12,
+      "address": "0x80015a10",
+      "size": 24,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "PlayShellSound__10CShellMenuFi",
+      "address": "0x800df1cc",
+      "size": 68,
+      "binding": 1
+    },
     {
       "name": "CompletedAnotherObjective__10CShellMenuFv",
       "address": "0x800df210",
@@ -95,6 +101,7 @@
     }
   ],
   "externals": {
+    "AEMS_SendEvent__FPv": "0x800ec26c",
     "g_inputMgr": "0x801ec80c",
     "memcpy": "0x800094f8"
   },
@@ -105,5 +112,16 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "ShellMenu.cpp",
-  "original_file_index": 8612
+  "original_file_index": 8612,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 8,
+      "address": "0x80350ed4"
+    }
+  ]
 }

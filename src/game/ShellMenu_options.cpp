@@ -1,14 +1,15 @@
-// A fragment of ShellMenu.cpp (0x800df210): counting a completed objective,
-// marking the new-game sign once, the crosshair setting, and the controller
-// options (four signed byte settings in a record at +532): applying two of
+// A fragment of ShellMenu.cpp (0x800df1cc): playing a shell sound (when the
+// flag at +6408 is set, an event record copied from an initializer in the
+// file's .sdata2 pool, a pool reference, with the sound filled in), counting
+// a completed objective, marking the new-game sign once, the crosshair
+// setting, and the controller options (four signed byte settings in a record at +532): applying two of
 // them to the input manager's flags, passing all four to the interface studio
 // and setting them from it (which also sets the flag at +536). The record's
 // inline accessors check their this pointer (-1 for a missing record), as the
 // target's null checks of the record's address show. CShellMenu, CInputMgr
 // and the functions are named by the mangled symbols; the members, the
-// record view and the result types are inferred. PlayShellSound before this
-// uses the second constant of the file's .sdata2 pool and is not part of
-// this unit, nor is the rest of the file.
+// record view, the event record and the result types are inferred. The rest
+// of the file is not part of this unit.
 extern "C" void* memcpy(void*, const void*, unsigned long);
 
 class CInputMgr {
@@ -31,8 +32,16 @@ struct ControllerOptionsView {
     }
 };
 
+void AEMS_SendEvent(void*);
+
+struct ShellSoundEvent {
+    int event;
+    int sound;
+};
+
 class CShellMenu {
 public:
+    void PlayShellSound(int);
     void CompletedAnotherObjective();
     void ChangeNewGameSignStatus();
     unsigned char GetCrosshairStatus();
@@ -51,7 +60,17 @@ public:
     unsigned char unknown536 : 4;
     unsigned char unknown0219[59];
     bool m_newGameSign;
+    unsigned char unknown0255[5811];
+    bool m_soundEnabled;
 };
+
+void CShellMenu::PlayShellSound(int sound) {
+    if (m_soundEnabled) {
+        ShellSoundEvent event = {11, 0};
+        event.sound = sound;
+        AEMS_SendEvent(&event);
+    }
+}
 
 void CShellMenu::CompletedAnotherObjective() {
     m_objectivesCompleted++;
