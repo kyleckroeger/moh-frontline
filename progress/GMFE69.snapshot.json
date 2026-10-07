@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 478904,
+    "matching_code_bytes": 479112,
     "total_executable_code_bytes": 1414572,
-    "percent": 33.855045907878846,
+    "percent": 33.86975000212078,
     "categories": {
-      "reconstructed_game": 262500,
+      "reconstructed_game": 262708,
       "restored_library": 216404
     },
-    "matching_functions": 3039
+    "matching_functions": 3041
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -124,6 +124,7 @@
     "config/GMFE69/PPCArch.json": "50ec6b45f5de2b4550e0dd0179b4dc3147c26faa63dffcd8bd32d9afa71f2ff8",
     "config/GMFE69/Pad.json": "0b2c4b221832a5e352c0236d90c02e9938bb4a00392741832f1510da07a7770d",
     "config/GMFE69/Padclamp.json": "570f443e7a228e96a9e869248c68a59a1d9e68052c20523d1c9a482772bfe76b",
+    "config/GMFE69/PathNodeList_hashmap.json": "f17589d19801d73c4a867563bb3fb3d236004a3f211c4c0edfc86fdc5c131207",
     "config/GMFE69/Pause.json": "c951796a85f2b4e4117496b88679ef9d2c01f318ca6693f8ab76810e4210a4f8",
     "config/GMFE69/Pause_tail.json": "8d8de43bb61aad5ba637b493cd7d0f2e90ead550a022066e1fa2fbb797836376",
     "config/GMFE69/Pause_unpause.json": "333bcda2887093a76c485bc62afbb428fd24e96da4fa0d3fbe56257f9b8e86c4",
@@ -524,7 +525,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "63f641dc504d38862326a1e38491ade882376ccd80c5144b263c41d6c9ffa334",
+    "config/GMFE69/project.json": "2393fa1a4360db581239f67fb437be143b2d879d1db4f6b975a3666735e87a5e",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_init.json": "59efa2f81e573b18eb9d4793a24578d542a47e4cded42890b4e9f88779a0b4a4",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
@@ -782,6 +783,7 @@
     "config/GMFE69/timerthread.json": "993154fd5f472860102c81015ebb43aaf30afcf22cd46655a20003306ccdd50c",
     "config/GMFE69/toilet.json": "4a95db133465a725fe53c3e0d48af2356af339ad4ca09f910ed41d65e6c9542f",
     "config/GMFE69/toilet_briefing.json": "0bb445345f29f61e3527cc4356c629f412d2c366445b3f662ddebb2333aeda3c",
+    "config/GMFE69/toilet_hashmap.json": "8172d069ca8e65f58722379996f7b851aac2409a27ca9de5d7b770cbb1f7e49e",
     "config/GMFE69/trig.json": "fc3515f7450abad9fe74ce81c40946371221fba799328195e2e12c9b81e26645",
     "config/GMFE69/uart_console_io.json": "c12ad27f08ae82aef8dffc7980694bcb0a18c94f53658fab67915a668275a538",
     "config/GMFE69/usr_put.json": "fc210d4609484140e85306a13eed93ea270caf0897407db3637436d79074440e",
@@ -1816,6 +1818,7 @@
     "src/game/Moh2.cpp": "de6c92093366f02578f9e8b8d2f69e0de0bece31142f95b7a51ed02dd533c3fb",
     "src/game/Moh2_movingnode.cpp": "35f30b84ea959ae9115a257f184fb7dc59862f62ec2fec2530a1988066f25b8d",
     "src/game/Moh2_scenenode.cpp": "eaa0e9dcda439570a261bd90d288767692a4e9eb4e52b8a02df1d0bfc9b2da12",
+    "src/game/PathNodeList_hashmap.cpp": "522d28711d39f28e6493d57afc12e848b3a0dba2f4b8c6b8dc44b1c061813aeb",
     "src/game/Pause.cpp": "2d6d321b8fcd54038857a76293913fd0c891dd06d69d5bda64af7fe8b1519da8",
     "src/game/Pause_tail.cpp": "310007d04a15e06e5d13ad63bc14571c9fafd2fb56d66851af547fb37e6c1e27",
     "src/game/Pause_unpause.cpp": "ce619ade12ef215f4aa85cb7d5f8e9a7b23aa483a4180d456210c0df3c22cfa1",
@@ -2158,6 +2161,7 @@
     "src/game/thrownbullet_init.cpp": "daa1111b2b9542c866d16975a93f5034fcfbdaf55649f408e262f3d081c02ff3",
     "src/game/toilet.cpp": "5fb3e7686ffd121fdb310a7f2791f2e901a61a38b53a86b45a1579252471747f",
     "src/game/toilet_briefing.cpp": "83e25c15b5673c7a84c8efccd089ed6beba245f9c7ffef2c287001ebc6685a2b",
+    "src/game/toilet_hashmap.cpp": "72018d6bdef6dc6c9c8678545711107cd8c2ed9a1357d5a4237e62b90f42a4a0",
     "src/game/trig.cpp": "5f3032fa44b1d5ddca67665564f3e280e9585d9fb7883e6e5d6398c9e032da74",
     "src/game/vector.cpp": "418a16a82127cea03fd102a27d28bf20ccd7f83caafb1ff1425f09bd38ed113d",
     "src/game/viewport.cpp": "2cf32aa14139d6cd4facb7be15588ff0c937cf61b2e16e0d1c904bdf305423f5",
@@ -35052,6 +35056,84 @@
       "discarded_functions": [],
       "object_sha256": "fd961f1dcabfa8a635cd00157f27021dbedc8233e977dc82fbb5a71b2615ce16",
       "linked_sha256": "150803eb4d93844ad59071bc472ddc575a26845c13c61d7b6b7b46897b5b39b9"
+    },
+    {
+      "id": "toilet_hashmap",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 104,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "656117bedf795fce4fe16b3e493cff6f53689660b99957deaea693b1fb6f128f",
+      "linked_sha256": "6796ab148a10d120ac296a4736bcd38d17ab4a99ecc8838f35401a84ee950768"
+    },
+    {
+      "id": "PathNodeList_hashmap",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 104,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "d55cf5b1ed6e2039c2324b325ea7ba86ff094c3fa22b4ac6edb20ddd1a0b09c0",
+      "linked_sha256": "3052e7e86122a7136bbdbd14b79659381891932ece170df435b2b20f1b7f601d"
     }
   ],
   "code_map": {
@@ -35654,13 +35736,6 @@
             "kind": "function",
             "name": "__sinit_toilet_cpp",
             "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8001e090",
-            "size": 104,
-            "kind": "function",
-            "name": "__dt__Q23dwi15hash_map<Pc,Pc>Fv",
-            "evidence": "exception-index"
           }
         ]
       },
@@ -38040,13 +38115,6 @@
             "kind": "function",
             "name": "__sinit_PathNodeList_cpp",
             "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80055f60",
-            "size": 104,
-            "kind": "function",
-            "name": "__dt__Q23dwi40hash_map<Ui,Q213CPathNodeList9PathNodes>Fv",
-            "evidence": "exception-index"
           }
         ]
       },

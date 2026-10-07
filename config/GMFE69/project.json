@@ -785,7 +785,9 @@
     "buddy_vec_info_dtor.json",
     "scene_vec_dtor.json",
     "scene_reset.json",
-    "scene_dtor.json"
+    "scene_dtor.json",
+    "toilet_hashmap.json",
+    "PathNodeList_hashmap.json"
   ],
   "progress": {
     "code_bytes": 1414572,
