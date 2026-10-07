@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 466440,
+    "matching_code_bytes": 466596,
     "total_executable_code_bytes": 1414572,
-    "percent": 32.97393133753531,
+    "percent": 32.98495940821676,
     "categories": {
-      "reconstructed_game": 250036,
+      "reconstructed_game": 250192,
       "restored_library": 216404
     },
-    "matching_functions": 2820
+    "matching_functions": 2824
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -714,7 +714,7 @@
     "config/GMFE69/w_fmod.json": "81caff7c99d3c90cc1ea13f61be2502ce1e31069af5b51bddb79d9c3a714e3a8",
     "config/GMFE69/w_pow.json": "a78fefa213b3d89fe33e266577385f296f8a0c3e98d0db87ed508eb668ef83a6",
     "config/GMFE69/wchar_io.json": "ee564e1aaa5348b7e3cb91d1b7ac0dcbd1a22c55f06404f16e5fd322e84baf3e",
-    "config/GMFE69/weapon.json": "05c91d9cb2141da548baeeb3926645a1142d4016bf5515b84b9062640c5f3460",
+    "config/GMFE69/weapon.json": "2f6c4fcca93afb29b542486815d23ee31d26e4a2a0c379b80dee60c719e7df85",
     "config/GMFE69/weapon_bullet.json": "3e29bf32229bf089aa1080866fecfb0b15126d53060a3d186bf8c30d81b29fb3",
     "config/GMFE69/weapon_head.json": "3c5f95604059864a9f3a792d45463d5b8b4573e99f4d42c46b21f372ae86d472",
     "config/GMFE69/weaponfactory.json": "20cd24f59303b1482f3445e5292fea0c1d91d58faa58adf58b2ae313e9df2245",
@@ -1998,7 +1998,7 @@
     "src/game/vector.cpp": "418a16a82127cea03fd102a27d28bf20ccd7f83caafb1ff1425f09bd38ed113d",
     "src/game/viewport.cpp": "2cf32aa14139d6cd4facb7be15588ff0c937cf61b2e16e0d1c904bdf305423f5",
     "src/game/volume_query_test.cpp": "dfabcded647a5ca39c7833cec01e21238ee0464e97bf280c0a07be25e1b72bad",
-    "src/game/weapon.cpp": "a6449946529a9a95684ad28d4be3ce1ee2ef3400be218c1fee3caa88c1a3094b",
+    "src/game/weapon.cpp": "d562e81d39494c17dda2d6e23e07f6404ca2343a43346745c8e1dbe443add709",
     "src/game/weapon_bullet.cpp": "49c71457e81b4c7ae35a8e8de0a0f749bd8200c52e3bbe3d1821e83b6476484a",
     "src/game/weapon_head.cpp": "0f55a1d7228ce98cefad1bc3177ba3e71822ff7f4d3624958341c6cefee00760",
     "src/game/weaponfactory.cpp": "918057846d18e297a460e23fc2153ee2dcd97d2c042c6f6b71658c9fcdecb0f9",
@@ -20326,8 +20326,8 @@
     {
       "id": "weapon",
       "category": "reconstructed_game",
-      "functions": 6,
-      "code_bytes": 400,
+      "functions": 10,
+      "code_bytes": 556,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -20359,8 +20359,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "cae2b56f73cd77b1dc38ec47184d0350393b4241cc4a576609d61da93c5668a4",
-      "linked_sha256": "2dbec8e05073f674b5eb4c5a6ddc26eeffb8067e6eaab87af9b5880d02d5bb05"
+      "object_sha256": "173f3b1847b3e6eede8a915c3aa3818130c343d4885b01127ae9899f26ec137e",
+      "linked_sha256": "9b5b4c2203ebeb7189027f7a9c5f3b57f288b614d1894bc9054f979d51c8797b"
     },
     {
       "id": "bsbifunc",
@@ -43844,34 +43844,6 @@
             "kind": "function",
             "name": "Update__7CWeaponFfb",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x800d61ec",
-            "size": 76,
-            "kind": "function",
-            "name": "AddAmo__7CWeaponFs",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800d6238",
-            "size": 16,
-            "kind": "function",
-            "name": "Shoot__7CWeaponF16EWeaponShootTypeff",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800d6248",
-            "size": 60,
-            "kind": "function",
-            "name": "GetBulletSprite__7CWeaponCFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800d6284",
-            "size": 4,
-            "kind": "function",
-            "name": "Shutdown__7CWeaponFv",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x800d6288",

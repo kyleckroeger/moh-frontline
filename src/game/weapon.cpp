@@ -4,10 +4,14 @@
 // reload (a full clip when the infinite-ammunition flag is set, else as much
 // as the reserve allows), loading a single round from the reserve into the
 // clip (up to the clip size from the weapon's properties), starting a reload
-// and emptying the weapon. CWeapon, CStaticObject, CDrawContext and
-// BSGO_Basic are named by the mangled symbols; the members, the holder's
-// virtual slot, the property record and the flag-byte bit-field view are
-// inferred (CWeapon is a non-virtual view derived from a CStaticObject view).
+// and emptying the weapon, adding ammunition (starting a reload when the
+// weapon was empty; capped at the property maximum), recording a shot, the
+// bullet sprite from the bullet factory and an empty Shutdown. CWeapon,
+// CStaticObject, CDrawContext, BSGO_Basic, CBulletFactory and
+// EWeaponShootType are named by the mangled symbols; the members, the
+// holder's virtual slot, the property record and the flag-byte bit-field view
+// are inferred (CWeapon is a non-virtual view derived from a CStaticObject
+// view).
 // The rest of the file is not part of this unit.
 class CDrawContext;
 struct BSGO_Basic;
@@ -64,7 +68,21 @@ public:
 struct WeaponPropertiesView {
     unsigned char unknown00[4];
     short clipSize;
+    unsigned char unknown06[6];
+    short bulletSprite;
+    short bulletSpriteFlag;
+    unsigned char unknown10[2];
+    short maxReserve;
 };
+
+enum EWeaponShootType {};
+
+class CBulletFactory {
+public:
+    void* GetBulletSprite(bool, int);
+};
+
+extern CBulletFactory* g_pBulletFactory;
 
 class CWeapon : public CStaticObject {
 public:
@@ -72,6 +90,10 @@ public:
     void BeginUpdate(float);
     void DoneReloading();
     void ReloadSingle();
+    void AddAmo(short);
+    void Shoot(EWeaponShootType, float, float);
+    void* GetBulletSprite() const;
+    void Shutdown();
     void StartReloading();
     void Empty();
 
@@ -83,7 +105,10 @@ public:
     short m_loaded;
     unsigned char unknown288[4];
     int m_reloadState;
-    unsigned char unknown290[48];
+    float m_shootValue;
+    unsigned char unknown294[8];
+    float m_shootValue2;
+    unsigned char unknown2a0[32];
     unsigned char reloading : 1;
     unsigned char flag6 : 1;
     unsigned char triggerFlag : 1;
@@ -133,4 +158,24 @@ void CWeapon::StartReloading() {
 void CWeapon::Empty() {
     m_reserve = 0;
     m_loaded = 0;
+}
+
+void CWeapon::AddAmo(short count) {
+    if (m_reserve + m_loaded == 0)
+        reloading = 1;
+    m_reserve += count;
+    m_reserve = m_reserve > m_properties->maxReserve ? m_properties->maxReserve : m_reserve;
+}
+
+void CWeapon::Shoot(EWeaponShootType type, float value, float value2) {
+    m_reloadState = type;
+    m_shootValue = value;
+    m_shootValue2 = value2;
+}
+
+void* CWeapon::GetBulletSprite() const {
+    return g_pBulletFactory->GetBulletSprite(m_properties->bulletSpriteFlag != 0, m_properties->bulletSprite);
+}
+
+void CWeapon::Shutdown() {
 }
