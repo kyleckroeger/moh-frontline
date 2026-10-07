@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 415260,
+    "matching_code_bytes": 415460,
     "total_executable_code_bytes": 1414572,
-    "percent": 29.355875840890388,
+    "percent": 29.370014393046095,
     "categories": {
       "reconstructed_game": 135236,
-      "restored_library": 280024
+      "restored_library": 280224
     },
-    "matching_functions": 2559
+    "matching_functions": 2561
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -141,6 +141,7 @@
     "config/GMFE69/Soldier_object.json": "d625d33bbfdcbd4ae922099756d0a2525feb495afdd309517e996dc20e2f2aff",
     "config/GMFE69/Soldier_object_bone.json": "ddd66961cbbf345cc7d36a2251e1776f6c114fdfd18a27643aa0bc8aae6a143b",
     "config/GMFE69/Tank_object.json": "fa415f3ca15d6b7facea57a6c0f6cfa35329f2386377df8d73bd4f8f6a8ad599",
+    "config/GMFE69/Tank_object_weapons.json": "9b602aa6b6a7fb719125ecc14841b704b0eb33f8180ad83a480b46015e053e46",
     "config/GMFE69/UISActionProcess.json": "2a99d24d9da29f023bab9396c2424e8dafe6ce9bdaa87904306b5ea85783af91",
     "config/GMFE69/UISEvent.json": "494508d3a1bc6ee076038b4f42906c60c3d009f45520a50f128c75aed4f00631",
     "config/GMFE69/UISUtils.json": "35f21ff40f787f65cdda0e7900b9e15618e631193c6e854a229d1378530b456d",
@@ -432,7 +433,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "405db8444e1a566279e65b306264febe82bc3b5860eaa10af3b132e144c84bc5",
+    "config/GMFE69/project.json": "8abcf0631c775cd49b1fa74cadfdfacde9f972ea477f3bfed82f33a34e56f834",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -1639,6 +1640,7 @@
     "src/game/Soldier_object.cpp": "92bf858d3c8b06c691309b702079f4c10d3da7935ed4b50d4e27764fa7eeca41",
     "src/game/Soldier_object_bone.cpp": "8fa474389a05090df7d8e919f4fbfbe8dc37381836397d77ffaa327127206032",
     "src/game/Tank_object.cpp": "898b0122c0c2efaf7919e2f4c17241cd68d0733d4f8fda2f2473ec61eb2df9d5",
+    "src/game/Tank_object_weapons.cpp": "d4ebffe86aaa9c02655d17fd09bb6d566268177821bdeff15d4398c7f2f7b51f",
     "src/game/UISActionProcess.c": "0c8322629537a363a11f51d7aa0ddaf2fa57f6d24c22fb15f45f76e6566d5f7e",
     "src/game/UISEvent.c": "a9b324a04b57cdf40fbb819827d2073be6fa1b9fa1be2f1c0757e46dd3747a82",
     "src/game/UISUtils.c": "2e101b81ca9b5914c365c0afa440b86886d07e54d6257f711e93bac63363577e",
@@ -28765,6 +28767,45 @@
       "discarded_functions": [],
       "object_sha256": "cb736e4bcaabaef6ad0daa00c621b151273c59841614c75d8009a35864bdd74d",
       "linked_sha256": "f9340d4a9de6ac41cf4bb92c835645259cfcde0719b34c69a2aca98142870921"
+    },
+    {
+      "id": "Tank_object_weapons",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 200,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "90155ac056ac5316fe1d3d87410e36bbcd15612d2b78f4b18af6ec204530cf57",
+      "linked_sha256": "433781e9962b9a40abfa201941e916b0f21cb86efccbfb04dd904bdce390d114"
     }
   ],
   "code_map": {
@@ -39064,20 +39105,6 @@
             "size": 304,
             "kind": "function",
             "name": "FireSubObject__11CTankObjectFi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800b44ac",
-            "size": 16,
-            "kind": "function",
-            "name": "MapWeaponSlot__11CTankObjectFii",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800b44bc",
-            "size": 184,
-            "kind": "function",
-            "name": "AddWeapon__11CTankObjectFii",
             "evidence": "exception-index"
           },
           {

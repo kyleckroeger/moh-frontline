@@ -632,7 +632,8 @@
     "MemoryCardGC_format.json",
     "MemoryCardGC_close.json",
     "staticobjfactory_helmet.json",
-    "staticobjfactory_compare.json"
+    "staticobjfactory_compare.json",
+    "Tank_object_weapons.json"
   ],
   "progress": {
     "code_bytes": 1414572,

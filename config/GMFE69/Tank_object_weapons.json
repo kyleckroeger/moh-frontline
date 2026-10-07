@@ -1,0 +1,85 @@
+{
+  "id": "Tank_object_weapons",
+  "source": "src/game/Tank_object_weapons.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800b44ac",
+      "size": 200,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000d69c",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x8001469c",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "MapWeaponSlot__11CTankObjectFii",
+      "address": "0x800b44ac",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "AddWeapon__11CTankObjectFii",
+      "address": "0x800b44bc",
+      "size": 184,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "CreateWeaponByCRC__14CWeaponFactoryFiP10ISceneNodei": "0x800d6cf4",
+    "g_WeaponFactory": "0x801dde58"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "Tank_object.cpp",
+  "original_file_index": 6923
+}
