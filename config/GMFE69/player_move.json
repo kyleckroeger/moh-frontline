@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800a0168",
-      "size": 316,
+      "size": 488,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000ce5c",
-      "size": 32,
+      "size": 40,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80013fdc",
-      "size": 48,
+      "size": 60,
       "type": 1
     }
   ],
@@ -80,20 +80,33 @@
       "address": "0x800a026c",
       "size": 56,
       "binding": 1
+    },
+    {
+      "name": "SetTMLocalToWorld__13CPlayerObjectFRC7CMatrix",
+      "address": "0x800a02a4",
+      "size": 172,
+      "binding": 1
     }
   ],
   "externals": {
+    "BuildTrans__7CMatrixF8CVector3": "0x80090798",
+    "RotateX__7CMatrixFf": "0x800903cc",
     "Rotate__7CMatrixF8CVector3f": "0x800904e8",
     "SetFront__7CMatrixF8CVector3": "0x80090760",
     "SetPos__7CMatrixF8CVector3": "0x80090728",
     "SetRight__7CMatrixF8CVector3": "0x8009077c",
     "SetUp__7CMatrixF8CVector3": "0x80090744",
-    "Translate__7CMatrixF8CVector3": "0x80090660"
+    "ToEulerXYZ__7CMatrixCFRfRfRf": "0x8008f0b4",
+    "Translate__7CMatrixF8CVector3": "0x80090660",
+    "__as__7CMatrixFRC7CMatrix": "0x80090b34",
+    "g_CameraOffset": "0x801ef010"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
-  "local_externals": [],
+  "local_externals": [
+    "g_CameraOffset"
+  ],
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "player.cpp",
