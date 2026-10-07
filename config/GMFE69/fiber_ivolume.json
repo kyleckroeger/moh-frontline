@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800ca280",
-      "size": 116,
+      "size": 244,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000e10c",
-      "size": 8,
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80014ef4",
-      "size": 12,
+      "size": 24,
       "type": 1
     }
   ],
@@ -61,6 +61,18 @@
       "name": "TestCollision__9CVolFiberCFRC7IVolumeR10CCollisionb",
       "address": "0x800ca280",
       "size": 116,
+      "binding": 1
+    },
+    {
+      "name": "GetLine__9CVolFiberCFv",
+      "address": "0x800ca2f4",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Set__9CVolFiberF8CVector38CVector3",
+      "address": "0x800ca2fc",
+      "size": 120,
       "binding": 1
     }
   ],
