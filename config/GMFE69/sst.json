@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8015b19c",
-      "size": 204,
+      "size": 508,
       "type": 1
     }
   ],
@@ -60,11 +60,22 @@
       "address": "0x8015b22c",
       "size": 60,
       "binding": 1
+    },
+    {
+      "name": "SNDSTRMI_framescallback__FiiPv",
+      "address": "0x8015b268",
+      "size": 304,
+      "binding": 1
     }
   ],
   "externals": {
+    "SNDLINKI_push__FP11SNDLINKLISTP11SNDLINKNODE": "0x801590b8",
+    "SNDLINKI_remove__FP11SNDLINKLISTP11SNDLINKNODE": "0x8015917c",
+    "SNDSTRMI_getrequestptr__Fi": "0x8015c188",
     "SNDSTRM_destroy": "0x8015bef4",
     "STREAM_release": "0x8014dae0",
+    "_restgpr_27": "0x80138a5c",
+    "_savegpr_27": "0x80138a10",
     "sndgs": "0x80340860",
     "sndss": "0x803407e0"
   },
