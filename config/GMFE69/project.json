@@ -702,7 +702,9 @@
     "player_weapon_selectable.json",
     "debug_prof_bins.json",
     "animated_finish.json",
-    "static_obj_commit.json"
+    "static_obj_commit.json",
+    "static_obj_bounds.json",
+    "Soldier_object_bounds.json"
   ],
   "progress": {
     "code_bytes": 1414572,
