@@ -6,8 +6,8 @@
 // validates its (integer) handle through the same inline check: a non-null
 // handle whose header carries the stream magic. STREAMHEADERtag is named by
 // the mangled symbols; the header and handle layouts and the inline helper
-// are inferred. The priority and greedy setters earlier in the file are
-// drafted in scratch/lib/stream_wip.cpp (STREAM_setgreedylevel is off).
+// are inferred. Earlier parts of the file are in stream_cb.cpp,
+// stream_prio.cpp and stream_greedy.cpp.
 struct STREAMHEADERtag {
     int magic;
     unsigned char mutex[44];

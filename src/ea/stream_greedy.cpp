@@ -1,11 +1,13 @@
-// A fragment of EA's stream.cpp (0x8014ce78): STREAM_setgreedystate (stores
-// the greedy state and, when it is set while the stream is reading, raises the
-// file operation's priority) and STREAM_taphandle (the 16-byte tap entry for a
-// 1-based tap number, or null). The file name is this project's; the original
-// record is stream.cpp (src/ea/stream.cpp holds STREAM_release onward) and
-// the functions around these are not reconstructed. The handle check is the
-// same inferred inline as in stream.cpp; STREAMHEADERtag is named by the
-// mangled symbols and the header and handle layouts are inferred.
+// A fragment of EA's stream.cpp (0x8014cde0): STREAM_setgreedylevel (stores
+// the level and switches the greedy state when the buffered count's side of
+// the level changes), STREAM_setgreedystate (stores the greedy state and,
+// when it is set while the stream is reading, raises the file operation's
+// priority) and STREAM_taphandle (the 16-byte tap entry for a 1-based tap
+// number, or null). The file name is this project's; the original record is
+// stream.cpp (stream_cb.cpp, stream_prio.cpp and stream.cpp hold other parts
+// of it). The handle check is the same inferred inline as in stream.cpp;
+// STREAMHEADERtag is named by the mangled symbols and the header and handle
+// layouts are inferred.
 // EA's streaming layer. Every public function validates the handle through
 // the same inline check (non-null handle whose header carries the stream
 // magic). STREAMHEADERtag is named by the mangled symbols; the header and
@@ -23,7 +25,7 @@ struct STREAMHEADERtag {
     int priorityClass;
     int greedyLevel;
     int greedyState;
-    int greedyThreshold;
+    int buffered;
     unsigned char unknown5c[292];
     int fileOp;
 };
@@ -54,7 +56,20 @@ extern "C" void STREAM_setgreedystate(int handle, int state);
 
 extern "C" void STREAM_setpriority(int handle, int priority, int priorityClass);
 
-extern "C" void STREAM_setgreedylevel(int handle, int level);
+extern "C" void STREAM_setgreedylevel(int handle, int level) {
+    STREAMHANDLEVIEW* stream;
+    STREAMHEADERtag* header;
+    if (validhandle(handle, &stream, &header) == 0) {
+        int old = header->greedyLevel;
+        int now;
+        int was;
+        header->greedyLevel = level;
+        now = header->buffered < level;
+        was = header->buffered < old;
+        if (was != now)
+            STREAM_setgreedystate(handle, now);
+    }
+}
 
 extern "C" void STREAM_setgreedystate(int handle, int state) {
     STREAMHANDLEVIEW* stream;

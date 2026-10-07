@@ -37,8 +37,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8014ce78",
-      "size": 240,
+      "address": "0x8014cde0",
+      "size": 392,
       "type": 1
     }
   ],
@@ -47,6 +47,12 @@
       "name": "STREAM_setgreedystate",
       "address": "0x8014ce78",
       "size": 124,
+      "binding": 1
+    },
+    {
+      "name": "STREAM_setgreedylevel",
+      "address": "0x8014cde0",
+      "size": 152,
       "binding": 1
     },
     {
