@@ -1,27 +1,12 @@
 // A fragment of fader.cpp (0x8007c024): CFader::Init, which keeps the render
-// list and registers the fader's render bin with it. The file name is this
-// project's; the original record is fader.cpp and the functions around it are
-// not reconstructed. CFader, CRenderList and CRenderBin are named by the
-// mangled symbols; the bin is an inferred view and the file's globals are
-// extern.
-// Screen fades: the current fade control (a colour pair and a duration with
-// a virtual Update) and the fader's colour, applied by the fader render bin.
-// CFader, CFaderControl, CFaderBin, CColor and CRenderList are named by the
-// mangled symbols and RTTI; members are inferred from offsets. The file is
-// compiled with deferred inlining (SetControl inlines SetColor, which follows
-// it in the image), so the source lists functions in reverse image order.
-// This unit covers IsFading to CFader::Init; the bin, CFaderControl::Update,
-// the MathFunClamp instantiation and the static initialisation are not part
-// of it.
-// Screen fades: the current fade control (a colour pair and a duration with
-// a virtual Update) and the fader's colour, applied by the fader render bin.
-// CFader, CFaderControl, CFaderBin, CColor and CRenderList are named by the
-// mangled symbols and RTTI; members are inferred from offsets. The file is
-// compiled with deferred inlining (SetControl inlines SetColor, which follows
-// it in the image), so the source lists functions in reverse image order.
-// This unit covers IsFading to CFader::Init; the bin, CFaderControl::Update,
-// the MathFunClamp instantiation and the static initialisation are not part
-// of it.
+// list and registers the fader's render bin with it, and the weak
+// MathFunClamp<int> instance emitted after it (the value clamped to the
+// bounds). The file name is this project's; the original record is fader.cpp
+// and the functions around these are not reconstructed. CFader, CRenderList,
+// CRenderBin and the template are named by the mangled symbols; the bin is an
+// inferred view and the file's globals are extern. The file is compiled with
+// deferred inlining, so the source lists functions in reverse image order;
+// the template is defined __declspec(weak) and instantiated explicitly.
 struct CColor {
     CColor() {}
     CColor(const CColor& c) : r(c.r), g(c.g), b(c.b), a(c.a) {}
@@ -84,4 +69,12 @@ CFaderControl::CFaderControl(CColor from, CColor to, float duration);
 
 bool CFaderControl::IsFading() const;
 
+template <class T> __declspec(weak) T MathFunClamp(T value, T low, T high) {
+    if (value < low)
+        return low;
+    if (value > high)
+        return high;
+    return value;
+}
 
+template int MathFunClamp<int>(int, int, int);

@@ -40,7 +40,7 @@
     {
       "name": ".text",
       "address": "0x8007c024",
-      "size": 44,
+      "size": 76,
       "type": 1
     },
     {
@@ -57,6 +57,12 @@
     }
   ],
   "functions": [
+    {
+      "name": "MathFunClamp<i>__Fiii",
+      "address": "0x8007c050",
+      "size": 32,
+      "binding": 2
+    },
     {
       "name": "Init__6CFaderFP11CRenderList",
       "address": "0x8007c024",
