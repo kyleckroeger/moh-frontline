@@ -615,7 +615,8 @@
     "player_init.json",
     "hierobject_tree.json",
     "cdbgeom_fiber.json",
-    "AISplinePath_segment.json"
+    "AISplinePath_segment.json",
+    "bsmessage_group.json"
   ],
   "progress": {
     "code_bytes": 1414572,
