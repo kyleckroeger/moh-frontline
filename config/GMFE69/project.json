@@ -789,7 +789,8 @@
     "AIObject_spline.json",
     "targimpl_fpr.json",
     "world_volume_subvol.json",
-    "bsmachin_props.json"
+    "bsmachin_props.json",
+    "propdat_restart.json"
   ],
   "progress": {
     "code_bytes": 1414572,
