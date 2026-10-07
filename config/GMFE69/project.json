@@ -682,7 +682,8 @@
     "scene_shutdown.json",
     "ShellMenu_pass.json",
     "ShellMenu_cardquery.json",
-    "ShellMenu_cardsize.json"
+    "ShellMenu_cardsize.json",
+    "ShellMenu_options.json"
   ],
   "progress": {
     "code_bytes": 1414572,
