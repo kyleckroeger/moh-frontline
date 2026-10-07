@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800cd7ac",
-      "size": 160,
+      "size": 316,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000e360",
-      "size": 8,
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80015164",
-      "size": 12,
+      "size": 24,
       "type": 1
     }
   ],
@@ -74,9 +74,17 @@
       "address": "0x800cd810",
       "size": 60,
       "binding": 1
+    },
+    {
+      "name": "CreateBullet__14CBulletFactoryFib8CVector38CVector3f7EClsnIdfP10ISceneNode",
+      "address": "0x800cd84c",
+      "size": 156,
+      "binding": 1
     }
   ],
   "externals": {
+    "CreateBullet__102CBulletFactoryHelper<17CProjectileBullet,33ProjectileBulletProperties_struct,22EProjectileBulletTypes>F22EProjectileBulletTypes8CVector38CVector3f7EClsnIdfP10ISceneNode": "0x800ce35c",
+    "CreateBullet__90CBulletFactoryHelper<13CThrownBullet,29ThrownBulletProperties_struct,18EThrownBulletTypes>F18EThrownBulletTypes8CVector38CVector3f7EClsnIdfP10ISceneNode": "0x800cde70",
     "DestroyBullet__102CBulletFactoryHelper<17CProjectileBullet,33ProjectileBulletProperties_struct,22EProjectileBulletTypes>FP17CProjectileBullet": "0x800ce3d8",
     "DestroyBullet__90CBulletFactoryHelper<13CThrownBullet,29ThrownBulletProperties_struct,18EThrownBulletTypes>FP13CThrownBullet": "0x800cdeec"
   },

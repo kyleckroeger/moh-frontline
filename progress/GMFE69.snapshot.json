@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 479180,
+    "matching_code_bytes": 479336,
     "total_executable_code_bytes": 1414572,
-    "percent": 33.874557109853725,
+    "percent": 33.88558518053517,
     "categories": {
-      "reconstructed_game": 262776,
+      "reconstructed_game": 262932,
       "restored_library": 216404
     },
-    "matching_functions": 3042
+    "matching_functions": 3043
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -316,7 +316,7 @@
     "config/GMFE69/bullet_asbullet.json": "b71b282c15d9e53319ebbc43dcd7686ce181305594ca0ffb1f0a806bf91b3423",
     "config/GMFE69/bullet_draw.json": "094d31966b0f5d63864f43d166790e5c9f0549c3cce656f8fd959a57de16a6b8",
     "config/GMFE69/bullet_rows.json": "04f963eead009d03fdc93e869e912722f4de27e7df41deb0f51d96c85794b1a6",
-    "config/GMFE69/bulletfactory.json": "d5681576011cf8586569a65fdaa27b8149000509d5401766546e9c9fea821227",
+    "config/GMFE69/bulletfactory.json": "ef77b1567d451a726bf128c4491067160f2c9ef66d2481fd6981d85e28c61a21",
     "config/GMFE69/bulletfactory_init.json": "4b194af230dd50d8427df78f1882da7aa08d422576dc8985afdb312dbab6d505",
     "config/GMFE69/bulletfactory_projectile_ctor.json": "b415bf0b0ee07179ccb88d205e352e95a78581bc57d36cdec5f3f6568d6efdd8",
     "config/GMFE69/bulletfactory_projectile_pool.json": "d0a441d015833dce6a503491c7302c79764117cd213bb2e57eaebfe9ee3dbb64",
@@ -1986,7 +1986,7 @@
     "src/game/bullet_asbullet.cpp": "2975a506b876058410ff94b47dac21c0128e08b6504df39afc4aeb9cc85b7c87",
     "src/game/bullet_draw.cpp": "09df292753cae3ef115faaa9d446070b7a605ae7f70bceff59a555dad9e17add",
     "src/game/bullet_rows.cpp": "61a2169543f0cd466b957ceddfb3f97973bfa5e73bf310829732a37229a1f0a2",
-    "src/game/bulletfactory.cpp": "d6ee2336a34566955cb6050fa4d9fe885b64ee577b00c606ce91fbd748bc3f4a",
+    "src/game/bulletfactory.cpp": "30a1dfed133da377fe27dc08135a3e2f022d21e8c278aa03c655122a53f68ce1",
     "src/game/bulletfactory_init.cpp": "0ebf18ed93f90155ea51cb32053bf74d60a670c1688dd9c97e0b52ac45080c09",
     "src/game/bulletfactory_projectile_ctor.cpp": "47cb16f200edaf970f6ee720c046450eae06500d76cbcf33753629e800dc51c6",
     "src/game/bulletfactory_projectile_pool.cpp": "46d5fb1d10123952f736e8b7bad7810271ce1ab161d3e14589530b4e8dff4adb",
@@ -20342,8 +20342,8 @@
     {
       "id": "bulletfactory",
       "category": "reconstructed_game",
-      "functions": 3,
-      "code_bytes": 160,
+      "functions": 4,
+      "code_bytes": 316,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -20375,8 +20375,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "754e7edf71a4f31d9fdf7b45d55ea765d14930d896d2ae7b00405c661b1e284d",
-      "linked_sha256": "ac4d201999d1cdafc926dd01c5fe38824ff7170eb7263072786a0f7bb28e6f33"
+      "object_sha256": "579656984fd3704a8031dd03f0fda6b4925257be4a78eab6a5617cf6e5ff1785",
+      "linked_sha256": "060060357de9187352893639c78377e1c615810d7fd9f42e0e59b384daacb33f"
     },
     {
       "id": "IStudioFuncs",
@@ -45581,13 +45581,6 @@
         "file_record": 136,
         "file_name": "bulletfactory.cpp",
         "ranges": [
-          {
-            "address": "0x800cd84c",
-            "size": 156,
-            "kind": "function",
-            "name": "CreateBullet__14CBulletFactoryFib8CVector38CVector3f7EClsnIdfP10ISceneNode",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x800cd9d0",
             "size": 100,

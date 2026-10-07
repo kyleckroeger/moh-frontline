@@ -1,6 +1,7 @@
 // CBulletFactory queries and bullet destruction: whether a thrown bullet type
 // can be cooked, a bullet type's sprite (projectile or thrown property
-// table), and destruction through the projectile or thrown helper. The class,
+// table), destruction through the projectile or thrown helper, and creation
+// through the helper for the bullet's kind. The class,
 // template and enum names come from the mangled symbols; the property-table
 // views and the bullet's kind member are inferred from offsets, and the
 // factory is a non-virtual view. The rest of the file is not part of this
@@ -8,6 +9,15 @@
 class CBullet;
 class CProjectileBullet;
 class CThrownBullet;
+class ISceneNode;
+enum EClsnId {};
+
+class CVector3 {
+public:
+    float x;
+    float y;
+    float z;
+} __attribute__((aligned(8)));
 struct ProjectileBulletProperties_struct;
 struct ThrownBulletProperties_struct;
 enum EProjectileBulletTypes {};
@@ -16,6 +26,7 @@ enum EThrownBulletTypes {};
 template <class T, class P, class E> class CBulletFactoryHelper {
 public:
     void DestroyBullet(T*);
+    T* CreateBullet(E, CVector3, CVector3, float, EClsnId, float, ISceneNode*);
 
     unsigned char unknown00[20];
 };
@@ -43,6 +54,7 @@ public:
     bool CanBulletTypeCook(bool, int);
     void* GetBulletSprite(bool, int);
     void DestroyBullet(CBullet*);
+    CBullet* CreateBullet(int, bool, CVector3, CVector3, float, EClsnId, float, ISceneNode*);
 
     ProjectilePropertiesView* m_projectileProperties;
     ThrownPropertiesView* m_thrownProperties;
@@ -67,4 +79,12 @@ void CBulletFactory::DestroyBullet(CBullet* bullet) {
         m_projectiles.DestroyBullet((CProjectileBullet*)bullet);
     else
         m_thrown.DestroyBullet((CThrownBullet*)bullet);
+}
+
+CBullet* CBulletFactory::CreateBullet(int type, bool projectile, CVector3 position, CVector3 velocity, float speed,
+                                      EClsnId id, float damage, ISceneNode* owner) {
+    if (projectile)
+        return (CBullet*)m_projectiles.CreateBullet((EProjectileBulletTypes)type, position, velocity, speed, id, damage,
+                                                    owner);
+    return (CBullet*)m_thrown.CreateBullet((EThrownBulletTypes)type, position, velocity, speed, id, damage, owner);
 }
