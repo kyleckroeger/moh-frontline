@@ -1,17 +1,35 @@
-// A fragment of particlesystem.cpp (0x8007f0ac): CPropertyParticleSystem's
-// empty SetLocalToWorld, SetSeed and the particle acceleration, velocity and
-// position getters (each vector set from the particle-property record through
-// an inline three-float setter, which explains the reversed loads), and
-// GetParticleSize (two vectors with a zero z, 0.0f being an entry of the
+// A fragment of particlesystem.cpp (0x8007efd8): CPropertyParticleSystem's
+// SetSystemInitialVelocity (stores the velocity at +208, invalidates the
+// bounding box through the virtual ValidateBoundingBox, and keeps the moving
+// flag unless both the velocity and the acceleration at +224 are below 1e-6
+// in squared length; the constant is an entry of the file's .sdata2 pool),
+// the empty SetLocalToWorld, SetSeed and the particle acceleration, velocity
+// and position getters (each vector set from the particle-property record
+// through an inline three-float setter, which explains the reversed loads),
+// and GetParticleSize (two vectors with a zero z, 0.0f being an entry of the
 // file's .sdata2 pool, and a fifth value). The file name is this project's;
 // the original record is particlesystem.cpp. The class names come from the
 // mangled symbols; the members, the property-record view and the setter are
-// inferred (what the size values mean is unknown), and the class is a
-// non-virtual view.
+// inferred (what the size values mean is unknown), and the class is declared
+// with its virtual functions up to ValidateBoundingBox (as in
+// __vt__23CPropertyParticleSystem, after 28 bytes of data as for CRenderBin;
+// earlier slots are placeholders named by offset); the vector's
+// doubleword-pair copy and its zero test are inferred inlines.
 class CMatrix;
+
+union CVector3Pair;
 
 class CVector3 {
 public:
+    CVector3& operator=(const CVector3& other) {
+        *(CVector3Pair*)this = *(const CVector3Pair*)&other;
+        return *this;
+    }
+    float LengthSq() const { return x * x + y * y + z * z; }
+    bool IsZero() const {
+        bool zero = (float)__fabs(LengthSq()) < 1e-6f;
+        return zero;
+    }
     void Set(float x_, float y_, float z_) {
         x = x_;
         y = y_;
@@ -59,10 +77,71 @@ struct ParticlePropertiesView {
     float size0dc;
 };
 
+// Inferred: two doubles, CVector3's copies move it as a doubleword pair.
+union CVector3Pair {
+    double pair[2];
+    float v[4];
+};
+
 class CPropertyParticleSystem {
+    unsigned char unknown000[28];
+
 public:
+    virtual void unknown008();
+    virtual void unknown00c();
+    virtual void unknown010();
+    virtual void unknown014();
+    virtual void unknown018();
+    virtual void unknown01c();
+    virtual void unknown020();
+    virtual void unknown024();
+    virtual void unknown028();
+    virtual void unknown02c();
+    virtual void unknown030();
+    virtual void unknown034();
+    virtual void unknown038();
+    virtual void unknown03c();
+    virtual void unknown040();
+    virtual void unknown044();
+    virtual void unknown048();
+    virtual void unknown04c();
+    virtual void unknown050();
+    virtual void unknown054();
+    virtual void unknown058();
+    virtual void unknown05c();
+    virtual void unknown060();
+    virtual void unknown064();
+    virtual void unknown068();
+    virtual void unknown06c();
+    virtual void unknown070();
+    virtual void unknown074();
+    virtual void unknown078();
+    virtual void unknown07c();
+    virtual void unknown080();
+    virtual void unknown084();
+    virtual void unknown088();
+    virtual void unknown08c();
+    virtual void unknown090();
+    virtual void unknown094();
+    virtual void unknown098();
+    virtual void unknown09c();
+    virtual void unknown0a0();
+    virtual void unknown0a4();
+    virtual void unknown0a8();
+    virtual void unknown0ac();
+    virtual void unknown0b0();
+    virtual void unknown0b4();
+    virtual void unknown0b8();
+    virtual void unknown0bc();
+    virtual void unknown0c0();
+    virtual void unknown0c4();
+    virtual void unknown0c8();
+    virtual void unknown0cc();
+    virtual void ValidateBoundingBox(bool);
+
     void SetLocalToWorld(const CMatrix&);
     void SetSeed(int);
+    void SetSystemInitialVelocity(CVector3);
     void GetParticleAcceleration(CVector3&) const;
     void GetParticleVelocity(CVector3&, CVector3&) const;
     void GetParticlePosition(CVector3&, CVector3&) const;
@@ -70,9 +149,26 @@ public:
     void GetParticleColor(CColor&, CColor&, CColor&, CColor&) const;
     bool GetFogEnable() const;
 
-    unsigned char unknown000[240];
+    unsigned char data020[104];
+    unsigned char m_active : 1;
+    unsigned char m_emitting : 1;
+    unsigned char m_boundingBoxValid : 1;
+    unsigned char m_moving : 1;
+    unsigned char m_flags : 4;
+    unsigned char data089[71];
+    CVector3 m_velocity;
+    CVector3 m_acceleration;
     ParticlePropertiesView* m_properties;
 };
+
+void CPropertyParticleSystem::SetSystemInitialVelocity(CVector3 velocity) {
+    m_velocity = velocity;
+    ValidateBoundingBox(false);
+    bool moving = true;
+    if (m_velocity.IsZero() && m_acceleration.IsZero())
+        moving = false;
+    m_moving = moving;
+}
 
 void CPropertyParticleSystem::SetLocalToWorld(const CMatrix&) {
 }

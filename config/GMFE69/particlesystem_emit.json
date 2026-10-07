@@ -39,12 +39,30 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8007f0ac",
-      "size": 236,
+      "address": "0x8007efd8",
+      "size": 448,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000c0dc",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800130a0",
+      "size": 12,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "SetSystemInitialVelocity__23CPropertyParticleSystemF8CVector3",
+      "address": "0x8007efd8",
+      "size": 212,
+      "binding": 1
+    },
     {
       "name": "SetLocalToWorld__23CPropertyParticleSystemFRC7CMatrix",
       "address": "0x8007f0ac",
@@ -98,6 +116,12 @@
     {
       "section": ".sdata2",
       "offset": 0,
+      "size": 4,
+      "address": "0x80350038"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
       "size": 4,
       "address": "0x8034fff8"
     }

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 491880,
+    "matching_code_bytes": 492092,
     "total_executable_code_bytes": 1414572,
-    "percent": 34.77235517174099,
+    "percent": 34.78734203702604,
     "categories": {
-      "reconstructed_game": 275476,
+      "reconstructed_game": 275688,
       "restored_library": 216404
     },
-    "matching_functions": 3111
+    "matching_functions": 3112
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -496,7 +496,7 @@
     "config/GMFE69/particlesystem.json": "d68cd76caa67f1bd4b4600bbaf529086a9916303cb6095300fce856aee5a2712",
     "config/GMFE69/particlesystem_active.json": "0dfb5aa33a0872cc6c4e3d8df307a8756d07e6cd307d35dd2ac29c565ca8acb5",
     "config/GMFE69/particlesystem_color.json": "47a0b77509332bdc41d4b2211a53fabff7474462525e62a2e05deefc0b57d54c",
-    "config/GMFE69/particlesystem_emit.json": "a62affce678e30cd3aac5a53e68dabafaebc64a53d4fb0701b7da702a959a002",
+    "config/GMFE69/particlesystem_emit.json": "d3a1bf34b73ca8e5f52a490300318bd476d6e11bc387e870b76185634fb252ec",
     "config/GMFE69/particlesystem_moving.json": "841db193b003a93c1c09128bdc4e751d03cbb3e0ff38b56164396517a35bf920",
     "config/GMFE69/particlesystem_rotation.json": "f93990bd126de25a1b458dd4e7554b136b5c9214c1915c7370abb2df09b17bf7",
     "config/GMFE69/particlesystem_validate.json": "8c30a0e92f270c6048852dba827c52cee7de7537a3148b0bf6202986e349c1e4",
@@ -2075,7 +2075,7 @@
     "src/game/particlesystem.cpp": "815e35c0685b6c4fe298c0c7b609ca2bd3a675730aa83ca21e58b5e14c749307",
     "src/game/particlesystem_active.cpp": "b91cdcfc6c5ebcc5b1c4f442ddac8d0bf9d297fb5977ae97a0db63a4add5fb6d",
     "src/game/particlesystem_color.cpp": "b4360bdf132fecf53a0020ef2965cb6746ea3d965a1c113c599ea66cb64101cf",
-    "src/game/particlesystem_emit.cpp": "cf65f1e1f1d6a0ffab0add5fd4500a59ceb7ca3f6485642f50963e7e9d31cb36",
+    "src/game/particlesystem_emit.cpp": "91cf5b0cd81ee71719af471478285963a69e2d573104eee597ba6473a163ffb1",
     "src/game/particlesystem_moving.cpp": "070eb1c3124eeceddd502e2dd0a1e119b6b835ec5c2f5769a5c39c33575f1fb2",
     "src/game/particlesystem_rotation.cpp": "41bd5b6cf4c66b720f11cd0a65f702fbfaaff0fccd0cdc966cbfa82beee31855",
     "src/game/particlesystem_validate.cpp": "476c288024b835bb90c93ce2497b7fbad53ceed4011b106daa0489be983cbdc0",
@@ -24368,8 +24368,8 @@
     {
       "id": "particlesystem_emit",
       "category": "reconstructed_game",
-      "functions": 6,
-      "code_bytes": 236,
+      "functions": 7,
+      "code_bytes": 448,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -24401,8 +24401,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "4b49a4b21568b02b611bdb13de273694cf3ac49d482b758e9990ee93dd52934e",
-      "linked_sha256": "3f71cfd9e4d002f615156067183ef80a124e9818fdac8356dfb9c1c34103f7a4"
+      "object_sha256": "760ea113a55ac326bafe52c409c528e4893a132cda04e32f6715d6af818b55eb",
+      "linked_sha256": "8a043ac4f460859412e9247648bd3d73b4b7a64015d84370df4a313ccb5187ff"
     },
     {
       "id": "particlesystem_color",
@@ -40901,13 +40901,6 @@
             "size": 212,
             "kind": "function",
             "name": "SetSystemAcceleration__23CPropertyParticleSystemF8CVector3",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007efd8",
-            "size": 212,
-            "kind": "function",
-            "name": "SetSystemInitialVelocity__23CPropertyParticleSystemF8CVector3",
             "evidence": "exception-index"
           },
           {
