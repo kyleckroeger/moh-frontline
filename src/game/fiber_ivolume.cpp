@@ -1,5 +1,8 @@
 // A fragment of fiber.cpp: CVolFiber's double-dispatch collision tests
-// (against IVolume), then GetLine (the line at +16) and Set (the line's
+// (against CWorldVolume, CCSGVolume, CAnimatedVolume, CCDBObject,
+// CVolCapsule, CVolSphere and CVolBox, which swap the order, set the line
+// flag and let the other volume test this fiber, and against IVolume, which
+// only swaps), then GetLine (the line at +16) and Set (the line's
 // start and end through the inferred CLine3 setter). Swapped tests reverse
 // the collision order and let the other volume test this one; fiber tests
 // set the collision's line flag and test the fiber's line. The file name is
@@ -82,6 +85,12 @@ public:
 };
 
 class CCSGVolume : public IVolume {};
+class CWorldVolume : public IVolume {};
+class CCDBObject : public IVolume {};
+class CVolCapsule : public IVolume {};
+class CVolSphere : public IVolume {};
+class CAnimatedVolume : public CVolSphere {};
+class CVolBox : public IVolume {};
 
 class CVolFiber : public IVolume {
 public:
@@ -100,6 +109,7 @@ public:
     virtual bool TestCollision(const CLine3&, CCollision&, bool) const;
     virtual bool TestCollision(const CPlane&, CCollision&, bool) const;
     virtual bool TestCollision(const CTriangle&, CCollision&, bool) const;
+    bool TestCollision(const CCSGVolume&, CCollision&, bool) const;
 
     const CLine3& GetLine() const;
     void Set(CVector3, CVector3);
@@ -107,6 +117,48 @@ public:
     unsigned char data004[12];
     CLine3 m_line;
 };
+
+bool CVolFiber::TestCollision(const CWorldVolume& other, CCollision& collision, bool flag) const {
+    collision.SwapOrder();
+    collision.m_line = 1;
+    return other.TestCollision(*this, collision, flag);
+}
+
+bool CVolFiber::TestCollision(const CCSGVolume& other, CCollision& collision, bool flag) const {
+    collision.SwapOrder();
+    collision.m_line = 1;
+    return other.TestCollision(*this, collision, flag);
+}
+
+bool CVolFiber::TestCollision(const CAnimatedVolume& other, CCollision& collision, bool flag) const {
+    collision.SwapOrder();
+    collision.m_line = 1;
+    return other.TestCollision(*this, collision, flag);
+}
+
+bool CVolFiber::TestCollision(const CCDBObject& other, CCollision& collision, bool flag) const {
+    collision.SwapOrder();
+    collision.m_line = 1;
+    return other.TestCollision(*this, collision, flag);
+}
+
+bool CVolFiber::TestCollision(const CVolCapsule& other, CCollision& collision, bool flag) const {
+    collision.SwapOrder();
+    collision.m_line = 1;
+    return other.TestCollision(*this, collision, flag);
+}
+
+bool CVolFiber::TestCollision(const CVolSphere& other, CCollision& collision, bool flag) const {
+    collision.SwapOrder();
+    collision.m_line = 1;
+    return other.TestCollision(*this, collision, flag);
+}
+
+bool CVolFiber::TestCollision(const CVolBox& other, CCollision& collision, bool flag) const {
+    collision.SwapOrder();
+    collision.m_line = 1;
+    return other.TestCollision(*this, collision, flag);
+}
 
 bool CVolFiber::TestCollision(const IVolume& other, CCollision& collision, bool flag) const {
     collision.SwapOrder();
