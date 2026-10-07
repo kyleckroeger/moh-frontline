@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800d67fc",
-      "size": 1164,
+      "size": 1272,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000e824",
-      "size": 16,
+      "size": 24,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80015590",
-      "size": 24,
+      "size": 36,
       "type": 1
     },
     {
@@ -74,11 +74,18 @@
       "address": "0x800d67fc",
       "size": 608,
       "binding": 1
+    },
+    {
+      "name": "DestroyWeapon__14CWeaponFactoryFP7CWeapon",
+      "address": "0x800d6c88",
+      "size": 108,
+      "binding": 1
     }
   ],
   "externals": {
     "DebugMsg__FPCce": "0x80018c88",
     "Get_currentDifficulty__10CShellMenuFv": "0x800e6ec4",
+    "Shutdown__7CWeaponFv": "0x800d6284",
     "TLT_CloseFile__FPv": "0x8001d820",
     "TLT_FindNextResourceByType__F13TLTResourceIDP24LevelFileContentsStruct_": "0x8001d910",
     "TLT_LoadFileFromLevelBigFile__FPCcPi": "0x8001dcb4",

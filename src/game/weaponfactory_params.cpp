@@ -1,8 +1,9 @@
 // A fragment of weaponfactory.cpp (0x800d67fc): CWeaponFactory::
 // LoadWeaponParameters, which loads the multiplayer or difficulty's parameter
 // file, allocates the weapon property table and fills it from the file's
-// weapon records (skipping the bullet records), and the weak
-// EndianSwap(WeaponProperties_struct&) it calls. The names come from the
+// weapon records (skipping the bullet records), the weak
+// EndianSwap(WeaponProperties_struct&) it calls, and DestroyWeapon (shuts the
+// weapon down and moves it from the active list to the free list). The names come from the
 // mangled symbols; the resource, record and factory views are inferred, and
 // the byte-order helpers are the inlined ones described in propdat.cpp
 // (inferred; the converted fields are named by offset).
@@ -75,6 +76,14 @@ template <class T> inline void ChangeEndian(T& value) {
 
 enum ERenderPriority {};
 
+class CWeapon {
+public:
+    void Shutdown();
+
+    unsigned char unknown00[36];
+    CWeapon* m_next;
+};
+
 struct WeaponProperties_struct {
     unsigned char data[80];
 };
@@ -84,9 +93,13 @@ void EndianSwap(WeaponProperties_struct&);
 class CWeaponFactory {
 public:
     void LoadWeaponParameters();
+    void DestroyWeapon(CWeapon*);
 
     WeaponProperties_struct* m_properties;
-    unsigned char unknown04[20];
+    unsigned char unknown04[8];
+    CWeapon* m_free;
+    CWeapon* m_active;
+    unsigned char unknown14[4];
     int m_count;
 };
 
@@ -159,4 +172,17 @@ __declspec(weak) void EndianSwap(WeaponProperties_struct& p) {
     ChangeEndian(*(int*)(p.data + 8));
     ChangeEndian(*(int*)(p.data + 68));
     ChangeEndian(*(int*)(p.data + 76));
+}
+
+void CWeaponFactory::DestroyWeapon(CWeapon* weapon) {
+    weapon->Shutdown();
+    CWeapon** link = &m_active;
+    CWeapon* current = m_active;
+    while (current != weapon) {
+        link = &current->m_next;
+        current = current->m_next;
+    }
+    *link = weapon->m_next;
+    weapon->m_next = m_free;
+    m_free = weapon;
 }
