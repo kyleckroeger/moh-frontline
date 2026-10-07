@@ -1,14 +1,75 @@
-// The level-file layer's TLT_CloseFile: a file is freed unless it lies inside
-// the level or shell-briefing big file (files loaded from a big file point
-// into it). The function and global names come from the symbols; the globals
-// are defined with the rest of the file. The resource searches after this
-// function are drafted in scratch/lib/toilet_wip.cpp (a few lines off).
+// The level-file layer of toilet.cpp, the functions from TLT_CloseFile to
+// TLT_UnLoadShellBriefingLogBigFile: closing a file frees it unless it lies
+// inside the level or shell-briefing big file (files loaded from a big file
+// point into it), the level-contents table is searched for the next resource
+// of a type (optionally with a value in its data;
+// TLT_FindNextResourceByTypeAndVal ignores its start argument, searches from
+// the beginning and inlines TLT_FindNextResourceByType), and the
+// shell-briefing big file is unloaded. The file is compiled with -inline
+// deferred,auto: functions are emitted in reverse source order, which is why
+// the search that is inlined comes first in the source and last but one in
+// the image. The function, type and global names come from the symbols; the
+// 12-byte contents entry and the resource data view (a count, then 8-byte
+// entries) are inferred. The file's globals are defined elsewhere (the
+// file-local ones are referenced as local externals).
 extern "C" void MEM_free(void*);
+
+enum TLTResourceID {};
+
+struct TLTResourceDataView {
+    int count;
+    struct {
+        int value;
+        int unknown04;
+    } entries[1];
+};
+
+struct LevelFileContentsStruct_ {
+    TLTResourceID type;
+    int unknown04;
+    TLTResourceDataView* data;
+};
 
 extern char* g_pLevelBigFile;
 extern char* g_pShellBriefingLogBigFile;
 extern int g_LevelBigFileSize;
 extern int g_ShellBriefingLogBigFileSize;
+extern void* g_pCompartmentBigFileHeader;
+extern void* g_CompartmentBigFile;
+extern LevelFileContentsStruct_* g_pLevelFileContentsArray;
+extern int* g_pNumLevelFileContents;
+extern LevelFileContentsStruct_* g_pLevelFileContentsEndMarker;
+
+void TLT_UnLoadShellBriefingLogBigFile() {
+    if (g_pShellBriefingLogBigFile) {
+        MEM_free(g_pShellBriefingLogBigFile);
+        g_pShellBriefingLogBigFile = 0;
+        g_ShellBriefingLogBigFileSize = 0;
+    }
+}
+
+LevelFileContentsStruct_* TLT_FindNextResourceByType(TLTResourceID type, LevelFileContentsStruct_* previous) {
+    if (previous >= g_pLevelFileContentsEndMarker)
+        return 0;
+    LevelFileContentsStruct_* entry = previous ? previous + 1 : g_pLevelFileContentsArray;
+    for (; entry < g_pLevelFileContentsEndMarker; entry++) {
+        if (entry->type == type)
+            return entry;
+    }
+    return 0;
+}
+
+LevelFileContentsStruct_* TLT_FindNextResourceByTypeAndVal(TLTResourceID type, int index, int value, LevelFileContentsStruct_*) {
+    LevelFileContentsStruct_* entry = 0;
+    for (;;) {
+        entry = TLT_FindNextResourceByType(type, entry);
+        if (!entry)
+            break;
+        if (value == entry->data->entries[index].value)
+            return entry;
+    }
+    return 0;
+}
 
 void TLT_CloseFile(void* file) {
     if ((char*)file >= g_pLevelBigFile && (char*)file < g_pLevelBigFile + g_LevelBigFileSize)
@@ -17,3 +78,5 @@ void TLT_CloseFile(void* file) {
         return;
     MEM_free(file);
 }
+
+
