@@ -605,7 +605,8 @@
     "getvlc.json",
     "getbits.json",
     "getblk.json",
-    "getpic.json"
+    "getpic.json",
+    "AIObject_threat.json"
   ],
   "progress": {
     "code_bytes": 1414572,
