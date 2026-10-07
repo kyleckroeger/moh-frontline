@@ -1,0 +1,109 @@
+{
+  "id": "staticmesh_ctor",
+  "source": "src/game/staticmesh_ctor.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "on",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800f2510",
+      "size": 172,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000f6d8",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80016340",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": ".rodata",
+      "address": "0x8017a1a0",
+      "size": 12,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018b4f0",
+      "size": 32,
+      "type": 1
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034e35c",
+      "size": 8,
+      "type": 1,
+      "input_alignment": 4
+    }
+  ],
+  "functions": [
+    {
+      "name": "__dt__11CStaticMeshFv",
+      "address": "0x800f2510",
+      "size": 72,
+      "binding": 1
+    },
+    {
+      "name": "__ct__11CStaticMeshFP10StaticMeshb",
+      "address": "0x800f2558",
+      "size": 100,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "Draw__11CStaticMeshFR12CDrawContexti": "0x800f1e64",
+    "EnableFogging__11CStaticMeshFb": "0x800b327c",
+    "EnableLighting__11CStaticMeshFb": "0x800aa1a8",
+    "Init__11CStaticMeshFv": "0x800f25bc",
+    "IsFoggingEnabled__11CStaticMeshFv": "0x800f14f8",
+    "IsLightingEnabled__11CStaticMeshFv": "0x800acfac",
+    "__dl__FPv": "0x8001ca2c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "staticmesh.cpp",
+  "original_file_index": 9367
+}
