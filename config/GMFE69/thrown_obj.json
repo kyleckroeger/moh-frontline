@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800b4d14",
-      "size": 944,
+      "size": 1220,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000d784",
-      "size": 32,
+      "size": 40,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80014738",
-      "size": 48,
+      "size": 60,
       "type": 1
     },
     {
@@ -67,6 +67,12 @@
       "name": "HandleBulletCollision__13CThrownObjectFP7CBulletRC10CCollision",
       "address": "0x800b4ed0",
       "size": 500,
+      "binding": 1
+    },
+    {
+      "name": "CommitUpdate__13CThrownObjectFv",
+      "address": "0x800b50c4",
+      "size": 276,
       "binding": 1
     },
     {

@@ -4,14 +4,19 @@
 // to twice the bounding sphere's radius per update when the object has an
 // owner) and HandleBulletCollision (a projectile adds its velocity, scaled by
 // the definition's factor, through SetVelocity and plays the impact sound
-// when enabled). The class and enum names come from the mangled symbols; the
-// members and the flag byte are inferred views, the result types are
-// inferred, CThrownObject and CStaticObject are non-virtual views, CBullet's
+// when enabled) and CommitUpdate (while alive: register the volume with a new
+// collider, constrain the velocity, keep the position and velocity, and
+// update the flag bits; otherwise mark for destruction). The class and enum
+// names come from the mangled symbols; the members and the flag byte are
+// inferred views, the result types are inferred, ISceneNode's virtual
+// functions follow __vt__13CThrownObject (CThrownObject declares its
+// destructor first, so its vtable is not emitted here), the collider view and
+// the state-saving helpers are inferred, CBullet's
 // AsProjectile and GetVelocity are at +320 and +324 of __vt__7CBullet (the
 // earlier entries are placeholders named by offset), the vector operators are
 // inferred inline helpers, and sqrtf is the MSL inline square root. The
 // defaults are inline in the original (weak symbols), so they are defined
-// __declspec(weak). CommitUpdate and the rest of the file are not part of
+// __declspec(weak). AttemptUpdate and the rest of the file are not part of
 // this unit.
 struct VECTOR3VIEW {
     float x;
@@ -173,14 +178,51 @@ class CThrownObject;
 
 void DeleteSpecialThrownObject(CThrownObject*);
 
-class CStaticObject {
+class CDrawContext;
+
+struct TMVIEW {
+    unsigned char rows[48];
+    CVector3 position;
+};
+
+/* inferred: the object the thrown object's volume is registered with */
+class COLLIDERVIEW {
+public:
+    virtual void unknown08();
+    virtual void unknown0c();
+    virtual void unknown10(CVolSphere*, TMVIEW*);
+};
+
+class ISceneNode {
+public:
+    virtual void MarkForDestruction(int);
+    virtual ~ISceneNode();
+    virtual void Destroy();
+    virtual void BeginUpdate(float);
+    virtual void UpdateAI(float);
+    virtual void CommitAI();
+    virtual void ConstrainVelocity();
+    virtual void AttemptUpdate(float);
+    virtual void OnCollision(const CCollision&);
+    virtual void CommitUpdate();
+    virtual void Draw(CDrawContext&);
+};
+
+class CStaticObject : public ISceneNode {
 public:
     void MarkForDestruction(int);
 };
 
 class CThrownObject : public CStaticObject {
 public:
+    virtual ~CThrownObject();
     void Destroy();
+    void CommitUpdate();
+    CVector3 PositionRow() const { return m_tm.position; }
+    void SaveState() {
+        m_savedPosition = PositionRow();
+        m_lastVelocity = m_velocity;
+    }
     void SetVelocity(CVector3&);
     void HandleBulletCollision(CBullet*, const CCollision&);
     void MarkForDestruction(int);
@@ -191,13 +233,21 @@ public:
     void ScaleFromScript(float, float, EBSEventEnum);
     void SetDeleted(bool);
 
-    unsigned char unknown000[268];
+    unsigned char unknown004[60];
+    TMVIEW m_tm;
+    unsigned char unknown080[140];
     CVolSphere* m_sphere;
-    unsigned char unknown110[80];
+    COLLIDERVIEW* m_collider;
+    COLLIDERVIEW* m_lastCollider;
+    unsigned char unknown118[8];
+    CVector3 m_savedPosition;
+    unsigned char unknown130[48];
     CVector3 m_velocity;
     unsigned char unknown170[108];
     int m_owner;
-    unsigned char unknown1E0[168];
+    unsigned char unknown1E0[160];
+    float m_lifetime;
+    unsigned char unknown284[4];
     CVector3 m_lastVelocity;
     unsigned char unknown298[48];
     THROWNDEFVIEW* m_definition;
@@ -278,5 +328,24 @@ void CThrownObject::HandleBulletCollision(CBullet* bullet, const CCollision& col
         hit = ((const COLLISIONVIEW&)collision).hit;
         if (m_impactSound == 1)
             PlayImpactSound(15, 1, hit->point, false);
+    }
+}
+
+void CThrownObject::CommitUpdate() {
+    if (!deleted) {
+        if (m_lifetime > 0.0f) {
+            if (m_collider != m_lastCollider && m_collider && m_sphere)
+                m_collider->unknown10(m_sphere, &m_tm);
+            ConstrainVelocity();
+            SaveState();
+            if (flag1)
+                flag0 = 0;
+            else
+                flag0 = 1;
+            flag1 = 0;
+            flag2 = 0;
+        } else {
+            MarkForDestruction(0);
+        }
     }
 }
