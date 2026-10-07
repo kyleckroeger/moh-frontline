@@ -784,7 +784,8 @@
     "buddy_vec_path_dtor.json",
     "buddy_vec_info_dtor.json",
     "scene_vec_dtor.json",
-    "scene_reset.json"
+    "scene_reset.json",
+    "scene_dtor.json"
   ],
   "progress": {
     "code_bytes": 1414572,
