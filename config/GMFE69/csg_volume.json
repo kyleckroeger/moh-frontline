@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800c7f54",
-      "size": 376,
+      "size": 4072,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000debc",
-      "size": 16,
+      "size": 420,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80014d8c",
-      "size": 24,
+      "size": 168,
       "type": 1
     },
     {
@@ -63,6 +63,78 @@
     }
   ],
   "functions": [
+    {
+      "name": "TestCollision__10CCSGVolumeCFRC7IVolumeR10CCollisionb",
+      "address": "0x800c8ec8",
+      "size": 116,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__10CCSGVolumeCFRC7CVolBoxR10CCollisionb",
+      "address": "0x800c8d84",
+      "size": 324,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__10CCSGVolumeCFRC10CVolSphereR10CCollisionb",
+      "address": "0x800c8c40",
+      "size": 324,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__10CCSGVolumeCFRC11CVolCapsuleR10CCollisionb",
+      "address": "0x800c8afc",
+      "size": 324,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__10CCSGVolumeCFRC10CCDBObjectR10CCollisionb",
+      "address": "0x800c89b8",
+      "size": 324,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__10CCSGVolumeCFRC9CVolFiberR10CCollisionb",
+      "address": "0x800c8498",
+      "size": 324,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__10CCSGVolumeCFRC12CWorldVolumeR10CCollisionb",
+      "address": "0x800c8354",
+      "size": 324,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__10CCSGVolumeCFRC15CAnimatedVolumeR10CCollisionb",
+      "address": "0x800c8210",
+      "size": 324,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__10CCSGVolumeCF8CVector3R10CCollisionb",
+      "address": "0x800c8864",
+      "size": 340,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__10CCSGVolumeCFRC6CPlaneR10CCollisionb",
+      "address": "0x800c8720",
+      "size": 324,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__10CCSGVolumeCFRC9CTriangleR10CCollisionb",
+      "address": "0x800c85dc",
+      "size": 324,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__10CCSGVolumeCFRC10CCSGVolumeR10CCollisionb",
+      "address": "0x800c80cc",
+      "size": 324,
+      "binding": 1
+    },
     {
       "name": "TransformedCopy__10CCSGVolumeFRC7IVolumeRC7CMatrix",
       "address": "0x800c7f54",
@@ -83,7 +155,13 @@
     }
   ],
   "externals": {
+    "CheckContacts__10CCSGVolumeCFPiPfP10CCollisioniR10CCollisionb": "0x800c8f3c",
     "GetSubVolume__11CHierObjectCFi": "0x80099980",
+    "SwapOrder__10CCollisionFv": "0x800c79c4",
+    "__construct_array": "0x8013834c",
+    "__ct__10CCollisionFv": "0x800c7cf4",
+    "__destroy_arr": "0x801382d4",
+    "__dt__10CCollisionFv": "0x800c7b80",
     "__nw__FUl": "0x8001cb60",
     "__vt__10CCSGVolume": "0x801895f4",
     "__vt__7IVolume": "0x80181e28"
