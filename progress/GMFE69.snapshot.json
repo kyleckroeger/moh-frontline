@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 510008,
+    "matching_code_bytes": 516044,
     "total_executable_code_bytes": 1414572,
-    "percent": 36.053873539134095,
+    "percent": 36.48057504319328,
     "categories": {
-      "reconstructed_game": 291048,
+      "reconstructed_game": 297084,
       "restored_library": 218960
     },
-    "matching_functions": 3188
+    "matching_functions": 3205
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -300,6 +300,7 @@
     "config/GMFE69/bsevents.json": "4d5e6958dc99d81cad43c900fad33dc5196739566f1e0212d9186c0a693aa6c3",
     "config/GMFE69/bsfile.json": "f961138f149b308ce0811724b7e70892a6161a21bf25023f415870d3dd03c2f7",
     "config/GMFE69/bsmachin.json": "99e6f626f2cdb4c5eddca656c56ef9cc28369e547992ff630f5c3bbc93fa72ef",
+    "config/GMFE69/bsmachin_props.json": "1944c1e183afb013783327c438e3010395c83aa6dd9a7fc96e154ae3b78ec9c3",
     "config/GMFE69/bsmessage_group.json": "be3633a7d9e8f96fdc5f33c69976264536ed53f031b3be33c9f0ce5ca02ee25f",
     "config/GMFE69/bsobject.json": "41480f6a7bea111add9b38059f1c44261dd07a1e993a72d69f0db4556248260f",
     "config/GMFE69/bsschedule.json": "9ca90e8e437e4fb063781358dea8cc08f762b7a480aca88f8aefbb97d6b1fa74",
@@ -524,7 +525,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "a8555fb7456f91504b8721541feaa8ebcc7e62631a2863951de25fa0a8bf30f5",
+    "config/GMFE69/project.json": "de728177498cee494b5a4e2985facc62575fb88c1c67ce1a12644c04a0f1d353",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_init.json": "59efa2f81e573b18eb9d4793a24578d542a47e4cded42890b4e9f88779a0b4a4",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
@@ -1971,6 +1972,7 @@
     "src/game/bsevents.cpp": "1b5e58c1b9e2c631a8d1f8ac7839f9c533133df991df9974c5d73760c3af352b",
     "src/game/bsfile.cpp": "af375447dad6c73a39950974ef6a4ac7c892bbbb7541fba3b32587c6d1c69cab",
     "src/game/bsmachin.cpp": "29ef7c9c19942e3dc51d97c49266ac9b237c8658ffef55d4536c8968e7d44b1e",
+    "src/game/bsmachin_props.cpp": "3907e2f6896cc15ab0613cb4136fd0aec3b790b58527e3d7866790404c79c198",
     "src/game/bsmessage_group.cpp": "5214f38619c6804d07d5fc59be77cdee96b3158ed1da037f5a2a371e9bbfc28a",
     "src/game/bsobject.cpp": "c6feb51c0a025f79f8cfc2b874e88d97395dfd9ed0dc26ca8318087fd80e7bb4",
     "src/game/bsschedule.cpp": "abd4446f3f7acae81285dc7cd98e756227f35e4540b31cd17a68ae48319b9c56",
@@ -35166,6 +35168,45 @@
       "discarded_functions": [],
       "object_sha256": "8e5bb2fd7e92ac4439b545363d956a758b6616da6c253c6465ccae757b0c913c",
       "linked_sha256": "d8b473c82a1e5f013aaaf2aade3c050aeb45f8d8ef7956edb0c683f9c8d2ce71"
+    },
+    {
+      "id": "bsmachin_props",
+      "category": "reconstructed_game",
+      "functions": 17,
+      "code_bytes": 6036,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "187ce1edd2ce0197d020b9d1a78efef29a633defca8c750192566bb5ceb3092a",
+      "linked_sha256": "6a8729c68ee54c1e6af0e1195e2feeaf3ba081566541873396b3a56b831cff78"
     }
   ],
   "code_map": {
@@ -36320,125 +36361,6 @@
             "size": 636,
             "kind": "function",
             "name": "BSInitMachine__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800383f0",
-            "size": 24,
-            "kind": "function",
-            "name": "BSMachineGetMemoryRequirements__Fv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80038408",
-            "size": 188,
-            "kind": "function",
-            "name": "LoadPropertyData__FP18xyzProperty_Structi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800384c4",
-            "size": 332,
-            "kind": "function",
-            "name": "_LoadPropertyData__FP20MOH_fogParams_Structi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80038610",
-            "size": 308,
-            "kind": "function",
-            "name": "_LoadPropertyData__FP24MOH_animatedLight_Structi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80038744",
-            "size": 340,
-            "kind": "function",
-            "name": "_LoadPropertyData__FP31MOH_playerPathController_Structi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80038898",
-            "size": 348,
-            "kind": "function",
-            "name": "_LoadPropertyData__FP23MOH_cameraShaker_Structi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800389f4",
-            "size": 364,
-            "kind": "function",
-            "name": "_LoadPropertyData__FP36MOH_projectileGeneratorTarget_Structi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80038b60",
-            "size": 388,
-            "kind": "function",
-            "name": "_LoadPropertyData__FP30MOH_projectileGenerator_Structi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80038ce4",
-            "size": 648,
-            "kind": "function",
-            "name": "_LoadPropertyData__FP19MOH_particle_Structi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80038f6c",
-            "size": 324,
-            "kind": "function",
-            "name": "_LoadPropertyData__FP25MOH_mechanicEnvMod_Structi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800390b0",
-            "size": 300,
-            "kind": "function",
-            "name": "_LoadPropertyData__FP17MOH_envMod_Structi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800391dc",
-            "size": 292,
-            "kind": "function",
-            "name": "_LoadPropertyData__FP20MOH_pathPoint_Structi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80039300",
-            "size": 388,
-            "kind": "function",
-            "name": "_LoadPropertyData__FP19MOH_wayPoint_Structi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80039484",
-            "size": 300,
-            "kind": "function",
-            "name": "_LoadPropertyData__FP18MOH_powerup_Structi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800395b0",
-            "size": 884,
-            "kind": "function",
-            "name": "_LoadPropertyData__FP16MOH_enemy_Structi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80039924",
-            "size": 316,
-            "kind": "function",
-            "name": "_LoadPropertyData__FP19MOH_mechanic_Structi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80039a60",
-            "size": 292,
-            "kind": "function",
-            "name": "_LoadPropertyData__FP15MOH_core_Structi",
             "evidence": "exception-index"
           }
         ]

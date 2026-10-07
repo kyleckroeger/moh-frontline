@@ -788,7 +788,8 @@
     "bsbifunc_anim.json",
     "AIObject_spline.json",
     "targimpl_fpr.json",
-    "world_volume_subvol.json"
+    "world_volume_subvol.json",
+    "bsmachin_props.json"
   ],
   "progress": {
     "code_bytes": 1414572,
