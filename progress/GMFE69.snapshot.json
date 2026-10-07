@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 483084,
+    "matching_code_bytes": 483316,
     "total_executable_code_bytes": 1414572,
-    "percent": 34.15054164793308,
+    "percent": 34.1669423684337,
     "categories": {
-      "reconstructed_game": 266680,
+      "reconstructed_game": 266912,
       "restored_library": 216404
     },
-    "matching_functions": 3065
+    "matching_functions": 3069
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -518,7 +518,7 @@
     "config/GMFE69/player_transform.json": "a2c60fcfc23a22a8ad9b35b0f415273db87ebb6c899fdb46fadbf3d43ddb6bda",
     "config/GMFE69/player_vec_add.json": "edf9bb0b85c2da782b3b3380df4474d7c5b49cf886378abd7ab4a2a21689dd8c",
     "config/GMFE69/player_vec_sub.json": "54f9fb6c9027251fd5d9c78bbb87b0f1b63e7e784c5dbe92b928dcfb97dfc9d8",
-    "config/GMFE69/player_weapon.json": "bdf0e347b480c65e913cc87e18f77ce0f3cfbd93f2e2962bd9cd75c69c39e1e9",
+    "config/GMFE69/player_weapon.json": "3bd3f913ad04840461dbd085cc6c92d24f061b5fc8cbe349cd3abde138b5f6a8",
     "config/GMFE69/player_weapon_donereload.json": "a3facf6c268178dc2341e884a58d67c96b155db973719ff87037ba9cc50856aa",
     "config/GMFE69/player_weapon_drawenabled.json": "af72358eb27d827370c188a11c8476c390a14426de1aab2adce0e2c0533ccff1",
     "config/GMFE69/player_weapon_object.json": "2c451ab555672599946bb97ca631b2a316350d8f99e8e9b77cf7f8f648d219df",
@@ -2087,7 +2087,7 @@
     "src/game/player_transform.cpp": "454f1e45aa73d68416d93734f198e0141bc17f9c57cb769be949e3a726da345e",
     "src/game/player_vec_add.cpp": "ce56941a1cb5ff6262f839238d95d29f1854cf7513c379df83318227c1fa9003",
     "src/game/player_vec_sub.cpp": "3ddd51eef08e63537f899e8e92bcea0a0aa732d61ee4fdf789ede963dd622530",
-    "src/game/player_weapon.cpp": "23e70627c361cf13552625fe91c8fdd526aa0e0c6c8b0c90a82fda8299a03c04",
+    "src/game/player_weapon.cpp": "a0f7c8630a60a536d14f067e74505f29d586584bcfe385202267ab7a72460a54",
     "src/game/player_weapon_donereload.cpp": "276b86e2f1ccf65f0dbd5efb3effdc6f6c18c35406378a8900eda198910a6ad8",
     "src/game/player_weapon_drawenabled.cpp": "38a90c25715e1cb193ea2adfb7cbb12b6914fbb8ec8a7c770c70457725d465e4",
     "src/game/player_weapon_object.cpp": "1fd752be827cdffac6452a0457941d3237b13d77dec02900a4a7dac4c597d1fa",
@@ -24130,8 +24130,8 @@
     {
       "id": "player_weapon",
       "category": "reconstructed_game",
-      "functions": 15,
-      "code_bytes": 4352,
+      "functions": 19,
+      "code_bytes": 4584,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -24163,8 +24163,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "37ff738b20c7a3c766272f6286364c22fa9822a790ad2f1f4492cc5d04b05ad9",
-      "linked_sha256": "253683f4ec085852c1b94521d5473ea6db88c7da7f710ef8b18bc7d74a4382da"
+      "object_sha256": "3a4e8ac4bd4c33fc9438445102b4662accf1ae9de79709ed14db830d33afe768",
+      "linked_sha256": "6780435dd3e9f421cbed4883fbd8c6ba91d54485cf30e5a8a1a12db38440774a"
     },
     {
       "id": "animated_bind",
@@ -43270,34 +43270,6 @@
             "size": 380,
             "kind": "function",
             "name": "FireMyWeapon__13CPlayerObjectFf",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8009ea04",
-            "size": 16,
-            "kind": "function",
-            "name": "SetFallingDamageState__13CPlayerObjectFb",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8009ea14",
-            "size": 44,
-            "kind": "function",
-            "name": "SetClimbingState__13CPlayerObjectFb",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8009ea40",
-            "size": 56,
-            "kind": "function",
-            "name": "TriggerScriptEvent__13CPlayerObjectFiPvb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8009ea78",
-            "size": 116,
-            "kind": "function",
-            "name": "SetScript__13CPlayerObjectFP8BSObject",
             "evidence": "exception-index"
           },
           {

@@ -1,34 +1,39 @@
-// A fragment of player.cpp (0x8009eaec): CPlayerObject's spline-path
-// movement (UpdateMovePath advances the path time, at half the rate for the
-// sample, clamps it to 0 to 1 and ends the path at 1, takes the position
-// from the path, or from the velocity without one, derives the velocity from
-// the move, and when there is a next path faces along it, using the path's
-// derivative when both paths are the same, building the facing matrix from
-// the front, world up and their cross products and storing two of its Euler
-// angles; StopPath clears the on-path flag; MoveOnPath sets it, stores the
-// path and the next one, restarts the time and sets a rate of 1/59.94 (the
-// NTSC field rate) over the speed), its motion and camera shakes, then its
-// current-weapon queries. ShakeCamera adds random offsets to the two angles:
-// a quarter of the camera shake's strength, faded in or out over its time
-// (counting down clears the flag at the end), and a quarter of the motion
-// shake's amount, which steps towards the strength scaled by the squared
-// speed (velocity at +600, full at the speed whose square is 0.0084196).
-// DoMotionShake stores the strength and time, restarts the elapsed time and
-// flags the shake while the strength is positive; StopCameraShake and
-// StartCameraShake take the time's magnitude (counting down or up), store a
-// rate of -1 or 1 per second over it (1 for a zero time) and clear or set
-// the shake flag. Their constants are entries of the file's .sdata2 pool.
-// While the mounted-weapon flag is set the weapon queries read the mounted
-// weapon; otherwise the selected slot's weapon object's weapon, with 0 (or
-// null) when no slot is selected: the reserve and clip ammo counts and the
-// bullet sprite. GetWeaponByCRC returns the weapon object in the slot
-// GetWeaponInfoByCRC finds; GetWeaponInfoByCRC maps a weapon-name CRC to a
-// slot and two ids, reporting unknown CRCs; GetWeapon, GetCurrentWeapon and
-// GetCurrentPlayerWeapon follow. The file name is this project's; the
-// original record is player.cpp and CycleWeapon after these is not
-// reconstructed. The classes and functions are named by the mangled symbols;
-// CAISplinePath's inline expansion by segment and the CVector3 helpers are
-// inferred, as is the use of MSL's inline sqrtf; CPlayerObject,
+// A fragment of player.cpp (0x8009ea04): CPlayerObject's falling-damage and
+// climbing states (climbing clears another flag bit), script events
+// (forwarded to the script object when there is one) and SetScript (stores
+// the script and passes it to each of the first 45 weapon objects through
+// CAnimObject's virtual SetScript), its spline-path movement (UpdateMovePath
+// advances the path time, at half the rate for the sample, clamps it to 0 to
+// 1 and ends the path at 1, takes the position from the path, or from the
+// velocity without one, derives the velocity from the move, and when there
+// is a next path faces along it, using the path's derivative when both paths
+// are the same, building the facing matrix from the front, world up and
+// their cross products and storing two of its Euler angles; StopPath clears
+// the on-path flag; MoveOnPath sets it, stores the path and the next one,
+// restarts the time and sets a rate of 1/59.94 (the NTSC field rate) over
+// the speed), its motion and camera shakes, then its current-weapon queries.
+// ShakeCamera adds random offsets to the two angles: a quarter of the camera
+// shake's strength, faded in or out over its time (counting down clears the
+// flag at the end), and a quarter of the motion shake's amount, which steps
+// towards the strength scaled by the squared speed (velocity at +600, full
+// at the speed whose square is 0.0084196). DoMotionShake stores the strength
+// and time, restarts the elapsed time and flags the shake while the strength
+// is positive; StopCameraShake and StartCameraShake take the time's
+// magnitude (counting down or up), store a rate of -1 or 1 per second over
+// it (1 for a zero time) and clear or set the shake flag. Their constants
+// are entries of the file's .sdata2 pool. While the mounted-weapon flag is
+// set the weapon queries read the mounted weapon; otherwise the selected
+// slot's weapon object's weapon, with 0 (or null) when no slot is selected:
+// the reserve and clip ammo counts and the bullet sprite. GetWeaponByCRC
+// returns the weapon object in the slot GetWeaponInfoByCRC finds;
+// GetWeaponInfoByCRC maps a weapon-name CRC to a slot and two ids, reporting
+// unknown CRCs; GetWeapon, GetCurrentWeapon and GetCurrentPlayerWeapon
+// follow. The file name is this project's; the original record is player.cpp
+// and CycleWeapon after these is not reconstructed. The classes and
+// functions are named by the mangled symbols; CAnimObject is a virtual view
+// whose earlier slots are placeholders and the weapon objects are cast to
+// it; CAISplinePath's inline expansion by segment and the CVector3 helpers
+// are inferred, as is the use of MSL's inline sqrtf; CPlayerObject,
 // CPlayerWeaponObject and CWeapon are inferred non-virtual views (members at
 // their offsets, names not original) and the result types and the angle
 // parameter names are inferred.
@@ -148,6 +153,91 @@ public:
     CWeapon* m_weapon;
 };
 
+class BSObject;
+
+// CAnimObject's virtual functions up to SetScript (+300 in
+// __vt__19CPlayerWeaponObject); the earlier slots are placeholders named by
+// offset.
+class CAnimObject {
+public:
+    virtual void unknown008();
+    virtual void unknown00c();
+    virtual void unknown010();
+    virtual void unknown014();
+    virtual void unknown018();
+    virtual void unknown01c();
+    virtual void unknown020();
+    virtual void unknown024();
+    virtual void unknown028();
+    virtual void unknown02c();
+    virtual void unknown030();
+    virtual void unknown034();
+    virtual void unknown038();
+    virtual void unknown03c();
+    virtual void unknown040();
+    virtual void unknown044();
+    virtual void unknown048();
+    virtual void unknown04c();
+    virtual void unknown050();
+    virtual void unknown054();
+    virtual void unknown058();
+    virtual void unknown05c();
+    virtual void unknown060();
+    virtual void unknown064();
+    virtual void unknown068();
+    virtual void unknown06c();
+    virtual void unknown070();
+    virtual void unknown074();
+    virtual void unknown078();
+    virtual void unknown07c();
+    virtual void unknown080();
+    virtual void unknown084();
+    virtual void unknown088();
+    virtual void unknown08c();
+    virtual void unknown090();
+    virtual void unknown094();
+    virtual void unknown098();
+    virtual void unknown09c();
+    virtual void unknown0a0();
+    virtual void unknown0a4();
+    virtual void unknown0a8();
+    virtual void unknown0ac();
+    virtual void unknown0b0();
+    virtual void unknown0b4();
+    virtual void unknown0b8();
+    virtual void unknown0bc();
+    virtual void unknown0c0();
+    virtual void unknown0c4();
+    virtual void unknown0c8();
+    virtual void unknown0cc();
+    virtual void unknown0d0();
+    virtual void unknown0d4();
+    virtual void unknown0d8();
+    virtual void unknown0dc();
+    virtual void unknown0e0();
+    virtual void unknown0e4();
+    virtual void unknown0e8();
+    virtual void unknown0ec();
+    virtual void unknown0f0();
+    virtual void unknown0f4();
+    virtual void unknown0f8();
+    virtual void unknown0fc();
+    virtual void unknown100();
+    virtual void unknown104();
+    virtual void unknown108();
+    virtual void unknown10c();
+    virtual void unknown110();
+    virtual void unknown114();
+    virtual void unknown118();
+    virtual void unknown11c();
+    virtual void unknown120();
+    virtual void unknown124();
+    virtual void unknown128();
+    virtual void SetScript(BSObject*);
+};
+
+void BSObjectTriggerEvent(BSObject*, unsigned short, void*, BSObject*, bool);
+
 class CPlayerObject {
 public:
     int GetCurrentWeaponReserveAmoCount() const;
@@ -158,6 +248,10 @@ public:
     CPlayerWeaponObject* GetWeapon(int) const;
     CWeapon* GetCurrentWeapon() const;
     CPlayerWeaponObject* GetCurrentPlayerWeapon() const;
+    void SetFallingDamageState(bool);
+    void SetClimbingState(bool);
+    void TriggerScriptEvent(int, void*, bool);
+    void SetScript(BSObject*);
     void UpdateMovePath(float);
     void StopPath();
     void MoveOnPath(CAISplinePath*, CAISplinePath*, float);
@@ -166,22 +260,29 @@ public:
     void StopCameraShake(float);
     void StartCameraShake(float, float);
 
-    unsigned char unknown000[600];
+    unsigned char unknown000[592];
+    BSObject* m_script;
+    unsigned char unknown254[4];
     CVector3 m_velocity;
     unsigned char unknown268[32];
     CVector3 m_position;
     unsigned char unknown298[4];
     float m_angle29c;
     float m_angle2a0;
-    unsigned char unknown2a4[241];
+    unsigned char unknown2a4[240];
+    unsigned char unknown394 : 7;
+    unsigned char m_climbing : 1;
     unsigned char unknown395a : 2;
     unsigned char m_cameraShaking : 1;
     unsigned char unknown395b : 1;
     unsigned char m_onPath : 1;
-    unsigned char unknown395c : 3;
+    unsigned char unknown395c : 2;
+    unsigned char m_flag395 : 1;
     unsigned char m_usingMountedWeapon : 1;
     unsigned char unknown396b : 7;
-    unsigned char unknown397a : 5;
+    unsigned char unknown397a : 2;
+    unsigned char m_fallingDamage : 1;
+    unsigned char unknown397c : 2;
     unsigned char m_motionShaking : 1;
     unsigned char unknown397b : 2;
     unsigned char unknown398[8];
@@ -201,6 +302,29 @@ public:
     CPlayerWeaponObject* m_weapons[96];
     CWeapon* m_mountedWeapon;
 };
+
+void CPlayerObject::SetFallingDamageState(bool state) {
+    m_fallingDamage = state;
+}
+
+void CPlayerObject::SetClimbingState(bool state) {
+    m_climbing = state;
+    if (m_climbing)
+        m_flag395 = 0;
+}
+
+void CPlayerObject::TriggerScriptEvent(int event, void* data, bool flag) {
+    if (m_script)
+        BSObjectTriggerEvent(m_script, event, data, 0, flag);
+}
+
+void CPlayerObject::SetScript(BSObject* script) {
+    m_script = script;
+    for (int i = 0; i < 45; i++) {
+        if (m_weapons[i])
+            ((CAnimObject*)m_weapons[i])->SetScript(script);
+    }
+}
 
 void CPlayerObject::UpdateMovePath(float dt) {
     if (m_onPath) {
