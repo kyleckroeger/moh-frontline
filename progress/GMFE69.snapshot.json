@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 469992,
+    "matching_code_bytes": 470156,
     "total_executable_code_bytes": 1414572,
-    "percent": 33.22503202382063,
+    "percent": 33.23662563658831,
     "categories": {
-      "reconstructed_game": 253588,
+      "reconstructed_game": 253752,
       "restored_library": 216404
     },
-    "matching_functions": 2865
+    "matching_functions": 2895
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -94,6 +94,8 @@
     "config/GMFE69/MemoryCardGC_probe.json": "d166a1c3b3e167d590a0382180d9bb5c44ed14ccf9d640f30eba7a1706494d68",
     "config/GMFE69/MemoryCardGC_status.json": "ab7d017e14aa9150f02b61c6f34de1053b45008da4f31d5695aca901f0d63dc3",
     "config/GMFE69/Moh2.json": "5f1f093ff156a9f0b0641ede8edc5664e6e11dfc10ed0e6ad1e75fa8d857054d",
+    "config/GMFE69/Moh2_movingnode.json": "cbf20d8da337437e553e129a3ffa68dacc063e17ad2fe36cdd92d14c72464a27",
+    "config/GMFE69/Moh2_scenenode.json": "96ada3932c0da749cd75efd10b76cc5b8a07e92d5c7f6f388e02224d6617a10f",
     "config/GMFE69/NMWException.json": "993919adc03819f768ac97f37687a067894f1324f0097fa28477b34baf8f9157",
     "config/GMFE69/NewMore.json": "a73fc17ffb36c223ebeace7005486781fe8461b7cdeead36cec2f2532fdd9aea",
     "config/GMFE69/OS.json": "1545bcf993357bb6d3a55d38f18f89d1633c3ce0a893f0c196874fe2f0113f54",
@@ -478,7 +480,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "d909ce45cfd833420d17e48bb9a5d9f699aef1aa16ec6566e1f50a0428212081",
+    "config/GMFE69/project.json": "9b7d7a5a8be31d184f2189075190e690e0b469a4e8974d69005e5a39e7738051",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "bd4b85e3a27ac50301d2ad04642bca1abf864b5f74397505530539b31bf4c0d1",
@@ -1742,6 +1744,8 @@
     "src/game/MemoryCardGC_probe.cpp": "b112a0a62455dadd65658648534aeb4d088c93068fae94683c5648c54f2d5b97",
     "src/game/MemoryCardGC_status.cpp": "bb609eb01a4392fb17f4b857c88593b5cc89b764f01b5bcc9c93d26513478a8e",
     "src/game/Moh2.cpp": "de6c92093366f02578f9e8b8d2f69e0de0bece31142f95b7a51ed02dd533c3fb",
+    "src/game/Moh2_movingnode.cpp": "35f30b84ea959ae9115a257f184fb7dc59862f62ec2fec2530a1988066f25b8d",
+    "src/game/Moh2_scenenode.cpp": "eaa0e9dcda439570a261bd90d288767692a4e9eb4e52b8a02df1d0bfc9b2da12",
     "src/game/Pause.cpp": "2d6d321b8fcd54038857a76293913fd0c891dd06d69d5bda64af7fe8b1519da8",
     "src/game/Pause_tail.cpp": "310007d04a15e06e5d13ad63bc14571c9fafd2fb56d66851af547fb37e6c1e27",
     "src/game/Pause_unpause.cpp": "ce619ade12ef215f4aa85cb7d5f8e9a7b23aa483a4180d456210c0df3c22cfa1",
@@ -32182,6 +32186,84 @@
       "discarded_functions": [],
       "object_sha256": "e855b3e82b0676d2b5d9022a3789941f19850bdaee7fd27f6e69f285623f5cb0",
       "linked_sha256": "19801d8f92517e71f09084965aaa65d3c45e55a4af1e6d18404b1baf87fb7d68"
+    },
+    {
+      "id": "Moh2_movingnode",
+      "category": "reconstructed_game",
+      "functions": 14,
+      "code_bytes": 56,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "cb77c68c7592e9eaace3c03bee3a805a6ae5600a9d3f6ee46a92055a2ed4b944",
+      "linked_sha256": "cff3abda4699b8ba107e68235529c75edcaafea4ba77007d07e908c5e38cb075"
+    },
+    {
+      "id": "Moh2_scenenode",
+      "category": "reconstructed_game",
+      "functions": 16,
+      "code_bytes": 108,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "c760cc1660d4728ac3c375e0da7b18f6b08e95dfdd5304041aa28ff5d10d4515",
+      "linked_sha256": "c7c44937b93fedfa42b1de711e9da07eef6a053d6d7224d029747b166a9f6213"
     }
   ],
   "code_map": {
@@ -32359,221 +32441,11 @@
             "evidence": "exception-index"
           },
           {
-            "address": "0x8001ae48",
-            "size": 4,
-            "kind": "function",
-            "name": "Reset__16IMovingSceneNodeFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001ae4c",
-            "size": 4,
-            "kind": "function",
-            "name": "Halt__16IMovingSceneNodeFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001ae50",
-            "size": 4,
-            "kind": "function",
-            "name": "ApplyForceTo__16IMovingSceneNodeF8CVector3f",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001ae54",
-            "size": 4,
-            "kind": "function",
-            "name": "SetTMLocalToWorld__16IMovingSceneNodeFRC7CMatrix",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001ae58",
-            "size": 4,
-            "kind": "function",
-            "name": "PreTransform__16IMovingSceneNodeFRC7CMatrix",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001ae5c",
-            "size": 4,
-            "kind": "function",
-            "name": "Transform__16IMovingSceneNodeFRC7CMatrix",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001ae60",
-            "size": 4,
-            "kind": "function",
-            "name": "Move__16IMovingSceneNodeF8CVector3",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001ae64",
-            "size": 4,
-            "kind": "function",
-            "name": "Rotate__16IMovingSceneNodeF8CVector3f",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001ae68",
-            "size": 4,
-            "kind": "function",
-            "name": "Pitch__16IMovingSceneNodeFf",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001ae6c",
-            "size": 4,
-            "kind": "function",
-            "name": "Roll__16IMovingSceneNodeFf",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001ae70",
-            "size": 4,
-            "kind": "function",
-            "name": "Yaw__16IMovingSceneNodeFf",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001ae74",
-            "size": 4,
-            "kind": "function",
-            "name": "SetPosition__16IMovingSceneNodeF8CVector3",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001ae78",
-            "size": 4,
-            "kind": "function",
-            "name": "SetBasis__16IMovingSceneNodeF8CVector38CVector38CVector3",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001ae7c",
-            "size": 4,
-            "kind": "function",
-            "name": "Orthonormalize__16IMovingSceneNodeFv",
-            "evidence": "between-same-file"
-          },
-          {
             "address": "0x8001ae80",
             "size": 20,
             "kind": "function",
             "name": "GetWorldLinearVelocity__16IMovingSceneNodeCFv",
             "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001ae94",
-            "size": 4,
-            "kind": "function",
-            "name": "EnterLightVolume__16IMovingSceneNodeFP14BPDLightVolume",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001ae98",
-            "size": 4,
-            "kind": "function",
-            "name": "ExitLightVolume__16IMovingSceneNodeFP14BPDLightVolume",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001ae9c",
-            "size": 8,
-            "kind": "function",
-            "name": "GetLightVolume__16IMovingSceneNodeFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001aea4",
-            "size": 4,
-            "kind": "function",
-            "name": "AsMovingNode__16IMovingSceneNodeCFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001aea8",
-            "size": 4,
-            "kind": "function",
-            "name": "AsMovingNode__16IMovingSceneNodeFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001aeac",
-            "size": 4,
-            "kind": "function",
-            "name": "BeginUpdate__10ISceneNodeFf",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001aeb0",
-            "size": 4,
-            "kind": "function",
-            "name": "UpdateAI__10ISceneNodeFf",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001aeb4",
-            "size": 4,
-            "kind": "function",
-            "name": "CommitAI__10ISceneNodeFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001aeb8",
-            "size": 4,
-            "kind": "function",
-            "name": "ConstrainVelocity__10ISceneNodeFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001aebc",
-            "size": 4,
-            "kind": "function",
-            "name": "AttemptUpdate__10ISceneNodeFf",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001aec0",
-            "size": 4,
-            "kind": "function",
-            "name": "OnCollision__10ISceneNodeFRC10CCollision",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001aec4",
-            "size": 4,
-            "kind": "function",
-            "name": "CommitUpdate__10ISceneNodeFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001aec8",
-            "size": 4,
-            "kind": "function",
-            "name": "Draw__10ISceneNodeFR12CDrawContext",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001aecc",
-            "size": 8,
-            "kind": "function",
-            "name": "GetLocalBoundingVolume__10ISceneNodeCFQ210ISceneNode11EVolumeType",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001aed4",
-            "size": 8,
-            "kind": "function",
-            "name": "GetWorldBoundingVolume__10ISceneNodeCFQ210ISceneNode11EVolumeType",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001aedc",
-            "size": 36,
-            "kind": "function",
-            "name": "GetTMLocalToWorld__10ISceneNodeCFR7CMatrix",
-            "evidence": "exception-index"
           },
           {
             "address": "0x8001af00",

@@ -715,7 +715,9 @@
     "matrix_ps.json",
     "matrix_multiply.json",
     "player_vec_add.json",
-    "player_vec_sub.json"
+    "player_vec_sub.json",
+    "Moh2_movingnode.json",
+    "Moh2_scenenode.json"
   ],
   "progress": {
     "code_bytes": 1414572,
