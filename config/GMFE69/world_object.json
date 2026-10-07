@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800b64c4",
-      "size": 364,
+      "size": 496,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000d7fc",
-      "size": 16,
+      "size": 24,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x800147ec",
-      "size": 24,
+      "size": 36,
       "type": 1
     }
   ],
@@ -106,6 +106,12 @@
       "binding": 1
     },
     {
+      "name": "BeginUpdate__12CWorldObjectFf",
+      "address": "0x800b6630",
+      "size": 132,
+      "binding": 1
+    },
+    {
       "name": "DrawShadows__12CWorldObjectFR12CDrawContext",
       "address": "0x800b64f4",
       "size": 152,
@@ -113,7 +119,8 @@
     }
   ],
   "externals": {
-    "DrawShadows__12CCompartmentFR12CDrawContext": "0x80074c28"
+    "DrawShadows__12CCompartmentFR12CDrawContext": "0x80074c28",
+    "ServiceDataStreamer__12CWorldObjectFf": "0x800b6d90"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
