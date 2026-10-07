@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 480592,
+    "matching_code_bytes": 480660,
     "total_executable_code_bytes": 1414572,
-    "percent": 33.974375288073,
+    "percent": 33.97918239580594,
     "categories": {
-      "reconstructed_game": 264188,
+      "reconstructed_game": 264256,
       "restored_library": 216404
     },
-    "matching_functions": 3057
+    "matching_functions": 3058
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -519,7 +519,7 @@
     "config/GMFE69/player_vec_add.json": "edf9bb0b85c2da782b3b3380df4474d7c5b49cf886378abd7ab4a2a21689dd8c",
     "config/GMFE69/player_vec_sub.json": "54f9fb6c9027251fd5d9c78bbb87b0f1b63e7e784c5dbe92b928dcfb97dfc9d8",
     "config/GMFE69/player_weapon.json": "c735cb1a78d1fbc66d6e9a0a1b46cad55de1f916d4ea49b9ae65015cc56718a2",
-    "config/GMFE69/player_weapon_donereload.json": "ce6b9da1933846ea49c923f8a4cc8617a6bc6d7ac3fc3128060c22734e9e7f31",
+    "config/GMFE69/player_weapon_donereload.json": "a3facf6c268178dc2341e884a58d67c96b155db973719ff87037ba9cc50856aa",
     "config/GMFE69/player_weapon_drawenabled.json": "af72358eb27d827370c188a11c8476c390a14426de1aab2adce0e2c0533ccff1",
     "config/GMFE69/player_weapon_object.json": "2c451ab555672599946bb97ca631b2a316350d8f99e8e9b77cf7f8f648d219df",
     "config/GMFE69/player_weapon_selectable.json": "3c9aab472205a638765db1eed076195405ab13e048cfd2a3066bf9ab3b6bacb8",
@@ -2088,7 +2088,7 @@
     "src/game/player_vec_add.cpp": "ce56941a1cb5ff6262f839238d95d29f1854cf7513c379df83318227c1fa9003",
     "src/game/player_vec_sub.cpp": "3ddd51eef08e63537f899e8e92bcea0a0aa732d61ee4fdf789ede963dd622530",
     "src/game/player_weapon.cpp": "c691dafb279835ba8f79018a386691f9090fd99480c66e924f0fb69ceafbe8a0",
-    "src/game/player_weapon_donereload.cpp": "eff017fc1210ccc3691b4948f182642bdc0802d79ebf80cbea15d1d1da0c22f1",
+    "src/game/player_weapon_donereload.cpp": "276b86e2f1ccf65f0dbd5efb3effdc6f6c18c35406378a8900eda198910a6ad8",
     "src/game/player_weapon_drawenabled.cpp": "38a90c25715e1cb193ea2adfb7cbb12b6914fbb8ec8a7c770c70457725d465e4",
     "src/game/player_weapon_object.cpp": "1fd752be827cdffac6452a0457941d3237b13d77dec02900a4a7dac4c597d1fa",
     "src/game/player_weapon_selectable.cpp": "948a057eff27a7b565104c23d7cfddef4a5202207c2c4342f63865c782cd2741",
@@ -31632,8 +31632,8 @@
     {
       "id": "player_weapon_donereload",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 36,
+      "functions": 2,
+      "code_bytes": 104,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -31665,8 +31665,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "057a92a3c66cb277e200fa3210a5fc0b801381eaaf4ce3cb556dcb481fede2c0",
-      "linked_sha256": "8416d30ada6fc50bbcb3f11311972e7590a5f55ae62706a3f2520fe2463c5313"
+      "object_sha256": "076e2c9f58267f6bf91e3b56f6742d31ccf31e8a37d388877602f77effc4d99d",
+      "linked_sha256": "cfdfa20cfb5be236d4cfc139828a509f94dc32a3fe53f4c72e68a1e5097d3674"
     },
     {
       "id": "player_weapon_selectable",
@@ -43606,13 +43606,6 @@
             "size": 96,
             "kind": "function",
             "name": "AddAmo__19CPlayerWeaponObjectFi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800a8030",
-            "size": 68,
-            "kind": "function",
-            "name": "Shoot__19CPlayerWeaponObjectF16EWeaponShootTypei",
             "evidence": "exception-index"
           },
           {

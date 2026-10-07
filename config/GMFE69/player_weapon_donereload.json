@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800a800c",
-      "size": 36,
+      "size": 104,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000d114",
-      "size": 8,
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x800141e0",
-      "size": 12,
+      "size": 24,
       "type": 1
     }
   ],
@@ -62,10 +62,17 @@
       "address": "0x800a800c",
       "size": 36,
       "binding": 1
+    },
+    {
+      "name": "Shoot__19CPlayerWeaponObjectF16EWeaponShootTypei",
+      "address": "0x800a8030",
+      "size": 68,
+      "binding": 1
     }
   ],
   "externals": {
-    "DoneReloading__7CWeaponFv": "0x800d611c"
+    "DoneReloading__7CWeaponFv": "0x800d611c",
+    "Shoot__7CWeaponF16EWeaponShootTypeff": "0x800d6238"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -74,5 +81,22 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "player_weapon_object.cpp",
-  "original_file_index": 6418
+  "original_file_index": 6418,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80350770"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 8,
+      "address": "0x80350778"
+    }
+  ]
 }

@@ -1,10 +1,12 @@
 // A fragment of player_weapon_object.cpp (0x800a800c):
-// CPlayerWeaponObject::DoneReloading forwards to the weapon. Shoot after this
-// uses the file's int-to-float .sdata2 constant and is not part of this unit.
+// CPlayerWeaponObject::DoneReloading forwards to the weapon, and Shoot fires
+// it with the count as a float and -1.0f (its constants are entries of the
+// file's .sdata2 pool; the meaning of the second value is unknown).
 // CPlayerWeaponObject, CWeapon, CPlayerObject and EDumpType are named by the
 // mangled symbols; the members, the weapon property record and the flag bits
 // are inferred views. The rest of the file is not part of this unit.
 enum EDumpType {};
+enum EWeaponShootType {};
 
 void EnableDumpCollisionsByType(EDumpType, int, bool);
 
@@ -17,6 +19,7 @@ class CWeapon {
 public:
     void AddAmo(short);
     void DoneReloading();
+    void Shoot(EWeaponShootType, float, float);
 
     unsigned char unknown000[640];
     WeaponPropertiesView* m_properties;
@@ -38,6 +41,7 @@ public:
     bool IsDrawEnabled() const;
     void AddAmo(int);
     void DoneReloading();
+    void Shoot(EWeaponShootType, int);
     bool IsSelectable() const;
 
     unsigned char unknown0000[12512];
@@ -52,4 +56,8 @@ public:
 
 void CPlayerWeaponObject::DoneReloading() {
     m_weapon->DoneReloading();
+}
+
+void CPlayerWeaponObject::Shoot(EWeaponShootType type, int count) {
+    m_weapon->Shoot(type, count, -1.0f);
 }
