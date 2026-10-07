@@ -1,0 +1,100 @@
+{
+  "id": "bsbifunc_appendprompt",
+  "source": "src/game/bsbifunc_appendprompt.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8002ad98",
+      "size": 308,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x80009d44",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800109ac",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "appendMessageToPrompt__FPCci",
+      "address": "0x8002ad98",
+      "size": 308,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "g_prompt": "0x8034e790",
+    "g_promptBuffer": "0x801977fc",
+    "g_promptColumn": "0x8034e794",
+    "g_promptCursor": "0x8034d9f4",
+    "g_promptLineWidth": "0x8034d9f8",
+    "g_promptMaxSize": "0x8034d9fc",
+    "strchr": "0x8013fe64",
+    "strcpy": "0x80140040",
+    "strlen": "0x801400f8",
+    "strncpy": "0x8013fffc"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [
+    "g_prompt",
+    "g_promptBuffer",
+    "g_promptColumn",
+    "g_promptCursor",
+    "g_promptLineWidth",
+    "g_promptMaxSize"
+  ],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "g_prompt",
+    "g_promptColumn",
+    "g_promptCursor",
+    "g_promptLineWidth",
+    "g_promptMaxSize"
+  ],
+  "original_file": "bsbifunc.cpp",
+  "original_file_index": 443
+}

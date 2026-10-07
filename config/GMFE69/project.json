@@ -594,7 +594,9 @@
     "bsbifunc_corpsesearch.json",
     "bsbifunc_targetsearch.json",
     "bsbifunc_rotate.json",
-    "bsbifunc_aemsvalues.json"
+    "bsbifunc_aemsvalues.json",
+    "bsbifunc_prompt.json",
+    "bsbifunc_appendprompt.json"
   ],
   "progress": {
     "code_bytes": 1414572,
