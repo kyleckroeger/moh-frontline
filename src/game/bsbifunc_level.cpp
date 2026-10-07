@@ -1,16 +1,20 @@
-// A fragment of bsbifunc.cpp (0x80021b60): built-ins that end the level
-// (recording whether it was won, destroying the buddy data and setting the
-// game-state end bit), add a hint (a level of 0x7fffffff stands for 20; the
-// text comes from the string table, or null past its end; levels and slots are
-// 1-based), toggle the player's trigger checks and change the player's team
-// (the AI object's team and its byte copy), followed by the weak
-// CPlayerObject::GetAIDoodad (the doodad at +0x24). The file name is this
-// project's; the original record is bsbifunc.cpp and the built-ins around these
-// are not reconstructed. The functions, classes and globals are named by the
-// mangled symbols; ISceneNode is declared with its virtual functions in the
-// order of __vt__10ISceneNode, and the shell, string table, hint table, player,
-// doodad and AI object views are inferred (members at their offsets, names not
-// original).
+// A fragment of bsbifunc.cpp (0x80021a74): built-ins that scale the calling
+// node's static object relative to its size by script (a scale, a time and a
+// completion event), end the level (recording whether it was won, destroying
+// the buddy data and setting the game-state end bit), add a hint (a level of
+// 0x7fffffff stands for 20; the text comes from the string table, or null past
+// its end; levels and slots are 1-based), toggle the player's trigger checks
+// and change the player's team (the AI object's team and its byte copy),
+// followed by the weak CPlayerObject::GetAIDoodad (the doodad at +0x24). The
+// file name is this project's; the original record is bsbifunc.cpp and the
+// built-ins around these are not reconstructed. The functions, classes and
+// globals are named by the mangled symbols; ISceneNode is declared with its
+// virtual functions in the order of __vt__10ISceneNode (AsStaticObject at
+// +116), IMovingSceneNode's and CStaticObject's after them in the order of
+// __vt__13CStaticObject (ScaleFromScript at +312; the unnamed entry at +300 as
+// a placeholder), the argument helpers are inferred, and the shell, string
+// table, hint table, player, doodad and AI object views are inferred (members
+// at their offsets, names not original).
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
@@ -19,6 +23,7 @@ class CVector3;
 class CBullet;
 class CLight;
 class CPlayerObject;
+class CStaticObject;
 struct AIDoodadView;
 struct AIDoodadView;
 
@@ -52,7 +57,7 @@ public:
     virtual void HandleBulletCollision(CBullet*, const CCollision&);
     virtual void* AsMovingNode();
     virtual const void* AsMovingNode() const;
-    virtual void* AsStaticObject();
+    virtual CStaticObject* AsStaticObject();
     virtual const void* AsStaticObject() const;
     virtual void* AsHierObject();
     virtual const void* AsHierObject() const;
@@ -95,6 +100,48 @@ struct CAIFilterView {
 struct AIDoodadView {
     void* unknown00;
     CAIFilterView* filter;
+};
+
+class IMovingSceneNode : public ISceneNode {
+public:
+    virtual ~IMovingSceneNode();
+    virtual void Reset();
+    virtual void Halt();
+    virtual void ApplyForceTo(CVector3, float);
+    virtual void SetTMLocalToWorld(const CMatrix&);
+};
+
+class BSObject;
+class BPDLightVolume;
+enum EBSEventEnum {};
+
+class CStaticObject : public IMovingSceneNode {
+public:
+    virtual ~CStaticObject();
+    virtual void PreTransform(const CMatrix&);
+    virtual void Transform(const CMatrix&);
+    virtual void Move(CVector3);
+    virtual void Rotate(CVector3, float);
+    virtual void Pitch(float);
+    virtual void Roll(float);
+    virtual void Yaw(float);
+    virtual void SetPosition(CVector3);
+    virtual void SetBasis(CVector3, CVector3, CVector3);
+    virtual void Orthonormalize();
+    virtual int GetWorldLinearVelocity() const;
+    virtual void EnterLightVolume(BPDLightVolume*);
+    virtual void ExitLightVolume(BPDLightVolume*);
+    virtual int GetLightVolume();
+    virtual void Init();
+    virtual void SetScript(BSObject*);
+    virtual void unknown12c();
+    virtual void TranslateFromScript(CVector3&, CVector3&, EBSEventEnum);
+    virtual void RotateFromScript(CVector3&, CVector3&, EBSEventEnum);
+    virtual void ScaleFromScript(float, float, EBSEventEnum);
+    virtual void StartMotionPlayback(int, int, EBSEventEnum);
+    virtual void* AsThrownObject();
+    virtual void* AsWeaponObject();
+    virtual void* AsHierTankObject();
 };
 
 class CPlayerObject {
@@ -141,6 +188,23 @@ struct BSBuiltinView {
 
 extern BSBuiltinView* g_pBuiltInFunctions;
 extern int g_iCurrentBIFIndex;
+
+inline int BSArgInt(int** stack, int index) {
+    return *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - index));
+}
+
+inline float BSArgFloat(int** stack, int index) {
+    return *(float*)(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - index));
+}
+
+void BIFunc_ScaleRel(int** stack, void* object) {
+    float scale = BSArgFloat(stack, 1);
+    float time = BSArgFloat(stack, 2);
+    EBSEventEnum event = (EBSEventEnum)BSArgInt(stack, 3);
+    CStaticObject* staticObject = ((ISceneNode*)object)->AsStaticObject();
+    staticObject->ScaleFromScript(scale, time, event);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
 
 void BIFunc_EndLevel(int** stack, void*) {
     g_Shell.levelWon = *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1)) != 0;
