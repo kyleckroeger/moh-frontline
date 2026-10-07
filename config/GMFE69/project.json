@@ -667,7 +667,8 @@
     "smixer_reset.json",
     "smixer_dry.json",
     "saramman_free.json",
-    "smixer_destroy.json"
+    "smixer_destroy.json",
+    "smixer_stop.json"
   ],
   "progress": {
     "code_bytes": 1414572,
