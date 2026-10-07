@@ -692,7 +692,8 @@
     "ShellMenu_shelloff.json",
     "ShellMenu_dtor.json",
     "ShellMenu_playtime.json",
-    "ShellMenu_sku.json"
+    "ShellMenu_sku.json",
+    "ShellMenu_load.json"
   ],
   "progress": {
     "code_bytes": 1414572,
