@@ -1,0 +1,88 @@
+{
+  "id": "publisher_reset",
+  "source": "src/game/publisher_reset.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800d7e08",
+      "size": 172,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000e8a4",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80015638",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "Shutdown__10CPublisherFv",
+      "address": "0x800d7e08",
+      "size": 88,
+      "binding": 1
+    },
+    {
+      "name": "Reset__10CPublisherFv",
+      "address": "0x800d7e60",
+      "size": 84,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "MEM_free": "0x8014f83c",
+    "__dl__FPv": "0x8001ca2c",
+    "sm_pThePublisher__10CPublisher": "0x8034ec80"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "sm_pThePublisher__10CPublisher"
+  ],
+  "original_file": "publisher.cpp",
+  "original_file_index": 8359
+}

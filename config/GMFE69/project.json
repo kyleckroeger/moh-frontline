@@ -675,7 +675,8 @@
     "pathx_hold.json",
     "pathx_end.json",
     "pathx_query.json",
-    "pathx_overhead.json"
+    "pathx_overhead.json",
+    "publisher_reset.json"
   ],
   "progress": {
     "code_bytes": 1414572,
