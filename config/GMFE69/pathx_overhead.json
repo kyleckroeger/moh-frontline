@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x800e99f0",
-      "size": 92,
+      "size": 200,
       "type": 1
     }
   ],
@@ -48,17 +48,44 @@
       "address": "0x800e99f0",
       "size": 92,
       "binding": 1
+    },
+    {
+      "name": "PATHX_milliseconds",
+      "address": "0x800e9a4c",
+      "size": 108,
+      "binding": 1
     }
   ],
   "externals": {
-    "SNDSTRM_overhead": "0x8015c230"
+    "SNDSTRM_overhead": "0x8015c230",
+    "TIMER_gettick": "0x80151e00",
+    "TIMERhz": "0x8034f3e4"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": [],
+  "sda_externals": [
+    "TIMERhz"
+  ],
   "original_file": "pathxSND.c",
-  "original_file_index": 8920
+  "original_file_index": 8920,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80350fa8"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 8,
+      "address": "0x80350fc0"
+    }
+  ]
 }

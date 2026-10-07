@@ -558,7 +558,7 @@ establish a type, the source comments say so.
 | `pathx_hold.c` (fragment of `pathxSND.c`) | 1 | 68 | `0x800e8a1c`: `PATHX_modifyhold` (hold change passed to a streamed track's stream) |
 | `pathx_end.c` (fragment of `pathxSND.c`) | 1 | 72 | `0x800e8e64`: `PATHX_endservice` (removes the timer client and sync task, clears the service) |
 | `pathx_query.c` (fragment of `pathxSND.c`) | 2 | 192 | `0x800e93ac`: `PATHX_readyfornewrequest` and `PATHX_getvolume` (refresh the states when a request is pending, then read the track's field) |
-| `pathx_overhead.c` (fragment of `pathxSND.c`) | 1 | 92 | `0x800e99f0`: `PATHX_overheadtrack` (104 + 12 per node + the stream overhead, padded past the next 16-byte boundary) |
+| `pathx_overhead.c` (fragment of `pathxSND.c`) | 2 | 200 | `0x800e99f0`: `PATHX_overheadtrack` (104 + 12 per node + the stream overhead, padded past the next 16-byte boundary) and `PATHX_milliseconds` (ticks over `TIMERhz`, times 1000; a `.sdata2` pool reference) |
 | `pathxSND.c` (fragment) | 2 | 240 | The last two functions: `PATHX_isynctask` runs the installed `pathService` callback (its parameters are not established), and `PATHX_ifade` stores a track's volume and fades it as a sound (`SNDautovol`, time in tenths) or a stream (`SNDSTRM_autovol`) inside a critical section (track view inferred). The PATHX API from `PATHX_stop` to `PATHX_milliseconds` is not reconstructed |
 | `slinklst.c`, `ssysserv.c`, `sgettag.c`, `sstrstat.c` | 10 | 1,316 | Doubly linked lists, sound server clients and `SNDSYS_service`, the header tag reader, request status (64-bit helpers return `SINT64` in r3/r4) |
 | `sfilter.c`, `supf.c` | 6 | 720 | Mixer filter chains (insert by priority, remove, connect ports) and the 16-bit PCM unpacker |
