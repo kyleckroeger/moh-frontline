@@ -18,7 +18,7 @@
     "off",
     "-O4,p",
     "-inline",
-    "auto",
+    "on",
     "-pragma",
     "cats off",
     "-nosyspath",
@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8015b19c",
-      "size": 1716,
+      "size": 2336,
       "type": 1
     }
   ],
@@ -84,6 +84,12 @@
       "address": "0x8015b73c",
       "size": 276,
       "binding": 1
+    },
+    {
+      "name": "SNDSTRMI_service__Fv",
+      "address": "0x8015b850",
+      "size": 620,
+      "binding": 1
     }
   ],
   "externals": {
@@ -91,17 +97,25 @@
     "SNDI_patchtohdr__FPvP11TAGGEDPATCHP15SNDSAMPLEFORMATP13SNDSAMPLEATTRP13SNDSAMPLEDESC": "0x8015f120",
     "SNDLINKI_push__FP11SNDLINKLISTP11SNDLINKNODE": "0x801590b8",
     "SNDLINKI_remove__FP11SNDLINKLISTP11SNDLINKNODE": "0x8015917c",
+    "SNDPKTPLAY_framesoutstanding": "0x8015ac78",
     "SNDPKTPLAY_start": "0x8015a81c",
+    "SNDPKTPLAY_stop": "0x8015ac9c",
     "SNDPKTPLAY_submit": "0x8015ab48",
+    "SNDPKTPLAY_submitspace": "0x8015ac50",
     "SNDSTRMI_calcdatarate__FP15SNDSAMPLEFORMAT": "0x8015b13c",
     "SNDSTRMI_getrequestptr__Fi": "0x8015c188",
     "SNDSTRM_destroy": "0x8015bef4",
+    "SNDSYS_entercritical": "0x80153554",
+    "SNDSYS_leavecritical": "0x80153588",
+    "STREAM_get": "0x8014d974",
     "STREAM_gettable": "0x8014dc74",
     "STREAM_release": "0x8014dae0",
     "STREAM_state": "0x8014dcc0",
     "_restgpr_25": "0x80138a54",
+    "_restgpr_26": "0x80138a58",
     "_restgpr_27": "0x80138a5c",
     "_savegpr_25": "0x80138a08",
+    "_savegpr_26": "0x80138a0c",
     "_savegpr_27": "0x80138a10",
     "memcmp": "0x8013d644",
     "sndgs": "0x80340860",

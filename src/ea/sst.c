@@ -9,7 +9,10 @@
 // builds a packet from a data chunk (channel pointers from the chunk's
 // offsets, the chunk stashed before the first channel's data for the release
 // callback) and submits it, and SNDSTRMI_isheld reports whether the current
-// request is still held for prebuffering. SNDSTREAMCHANNEL, SNDSAMPLEFORMAT,
+// request is still held for prebuffering; SNDSTRMI_service, for each stream
+// with queued requests, restarts a stalled player once it has drained,
+// and unless the stream is held reads up to the player's free space (or 10)
+// chunks, parsing data and header chunks. SNDSTREAMCHANNEL, SNDSAMPLEFORMAT,
 // SNDSAMPLEATTR, SNDSAMPLEDESC, SNDLINKNODE, SNDLINKLIST, STREAMCHUNKHDR and
 // TAGGEDPATCH are named by the mangled symbols; their members, the stream
 // records and sndgs/sndss are inferred views.
@@ -62,6 +65,12 @@ void SNDCTRL_filteradd(int, void*);
 void* STREAM_gettable(int);
 int STREAM_state(int);
 void SNDPKTPLAY_submit(int, void*);
+int SNDPKTPLAY_framesoutstanding(int);
+int SNDPKTPLAY_submitspace(int);
+void SNDPKTPLAY_stop(int);
+void SNDSYS_entercritical(void);
+void SNDSYS_leavecritical(void);
+unsigned char* STREAM_get(int);
 }
 
 // SNDSTRMI_calcdatarate comes first in the original file; it is drafted in
@@ -296,4 +305,64 @@ int SNDSTRMI_isheld(SNDSTREAMCHANNEL* stream) {
     return 0;
 }
 
-// SNDSTRMI_service and the stream functions after it are not reconstructed.
+/* inferred: hands a chunk to the data or header parser (or releases an
+   unknown one); false when a header was parsed */
+static inline int parsechunk(int index, STREAMCHUNKHDR* chunk) {
+    SNDSTREAMCHANNEL* stream = (SNDSTREAMCHANNEL*)sndss[index];
+
+    if (*(int*)chunk == 0x5343446C) {
+        SNDSTRMI_parsedata(stream, chunk);
+    } else if (*(int*)chunk == 0x5343486C) {
+        SNDSTRMI_parseheader(index, chunk);
+        return 0;
+    } else {
+        STREAM_release(stream->handle, (unsigned char*)chunk);
+    }
+    return 1;
+}
+
+void SNDSTRMI_service(void) {
+    SNDSTREAMCHANNEL* stream;
+    int i;
+    int more;
+    int count;
+    STREAMCHUNKHDR* chunk;
+
+    SNDSYS_entercritical();
+    for (i = 0; i < *(unsigned char*)(sndgs + 71); i++) {
+        stream = (SNDSTREAMCHANNEL*)sndss[i];
+        if (!stream || !stream->active.count)
+            continue;
+        if (stream->state == 2) {
+            if (SNDPKTPLAY_framesoutstanding(stream->player) > 0)
+                continue;
+            stream->format = stream->newFormat;
+            stream->attr = stream->newAttr;
+            stream->newAttr.buffer[0] = 0;
+            SNDPKTPLAY_stop(stream->player);
+            stream->voice = SNDPKTPLAY_start(stream->player, &stream->format, &stream->attr, stream->packet);
+            if (stream->filterSet)
+                SNDCTRL_filteradd(stream->voice, stream->filter);
+            stream->state = 1;
+        }
+        if (SNDSTRMI_isheld(stream))
+            continue;
+        if (stream->state == 1) {
+            count = SNDPKTPLAY_submitspace(stream->player);
+            if (!count)
+                continue;
+        } else {
+            count = 10;
+        }
+        more = 0;
+        do {
+            count--;
+            chunk = (STREAMCHUNKHDR*)STREAM_get(stream->handle);
+            if (chunk)
+                more = parsechunk(i, chunk);
+        } while (more && count > 0);
+    }
+    SNDSYS_leavecritical();
+}
+
+// SNDSTRMI_create and the stream functions after it are not reconstructed.
