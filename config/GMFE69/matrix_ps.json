@@ -39,24 +39,30 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8008fa84",
-      "size": 284,
+      "address": "0x8008fa08",
+      "size": 408,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000c630",
-      "size": 16,
+      "address": "0x8000c628",
+      "size": 24,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80013664",
-      "size": 24,
+      "address": "0x80013658",
+      "size": 36,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "TransformToLocal__7CMatrixCF8CVector3",
+      "address": "0x8008fa08",
+      "size": 124,
+      "binding": 1
+    },
     {
       "name": "TransformVector__7CMatrixCFR8CVector38CVector3",
       "address": "0x8008fa84",
@@ -78,6 +84,7 @@
   ],
   "externals": {
     "PSTransformPoint__FPfPCfPCf": "0x8008ead0",
+    "PSTransformToLocal__FPfPCfPCf": "0x8008eb78",
     "PSTransformVector__FPfPCfPCf": "0x8008eb2c"
   },
   "undefined_in_discarded_code": [],
@@ -87,5 +94,16 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "matrix.cpp",
-  "original_file_index": 5373
+  "original_file_index": 5373,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80350230"
+    }
+  ]
 }
