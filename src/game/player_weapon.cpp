@@ -32,18 +32,24 @@
 // bullet sprite. GetWeaponByCRC returns the weapon object in the slot
 // GetWeaponInfoByCRC finds; GetWeaponInfoByCRC maps a weapon-name CRC to a
 // slot and two ids, reporting unknown CRCs; GetWeapon, GetCurrentWeapon and
-// GetCurrentPlayerWeapon follow. The file name is this project's; the
-// original record is player.cpp and CycleWeapon after these is not
-// reconstructed. The classes and functions are named by the mangled symbols;
-// the current-weapon lookups they inline are inferred helpers
+// GetCurrentPlayerWeapon follow. CycleWeapon finds the next (or previous)
+// selectable weapon object, optionally only a given slot, puts the old one
+// away (a shot of type 1, the selection and reload bits cleared), selects
+// the new one, stores it and its weapon type in the script data and, in
+// multiplayer, has the player's soldier select its matching weapon
+// (re-attaching it to the left or right hand, by its weapon flag; the dead
+// detach branch is the compiled shape of the inferred inline), then sends
+// the weapon's sound event. The file name is this project's; the original
+// record is player.cpp. The classes and functions are named by the mangled
+// symbols; the current-weapon lookups they inline are inferred helpers
 // (GetCurrentWeapon and GetCurrentPlayerWeapon are defined later in the
-// file, so they are not what is inlined); CAnimObject is a virtual view
-// whose earlier slots are placeholders and the weapon objects are cast to
-// it; CAISplinePath's inline expansion by segment and the CVector3 helpers
-// are inferred, as is the use of MSL's inline sqrtf; CPlayerObject,
-// CPlayerWeaponObject and CWeapon are inferred non-virtual views (members at
-// their offsets, names not original) and the result types and the angle
-// parameter names are inferred.
+// file, so they are not what is inlined); CAnimObject and CSoldierObject are
+// virtual views whose earlier slots are placeholders and the weapon objects
+// are cast to it; CAISplinePath's inline expansion by segment and the
+// CVector3 helpers are inferred, as is the use of MSL's inline sqrtf;
+// CPlayerObject, CPlayerWeaponObject and CWeapon are inferred non-virtual
+// views (members at their offsets, names not original) and the result types
+// and the angle parameter names are inferred.
 class CSprite;
 
 namespace std {
@@ -147,29 +153,81 @@ void DebugMsg(const char*, ...);
 
 enum EWeaponShootType {};
 
+struct WeaponPropertiesView {
+    unsigned char unknown00[74];
+    short flags;
+};
+
 class CWeapon {
 public:
     CSprite* GetBulletSprite() const;
     bool CanCook() const;
     void Shoot(EWeaponShootType, float, float);
+    void Update(float, bool);
+    short GetWeaponSoundType() const;
 
-    unsigned char unknown000[644];
+    unsigned char unknown000[640];
+    WeaponPropertiesView* m_properties;
     short m_reserveAmmo;
     short m_clipAmmo;
     unsigned char unknown288[16];
     int m_type;
+    unsigned char unknown29c[36];
+    unsigned char reloading : 1;
+    unsigned char unknown2c0 : 7;
 };
 
 class CPlayerWeaponObject {
 public:
+    bool IsSelectable() const;
+    void Shoot(EWeaponShootType, int);
+
     unsigned char unknown0000[12516];
     CWeapon* m_weapon;
     unsigned char unknown30e8[164];
     float m_value318c;
     float m_value3190;
+    unsigned char unknown3194[62];
+    unsigned char unknown31d2a : 1;
+    unsigned char m_selected : 1;
+    unsigned char unknown31d2b : 6;
 };
 
-class BSObject;
+struct PlayerScriptDataView {
+    int unknown0;
+    int weaponType;
+    CPlayerWeaponObject* weapon;
+};
+
+class BSGO_Basic {
+    unsigned char unknown00[12];
+
+public:
+    virtual void Destroy();
+    virtual PlayerScriptDataView* GetScriptData();
+};
+
+class BSObject {
+public:
+    unsigned char unknown00[12];
+    BSGO_Basic* user;
+};
+
+class CStaticObject;
+
+class CAIFilterSoldierObject {
+public:
+    void UpdateManualUpdateVars();
+};
+
+extern bool g_bInMultiplayerMode;
+
+void AEMS_SendEvent(void*);
+
+struct WeaponSoundEvent {
+    int event;
+    int sound;
+};
 
 // CAnimObject's virtual functions up to SetScript (+300 in
 // __vt__19CPlayerWeaponObject); the earlier slots are placeholders named by
@@ -252,6 +310,131 @@ public:
     virtual void SetScript(BSObject*);
 };
 
+// CSoldierObject's virtual functions up to AttachObject (+308) and
+// DetachObject (+312) in __vt__14CSoldierObject; the earlier slots are
+// placeholders named by offset. SelectWeapon is an inferred inline.
+class CSoldierObject {
+public:
+    virtual void unknown008();
+    virtual void unknown00c();
+    virtual void unknown010();
+    virtual void unknown014();
+    virtual void unknown018();
+    virtual void unknown01c();
+    virtual void unknown020();
+    virtual void unknown024();
+    virtual void unknown028();
+    virtual void unknown02c();
+    virtual void unknown030();
+    virtual void unknown034();
+    virtual void unknown038();
+    virtual void unknown03c();
+    virtual void unknown040();
+    virtual void unknown044();
+    virtual void unknown048();
+    virtual void unknown04c();
+    virtual void unknown050();
+    virtual void unknown054();
+    virtual void unknown058();
+    virtual void unknown05c();
+    virtual void unknown060();
+    virtual void unknown064();
+    virtual void unknown068();
+    virtual void unknown06c();
+    virtual void unknown070();
+    virtual void unknown074();
+    virtual void unknown078();
+    virtual void unknown07c();
+    virtual void unknown080();
+    virtual void unknown084();
+    virtual void unknown088();
+    virtual void unknown08c();
+    virtual void unknown090();
+    virtual void unknown094();
+    virtual void unknown098();
+    virtual void unknown09c();
+    virtual void unknown0a0();
+    virtual void unknown0a4();
+    virtual void unknown0a8();
+    virtual void unknown0ac();
+    virtual void unknown0b0();
+    virtual void unknown0b4();
+    virtual void unknown0b8();
+    virtual void unknown0bc();
+    virtual void unknown0c0();
+    virtual void unknown0c4();
+    virtual void unknown0c8();
+    virtual void unknown0cc();
+    virtual void unknown0d0();
+    virtual void unknown0d4();
+    virtual void unknown0d8();
+    virtual void unknown0dc();
+    virtual void unknown0e0();
+    virtual void unknown0e4();
+    virtual void unknown0e8();
+    virtual void unknown0ec();
+    virtual void unknown0f0();
+    virtual void unknown0f4();
+    virtual void unknown0f8();
+    virtual void unknown0fc();
+    virtual void unknown100();
+    virtual void unknown104();
+    virtual void unknown108();
+    virtual void unknown10c();
+    virtual void unknown110();
+    virtual void unknown114();
+    virtual void unknown118();
+    virtual void unknown11c();
+    virtual void unknown120();
+    virtual void unknown124();
+    virtual void unknown128();
+    virtual void unknown12c();
+    virtual void unknown130();
+    virtual void AttachObject(CStaticObject*, char*, int);
+    virtual void DetachObject(char*);
+    void SetBulletEmitter(CStaticObject*, char*);
+
+    void SelectWeapon(int index) {
+        if (m_weapons[m_currentWeapon]) {
+            m_weapons[m_currentWeapon]->Update(1.0f, false);
+        } else {
+            if (m_weapons[m_currentWeapon]) {
+                if (!(m_weapons[m_currentWeapon]->m_properties->flags & 1))
+                    DetachObject("lt_hand");
+                else
+                    DetachObject("rt_hand");
+            }
+            m_currentWeapon = index;
+            return;
+        }
+        m_currentWeapon = index;
+        char* bone;
+        int crc;
+        if (!(m_weapons[m_currentWeapon]->m_properties->flags & 1)) {
+            bone = "lt_hand";
+            crc = 0x4c83c769;
+        } else {
+            bone = "rt_hand";
+            crc = 0xd58a96d3;
+        }
+        if (g_bInMultiplayerMode) {
+            DetachObject("lt_hand");
+            DetachObject("rt_hand");
+        } else
+            DetachObject(bone);
+        AttachObject((CStaticObject*)m_weapons[m_currentWeapon], bone, crc);
+        if (!g_bInMultiplayerMode)
+            m_aiFilter->UpdateManualUpdateVars();
+        SetBulletEmitter((CStaticObject*)m_weapons[m_currentWeapon], bone);
+    }
+
+    unsigned char unknown0004[12512];
+    CAIFilterSoldierObject* m_aiFilter;
+    unsigned char unknown30e8[3880];
+    CWeapon* m_weapons[25];
+    int m_currentWeapon;
+};
+
 void BSObjectTriggerEvent(BSObject*, unsigned short, void*, BSObject*, bool);
 
 class CPlayerObject {
@@ -278,6 +461,7 @@ public:
             return m_weapons[m_currentWeapon];
         return 0;
     }
+    bool CycleWeapon(int, int);
     void StartGrenadeCook();
     void FireMyWeapon(float);
     void SetFallingDamageState(bool);
@@ -336,8 +520,12 @@ public:
     float m_cookTime;
     unsigned char unknown458[4];
     int m_currentWeapon;
-    CPlayerWeaponObject* m_weapons[96];
+    CPlayerWeaponObject* m_weapons[45];
+    int m_soldierWeapons[45];
+    unsigned char unknown5c8[24];
     CWeapon* m_mountedWeapon;
+    unsigned char unknown5e4[484];
+    CSoldierObject* m_soldier;
 };
 
 extern "C" double sin(double);
@@ -689,4 +877,42 @@ CPlayerWeaponObject* CPlayerObject::GetCurrentPlayerWeapon() const {
     if (m_currentWeapon >= 0)
         return m_weapons[m_currentWeapon];
     return 0;
+}
+
+bool CPlayerObject::CycleWeapon(int direction, int only) {
+    for (int i = 1; i < 45; i++) {
+        int slot;
+        if (direction > 0)
+            slot = m_currentWeapon + i;
+        else
+            slot = m_currentWeapon - i;
+        if (slot >= 45)
+            slot -= 45;
+        else if (slot < 0)
+            slot += 45;
+        if ((only < 0 || slot == only) && m_weapons[slot] && m_weapons[slot]->IsSelectable()) {
+            if (m_currentWeapon >= 0 && m_weapons[m_currentWeapon]) {
+                m_weapons[m_currentWeapon]->Shoot((EWeaponShootType)1, 0);
+                m_weapons[m_currentWeapon]->m_selected = 0;
+                m_weapons[m_currentWeapon]->m_weapon->reloading = 0;
+            }
+            m_currentWeapon = slot;
+            m_weapons[m_currentWeapon]->m_selected = 1;
+            PlayerScriptDataView* data = m_script->user->GetScriptData();
+            data->weapon = m_weapons[m_currentWeapon];
+            if (m_weapons[m_currentWeapon])
+                data->weaponType = m_weapons[m_currentWeapon]->m_weapon->m_type;
+            else
+                data->weaponType = -1;
+            if (g_bInMultiplayerMode)
+                m_soldier->SelectWeapon(m_soldierWeapons[m_currentWeapon]);
+            int sound = m_weapons[m_currentWeapon]->m_weapon->GetWeaponSoundType();
+            WeaponSoundEvent event;
+            event.event = 10;
+            event.sound = sound;
+            AEMS_SendEvent(&event);
+            return true;
+        }
+    }
+    return false;
 }
