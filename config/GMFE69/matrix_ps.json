@@ -39,24 +39,42 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8008fa08",
-      "size": 408,
+      "address": "0x8008f498",
+      "size": 1800,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000c628",
-      "size": 24,
+      "address": "0x8000c620",
+      "size": 32,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80013658",
-      "size": 36,
+      "address": "0x8001364c",
+      "size": 48,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "Transpose__7CMatrixFv",
+      "address": "0x8008f498",
+      "size": 296,
+      "binding": 1
+    },
+    {
+      "name": "Inverse__7CMatrixFRC7CMatrix",
+      "address": "0x8008f5c0",
+      "size": 828,
+      "binding": 1
+    },
+    {
+      "name": "FastInverse__7CMatrixFRC7CMatrix",
+      "address": "0x8008f8fc",
+      "size": 268,
+      "binding": 1
+    },
     {
       "name": "TransformToLocal__7CMatrixCF8CVector3",
       "address": "0x8008fa08",
@@ -102,6 +120,24 @@
     {
       "section": ".sdata2",
       "offset": 0,
+      "size": 4,
+      "address": "0x8035023c"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 8,
+      "address": "0x80350258"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 16,
+      "size": 4,
+      "address": "0x80350260"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 20,
       "size": 4,
       "address": "0x80350230"
     }
