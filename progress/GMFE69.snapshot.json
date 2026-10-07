@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 463120,
+    "matching_code_bytes": 463296,
     "total_executable_code_bytes": 1414572,
-    "percent": 32.739231371750606,
+    "percent": 32.75167329764763,
     "categories": {
-      "reconstructed_game": 246716,
+      "reconstructed_game": 246892,
       "restored_library": 216404
     },
-    "matching_functions": 2783
+    "matching_functions": 2786
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -135,6 +135,8 @@
     "config/GMFE69/SearchNodeList.json": "94a6f88f4b8062b0b71ee5f431cf4a7f102d07ca517660d3fe098a7fd2a44a2c",
     "config/GMFE69/SearchNode_tail.json": "82bf47d102a265a3559cd1ad02896cff8eff8e0fddd7370f762c1247835d7a4b",
     "config/GMFE69/ShellMenu.json": "8dd6d4ec65f514a1f54b37bc84805970f0bea890598fe1b03be548df82af6f74",
+    "config/GMFE69/ShellMenu_audio.json": "026af524cf3fe574304b285b6fac8ad8f8d3836cbebcd0388ca6645fee826edf",
+    "config/GMFE69/ShellMenu_audioset.json": "769e5ea905a0b9c3ab000ba3b8864176581af5c5b7f57d8b6b459934a863d4bb",
     "config/GMFE69/ShellMenu_card.json": "64a3dc1b5adbecb090de83d5f1ac156eb76d5557501bd3499d53be0199f7c8db",
     "config/GMFE69/ShellMenu_cardquery.json": "a62188697027b88aa4a536c3f1ed038884979039cf4401a136e0177306df8608",
     "config/GMFE69/ShellMenu_cardsize.json": "739e680e3c92dd8606a0dcd8295a2591be22f9b01ca695b56e21d4853646ff04",
@@ -450,7 +452,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "a6bb7c7ee32ffcab375883e0585ef7bbb9618c7f172c1b61cfce119c61293d5b",
+    "config/GMFE69/project.json": "15153f2eb54198f2796e9120a0826d11d5a03b8907b22a70f28ae959f642774b",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "bd4b85e3a27ac50301d2ad04642bca1abf864b5f74397505530539b31bf4c0d1",
@@ -1718,6 +1720,8 @@
     "src/game/SearchNodeList.cpp": "738d75054ffdc5c611f06f3c0f8d330d60226794efc3684079e2280494a4d65c",
     "src/game/SearchNode_tail.cpp": "ac957dcb51976bf56af734d6ff8433a4bc34a95f066fdc0708034b825032e2e2",
     "src/game/ShellMenu.cpp": "e03b478aa25e400ae26b61840f1147b0b0293e518a216ca8e670c39aab756f38",
+    "src/game/ShellMenu_audio.cpp": "14c39e840cc8b6e6b8bc8de416c4a3e2ff18c600d6d5432e179a8c07c01f94b6",
+    "src/game/ShellMenu_audioset.cpp": "bc7dfb9b03d7f2d725dfc970d26f4bf01ca4dedbabe7094df01d8419515df8d6",
     "src/game/ShellMenu_card.cpp": "360c40a30ae8561bcc938899f84adc18104343aa89f688077a8c3667dcad0ddd",
     "src/game/ShellMenu_cardquery.cpp": "14bed4e6741ebc072c6770bbde04a3f4c7e82ba846bfb1ba9f3770ccf628b1ad",
     "src/game/ShellMenu_cardsize.cpp": "c2551c932c46ea513a170685cbaf3bc3fb154d51112828f63941ab0dd1e1fa0a",
@@ -30870,6 +30874,84 @@
       "discarded_functions": [],
       "object_sha256": "cfa2bc5c3e12e12732970f1d9b2789645e05f14a24b4b215edaf09bea5fad6f6",
       "linked_sha256": "8dad53453f714a0e5e7f7a7a3b29ca34deb6d3eecf98a6bd8b252429efb6f922"
+    },
+    {
+      "id": "ShellMenu_audio",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 144,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "c20f8b6ea970b40094c3127425cae94ce96f7627c99dbd207a6c0030e050c7e5",
+      "linked_sha256": "bdc8d0c5a623d3c63550a4ebed24a8cfb99751fb81e7c0267a55fe7957767340"
+    },
+    {
+      "id": "ShellMenu_audioset",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 32,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "c596c8a0fabc6a8e34e8a97794677bd720abddb84c56f624f1f0ed8114c6d69f",
+      "linked_sha256": "2ab5b0041ece50e33bfc9b3343476fa7c6857ae76a8c9ac1399d497cecee79ad"
     }
   ],
   "code_map": {
@@ -43816,32 +43898,11 @@
             "evidence": "exception-index"
           },
           {
-            "address": "0x800df530",
-            "size": 144,
-            "kind": "function",
-            "name": "PassAudioSettingToIStudio__10CShellMenuFPi",
-            "evidence": "exception-index"
-          },
-          {
             "address": "0x800df5c0",
             "size": 596,
             "kind": "function",
             "name": "ResetAudio__10CShellMenuFv",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x800df814",
-            "size": 16,
-            "kind": "function",
-            "name": "SetMusicValue__10CShellMenuFi",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800df824",
-            "size": 16,
-            "kind": "function",
-            "name": "SetSoundFXValue__10CShellMenuFi",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x800df834",
