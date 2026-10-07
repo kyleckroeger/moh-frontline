@@ -40,29 +40,35 @@
     {
       "name": ".text",
       "address": "0x800b4d14",
-      "size": 2140,
+      "size": 2912,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000d784",
-      "size": 56,
+      "size": 64,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80014738",
-      "size": 84,
+      "size": 96,
       "type": 1
     },
     {
       "name": ".sdata2",
       "address": "0x80350930",
-      "size": 40,
+      "size": 44,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "Draw__13CThrownObjectFR12CDrawContext",
+      "address": "0x800b5570",
+      "size": 772,
+      "binding": 1
+    },
     {
       "name": "HandleBulletCollision__13CThrownObjectFP7CBulletRC10CCollision",
       "address": "0x800b4ed0",
@@ -143,20 +149,31 @@
     }
   ],
   "externals": {
+    "BuildRot__7CMatrixF8CVector3f": "0x80090980",
     "DeleteSpecialThrownObject__FP13CThrownObject": "0x8003eb40",
     "ForceUpdateProximityTriggerStatus__FP10BSGO_Basicb": "0x8004618c",
+    "GetMatrix__11CQuaternionCFR7CMatrix": "0x80091c9c",
     "GetRadius__10CVolSphereCFv": "0x800cba28",
+    "GetVolume__19CLightVolumeManagerFv": "0x80078a3c",
+    "InitClass__7CMatrixFv": "0x80090b78",
     "MarkForDestruction__13CStaticObjectFi": "0x800ae870",
+    "Multiply__11CQuaternionF11CQuaternion": "0x8009174c",
+    "Multiply__7CMatrixFRC7CMatrixRC7CMatrix": "0x8008fc50",
     "PlayImpactSound__FUsUs8CVector3b": "0x800eb17c",
+    "SetFromMatrix__11CQuaternionFRC7CMatrix": "0x80091990",
+    "SetLightVolume__11CStaticMeshFP14BPDLightVolume": "0x800f2434",
     "SetPos__7CMatrixF8CVector3": "0x80090728",
-    "Update__19CLightVolumeManagerFf": "0x80079070"
+    "Update__19CLightVolumeManagerFf": "0x80079070",
+    "s_ClassInit__7CMatrix": "0x8034eab0"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": [],
+  "sda_externals": [
+    "s_ClassInit__7CMatrix"
+  ],
   "original_file": "thrown_obj.cpp",
   "original_file_index": 6991
 }

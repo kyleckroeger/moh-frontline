@@ -11,7 +11,11 @@
 // saved position, then the sorted bounds from the collider's extent or the
 // position), and BeginUpdate (light volumes, saved state, proximity triggers,
 // a pending impact sound, and the lifetime countdown by whole ticks while
-// held). The class and enum
+// held) and Draw (above the definition's minimum speed, roll the orientation
+// about the horizontal axis normal to the velocity by the distance moved over
+// the sphere's radius; then draw the mesh at the orientation and transform,
+// with its light volume). The
+// class and enum
 // names come from the mangled symbols; the members and the flag byte are
 // inferred views, the result types are inferred, ISceneNode's virtual
 // functions follow __vt__13CThrownObject (CThrownObject declares its
@@ -22,8 +26,27 @@
 // earlier entries are placeholders named by offset), the vector operators are
 // inferred inline helpers, and sqrtf is the MSL inline square root. The
 // defaults are inline in the original (weak symbols), so they are defined
-// __declspec(weak). Draw and the rest of the file are not part of this
-// unit.
+// __declspec(weak). CStaticMesh's virtual functions follow
+// __vt__11CStaticMesh; the draw context's matrix pointer, the vector helpers
+// and the quaternion layout are inferred. ConstrainVelocity and the rest of
+// the file are not part of this unit.
+extern inline float sqrtf(float x)
+{
+    const double _half = .5;
+    const double _three = 3.0;
+    volatile float y;
+    if (x > 0.0f)
+    {
+        double guess = __frsqrte((double)x);
+        guess = _half*guess*(_three - guess*guess*x);
+        guess = _half*guess*(_three - guess*guess*x);
+        guess = _half*guess*(_three - guess*guess*x);
+        y = (float)(x*guess);
+        return y ;
+    }
+    return x;
+}
+
 struct VECTOR3VIEW {
     float x;
     float y;
@@ -32,6 +55,16 @@ struct VECTOR3VIEW {
 
 class CVector3 {
 public:
+    float LengthSq() const { return v.x * v.x + v.y * v.y + v.z * v.z; }
+    void Normalize() {
+        float length = sqrtf(LengthSq());
+        if (length != 0.0f) {
+            float inverse = 1.0f / length;
+            v.x *= inverse;
+            v.y *= inverse;
+            v.z *= inverse;
+        }
+    }
     CVector3& operator*=(float f) {
         v.x *= f;
         v.y *= f;
@@ -146,7 +179,9 @@ struct COLLISIONVIEW {
 };
 
 struct THROWNPROPSVIEW {
-    unsigned char unknown00[100];
+    unsigned char unknown00[68];
+    float minRollSpeed;
+    unsigned char unknown48[28];
     float impulseScale;
 };
 
@@ -162,22 +197,6 @@ public:
     float GetRadius() const;
 };
 
-extern inline float sqrtf(float x)
-{
-    const double _half = .5;
-    const double _three = 3.0;
-    volatile float y;
-    if (x > 0.0f)
-    {
-        double guess = __frsqrte((double)x);
-        guess = _half*guess*(_three - guess*guess*x);
-        guess = _half*guess*(_three - guess*guess*x);
-        guess = _half*guess*(_three - guess*guess*x);
-        y = (float)(x*guess);
-        return y ;
-    }
-    return x;
-}
 enum EBSEventEnum {};
 
 class CThrownObject;
@@ -185,10 +204,12 @@ class CThrownObject;
 void DeleteSpecialThrownObject(CThrownObject*);
 
 class CDrawContext;
+struct BPDLightVolume;
 
 class CLightVolumeManager {
 public:
     void Update(float);
+    BPDLightVolume* GetVolume();
 
     unsigned char unknown00[32];
 };
@@ -201,10 +222,47 @@ void ForceUpdateProximityTriggerStatus(BSGO_Basic*, bool);
 
 class CMatrix {
 public:
+    CMatrix() {
+        if (!s_ClassInit)
+            InitClass();
+    }
+    static void InitClass();
     void SetPos(CVector3);
+    void BuildRot(CVector3, float);
+    void Multiply(const CMatrix&, const CMatrix&);
 
     unsigned char rows[48];
     CVector3 position;
+    static bool s_ClassInit;
+} __attribute__((aligned(16)));
+
+class CQuaternion {
+public:
+    void SetFromMatrix(const CMatrix&);
+    void Multiply(CQuaternion);
+    void GetMatrix(CMatrix&) const;
+
+    float x;
+    float y;
+    float z;
+    float w;
+};
+
+struct BPDLightVolume;
+
+class CStaticMesh {
+public:
+    virtual ~CStaticMesh();
+    virtual void Draw(CDrawContext&, int);
+    virtual void EnableLighting(bool);
+    virtual bool IsLightingEnabled();
+    static void SetLightVolume(BPDLightVolume*);
+};
+
+/* inferred: the draw context's current-matrix pointer at +192 */
+struct DRAWCONTEXTVIEW {
+    unsigned char unknown000[192];
+    CMatrix* matrix;
 };
 
 /* inferred: an entry of a sorted bounds list, keyed by the float at +8 */
@@ -266,6 +324,7 @@ public:
     void CommitUpdate();
     void AttemptUpdate(float);
     void BeginUpdate(float);
+    void Draw(CDrawContext&);
     void SetBounds(const CVector3& low, const CVector3& high) {
         m_bounds[0]->key = low.v.x;
         m_bounds[2]->key = low.v.y;
@@ -304,7 +363,9 @@ public:
 
     unsigned char unknown004[8];
     BOUNDVIEW* m_bounds[4];
-    unsigned char unknown01C[36];
+    unsigned char unknown01C[20];
+    CStaticMesh* m_mesh;
+    unsigned char unknown034[12];
     CMatrix m_tm;
     unsigned char unknown080[140];
     CVolSphere* m_sphere;
@@ -316,14 +377,16 @@ public:
     CVector3 m_velocity;
     unsigned char unknown170[108];
     int m_owner;
-    unsigned char unknown1E0[128];
+    unsigned char unknown1E0[52];
+    int m_drawMode;
+    unsigned char unknown218[72];
     CLightVolumeManager m_lightVolumes;
     float m_lifetime;
     unsigned char unknown284[4];
     CVector3 m_lastVelocity;
     CVector3 m_force;
     CVector3 m_step;
-    unsigned char unknown2B8[16];
+    CQuaternion m_orientation;
     THROWNDEFVIEW* m_definition;
     int m_pendingSound;
     BSGO_Basic m_scriptObject;
@@ -471,4 +534,39 @@ void CThrownObject::BeginUpdate(float dt) {
         if (m_lifetime < 0.0f)
             m_lifetime = 0.0f;
     }
+}
+
+void CThrownObject::Draw(CDrawContext& context) {
+    CMatrix rotation;
+
+    float minSpeed = m_definition->properties->minRollSpeed;
+
+    if (sqrtf(m_velocity.LengthSq()) > minSpeed) {
+        CVector3 up;
+        CVector3 axis;
+        CVolSphere* sphere = m_sphere;
+        float radius;
+        CQuaternion turn;
+
+        up.v.x = 0.0f;
+        up.v.y = 0.0f;
+        up.v.z = 1.0f;
+        axis.v.x = up.v.y * m_velocity.v.z - up.v.z * m_velocity.v.y;
+        axis.v.y = up.v.z * m_velocity.v.x - up.v.x * m_velocity.v.z;
+        axis.v.z = up.v.x * m_velocity.v.y - up.v.y * m_velocity.v.x;
+        axis.Normalize();
+        if (sphere)
+            radius = sphere->GetRadius();
+        else
+            radius = 1.0f;
+        rotation.BuildRot(axis, sqrtf(m_step.LengthSq()) / radius);
+        turn.SetFromMatrix(rotation);
+        m_orientation.Multiply(turn);
+    }
+    m_orientation.GetMatrix(rotation);
+    rotation.Multiply(rotation, m_tm);
+    ((DRAWCONTEXTVIEW&)context).matrix = &rotation;
+    if (m_mesh->IsLightingEnabled())
+        CStaticMesh::SetLightVolume(m_lightVolumes.GetVolume());
+    m_mesh->Draw(context, m_drawMode);
 }
