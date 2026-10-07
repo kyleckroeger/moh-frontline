@@ -38,7 +38,13 @@
     {
       "name": ".text",
       "address": "0x801578e0",
-      "size": 664,
+      "size": 1204,
+      "type": 1
+    },
+    {
+      "name": ".rodata",
+      "address": "0x8017b780",
+      "size": 16,
       "type": 1
     }
   ],
@@ -60,6 +66,12 @@
       "address": "0x801579c4",
       "size": 308,
       "binding": 1
+    },
+    {
+      "name": "SNDAEMSI_streamupdatestatus__FP21AEMSCOMPDYNAMICPLAYER",
+      "address": "0x80157b78",
+      "size": 540,
+      "binding": 1
     }
   ],
   "externals": {
@@ -67,6 +79,7 @@
     "SNDMEMI_free__FPv": "0x80158ff0",
     "SNDSTRM_destroy": "0x8015bef4",
     "SNDSTRM_purge": "0x8015c028",
+    "SNDSTRM_requeststatus": "0x8015c37c",
     "SNDSYS_entercritical": "0x80153554",
     "SNDSYS_leavecritical": "0x80153588",
     "iSNDserverremoveclient__FPFv_v": "0x80153110",
