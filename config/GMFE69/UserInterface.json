@@ -40,7 +40,13 @@
     {
       "name": ".text",
       "address": "0x800bf2d4",
-      "size": 280,
+      "size": 532,
+      "type": 1
+    },
+    {
+      "name": ".ctors",
+      "address": "0x8016dfdc",
+      "size": 4,
       "type": 1
     },
     {
@@ -54,13 +60,31 @@
       "address": "0x80014a80",
       "size": 12,
       "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x801ef498",
+      "size": 16,
+      "type": 8
     }
   ],
   "functions": [
     {
+      "name": "__sinit_UserInterface_cpp",
+      "address": "0x800bf48c",
+      "size": 92,
+      "binding": 0
+    },
+    {
       "name": "__dt__13UserInterfaceFv",
       "address": "0x800bf2d4",
       "size": 280,
+      "binding": 1
+    },
+    {
+      "name": "__ct__13UserInterfaceFv",
+      "address": "0x800bf3ec",
+      "size": 160,
       "binding": 1
     }
   ],
@@ -89,5 +113,28 @@
     "hitMeterSprite__13UserInterface"
   ],
   "original_file": "UserInterface.cpp",
-  "original_file_index": 7237
+  "original_file_index": 7237,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80350a14"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x80350a50"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 4,
+      "address": "0x80350a88"
+    }
+  ]
 }
