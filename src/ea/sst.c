@@ -5,7 +5,11 @@
 // converts the chunk's patch into the pending sample format and attributes,
 // reports the attributes' events to the registered callbacks, releases the
 // chunk, and then adopts the new format (stalling, state 2, when a playing
-// stream's format changes) and starts the packet player. SNDSAMPLEFORMAT,
+// stream's format changes) and starts the packet player; SNDSTRMI_parsedata
+// builds a packet from a data chunk (channel pointers from the chunk's
+// offsets, the chunk stashed before the first channel's data for the release
+// callback) and submits it, and SNDSTRMI_isheld reports whether the current
+// request is still held for prebuffering. SNDSTREAMCHANNEL, SNDSAMPLEFORMAT,
 // SNDSAMPLEATTR, SNDSAMPLEDESC, SNDLINKNODE, SNDLINKLIST, STREAMCHUNKHDR and
 // TAGGEDPATCH are named by the mangled symbols; their members, the stream
 // records and sndgs/sndss are inferred views.
@@ -55,6 +59,9 @@ void STREAM_release(int, unsigned char*);
 int memcmp(const void*, const void*, unsigned long);
 int SNDPKTPLAY_start(int, SNDSAMPLEFORMAT*, SNDSAMPLEATTR*, void*);
 void SNDCTRL_filteradd(int, void*);
+void* STREAM_gettable(int);
+int STREAM_state(int);
+void SNDPKTPLAY_submit(int, void*);
 }
 
 // SNDSTRMI_calcdatarate comes first in the original file; it is drafted in
@@ -79,27 +86,29 @@ void SNDSTRMI_releasecallback(void* data, void*) {
 }
 
 /* inferred: a queued stream request, linked by its first fields (the frame
-   count left is volatile: the callback rereads it after the comparison) */
+   count left and the hold time are volatile: the original rereads them
+   after comparing them) */
 struct SNDLINKNODE {
     SNDLINKNODE* next;
     unsigned char unknown04[8];
     int handle;
-    int rate;
+    unsigned int rate;
     unsigned int done;
     unsigned int total;
     volatile unsigned int left;
-    unsigned char unknown20[4];
+    volatile int hold;
     unsigned char started;
 };
 
 /* inferred: a list of request nodes */
 struct SNDLINKLIST {
     SNDLINKNODE* head;
-    unsigned char unknown04[8];
+    SNDLINKNODE* tail;
+    int count;
 };
 
-/* inferred: the stream record's request lists */
-struct SNDSTREAMVIEW {
+/* the stream record: named by the mangled symbols, members inferred */
+struct SNDSTREAMCHANNEL {
     int handle;
     int voice;
     int player;
@@ -125,7 +134,7 @@ void SNDLINKI_push(SNDLINKLIST*, SNDLINKNODE*);
 
 /* inferred: moves a request to the stream's finished list */
 static inline void finishrequest(SNDLINKNODE* request) {
-    SNDSTREAMVIEW* stream = (SNDSTREAMVIEW*)sndss[request->handle & 0xFF];
+    SNDSTREAMCHANNEL* stream = (SNDSTREAMCHANNEL*)sndss[request->handle & 0xFF];
     SNDLINKNODE* node = SNDSTRMI_getrequestptr(request->handle);
 
     SNDLINKI_remove(&stream->active, node);
@@ -135,7 +144,7 @@ static inline void finishrequest(SNDLINKNODE* request) {
 }
 
 void SNDSTRMI_framescallback(int, int frames, void* data) {
-    SNDSTREAMVIEW* stream = (SNDSTREAMVIEW*)data;
+    SNDSTREAMCHANNEL* stream = (SNDSTREAMCHANNEL*)data;
     int extra = 0;
     int count = 0;
 
@@ -173,7 +182,7 @@ struct SNDSTREAMEVENT {
 int SNDSTRMI_calcdatarate(SNDSAMPLEFORMAT*);
 
 int SNDSTRMI_parseheader(int index, STREAMCHUNKHDR* chunk) {
-    SNDSTREAMVIEW* stream = (SNDSTREAMVIEW*)sndss[index];
+    SNDSTREAMCHANNEL* stream = (SNDSTREAMCHANNEL*)sndss[index];
     SNDLINKNODE* request;
     SNDSAMPLEDESC desc;
     SNDSTREAMEVENT event;
@@ -222,5 +231,69 @@ int SNDSTRMI_parseheader(int index, STREAMCHUNKHDR* chunk) {
     return 0;
 }
 
-// SNDSTRMI_parsedata and the stream functions after it are not
-// reconstructed.
+/* inferred: a packet for the packet player: a frame count, a flag marking a
+   request's first packet, and the channels' sample data */
+struct SNDSTREAMPACKET {
+    int unknown00;
+    unsigned int frames : 31;
+    unsigned int first : 1;
+    int unknown08;
+    unsigned char* data[4];
+};
+
+void SNDSTRMI_parsedata(SNDSTREAMCHANNEL* stream, STREAMCHUNKHDR* chunk) {
+    SNDSTREAMPACKET packet;
+    SNDLINKNODE* request;
+    int i;
+    int* offsets = (int*)((char*)chunk + 12);
+    unsigned char* base;
+
+    packet.frames = ((int*)chunk)[2];
+    base = (unsigned char*)offsets + stream->format.channels * 4;
+    for (i = 0; i < stream->format.channels; i++)
+        packet.data[i] = base + offsets[i];
+    request = stream->current;
+    if (!packet.frames) {
+        STREAM_release(stream->handle, (unsigned char*)chunk);
+        return;
+    }
+    ((STREAMCHUNKHDR**)packet.data[0])[-1] = chunk;
+    *(int*)chunk = request->handle;
+    request->left += packet.frames;
+    packet.first = request->started;
+    SNDPKTPLAY_submit(stream->player, &packet);
+    request->started = 1;
+}
+
+int SNDSTRMI_isheld(SNDSTREAMCHANNEL* stream) {
+    SNDLINKNODE* request = stream->current;
+    unsigned int buffered;
+
+    if (!request)
+        return 0;
+    if (!request->rate)
+        return 0;
+    if (request->hold < 0)
+        return 1;
+    if (request->hold) {
+        buffered = (unsigned int)STREAM_gettable(stream->handle);
+        if (buffered > 4000000)
+            buffered = 4000000;
+        if (buffered * 1000 / request->rate >= request->hold) {
+            request->hold = 0;
+            return 0;
+        }
+        if (STREAM_state(stream->handle) == 2) {
+            request->hold = 0;
+            return 0;
+        }
+        if (stream->finished.count <= 0 && STREAM_state(stream->handle) == 0) {
+            request->hold = 0;
+            return 0;
+        }
+        return 1;
+    }
+    return 0;
+}
+
+// SNDSTRMI_service and the stream functions after it are not reconstructed.

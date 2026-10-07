@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8015b19c",
-      "size": 1212,
+      "size": 1716,
       "type": 1
     }
   ],
@@ -72,6 +72,18 @@
       "address": "0x8015b398",
       "size": 704,
       "binding": 1
+    },
+    {
+      "name": "SNDSTRMI_parsedata__FP16SNDSTREAMCHANNELP14STREAMCHUNKHDR",
+      "address": "0x8015b658",
+      "size": 228,
+      "binding": 1
+    },
+    {
+      "name": "SNDSTRMI_isheld__FP16SNDSTREAMCHANNEL",
+      "address": "0x8015b73c",
+      "size": 276,
+      "binding": 1
     }
   ],
   "externals": {
@@ -80,10 +92,13 @@
     "SNDLINKI_push__FP11SNDLINKLISTP11SNDLINKNODE": "0x801590b8",
     "SNDLINKI_remove__FP11SNDLINKLISTP11SNDLINKNODE": "0x8015917c",
     "SNDPKTPLAY_start": "0x8015a81c",
+    "SNDPKTPLAY_submit": "0x8015ab48",
     "SNDSTRMI_calcdatarate__FP15SNDSAMPLEFORMAT": "0x8015b13c",
     "SNDSTRMI_getrequestptr__Fi": "0x8015c188",
     "SNDSTRM_destroy": "0x8015bef4",
+    "STREAM_gettable": "0x8014dc74",
     "STREAM_release": "0x8014dae0",
+    "STREAM_state": "0x8014dcc0",
     "_restgpr_25": "0x80138a54",
     "_restgpr_27": "0x80138a5c",
     "_savegpr_25": "0x80138a08",
