@@ -613,7 +613,8 @@
     "AIObject_globallist.json",
     "AIObject_searchnodes.json",
     "player_init.json",
-    "hierobject_tree.json"
+    "hierobject_tree.json",
+    "cdbgeom_fiber.json"
   ],
   "progress": {
     "code_bytes": 1414572,
