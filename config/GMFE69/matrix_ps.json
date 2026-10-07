@@ -40,7 +40,7 @@
     {
       "name": ".text",
       "address": "0x8008fa84",
-      "size": 88,
+      "size": 284,
       "type": 1
     },
     {
@@ -67,6 +67,12 @@
       "name": "TransformPoint__7CMatrixCFR8CVector38CVector3",
       "address": "0x8008fab0",
       "size": 44,
+      "binding": 1
+    },
+    {
+      "name": "Transform__7CMatrixCFR8CVector48CVector3",
+      "address": "0x8008fadc",
+      "size": 196,
       "binding": 1
     }
   ],

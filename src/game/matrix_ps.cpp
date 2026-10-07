@@ -1,6 +1,7 @@
 // A fragment of matrix.cpp (0x8008fa84): CMatrix::TransformVector and
 // TransformPoint, which pass the result, the matrix and the vector to the
-// paired-single helpers PSTransformVector and PSTransformPoint. CMatrix,
+// paired-single helpers PSTransformVector and PSTransformPoint, and Transform
+// (a point to homogeneous coordinates, in C). CMatrix,
 // CVector3 and the helpers are named by the mangled symbols; the CVector3 view
 // is as in matrix.cpp. The rest of the file is not part of this unit.
 class CVector3 {
@@ -11,6 +12,15 @@ public:
     float w;
 } __attribute__((aligned(8)));
 
+// Inferred: a four-float vector.
+class CVector4 {
+public:
+    float x;
+    float y;
+    float z;
+    float w;
+};
+
 void PSTransformVector(float*, const float*, const float*);
 void PSTransformPoint(float*, const float*, const float*);
 
@@ -18,6 +28,7 @@ class CMatrix {
 public:
     void TransformVector(CVector3&, CVector3) const;
     void TransformPoint(CVector3&, CVector3) const;
+    void Transform(CVector4&, CVector3) const;
 
     float m[16];
 };
@@ -28,4 +39,11 @@ void CMatrix::TransformVector(CVector3& result, CVector3 v) const {
 
 void CMatrix::TransformPoint(CVector3& result, CVector3 v) const {
     PSTransformPoint(&result.x, m, &v.x);
+}
+
+void CMatrix::Transform(CVector4& result, CVector3 v) const {
+    result.x = v.x * m[0] + v.y * m[4] + v.z * m[8] + m[12];
+    result.y = v.x * m[1] + v.y * m[5] + v.z * m[9] + m[13];
+    result.z = v.x * m[2] + v.y * m[6] + v.z * m[10] + m[14];
+    result.w = v.x * m[3] + v.y * m[7] + v.z * m[11] + m[15];
 }
