@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 464400,
+    "matching_code_bytes": 464680,
     "total_executable_code_bytes": 1414572,
-    "percent": 32.82971810554712,
+    "percent": 32.849512078565105,
     "categories": {
-      "reconstructed_game": 247996,
+      "reconstructed_game": 248276,
       "restored_library": 216404
     },
-    "matching_functions": 2798
+    "matching_functions": 2800
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -138,7 +138,7 @@
     "config/GMFE69/ShellMenu_audio.json": "026af524cf3fe574304b285b6fac8ad8f8d3836cbebcd0388ca6645fee826edf",
     "config/GMFE69/ShellMenu_audioset.json": "769e5ea905a0b9c3ab000ba3b8864176581af5c5b7f57d8b6b459934a863d4bb",
     "config/GMFE69/ShellMenu_buttons.json": "f96859f9b99070291ff1f4479a92a9737ddb08d62fcd07cd9877c93d3a2bd056",
-    "config/GMFE69/ShellMenu_card.json": "64a3dc1b5adbecb090de83d5f1ac156eb76d5557501bd3499d53be0199f7c8db",
+    "config/GMFE69/ShellMenu_card.json": "39d9fc867595c068623b7bc1b2946a0ae62c8aebe5f9625dbf54143c10424f44",
     "config/GMFE69/ShellMenu_cardquery.json": "a62188697027b88aa4a536c3f1ed038884979039cf4401a136e0177306df8608",
     "config/GMFE69/ShellMenu_cardsize.json": "739e680e3c92dd8606a0dcd8295a2591be22f9b01ca695b56e21d4853646ff04",
     "config/GMFE69/ShellMenu_fade.json": "b3caa77c5f4f3a8d78c7b26f81322513b7db6bd7caf25255d77a978a88d899d4",
@@ -1727,7 +1727,7 @@
     "src/game/ShellMenu_audio.cpp": "14c39e840cc8b6e6b8bc8de416c4a3e2ff18c600d6d5432e179a8c07c01f94b6",
     "src/game/ShellMenu_audioset.cpp": "bc7dfb9b03d7f2d725dfc970d26f4bf01ca4dedbabe7094df01d8419515df8d6",
     "src/game/ShellMenu_buttons.cpp": "19cab253d4e3b1aa1ada749ee4f1b3b4cee40aca9b520a71f4a7129fa1633f7b",
-    "src/game/ShellMenu_card.cpp": "360c40a30ae8561bcc938899f84adc18104343aa89f688077a8c3667dcad0ddd",
+    "src/game/ShellMenu_card.cpp": "8b1e97e98921cc9c17679c1317a69483cded761ac6a955e2a3158eee5ac1b2aa",
     "src/game/ShellMenu_cardquery.cpp": "14bed4e6741ebc072c6770bbde04a3f4c7e82ba846bfb1ba9f3770ccf628b1ad",
     "src/game/ShellMenu_cardsize.cpp": "c2551c932c46ea513a170685cbaf3bc3fb154d51112828f63941ab0dd1e1fa0a",
     "src/game/ShellMenu_fade.cpp": "782eeab1b5e12c5d2f4226232ef72336c186310c401963df30afb76492cb002f",
@@ -24866,8 +24866,8 @@
     {
       "id": "ShellMenu_card",
       "category": "reconstructed_game",
-      "functions": 5,
-      "code_bytes": 524,
+      "functions": 7,
+      "code_bytes": 804,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -24899,8 +24899,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "318bb184b89de1803d80a21c0a889d50aa877306b52342202804f3861140bc7e",
-      "linked_sha256": "92e8b937aa10fffd0e6624f848005eca45d0883c9d1090ec2a9d9e34e12755c8"
+      "object_sha256": "df9dfad43bee0a8c3931896a9e93fba05d00144b34fd127febf9d1ae5a986b7c",
+      "linked_sha256": "2ac304548931fa082f615a3e5eb9c6567301997569f1071195e78a2d009ca24f"
     },
     {
       "id": "bsbifunc_reload",
@@ -44199,20 +44199,6 @@
             "size": 1484,
             "kind": "function",
             "name": "MemoryCardSaveGame__10CShellMenuFiiPc",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800e5268",
-            "size": 140,
-            "kind": "function",
-            "name": "MemoryCardDeleteSaveGame__10CShellMenuFiUi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800e52f4",
-            "size": 140,
-            "kind": "function",
-            "name": "MemoryCardGetNextSaveGame__10CShellMenuFiPUiPUiPc",
             "evidence": "exception-index"
           },
           {
