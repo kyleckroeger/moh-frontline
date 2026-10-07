@@ -57,10 +57,15 @@ int FILESYS_overhead(int, int, int);
 int FILESYS_initadr(int, int, int, void*);
 }
 
+struct BIGFILEVIEW;
+
 struct HANDLE_def {
-    unsigned char unknown000[5];
+    int unknown000;
+    unsigned char unknown004;
     char name[255];
     int unknown104;
+    BIGFILEVIEW* big;
+    unsigned char unknown10c[56];
 };
 
 struct FILEOPERATION_def;
