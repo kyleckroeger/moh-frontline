@@ -1,11 +1,103 @@
-// A fragment of bsbifunc.cpp (0x8001ff7c): the script built-in that constrains
-// a rotation: given a rotation, a current angle and a minimum and maximum, it
-// returns the rotation reduced so that the current angle plus it stays within
-// the range (through an integer/float union). It reads its arguments below the
-// script stack top and pops the built-in's arguments. The file name is this
-// project's; the original record is bsbifunc.cpp and the built-ins around it
-// are not reconstructed. The function and globals are named by the mangled
-// symbols; the value union and built-in record views are inferred.
+// A fragment of bsbifunc.cpp (0x8001fde0): the script built-in that applies
+// damage when a hit's location (+16) matches the given location: for a
+// hierarchical object the hit's damage (+4) is first scaled by
+// CHierObject::GetBulletDamageMultiplierByClass for the location and a class
+// chosen by a switch over the hit's body class (+12); the given amount less
+// the damage, at least 0, is returned (unchanged when the location differs).
+// Then the built-in that constrains a rotation: given a rotation, a current
+// angle and a minimum and maximum, it returns the rotation reduced so that the
+// current angle plus it stays within the range (through an integer/float
+// union). Each reads its arguments below the script stack top and pops the
+// built-in's arguments. The file name is this project's; the original record
+// is bsbifunc.cpp and the built-ins around these are not reconstructed. The
+// functions, classes and globals are named by the mangled symbols;
+// ISceneNode is declared with its virtual functions in the order of
+// __vt__10ISceneNode (AsHierObject at +124); the hit view and its fields'
+// meanings, the class table, and the value union and built-in record views
+// are inferred.
+enum EClsnId {};
+class CCollision;
+class CDrawContext;
+class CMatrix;
+class CVector3;
+class CBullet;
+class CLight;
+class CPlayerObject;
+class CSoldierObject;
+class CHierObject;
+struct AIDoodadView;
+
+class ISceneNode {
+public:
+    enum EVolumeType {};
+    virtual void MarkForDestruction(int);
+    virtual ~ISceneNode();
+    virtual void Destroy();
+    virtual void BeginUpdate(float);
+    virtual void UpdateAI(float);
+    virtual void CommitAI();
+    virtual void ConstrainVelocity();
+    virtual void AttemptUpdate(float);
+    virtual void OnCollision(const CCollision&);
+    virtual void CommitUpdate();
+    virtual void Draw(CDrawContext&);
+    virtual int GetLocalBoundingVolume(EVolumeType) const;
+    virtual int GetWorldBoundingVolume(EVolumeType) const;
+    virtual void GetTMLocalToWorld(CMatrix&) const;
+    virtual void GetPosition(CVector3&) const;
+    virtual void GetRightward(CVector3&) const;
+    virtual void GetForward(CVector3&) const;
+    virtual void GetUpward(CVector3&) const;
+    virtual int IsVisible(CDrawContext&) const;
+    virtual int IsDrawEnabled() const;
+    virtual EClsnId GetCollisionId() const;
+    virtual void SetCollisionId(EClsnId);
+    virtual int GetScriptObject() const;
+    virtual void TriggerScriptEvent(int, void*, bool);
+    virtual void HandleBulletCollision(CBullet*, const CCollision&);
+    virtual void* AsMovingNode();
+    virtual const void* AsMovingNode() const;
+    virtual void* AsStaticObject();
+    virtual const void* AsStaticObject() const;
+    virtual CHierObject* AsHierObject();
+    virtual const void* AsHierObject() const;
+    virtual void* AsWorldObject();
+    virtual const void* AsWorldObject() const;
+    virtual void* AsAnimObject();
+    virtual const void* AsAnimObject() const;
+    virtual CSoldierObject* AsSoldierObject();
+    virtual const void* AsSoldierObject() const;
+    virtual CPlayerObject* AsPlayerObject();
+    virtual const void* AsPlayerObject() const;
+    virtual void* AsPlayerWeaponObject();
+    virtual const void* AsPlayerWeaponObject() const;
+    virtual void* AsAnimatedPlayerObject();
+    virtual const void* AsAnimatedPlayerObject() const;
+    virtual CLight* AsLight();
+    virtual const CLight* AsLight() const;
+    virtual CBullet* AsBullet();
+    virtual const CBullet* AsBullet() const;
+    virtual void* AsCollisionVolume();
+    virtual const void* AsCollisionVolume() const;
+    virtual AIDoodadView* GetAIDoodad();
+    virtual const void* GetAIDoodad() const;
+    virtual void SetAttachedLight(CLight*, CVector3);
+    virtual CLight* GetAttachedLight() const;
+};
+
+class CHierObject {
+public:
+    float GetBulletDamageMultiplierByClass(int, int);
+};
+
+struct HitInfoView {
+    unsigned char unknown00[4];
+    int damage;
+    unsigned char unknown08[4];
+    int bodyClass;
+    int location;
+};
+
 union BSValueView {
     int i;
     float f;
@@ -21,6 +113,75 @@ struct BSBuiltinView {
 
 extern BSBuiltinView* g_pBuiltInFunctions;
 extern int g_iCurrentBIFIndex;
+
+void BIFunc_DoDamageIfLocationMatches(int** stack, void* object) {
+    BSValueView value;
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    HitInfoView* hit = *(HitInfoView**)(*stack - (count - 1));
+    int location = *(*stack - (count - 2));
+    value.i = *(*stack - (count - 3));
+    if (hit->location == location) {
+        CHierObject* hier = ((ISceneNode*)object)->AsHierObject();
+        if (hier) {
+            int cls;
+            switch (hit->bodyClass) {
+            case 26:
+            case 27:
+                cls = 0;
+                break;
+            case 10:
+            case 11:
+            case 17:
+            case 18:
+            case 25:
+                cls = 1;
+                break;
+            case 1:
+            case 4:
+            case 6:
+            case 7:
+            case 8:
+            case 9:
+                cls = 2;
+                break;
+            case 0:
+            case 14:
+            case 15:
+            case 19:
+            case 20:
+                cls = 3;
+                break;
+            case 12:
+                cls = 4;
+                break;
+            case 5:
+            case 13:
+            case 16:
+                cls = 5;
+                break;
+            case 2:
+                cls = 6;
+                break;
+            case 3:
+            case 21:
+            case 22:
+            case 23:
+            case 24:
+                cls = 7;
+                break;
+            default:
+                cls = 0;
+                break;
+            }
+            hit->damage = (float)hit->damage * hier->GetBulletDamageMultiplierByClass(location, cls);
+        }
+        value.i -= hit->damage;
+        if (value.i < 0)
+            value.i = 0;
+    }
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    *(BSValueView*)*stack = value;
+}
 
 void BIFunc_GetConstrainedRotateAngle(int** stack, void*) {
     BSValueView value;
