@@ -2,10 +2,114 @@
    system's restore hook, SNDAEMSI_addsystem (installs a loaded system,
    registers the 100 Hz module timer and the restore hook, turns the
    system's offsets into pointers, and allocates the per-global state and the
-   16 bank slots) and SNDAEMSI_removesystem (removes every bank and frees the
-   state). The system layout, the trigger and parameter records and the
+   16 bank slots), SNDAEMSI_removesystem (removes every bank and frees the
+   state) and SNDAEMSI_resolvemodulebank (turns a loaded bank's offsets into
+   pointers, allocates each module's instance slots and component offsets,
+   resolves the system's parameter and trigger references to module and
+   component indices in this bank, and records the bank's name and user
+   value). The system layout, the trigger and parameter records and the
    sndaems and sndgs views are inferred. */
-struct MODULEBANK;
+struct AEMSCOMPDEFVIEW;
+
+/* inferred: a parameter or trigger reference, by ids as loaded, then
+   resolved to the bank id and module and component indices */
+struct AEMSPARAMREFVIEW {
+    unsigned char unknown00[8];
+    unsigned short bank;
+    unsigned short module;
+    unsigned int component;
+    unsigned short resolvedBank;
+    unsigned char unknown12[2];
+    unsigned short resolvedModule;
+    unsigned short resolvedComponent;
+};
+
+struct AEMSTRIGREFVIEW {
+    unsigned short bank;
+    unsigned short module;
+    unsigned int component;
+    unsigned short resolvedBank;
+    unsigned char unknown0a[2];
+    unsigned short resolvedModule;
+    unsigned short resolvedComponent;
+};
+
+/* inferred: a component definition's id, kind, inputs (8-byte links) and
+   kind-specific offsets */
+struct AEMSLINKDEFVIEW {
+    int from;
+    int to;
+};
+
+struct AEMSCOMPDEFVIEW {
+    unsigned int id;
+    unsigned char kind;
+    unsigned char unknown05;
+    unsigned char inputs;
+    unsigned char unknown07;
+    AEMSLINKDEFVIEW* links;
+    int* data0;
+    void* data1;
+    void* data2;
+};
+
+struct AEMSCOMPINFOVIEW {
+    void (*update)();
+    unsigned char definitionSize;
+    unsigned char componentSize;
+};
+
+extern AEMSCOMPINFOVIEW aemscompinfo[];
+
+struct MODULEINSTANCE;
+
+/* inferred: a module's runtime lists (instance slots, live count, component
+   data offsets) */
+struct AEMSMODULELISTVIEW {
+    MODULEINSTANCE** instances;
+    short live;
+    int* offsets;
+};
+
+/* inferred: a module record (id, slots, component count and definitions) */
+struct AEMSMODULEVIEW {
+    unsigned short id;
+    short slots;
+    short components;
+    unsigned char unknown06[6];
+    char* definitions;
+    AEMSMODULELISTVIEW* list;
+};
+
+/* inferred: a loaded bank's name and user value */
+struct AEMSBANKINFOVIEW {
+    unsigned char unknown00[8];
+    char* name;
+    int user;
+};
+
+/* inferred: a global link (cleared, then an offset made a pointer) */
+struct AEMSGLOBALLINKVIEW {
+    int value;
+    unsigned char unknown04[4];
+    int target;
+};
+
+/* MODULEBANK is named by the mangled symbols; its members are inferred */
+struct MODULEBANK {
+    unsigned char unknown00[2];
+    unsigned char version;
+    unsigned char unknown03[9];
+    int moduleCount;
+    char* modules;
+    unsigned short id;
+    unsigned char unknown16[2];
+    short globalLinkCount;
+    unsigned char unknown1a[18];
+    AEMSGLOBALLINKVIEW* globalLinks;
+    AEMSBANKINFOVIEW* info;
+    void* extra;
+};
 
 /* inferred: a reference list (offset, then count) */
 struct AEMSREFLISTVIEW {
@@ -23,11 +127,13 @@ struct AEMSTRIGGERVIEW {
 
 /* inferred: a loaded AEMS system (counts, then tables stored as offsets) */
 struct AEMSSYSTEMVIEW {
-    unsigned char unknown00[12];
+    unsigned char unknown00[8];
+    short paramCount;
+    short refCount;
     short triggerCount;
     short globalCount;
-    void* params;
-    void* refs;
+    AEMSPARAMREFVIEW* params;
+    AEMSTRIGREFVIEW* refs;
     AEMSTRIGGERVIEW* triggers;
     AEMSREFLISTVIEW* globals;
 };
@@ -55,6 +161,8 @@ extern int (*SNDAEMS_removemodulebank)(int);
 
 extern "C" {
 void* memset(void*, int, unsigned long);
+unsigned long strlen(const char*);
+char* strcpy(char*, const char*);
 void SNDSYS_entercritical();
 void SNDSYS_leavecritical();
 void SNDSYS_add100hzclient(void (*)());
@@ -82,8 +190,8 @@ int SNDAEMSI_addsystem(void* data) {
     SNDSYS_add100hzclient(AEMSI_timerupdate);
     sndaems.system = system;
     sndaems.handlerCount = 0;
-    system->params = (void*)((int)system + (int)system->params);
-    sndaems.system->refs = (void*)((int)system + (int)sndaems.system->refs);
+    system->params = (AEMSPARAMREFVIEW*)((int)system + (int)system->params);
+    sndaems.system->refs = (AEMSTRIGREFVIEW*)((int)system + (int)sndaems.system->refs);
     sndaems.system->triggers = (AEMSTRIGGERVIEW*)((int)system + (int)sndaems.system->triggers);
     sndaems.system->globals = (AEMSREFLISTVIEW*)((int)system + (int)sndaems.system->globals);
     for (i = 0; i < sndaems.system->triggerCount; i++) {
@@ -129,4 +237,126 @@ int SNDAEMSI_removesystem() {
     }
     SNDSYS_leavecritical();
     return 0;
+}
+
+void SNDAEMSI_resolvemodulebank(MODULEBANK* bank, char* name, int user) {
+    int m;
+    int i;
+
+    SNDSYS_entercritical();
+    bank->info = (AEMSBANKINFOVIEW*)SNDMEMI_allocz(16);
+    memset(bank->info, 0, 16);
+    if (bank->globalLinks) {
+        bank->globalLinks = (AEMSGLOBALLINKVIEW*)((int)bank->globalLinks + (int)bank);
+        for (i = 0; i < bank->globalLinkCount; i++) {
+            bank->globalLinks[i].target += (int)bank;
+            bank->globalLinks[i].value = 0;
+        }
+    }
+    if (bank->version >= 5 && bank->extra)
+        bank->extra = (void*)((int)bank->extra + (int)bank);
+    bank->modules = (char*)((int)bank->modules + (int)bank);
+    for (i = 0; i < bank->moduleCount; i++) {
+        AEMSMODULEVIEW* module = bank->version >= 8 ? (AEMSMODULEVIEW*)(bank->modules + i * 28)
+                                                    : (AEMSMODULEVIEW*)(bank->modules + i * 20);
+        AEMSCOMPDEFVIEW* def;
+        int offset;
+        int c;
+
+        module->list = (AEMSMODULELISTVIEW*)SNDMEMI_allocz(12);
+        module->list->live = 0;
+        module->list->instances = (MODULEINSTANCE**)SNDMEMI_allocz(module->slots * 4);
+        for (c = 0; c < module->slots; c++)
+            module->list->instances[c] = 0;
+        module->list->offsets = (int*)SNDMEMI_allocz(module->components * 4);
+        offset = 0;
+        module->definitions = (char*)((int)module->definitions + (int)bank);
+        def = (AEMSCOMPDEFVIEW*)module->definitions;
+        for (c = 0; c < module->components; c++) {
+            int k;
+
+            def->links = (AEMSLINKDEFVIEW*)((int)def->links + (int)bank);
+            for (k = 0; k < def->inputs; k++)
+                def->links[k].from = (int)bank + def->links[k].from;
+            if (def->kind == 4) {
+                def->data0 = (int*)((int)def->data0 + (int)bank);
+                if ((unsigned int)*def->data0 < (unsigned int)bank)
+                    *def->data0 = *def->data0 + (int)bank;
+                def->data1 = bank;
+            } else if (def->kind == 6) {
+                def->data0 = (int*)((int)def->data0 + (int)bank);
+            } else if (def->kind == 8 && def->data2) {
+                def->data2 = (void*)((int)def->data2 + (int)bank);
+            } else if (def->kind == 17) {
+                def->data0 = (int*)((int)def->data0 + (int)bank);
+            } else if (def->kind == 30) {
+                def->data0 = (int*)((int)def->data0 + (int)bank);
+            } else if (def->kind == 25) {
+                def->data1 = (void*)((int)def->data1 + (int)bank);
+            }
+            module->list->offsets[c] = offset;
+            offset += aemscompinfo[def->kind].componentSize;
+            def = (AEMSCOMPDEFVIEW*)((char*)def + aemscompinfo[def->kind].definitionSize);
+        }
+    }
+    for (i = 0; i < sndaems.system->paramCount; i++) {
+        AEMSPARAMREFVIEW* ref = &sndaems.system->params[i];
+
+        if (ref->bank == bank->id) {
+            for (m = 0; m < bank->moduleCount; m++) {
+                AEMSMODULEVIEW* module = bank->version >= 8 ? (AEMSMODULEVIEW*)(bank->modules + m * 28)
+                                                            : (AEMSMODULEVIEW*)(bank->modules + m * 20);
+
+                if (module->id == ref->module) {
+                    AEMSCOMPDEFVIEW* def = (AEMSCOMPDEFVIEW*)module->definitions;
+                    int c;
+
+                    for (c = 0; c < module->components; c++) {
+                        if (def->id == ref->component) {
+                            ref->resolvedBank = ref->bank;
+                            ref->resolvedModule = m;
+                            ref->resolvedComponent = c;
+                            m = bank->moduleCount;
+                            break;
+                        }
+                        def = (AEMSCOMPDEFVIEW*)((char*)def + aemscompinfo[def->kind].definitionSize);
+                    }
+                }
+            }
+        }
+    }
+    for (i = 0; i < sndaems.system->refCount; i++) {
+        AEMSTRIGREFVIEW* ref = &sndaems.system->refs[i];
+
+        if (ref->bank == bank->id) {
+            for (m = 0; m < bank->moduleCount; m++) {
+                AEMSMODULEVIEW* module = bank->version >= 8 ? (AEMSMODULEVIEW*)(bank->modules + m * 28)
+                                                            : (AEMSMODULEVIEW*)(bank->modules + m * 20);
+
+                if (module->id == ref->module) {
+                    AEMSCOMPDEFVIEW* def = (AEMSCOMPDEFVIEW*)module->definitions;
+                    int c;
+
+                    for (c = 0; c < module->components; c++) {
+                        if (def->id == ref->component) {
+                            ref->resolvedBank = ref->bank;
+                            ref->resolvedModule = m;
+                            ref->resolvedComponent = c;
+                            m = bank->moduleCount;
+                            break;
+                        }
+                        def = (AEMSCOMPDEFVIEW*)((char*)def + aemscompinfo[def->kind].definitionSize);
+                    }
+                }
+            }
+        }
+    }
+    if (name && *(unsigned char*)name) {
+        bank->info->name = (char*)SNDMEMI_allocz(strlen(name) + 1);
+        strcpy(bank->info->name, name);
+    } else {
+        bank->info->name = 0;
+    }
+    bank->info->user = user;
+    SNDSYS_leavecritical();
 }

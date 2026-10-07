@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8015385c",
-      "size": 756,
+      "size": 2072,
       "type": 1
     }
   ],
@@ -60,6 +60,12 @@
       "address": "0x80153a5c",
       "size": 244,
       "binding": 1
+    },
+    {
+      "name": "SNDAEMSI_resolvemodulebank__FP10MODULEBANKPci",
+      "address": "0x80153b50",
+      "size": 1316,
+      "binding": 1
     }
   ],
   "externals": {
@@ -73,9 +79,14 @@
     "SNDSYS_entercritical": "0x80153554",
     "SNDSYS_leavecritical": "0x80153588",
     "SNDSYS_remove100hzclient": "0x801535f4",
+    "_restgpr_24": "0x80138a50",
+    "_savegpr_24": "0x80138a04",
+    "aemscompinfo": "0x801933e0",
     "memset": "0x80009410",
     "sndaems": "0x80340410",
-    "sndgs": "0x80340860"
+    "sndgs": "0x80340860",
+    "strcpy": "0x80140040",
+    "strlen": "0x801400f8"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
