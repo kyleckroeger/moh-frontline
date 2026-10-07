@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 503996,
+    "matching_code_bytes": 504512,
     "total_executable_code_bytes": 1414572,
-    "percent": 35.628868661333605,
+    "percent": 35.665346125895326,
     "categories": {
-      "reconstructed_game": 285036,
+      "reconstructed_game": 285552,
       "restored_library": 218960
     },
-    "matching_functions": 3162
+    "matching_functions": 3165
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -336,7 +336,7 @@
     "config/GMFE69/cdbobject_csg.json": "61e61d8462435b658a6c4d384f13c8e9b07feb190f0624670a746ad9dd8f9d8d",
     "config/GMFE69/cdbobject_fastvec_branch.json": "0bccba109667cd4ab51465f8f4add80f256f6e5b151d133741a27f1035be6c0d",
     "config/GMFE69/cdbobject_fastvec_frame.json": "898185339062a856afd45c4424bf40480cd7d4d130b87c309a8ffaada595e109",
-    "config/GMFE69/cdbobject_fastvec_trigroup.json": "064cd837fc57f885fb069a388f8195e5fc0493061603f807b7271e9d12e89fae",
+    "config/GMFE69/cdbobject_line.json": "91bd47e7a562d0b8378533ea53f11df8c56f5a4050726c04a7d0025b3409432d",
     "config/GMFE69/cdbobject_offsetptr.json": "0d67bbd2cab2036cd652831eb2cba088e30e569df1f5f590bd8e026e668b60ee",
     "config/GMFE69/coda.json": "ed79629f16e36603a2a74fe3bfd2db4c7043efb597de702316a222bcbb355440",
     "config/GMFE69/collisionvolume.json": "4b42015c953c1335d95d5edae0ec810f53e76935e2b6b0e446fd20b039dbc795",
@@ -524,7 +524,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "ec7b24a9a078c3ff6f1f00ac7d54a691b6b3eed81786b2e197e2768cfd7bace8",
+    "config/GMFE69/project.json": "b435d5142525d019956b25145befe2ba6432479761d0efba2ee7675ec4fac62a",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_init.json": "59efa2f81e573b18eb9d4793a24578d542a47e4cded42890b4e9f88779a0b4a4",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
@@ -2005,7 +2005,7 @@
     "src/game/cdbobject_csg.cpp": "fd41a1fa38e7b0497972a6d63d4a19b01277cc530e94f59040c7b011b6f2353e",
     "src/game/cdbobject_fastvec_branch.cpp": "b59233f54b8e8b3c49ce04a5859460a66d783d1d3f7320571a3b31837043be98",
     "src/game/cdbobject_fastvec_frame.cpp": "9e4071d8be4a6dada815d66979bc764f3284af7c4e459ea0a39e2a4d604ac48a",
-    "src/game/cdbobject_fastvec_trigroup.cpp": "666b21f34b889cfba0c79e83f8efffd85d5fb5c63c73aca3b94960b92be2a6b5",
+    "src/game/cdbobject_line.cpp": "9a1aca01d57b33016c9bee73e665ee19bac161dca1e16b28ce4a1f094c76c3f1",
     "src/game/cdbobject_offsetptr.cpp": "f82eb14ae3f2e366291ce6f2ee0dda723985a0a5b2b1e11b300bf9d73e05d7cd",
     "src/game/collisionvolume.cpp": "43ba2b786b6016be28ed111443666151b7721d434b959794c048a582f6b8b826",
     "src/game/collisionvolume_rows.cpp": "99bf2752de600fe57337217065052826b62f776cd7fb728d5dcddead6ed52cb0",
@@ -33817,10 +33817,10 @@
       "linked_sha256": "c1e0361aa67f6f3faaf8beb50fabfbed8642593604d13749c5701d039e48ca9f"
     },
     {
-      "id": "cdbobject_fastvec_trigroup",
+      "id": "cdbobject_line",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 104,
+      "functions": 4,
+      "code_bytes": 620,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -33852,8 +33852,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "c8150ff9cf1ce39b3daa524c431b690c591478722819e521b960cc47956b0c39",
-      "linked_sha256": "6a18c31d0343f563ed082680854ef7b5023a21ffa99844a2355de598648ccdfe"
+      "object_sha256": "979cc18bdb89d26d9bc0bd0d78eac9e57e52c1a9570aaf57ebbd64adb617eea2",
+      "linked_sha256": "fc929046bf3a017b10d791ee2617b45cb64cc725ca94c27fa599a27f0d65b1b6"
     },
     {
       "id": "cdbobject_fastvec_frame",
@@ -39539,27 +39539,6 @@
             "kind": "function",
             "name": "GetIntersectingTris__10CCDBObjectCFRQ23dwi19fast_vec<PC6CDBTri>RC10CVolSphere",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x8006ff68",
-            "size": 280,
-            "kind": "function",
-            "name": "TestCollision__10CCDBObjectCFRC6CLine3R10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800700e8",
-            "size": 200,
-            "kind": "function",
-            "name": "TestCollision__10CCDBObjectCFRC9CVolFiberR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800701b0",
-            "size": 36,
-            "kind": "function",
-            "name": "GetExtents__10CCDBObjectCFR8CVector3R8CVector3",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x800701d4",

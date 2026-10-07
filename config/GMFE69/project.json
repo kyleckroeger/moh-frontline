@@ -755,7 +755,7 @@
     "bulletfactory_projectile_pool.json",
     "AIFilter_fastvec.json",
     "cdbobject_fastvec_branch.json",
-    "cdbobject_fastvec_trigroup.json",
+    "cdbobject_line.json",
     "cdbobject_fastvec_frame.json",
     "compartment_fastvec_tri.json",
     "anim_obj_fastvec.json",

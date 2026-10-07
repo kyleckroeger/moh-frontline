@@ -1,6 +1,6 @@
 {
-  "id": "cdbobject_fastvec_trigroup",
-  "source": "src/game/cdbobject_fastvec_trigroup.cpp",
+  "id": "cdbobject_line",
+  "source": "src/game/cdbobject_line.cpp",
   "category": "reconstructed_game",
   "compiler_family": "GC",
   "compiler_version": "1.3.2",
@@ -39,24 +39,42 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80070080",
-      "size": 104,
+      "address": "0x8006ff68",
+      "size": 620,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000b790",
-      "size": 8,
+      "address": "0x8000b778",
+      "size": 40,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x800128fc",
-      "size": 12,
+      "address": "0x800128f0",
+      "size": 36,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "GetExtents__10CCDBObjectCFR8CVector3R8CVector3",
+      "address": "0x800701b0",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__10CCDBObjectCFRC9CVolFiberR10CCollisionb",
+      "address": "0x800700e8",
+      "size": 200,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__10CCDBObjectCFRC6CLine3R10CCollisionb",
+      "address": "0x8006ff68",
+      "size": 280,
+      "binding": 1
+    },
     {
       "name": "__dt__Q23dwi24fast_vec<P11CDBTriGroup>Fv",
       "address": "0x80070080",
@@ -65,8 +83,12 @@
     }
   ],
   "externals": {
+    "GetLine__9CVolFiberCFv": "0x800ca2f4",
     "MEM_free": "0x8014f83c",
-    "__dl__FPv": "0x8001ca2c"
+    "OSGetTick": "0x80116a58",
+    "TestCDBBranchNodeCollision<6CLine3>__10CCDBObjectCFRC13CDBBranchNodeRC6CLine3R10CCollisionbRQ23dwi24fast_vec<P11CDBTriGroup>": "0x800701d4",
+    "__dl__FPv": "0x8001ca2c",
+    "g_ProfileBins": "0x802daca0"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
