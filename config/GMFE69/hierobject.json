@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x8009b91c",
-      "size": 120,
+      "size": 272,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000cca4",
-      "size": 16,
+      "size": 24,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80013dfc",
-      "size": 24,
+      "size": 36,
       "type": 1
     }
   ],
@@ -61,6 +61,12 @@
       "name": "BeginUpdate__11CHierObjectFf",
       "address": "0x8009b964",
       "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "CleanUp__11CHierObjectFv",
+      "address": "0x8009b994",
+      "size": 152,
       "binding": 1
     },
     {
@@ -77,8 +83,11 @@
     }
   ],
   "externals": {
+    "DeallocateStaticObject__20CStaticObjectFactoryFP13CStaticObject": "0x800b36a4",
     "DoBeginUpdate__11CHierObjectFfb": "0x8009b50c",
-    "Multiply__7CMatrixFRC7CMatrixRC7CMatrix": "0x8008fc50"
+    "FreeBoxVolume__FPv": "0x8003c228",
+    "Multiply__7CMatrixFRC7CMatrixRC7CMatrix": "0x8008fc50",
+    "RemoveObjectFromTree__11CHierObjectFP11CHierObjecti": "0x8009ba2c"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
