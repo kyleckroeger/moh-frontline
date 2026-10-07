@@ -1,6 +1,9 @@
-// A fragment of box.cpp (0x800c5258): CVolBox's shape setters. The depth,
-// height and width setters store half their argument; SetBasis and SetCenter
-// copy whole vectors. SetCorners before them is not part of the unit.
+// A fragment of box.cpp (0x800c514c): CVolBox's depth and width (twice the
+// half extents), SetCorners (the centre midway between the corners, each half
+// extent the absolute projection of the centre's offset from the first
+// corner on a basis row) and the shape setters. The depth, height and width
+// setters store half their argument; SetBasis and SetCenter copy whole
+// vectors.
 // CVolBox, IVolume and CVector3 are named by the mangled symbols; the member
 // layout (half extents at +4, basis rows at +16, centre at +64) is inferred
 // from offsets. CVector3 is a view: its doubleword copies need an 8-byte
@@ -24,6 +27,9 @@ public:
 class CVolBox : public IVolume {
 public:
     virtual ~CVolBox();
+    float GetDepth() const;
+    float GetWidth() const;
+    void SetCorners(CVector3, CVector3);
     void SetDepth(float);
     void SetHeight(float);
     void SetWidth(float);
@@ -36,6 +42,35 @@ public:
     CVector3 m_basis[3];
     CVector3 m_center;
 };
+
+float CVolBox::GetDepth() const {
+    return 2.0f * m_halfDepth;
+}
+
+float CVolBox::GetWidth() const {
+    return 2.0f * m_halfWidth;
+}
+
+void CVolBox::SetCorners(CVector3 a, CVector3 b) {
+    m_center.v.x = b.v.x + a.v.x;
+    m_center.v.y = b.v.y + a.v.y;
+    m_center.v.z = b.v.z + a.v.z;
+    m_center.v.x *= 0.5f;
+    m_center.v.y *= 0.5f;
+    m_center.v.z *= 0.5f;
+    float dx = m_center.v.x - a.v.x;
+    float dy = m_center.v.y - a.v.y;
+    float dz = m_center.v.z - a.v.z;
+    float t = m_basis[2].v.x * dx + m_basis[2].v.y * dy + m_basis[2].v.z * dz;
+    float h = m_basis[1].v.x * dx + m_basis[1].v.y * dy + m_basis[1].v.z * dz;
+    float w = m_basis[0].v.x * dx + m_basis[0].v.y * dy + m_basis[0].v.z * dz;
+    double fw = __fabs(w);
+    double fh = __fabs(h);
+    double ft = __fabs(t);
+    m_halfWidth = fw;
+    m_halfDepth = fh;
+    m_halfHeight = ft;
+}
 
 void CVolBox::SetDepth(float depth) {
     m_halfDepth = 0.5f * depth;
