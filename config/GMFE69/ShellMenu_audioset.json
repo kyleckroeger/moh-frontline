@@ -40,7 +40,19 @@
     {
       "name": ".text",
       "address": "0x800df814",
-      "size": 32,
+      "size": 516,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000edb8",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80015a4c",
+      "size": 12,
       "type": 1
     }
   ],
@@ -56,15 +68,54 @@
       "address": "0x800df824",
       "size": 16,
       "binding": 1
+    },
+    {
+      "name": "SetupAudioSettings__10CShellMenuFPi",
+      "address": "0x800df834",
+      "size": 484,
+      "binding": 1
     }
   ],
-  "externals": {},
+  "externals": {
+    "OSSetSoundMode": "0x8011575c",
+    "SetVolume__12CSoundStreamFi": "0x800ecd0c",
+    "SoundSetMode__F10ESoundMode": "0x800ecea8",
+    "SoundSetVolumes__Fff": "0x800ecf60",
+    "__ct__13CSoundSysLockFv": "0x800ecbf8",
+    "__dt__13CSoundSysLockFv": "0x800ecba8",
+    "pSoundStream": "0x8034eca0"
+  },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": [],
+  "sda_externals": [
+    "pSoundStream"
+  ],
   "original_file": "ShellMenu.cpp",
-  "original_file_index": 8612
+  "original_file_index": 8612,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80350f54"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x80350f58"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 8,
+      "address": "0x80350ee0"
+    }
+  ]
 }
