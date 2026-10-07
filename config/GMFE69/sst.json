@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8015b19c",
-      "size": 508,
+      "size": 1212,
       "type": 1
     }
   ],
@@ -66,16 +66,29 @@
       "address": "0x8015b268",
       "size": 304,
       "binding": 1
+    },
+    {
+      "name": "SNDSTRMI_parseheader__FiP14STREAMCHUNKHDR",
+      "address": "0x8015b398",
+      "size": 704,
+      "binding": 1
     }
   ],
   "externals": {
+    "SNDCTRL_filteradd": "0x8015d3ec",
+    "SNDI_patchtohdr__FPvP11TAGGEDPATCHP15SNDSAMPLEFORMATP13SNDSAMPLEATTRP13SNDSAMPLEDESC": "0x8015f120",
     "SNDLINKI_push__FP11SNDLINKLISTP11SNDLINKNODE": "0x801590b8",
     "SNDLINKI_remove__FP11SNDLINKLISTP11SNDLINKNODE": "0x8015917c",
+    "SNDPKTPLAY_start": "0x8015a81c",
+    "SNDSTRMI_calcdatarate__FP15SNDSAMPLEFORMAT": "0x8015b13c",
     "SNDSTRMI_getrequestptr__Fi": "0x8015c188",
     "SNDSTRM_destroy": "0x8015bef4",
     "STREAM_release": "0x8014dae0",
+    "_restgpr_25": "0x80138a54",
     "_restgpr_27": "0x80138a5c",
+    "_savegpr_25": "0x80138a08",
     "_savegpr_27": "0x80138a10",
+    "memcmp": "0x8013d644",
     "sndgs": "0x80340860",
     "sndss": "0x803407e0"
   },
