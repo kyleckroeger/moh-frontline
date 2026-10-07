@@ -26,7 +26,7 @@ public:
     bool CheckDataCRC(unsigned char*, int, unsigned long) const;
 
     unsigned char m_savedData[6368];
-    unsigned char m_afterSaved[12]; /* first member after the saved data */;
+    unsigned char m_afterSaved[12]; /* first member after the saved data */
     bool m_dataLoaded;
 };
 
