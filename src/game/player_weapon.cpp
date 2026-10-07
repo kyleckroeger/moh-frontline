@@ -1,5 +1,11 @@
-// A fragment of player.cpp (0x8009f148): CPlayerObject's spline-path
-// movement (StopPath clears the on-path flag; MoveOnPath sets it, stores the
+// A fragment of player.cpp (0x8009eaec): CPlayerObject's spline-path
+// movement (UpdateMovePath advances the path time, at half the rate for the
+// sample, clamps it to 0 to 1 and ends the path at 1, takes the position
+// from the path, or from the velocity without one, derives the velocity from
+// the move, and when there is a next path faces along it, using the path's
+// derivative when both paths are the same, building the facing matrix from
+// the front, world up and their cross products and storing two of its Euler
+// angles; StopPath clears the on-path flag; MoveOnPath sets it, stores the
 // path and the next one, restarts the time and sets a rate of 1/59.94 (the
 // NTSC field rate) over the speed), its motion and camera shakes, then its
 // current-weapon queries. ShakeCamera adds random offsets to the two angles:
@@ -21,11 +27,109 @@
 // GetCurrentPlayerWeapon follow. The file name is this project's; the
 // original record is player.cpp and CycleWeapon after these is not
 // reconstructed. The classes and functions are named by the mangled symbols;
-// CPlayerObject, CPlayerWeaponObject and CWeapon are inferred non-virtual
-// views (members at their offsets, names not original) and the result types
-// and the angle parameter names are inferred.
+// CAISplinePath's inline expansion by segment and the CVector3 helpers are
+// inferred, as is the use of MSL's inline sqrtf; CPlayerObject,
+// CPlayerWeaponObject and CWeapon are inferred non-virtual views (members at
+// their offsets, names not original) and the result types and the angle
+// parameter names are inferred.
 class CSprite;
-class CAISplinePath;
+
+namespace std {
+inline float sqrtf(float x)
+{
+    const double _half = .5;
+    const double _three = 3.0;
+    volatile float y;
+    if (x > 0.0f)
+    {
+        double guess = __frsqrte((double)x);
+        guess = _half*guess*(_three - guess*guess*x);
+        guess = _half*guess*(_three - guess*guess*x);
+        guess = _half*guess*(_three - guess*guess*x);
+        y = (float)(x*guess);
+        return y;
+    }
+    return x;
+}
+}
+
+class CVector3 {
+public:
+    CVector3() {}
+    CVector3(float x_, float y_, float z_) : x(x_), y(y_), z(z_) {}
+    CVector3 operator-(const CVector3& o) const { return CVector3(x - o.x, y - o.y, z - o.z); }
+    CVector3& operator*=(float f) {
+        x *= f;
+        y *= f;
+        z *= f;
+        return *this;
+    }
+    float LengthSq() const { return x * x + y * y + z * z; }
+    void Normalize() {
+        float length = std::sqrtf(LengthSq());
+        if (length != 0.0f)
+            *this *= 1.0f / length;
+    }
+    void Cross(const CVector3& a, const CVector3& b) {
+        x = a.y * b.z - a.z * b.y;
+        y = a.z * b.x - a.x * b.z;
+        z = a.x * b.y - a.y * b.x;
+    }
+    void Sub(const CVector3& a, const CVector3& b) {
+        x = a.x - b.x;
+        y = a.y - b.y;
+        z = a.z - b.z;
+    }
+
+    float x;
+    float y;
+    float z;
+    float w;
+} __attribute__((aligned(8)));
+
+class CMatrix {
+public:
+    CMatrix() {
+        if (!s_ClassInit)
+            InitClass();
+    }
+    static void InitClass();
+    void SetRight(CVector3);
+    void SetUp(CVector3);
+    void SetFront(CVector3);
+    void ToEulerXYZ(float&, float&, float&) const;
+
+    float m[4][4];
+    static bool s_ClassInit;
+} __attribute__((aligned(16)));
+
+class CAISplinePathSegment {
+public:
+    void Expand(float, CVector3&);
+    void ExpandDerivative(float, CVector3&);
+
+    unsigned char unknown00[72];
+};
+
+class CAISplinePath {
+public:
+    void Expand(float t, CVector3& out) {
+        float position = t * m_count;
+        int index = position;
+        position -= index;
+        m_segments[index].Expand(position, out);
+    }
+    void ExpandDerivative(float t, CVector3& out) {
+        float position = t * m_count;
+        int index = position;
+        position -= index;
+        m_segments[index].ExpandDerivative(position, out);
+    }
+
+    CAISplinePathSegment* m_segments;
+    unsigned int m_count;
+};
+
 
 void DebugMsg(const char*, ...);
 
@@ -54,6 +158,7 @@ public:
     CPlayerWeaponObject* GetWeapon(int) const;
     CWeapon* GetCurrentWeapon() const;
     CPlayerWeaponObject* GetCurrentPlayerWeapon() const;
+    void UpdateMovePath(float);
     void StopPath();
     void MoveOnPath(CAISplinePath*, CAISplinePath*, float);
     void ShakeCamera(float&, float&, float);
@@ -62,10 +167,13 @@ public:
     void StartCameraShake(float, float);
 
     unsigned char unknown000[600];
-    float m_velocityX;
-    float m_velocityY;
-    float m_velocityZ;
-    unsigned char unknown264[305];
+    CVector3 m_velocity;
+    unsigned char unknown268[32];
+    CVector3 m_position;
+    unsigned char unknown298[4];
+    float m_angle29c;
+    float m_angle2a0;
+    unsigned char unknown2a4[241];
     unsigned char unknown395a : 2;
     unsigned char m_cameraShaking : 1;
     unsigned char unknown395b : 1;
@@ -93,6 +201,55 @@ public:
     CPlayerWeaponObject* m_weapons[96];
     CWeapon* m_mountedWeapon;
 };
+
+void CPlayerObject::UpdateMovePath(float dt) {
+    if (m_onPath) {
+        float t = m_pathTime + 0.5f * m_pathRate * dt;
+        m_pathTime += m_pathRate * dt;
+        if (t < 0.0f)
+            t = 0.0f;
+        if (t > 1.0f) {
+            m_onPath = 0;
+            t = 1.0f;
+        }
+        CVector3 position;
+        if (m_path)
+            m_path->Expand(t, position);
+        else {
+            float dx = dt * m_velocity.x;
+            float dy = dt * m_velocity.y;
+            float dz = dt * m_velocity.z;
+            position.x = m_position.x + dx;
+            position.y = m_position.y + dy;
+            position.z = m_position.z + dz;
+        }
+        m_velocity.Sub(position, m_position);
+        m_velocity *= 1.0f / dt;
+        CVector3 front;
+        if (m_nextPath && m_nextPath == m_path) {
+            m_path->ExpandDerivative(t, front);
+            front.Normalize();
+        } else if (m_nextPath) {
+            CVector3 next;
+            m_nextPath->Expand(t, next);
+            front.Sub(next, position);
+            front.Normalize();
+        } else
+            return;
+        CVector3 up(0.0f, 0.0f, 1.0f);
+        CVector3 right;
+        right.Cross(front, up);
+        right.Normalize();
+        up.Cross(right, front);
+        up.Normalize();
+        CMatrix matrix;
+        matrix.SetRight(right);
+        matrix.SetUp(up);
+        matrix.SetFront(front);
+        float unused;
+        matrix.ToEulerXYZ(m_angle2a0, unused, m_angle29c);
+    }
+}
 
 void CPlayerObject::StopPath() {
     m_onPath = 0;
@@ -130,7 +287,7 @@ void CPlayerObject::ShakeCamera(float& yaw, float& pitch, float dt) {
     }
     if (m_motionShaking) {
         float step = m_motionShakeStrength / m_motionShakeTime;
-        float speed = (m_velocityX * m_velocityX + m_velocityY * m_velocityY + m_velocityZ * m_velocityZ) / 0.008419609628617764f;
+        float speed = (m_velocity.x * m_velocity.x + m_velocity.y * m_velocity.y + m_velocity.z * m_velocity.z) / 0.008419609628617764f;
         if (speed > 1.0f)
             speed = 1.0f;
         if (speed * m_motionShakeStrength >= m_motionShakeElapsed)
