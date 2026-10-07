@@ -1,0 +1,100 @@
+{
+  "id": "compartment_weak",
+  "source": "src/game/compartment_weak.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80076f58",
+      "size": 116,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "__ct__Q23dwi18fast_vec<P6CLight>Fi",
+      "address": "0x80076f68",
+      "size": 36,
+      "binding": 2
+    },
+    {
+      "name": "size__Q23dwi18fast_vec<P6CLight>CFv",
+      "address": "0x80076fc4",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "begin__Q23dwi18fast_vec<P6CLight>Fv",
+      "address": "0x80076fa8",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "push_back__Q23dwi18fast_vec<P6CLight>FP6CLight",
+      "address": "0x80076f8c",
+      "size": 28,
+      "binding": 2
+    },
+    {
+      "name": "end__Q23dwi18fast_vec<P6CLight>Fv",
+      "address": "0x80076fb0",
+      "size": 20,
+      "binding": 2
+    },
+    {
+      "name": "GetWorldBoundingVolume__12CCompartmentCFQ210ISceneNode11EVolumeType",
+      "address": "0x80076f60",
+      "size": 8,
+      "binding": 2
+    },
+    {
+      "name": "GetLocalBoundingVolume__12CCompartmentCFQ210ISceneNode11EVolumeType",
+      "address": "0x80076f58",
+      "size": 8,
+      "binding": 2
+    }
+  ],
+  "externals": {},
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "compartment.cpp",
+  "original_file_index": 3422
+}

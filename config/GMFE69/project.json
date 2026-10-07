@@ -719,7 +719,10 @@
     "Moh2_movingnode.json",
     "Moh2_scenenode.json",
     "propdat_offsetptr.json",
-    "cdbobject_offsetptr.json"
+    "cdbobject_offsetptr.json",
+    "compartment_weak.json",
+    "compartment_offsetptr.json",
+    "compartment_fastvec.json"
   ],
   "progress": {
     "code_bytes": 1414572,

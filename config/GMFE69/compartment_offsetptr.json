@@ -1,0 +1,112 @@
+{
+  "id": "compartment_offsetptr",
+  "source": "src/game/compartment_offsetptr.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80076fcc",
+      "size": 216,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "offsetPtr<9ShapeFile>__FRP9ShapeFilei",
+      "address": "0x80076fcc",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<10CCPTMatBin>__FRP10CCPTMatBini",
+      "address": "0x8007708c",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<8CPTChunk>__FRP8CPTChunki",
+      "address": "0x80077074",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<7CPTNode>__FRP7CPTNodei",
+      "address": "0x8007705c",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<P10CPTTexSwap>__FRPP10CPTTexSwapi",
+      "address": "0x80077044",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<Sc>__FRPSci",
+      "address": "0x8007702c",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<s>__FRPsi",
+      "address": "0x80077014",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<8gcVertex>__FRP8gcVertexi",
+      "address": "0x80076ffc",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<10CPTTexSwap>__FRP10CPTTexSwapi",
+      "address": "0x80076fe4",
+      "size": 24,
+      "binding": 2
+    }
+  ],
+  "externals": {},
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "compartment.cpp",
+  "original_file_index": 3422
+}
