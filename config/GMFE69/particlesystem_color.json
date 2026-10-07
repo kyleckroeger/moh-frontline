@@ -40,7 +40,19 @@
     {
       "name": ".text",
       "address": "0x8007f198",
-      "size": 172,
+      "size": 276,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000c0e4",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800130ac",
+      "size": 12,
       "type": 1
     }
   ],
@@ -56,6 +68,12 @@
       "address": "0x8007f22c",
       "size": 24,
       "binding": 1
+    },
+    {
+      "name": "GetParticleAlpha__23CPropertyParticleSystemCFRfRfRf",
+      "address": "0x8007f244",
+      "size": 104,
+      "binding": 1
     }
   ],
   "externals": {},
@@ -66,5 +84,16 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "particlesystem.cpp",
-  "original_file_index": 4057
+  "original_file_index": 4057,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 8,
+      "address": "0x80350028"
+    }
+  ]
 }

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 480276,
+    "matching_code_bytes": 480516,
     "total_executable_code_bytes": 1414572,
-    "percent": 33.952036375666985,
+    "percent": 33.96900263825383,
     "categories": {
-      "reconstructed_game": 263872,
+      "reconstructed_game": 264112,
       "restored_library": 216404
     },
-    "matching_functions": 3053
+    "matching_functions": 3056
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -493,8 +493,8 @@
     "config/GMFE69/pad.json": "7224d4f0d776e7eb7e4a31710a8da2314d18ca859f84d972016cd4aae36ba462",
     "config/GMFE69/particlesystem.json": "d68cd76caa67f1bd4b4600bbaf529086a9916303cb6095300fce856aee5a2712",
     "config/GMFE69/particlesystem_active.json": "0dfb5aa33a0872cc6c4e3d8df307a8756d07e6cd307d35dd2ac29c565ca8acb5",
-    "config/GMFE69/particlesystem_color.json": "649a82b66ecb07814a3c34795a69e844e3f516fef86cb2b8472b1b6857d99e4a",
-    "config/GMFE69/particlesystem_emit.json": "cbd332b65b17ff983e894d8c7891777fdce12e79d7ad526042d57e1c899c4e8c",
+    "config/GMFE69/particlesystem_color.json": "47a0b77509332bdc41d4b2211a53fabff7474462525e62a2e05deefc0b57d54c",
+    "config/GMFE69/particlesystem_emit.json": "a62affce678e30cd3aac5a53e68dabafaebc64a53d4fb0701b7da702a959a002",
     "config/GMFE69/particlesystem_moving.json": "841db193b003a93c1c09128bdc4e751d03cbb3e0ff38b56164396517a35bf920",
     "config/GMFE69/particlesystem_rotation.json": "f93990bd126de25a1b458dd4e7554b136b5c9214c1915c7370abb2df09b17bf7",
     "config/GMFE69/particlesystem_validate.json": "8c30a0e92f270c6048852dba827c52cee7de7537a3148b0bf6202986e349c1e4",
@@ -678,7 +678,7 @@
     "config/GMFE69/snddrv_voice.json": "4d15ca21e2f371c0931f4ee838372bb63c3b1966319b33487018bcada9e13389",
     "config/GMFE69/sound.json": "d74b722d4e85fbb126fd03a4f58be228d5cb31fbc8a7baed7337cefc70b15328",
     "config/GMFE69/sound_endian.json": "aece3dd995cbdf57f8084e640a2d0a6a6eaa75d165d5ce47cf388cb5f4a6dffd",
-    "config/GMFE69/sound_music.json": "cfb653252b2c317e5b87b6ddd288236590a5b97b0c3c39e139916524bfef3823",
+    "config/GMFE69/sound_music.json": "e0b4d62fd2b4e0d7999b4d1859248faca44cf85c3d841a91ebb7b45c1f637bdc",
     "config/GMFE69/soundschedule.json": "5eb1216a53d3f6fbde2e44714120ab9c4008541f82ae681eaf5caf7d6e92f231",
     "config/GMFE69/soundschedule_shutdown.json": "34d6c2c173ede4a826b8f50c0597ac986d2e06e9937e6c78eb9715f340e2826e",
     "config/GMFE69/soundtable.json": "f4697fcad0ee8bd466b2f8c9a8d08ae80a80bac0c08853d62f4b4f17f49173e8",
@@ -2068,10 +2068,10 @@
     "src/game/objcreate.cpp": "a8ec01efb52c079a05a8d23f4da6a48069b76b8f72381051618d38351aee33c9",
     "src/game/objcreate_volumes.cpp": "3e46b56b5e76f2426a12d0bebc6a022380252dfcc1ad4e0f898ffee9b73993bb",
     "src/game/orient.cpp": "031b0d870db82013b99a554649dfe99038d03705b3309d14909ed0094ee43304",
-    "src/game/particlesystem.cpp": "cc912deeef03a0935210f5a16ddd271c4d0e6a5ed29958913c9df9e801f9dabc",
+    "src/game/particlesystem.cpp": "815e35c0685b6c4fe298c0c7b609ca2bd3a675730aa83ca21e58b5e14c749307",
     "src/game/particlesystem_active.cpp": "b91cdcfc6c5ebcc5b1c4f442ddac8d0bf9d297fb5977ae97a0db63a4add5fb6d",
-    "src/game/particlesystem_color.cpp": "b3a7950c1f018d0e8efa758614019408614b2c78ba36849eb486eb3bc84f8cfc",
-    "src/game/particlesystem_emit.cpp": "b675fea2c5bba5fe47abf2d29eea6837b9e6fa9cd43964889929cc1522536222",
+    "src/game/particlesystem_color.cpp": "b4360bdf132fecf53a0020ef2965cb6746ea3d965a1c113c599ea66cb64101cf",
+    "src/game/particlesystem_emit.cpp": "cf65f1e1f1d6a0ffab0add5fd4500a59ceb7ca3f6485642f50963e7e9d31cb36",
     "src/game/particlesystem_moving.cpp": "070eb1c3124eeceddd502e2dd0a1e119b6b835ec5c2f5769a5c39c33575f1fb2",
     "src/game/particlesystem_rotation.cpp": "41bd5b6cf4c66b720f11cd0a65f702fbfaaff0fccd0cdc966cbfa82beee31855",
     "src/game/particlesystem_validate.cpp": "476c288024b835bb90c93ce2497b7fbad53ceed4011b106daa0489be983cbdc0",
@@ -2132,7 +2132,7 @@
     "src/game/skybox.cpp": "51c0fbd12e9ef49c313bcc7055d61c7ad7fcd8c243abaea7ef80bb1dc8b33da8",
     "src/game/sound.cpp": "09a7a15e802021a5756266ba749fc363a337c930203b4df623cd125f3c1541a8",
     "src/game/sound_endian.cpp": "9b1551246dece633f361354cb5fa2ed2a147651a6bd96913a638fbd6f322478b",
-    "src/game/sound_music.cpp": "ae069b09ea2fc37e3a1dcf56203bd6eb717f9d13b1a0b405e841e4ae1aa9433a",
+    "src/game/sound_music.cpp": "5314d6a6e57ef854980b4ee4c583dafa42d3ca4b6fe3e8fd40d927c81f919d10",
     "src/game/soundschedule.cpp": "a0ffc8f5360c103f5a0b59bbc24c02520d9afb80db079a86cdafa19514fcf0a4",
     "src/game/soundschedule_shutdown.cpp": "5478124530a502cb5e396e3dd2428df04748dcf5426f5edd5a83e38884c2db53",
     "src/game/soundtable.cpp": "999b27bcde4106fdba28d8fd6a8b9b6b2b609e615746b1d1ae2216d3fa33a481",
@@ -24091,8 +24091,8 @@
     {
       "id": "sound_music",
       "category": "reconstructed_game",
-      "functions": 5,
-      "code_bytes": 348,
+      "functions": 6,
+      "code_bytes": 416,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -24124,8 +24124,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "ad26766b80d3606a1a851ea7a50fe85d7e8af6d60f14b1893d35739d011396b6",
-      "linked_sha256": "54ead42db0e28a1cbb24303339120cb5832f2939a24902d5c6809ce809e23a1c"
+      "object_sha256": "b44587d2cbb6c7259e380c986c92eb50a1091bea2c6c7fe3763570adc91b7a86",
+      "linked_sha256": "2a3965d8b7e37d01abc7d2b685e5735ae783cda09f34386cd2e9e9e4f1595ea5"
     },
     {
       "id": "player_weapon",
@@ -24364,8 +24364,8 @@
     {
       "id": "particlesystem_emit",
       "category": "reconstructed_game",
-      "functions": 5,
-      "code_bytes": 168,
+      "functions": 6,
+      "code_bytes": 236,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -24397,14 +24397,14 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "cfa4ebd03abdb4fc5e8321bcb572e986876eca1898de80903644c99fc15055cd",
-      "linked_sha256": "67972bda2517d889d37ec92a766fab6821259626c2e9e9d441c66c0ef3732ddf"
+      "object_sha256": "4b49a4b21568b02b611bdb13de273694cf3ac49d482b758e9990ee93dd52934e",
+      "linked_sha256": "3f71cfd9e4d002f615156067183ef80a124e9818fdac8356dfb9c1c34103f7a4"
     },
     {
       "id": "particlesystem_color",
       "category": "reconstructed_game",
-      "functions": 2,
-      "code_bytes": 172,
+      "functions": 3,
+      "code_bytes": 276,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -24436,8 +24436,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "6f405e623db749d8397d8e0c88825ccf5b0cffb4d14f153ec2c128e1374b3e97",
-      "linked_sha256": "ba844bd77066672fd2ede04752fd939c856baf0dfb8106800efed3a98b18236a"
+      "object_sha256": "06d31c9d3cf7202c5457561139497d2e406dadd049cd5d18c8b4629f539d91ca",
+      "linked_sha256": "590d96a0fb7701f7a33dc78431fa9af4aa40960d699e583bf26ce31ee3353538"
     },
     {
       "id": "anim_obj_volumes",
@@ -40997,20 +40997,6 @@
             "evidence": "exception-index"
           },
           {
-            "address": "0x8007f154",
-            "size": 68,
-            "kind": "function",
-            "name": "GetParticleSize__23CPropertyParticleSystemCFR8CVector3R8CVector3Rf",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007f244",
-            "size": 104,
-            "kind": "function",
-            "name": "GetParticleAlpha__23CPropertyParticleSystemCFRfRfRf",
-            "evidence": "exception-index"
-          },
-          {
             "address": "0x8007f364",
             "size": 108,
             "kind": "function",
@@ -46895,13 +46881,6 @@
             "kind": "function",
             "name": "_userdata_client__FP17SNDUSERDATACBINFO",
             "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x800ea4e4",
-            "size": 68,
-            "kind": "function",
-            "name": "MUSIC_Fade__Ffi",
-            "evidence": "exception-index"
           },
           {
             "address": "0x800ea684",

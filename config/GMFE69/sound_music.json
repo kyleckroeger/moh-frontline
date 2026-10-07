@@ -39,24 +39,30 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800ea528",
-      "size": 348,
+      "address": "0x800ea4e4",
+      "size": 416,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000f370",
-      "size": 40,
+      "address": "0x8000f368",
+      "size": 48,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80015e3c",
-      "size": 60,
+      "address": "0x80015e30",
+      "size": 72,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "MUSIC_Fade__Ffi",
+      "address": "0x800ea4e4",
+      "size": 68,
+      "binding": 1
+    },
     {
       "name": "MUSIC_SendEvent__Fi",
       "address": "0x800ea528",
@@ -91,21 +97,37 @@
   "externals": {
     "PATH_control": "0x8010c098",
     "PATH_event": "0x8010b93c",
+    "PATH_fade": "0x8010acd4",
     "PATH_latency": "0x8010c280",
     "PATH_pause": "0x8010b1b8",
     "PATH_stop": "0x8010b078",
     "gMusicHandle": "0x8034e2fc",
-    "gMusicProjectID": "0x8034e300"
+    "gMusicProjectID": "0x8034e300",
+    "g_musicVolume": "0x8034e2e8"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
-  "local_externals": [],
+  "local_externals": [
+    "g_musicVolume"
+  ],
   "discarded_local_functions": [],
   "sda_externals": [
     "gMusicHandle",
-    "gMusicProjectID"
+    "gMusicProjectID",
+    "g_musicVolume"
   ],
   "original_file": "sound.cpp",
-  "original_file_index": 8971
+  "original_file_index": 8971,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80350ffc"
+    }
+  ]
 }

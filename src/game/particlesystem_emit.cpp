@@ -1,11 +1,13 @@
 // A fragment of particlesystem.cpp (0x8007f0ac): CPropertyParticleSystem's
 // empty SetLocalToWorld, SetSeed and the particle acceleration, velocity and
 // position getters (each vector set from the particle-property record through
-// an inline three-float setter, which explains the reversed loads). The file
-// name is this project's; the original record is particlesystem.cpp and
-// GetParticleSize after these uses a pooled .sdata2 constant. The class names
-// come from the mangled symbols; the members, the property-record view and the
-// setter are inferred, and the class is a non-virtual view.
+// an inline three-float setter, which explains the reversed loads), and
+// GetParticleSize (two vectors with a zero z, 0.0f being an entry of the
+// file's .sdata2 pool, and a fifth value). The file name is this project's;
+// the original record is particlesystem.cpp. The class names come from the
+// mangled symbols; the members, the property-record view and the setter are
+// inferred (what the size values mean is unknown), and the class is a
+// non-virtual view.
 class CMatrix;
 
 class CVector3 {
@@ -50,6 +52,11 @@ struct ParticlePropertiesView {
     ParticleVectorView velocity;
     ParticleVectorView velocityRange;
     ParticleVectorView acceleration;
+    float size0cc;
+    float size0d0;
+    float size0d4;
+    float size0d8;
+    float size0dc;
 };
 
 class CPropertyParticleSystem {
@@ -59,6 +66,7 @@ public:
     void GetParticleAcceleration(CVector3&) const;
     void GetParticleVelocity(CVector3&, CVector3&) const;
     void GetParticlePosition(CVector3&, CVector3&) const;
+    void GetParticleSize(CVector3&, CVector3&, float&) const;
     void GetParticleColor(CColor&, CColor&, CColor&, CColor&) const;
     bool GetFogEnable() const;
 
@@ -85,4 +93,10 @@ void CPropertyParticleSystem::GetParticleVelocity(CVector3& velocity, CVector3& 
 void CPropertyParticleSystem::GetParticlePosition(CVector3& position, CVector3& range) const {
     position.Set(m_properties->position.x, m_properties->position.y, m_properties->position.z);
     range.Set(m_properties->positionRange.x, m_properties->positionRange.y, m_properties->positionRange.z);
+}
+
+void CPropertyParticleSystem::GetParticleSize(CVector3& size, CVector3& range, float& value) const {
+    size.Set(m_properties->size0cc, m_properties->size0d4, 0.0f);
+    range.Set(m_properties->size0d0, m_properties->size0d8, 0.0f);
+    value = m_properties->size0dc;
 }

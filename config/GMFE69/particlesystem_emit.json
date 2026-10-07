@@ -40,7 +40,7 @@
     {
       "name": ".text",
       "address": "0x8007f0ac",
-      "size": 168,
+      "size": 236,
       "type": 1
     }
   ],
@@ -74,6 +74,12 @@
       "address": "0x8007f118",
       "size": 60,
       "binding": 1
+    },
+    {
+      "name": "GetParticleSize__23CPropertyParticleSystemCFR8CVector3R8CVector3Rf",
+      "address": "0x8007f154",
+      "size": 68,
+      "binding": 1
     }
   ],
   "externals": {},
@@ -84,5 +90,16 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "particlesystem.cpp",
-  "original_file_index": 4057
+  "original_file_index": 4057,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034fff8"
+    }
+  ]
 }

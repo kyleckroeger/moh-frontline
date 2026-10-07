@@ -1,14 +1,16 @@
-// A fragment of sound.cpp (0x800ea528): the music wrappers over the path
-// player. MUSIC_SendEvent sends the project's event (project id in the high
-// byte) to the music handle, MUSIC_SetLatency and MUSIC_SetLevel clamp the
-// latency (50 to 5000) and control level (0 to 127) before passing them on,
-// MUSIC_Pause pauses or resumes every path when a music handle exists, and
-// MUSIC_Stop stops the music handle. The file name is this project's; the
-// original record is sound.cpp (sound.cpp holds the sound-stream wrappers)
-// and MUSIC_Fade before these is not reconstructed. The functions and globals
-// are named by their symbols; the result types and the path player
+// A fragment of sound.cpp (0x800ea4e4): the music wrappers over the path
+// player. MUSIC_Fade fades to a level scaled by the music volume (percent;
+// 100.0f is an entry of the file's .sdata2 pool), MUSIC_SendEvent sends the
+// project's event (project id in the high byte) to the music handle,
+// MUSIC_SetLatency and MUSIC_SetLevel clamp the latency (50 to 5000) and
+// control level (0 to 127) before passing them on, MUSIC_Pause pauses or
+// resumes every path when a music handle exists, and MUSIC_Stop stops the
+// music handle. The file name is this project's; the original record is
+// sound.cpp (sound.cpp holds the sound-stream wrappers). The functions and
+// globals are named by their symbols; the result types and the path player
 // prototypes as seen from this file are inferred.
 extern "C" {
+int PATH_fade(unsigned int, int, int);
 int PATH_event(unsigned int, short, int);
 int PATH_latency(unsigned int, int);
 int PATH_control(unsigned int, int);
@@ -18,6 +20,12 @@ void PATH_stop(unsigned int);
 
 extern int gMusicHandle;
 extern int gMusicProjectID;
+// The file's private music volume.
+extern float g_musicVolume;
+
+void MUSIC_Fade(float level, int time) {
+    PATH_fade(gMusicHandle, 100.0f * (level * g_musicVolume), time);
+}
 
 bool MUSIC_SendEvent(int event) {
     PATH_event(gMusicHandle, (gMusicProjectID << 8) | event, 1);

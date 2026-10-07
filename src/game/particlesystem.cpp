@@ -4,7 +4,7 @@
 // from the mangled symbols; the members and the property-record view are
 // inferred from offsets, and the class is a non-virtual view. The unit starts
 // with the particle rotation and the system acceleration and initial-velocity
-// getters; GetParticleAlpha before them uses a pooled .sdata2 constant.
+// getters (GetParticleAlpha before them is in particlesystem_color.cpp).
 //
 // CVector3 view: four floats, 8-byte aligned, overlaid with two doubles. The
 // union is inferred from the code, not the original declaration: the system
