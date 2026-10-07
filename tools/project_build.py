@@ -12,7 +12,7 @@ from formats import Elf32, verify_load_image
 from tool_runner import run, sha256
 from setup import CONFIG, ROOT, setup
 from setup_compiler import setup_compiler
-from data_strip import c_identifier, strip_objects
+from data_strip import DUPLICATE_SUFFIX, c_identifier, strip_objects
 from sdk_build import compile_sdk, resolve_external, sdk_link_script, stripped_address
 
 
@@ -145,6 +145,14 @@ def validate_units(original, units):
             resolve_external(original, unit, name)
             if any(a <= int(address, 16) < b for a, b in code):
                 raise ValueError(f"External is not an original definition: {name}")
+        # A weak copy the original linker dropped for an earlier file's copy:
+        # the unit links to that original definition instead.
+        for name in unit.get("weak_duplicates", []):
+            kept = [s for s in symbols if s["name"] == name and s["section"]]
+            if (not unit["strip_unused"] or name not in unit["externals"] or len(kept) != 1
+                    or kept[0]["type"] != 2 or kept[0]["binding"] != 2
+                    or name in unit["discarded_functions"] or name in unit.get("sda_externals", [])):
+                raise ValueError(f"Weak duplicate lacks one retained original copy: {name}")
         local_discards = set(unit.get("discarded_local_functions", []))
         if not local_discards <= set(unit["discarded_functions"]) or (local_discards and not unit.get("original_file")):
             raise ValueError("Discarded local function scope is missing")
@@ -189,7 +197,8 @@ def validate_object(obj, unit):
         raise ValueError("Expected a relocatable compiler object")
     symbols = list(obj.symbols())
     functions = [s for s in symbols if s["type"] == 2 and s["section"]]
-    expected = {f["name"] for f in unit["functions"]} | set(unit["discarded_functions"])
+    duplicates = {name + DUPLICATE_SUFFIX for name in unit.get("weak_duplicates", [])}
+    expected = {f["name"] for f in unit["functions"]} | set(unit["discarded_functions"]) | duplicates
     if len(functions) != len(expected) or {s["name"] for s in functions} != expected:
         raise ValueError("Unexpected compiler function set")
     output = {s["name"]: s for s in allocated(obj)}
@@ -245,7 +254,7 @@ def validate_object(obj, unit):
     undefined = {s["name"] for s in symbols if s["binding"] and not s["section"] and s["name"]}
     if undefined != set(unit["externals"]) | absent:
         raise ValueError("Unexpected compiler dependencies")
-    discarded = [s for s in functions if s["name"] in unit["discarded_functions"]]
+    discarded = [s for s in functions if s["name"] in unit["discarded_functions"] or s["name"] in duplicates]
     declared_local = set(unit.get("discarded_local_functions", []))
     if any(s["binding"] != 0 for s in discarded if s["name"] in declared_local):
         raise ValueError("Discarded function is not local to this input")

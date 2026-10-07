@@ -9,12 +9,20 @@ Relocations located in bytes the original linker removed (parked sections,
 trimmed slices and stripped objects) are pointed at their own section, so that
 dead data does not keep discarded functions alive in SN's link.
 
+A unit may list `weak_duplicates`: weak functions it compiles whose copy in
+the original came from another file, as MW's linker kept the first weak
+definition and dropped later ones. The compiled copy is renamed
+`<name>$duplicate` and every relocation to it is pointed at a new undefined
+symbol of the original name, which the unit resolves to the retained copy;
+SN's unused-code stripping then drops the renamed copy.
+
 A manifest section may set `input_alignment` to 4 when the original linker
 placed an 8-aligned compiler data section at an address that is 4 mod 8 (MW's
 linker did; SN's would pad the start or the size). Only the section header's
 alignment changes; the bytes are still compared with the original.
 
-The rewrite permutes bytes and keeps the file size; the original compiler
+The rewrite permutes bytes and keeps the file size (apart from the symbol
+tables a weak duplicate moves); the original compiler
 output is still what the build report hashes.
 """
 import re
@@ -25,6 +33,53 @@ from formats import Elf32
 STT_OBJECT, STT_SECTION = 1, 3
 R_PPC_ADDR32 = 1
 SECTION_HEADER_SIZE, ALIGNMENT_FIELD = 40, 32
+STB_WEAK, STT_FUNC = 2, 2
+DUPLICATE_SUFFIX = "$duplicate"
+
+
+def redirect_weak_duplicates(data, unit):
+    """Rename each listed weak copy and refer to the original name instead.
+
+    The symbol and string tables are rewritten after the end of the file
+    (section headers record where), so no other offset moves.
+    """
+    names = unit.get("weak_duplicates", [])
+    if not names:
+        return data
+    obj = Elf32(data)
+    symbols = list(obj.symbols())
+    symtab = next(s for s in obj.sections if s["type"] == 2)
+    strtab = obj.sections[symtab["link"]]
+    table = bytearray(obj.contents(symtab))
+    strings = bytearray(obj.contents(strtab))
+    redirect = {}
+    for name in names:
+        found = [i for i, s in enumerate(symbols) if s["name"] == name and s["section"]]
+        if (len(found) != 1 or symbols[found[0]]["binding"] != STB_WEAK
+                or symbols[found[0]]["type"] != STT_FUNC
+                or obj.sections[symbols[found[0]]["section"]]["name"] not in (".text", ".init")):
+            raise ValueError(f"Weak duplicate is not one compiled weak function: {name}")
+        index = found[0]
+        original_name = struct.unpack_from(">I", table, index * 16)[0]
+        struct.pack_into(">I", table, index * 16, len(strings))
+        strings += (name + DUPLICATE_SUFFIX).encode() + b"\0"
+        redirect[index] = len(table) // 16
+        table += struct.pack(">IIIBBH", original_name, 0, 0, 1 << 4 | STT_FUNC, 0, 0)
+    out = bytearray(data)
+    for rela in obj.sections:
+        if rela["type"] != 4:
+            continue
+        for entry in range(rela["offset"], rela["offset"] + rela["size"], 12):
+            info = struct.unpack_from(">I", data, entry + 4)[0]
+            if info >> 8 in redirect:
+                struct.pack_into(">I", out, entry + 4, redirect[info >> 8] << 8 | info & 255)
+    section_headers = struct.unpack_from(">I", data, 32)[0]
+    for section, contents in ((symtab, table), (strtab, strings)):
+        out += bytes(-len(out) % 4)
+        header = section_headers + section["index"] * SECTION_HEADER_SIZE
+        struct.pack_into(">II", out, header + 16, len(out), len(contents))
+        out += contents
+    return bytes(out)
 
 
 def c_identifier(name):
@@ -74,6 +129,7 @@ def offset_map(bounds, stripped, size):
 
 def strip_objects(data, unit):
     """Return a rewritten object for linking, or the input when nothing applies."""
+    data = redirect_weak_duplicates(data, unit)
     obj = Elf32(data)
     out = bytearray(data)
     by_name = {s["name"]: s for s in obj.sections}

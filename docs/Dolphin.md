@@ -182,6 +182,18 @@ The original was linked by the MW linker, unlike Rising Sun's ProDG link:
   a data section whose linked base is 4 mod 8, so it cannot hide a misplaced
   section, and the bytes are compared with the original as usual.
   `port_unit.py` adds the field when a placement needs it.
+- **Weak duplicates.** MW's linker keeps the first definition of a weak
+  function and drops later copies. When a unit compiles a weak function whose
+  original copy came from an earlier file (such as a template's inline
+  destructor), the unit lists it in `weak_duplicates` and in `externals` at the
+  retained copy's address. `data_strip.py` renames the compiled copy to
+  `<name>$duplicate` and points every relocation to it at a new undefined
+  symbol of the original name, so the unit calls the retained copy and SN's
+  unused-code stripping drops the duplicate. `validate_units` requires
+  stripping and exactly one weak original function of that name;
+  `validate_object` treats the duplicate like a discarded function. The
+  duplicate's exception records, between kept ones, are `stripped_objects`.
+  `port_unit.py --weak-duplicate NAME` drafts all of this.
 - **Relocations in removed bytes.** Relocations located in stripped sections,
   trimmed slices or stripped objects are pointed at their own section before
   linking. Otherwise SN keeps a discarded function alive through dead data, such

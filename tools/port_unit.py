@@ -13,6 +13,7 @@ import struct
 from pathlib import Path
 
 from audit import load_target
+from data_strip import section_chunks
 from formats import Elf32
 from sdk_build import compile_sdk
 from setup import CONFIG, ROOT
@@ -91,8 +92,11 @@ def find(symbol, original, locals_):
 CODE_SECTIONS = (".text", ".init")
 
 
-def text_layout(obj, original, locals_):
+def text_layout(obj, original, locals_, duplicates=()):
     """Keep functions the original has; discard absent ones; reject size changes.
+
+    Named weak duplicates are dropped like discarded functions; the original's
+    copy elsewhere is linked instead.
 
     Returns, per compiled code section index, its kept functions with their
     packed offsets, the discarded functions and the packed size.
@@ -103,6 +107,10 @@ def text_layout(obj, original, locals_):
                            key=lambda s: s["address"])
         kept, packed = [], 0
         for function in functions:
+            if function["name"] in duplicates:
+                if function["binding"] != 2:
+                    raise ValueError(f"Weak duplicate is not weak in the compiled object: {function['name']}")
+                continue
             target = find(function, original, locals_)
             absent = not (locals_.get(function["name"]) if function["binding"] == 0 else original.globals(function["name"]))
             if target is not None and target["size"] == function["size"]:
@@ -116,13 +124,13 @@ def text_layout(obj, original, locals_):
     return layout, discarded
 
 
-def match(obj, original, file_index):
+def match(obj, original, file_index, duplicates=()):
     """Return section addresses, external addresses and the stripped text layout."""
     symbols = list(obj.symbols())
     locals_ = original.locals_of(file_index)
     names = {s["index"]: s["name"] for s in obj.sections}
     addresses, externals = {}, {}
-    layout, discarded = text_layout(obj, original, locals_)
+    layout, discarded = text_layout(obj, original, locals_, duplicates)
 
     def position(section, offset):
         """Offset after stripping: discarded code has no position."""
@@ -156,7 +164,7 @@ def match(obj, original, file_index):
             if okind != kind:
                 raise ValueError(f"Relocation type differs at {base + where:#x}")
             target = osymbol["address"] + oaddend
-            if symbol["section"] == 0:
+            if symbol["section"] == 0 or symbol["name"] in duplicates:
                 if osymbol["name"] and osymbol["name"] != symbol["name"] and not addend:
                     raise ValueError(f"Compiled code refers to {symbol['name']} where the original "
                                      f"refers to {osymbol['name']} (at {base + where:#x})")
@@ -249,7 +257,12 @@ def kept_span(obj, index, kept, original, locals_):
                     roots.append((index, s["address"], s["address"] + s["size"]))
     if not keep:
         return None
-    return min(a for a, _ in keep), max(a + n for a, n in keep)
+    start, end = min(a for a, _ in keep), max(a + n for a, n in keep)
+    # Records of dropped code between kept ones (exception tables of a
+    # discarded function or weak duplicate) become stripped objects.
+    inner = sorted((s["address"], s["name"]) for s in objects
+                   if start <= s["address"] < end and (s["address"], s["size"]) not in keep)
+    return start, end, [name for _, name in inner]
 
 
 def compare_functions(obj, original, file_index):
@@ -285,17 +298,18 @@ def draft(args):
     compile_sdk(unit, compiler, wrapper, work, lambda stage, *a: run(a, work, work / f"{stage}.log"))
     obj = Elf32((work / "compiled.o").read_bytes())
     try:
-        addresses, externals, layout, discarded = match(obj, original, file_index)
+        addresses, externals, layout, discarded = match(obj, original, file_index, set(args.weak_duplicate))
         kept = [k for kept_, _ in layout.values() for k in kept_]
     except ValueError:
         compare_functions(obj, original, file_index)
         raise
     sections, stripped = [], []
+    dropped = discarded or args.weak_duplicate
     for section in obj.sections:
         if not section["flags"] & 2 or not section["size"]:
             continue
         if section["name"] not in addresses:
-            if discarded and not referenced(obj, section["index"], kept, addresses):
+            if dropped and not referenced(obj, section["index"], kept, addresses):
                 stripped.append(section["name"])
                 continue
             raise ValueError(f"Could not place compiled section {section['name']}")
@@ -306,14 +320,20 @@ def draft(args):
                              "size": layout[section["index"]][1], "type": 1})
             continue
         span = kept_span(obj, section["index"], kept, original, original.locals_of(file_index))
-        if span is None and discarded:
+        if span is None and dropped:
             stripped.append(section["name"])
             continue
-        start, end = span if span and discarded else (0, section["size"])
+        start, end, inner = span if span and dropped else (0, section["size"], [])
+        inner_size = 0
+        if inner:
+            bounds, flags = section_chunks(obj, section, inner)
+            inner_size = sum(b - a for (a, b), f in zip(bounds, flags) if f)
         entry = {"name": section["name"], "address": hex(addresses[section["name"]] + start),
-                 "size": end - start, "type": section["type"]}
-        if (start, end) != (0, section["size"]):
+                 "size": end - start - inner_size, "type": section["type"]}
+        if (start, end) != (0, section["size"]) or inner:
             entry.update(linked_offset=start, linked_size=section["size"])
+        if inner:
+            entry["stripped_objects"] = inner
         if section["alignment"] == 8 and addresses[section["name"]] % 8 == 4:
             entry["input_alignment"] = 4  # MW's linker placed it at 4 mod 8.
         sections.append(entry)
@@ -322,11 +342,12 @@ def draft(args):
                  for s in original.symbols if s["type"] == 2 and s["section"]
                  and any(a <= s["address"] < b for a, b in code)]
     obj_symbols = list(obj.symbols())
-    undefined = sorted({s["name"] for s in obj_symbols if s["binding"] and not s["section"] and s["name"]})
+    undefined = sorted({s["name"] for s in obj_symbols if s["binding"] and not s["section"] and s["name"]}
+                       | set(args.weak_duplicate))
     for name in undefined:
         if name not in externals and len(original.globals(name)) == 1:
             externals[name] = original.globals(name)[0]["address"]
-    unit["strip_unused"] = bool(discarded)
+    unit["strip_unused"] = bool(discarded or args.weak_duplicate)
     locals_ = original.locals_of(file_index)
     sda = sorted({symbol["name"] for _, _, kind, symbol, _ in relocations(obj) if kind == SDA21 and not symbol["section"]})
     unit.update(
@@ -343,6 +364,8 @@ def draft(args):
         unit["discarded_local_functions"] = []
     if stripped:
         unit["stripped_sections"] = stripped
+    if args.weak_duplicate:
+        unit["weak_duplicates"] = sorted(args.weak_duplicate)
     if args.like and "id" in reference:
         unit["adapted_from"] = {"repository": "https://github.com/lifewillbeokay/moh-rising-sun",
                                 "manifest": Path(args.like).name}
@@ -364,5 +387,7 @@ if __name__ == "__main__":
     parser.add_argument("--compiler")
     parser.add_argument("--define", action="append", help="Replace or add a -D definition, e.g. SDK_REVISION=0")
     parser.add_argument("--category", default="restored_library")
+    parser.add_argument("--weak-duplicate", action="append", default=[],
+                        help="A weak function this unit compiles whose original copy came from another file")
     parser.add_argument("--upstream-path", help="Path of the source in the upstream repository")
     draft(parser.parse_args())

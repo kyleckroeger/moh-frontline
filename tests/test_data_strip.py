@@ -107,6 +107,42 @@ class DataStripping(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'only relax 8-aligned compiler data'):
             strip_objects(compiled, unit)
 
+    def weak_duplicate_unit(self):
+        compiled = (self.build / 'units/staticobjfactory_lookup/compiled.o').read_bytes()
+        return compiled, json.loads((CONFIG / 'staticobjfactory_lookup.json').read_text())
+
+    def test_weak_duplicate_references_go_to_the_original_copy(self):
+        compiled, unit = self.weak_duplicate_unit()
+        name = unit['weak_duplicates'][0]
+        before, after = Elf32(compiled), Elf32(strip_objects(compiled, unit))
+        defined = [s for s in after.symbols() if s['name'] == name + '$duplicate']
+        self.assertEqual([(s['binding'], s['type']) for s in defined], [(2, 2)])
+        self.assertEqual([s['section'] for s in after.symbols() if s['name'] == name], [0])
+        # The kept functions' exception actions destroy templates with it.
+        self.assertIn(name, [s['name'] for s in relocation_targets(before, 'extab')])
+        targets = [s for s in relocation_targets(after, 'extab') if s['name'].startswith(name)]
+        self.assertTrue(targets)
+        self.assertTrue(all(s['name'] == name and not s['section'] for s in targets))
+        self.assertEqual(before.contents(before.sections[1]), after.contents(after.sections[1]))
+
+    def test_weak_duplicate_needs_a_retained_weak_original(self):
+        _, unit = self.weak_duplicate_unit()
+        validate_units(self.original, [unit])
+        for mutate in (lambda u: u['externals'].pop(u['weak_duplicates'][0]),
+                       lambda u: u.update(strip_unused=False),
+                       lambda u: u['externals'].update(bsearch=u['externals']['bsearch'])
+                       or u.update(weak_duplicates=['bsearch'])):
+            mutated = json.loads(json.dumps(unit))
+            mutate(mutated)
+            with self.assertRaisesRegex(ValueError, 'Weak duplicate lacks one retained original copy|Function-symbol'):
+                validate_units(self.original, [mutated])
+
+    def test_weak_duplicate_must_be_compiled_weak(self):
+        compiled, unit = self.weak_duplicate_unit()
+        unit['weak_duplicates'] = ['GetMotionData__20CStaticObjectFactoryFii']
+        with self.assertRaisesRegex(ValueError, 'not one compiled weak function'):
+            strip_objects(compiled, unit)
+
     def test_unknown_object_fails(self):
         with self.assertRaisesRegex(ValueError, 'not one compiler object'):
             strip_objects(self.compiled, self.mutated('.sbss', ['NoSuchObject']))

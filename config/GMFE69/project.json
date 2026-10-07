@@ -641,7 +641,8 @@
     "thrown_obj_ctor.json",
     "smixfx.json",
     "staticmesh_ctor.json",
-    "box_setters.json"
+    "box_setters.json",
+    "staticobjfactory_lookup.json"
   ],
   "progress": {
     "code_bytes": 1414572,
