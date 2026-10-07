@@ -4,7 +4,8 @@
 // (clamps the frame range and records speed, range and event, reversing for a
 // negative speed over a descending range), the light-volume forwards to its
 // manager (+608), SetBasis (sets the transform's rows and refreshes the
-// rotation at +384) and SetPosition, forwarding to the object's transform
+// rotation at +384), SetPosition and SetTMLocalToWorld (also refreshing the
+// rotation), forwarding to the object's transform
 // (a CMatrix at +64). The animation fields and flag bits are inferred. The file
 // name is this project's; the original record is static_obj.cpp and the functions
 // around these are not reconstructed. CStaticObject and CMatrix's methods are named by
@@ -90,6 +91,7 @@ public:
     void EnterLightVolume(BPDLightVolume*);
     void SetBasis(CVector3, CVector3, CVector3);
     void SetPosition(CVector3);
+    void SetTMLocalToWorld(const CMatrix&);
 
     CVector3 UpRow() const { return m_tm.up; }
     CVector3 ForwardRow() const { return m_tm.forward; }
@@ -210,4 +212,9 @@ void CStaticObject::SetBasis(CVector3 right, CVector3 front, CVector3 up) {
 
 void CStaticObject::SetPosition(CVector3 position) {
     m_tm.SetPos(position);
+}
+
+void CStaticObject::SetTMLocalToWorld(const CMatrix& tm) {
+    m_tm = tm;
+    m_rotation.SetFromMatrix(tm);
 }
