@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x801482ec",
-      "size": 708,
+      "size": 948,
       "type": 1
     },
     {
@@ -89,6 +89,18 @@
       "name": "FILESYS_restore",
       "address": "0x80148554",
       "size": 92,
+      "binding": 1
+    },
+    {
+      "name": "FILESYS_opstatus",
+      "address": "0x801485b0",
+      "size": 116,
+      "binding": 1
+    },
+    {
+      "name": "FILESYS_callbackop",
+      "address": "0x80148624",
+      "size": 124,
       "binding": 1
     }
   ],

@@ -5,8 +5,14 @@
 // number of handles and operations, and shutdown. The function and global names
 // come from the symbols; the options and device layouts are inferred views,
 // and the parameters' meanings (handles, buffer size, operations) are inferred
-// from the defaults, the overhead formula and the 48-byte operation records
-// that FILESYS_opstatus reads.
+// from the defaults, the overhead formula and the 48-byte operation records.
+// FILESYS_opstatus returns a valid operation's status (or -3), and
+// FILESYS_callbackop installs an operation's completion callback, calling it
+// at once (with the device's callback depth raised) when the operation has
+// already finished. Operation handles carry a serial in the high half and the
+// record slot in the low byte (an inferred union); the status is volatile
+// (it is reloaded around the depth update) and the validity check is an
+// inferred inline helper that takes the handle by value.
 struct OSMutex {
     unsigned char unknown00[24];
 };
@@ -28,12 +34,41 @@ struct FILESYSOPTSVIEW {
     int (*mfree)(void*);
 };
 
+/* inferred: an operation handle (serial in the high half, slot in the low
+   byte) and the 48-byte operation record it names */
+union FILEOPID {
+    int value;
+    struct {
+        unsigned short serial;
+        unsigned char unknown2;
+        unsigned char slot;
+    } parts;
+};
+
+typedef void (*FILEOPCALLBACK)(int, int, int);
+
+struct FILEOPVIEW {
+    unsigned short serial;
+    unsigned char unknown02[6];
+    volatile int status;
+    unsigned char unknown0c[8];
+    int callbackData;
+    unsigned char unknown18[16];
+    FILEOPCALLBACK callback;
+    unsigned char unknown2c[4];
+};
+
 struct FILEDEVICEVIEW {
     int operations;
     int handles;
     int unknown08;
-    unsigned char unknown0c[12];
-    char* memory;
+    unsigned char unknown0c[4];
+    int callbackDepth;
+    unsigned char unknown14[4];
+    union {
+        char* memory;
+        FILEOPVIEW* ops;
+    };
     char* handleMemory;
     unsigned char unknown20[8];
 };
@@ -103,5 +138,37 @@ extern "C" void FILESYS_restore() {
         killfiledev();
         gFileSysOpts.mfree(gFileDevice.memory);
         gFileDevice.operations = 0;
+    }
+}
+
+static inline FILEOPVIEW* getop(int op) {
+    FILEOPID id;
+
+    id.value = op;
+    return &gFileDevice.ops[id.parts.slot];
+}
+
+static inline bool validop(FILEOPID id) {
+    bool valid = false;
+
+    if (id.value && id.parts.serial == gFileDevice.ops[id.parts.slot].serial)
+        valid = true;
+    return valid;
+}
+
+extern "C" int FILESYS_opstatus(int op) {
+    if (validop(*(FILEOPID*)&op))
+        return gFileDevice.ops[((FILEOPID*)&op)->parts.slot].status;
+    return -3;
+}
+
+extern "C" void FILESYS_callbackop(int op, FILEOPCALLBACK callback) {
+    FILEOPVIEW* record = getop(op);
+
+    record->callback = callback;
+    if (record->status) {
+        gFileDevice.callbackDepth++;
+        callback(op, record->status, record->callbackData);
+        gFileDevice.callbackDepth--;
     }
 }

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 421948,
+    "matching_code_bytes": 422188,
     "total_executable_code_bytes": 1414572,
-    "percent": 29.828669024977167,
+    "percent": 29.84563528756401,
     "categories": {
-      "reconstructed_game": 205544,
+      "reconstructed_game": 205784,
       "restored_library": 216404
     },
-    "matching_functions": 2588
+    "matching_functions": 2590
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -331,7 +331,7 @@
     "config/GMFE69/file_io.json": "1f7376a3e1cbacd1b77840e0eae4b3069ae28a805f71eb751ebf19dcd296e710",
     "config/GMFE69/filedev.json": "345d10da83f1a2011e5fc4b9278fee1b53e1cdef4497f8fe2b0ee38ca1bafa48",
     "config/GMFE69/filesys.json": "44b6dc891dbe5026fb75d626e4ab6648c303868b80655aa336dfdd5b4bb5f062",
-    "config/GMFE69/filesys_ea.json": "7e51193ccc1025e6b9df34deeefd419cca59531cfd901b40537150b9c41b623c",
+    "config/GMFE69/filesys_ea.json": "6c9437cdcd8ea45c64bf7a265021f7325befb7f967f2ed9fe86fdb61e42d4f4f",
     "config/GMFE69/flush_cache.json": "aa1c08f24f7fa7ce6bf2cfa32e6ae398b7b93fea2374de2a6120d5e28e6b9578",
     "config/GMFE69/font.json": "192da369bd9089ea5ff935965a96644b66682a28b77c07194c7d7bc62b3539e8",
     "config/GMFE69/font_draw.json": "5b076cf5e79a45b55f122dfb0500689760f73b90a131276a81a1303bcfe7b4af",
@@ -1426,7 +1426,7 @@
     "src/ea/eaxadecf.cpp": "0f0479301f8ee5e4c8dd76563e3baae9003cbc9503e21289a559dd3161583ccf",
     "src/ea/exit.cpp": "74497f5488a200cd082a1769249e659f5cd17b94ee5c7e6b2b4f3b240c9f1923",
     "src/ea/filedev.cpp": "cb36b6354374cee49383e978a2f329ab48bddca0107bf61a0453c99ecec7735d",
-    "src/ea/filesys.cpp": "cbbf8dcd3112f12c1c6ba6bb2a12e9e9d004091f3ad04ccfbf55359de9a45082",
+    "src/ea/filesys.cpp": "9970b89ad5d36f5ba61fe7bbe2e3ee59696bacc3e58bb95411f1aebb20e8b61c",
     "src/ea/fontchar.cpp": "2980d56dfbdbbeb46cba293f7c2397b7518079ba32d510118510c9301ee15a47",
     "src/ea/fontcreate.cpp": "fb846d119db1a373f03387cc09f0db8bf0c80ede2c1efb305914580be2630def",
     "src/ea/fontdraw.cpp": "826e9521b3c59636290dfd296e7edae46f9913564297b00dbd4614019c913e04",
@@ -21056,8 +21056,8 @@
     {
       "id": "filesys_ea",
       "category": "reconstructed_game",
-      "functions": 6,
-      "code_bytes": 708,
+      "functions": 8,
+      "code_bytes": 948,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -21089,8 +21089,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "b1bc55c4ab08fe72ac421a15366385b07cd0008357eedd648085dafd348c2792",
-      "linked_sha256": "dfcfb5918b93e10c1f597f686f768f046cb622429ba91119c146f79c84990277"
+      "object_sha256": "f5d0d1163eb272c77ac98d864d10f4201740dfc715d5ced658ec1bb815ff0dae",
+      "linked_sha256": "13c824cf5d70e39603c148c9e222343eca554899cf9fe8a62511f668a5207457"
     },
     {
       "id": "dmcluster",
@@ -45388,20 +45388,6 @@
         "file_record": 364,
         "file_name": "filesys.cpp",
         "ranges": [
-          {
-            "address": "0x801485b0",
-            "size": 116,
-            "kind": "function",
-            "name": "FILESYS_opstatus",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80148624",
-            "size": 124,
-            "kind": "function",
-            "name": "FILESYS_callbackop",
-            "evidence": "between-same-file"
-          },
           {
             "address": "0x801486a0",
             "size": 324,
