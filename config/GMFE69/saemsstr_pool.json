@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x801578e0",
-      "size": 2332,
+      "size": 3364,
       "type": 1
     },
     {
@@ -53,6 +53,12 @@
       "name": "SNDAEMS_streamrestore",
       "address": "0x801578e0",
       "size": 228,
+      "binding": 1
+    },
+    {
+      "name": "SNDAEMSI_streamsystemtask__Fv",
+      "address": "0x801581fc",
+      "size": 336,
       "binding": 1
     },
     {
@@ -74,6 +80,12 @@
       "binding": 1
     },
     {
+      "name": "SNDAEMSI_streamupdateattributes__FP21AEMSCOMPDYNAMICPLAYER",
+      "address": "0x8015834c",
+      "size": 696,
+      "binding": 1
+    },
+    {
       "name": "SNDAEMSI_updateplayerstream__FP21AEMSCOMPDYNAMICPLAYER",
       "address": "0x80157d94",
       "size": 1128,
@@ -81,8 +93,6 @@
     }
   ],
   "externals": {
-    "SNDAEMSI_streamsystemtask__Fv": "0x801581fc",
-    "SNDAEMSI_streamupdateattributes__FP21AEMSCOMPDYNAMICPLAYER": "0x8015834c",
     "SNDMEMI_free__FPv": "0x80158ff0",
     "SNDSTRM_3dpos": "0x8015c6c4",
     "SNDSTRM_destroy": "0x8015bef4",
@@ -92,11 +102,14 @@
     "SNDSTRM_lowpass": "0x8015c828",
     "SNDSTRM_pitchmult": "0x8015c728",
     "SNDSTRM_purge": "0x8015c028",
+    "SNDSTRM_queuefile": "0x8015c004",
     "SNDSTRM_requeststatus": "0x8015c37c",
     "SNDSTRM_timemult": "0x8015c8c8",
     "SNDSTRM_vol": "0x8015c5b0",
     "SNDSYS_entercritical": "0x80153554",
     "SNDSYS_leavecritical": "0x80153588",
+    "_restgpr_25": "0x80138a54",
+    "_savegpr_25": "0x80138a08",
     "iSNDserverremoveclient__FPFv_v": "0x80153110",
     "sndaems": "0x80340410"
   },

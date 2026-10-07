@@ -8,7 +8,11 @@
    request has finished; SNDAEMSI_updateplayerstream starts a stream request
    for the player's sound on a rising play input (or releases the stream on
    stop) and applies the clamped pitch, volume, position, effect, filter,
-   time and dry inputs. SNDAEMS_streaminit before
+   time and dry inputs; SNDAEMSI_streamsystemtask queues each pending request
+   (and its loop section) on its stream outside the critical section, checking
+   that the player still owns the stream afterwards; and
+   SNDAEMSI_streamupdateattributes applies the inputs that changed.
+   SNDAEMS_streaminit before
    them, which divides caller memory between the streams, is not part of the
    unit. AEMSSTREAMSTATUS and AEMSCOMPDYNAMICPLAYER are named by the mangled
    symbols; their members and the stream pool view are inferred. */
@@ -132,6 +136,7 @@ void SNDSTRM_lowpass(int, int);
 void SNDSTRM_highpass(int, int);
 void SNDSTRM_timemult(int, int);
 void SNDSTRM_drylevel(int, int);
+int SNDSTRM_queuefile(int, int, int, int);
 }
 void SNDMEMI_free(void*);
 void iSNDserverremoveclient(void (*)());
@@ -376,4 +381,90 @@ void SNDAEMSI_updateplayerstream(AEMSCOMPDYNAMICPLAYER* player) {
     }
     if (player->playing == 1 && player->stream > -1)
         SNDAEMSI_streamupdateattributes(player);
+}
+
+void SNDAEMSI_streamsystemtask() {
+    int i;
+
+    if (!sndaems.streams)
+        return;
+    SNDSYS_entercritical();
+    for (i = 0; i < sndaems.streams->count; i++) {
+        AEMSSTREAMSTATUS* status = sndaems.streams->statuses[i];
+
+        if (status->request.state != 0 && status->request.state != 3) {
+            AEMSCOMPDYNAMICPLAYER* player = status->request.player;
+            int handle;
+            int queued;
+
+            status->player = player;
+            queued = player->handle;
+            SNDSYS_leavecritical();
+            handle = SNDSTRM_queuefile(player->stream, status->request.id, status->request.file, status->request.start);
+            SNDSYS_entercritical();
+            if (player != status->player)
+                continue;
+            if (status->request.loop > -1) {
+                queued = handle;
+                SNDSYS_leavecritical();
+                handle = SNDSTRM_queuefile(player->stream, status->request.id, status->request.file, status->request.loop);
+                SNDSYS_entercritical();
+                if (player != status->player)
+                    continue;
+                status->request.start = status->request.loop;
+                status->request.loop = -1;
+            }
+            player->handle = handle;
+            player->queued = queued;
+            if (status->request.state == 2)
+                status->request.state = 3;
+            else
+                status->request.state = 0;
+            player->out = 1;
+            player->unknown14 = 0x7FFFFFFF;
+            player->unknown18 = 0;
+        }
+    }
+    SNDSYS_leavecritical();
+}
+
+void SNDAEMSI_streamupdateattributes(AEMSCOMPDYNAMICPLAYER* player) {
+    AEMSPLAYERDEFVIEW* def = (AEMSPLAYERDEFVIEW*)player->def;
+
+    SNDAEMSI_streamupdatestatus(player);
+    if (player->stream == -1)
+        return;
+    if (player->in[0] != player->pitch) {
+        player->pitch = AEMS_CLAMP(player->in[0], 0, 0xFFFF);
+        SNDSTRM_pitchmult(player->stream, player->pitch);
+    }
+    if (player->in[2] != player->volume) {
+        player->volume = AEMS_CLAMP(player->in[2], 0, 32767);
+        SNDSTRM_vol(player->stream, player->volume >> 8);
+    }
+    if (player->in[3] != player->azimuth || player->in[4] != player->elevation) {
+        player->azimuth = player->in[3];
+        player->elevation = AEMS_CLAMP(player->in[4], -16384, 16384);
+        SNDSTRM_3dpos(player->stream, player->azimuth, player->elevation);
+    }
+    if (player->in[5] != player->fx) {
+        player->fx = AEMS_CLAMP(player->in[5], 0, 32767);
+        SNDSTRM_fxlevel(player->stream, 0, player->fx >> 8);
+    }
+    if (player->in[8] != player->lowpass) {
+        player->lowpass = AEMS_CLAMP(player->in[8], 0, 0xFFFF);
+        SNDSTRM_lowpass(player->stream, player->lowpass);
+    }
+    if (player->in[9] != player->highpass) {
+        player->highpass = AEMS_CLAMP(player->in[9], 0, 0xFFFF);
+        SNDSTRM_highpass(player->stream, player->highpass);
+    }
+    if (player->in[1] != player->time) {
+        player->time = AEMS_CLAMP(player->in[1], 0, 0xFFFF);
+        SNDSTRM_timemult(player->stream, player->time);
+    }
+    if (def->bank->version >= 9 && player->in[10] != player->dry) {
+        player->dry = AEMS_CLAMP(player->in[10], 0, 32767);
+        SNDSTRM_drylevel(player->stream, (signed char)(player->dry >> 8));
+    }
 }
