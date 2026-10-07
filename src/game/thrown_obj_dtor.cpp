@@ -5,8 +5,10 @@
 // OnCollision first so this file does not emit its vtable. BSGO_Basic keeps
 // its three words before its vtable pointer, as the constructors store them;
 // its first virtual entry is a placeholder. The members are inferred from
-// offsets (the mesh-constructor that sets the orientation reads constants
-// pooled with the rest of the file and is not part of these fragments).
+// offsets. The mesh constructor follows the destructor: the static object
+// built from the mesh, the definition stored, the flags cleared and the
+// orientation set to the identity (its constants are entries of the file's
+// .sdata2 pool).
 class CCollision;
 class CStaticMesh;
 struct LevelFileContentsStruct_;
@@ -88,4 +90,16 @@ public:
 };
 
 CThrownObject::~CThrownObject() {
+}
+
+CThrownObject::CThrownObject(CStaticMesh* mesh, int a, int b, int c, int d, int e, CStaticObject::MotionFrame* frames,
+                             LevelFileContentsStruct_* definition)
+    : CStaticObject(mesh, a, b, c, d, e, frames) {
+    m_definition = definition;
+    deleted = 0;
+    markedForDestruction = 0;
+    m_orientationY = 0.0f;
+    m_orientationZ = 0.0f;
+    m_orientationW = 0.0f;
+    m_orientationX = 1.0f;
 }
