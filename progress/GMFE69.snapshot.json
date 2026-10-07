@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 405112,
+    "matching_code_bytes": 406728,
     "total_executable_code_bytes": 1414572,
-    "percent": 28.638485704509915,
+    "percent": 28.752725205928012,
     "categories": {
-      "reconstructed_game": 128808,
+      "reconstructed_game": 130424,
       "restored_library": 276304
     },
-    "matching_functions": 2518
+    "matching_functions": 2519
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -265,7 +265,7 @@
     "config/GMFE69/bullet_rows.json": "d2da7985a64af7ee40f71f59a1522e765ad247016d67640dc5667b96a36fc254",
     "config/GMFE69/bulletfactory.json": "d5681576011cf8586569a65fdaa27b8149000509d5401766546e9c9fea821227",
     "config/GMFE69/bulletfactory_init.json": "95364ca24eaf8d42ac2a150ceaac3ef4bc82344f196150364c9d1a8a995cbf86",
-    "config/GMFE69/bulletfactory_sprites.json": "768ace5b15f0754c91c21183df553a6c1a589ce1535b46f1eab62343df103c28",
+    "config/GMFE69/bulletfactory_sprites.json": "ae311cccd0ef2fe2fcf7da4dc35b195c719409e68b70d0b9fb677f9e129d2722",
     "config/GMFE69/camera_rows.json": "d795a8bf509e2f625d002ab8269d584cb2a889ba72f63569bebde227edb6b428",
     "config/GMFE69/capsule_dispatch.json": "bd28cd2ba126eea2466163c48f3877ee562fe38ee8ac69f116f8f1598cf94ff5",
     "config/GMFE69/capsule_dispatch2.json": "6a7c69fcd40a0075594fcc39258c7255f0641f23a6fae4d5b3caf59228365da0",
@@ -1726,7 +1726,7 @@
     "src/game/bullet_rows.cpp": "61a2169543f0cd466b957ceddfb3f97973bfa5e73bf310829732a37229a1f0a2",
     "src/game/bulletfactory.cpp": "d6ee2336a34566955cb6050fa4d9fe885b64ee577b00c606ce91fbd748bc3f4a",
     "src/game/bulletfactory_init.cpp": "0ebf18ed93f90155ea51cb32053bf74d60a670c1688dd9c97e0b52ac45080c09",
-    "src/game/bulletfactory_sprites.cpp": "e2174ea40d6c574fbc49748eb3462852b6925330c5b7950c1e98417fbb0cdfac",
+    "src/game/bulletfactory_sprites.cpp": "b9f54fc574513bbe0ca4b8adf5d9f1a60975f2ad5ffc6f9744650d11e41e4993",
     "src/game/camera_rows.cpp": "ad6da75e4f2269b17a88cd8f54e5e65003cd57b25bb284dce60bf13894115962",
     "src/game/capsule_dispatch.cpp": "8e22f3ac4fd707a45c49a10d1b265abfa71ac1ca61c991807b38b9439b4a2baa",
     "src/game/capsule_dispatch2.cpp": "6059fab262cc1517dd2b31f1b59ddf0df000b3728d91a7993daaffd5bd960393",
@@ -28113,8 +28113,8 @@
     {
       "id": "bulletfactory_sprites",
       "category": "reconstructed_game",
-      "functions": 3,
-      "code_bytes": 948,
+      "functions": 4,
+      "code_bytes": 2564,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -28146,8 +28146,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "d79e00adf65e2e9110b8a3abe4b45265d48188ee433a102af8311d51cb18728d",
-      "linked_sha256": "3198698fabbd2c734b87ef8429235868a0b90cd00ad960c290f64d33cf239088"
+      "object_sha256": "d7a19083335835f0b73e1b3b7aeb9c02bd60bea2b3b61104c366d7f1479d6d35",
+      "linked_sha256": "af61fb4d48cbef8268ea8de161993e96c7b009f0eb76674b38f1bc718b4832d8"
     }
   ],
   "code_map": {
@@ -40237,13 +40237,6 @@
         "file_record": 136,
         "file_name": "bulletfactory.cpp",
         "ranges": [
-          {
-            "address": "0x800cd15c",
-            "size": 1616,
-            "kind": "function",
-            "name": "LoadBulletParameters__14CBulletFactoryFv",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x800cd84c",
             "size": 156,

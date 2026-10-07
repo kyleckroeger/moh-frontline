@@ -40,19 +40,25 @@
     {
       "name": ".text",
       "address": "0x800ccda8",
-      "size": 948,
+      "size": 2564,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000e328",
-      "size": 48,
+      "size": 56,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80015140",
-      "size": 24,
+      "size": 36,
+      "type": 1
+    },
+    {
+      "name": ".rodata",
+      "address": "0x80177ce0",
+      "size": 46,
       "type": 1
     }
   ],
@@ -74,12 +80,27 @@
       "address": "0x800ccf68",
       "size": 500,
       "binding": 1
+    },
+    {
+      "name": "LoadBulletParameters__14CBulletFactoryFv",
+      "address": "0x800cd15c",
+      "size": 1616,
+      "binding": 1
     }
   ],
   "externals": {
     "DWI_alloc__FPCcii": "0x8001c974",
+    "DebugMsg__FPCce": "0x80018c88",
+    "Get_currentDifficulty__10CShellMenuFv": "0x800e6ec4",
+    "TLT_CloseFile__FPv": "0x8001d820",
+    "TLT_FindNextResourceByType__F13TLTResourceIDP24LevelFileContentsStruct_": "0x8001d910",
+    "TLT_LoadFileFromLevelBigFile__FPCcPi": "0x8001dcb4",
     "__ct__7CSpriteFPCcQ27CSprite15ESpriteLoadType15ERenderPriority": "0x80082648",
     "__dl__FPv": "0x8001ca2c",
+    "__nwa__FUl": "0x8001cae8",
+    "g_Shell": "0x80195090",
+    "g_bInMultiplayerMode": "0x8034eca5",
+    "memcpy": "0x800094f8",
     "strcmp": "0x8013fed4"
   },
   "undefined_in_discarded_code": [],
@@ -87,7 +108,9 @@
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": [],
+  "sda_externals": [
+    "g_bInMultiplayerMode"
+  ],
   "original_file": "bulletfactory.cpp",
   "original_file_index": 7891
 }
