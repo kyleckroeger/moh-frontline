@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 457888,
+    "matching_code_bytes": 458040,
     "total_executable_code_bytes": 1414572,
-    "percent": 32.36936684735736,
+    "percent": 32.3801121469957,
     "categories": {
-      "reconstructed_game": 241484,
+      "reconstructed_game": 241636,
       "restored_library": 216404
     },
-    "matching_functions": 2729
+    "matching_functions": 2730
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -440,7 +440,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "cfecd3aa0a5a4c589bb862021cb9623029a6d5e260c63567579732faeb6679ef",
+    "config/GMFE69/project.json": "ae287b8d3956a1b7e81c97001dc8602fc1f63de55c577e9b563c63fd10ad65c5",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "bd4b85e3a27ac50301d2ad04642bca1abf864b5f74397505530539b31bf4c0d1",
@@ -531,6 +531,7 @@
     "config/GMFE69/sfxlevel.json": "d9983bfc694a5b63484e800e9bcc4eaf39b354abc5d3605cc89b1b6959048ea3",
     "config/GMFE69/sfxrev.json": "8ad871503b98219e95bf063090f5a0ac46894bfe8f07ec0759411d3e654a68c4",
     "config/GMFE69/sfxrevc.json": "875bb2a2447637612393f32550a2e6cb36c2f6a8bc484f3f187e4a1e45e4f963",
+    "config/GMFE69/sfxrevc_prime.json": "c4b23eea24f4e9df4df43957ee1fd4c00c32385b382cc226b99ac0db28eb990a",
     "config/GMFE69/sgetdata.json": "a28a08c3d3d8be7272dabffc0a2720543b091881baff0e1c7988c82978e4918a",
     "config/GMFE69/sgetpvol.json": "ee69cb8b807ef51113d974130ba2eeed9be612d7b0e7f42078fdaf455158f022",
     "config/GMFE69/sgettag.json": "73b507f500d3409b0fbef821e9d07368ad18c50f36d76bd48f453f8c4c994f77",
@@ -1561,6 +1562,7 @@
     "src/ea/sfxlevel.c": "d5cc428d31c9b52511b7f1d89cc4f71b91b5d211dd371c967a25db2c13e3d5cf",
     "src/ea/sfxrev.c": "caaf966f65acfa80284e06a6250db58dc8d251791d6199b80bd1aa25cdd563bb",
     "src/ea/sfxrevc.c": "c6a9d231f7b6ccad82cf23f58720c21f9006fbaa7412cc4fc6e7fa3120b5a0d3",
+    "src/ea/sfxrevc_prime.c": "4fdab1c36bf4066145e0f4c33e379def9f5d7e94ea1115a1a4eda4134cb5f7ba",
     "src/ea/sgetdata.c": "096ddd2dc98110c34425bdb3de01ab682d37bd2e9742004166afaa1627ae5f89",
     "src/ea/sgetpvol.c": "01014858d4c5a5b4d701b63b2de5fe2371ec80bc3743918050253bb49a21382e",
     "src/ea/sgettag.c": "87aac6e484c3dad29d22f0042085ddcd0cdc61b350f4cc33646fb8e706143860",
@@ -30253,6 +30255,45 @@
       "discarded_functions": [],
       "object_sha256": "f1e170f35dd991b606a8888517ff36c0286424b7b5ae884dc61b481afcd5c125",
       "linked_sha256": "c2155d050ecbce91e4097860cd4ff754acbf267cad2007a99e74a214d9318191"
+    },
+    {
+      "id": "sfxrevc_prime",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 152,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "6b18470cfefa6eac25e40e47bb97273f5511282d0512ae4a1d63a4a728ff9ee1",
+      "linked_sha256": "186120926f6c9d21b834fded62deb7f834acd62a8a2075d1adae5caec9f425c9"
     }
   ],
   "code_map": {
@@ -47513,13 +47554,6 @@
             "size": 772,
             "kind": "function",
             "name": "SNDMIXI_initfx2__FiP15MIXFXFILTHEADER",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80168300",
-            "size": 152,
-            "kind": "function",
-            "name": "findprime__Fii",
             "evidence": "between-same-file"
           },
           {

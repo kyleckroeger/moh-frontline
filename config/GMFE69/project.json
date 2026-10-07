@@ -668,7 +668,8 @@
     "smixer_dry.json",
     "saramman_free.json",
     "smixer_destroy.json",
-    "smixer_stop.json"
+    "smixer_stop.json",
+    "sfxrevc_prime.json"
   ],
   "progress": {
     "code_bytes": 1414572,
