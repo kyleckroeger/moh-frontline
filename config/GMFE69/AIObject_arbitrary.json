@@ -1,0 +1,92 @@
+{
+  "id": "AIObject_arbitrary",
+  "source": "src/game/AIObject_arbitrary.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80049fd4",
+      "size": 280,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000a754",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800118ac",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "StartWalkToArbitraryPoint__9CAIObjectFR21CAIFilterRealPosition",
+      "address": "0x80049fd4",
+      "size": 260,
+      "binding": 1
+    },
+    {
+      "name": "SetMoveTarget__15CAIFilterObjectFRC21CAIFilterRealPosition",
+      "address": "0x8004a0d8",
+      "size": 4,
+      "binding": 2
+    },
+    {
+      "name": "SetupArbitraryPointUpdate__9CAIObjectF14EMovePointTypeP23BS_STRUCT_Vector_structf",
+      "address": "0x8004a0dc",
+      "size": 16,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "GetDistanceSquaredXYZReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition": "0x8005a6f4",
+    "RemoveElement__11CLinkedListFP18CLinkedListElement": "0x800535a0",
+    "__dt__11CSearchNodeFv": "0x80056210"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "AIObject.cpp",
+  "original_file_index": 1752
+}
