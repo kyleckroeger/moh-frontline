@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800a0050",
-      "size": 180,
+      "size": 280,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000ce2c",
-      "size": 40,
+      "size": 48,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80013f94",
-      "size": 60,
+      "size": 72,
       "type": 1
     }
   ],
@@ -86,10 +86,29 @@
       "address": "0x800a00e0",
       "size": 36,
       "binding": 1
+    },
+    {
+      "name": "Yaw__13CPlayerObjectFf",
+      "address": "0x800a0104",
+      "size": 80,
+      "binding": 1
+    },
+    {
+      "name": "Roll__13CPlayerObjectFf",
+      "address": "0x800a0154",
+      "size": 4,
+      "binding": 1
+    },
+    {
+      "name": "Pitch__13CPlayerObjectFf",
+      "address": "0x800a0158",
+      "size": 16,
+      "binding": 1
     }
   ],
   "externals": {
-    "Orthonormalize__7CMatrixFv": "0x8008f1e8"
+    "Orthonormalize__7CMatrixFv": "0x8008f1e8",
+    "RotateZ__7CMatrixFf": "0x80090194"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
