@@ -39,8 +39,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800ee164",
-      "size": 1600,
+      "address": "0x800ede84",
+      "size": 2336,
       "type": 1
     },
     {
@@ -51,14 +51,14 @@
     },
     {
       "name": "extab",
-      "address": "0x8000f528",
-      "size": 32,
+      "address": "0x8000f520",
+      "size": 40,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x800160b8",
-      "size": 48,
+      "address": "0x800160ac",
+      "size": 60,
       "type": 1
     },
     {
@@ -80,6 +80,18 @@
       "address": "0x800ee768",
       "size": 60,
       "binding": 0
+    },
+    {
+      "name": "GetSoundEvent__11CSoundTableCFiPQ211CSoundTable11SSoundParms",
+      "address": "0x800ede84",
+      "size": 244,
+      "binding": 1
+    },
+    {
+      "name": "GetSoundEvent__11CSoundTableCFiiiPQ211CSoundTable11SSoundParms",
+      "address": "0x800edf78",
+      "size": 492,
+      "binding": 1
     },
     {
       "name": "EndianSwap__11CSoundTableFv",

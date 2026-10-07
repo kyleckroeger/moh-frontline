@@ -1,10 +1,13 @@
-// CSoundTable: Init (loads the event and animation tables named by the level's
-// resource 12, converts their byte order and relocates their record pointers),
-// EndianSwap, the destructor (closes the table through the file layer) and the
-// global singleton. The byte-order helpers are the inlined ones described in
-// propdat.cpp (inferred). CSoundTable and its nested types are named by the
-// mangled symbols; members and record layouts are inferred and are not
-// original.
+// CSoundTable: the two GetSoundEvent lookups (a binary search of the
+// animation table by id, and of the key table by three values, retried with a
+// looser key comparison up to three times), Init (loads the event and
+// animation tables named by the level's resource 12, converts their byte
+// order and relocates their record pointers), EndianSwap, the destructor
+// (closes the table through the file layer) and the global singleton. The
+// byte-order helpers are the inlined ones described in propdat.cpp
+// (inferred). CSoundTable and its nested types are named by the mangled
+// symbols; members, record layouts, the key comparison and the parameter
+// copy are inferred and are not original.
 void TLT_CloseFile(void*);
 
 enum TLTResourceID {};
@@ -77,22 +80,29 @@ public:
             ChangeEndian(m_values[4]);
         }
 
-        unsigned char unknown00[4];
+        SSoundParms& operator=(const SSoundParms& other) {
+            m_bytes[0] = other.m_bytes[0];
+            m_bytes[1] = other.m_bytes[1];
+            m_bytes[2] = other.m_bytes[2];
+            m_values[0] = other.m_values[0];
+            m_values[1] = other.m_values[1];
+            m_values[2] = other.m_values[2];
+            m_values[3] = other.m_values[3];
+            m_values[4] = other.m_values[4];
+            return *this;
+        }
+
+        char m_bytes[3];
         short m_values[5];
     };
     struct SAnimEntry {
         void EndianSwap() {
-            ChangeEndian(m_value0);
-            ChangeEndian(m_values[0]);
-            ChangeEndian(m_values[1]);
-            ChangeEndian(m_values[2]);
-            ChangeEndian(m_values[3]);
-            ChangeEndian(m_values[4]);
+            ChangeEndian(m_id);
+            m_parms.EndianSwap();
         }
 
-        short m_value0;
-        unsigned char unknown02[4];
-        short m_values[5];
+        short m_id;
+        SSoundParms m_parms;
     };
 
     // Inferred views of the two loaded headers.
@@ -110,12 +120,89 @@ public:
 
     CSoundTable() : m_file(0) {}
     ~CSoundTable();
+    bool GetSoundEvent(int, SSoundParms*) const;
+    bool GetSoundEvent(int, int, int, SSoundParms*) const;
     void Init(int, int);
     void EndianSwap();
 
     FileView* m_file;
     DataView* m_data;
 };
+
+// Orders keys by their first and third values, then (on the first attempt, or
+// on the second unless the entry's second value is the wildcard -1) by the
+// second (inferred helper).
+static inline int CompareKeys(CSoundTable::SKey entry, CSoundTable::SKey key, int attempt) {
+    if (entry.m_values[0] < key.m_values[0])
+        return -1;
+    if (key.m_values[0] < entry.m_values[0])
+        return 1;
+    if (entry.m_values[2] < key.m_values[2])
+        return -1;
+    if (key.m_values[2] < entry.m_values[2])
+        return 1;
+    if (attempt <= 1 && (attempt <= 0 || entry.m_values[1] != -1)) {
+        if (entry.m_values[1] < key.m_values[1])
+            return -1;
+        if (key.m_values[1] < entry.m_values[1])
+            return 1;
+    }
+    return 0;
+}
+
+bool CSoundTable::GetSoundEvent(int id, SSoundParms* parms) const {
+    if (m_data) {
+        short low = 0;
+        short high = m_data->m_counts[2] - 1;
+        short mid = 0;
+        while (low <= high) {
+            mid = (low + high) / 2;
+            int difference = m_data->m_entries[mid].m_id - id;
+            if (difference < 0)
+                low = mid + 1;
+            else if (difference > 0)
+                high = mid - 1;
+            else
+                break;
+        }
+        if (low <= high) {
+            *parms = m_data->m_entries[mid].m_parms;
+            return true;
+        }
+    }
+    return false;
+}
+
+bool CSoundTable::GetSoundEvent(int a, int b, int c, SSoundParms* parms) const {
+    if (m_file) {
+        SKey key;
+        key.m_values[0] = a;
+        key.m_values[1] = b;
+        key.m_values[2] = c;
+        for (int attempt = 0; attempt < 3; attempt++) {
+            short low = 0;
+            short mid = 0;
+            short high = m_file->m_counts[3] - 1;
+            while (low <= high) {
+                mid = (low + high) / 2;
+                int order = CompareKeys(m_file->m_keys[mid], key, attempt);
+                if (order < 0)
+                    low = mid + 1;
+                else if (order > 0)
+                    high = mid - 1;
+                else
+                    break;
+            }
+            if (low <= high) {
+                const SKey& found = m_file->m_keys[mid];
+                key.m_values[3] = found.m_values[3];
+                *parms = m_file->m_parms[key.m_values[3]];
+                return true;
+            }
+        }
+    }
+    return false;
+}
 
 void CSoundTable::Init(int, int) {
     LevelResourceView* resource = TLT_FindNextResourceByType((TLTResourceID)12, 0);
@@ -160,9 +247,8 @@ void CSoundTable::EndianSwap() {
     }
 }
 
-// The event lookups come first in the original file and are not part of this
-// unit. Init's offsetPtr instantiations are emitted after the destructor, weak
-// as in the image.
+// Init's offsetPtr instantiations are emitted after the destructor, weak as in
+// the image.
 
 CSoundTable::~CSoundTable() {
     TLT_CloseFile(m_file);
