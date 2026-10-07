@@ -12,7 +12,8 @@
 // already finished. Operation handles carry a serial in the high half and the
 // record slot in the low byte (an inferred union); the status is volatile
 // (it is reloaded around the depth update) and the validity check is an
-// inferred inline helper that takes the handle by value.
+// inferred inline helper that takes the handle by value; so is opptr, which
+// finds an operation's record from the handle's memory.
 // Then the operation queue: FILESYS_priorityop re-sorts a queued operation by
 // its new priority, FILESYS_cancelop flags the active operation (stopping a
 // read) or unlinks a queued one and reports -1 to its callback,
@@ -27,7 +28,9 @@
 // file's header read: it grows the header buffer to the size the header
 // reports and reads the rest (FILESYS_read and FILESYS_callbackop are inlined
 // here, FILESYS_completeop is not), or links the loaded file on the device
-// and runs the pending add operation.
+// and runs the pending add operation. iFILE_addbigopencallback starts that
+// header read (up to 2048 bytes) once the big file is open, or fails the
+// pending add operation with error 4.
 // FILEOPERATION_def and HANDLE_def are named by the mangled helper symbols;
 // their members are inferred from offsets (the handle's name ends at +260,
 // where its size is kept). This unit is built with GC 1.3: GC 1.3.2 inlines
@@ -210,6 +213,10 @@ static inline FILEOPERATION_def* getop(int op) {
     return &gFileDevice.ops[id.parts.slot];
 }
 
+static inline FILEOPERATION_def* opptr(FILEOPID* id) {
+    return &gFileDevice.ops[id->parts.slot];
+}
+
 static inline bool validop(FILEOPID id) {
     bool valid = false;
 
@@ -275,7 +282,7 @@ extern "C" void FILESYS_cancelop(int op) {
 
     OSLockMutex(&FileMutex);
     if (validop(*(FILEOPID*)&op) && ((FILEOPID*)&op)->parts.unknown2 != 3 && ((FILEOPID*)&op)->parts.unknown2 != 10) {
-        FILEOPERATION_def* record = &gFileDevice.ops[((FILEOPID*)&op)->parts.slot];
+        FILEOPERATION_def* record = opptr((FILEOPID*)&op);
         FILEOPERATION_def* prev;
         FILEOPERATION_def* entry;
 
@@ -309,7 +316,7 @@ extern "C" void FILESYS_cancelop(int op) {
 }
 
 extern "C" int FILESYS_waitop(int op) {
-    FILEOPERATION_def* record = &gFileDevice.ops[((FILEOPID*)&op)->parts.slot];
+    FILEOPERATION_def* record = opptr((FILEOPID*)&op);
 
     if (!validop(*(FILEOPID*)&op))
         return -3;
@@ -459,7 +466,7 @@ extern "C" int FILESYS_size(int handle, int priority, void* callbackData) {
 
 void iFILE_addbigreadcallback(int op, int, void* data) {
     BIGFILEVIEW* big = (BIGFILEVIEW*)data;
-    FILEOPERATION_def* record = &gFileDevice.ops[((FILEOPID*)&op)->parts.slot];
+    FILEOPERATION_def* record = opptr((FILEOPID*)&op);
     int priority = record->priority;
     HANDLE_def* handle = record->handle;
     int size;
@@ -488,5 +495,20 @@ void iFILE_addbigreadcallback(int op, int, void* data) {
         big->next = gFileDevice.links;
         gFileDevice.links = big;
         iFILE_ExecCommand(big->op);
+    }
+}
+
+void iFILE_addbigopencallback(int op, int status, void* data) {
+    BIGFILEVIEW* big = (BIGFILEVIEW*)data;
+    FILEOPERATION_def* record = opptr((FILEOPID*)&op);
+    int priority = record->priority;
+    int handle = FILESYS_completeop(op);
+
+    if (status != 1) {
+        big->op->error = 4;
+        iFILE_ExecCommand(big->op);
+    } else {
+        op = FILESYS_read(handle, 0, big->buffer, 2048, priority, big);
+        FILESYS_callbackop(op, iFILE_addbigreadcallback);
     }
 }
