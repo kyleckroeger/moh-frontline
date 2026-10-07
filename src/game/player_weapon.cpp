@@ -1,36 +1,43 @@
-// A fragment of player.cpp (0x8009ea04): CPlayerObject's falling-damage and
-// climbing states (climbing clears another flag bit), script events
-// (forwarded to the script object when there is one) and SetScript (stores
-// the script and passes it to each of the first 45 weapon objects through
-// CAnimObject's virtual SetScript), its spline-path movement (UpdateMovePath
-// advances the path time, at half the rate for the sample, clamps it to 0 to
-// 1 and ends the path at 1, takes the position from the path, or from the
-// velocity without one, derives the velocity from the move, and when there
-// is a next path faces along it, using the path's derivative when both paths
-// are the same, building the facing matrix from the front, world up and
-// their cross products and storing two of its Euler angles; StopPath clears
-// the on-path flag; MoveOnPath sets it, stores the path and the next one,
-// restarts the time and sets a rate of 1/59.94 (the NTSC field rate) over
-// the speed), its motion and camera shakes, then its current-weapon queries.
-// ShakeCamera adds random offsets to the two angles: a quarter of the camera
-// shake's strength, faded in or out over its time (counting down clears the
-// flag at the end), and a quarter of the motion shake's amount, which steps
-// towards the strength scaled by the squared speed (velocity at +600, full
-// at the speed whose square is 0.0084196). DoMotionShake stores the strength
-// and time, restarts the elapsed time and flags the shake while the strength
-// is positive; StopCameraShake and StartCameraShake take the time's
-// magnitude (counting down or up), store a rate of -1 or 1 per second over
-// it (1 for a zero time) and clear or set the shake flag. Their constants
-// are entries of the file's .sdata2 pool. While the mounted-weapon flag is
-// set the weapon queries read the mounted weapon; otherwise the selected
-// slot's weapon object's weapon, with 0 (or null) when no slot is selected:
-// the reserve and clip ammo counts and the bullet sprite. GetWeaponByCRC
-// returns the weapon object in the slot GetWeaponInfoByCRC finds;
-// GetWeaponInfoByCRC maps a weapon-name CRC to a slot and two ids, reporting
-// unknown CRCs; GetWeapon, GetCurrentWeapon and GetCurrentPlayerWeapon
-// follow. The file name is this project's; the original record is player.cpp
-// and CycleWeapon after these is not reconstructed. The classes and
-// functions are named by the mangled symbols; CAnimObject is a virtual view
+// A fragment of player.cpp (0x8009e814): CPlayerObject's StartGrenadeCook (a
+// cook time of 240 when the current weapon can cook) and FireMyWeapon (adds
+// the current weapon object's two values at +12684 and +12688 to the
+// player's at +1088 and +1092, shapes the power of weapon types 33 and 34 as
+// 220 sin(pi/2 power/255), shoots with the cook time and resets it to -1),
+// its falling-damage and climbing states (climbing clears another flag bit),
+// script events (forwarded to the script object when there is one) and
+// SetScript (stores the script and passes it to each of the first 45 weapon
+// objects through CAnimObject's virtual SetScript), its spline-path movement
+// (UpdateMovePath advances the path time, at half the rate for the sample,
+// clamps it to 0 to 1 and ends the path at 1, takes the position from the
+// path, or from the velocity without one, derives the velocity from the
+// move, and when there is a next path faces along it, using the path's
+// derivative when both paths are the same, building the facing matrix from
+// the front, world up and their cross products and storing two of its Euler
+// angles; StopPath clears the on-path flag; MoveOnPath sets it, stores the
+// path and the next one, restarts the time and sets a rate of 1/59.94 (the
+// NTSC field rate) over the speed), its motion and camera shakes, then its
+// current-weapon queries. ShakeCamera adds random offsets to the two angles:
+// a quarter of the camera shake's strength, faded in or out over its time
+// (counting down clears the flag at the end), and a quarter of the motion
+// shake's amount, which steps towards the strength scaled by the squared
+// speed (velocity at +600, full at the speed whose square is 0.0084196).
+// DoMotionShake stores the strength and time, restarts the elapsed time and
+// flags the shake while the strength is positive; StopCameraShake and
+// StartCameraShake take the time's magnitude (counting down or up), store a
+// rate of -1 or 1 per second over it (1 for a zero time) and clear or set
+// the shake flag. Their constants are entries of the file's .sdata2 pool.
+// While the mounted-weapon flag is set the weapon queries read the mounted
+// weapon; otherwise the selected slot's weapon object's weapon, with 0 (or
+// null) when no slot is selected: the reserve and clip ammo counts and the
+// bullet sprite. GetWeaponByCRC returns the weapon object in the slot
+// GetWeaponInfoByCRC finds; GetWeaponInfoByCRC maps a weapon-name CRC to a
+// slot and two ids, reporting unknown CRCs; GetWeapon, GetCurrentWeapon and
+// GetCurrentPlayerWeapon follow. The file name is this project's; the
+// original record is player.cpp and CycleWeapon after these is not
+// reconstructed. The classes and functions are named by the mangled symbols;
+// the current-weapon lookups they inline are inferred helpers
+// (GetCurrentWeapon and GetCurrentPlayerWeapon are defined later in the
+// file, so they are not what is inlined); CAnimObject is a virtual view
 // whose earlier slots are placeholders and the weapon objects are cast to
 // it; CAISplinePath's inline expansion by segment and the CVector3 helpers
 // are inferred, as is the use of MSL's inline sqrtf; CPlayerObject,
@@ -138,19 +145,28 @@ public:
 
 void DebugMsg(const char*, ...);
 
+enum EWeaponShootType {};
+
 class CWeapon {
 public:
     CSprite* GetBulletSprite() const;
+    bool CanCook() const;
+    void Shoot(EWeaponShootType, float, float);
 
     unsigned char unknown000[644];
     short m_reserveAmmo;
     short m_clipAmmo;
+    unsigned char unknown288[16];
+    int m_type;
 };
 
 class CPlayerWeaponObject {
 public:
     unsigned char unknown0000[12516];
     CWeapon* m_weapon;
+    unsigned char unknown30e8[164];
+    float m_value318c;
+    float m_value3190;
 };
 
 class BSObject;
@@ -248,6 +264,22 @@ public:
     CPlayerWeaponObject* GetWeapon(int) const;
     CWeapon* GetCurrentWeapon() const;
     CPlayerWeaponObject* GetCurrentPlayerWeapon() const;
+    CWeapon* CurrentWeapon() const {
+        if (m_usingMountedWeapon)
+            return m_mountedWeapon;
+        if (m_currentWeapon >= 0)
+            return m_weapons[m_currentWeapon]->m_weapon;
+        return 0;
+    }
+    CPlayerWeaponObject* CurrentPlayerWeapon() const {
+        if (m_usingMountedWeapon)
+            return 0;
+        if (m_currentWeapon >= 0)
+            return m_weapons[m_currentWeapon];
+        return 0;
+    }
+    void StartGrenadeCook();
+    void FireMyWeapon(float);
     void SetFallingDamageState(bool);
     void SetClimbingState(bool);
     void TriggerScriptEvent(int, void*, bool);
@@ -297,11 +329,41 @@ public:
     CAISplinePath* m_nextPath;
     float m_pathTime;
     float m_pathRate;
-    unsigned char unknown410[76];
+    unsigned char unknown410[48];
+    float m_value440;
+    float m_value444;
+    unsigned char unknown448[12];
+    float m_cookTime;
+    unsigned char unknown458[4];
     int m_currentWeapon;
     CPlayerWeaponObject* m_weapons[96];
     CWeapon* m_mountedWeapon;
 };
+
+extern "C" double sin(double);
+
+void CPlayerObject::StartGrenadeCook() {
+    if (CurrentWeapon()->CanCook())
+        m_cookTime = 240.0f;
+}
+
+void CPlayerObject::FireMyWeapon(float power) {
+    if (CurrentPlayerWeapon()) {
+        CPlayerWeaponObject* weapon = CurrentPlayerWeapon();
+        float value3190 = weapon->m_value3190;
+        float value318c = weapon->m_value318c;
+        m_value444 += value3190;
+        m_value440 += value318c;
+    }
+    int type = CurrentWeapon()->m_type;
+    if (type == 33 || type == 34) {
+        if (power < 0.0f)
+            power = 0.0f;
+        power = 220.0f * (float)sin(1.5707964f * (power / 255.0f));
+    }
+    CurrentWeapon()->Shoot((EWeaponShootType)0, power, m_cookTime);
+    m_cookTime = -1.0f;
+}
 
 void CPlayerObject::SetFallingDamageState(bool state) {
     m_fallingDamage = state;

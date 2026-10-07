@@ -39,20 +39,20 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8009ea04",
-      "size": 4584,
+      "address": "0x8009e814",
+      "size": 5080,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000cde4",
-      "size": 56,
+      "address": "0x8000cdd4",
+      "size": 72,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80013f28",
-      "size": 84,
+      "address": "0x80013f10",
+      "size": 108,
       "type": 1
     },
     {
@@ -63,6 +63,18 @@
     }
   ],
   "functions": [
+    {
+      "name": "StartGrenadeCook__13CPlayerObjectFv",
+      "address": "0x8009e814",
+      "size": 116,
+      "binding": 1
+    },
+    {
+      "name": "FireMyWeapon__13CPlayerObjectFf",
+      "address": "0x8009e888",
+      "size": 380,
+      "binding": 1
+    },
     {
       "name": "SetFallingDamageState__13CPlayerObjectFb",
       "address": "0x8009ea04",
@@ -180,6 +192,7 @@
   ],
   "externals": {
     "BSObjectTriggerEvent__FP8BSObjectUsPvP8BSObjectb": "0x8003a46c",
+    "CanCook__7CWeaponCFv": "0x800d4fbc",
     "DebugMsg__FPCce": "0x80018c88",
     "ExpandDerivative__20CAISplinePathSegmentFfR8CVector3": "0x80051ad4",
     "Expand__20CAISplinePathSegmentFfR8CVector3": "0x80051b90",
@@ -189,8 +202,10 @@
     "SetFront__7CMatrixF8CVector3": "0x80090760",
     "SetRight__7CMatrixF8CVector3": "0x8009077c",
     "SetUp__7CMatrixF8CVector3": "0x80090744",
+    "Shoot__7CWeaponF16EWeaponShootTypeff": "0x800d6238",
     "ToEulerXYZ__7CMatrixCFRfRfRf": "0x8008f0b4",
-    "s_ClassInit__7CMatrix": "0x8034eab0"
+    "s_ClassInit__7CMatrix": "0x8034eab0",
+    "sin": "0x80143790"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -210,7 +225,7 @@
       "section": ".sdata2",
       "offset": 0,
       "size": 4,
-      "address": "0x80350558"
+      "address": "0x803505f8"
     },
     {
       "section": ".sdata2",
@@ -222,55 +237,79 @@
       "section": ".sdata2",
       "offset": 8,
       "size": 4,
-      "address": "0x8035053c"
+      "address": "0x80350604"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 12,
+      "size": 4,
+      "address": "0x803505fc"
     },
     {
       "section": ".sdata2",
       "offset": 16,
-      "size": 8,
-      "address": "0x80350548"
+      "size": 4,
+      "address": "0x80350600"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 20,
+      "size": 4,
+      "address": "0x803505e0"
     },
     {
       "section": ".sdata2",
       "offset": 24,
-      "size": 8,
-      "address": "0x80350550"
+      "size": 4,
+      "address": "0x80350558"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 28,
+      "size": 4,
+      "address": "0x8035053c"
     },
     {
       "section": ".sdata2",
       "offset": 32,
       "size": 8,
-      "address": "0x803505f0"
+      "address": "0x80350548"
     },
     {
       "section": ".sdata2",
       "offset": 40,
       "size": 8,
-      "address": "0x803505b0"
+      "address": "0x80350550"
     },
     {
       "section": ".sdata2",
       "offset": 48,
+      "size": 8,
+      "address": "0x803505f0"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 56,
+      "size": 8,
+      "address": "0x803505b0"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 64,
       "size": 4,
       "address": "0x80350564"
     },
     {
       "section": ".sdata2",
-      "offset": 52,
+      "offset": 68,
       "size": 4,
       "address": "0x80350578"
     },
     {
       "section": ".sdata2",
-      "offset": 56,
+      "offset": 72,
       "size": 4,
       "address": "0x80350594"
-    },
-    {
-      "section": ".sdata2",
-      "offset": 60,
-      "size": 4,
-      "address": "0x803505e0"
     }
   ]
 }
