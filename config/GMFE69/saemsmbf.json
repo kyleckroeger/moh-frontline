@@ -37,12 +37,36 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80158ca0",
-      "size": 24,
+      "address": "0x80158864",
+      "size": 1108,
       "type": 1
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034e688",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034f430",
+      "size": 74,
+      "type": 8
     }
   ],
   "functions": [
+    {
+      "name": "SNDAEMSI_almbservice__Fv",
+      "address": "0x80158864",
+      "size": 732,
+      "binding": 1
+    },
+    {
+      "name": "SNDAEMSI_asyncloadmodulebank__FPciPciPviPFi_Pv",
+      "address": "0x80158b40",
+      "size": 352,
+      "binding": 1
+    },
     {
       "name": "SNDAEMS_asyncloadmodulebankdone",
       "address": "0x80158ca0",
@@ -51,7 +75,24 @@
     }
   ],
   "externals": {
-    "sndaems": "0x80340410"
+    "FILESYS_close": "0x80148cd0",
+    "FILESYS_completeop": "0x80148a84",
+    "FILESYS_open": "0x80148c38",
+    "FILESYS_opstatus": "0x801485b0",
+    "FILESYS_read": "0x80148d7c",
+    "SNDAEMSI_resolvemodulebank__FP10MODULEBANKPci": "0x80153b50",
+    "SNDBANK_asyncdone": "0x8015a5f8",
+    "SNDBANK_asyncload": "0x8015a370",
+    "SNDI_memcpy": "0x8016d730",
+    "SNDMEMI_allocz__Fi": "0x80158d64",
+    "SNDMEMI_free__FPv": "0x80158ff0",
+    "SNDSYS_entercritical": "0x80153554",
+    "SNDSYS_leavecritical": "0x80153588",
+    "iSNDserveraddclient__FPFv_v": "0x801530e4",
+    "iSNDserverremoveclient__FPFv_v": "0x80153110",
+    "sndaems": "0x80340410",
+    "strcpy": "0x80140040",
+    "strlen": "0x801400f8"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
