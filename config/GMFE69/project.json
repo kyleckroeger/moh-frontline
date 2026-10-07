@@ -689,7 +689,8 @@
     "ShellMenu_buttons.json",
     "ShellMenu_lastlevel.json",
     "ShellMenu_fade.json",
-    "ShellMenu_shelloff.json"
+    "ShellMenu_shelloff.json",
+    "ShellMenu_dtor.json"
   ],
   "progress": {
     "code_bytes": 1414572,
