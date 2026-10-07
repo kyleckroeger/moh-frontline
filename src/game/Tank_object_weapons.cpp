@@ -1,10 +1,13 @@
-// CTankObject::MapWeaponSlot, AddWeapon and GetLookMatrix (a fragment of
-// Tank_object.cpp): map a sub-object to a weapon slot; create a slot's weapon
-// from its CRC through the weapon factory (the empty-weapon CRC clears the
-// slot), choosing the weapon's mode from its properties; and return the look
-// sub-object's matrix, or the tank's own raised by one unit. The names come from the mangled
-// symbols; the members, the result type and the weapon's fields are inferred
-// from offsets (the factory has its symbol's 28-byte size), and the classes are non-virtual views.
+// CTankObject::FireSubObject, MapWeaponSlot, AddWeapon and GetLookMatrix (a
+// fragment of Tank_object.cpp): fire the weapon mapped to a sub-object from
+// the sub-object's attach point; map a sub-object to a weapon slot; create a
+// slot's weapon from its CRC through the weapon factory (the empty-weapon CRC
+// clears the slot), choosing the weapon's mode from its properties; and
+// return the look sub-object's matrix, or the tank's own raised by one unit.
+// The names come from the mangled symbols; the members, the result type and
+// the weapon's fields (mode, direction, position, flag bit) are inferred from
+// offsets (the factory has its symbol's 28-byte size), and the classes are
+// non-virtual views.
 class ISceneNode;
 
 // Vector view (inferred): an 8-byte aligned three-float member, which gives
@@ -22,19 +25,28 @@ public:
 
 class CMatrix {
 public:
+    CMatrix() {
+        if (!s_ClassInit)
+            InitClass();
+    }
+    static void InitClass();
     CMatrix& operator=(const CMatrix&);
     void SetPos(CVector3);
+    void Multiply(const CMatrix&, const CMatrix&);
+    CVector3 GetFront() const { return forward; }
     CVector3 GetPos() const { return position; }
 
     CVector3 right;
     CVector3 forward;
     CVector3 up;
     CVector3 position;
-};
+    static bool s_ClassInit;
+} __attribute__((aligned(16)));
 
 class CHierObject {
 public:
     CHierObject* GetSubObject(int);
+    void GetAttachPointMatrix(int, CMatrix&);
 
     unsigned char unknown000[64];
     CMatrix m_tm;
@@ -46,12 +58,25 @@ struct WEAPONPROPSVIEW {
     short field0E;
 };
 
+enum EWeaponShootType {};
+
 class CWeapon {
 public:
+    void Shoot(EWeaponShootType, float, float);
+
     unsigned char unknown000[640];
     WEAPONPROPSVIEW* m_properties;
     unsigned char unknown284[16];
     int m_mode;
+    unsigned char unknown298[8];
+    CVector3 m_direction;
+    CVector3 m_position;
+    unsigned char m_flag80 : 1;
+    unsigned char m_flag40 : 1;
+    unsigned char m_flag20 : 1;
+    unsigned char m_flag10 : 1;
+    unsigned char m_flag08 : 1;
+    unsigned char m_fromTank : 1;
 };
 
 class CWeaponFactory {
@@ -65,6 +90,7 @@ extern CWeaponFactory g_WeaponFactory;
 
 class CTankObject : public CHierObject {
 public:
+    void FireSubObject(int);
     void MapWeaponSlot(int, int);
     bool AddWeapon(int, int);
     void GetLookMatrix(CMatrix&);
@@ -75,6 +101,25 @@ public:
     int m_weaponSlot[8];
     CWeapon* m_weapons[8];
 };
+
+void CTankObject::FireSubObject(int subObject) {
+    CMatrix tm;
+    CMatrix attach;
+    CHierObject* sub;
+    int slot = m_weaponSlot[subObject];
+
+    if (slot >= 0 && slot < 3) {
+        sub = GetSubObject(subObject);
+
+        m_weapons[slot]->m_fromTank = 1;
+        tm = sub->m_tm;
+        sub->GetAttachPointMatrix(0xe6e804d5, attach);
+        tm.Multiply(attach, tm);
+        m_weapons[slot]->m_direction = tm.GetFront();
+        m_weapons[slot]->m_position = tm.GetPos();
+        m_weapons[slot]->Shoot((EWeaponShootType)2, 1.0f, -1.0f);
+    }
+}
 
 void CTankObject::MapWeaponSlot(int subObject, int slot) {
     m_weaponSlot[subObject] = slot;
