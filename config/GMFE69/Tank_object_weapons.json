@@ -40,19 +40,25 @@
     {
       "name": ".text",
       "address": "0x800b44ac",
-      "size": 200,
+      "size": 356,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000d69c",
-      "size": 8,
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x8001469c",
-      "size": 12,
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x80350918",
+      "size": 4,
       "type": 1
     }
   ],
@@ -68,10 +74,19 @@
       "address": "0x800b44bc",
       "size": 184,
       "binding": 1
+    },
+    {
+      "name": "GetLookMatrix__11CTankObjectFR7CMatrix",
+      "address": "0x800b4574",
+      "size": 156,
+      "binding": 1
     }
   ],
   "externals": {
     "CreateWeaponByCRC__14CWeaponFactoryFiP10ISceneNodei": "0x800d6cf4",
+    "GetSubObject__11CHierObjectFi": "0x8009bd38",
+    "SetPos__7CMatrixF8CVector3": "0x80090728",
+    "__as__7CMatrixFRC7CMatrix": "0x80090b34",
     "g_WeaponFactory": "0x801dde58"
   },
   "undefined_in_discarded_code": [],

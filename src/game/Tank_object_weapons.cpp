@@ -1,10 +1,44 @@
-// CTankObject::MapWeaponSlot and AddWeapon (a fragment of Tank_object.cpp):
-// map a sub-object to a weapon slot, and create a slot's weapon from its CRC
-// through the weapon factory (the empty-weapon CRC clears the slot), choosing
-// the weapon's mode from its properties. The names come from the mangled
+// CTankObject::MapWeaponSlot, AddWeapon and GetLookMatrix (a fragment of
+// Tank_object.cpp): map a sub-object to a weapon slot; create a slot's weapon
+// from its CRC through the weapon factory (the empty-weapon CRC clears the
+// slot), choosing the weapon's mode from its properties; and return the look
+// sub-object's matrix, or the tank's own raised by one unit. The names come from the mangled
 // symbols; the members, the result type and the weapon's fields are inferred
 // from offsets (the factory has its symbol's 28-byte size), and the classes are non-virtual views.
 class ISceneNode;
+
+// Vector view (inferred): an 8-byte aligned three-float member, which gives
+// the doubleword copies; the position getter is an inferred inline helper.
+struct VECTOR3VIEW {
+    float x;
+    float y;
+    float z;
+} __attribute__((aligned(8)));
+
+class CVector3 {
+public:
+    VECTOR3VIEW v;
+};
+
+class CMatrix {
+public:
+    CMatrix& operator=(const CMatrix&);
+    void SetPos(CVector3);
+    CVector3 GetPos() const { return position; }
+
+    CVector3 right;
+    CVector3 forward;
+    CVector3 up;
+    CVector3 position;
+};
+
+class CHierObject {
+public:
+    CHierObject* GetSubObject(int);
+
+    unsigned char unknown000[64];
+    CMatrix m_tm;
+};
 
 /* inferred views */
 struct WEAPONPROPSVIEW {
@@ -29,12 +63,15 @@ public:
 
 extern CWeaponFactory g_WeaponFactory;
 
-class CTankObject {
+class CTankObject : public CHierObject {
 public:
     void MapWeaponSlot(int, int);
     bool AddWeapon(int, int);
+    void GetLookMatrix(CMatrix&);
 
-    unsigned char unknown000[1948];
+    unsigned char unknown080[1940 - 128];
+    int m_lookSubObject;
+    unsigned char unknown798[4];
     int m_weaponSlot[8];
     CWeapon* m_weapons[8];
 };
@@ -57,4 +94,17 @@ bool CTankObject::AddWeapon(int slot, int crc) {
         return true;
     }
     return false;
+}
+
+void CTankObject::GetLookMatrix(CMatrix& matrix) {
+    if (m_lookSubObject) {
+        matrix = GetSubObject(m_lookSubObject)->m_tm;
+    } else {
+        CVector3 pos;
+
+        matrix = m_tm;
+        pos = matrix.GetPos();
+        pos.v.z += 1.0f;
+        matrix.SetPos(pos);
+    }
 }
