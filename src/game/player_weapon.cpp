@@ -1,5 +1,10 @@
-// A fragment of player.cpp (0x8009f394): CPlayerObject's motion and camera
-// shakes, then its current-weapon queries. DoMotionShake stores the strength
+// A fragment of player.cpp (0x8009f194): CPlayerObject's motion and camera
+// shakes, then its current-weapon queries. ShakeCamera adds random offsets to
+// the two angles: a quarter of the camera shake's strength, faded in or out
+// over its time (counting down clears the flag at the end), and a quarter of
+// the motion shake's amount, which steps towards the strength scaled by the
+// squared speed (velocity at +600, full at the speed whose square is
+// 0.0084196). DoMotionShake stores the strength
 // and time, restarts the elapsed time and flags the shake while the strength
 // is positive; StopCameraShake and StartCameraShake take the time's magnitude
 // (counting down or up), store a rate of -1 or 1 per second over it (1 for a
@@ -11,11 +16,11 @@
 // object in the slot GetWeaponInfoByCRC finds; GetWeaponInfoByCRC maps a
 // weapon-name CRC to a slot and two ids, reporting unknown CRCs; GetWeapon,
 // GetCurrentWeapon and GetCurrentPlayerWeapon follow. The file name is this
-// project's; the original record is player.cpp and ShakeCamera before these
-// and CycleWeapon after them are not reconstructed. The classes and functions
-// are named by the mangled symbols; CPlayerObject, CPlayerWeaponObject and
-// CWeapon are inferred non-virtual views (members at their offsets, names not
-// original) and the result types are inferred.
+// project's; the original record is player.cpp and CycleWeapon after these is
+// not reconstructed. The classes and functions are named by the mangled
+// symbols; CPlayerObject, CPlayerWeaponObject and CWeapon are inferred
+// non-virtual views (members at their offsets, names not original) and the
+// result types and the angle parameter names are inferred.
 class CSprite;
 
 void DebugMsg(const char*, ...);
@@ -45,11 +50,16 @@ public:
     CPlayerWeaponObject* GetWeapon(int) const;
     CWeapon* GetCurrentWeapon() const;
     CPlayerWeaponObject* GetCurrentPlayerWeapon() const;
+    void ShakeCamera(float&, float&, float);
     void DoMotionShake(float, float);
     void StopCameraShake(float);
     void StartCameraShake(float, float);
 
-    unsigned char unknown000[917];
+    unsigned char unknown000[600];
+    float m_velocityX;
+    float m_velocityY;
+    float m_velocityZ;
+    unsigned char unknown264[305];
     unsigned char unknown395a : 2;
     unsigned char m_cameraShaking : 1;
     unsigned char unknown395b : 5;
@@ -70,6 +80,47 @@ public:
     CPlayerWeaponObject* m_weapons[96];
     CWeapon* m_mountedWeapon;
 };
+
+float MathFunRandomReal(float, float);
+
+void CPlayerObject::ShakeCamera(float& yaw, float& pitch, float dt) {
+    if (m_cameraShaking) {
+        float time = m_cameraShakeTime;
+        float fade = 1.0f - time * m_cameraShakeRate;
+        if (time > 0.0f) {
+            m_cameraShakeTime = time - dt;
+            if (m_cameraShakeTime <= 0.0f)
+                m_cameraShakeTime = 0.0f;
+        } else if (time < 0.0f) {
+            m_cameraShakeTime = time + dt;
+            fade = 1.0f - fade;
+            if (m_cameraShakeTime >= 0.0f) {
+                m_cameraShakeTime = 0.0f;
+                m_cameraShaking = 0;
+            }
+        }
+        float range = 0.25f * m_cameraShakeStrength * fade;
+        pitch += MathFunRandomReal(-range, range);
+        yaw += MathFunRandomReal(-range, range);
+    }
+    if (m_motionShaking) {
+        float step = m_motionShakeStrength / m_motionShakeTime;
+        float speed = (m_velocityX * m_velocityX + m_velocityY * m_velocityY + m_velocityZ * m_velocityZ) / 0.008419609628617764f;
+        if (speed > 1.0f)
+            speed = 1.0f;
+        if (speed * m_motionShakeStrength >= m_motionShakeElapsed)
+            m_motionShakeElapsed += step;
+        else
+            m_motionShakeElapsed -= step;
+        if (m_motionShakeElapsed > m_motionShakeStrength)
+            m_motionShakeElapsed = m_motionShakeStrength;
+        else if (m_motionShakeElapsed < 0.0f)
+            m_motionShakeElapsed = 0.0f;
+        float range = 0.25f * m_motionShakeElapsed;
+        pitch += MathFunRandomReal(-range, range);
+        yaw += MathFunRandomReal(-range, range);
+    }
+}
 
 void CPlayerObject::DoMotionShake(float strength, float time) {
     m_motionShakeStrength = strength;

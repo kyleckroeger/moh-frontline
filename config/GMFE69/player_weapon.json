@@ -39,20 +39,20 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8009f394",
-      "size": 2136,
+      "address": "0x8009f194",
+      "size": 2648,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000ce04",
-      "size": 24,
+      "address": "0x8000cdfc",
+      "size": 32,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80013f58",
-      "size": 36,
+      "address": "0x80013f4c",
+      "size": 48,
       "type": 1
     },
     {
@@ -63,6 +63,12 @@
     }
   ],
   "functions": [
+    {
+      "name": "ShakeCamera__13CPlayerObjectFRfRff",
+      "address": "0x8009f194",
+      "size": 512,
+      "binding": 1
+    },
     {
       "name": "DoMotionShake__13CPlayerObjectFff",
       "address": "0x8009f394",
@@ -132,7 +138,8 @@
   ],
   "externals": {
     "DebugMsg__FPCce": "0x80018c88",
-    "GetBulletSprite__7CWeaponCFv": "0x800d6248"
+    "GetBulletSprite__7CWeaponCFv": "0x800d6248",
+    "MathFunRandomReal__Fff": "0x80092d60"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -150,17 +157,29 @@
       "section": ".sdata2",
       "offset": 0,
       "size": 4,
-      "address": "0x80350540"
+      "address": "0x8035053c"
     },
     {
       "section": ".sdata2",
       "offset": 4,
       "size": 4,
-      "address": "0x8035053c"
+      "address": "0x80350540"
     },
     {
       "section": ".sdata2",
       "offset": 8,
+      "size": 4,
+      "address": "0x80350578"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 12,
+      "size": 4,
+      "address": "0x80350594"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 16,
       "size": 4,
       "address": "0x803505e0"
     }
