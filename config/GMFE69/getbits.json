@@ -1,0 +1,106 @@
+{
+  "id": "getbits",
+  "source": "src/ea/getbits.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto,deferred",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800fd198",
+      "size": 1888,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "Get_Bits32__Fv",
+      "address": "0x800fd198",
+      "size": 308,
+      "binding": 1
+    },
+    {
+      "name": "Flush_Buffer32__Fv",
+      "address": "0x800fd2cc",
+      "size": 304,
+      "binding": 1
+    },
+    {
+      "name": "Get_Bits__Fi",
+      "address": "0x800fd3fc",
+      "size": 320,
+      "binding": 1
+    },
+    {
+      "name": "Flush_Buffer__Fi",
+      "address": "0x800fd53c",
+      "size": 308,
+      "binding": 1
+    },
+    {
+      "name": "Get_Bits1__Fv",
+      "address": "0x800fd670",
+      "size": 312,
+      "binding": 1
+    },
+    {
+      "name": "Show_Bits__Fi",
+      "address": "0x800fd7a8",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "Initialize_Buffer__FPUc",
+      "address": "0x800fd7bc",
+      "size": 316,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "MPDld": "0x8034ef30"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {
+    "name": "MPEG Software Simulation Group mpeg2decode",
+    "path": "getbits.c",
+    "reference_copy": "https://github.com/dzavalishin/phantomuserland/blob/0fa666cb50e6ca13dd048d67d397485266c0e814/phantom/apps/mpeg/getbits.c"
+  },
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "MPDld"
+  ],
+  "original_file": "getbits.cpp",
+  "original_file_index": 10005
+}
