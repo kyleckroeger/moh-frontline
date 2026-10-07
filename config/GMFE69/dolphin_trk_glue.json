@@ -3,7 +3,7 @@
   "source": "src/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/dolphin_trk_glue.c",
   "category": "restored_library",
   "compiler_family": "GC",
-  "compiler_version": "1.3.2",
+  "compiler_version": "1.3",
   "compiler_flags": [
     "-nodefaults",
     "-proc",
@@ -61,13 +61,19 @@
     "src/tww/PowerPC_EABI_Support/Runtime/Inc",
     "src/tww/PowerPC_EABI_Support/MetroTRK"
   ],
-  "strip_unused": false,
+  "strip_unused": true,
   "source_root": "src/tww",
   "sections": [
     {
       "name": ".text",
       "address": "0x8013757c",
-      "size": 272,
+      "size": 1196,
+      "type": 1
+    },
+    {
+      "name": ".rodata",
+      "address": "0x8017b220",
+      "size": 72,
       "type": 1
     },
     {
@@ -75,6 +81,12 @@
       "address": "0x801904d8",
       "size": 28,
       "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x80331ff0",
+      "size": 8742,
+      "type": 8
     }
   ],
   "functions": [
@@ -107,14 +119,77 @@
       "address": "0x8013765c",
       "size": 48,
       "binding": 1
+    },
+    {
+      "name": "TRKReadUARTPoll",
+      "address": "0x8013768c",
+      "size": 240,
+      "binding": 1
+    },
+    {
+      "name": "WriteUART1",
+      "address": "0x8013777c",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "WriteUARTFlush",
+      "address": "0x801377a4",
+      "size": 224,
+      "binding": 1
+    },
+    {
+      "name": "EnableEXI2Interrupts",
+      "address": "0x80137884",
+      "size": 48,
+      "binding": 1
+    },
+    {
+      "name": "TRKEXICallBack",
+      "address": "0x801379f0",
+      "size": 56,
+      "binding": 1
+    },
+    {
+      "name": "TRKInitializeIntDrivenUART",
+      "address": "0x801378b4",
+      "size": 60,
+      "binding": 1
+    },
+    {
+      "name": "InitMetroTRKCommTable",
+      "address": "0x801378f0",
+      "size": 256,
+      "binding": 1
     }
   ],
   "externals": {
+    "AMC_IsStub": "0x801439cc",
+    "DBClose": "0x801439dc",
+    "DBInitComm": "0x80143dc0",
+    "DBInitInterrupts": "0x80143d6c",
+    "DBOpen": "0x801439e0",
+    "DBQueryData": "0x80143cd0",
+    "DBRead": "0x80143c44",
+    "DBWrite": "0x801439e4",
+    "EXI2_EnableInterrupts": "0x801439a8",
+    "EXI2_Init": "0x801439a4",
+    "EXI2_Poll": "0x801439ac",
+    "EXI2_ReadN": "0x801439b4",
+    "EXI2_Reserve": "0x801439c4",
+    "EXI2_Unreserve": "0x801439c8",
+    "EXI2_WriteN": "0x801439bc",
+    "Hu_IsStub": "0x801439d4",
+    "OSEnableScheduler": "0x80115b38",
     "OSReport": "0x80112520",
     "TRKInterruptHandler": "0x80135818"
   },
   "undefined_in_discarded_code": [],
-  "discarded_functions": [],
+  "discarded_functions": [
+    "TRKWriteUARTN",
+    "TRKReadUARTN",
+    "TRKPollUART"
+  ],
   "upstream": {
     "repository": "https://github.com/zeldaret/tww",
     "commit": "a1854d47ce5aa9d0f21c7fb5a71aaade63659693",

@@ -8,12 +8,26 @@
 // GDEV debugger or the AMC EXI2 stubs, and buffered UART reads and writes.
 // Asm functions are emitted first; the C functions are emitted in reverse
 // source order (deferred inlining), so TRKUARTInterruptHandler, the second
-// function in the image, is defined last. This unit covers the image's first
-// five functions; TRKReadUARTPoll (next in the image) is drafted in scratch
-// but not matched, so the UART buffers, the comm-table set-up and the
-// interrupt callback that follow it are not part of this unit.
+// function in the image, is defined last. The unit covers the whole file:
+// the asm context loader, the port and display helpers, the buffered UART
+// reads and writes (TRKPollUART, TRKReadUARTN and TRKWriteUARTN inlined and
+// discarded), the communication-table set-up (with Frontline's two OSReport
+// messages, which Pikmin's version lacks) and the interrupt callback. Only
+// GC 1.3 matches TRKReadUARTPoll's buffer read (GC 1.3.2 adds the buffer
+// offset first), as for the targimpl.c fragments; this is a working profile,
+// not proof of the original release.
 
+#define BUFF_LEN 4362
+
+BOOL Hu_IsStub(void);
 void TRKInterruptHandler();
+
+static u8 gWriteBuf[BUFF_LEN];
+static u8 gReadBuf[BUFF_LEN];
+BOOL _MetroTRK_Has_Framing;
+static s32 gReadCount;
+static s32 gReadPos;
+static s32 gWritePos;
 
 DBCommTable gDBCommTable = {};
 
@@ -57,6 +71,105 @@ lbl_80371C20:
 	lwz r31, OSContext.gpr[31](r31)
 	b TRKInterruptHandler
     // clang-format on
+}
+
+void TRKEXICallBack(s16 param_0, OSContext* ctx) {
+    OSEnableScheduler();
+    TRKLoadContext(ctx, 0x500);
+}
+
+int InitMetroTRKCommTable(int hwId) {
+    int result;
+
+    if (hwId == HARDWARE_GDEV) {
+        OSReport("MetroTRK : Set to GDEV hardware\n");
+        result = Hu_IsStub();
+        gDBCommTable.initialize_func = (DBCommInitFunc)DBInitComm;
+        gDBCommTable.init_interrupts_func = (DBCommFunc)DBInitInterrupts;
+        gDBCommTable.peek_func = (DBCommFunc)DBQueryData;
+        gDBCommTable.read_func = (DBCommReadFunc)DBRead;
+        gDBCommTable.write_func = (DBCommWriteFunc)DBWrite;
+        gDBCommTable.open_func = (DBCommFunc)DBOpen;
+        gDBCommTable.close_func = (DBCommFunc)DBClose;
+    } else {
+        OSReport("MetroTRK : Set to AMC DDH hardware\n");
+        result = AMC_IsStub();
+        gDBCommTable.initialize_func = (DBCommInitFunc)EXI2_Init;
+        gDBCommTable.init_interrupts_func = (DBCommFunc)EXI2_EnableInterrupts;
+        gDBCommTable.peek_func = (DBCommFunc)EXI2_Poll;
+        gDBCommTable.read_func = (DBCommReadFunc)EXI2_ReadN;
+        gDBCommTable.write_func = (DBCommWriteFunc)EXI2_WriteN;
+        gDBCommTable.open_func = (DBCommFunc)EXI2_Reserve;
+        gDBCommTable.close_func = (DBCommFunc)EXI2_Unreserve;
+    }
+
+    return result;
+}
+
+DSError TRKInitializeIntDrivenUART(u32 param_0, u32 param_1, u32 param_2, void* param_3) {
+    gDBCommTable.initialize_func(param_3, TRKEXICallBack);
+    return DS_NoError;
+}
+
+void EnableEXI2Interrupts(void) {
+    gDBCommTable.init_interrupts_func();
+}
+
+int TRKPollUART(void) {
+    return gDBCommTable.peek_func();
+}
+
+UARTError TRKReadUARTN(void* bytes, u32 length) {
+    int readErr = gDBCommTable.read_func((u8*)bytes, length);
+    return ((-readErr | readErr) >> 31);
+}
+
+UARTError TRKWriteUARTN(const void* bytes, u32 length) {
+    int writeErr = gDBCommTable.write_func((const u8*)bytes, length);
+    return ((-writeErr | writeErr) >> 31);
+}
+
+UARTError WriteUARTFlush(void) {
+    UARTError readErr = 0;
+
+    while (gWritePos < 0x800) {
+        gWriteBuf[gWritePos] = 0;
+        gWritePos++;
+    }
+    if (gWritePos != 0) {
+        readErr = TRKWriteUARTN(gWriteBuf, gWritePos);
+        gWritePos = 0;
+    }
+    return readErr;
+}
+
+UARTError WriteUART1(u8 arg0) {
+    gWriteBuf[gWritePos++] = arg0;
+    return 0;
+}
+
+UARTError TRKReadUARTPoll(u8* arg0) {
+    UARTError readErr = 4;
+    s32 cnt;
+
+    if (gReadPos >= gReadCount) {
+        gReadPos = 0;
+        cnt = gReadCount = TRKPollUART();
+        if (cnt > 0) {
+            if (cnt > BUFF_LEN) {
+                gReadCount = BUFF_LEN;
+            }
+            readErr = TRKReadUARTN(gReadBuf, gReadCount);
+            if (readErr != 0) {
+                gReadCount = 0;
+            }
+        }
+    }
+    if (gReadPos < gReadCount) {
+        *arg0 = gReadBuf[gReadPos++];
+        readErr = 0;
+    }
+    return readErr;
 }
 
 void ReserveEXI2Port(void) {

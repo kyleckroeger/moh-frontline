@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 495852,
+    "matching_code_bytes": 496356,
     "total_executable_code_bytes": 1414572,
-    "percent": 35.0531468175533,
+    "percent": 35.08877596898567,
     "categories": {
       "reconstructed_game": 279096,
-      "restored_library": 216756
+      "restored_library": 217260
     },
-    "matching_functions": 3131
+    "matching_functions": 3134
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -366,8 +366,7 @@
     "config/GMFE69/dmmorph.json": "5d6bcd1c343237b6b5c06843d43fc5af43e209e616b20d6aca1dcad294146828",
     "config/GMFE69/dmrender.json": "a4e5a155bcb40cefc60608fed6f7359cea5bc51b9fec0b9f80c0e4dbac97ac56",
     "config/GMFE69/dolphin_trk.json": "9f66a923f4f6e4103cb15c12022e534d623c661d7ace9cc644364dfd361c06b7",
-    "config/GMFE69/dolphin_trk_glue.json": "35632428fdcb95c68c3d34d0e84c498fdf35a8a1150c9c0bfb433defb9d187d4",
-    "config/GMFE69/dolphin_trk_glue_exi2.json": "6d1e55b7574ecd6f7752dfa2435ca51c97d09b0bdc1b424ff44fb4db5d216cc9",
+    "config/GMFE69/dolphin_trk_glue.json": "9bad22a0d1cea134a59e1015e9c02cc8418e9b47e3975f25993cc3bca1bcebd7",
     "config/GMFE69/draw_context.json": "982726912b09ce3e360e31108753cc5cd578e2c0267a2268454edfd80816387a",
     "config/GMFE69/dsp.json": "6c4ba9a2f66c0ef3e23283c2ae295edd31558a47efcff76f281c5ba678f4d74d",
     "config/GMFE69/dsp_debug.json": "abb1bf69b26be3567a5e3a22a729922f11d7a3b8c74ed938895798d0072114a0",
@@ -527,7 +526,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "a23923c8762edbf522d0916b4ad07167d531d8fc0941294572d24cd4aead645f",
+    "config/GMFE69/project.json": "a3edf947dea15d8d06ac508de8575953ad92255e061594bcb36d36d50b6948d4",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_init.json": "59efa2f81e573b18eb9d4793a24578d542a47e4cded42890b4e9f88779a0b4a4",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
@@ -2371,8 +2370,7 @@
     "src/tww/PowerPC_EABI_Support/Runtime/Src/runtime.c": "9c88825db7eb271cfcad6657bba2233147519488c679e921b5b0a97e8502c066",
     "src/tww/TRK_MINNOW_DOLPHIN/MetroTRK/Export/mslsupp.c": "df9f98f6da0f77a326451b05cd961a373ef9dcdee7466c9fffe89fb60850777e",
     "src/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/dolphin_trk.c": "0ee0b63aeb13c985f5b11101625131cc550ab166a49ea6e764e0f7aa932c3515",
-    "src/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/dolphin_trk_glue.c": "4f82416650e8082ecdb6794bb2fa523602e2a039e309b7319d1744641e94718e",
-    "src/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/dolphin_trk_glue_exi2.c": "05dfd2fb39ba68e320bce1b717fefff8a01081bec3ce283d113927f91e62197b",
+    "src/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/dolphin_trk_glue.c": "523d9f004c94395d18090e98a7a2b7599c0098041eba4224ea967b974281a5b2",
     "src/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/targcont.c": "850ec92876b13e4d809dbc4217fc97dd0fdb4613e13ebb5b8ef0245036d3dd61",
     "src/tww/TRK_MINNOW_DOLPHIN/Os/dolphin/target_options.c": "a58de7903d25bce90f1f816007f81423753a19504600510c8a54d3b0c05575de",
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/dispatch.c": "f98fda592d9a9861c62de0ec0d7c306ae34635d23f141a9482cf0be509b334e6",
@@ -17309,10 +17307,10 @@
     {
       "id": "dolphin_trk_glue",
       "category": "restored_library",
-      "functions": 5,
-      "code_bytes": 272,
+      "functions": 12,
+      "code_bytes": 1196,
       "compiler_family": "GC",
-      "compiler_version": "1.3.2",
+      "compiler_version": "1.3",
       "compiler_flags": [
         "-nodefaults",
         "-proc",
@@ -17360,10 +17358,14 @@
         "-sdata2",
         "0"
       ],
-      "strip_unused": false,
-      "discarded_functions": [],
-      "object_sha256": "c8bb15aff5273652fe8f59d7c6964597957a4573a93c5302e00325a8ccd7d910",
-      "linked_sha256": "cadfc5d82cca543c3d0fa3bb99f2ec0f75ab3be3c4ec3cc3e7acbc007f6c12ff"
+      "strip_unused": true,
+      "discarded_functions": [
+        "TRKWriteUARTN",
+        "TRKReadUARTN",
+        "TRKPollUART"
+      ],
+      "object_sha256": "092c5dd73059a00769d9921faed973a32861dfb9c3ea9effa010ae4269ec0da0",
+      "linked_sha256": "d13620cecae57b10d4864cc068acfa58e7c0bdd4fcd38b0f1bbed830850483e1"
     },
     {
       "id": "MathFun",
@@ -23384,65 +23386,6 @@
       "discarded_functions": [],
       "object_sha256": "1d284bb1f3975cd756b5592dd463066ede201f8bd8de513804ac883f2ff396b5",
       "linked_sha256": "5e638ece585aac0176ce82bc9831ad5cd548b271894b10ec487b3fbe344ead93"
-    },
-    {
-      "id": "dolphin_trk_glue_exi2",
-      "category": "restored_library",
-      "functions": 4,
-      "code_bytes": 420,
-      "compiler_family": "GC",
-      "compiler_version": "1.3.2",
-      "compiler_flags": [
-        "-nodefaults",
-        "-proc",
-        "gekko",
-        "-align",
-        "powerpc",
-        "-enum",
-        "int",
-        "-fp",
-        "hardware",
-        "-Cpp_exceptions",
-        "off",
-        "-inline",
-        "auto",
-        "-pragma",
-        "cats off",
-        "-pragma",
-        "warn_notinlined off",
-        "-maxerrors",
-        "1",
-        "-nosyspath",
-        "-RTTI",
-        "off",
-        "-fp_contract",
-        "on",
-        "-str",
-        "reuse",
-        "-multibyte",
-        "-DVERSION=0",
-        "-DNDEBUG=1",
-        "-O4,p",
-        "-use_lmw_stmw",
-        "on",
-        "-rostr",
-        "-str",
-        "reuse",
-        "-common",
-        "off",
-        "-inline",
-        "deferred,auto",
-        "-char",
-        "signed",
-        "-sdata",
-        "0",
-        "-sdata2",
-        "0"
-      ],
-      "strip_unused": false,
-      "discarded_functions": [],
-      "object_sha256": "79842915afdd075fcb7541a2fced19fabe0caf3df8fdbc8d8f1fdbb8cf055541",
-      "linked_sha256": "af0217b4f872d2649040f49542350013222e9560cfd12d1debcbbdf59eea8378"
     },
     {
       "id": "fader_color",
@@ -48467,34 +48410,6 @@
             "size": 348,
             "kind": "function",
             "name": "TRKTargetInterrupt",
-            "evidence": "between-same-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/dolphin_trk_glue.c [symbol evidence]",
-        "file_record": 291,
-        "file_name": "dolphin_trk_glue.c",
-        "ranges": [
-          {
-            "address": "0x8013768c",
-            "size": 240,
-            "kind": "function",
-            "name": "TRKReadUARTPoll",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8013777c",
-            "size": 40,
-            "kind": "function",
-            "name": "WriteUART1",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x801377a4",
-            "size": 224,
-            "kind": "function",
-            "name": "WriteUARTFlush",
             "evidence": "between-same-file"
           }
         ]
