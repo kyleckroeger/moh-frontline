@@ -727,7 +727,9 @@
     "particlesystem_rotation.json",
     "particlesystem_active.json",
     "particlesystem_validate.json",
-    "particlesystem_moving.json"
+    "particlesystem_moving.json",
+    "compartment_bins.json",
+    "AIObject_weak.json"
   ],
   "progress": {
     "code_bytes": 1414572,
