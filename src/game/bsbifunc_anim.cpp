@@ -1,19 +1,20 @@
 // A fragment of bsbifunc.cpp (0x8002fb28): the animation built-ins.
 // PlayAnimationOnOther sets an animation state on the object given as the
-// fourth argument; PlayAnimationNoTranslation and PlayLocomotion set the two
-// movement flags at +9304 and +9305 (off or on) and set the state on the
-// built-in's object, queueing it when the state could not be set (-65536
-// back) and the script data's first word is not positive. Each reads its
-// arguments below the script stack top and pops the built-in's arguments;
-// the rate, 1.0f, is an entry of the file's .sdata2 pool. Between them is
-// the weak CAnimObject::GetScriptObject (the word at +9104). The file name
-// is this project's; the original record is bsbifunc.cpp, and PlayAnimation
-// after these is not reconstructed. The functions and classes are named by
-// the mangled symbols; CAnimObject is declared with its virtual functions up
-// to GetScriptObject (+96 in __vt__11CAnimObject; the earlier slots are
-// placeholders named by offset), and the script object, script data and
-// built-in record views are inferred (members at their offsets, names not
-// original).
+// fourth argument; PlayAnimationNoTranslation, PlayLocomotion and
+// PlayAnimation set the two movement flags at +9304 and +9305 (off, on or
+// off-then-on) and set the state on the built-in's object, queueing it when
+// the state could not be set (-65536 back) and the script data's first word
+// is not positive. Each reads its arguments below the script stack top and
+// pops the built-in's arguments; the rate, 1.0f, is an entry of the file's
+// .sdata2 pool. Between them is the weak CAnimObject::GetScriptObject (the
+// word at +9104). The file name is this project's; the original record is
+// bsbifunc.cpp, and PlayAnimation after these is not reconstructed. The
+// functions and classes are named by the mangled symbols; CAnimObject is
+// declared with its virtual functions up to GetScriptObject (+96 in
+// __vt__11CAnimObject; the earlier slots are placeholders named by offset),
+// and the script object, script data and built-in record views are inferred
+// (members at their offsets, names not original). PlayAnimation's separate
+// object local reproduces its register choice (found with decomp-permuter).
 struct PlayerScriptDataView {
     int m_value00;
 };
@@ -115,6 +116,21 @@ void BIFunc_PlayLocomotion(int** stack, void* user) {
     ((CAnimObject*)user)->m_flag2459 = true;
     if (((CAnimObject*)user)->SetAnimationState(state, 1.0f, value, data) == -65536 &&
         ((CAnimObject*)user)->GetScriptObject()->user->GetScriptData()->m_value00 <= 0)
+        ((CAnimObject*)user)->QueueAnimationState(state, 1.0f, value, data);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+void BIFunc_PlayAnimation(int** stack, void* user) {
+    CAnimObject* object;
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    int state = *(*stack - (count - 1));
+    int value = *(*stack - (count - 2));
+    void* data = (void*)*(*stack - (count - 3));
+    ((CAnimObject*)user)->m_flag2458 = false;
+    ((CAnimObject*)user)->m_flag2459 = true;
+    object = (CAnimObject*)user;
+    if (((CAnimObject*)user)->SetAnimationState(state, 1.0f, value, data) == -65536 &&
+        object->GetScriptObject()->user->GetScriptData()->m_value00 <= 0)
         ((CAnimObject*)user)->QueueAnimationState(state, 1.0f, value, data);
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
 }

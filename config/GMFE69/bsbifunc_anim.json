@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x8002fb28",
-      "size": 736,
+      "size": 1016,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009ecc",
-      "size": 24,
+      "size": 32,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80010bf8",
-      "size": 36,
+      "size": 48,
       "type": 1
     }
   ],
@@ -73,6 +73,12 @@
       "name": "BIFunc_PlayLocomotion__FPPiPv",
       "address": "0x8002fcf4",
       "size": 276,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_PlayAnimation__FPPiPv",
+      "address": "0x8002fe08",
+      "size": 280,
       "binding": 1
     },
     {
