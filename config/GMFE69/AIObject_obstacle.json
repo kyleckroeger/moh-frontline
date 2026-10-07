@@ -1,0 +1,86 @@
+{
+  "id": "AIObject_obstacle",
+  "source": "src/game/AIObject_obstacle.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80049dd4",
+      "size": 180,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000a73c",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80011888",
+      "size": 24,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "ProcessObstacleAvoidance__9CAIObjectFv",
+      "address": "0x80049dd4",
+      "size": 84,
+      "binding": 1
+    },
+    {
+      "name": "EngageObstacleAvoidance__9CAIObjectFbfff",
+      "address": "0x80049e28",
+      "size": 96,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "DetermineNewObjectivePosition__18CObstacleAvoidanceFR21CAIFilterRealPosition": "0x80053738",
+    "PrepareForAvoidance__18CObstacleAvoidanceFR21CAIFilterRealPosition": "0x80054304",
+    "RunEnvironmentCollisionChecks__18CObstacleAvoidanceFv": "0x80053c34"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "AIObject.cpp",
+  "original_file_index": 1752
+}

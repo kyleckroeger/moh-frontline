@@ -607,7 +607,8 @@
     "getblk.json",
     "getpic.json",
     "AIObject_threat.json",
-    "AIObject_enemy.json"
+    "AIObject_enemy.json",
+    "AIObject_obstacle.json"
   ],
   "progress": {
     "code_bytes": 1414572,
