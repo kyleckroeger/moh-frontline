@@ -40,7 +40,7 @@
     {
       "name": ".text",
       "address": "0x800e6eb4",
-      "size": 48,
+      "size": 152,
       "type": 1
     }
   ],
@@ -78,6 +78,18 @@
     {
       "name": "Set_currentMission__10CShellMenuFUi",
       "address": "0x800e6edc",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Set_currentDifficulty__10CShellMenuFUc",
+      "address": "0x800e6ee4",
+      "size": 96,
+      "binding": 1
+    },
+    {
+      "name": "Set_currentControllerSetting__10CShellMenuFUc",
+      "address": "0x800e6f44",
       "size": 8,
       "binding": 1
     }
