@@ -34,29 +34,69 @@
   "include_dirs": [
     "include/dolphin-sdk/libc"
   ],
-  "strip_unused": false,
+  "strip_unused": true,
   "source_root": "src/game",
   "sections": [
     {
       "name": ".text",
       "address": "0x80070d88",
-      "size": 116,
+      "size": 1368,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000b894",
-      "size": 8,
-      "type": 1
+      "size": 112,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 120,
+      "stripped_objects": [
+        "@52"
+      ]
     },
     {
       "name": "extabindex",
       "address": "0x80012938",
-      "size": 12,
-      "type": 1
+      "size": 72,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 84,
+      "stripped_objects": [
+        "@53"
+      ]
     }
   ],
   "functions": [
+    {
+      "name": "TestCollision__10CCDBObjectCFRC7IVolumeR10CCollisionb",
+      "address": "0x8007126c",
+      "size": 116,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__10CCDBObjectCFRC7CVolBoxR10CCollisionb",
+      "address": "0x8007116c",
+      "size": 256,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__10CCDBObjectCFRC10CVolSphereR10CCollisionb",
+      "address": "0x80071034",
+      "size": 312,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__10CCDBObjectCFRC11CVolCapsuleR10CCollisionb",
+      "address": "0x80070efc",
+      "size": 312,
+      "binding": 1
+    },
+    {
+      "name": "TestCollision__10CCDBObjectCFRC15CAnimatedVolumeR10CCollisionb",
+      "address": "0x80070dfc",
+      "size": 256,
+      "binding": 1
+    },
     {
       "name": "TestCollision__10CCDBObjectCFRC10CCSGVolumeR10CCollisionb",
       "address": "0x80070d88",
@@ -65,7 +105,20 @@
     }
   ],
   "externals": {
-    "SwapOrder__10CCollisionFv": "0x800c79c4"
+    "MEM_free": "0x8014f83c",
+    "OSGetTick": "0x80116a58",
+    "SwapOrder__10CCollisionFv": "0x800c79c4",
+    "TestCDBBranchNodeCollision<10CVolSphere>__10CCDBObjectCFRC13CDBBranchNodeRC10CVolSphereR10CCollisionbRQ23dwi24fast_vec<P11CDBTriGroup>": "0x80072290",
+    "TestCDBBranchNodeCollision<11CVolCapsule>__10CCDBObjectCFRC13CDBBranchNodeRC11CVolCapsuleR10CCollisionbRQ23dwi24fast_vec<P11CDBTriGroup>": "0x800720a8",
+    "TestCDBBranchNodeCollision<15CAnimatedVolume>__10CCDBObjectCFRC13CDBBranchNodeRC15CAnimatedVolumeR10CCollisionbRQ23dwi24fast_vec<P11CDBTriGroup>": "0x80071e48",
+    "TestCDBBranchNodeCollision<7CVolBox>__10CCDBObjectCFRC13CDBBranchNodeRC7CVolBoxR10CCollisionbRQ23dwi24fast_vec<P11CDBTriGroup>": "0x800724f0",
+    "TestCollisionWithTriGroups<10CVolSphere>__FRCQ23dwi24fast_vec<P11CDBTriGroup>RC10CVolSphereR10CCollisionb": "0x80071ba0",
+    "TestCollisionWithTriGroups<11CVolCapsule>__FRCQ23dwi24fast_vec<P11CDBTriGroup>RC11CVolCapsuleR10CCollisionb": "0x80071a4c",
+    "TestCollisionWithTriGroups<15CAnimatedVolume>__FRCQ23dwi24fast_vec<P11CDBTriGroup>RC15CAnimatedVolumeR10CCollisionb": "0x800718f8",
+    "TestCollisionWithTriGroups<7CVolBox>__FRCQ23dwi24fast_vec<P11CDBTriGroup>RC7CVolBoxR10CCollisionb": "0x80071cf4",
+    "__dl__FPv": "0x8001ca2c",
+    "__dt__Q23dwi24fast_vec<P11CDBTriGroup>Fv": "0x80070080",
+    "g_ProfileBins": "0x802daca0"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -74,5 +127,8 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "cdbobject.cpp",
-  "original_file_index": 3304
+  "original_file_index": 3304,
+  "weak_duplicates": [
+    "__dt__Q23dwi24fast_vec<P11CDBTriGroup>Fv"
+  ]
 }

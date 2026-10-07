@@ -522,7 +522,6 @@
     "capsule_dispatch2.json",
     "box_ivolume.json",
     "cdbobject_csg.json",
-    "cdbobject_ivolume.json",
     "fiber_ivolume.json",
     "cdbgeom_volbox.json",
     "ShellMenu_mp.json",
