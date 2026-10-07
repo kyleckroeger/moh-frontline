@@ -648,7 +648,8 @@
     "saems_system.json",
     "saemsstr_pool.json",
     "smemman.json",
-    "stream_cb.json"
+    "stream_cb.json",
+    "path_restore.json"
   ],
   "progress": {
     "code_bytes": 1414572,
