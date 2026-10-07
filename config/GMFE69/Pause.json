@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800dd5a8",
-      "size": 228,
+      "size": 432,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000ec90",
-      "size": 8,
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x800158f0",
-      "size": 12,
+      "size": 24,
       "type": 1
     },
     {
@@ -74,14 +74,29 @@
       "address": "0x800dd674",
       "size": 24,
       "binding": 1
+    },
+    {
+      "name": "SetObjectiveStatus__FUib",
+      "address": "0x800dd68c",
+      "size": 72,
+      "binding": 1
+    },
+    {
+      "name": "AddObjective__FUiUi",
+      "address": "0x800dd6d4",
+      "size": 132,
+      "binding": 1
     }
   ],
   "externals": {
     "AEMS_Pause__Fb": "0x800ec3e0",
+    "CompletedAnotherObjective__10CShellMenuFv": "0x800df210",
     "MUSIC_Pause__Fb": "0x800ea5fc",
     "SoundSetMasterVolume__Fi": "0x800ed018",
+    "g_Shell": "0x80195090",
     "iSirenActivateScreen__7IStudioFUsUs": "0x8008b6ec",
-    "theObjectiveList": "0x801f70ec"
+    "theObjectiveList": "0x801f70ec",
+    "umTable": "0x801ef3ec"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
