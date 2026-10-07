@@ -1,5 +1,6 @@
-// EA's asynchronous file layer, from ASYNCFILE_restore to the end of the
-// file: shutting down (cancel every request, wait until none has a file
+// EA's asynchronous file layer, the whole file: initialising (allocating the
+// request table, chaining its requests into the free list and creating the
+// mutex), shutting down (cancel every request, wait until none has a file
 // operation running, free the table and destroy the mutex), queueing a
 // whole-file load or a read (take a request from the free list, give it a
 // fresh id, start the file-system operation and its completion callback),
@@ -10,15 +11,16 @@
 // options view and the inline helpers are inferred; the operation handle is
 // volatile (completion callbacks clear it, and the target reloads it). The
 // file's small statics and mutex are defined here in their original order.
-// ASYNCFILE_init before this run is drafted in
-// scratch/lib/hlafile_init_wip.cpp (the free-list stores are scheduled
-// differently).
+// Compiled at GC 1.3: only it matches ASYNCFILE_init's free-list stores
+// (1.3.2 schedules them differently); a working profile, not proof of the
+// original release.
 extern "C" {
 int FILESYS_waitop(int);
 int FILESYS_cancelop(int);
 void MUTEX_lock(void*);
 void MUTEX_unlock(void*);
 void MUTEX_destroy(void*);
+void MUTEX_create(void*);
 bool THREAD_iscurrent(int);
 void SYNCTASK_run(int);
 void THREAD_yield(int);
@@ -79,6 +81,24 @@ static inline void newrequestid(ASYNCREQUESTVIEW* r) {
     if (requestidcounter == 0)
         requestidcounter = 256;
     r->id = (r->id & 0xFF) | requestidcounter;
+}
+
+extern "C" void ASYNCFILE_init(int count, int flags) {
+    int i;
+    if (request == 0 && count <= 256) {
+        numrequests = count;
+        request = (ASYNCREQUESTVIEW*)gFileSysOpts.malloc("ASYNCFILE", count * sizeof(ASYNCREQUESTVIEW), flags);
+        freequeue[0] = request;
+        freequeue[1] = request + (count - 1);
+        MUTEX_create(mutex);
+        for (i = 0; i < count; i++) {
+            ASYNCREQUESTVIEW* r = &request[i];
+            r->id = i;
+            r->op = 0;
+            r->next = &request[i + 1];
+        }
+        request[count - 1].next = 0;
+    }
 }
 
 extern "C" void ASYNCFILE_restore() {
