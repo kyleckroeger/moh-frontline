@@ -3,13 +3,17 @@
 // otherwise the selected slot's weapon object's weapon, with 0 (or null) when
 // no slot is selected: the reserve and clip ammo counts and the bullet sprite.
 // GetWeaponByCRC returns the weapon object in the slot GetWeaponInfoByCRC
-// finds. The file name is this project's; the original record is player.cpp
-// and the camera-shake functions before these (pooled .sdata2 constants) and
-// GetWeaponInfoByCRC after them are not reconstructed. The classes and
+// finds; GetWeaponInfoByCRC maps a weapon-name CRC to a slot and two ids,
+// reporting unknown CRCs; GetWeapon, GetCurrentWeapon and
+// GetCurrentPlayerWeapon follow. The file name is this project's; the original
+// record is player.cpp and the camera-shake functions before these (pooled
+// .sdata2 constants) and CycleWeapon after them are not reconstructed. The classes and
 // functions are named by the mangled symbols; CPlayerObject,
 // CPlayerWeaponObject and CWeapon are inferred non-virtual views (members at
 // their offsets, names not original) and the result types are inferred.
 class CSprite;
+
+void DebugMsg(const char*, ...);
 
 class CWeapon {
 public:
@@ -33,6 +37,9 @@ public:
     CSprite* GetCurrentBulletSprite() const;
     CPlayerWeaponObject* GetWeaponByCRC(int) const;
     static int GetWeaponInfoByCRC(int, int*, int*);
+    CPlayerWeaponObject* GetWeapon(int) const;
+    CWeapon* GetCurrentWeapon() const;
+    CPlayerWeaponObject* GetCurrentPlayerWeapon() const;
 
     unsigned char unknown000[918];
     unsigned char m_usingMountedWeapon : 1;
@@ -69,4 +76,145 @@ CSprite* CPlayerObject::GetCurrentBulletSprite() const {
 
 CPlayerWeaponObject* CPlayerObject::GetWeaponByCRC(int crc) const {
     return m_weapons[GetWeaponInfoByCRC(crc, 0, 0)];
+}
+
+// The CRCs are of weapon names; the two values written for each are ids
+// whose meaning is not established (-1 for none).
+int CPlayerObject::GetWeaponInfoByCRC(int crc, int* first, int* second) {
+    int unused;
+    if (!first)
+        first = &unused;
+    if (!second)
+        second = &unused;
+    switch (crc) {
+    case -1896116718:
+    case -1021255877:
+    case 1553313914:
+        *first = 348;
+        *second = 534;
+        return 14;
+    case -864943398:
+    case -665576871:
+    case 958924262:
+        *first = 349;
+        *second = 535;
+        return 20;
+    case -1355122713:
+    case -871513808:
+    case -195145515:
+        *first = 350;
+        *second = 270;
+        return 29;
+    case -1736123817:
+    case -1096117951:
+        *first = 351;
+        *second = 533;
+        return 7;
+    case -1379654328:
+    case 921360410:
+    case 1208277298:
+        *first = 352;
+        *second = 538;
+        return 16;
+    case -1738841586:
+    case -154155496:
+    case 1851280536:
+        *first = 353;
+        *second = 539;
+        return 15;
+    case -1909284242:
+    case -966596322:
+    case 209948952:
+        *first = 354;
+        *second = 536;
+        return 21;
+    case -1659995028:
+    case 1141236603:
+        *first = 355;
+        *second = 540;
+        return 25;
+    case 608597343:
+    case 1796663563:
+        *first = 356;
+        *second = 541;
+        return 24;
+    case -1878322165:
+    case -1572858027:
+        *first = 362;
+        *second = 272;
+        return 30;
+    case -1520575955:
+    case 503590668:
+        *first = -1;
+        *second = 271;
+        return 33;
+    case -1464244323:
+    case -86564309:
+        *first = 357;
+        *second = 542;
+        return 5;
+    case -2029810030:
+    case -2019279670:
+    case 917370864:
+        *first = 359;
+        *second = 543;
+        return 8;
+    case -284586767:
+    case 1193826648:
+        *first = 360;
+        *second = -1;
+        return 36;
+    case 704609950:
+    case 799037206:
+        *first = 361;
+        *second = -1;
+        return 35;
+    case -772383655:
+    case 333140481:
+        *first = -1;
+        *second = -1;
+        return 37;
+    case 288002954:
+    case 1333379419:
+        *first = 363;
+        *second = 544;
+        return 32;
+    case -2090384249:
+    case 441020331:
+    case 1482684816:
+        *first = -1;
+        *second = 545;
+        return 34;
+    case -2001962608:
+    case -1048131012:
+    case 1920496499:
+        *first = 358;
+        *second = 537;
+        return 6;
+    default:
+        DebugMsg("Unrecognized player weapon CRC: %d\n", crc);
+        *first = -1;
+        *second = -1;
+        return 14;
+    }
+}
+
+CPlayerWeaponObject* CPlayerObject::GetWeapon(int slot) const {
+    return m_weapons[slot];
+}
+
+CWeapon* CPlayerObject::GetCurrentWeapon() const {
+    if (m_usingMountedWeapon)
+        return m_mountedWeapon;
+    if (m_currentWeapon >= 0)
+        return m_weapons[m_currentWeapon]->m_weapon;
+    return 0;
+}
+
+CPlayerWeaponObject* CPlayerObject::GetCurrentPlayerWeapon() const {
+    if (m_usingMountedWeapon)
+        return 0;
+    if (m_currentWeapon >= 0)
+        return m_weapons[m_currentWeapon];
+    return 0;
 }
