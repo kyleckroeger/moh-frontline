@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 520292,
+    "matching_code_bytes": 520888,
     "total_executable_code_bytes": 1414572,
-    "percent": 36.78087789098045,
+    "percent": 36.82301077640445,
     "categories": {
-      "reconstructed_game": 301332,
+      "reconstructed_game": 301928,
       "restored_library": 218960
     },
-    "matching_functions": 3222
+    "matching_functions": 3223
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -142,7 +142,7 @@
     "config/GMFE69/SearchNode_tail.json": "82bf47d102a265a3559cd1ad02896cff8eff8e0fddd7370f762c1247835d7a4b",
     "config/GMFE69/ShellMenu.json": "8dd6d4ec65f514a1f54b37bc84805970f0bea890598fe1b03be548df82af6f74",
     "config/GMFE69/ShellMenu_audio.json": "026af524cf3fe574304b285b6fac8ad8f8d3836cbebcd0388ca6645fee826edf",
-    "config/GMFE69/ShellMenu_audioset.json": "85c04df67f76218465aa0737a20d71fecd403b120b7a7f2d00137b26d16c152e",
+    "config/GMFE69/ShellMenu_audioset.json": "27607fed353c1360321b5725b5513d31bcfca481fc718dfb4841a217b873360c",
     "config/GMFE69/ShellMenu_buttons.json": "f96859f9b99070291ff1f4479a92a9737ddb08d62fcd07cd9877c93d3a2bd056",
     "config/GMFE69/ShellMenu_card.json": "39d9fc867595c068623b7bc1b2946a0ae62c8aebe5f9625dbf54143c10424f44",
     "config/GMFE69/ShellMenu_cardquery.json": "a62188697027b88aa4a536c3f1ed038884979039cf4401a136e0177306df8608",
@@ -1832,7 +1832,7 @@
     "src/game/SearchNode_tail.cpp": "ac957dcb51976bf56af734d6ff8433a4bc34a95f066fdc0708034b825032e2e2",
     "src/game/ShellMenu.cpp": "e03b478aa25e400ae26b61840f1147b0b0293e518a216ca8e670c39aab756f38",
     "src/game/ShellMenu_audio.cpp": "14c39e840cc8b6e6b8bc8de416c4a3e2ff18c600d6d5432e179a8c07c01f94b6",
-    "src/game/ShellMenu_audioset.cpp": "1575688ea183cb7734674101b9f23f77494badfed890cc78db5f84bd85ade3e3",
+    "src/game/ShellMenu_audioset.cpp": "eaed4c52183e4d52249d7f60476c64a6c2bf21a5882d2c66793c2e3957bae9ae",
     "src/game/ShellMenu_buttons.cpp": "19cab253d4e3b1aa1ada749ee4f1b3b4cee40aca9b520a71f4a7129fa1633f7b",
     "src/game/ShellMenu_card.cpp": "8b1e97e98921cc9c17679c1317a69483cded761ac6a955e2a3158eee5ac1b2aa",
     "src/game/ShellMenu_cardquery.cpp": "14bed4e6741ebc072c6770bbde04a3f4c7e82ba846bfb1ba9f3770ccf628b1ad",
@@ -30861,8 +30861,8 @@
     {
       "id": "ShellMenu_audioset",
       "category": "reconstructed_game",
-      "functions": 3,
-      "code_bytes": 516,
+      "functions": 4,
+      "code_bytes": 1112,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -30894,8 +30894,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "a9eb663ceda8594d88f79fb253eccf843713b7ae345a5a5940ecd45e248c765c",
-      "linked_sha256": "13cb5d42e6f259e78a350b069db5f77157bd1596b20645c611e41dc8529bea0d"
+      "object_sha256": "661369b838676a116b3a93acdcfa5f970c69d500c6597441a6a5af7549ae3029",
+      "linked_sha256": "0052493ddecdc28ffafc5e169f50646373f7d32d1042506c6412857244aa1fad"
     },
     {
       "id": "ShellMenu_buttons",
@@ -45512,13 +45512,6 @@
             "size": 360,
             "kind": "function",
             "name": "NullOutJournalSpritesFromLibrary__10CShellMenuFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800df5c0",
-            "size": 596,
-            "kind": "function",
-            "name": "ResetAudio__10CShellMenuFv",
             "evidence": "exception-index"
           },
           {

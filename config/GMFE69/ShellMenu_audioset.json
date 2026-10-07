@@ -39,24 +39,30 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800df814",
-      "size": 516,
+      "address": "0x800df5c0",
+      "size": 1112,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000edb8",
-      "size": 24,
+      "address": "0x8000eda0",
+      "size": 48,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80015a4c",
-      "size": 12,
+      "address": "0x80015a40",
+      "size": 24,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "ResetAudio__10CShellMenuFv",
+      "address": "0x800df5c0",
+      "size": 596,
+      "binding": 1
+    },
     {
       "name": "SetMusicValue__10CShellMenuFi",
       "address": "0x800df814",
@@ -83,6 +89,7 @@
     "SoundSetVolumes__Fff": "0x800ecf60",
     "__ct__13CSoundSysLockFv": "0x800ecbf8",
     "__dt__13CSoundSysLockFv": "0x800ecba8",
+    "memcpy": "0x800094f8",
     "pSoundStream": "0x8034eca0"
   },
   "undefined_in_discarded_code": [],
