@@ -628,7 +628,8 @@
     "snddrv_thread.json",
     "MemoryCardGC_status.json",
     "MemoryCardGC_blocks.json",
-    "MemoryCardGC_probe.json"
+    "MemoryCardGC_probe.json",
+    "MemoryCardGC_format.json"
   ],
   "progress": {
     "code_bytes": 1414572,
