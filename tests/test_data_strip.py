@@ -76,6 +76,37 @@ class DataStripping(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Compiled function binding differs'):
             validate_object(Elf32(strip_objects(compiled, unit)), unit)
 
+    def test_input_alignment_relaxes_only_the_section_header(self):
+        compiled = (self.build / 'units/smixfx/compiled.o').read_bytes()
+        unit = json.loads((CONFIG / 'smixfx.json').read_text())
+        before, after = Elf32(compiled), Elf32(strip_objects(compiled, unit))
+        sbss = next(s for s in unit['sections'] if s['name'] == '.sbss')
+        self.assertEqual((int(sbss['address'], 16) % 8, sbss['input_alignment']), (4, 4))
+        for old, new in zip(before.sections, after.sections):
+            expected = 4 if old['name'] == '.sbss' else old['alignment']
+            self.assertEqual((old['alignment'], new['alignment']), (old['alignment'], expected), old['name'])
+            self.assertEqual(dict(old, alignment=0), dict(new, alignment=0))
+
+    def test_input_alignment_needs_a_4_mod_8_placement(self):
+        unit = json.loads((CONFIG / 'smixfx.json').read_text())
+        validate_units(self.original, [unit])
+        mutated = json.loads(json.dumps(unit))
+        next(s for s in mutated['sections'] if s['name'] == '.text')['input_alignment'] = 4
+        with self.assertRaisesRegex(ValueError, 'Input alignment is not needed'):
+            validate_units(self.original, [mutated])
+        pad = json.loads(json.dumps(self.unit))
+        aligned = next(s for s in pad['sections'] if s['name'] == '.sbss' and int(s['address'], 16) % 8 == 0)
+        aligned['input_alignment'] = 4
+        with self.assertRaisesRegex(ValueError, 'Input alignment is not needed'):
+            validate_units(self.original, [pad])
+
+    def test_input_alignment_only_lowers_8_to_4(self):
+        compiled = (self.build / 'units/smixfx/compiled.o').read_bytes()
+        unit = json.loads((CONFIG / 'smixfx.json').read_text())
+        next(s for s in unit['sections'] if s['name'] == '.text')['input_alignment'] = 4
+        with self.assertRaisesRegex(ValueError, 'only relax 8-aligned compiler data'):
+            strip_objects(compiled, unit)
+
     def test_unknown_object_fails(self):
         with self.assertRaisesRegex(ValueError, 'not one compiler object'):
             strip_objects(self.compiled, self.mutated('.sbss', ['NoSuchObject']))

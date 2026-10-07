@@ -173,6 +173,15 @@ The original was linked by the MW linker, unlike Rising Sun's ProDG link:
   Use it instead of `linked_offset` for leading objects too when the shifted
   base would break the section's alignment; SN then pads the start (`dsp_task`
   `.sbss`, `GXTexture` `.data`).
+- **Small data at 4 mod 8.** MWCC gives `.sdata`, `.sbss`, `.sdata2` and
+  `.rodata` 8-byte alignment, but MW's linker placed some of these input
+  sections at addresses that are 4 mod 8 (`smixfx` `.sbss` at `0x8034f4d4`).
+  SN's linker would pad the start or round the size up. A manifest section then
+  sets `input_alignment: 4`; `data_strip.py` lowers only that section header's
+  alignment from 8 to 4 in `input.o`. `validate_units` accepts the field only on
+  a data section whose linked base is 4 mod 8, so it cannot hide a misplaced
+  section, and the bytes are compared with the original as usual.
+  `port_unit.py` adds the field when a placement needs it.
 - **Relocations in removed bytes.** Relocations located in stripped sections,
   trimmed slices or stripped objects are pointed at their own section before
   linking. Otherwise SN keeps a discarded function alive through dead data, such

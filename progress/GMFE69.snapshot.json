@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 422188,
+    "matching_code_bytes": 422336,
     "total_executable_code_bytes": 1414572,
-    "percent": 29.84563528756401,
+    "percent": 29.856097816159235,
     "categories": {
-      "reconstructed_game": 205784,
+      "reconstructed_game": 205932,
       "restored_library": 216404
     },
-    "matching_functions": 2590
+    "matching_functions": 2591
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -435,7 +435,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "b1b3662b1fbcca4e6649e34238489972779fad64b23b50fa974cf0830de27723",
+    "config/GMFE69/project.json": "da5312472cc44717112129a3c3e5f205a93526c00df2cd0332228b60de47ee83",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "bd4b85e3a27ac50301d2ad04642bca1abf864b5f74397505530539b31bf4c0d1",
@@ -533,6 +533,7 @@
     "config/GMFE69/smixc.json": "02df5e7acacf931ac3a7d7e050a3362b8bb65dabdaf1fcebe5bbea843ba2b101",
     "config/GMFE69/smixer.json": "2ff9d9a8c952ddc00ce6c9de4df2ab0090ae102c9a5b040edcbc642f0cd59922",
     "config/GMFE69/smixfram.json": "d51872b43a7c17cc24a25006ba590aa09cb544d5c2c3cf82734f9da270731eb7",
+    "config/GMFE69/smixfx.json": "5c0cd28c1b30f61605379c29c03cd20fdfefaead06442c015f44c047c2531b0b",
     "config/GMFE69/smixhip.json": "4a68e74acc78bdfaacebfbe6adad36c62e7fd215878203935887f97448739d71",
     "config/GMFE69/smixlowp.json": "d53e5c31fe798368a255f83acad448258398036638284e3bc62c00683bf6796a",
     "config/GMFE69/smixptch.json": "3ee346a2468c72ab7527f27bcf6828417178cbb8b0f2d6e04fbe0403fd87e159",
@@ -1531,6 +1532,7 @@
     "src/ea/smixc.c": "d72ae89323bd6d4b639820f99931a5b3e179e87bad9466dd45091ab22f60f90d",
     "src/ea/smixer.c": "42f20d586014ed92c3f870b261de87733f26d111fdf95ebe384c1da426216d28",
     "src/ea/smixfram.c": "f9b2f944adf9a8e1e4cfc3dd30ce49ba917154599824ac5c528febb47dff988a",
+    "src/ea/smixfx.c": "c1520eb4498f4529f1ee66a4bb3a2f70f129c04f2e0a8bd395ddb913d2d45f37",
     "src/ea/smixhip.c": "9c4a7a18f876ffc3e83e6a7c36d95de022bcc5ad2e1324cf0d1981305d2d9a0c",
     "src/ea/smixlowp.c": "3a30e12bbbc6bdbce38ef1897a4b0dbe9342d675ad94bd13908f6643525fe6c2",
     "src/ea/smixptch.c": "47a348d834dba9fe0175a712c545385b61ba841ff47a27dc7fb70381cc7723fb",
@@ -2104,15 +2106,15 @@
     "tools/baseline.py": "b1bcca74f43dbe7d4bb323a4a76db013527907f4ec739f1fb0d3b1fb246d0dd2",
     "tools/code_map.py": "2d148710de147a8d4b8b834b982de64ea0a0da56a743173df8772f06dace7204",
     "tools/compilers.json": "a7d66ea0a76c35649ab1313e5c6d8257cbee1f2790e230fafbbfb47fd6fa0367",
-    "tools/data_strip.py": "5f93d413babda2d4bfcb7bd17bf840bfdf72aefd9d47f169510d3aa800589568",
+    "tools/data_strip.py": "79c2ef03831d73bbdbf1dc4903dc6cd1dc9298cb6295981e3f71b260484ac298",
     "tools/dependencies.py": "904789a0085a12fbc9405b95f47e5b827a33850738bf7e2aa2b3c3ed548da118",
     "tools/file_map.py": "01c2996472bee139aad5b50c663c3df6bf2513aa9724989c0bb648ef36425d00",
     "tools/formats.py": "3124d742d0518c913dfc575602bba63befbd9e0e78220e5a85059cda277f8f81",
     "tools/import_disc.py": "a76b0fc8a963fa5e26e432e8261c26f199989c7e2fc2c90cf0116878db15597b",
     "tools/objdiff_config.py": "4133276adf513df6f4aad3d70df298f0bb0f8ced4ae1abc72703e8e0dc9bb13a",
-    "tools/port_unit.py": "40d4c50f4e5bcb69a0c554c96b103476c06f548ad10c592dd77d64c86be00f98",
+    "tools/port_unit.py": "6ce65630dfb1f92d4c502350d6f778a8e8c68293f86ba02e5e647845bb36df68",
     "tools/progress_report.py": "6f77d4f04165a2875275be1fe3d5a84fe128690c3b850c7ea3aaf1e1e307be1f",
-    "tools/project_build.py": "7da4a1c246bb64215ac117a80b183c4581bf06e1db7393391a38bf50a53e240a",
+    "tools/project_build.py": "93b1719d6ed00dd0ded614e7a568dba823cd1ee678b86f885626408ba0196e24",
     "tools/reconstruct.py": "ae713fceeb3eef9f113af483ad5e3d5d6f1123fc424d0595099247e3e07a4cf2",
     "tools/sdk_build.py": "faafcfaceae7606b3529828b8496a958aa49f53f92b477ea70c5a0bb5cce84a3",
     "tools/setup.py": "99f9d6bf69d36a45530565f597d0bdc926da68d96515bfdd1ec011719b8ebe84",
@@ -29011,6 +29013,45 @@
       "discarded_functions": [],
       "object_sha256": "245e233e76aea8e4de1871a705656e0612ccfacebb48962e73f23a322a071665",
       "linked_sha256": "cba928c3dfc52e27f74c28e6a5de4193c1cfa47432acc6ec9e6521e7be324397"
+    },
+    {
+      "id": "smixfx",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 148,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "a676a4a1ad8a9df7e72b22c92173c31945a2dc6f2e3c30076b34b385a8eb7e9f",
+      "linked_sha256": "7c9a15983f3caa56ffbef5a0a040e9a5fbcf52ccdd4bcfa538c2546a6020918a"
     }
   ],
   "code_map": {
@@ -46817,13 +46858,6 @@
         "file_record": 511,
         "file_name": "smixfx.c",
         "ranges": [
-          {
-            "address": "0x80160cc0",
-            "size": 148,
-            "kind": "function",
-            "name": "SNDMIXI_fxinit",
-            "evidence": "private-reference"
-          },
           {
             "address": "0x80160d54",
             "size": 552,

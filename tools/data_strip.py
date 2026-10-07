@@ -9,6 +9,11 @@ Relocations located in bytes the original linker removed (parked sections,
 trimmed slices and stripped objects) are pointed at their own section, so that
 dead data does not keep discarded functions alive in SN's link.
 
+A manifest section may set `input_alignment` to 4 when the original linker
+placed an 8-aligned compiler data section at an address that is 4 mod 8 (MW's
+linker did; SN's would pad the start or the size). Only the section header's
+alignment changes; the bytes are still compared with the original.
+
 The rewrite permutes bytes and keeps the file size; the original compiler
 output is still what the build report hashes.
 """
@@ -19,6 +24,7 @@ from formats import Elf32
 
 STT_OBJECT, STT_SECTION = 1, 3
 R_PPC_ADDR32 = 1
+SECTION_HEADER_SIZE, ALIGNMENT_FIELD = 40, 32
 
 
 def c_identifier(name):
@@ -90,6 +96,14 @@ def strip_objects(data, unit):
             dead[section["index"]] = [(0, start), (start + manifest["size"], section["size"])]
     for name in unit.get("stripped_sections", []):
         dead[by_name[name]["index"]] = [(0, by_name[name]["size"])]
+
+    section_headers = struct.unpack_from(">I", data, 32)[0]
+    for manifest in unit["sections"]:
+        if "input_alignment" in manifest:
+            section = by_name[manifest["name"]]
+            if manifest["name"] in (".text", ".init") or manifest["input_alignment"] != 4 or section["alignment"] != 8:
+                raise ValueError("Input alignment may only relax 8-aligned compiler data to 4")
+            struct.pack_into(">I", out, section_headers + section["index"] * SECTION_HEADER_SIZE + ALIGNMENT_FIELD, 4)
 
     symbol_table = next(s for s in obj.sections if s["type"] == 2)
     for i, symbol in enumerate(obj.symbols()):

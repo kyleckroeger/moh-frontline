@@ -131,6 +131,11 @@ def validate_units(original, units):
                        s["address"] <= address < address + size <= s["address"] + s["size"]]
             if len(matches) != 1:
                 raise ValueError("Source section is outside the original section")
+            # Relaxed alignment is only for an original placement at 4 mod 8.
+            if "input_alignment" in section and (
+                    section["name"] in CODE_SECTIONS or section["input_alignment"] != 4
+                    or (address - section.get("linked_offset", 0)) % 8 != 4):
+                raise ValueError("Input alignment is not needed for this placement")
             if section["name"].startswith(".gnu.linkonce.d."):
                 obj = check_vtable_storage(original, section, address, (1, 2))
                 if obj["section"] != matches[0]["index"]:

@@ -314,6 +314,8 @@ def draft(args):
                  "size": end - start, "type": section["type"]}
         if (start, end) != (0, section["size"]):
             entry.update(linked_offset=start, linked_size=section["size"])
+        if section["alignment"] == 8 and addresses[section["name"]] % 8 == 4:
+            entry["input_alignment"] = 4  # MW's linker placed it at 4 mod 8.
         sections.append(entry)
     code = [(int(c["address"], 16), int(c["address"], 16) + c["size"]) for c in sections if c["name"] in CODE_SECTIONS]
     functions = [{"name": s["name"], "address": hex(s["address"]), "size": s["size"], "binding": s["binding"]}
