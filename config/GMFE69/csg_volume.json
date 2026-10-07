@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800c7f54",
-      "size": 296,
+      "size": 376,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000debc",
-      "size": 8,
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80014d8c",
-      "size": 12,
+      "size": 24,
       "type": 1
     },
     {
@@ -70,6 +70,12 @@
       "binding": 1
     },
     {
+      "name": "Create__10CCSGVolumeCFv",
+      "address": "0x800c807c",
+      "size": 80,
+      "binding": 1
+    },
+    {
       "name": "GetExtents__10CCSGVolumeCFR8CVector3R8CVector3",
       "address": "0x800c7f58",
       "size": 292,
@@ -77,7 +83,10 @@
     }
   ],
   "externals": {
-    "GetSubVolume__11CHierObjectCFi": "0x80099980"
+    "GetSubVolume__11CHierObjectCFi": "0x80099980",
+    "__nw__FUl": "0x8001cb60",
+    "__vt__10CCSGVolume": "0x801895f4",
+    "__vt__7IVolume": "0x80181e28"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 468868,
+    "matching_code_bytes": 468948,
     "total_executable_code_bytes": 1414572,
-    "percent": 33.14557336070557,
+    "percent": 33.15122878156785,
     "categories": {
-      "reconstructed_game": 252464,
+      "reconstructed_game": 252544,
       "restored_library": 216404
     },
-    "matching_functions": 2843
+    "matching_functions": 2844
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -311,7 +311,7 @@
     "config/GMFE69/compartment.json": "479e056c1224c6ba61656c0bc4a423b7ad42dc361d2bc51e4b48dc69f739cef8",
     "config/GMFE69/configfile.json": "91ea7c527a01fbdf35a79bee7b9f1f527b45ca2c45cceaca096207d590220903",
     "config/GMFE69/cpudetect.json": "f617351e9aa4e5ec3cd84ed1322674cc8c654e2e1e9b138b5402edf93e1acd56",
-    "config/GMFE69/csg_volume.json": "3cd3a5d440f7b5260f96136cb0ea9f0688e28a4aa82995d2ea250dd9f6127bb7",
+    "config/GMFE69/csg_volume.json": "1a32269793b843c836cd1d9a10e04c61e8ef66b672ee749199071aefb480c290",
     "config/GMFE69/csg_volume_ivolume.json": "75e1d013c89ee295c290e3e879d1804a10050b075eb7c5373ca8a57853ab3b64",
     "config/GMFE69/ctype.json": "204f2baf71f1c77a57c8bb685dba45f7583994fc6c39201224cb2a0ed20eb580",
     "config/GMFE69/db.json": "f5cdac8d1b6ec28c05d82995e2918679665f81055beaea75273deb9b2bb4a458",
@@ -1900,7 +1900,7 @@
     "src/game/collisionvolume_rows.cpp": "99bf2752de600fe57337217065052826b62f776cd7fb728d5dcddead6ed52cb0",
     "src/game/compartment.cpp": "0f672d3fdb0861873ed8382e8e30b6a38756d059ec6156f3d6cc61c4ef0cc866",
     "src/game/configfile.cpp": "d7e5f7aff38b5ab2c1744e81f1a3469c55b6e00a561d1f5cd43f49ccf6b6d2ec",
-    "src/game/csg_volume.cpp": "f25cc67d8eb3b8f7878f9b091457fd541542c87d7ac50c96a7672781e668484c",
+    "src/game/csg_volume.cpp": "e242e83e9e1435b00fbccc47f57c47cd61a3c9d2dd271c80e61d2aa8e8a1a358",
     "src/game/csg_volume_ivolume.cpp": "84fa6ea3869428d7906656b5ca02323e65da7d52ee752316e86c4ec41cc4793e",
     "src/game/debug_prof.cpp": "eae6608546f1d34876d1b81af9672ebc2984b06c7a1e67da717fb68e7e77b9d0",
     "src/game/debug_prof_bins.cpp": "244d57b6d0b353a0fa4940864deb9b3b0d65840a5a6979e9ecd315e2ac2682af",
@@ -20652,8 +20652,8 @@
     {
       "id": "csg_volume",
       "category": "reconstructed_game",
-      "functions": 2,
-      "code_bytes": 296,
+      "functions": 3,
+      "code_bytes": 376,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -20685,8 +20685,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "032783afe03d615a97dcccbbc555b022f651d289a3828f96f85482aac057e2c2",
-      "linked_sha256": "1bb0c11c293093c887d86ad38d21e4524ee12d961d5a8e0a9b4508a03ac45866"
+      "object_sha256": "b4ebf7baa47b33850ec8873f06ca8aebb7505ff439cdaf49b44910971eba289b",
+      "linked_sha256": "4201c33ece0d13b425225b3f7a988b635d862fcf189770af7739257b94245757"
     },
     {
       "id": "quaternion",
@@ -42914,13 +42914,6 @@
         "file_record": 131,
         "file_name": "csg_volume.cpp",
         "ranges": [
-          {
-            "address": "0x800c807c",
-            "size": 80,
-            "kind": "function",
-            "name": "Create__10CCSGVolumeCFv",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x800c80cc",
             "size": 324,

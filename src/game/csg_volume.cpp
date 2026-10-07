@@ -1,10 +1,12 @@
 // CCSGVolume, the functions at the start of the file: an empty
-// TransformedCopy and the extents as the union of the hierarchy object's
-// sub-volume extents (starting from FLT_MAX and -FLT_MAX). The names come from
+// TransformedCopy, the extents as the union of the hierarchy object's
+// sub-volume extents (starting from FLT_MAX and -FLT_MAX) and Create. The names come from
 // the mangled symbols; IVolume's virtual functions are declared in the order
-// of __vt__7IVolume, and CCSGVolume is a non-virtual view whose members are
-// inferred. Create (which sets the vtable) and the rest of the file are not
-// part of this unit.
+// of __vt__7IVolume, CCSGVolume declares its destructor first (defined
+// elsewhere, so its virtual table is not emitted here) and its members are
+// inferred. Create allocates a new CSG volume (12 bytes; the inline
+// constructors set the virtual tables and clear the members). The rest of
+// the file is not part of this unit.
 class CMatrix;
 class CDrawContext;
 class CCollision;
@@ -53,12 +55,15 @@ public:
     IVolume* GetSubVolume(int) const;
 };
 
-class CCSGVolume {
+class CCSGVolume : public IVolume {
 public:
-    void TransformedCopy(const IVolume&, const CMatrix&);
+    virtual ~CCSGVolume();
+    virtual IVolume* Create() const;
+    virtual void TransformedCopy(const IVolume&, const CMatrix&);
     void GetExtents(CVector3&, CVector3&) const;
 
-    unsigned char unknown00[4];
+    CCSGVolume() : m_object(0), m_count(0) {}
+
     CHierObject* m_object;
     int m_count;
 };
@@ -93,4 +98,8 @@ void CCSGVolume::GetExtents(CVector3& minimum, CVector3& maximum) const {
                 maximum.z = high.z;
         }
     }
+}
+
+IVolume* CCSGVolume::Create() const {
+    return new CCSGVolume;
 }
