@@ -22,9 +22,16 @@
 // handle's size) and frees it. FILESYS_exists, FILESYS_open and FILESYS_close
 // reserve an operation (and a handle, named by the request) and queue it;
 // closing a handle that another record still refers to is reported.
+// FILESYS_read (clamped to the handle's size) and FILESYS_size queue reads
+// and size queries on an int handle. iFILE_addbigreadcallback finishes a big
+// file's header read: it grows the header buffer to the size the header
+// reports and reads the rest (FILESYS_read and FILESYS_callbackop are inlined
+// here, FILESYS_completeop is not), or links the loaded file on the device
+// and runs the pending add operation.
 // FILEOPERATION_def and HANDLE_def are named by the mangled helper symbols;
 // their members are inferred from offsets (the handle's name ends at +260,
-// where its size is kept).
+// where its size is kept). This unit is built with GC 1.3: GC 1.3.2 inlines
+// FILESYS_completeop into the callback, which the original calls.
 struct OSMutex {
     unsigned char unknown00[24];
 };
@@ -37,6 +44,10 @@ bool THREAD_iscurrent(int);
 void SYNCTASK_run(int);
 void THREAD_yield(int);
 char* strncpy(char*, const char*, unsigned long);
+int BIG_typeofheader(void*);
+int BIG_sizeofheader(void*);
+void MEM_copy(void*, const void*, int);
+int FILESYS_completeop(int);
 void MEM_fill(void*, int, int);
 void REAL_abortmessage(const char*, ...);
 int FILESYS_overhead(int, int, int);
@@ -55,6 +66,7 @@ void initfiledev();
 void stopreadfile(HANDLE_def*);
 void freehandle(HANDLE_def*);
 void freeop(FILEOPERATION_def*);
+void iFILE_addbigreadcallback(int, int, void*);
 FILEOPERATION_def* reserveop();
 HANDLE_def* reservehandle();
 void iFILE_perror(FILEOPERATION_def*);
@@ -78,7 +90,7 @@ union FILEOPID {
     } parts;
 };
 
-typedef void (*FILEOPCALLBACK)(int, int, int);
+typedef void (*FILEOPCALLBACK)(int, int, void*);
 
 struct FILEOPERATION_def {
     FILEOPID id;
@@ -86,21 +98,25 @@ struct FILEOPERATION_def {
     volatile int status;
     int error;
     int priority;
-    int callbackData;
+    void* callbackData;
     int unknown18;
     int unknown1c;
-    unsigned char unknown20[4];
+    void* buffer;
     HANDLE_def* handle;
     FILEOPCALLBACK callback;
     FILEOPERATION_def* next;
 };
 
-/* inferred: a list of records that refer to an open handle */
-struct FILELINKVIEW {
-    unsigned char unknown00[12];
+/* inferred: a big file being added (its header buffer, the bytes read so
+   far, the allocation flags, its handle and the pending add operation),
+   linked on the device once loaded */
+struct BIGFILEVIEW {
+    void* buffer;
+    int size;
+    int memflags;
     HANDLE_def* handle;
-    unsigned char unknown10[4];
-    FILELINKVIEW* next;
+    FILEOPERATION_def* op;
+    BIGFILEVIEW* next;
 };
 
 struct FILEDEVICEVIEW {
@@ -116,7 +132,7 @@ struct FILEDEVICEVIEW {
     };
     char* handleMemory;
     FILEOPERATION_def* queue;
-    FILELINKVIEW* links;
+    BIGFILEVIEW* links;
 };
 
 extern FILESYSOPTSVIEW gFileSysOpts;
@@ -355,7 +371,7 @@ extern "C" int FILESYS_completeop(int op) {
     return result;
 }
 
-extern "C" int FILESYS_exists(const char* name, int priority, int callbackData) {
+extern "C" int FILESYS_exists(const char* name, int priority, void* callbackData) {
     FILEOPERATION_def* op = reserveop();
 
     op->id.parts.unknown2 = 8;
@@ -371,7 +387,7 @@ extern "C" int FILESYS_exists(const char* name, int priority, int callbackData) 
     return op->id.value;
 }
 
-extern "C" int FILESYS_open(const char* name, int mode, int priority, int callbackData) {
+extern "C" int FILESYS_open(const char* name, int mode, int priority, void* callbackData) {
     FILEOPERATION_def* op = reserveop();
 
     op->id.parts.unknown2 = 2;
@@ -387,9 +403,9 @@ extern "C" int FILESYS_open(const char* name, int mode, int priority, int callba
     return op->id.value;
 }
 
-extern "C" int FILESYS_close(HANDLE_def* handle, int priority, int callbackData) {
+extern "C" int FILESYS_close(HANDLE_def* handle, int priority, void* callbackData) {
     FILEOPERATION_def* op = reserveop();
-    FILELINKVIEW* link = gFileDevice.links;
+    BIGFILEVIEW* link = gFileDevice.links;
 
     op->id.parts.unknown2 = 3;
     op->priority = priority;
@@ -404,4 +420,73 @@ extern "C" int FILESYS_close(HANDLE_def* handle, int priority, int callbackData)
     }
     iFILE_ExecCommand(op);
     return op->id.value;
+}
+
+extern "C" int FILESYS_read(int handle, int position, void* buffer, int count, int priority, void* callbackData) {
+    FILEOPERATION_def* op = reserveop();
+
+    op->id.parts.unknown2 = 4;
+    op->callbackData = callbackData;
+    op->priority = priority;
+    if (!handle) {
+        op->error = 6;
+        iFILE_perror(op);
+    }
+    op->handle = (HANDLE_def*)handle;
+    if (position + count > op->handle->unknown104)
+        count = op->handle->unknown104 - position;
+    op->unknown1c = count;
+    op->buffer = buffer;
+    op->unknown18 = position;
+    iFILE_ExecCommand(op);
+    return op->id.value;
+}
+
+extern "C" int FILESYS_size(int handle, int priority, void* callbackData) {
+    FILEOPERATION_def* op = reserveop();
+
+    op->id.parts.unknown2 = 6;
+    op->callbackData = callbackData;
+    op->priority = priority;
+    if (!handle) {
+        op->error = 6;
+        iFILE_perror(op);
+    }
+    op->handle = (HANDLE_def*)handle;
+    iFILE_ExecCommand(op);
+    return op->id.value;
+}
+
+void iFILE_addbigreadcallback(int op, int, void* data) {
+    BIGFILEVIEW* big = (BIGFILEVIEW*)data;
+    FILEOPERATION_def* record = &gFileDevice.ops[((FILEOPID*)&op)->parts.slot];
+    int priority = record->priority;
+    HANDLE_def* handle = record->handle;
+    int size;
+
+    big->handle = handle;
+    big->op->handle = handle;
+    FILESYS_completeop(op);
+    if (!BIG_typeofheader(big->buffer))
+        gFileSysOpts.mfree(big->buffer);
+    size = BIG_sizeofheader(big->buffer);
+    if (size > big->size) {
+        void* temp = gFileSysOpts.malloc("tmp bigfile buf", size, big->memflags ^ 256);
+        void* buffer;
+
+        MEM_copy(temp, big->buffer, big->size);
+        gFileSysOpts.mfree(big->buffer);
+        buffer = gFileSysOpts.malloc("bigfile buf", size, big->memflags);
+        MEM_copy(buffer, temp, big->size);
+        gFileSysOpts.mfree(temp);
+        big->buffer = buffer;
+        op = FILESYS_read((int)big->handle, big->size, (char*)big->buffer + big->size, size - big->size,
+                          priority, big);
+        FILESYS_callbackop(op, iFILE_addbigreadcallback);
+        big->size = size;
+    } else {
+        big->next = gFileDevice.links;
+        gFileDevice.links = big;
+        iFILE_ExecCommand(big->op);
+    }
 }

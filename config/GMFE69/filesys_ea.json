@@ -3,7 +3,7 @@
   "source": "src/ea/filesys.cpp",
   "category": "reconstructed_game",
   "compiler_family": "GC",
-  "compiler_version": "1.3.2",
+  "compiler_version": "1.3",
   "compiler_flags": [
     "-nodefaults",
     "-proc",
@@ -38,13 +38,13 @@
     {
       "name": ".text",
       "address": "0x801482ec",
-      "size": 2704,
+      "size": 3548,
       "type": 1
     },
     {
       "name": ".data",
       "address": "0x80190f70",
-      "size": 204,
+      "size": 232,
       "type": 1
     },
     {
@@ -144,9 +144,30 @@
       "address": "0x80148cd0",
       "size": 172,
       "binding": 1
+    },
+    {
+      "name": "FILESYS_read",
+      "address": "0x80148d7c",
+      "size": 164,
+      "binding": 1
+    },
+    {
+      "name": "FILESYS_size",
+      "address": "0x80148e20",
+      "size": 128,
+      "binding": 1
+    },
+    {
+      "name": "iFILE_addbigreadcallback__FiiPv",
+      "address": "0x80148ea0",
+      "size": 552,
+      "binding": 1
     }
   ],
   "externals": {
+    "BIG_sizeofheader": "0x8014a364",
+    "BIG_typeofheader": "0x8014a318",
+    "MEM_copy": "0x80150880",
     "MEM_fill": "0x80150db4",
     "OSInitMutex": "0x80114330",
     "OSLockMutex": "0x80114368",
@@ -155,7 +176,11 @@
     "SYNCTASK_run": "0x80152394",
     "THREAD_iscurrent": "0x8015206c",
     "THREAD_yield": "0x80151fbc",
+    "_restgpr_23": "0x80138a4c",
+    "_restgpr_25": "0x80138a54",
     "_restgpr_27": "0x80138a5c",
+    "_savegpr_23": "0x80138a00",
+    "_savegpr_25": "0x80138a08",
     "_savegpr_27": "0x80138a10",
     "freehandle__FP10HANDLE_def": "0x80149e68",
     "freeop__FP17FILEOPERATION_def": "0x80149d68",
