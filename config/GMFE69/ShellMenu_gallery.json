@@ -39,24 +39,37 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800df0ec",
-      "size": 224,
+      "address": "0x800def28",
+      "size": 676,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000ed78",
-      "size": 8,
+      "address": "0x8000ed70",
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80015a04",
-      "size": 12,
+      "address": "0x800159f8",
+      "size": 24,
       "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018a2bc",
+      "size": 44,
+      "type": 1,
+      "input_alignment": 4
     }
   ],
   "functions": [
+    {
+      "name": "SetGlobalCheatStructure__10CShellMenuFv",
+      "address": "0x800def28",
+      "size": 452,
+      "binding": 1
+    },
     {
       "name": "GetGalleryMoviesUnlocked__10CShellMenuFPiPi",
       "address": "0x800df0ec",
@@ -65,6 +78,8 @@
     }
   ],
   "externals": {
+    "GetSecretsStatus__10CShellMenuFPi": "0x800e6c84",
+    "g_cheats": "0x80196a94",
     "memcpy": "0x800094f8"
   },
   "undefined_in_discarded_code": [],
@@ -74,5 +89,16 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "ShellMenu.cpp",
-  "original_file_index": 8612
+  "original_file_index": 8612,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80350f38"
+    }
+  ]
 }
