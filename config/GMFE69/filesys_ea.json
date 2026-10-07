@@ -29,7 +29,9 @@
     "-use_lmw_stmw",
     "off",
     "-lang",
-    "c++"
+    "c++",
+    "-char",
+    "signed"
   ],
   "include_dirs": [],
   "strip_unused": false,
