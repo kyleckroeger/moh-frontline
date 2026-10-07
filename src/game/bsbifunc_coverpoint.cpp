@@ -1,14 +1,18 @@
 // A fragment of bsbifunc.cpp (0x80033110): AI built-ins that report whether
 // the AI object has arrived at a cover point (the cover point with the given
-// index is its current one and its cover flag is set), continue a cover-point
-// walk (walk state 9) and invalidate a cover point by id (when non-zero).
-// Each reads its argument below the script stack top and pops the built-in's
+// index is its current one and its cover flag is set), continue a
+// cover-point walk (walk state 9) invalidate a cover point by id (when
+// non-zero), and snap to the current cover point's position (while in cover:
+// the modified position becomes the cover target, with the two arguments
+// from the stack top; beyond 0.6 in XY the script gets event 66, otherwise
+// flag 2 is set; 0.6f is an entry of the file's .sdata2 pool). Each reads
+// its arguments below the script stack top and pops the built-in's
 // arguments. The file name is this project's; the original record is
 // bsbifunc.cpp and the built-ins around these are not reconstructed. The
-// functions, classes and globals are named by the mangled symbols; ISceneNode
-// is declared with its virtual functions in the order of __vt__10ISceneNode
-// (GetAIDoodad at +204), and the doodad, filter, CAIObject and built-in
-// record views are inferred.
+// functions, classes and globals are named by the mangled symbols;
+// ISceneNode is declared with its virtual functions in the order of
+// __vt__10ISceneNode (GetAIDoodad at +204), and the doodad, filter,
+// CAIObject and built-in record views are inferred.
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
@@ -78,6 +82,7 @@ public:
     virtual CLight* GetAttachedLight() const;
 };
 
+
 class CCoverPoint;
 
 class CAIFilterGlobal {
@@ -88,13 +93,55 @@ public:
     unsigned char unknown00[24];
 };
 
+class BSObject;
+
+void BSObjectTriggerEvent(BSObject*, unsigned short, void*, BSObject*, bool);
+
+class CAIFilterRealPosition {
+public:
+    float GetDistanceXYReal(const CAIFilterRealPosition&) const;
+
+    float x;
+    float y;
+    float z;
+};
+
+// Inferred: a direction vector usable as a position (16 bytes in the object).
+class CAIFilterRealVector3 : public CAIFilterRealPosition {
+public:
+    float w;
+};
+
+enum COVERPOINT_TYPE {};
+
+class CCoverPoint {
+public:
+    void GetModifiedPosition(CAIFilterRealVector3&, COVERPOINT_TYPE) const;
+};
+
+struct AIFilterScriptView {
+    unsigned char unknown00[12];
+    BSObject* script;
+};
+
 class CAIObject {
 public:
-    unsigned char unknown000[536];
+    unsigned char unknown000[8];
+    AIFilterScriptView* m_filter;
+    unsigned char unknown00c[12];
+    CAIFilterRealPosition m_position;
+    unsigned char unknown024[20];
+    CAIFilterRealVector3 m_coverTarget;
+    float m_coverValue;
+    bool m_coverOption;
+    unsigned char unknown04d[347];
+    unsigned int m_flags1a8;
+    unsigned char unknown1ac[108];
     int m_walkState;
     unsigned char unknown21c[116];
     CCoverPoint* m_coverPoint;
-    unsigned char unknown294[44];
+    COVERPOINT_TYPE m_coverType;
+    unsigned char unknown298[40];
     bool m_coverFlag;
 };
 
@@ -147,5 +194,26 @@ void BIFunc_AIInvalidateCoverPointByID(int** stack, void*) {
     int id = *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1));
     if (id != 0)
         g_aigAIFilterGlobalObject.InvalidateCoverPointByID(id);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+// Inferred: an argument read at an offset from the stack top as a 0/1 int.
+inline int BSTopArgBool(int** stack, int index) {
+    return (*stack)[index] != 0;
+}
+
+void BIFunc_AISnapToCoverPointPosition(int** stack, void* object) {
+    bool option = BSTopArgBool(stack, -1);
+    float value = *(float*)*stack;
+    CAIObject* ai = GetAIObject(object);
+    if (ai->m_coverFlag) {
+        ai->m_coverPoint->GetModifiedPosition(ai->m_coverTarget, ai->m_coverType);
+        ai->m_coverOption = option;
+        ai->m_coverValue = value;
+        if (ai->m_position.GetDistanceXYReal(ai->m_coverTarget) > 0.6f)
+            BSObjectTriggerEvent(ai->m_filter->script, 66, 0, 0, false);
+        else
+            ai->m_flags1a8 |= 2;
+    }
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
 }
