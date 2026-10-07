@@ -3,7 +3,9 @@
 // TibToMOHFL (negates the first row and swaps the second and third), then
 // ToEulerXZY and ToEulerXYZ (asin/atan2 of the rotation entries, with the
 // +-pi/2 cases when the sine entry reaches +-1; the constants are entries of
-// the file's .sdata2 pool). CMatrix
+// the file's .sdata2 pool), and Ident (paired-single stores of 0 and 1, as in
+// the SDK's PSMTXIdentity but for all four rows; the asm block ends with the
+// nop the image has, which the SDK version does not). CMatrix
 // is named by the mangled symbols; the 4x4 float layout is inferred. The
 // byte-order helpers are the inlined ones described in propdat.cpp (inferred).
 extern "C" double atan2(double, double);
@@ -44,6 +46,7 @@ public:
     void GetGAMECUBEMatrix34(float (&)[3][4]) const;
     void TibToMOHFL();
     void ToEulerXZY(float&, float&, float&) const;
+    void Ident();
     void ToEulerXYZ(float&, float&, float&) const;
 
     float m[4][4];
@@ -119,5 +122,27 @@ void CMatrix::ToEulerXYZ(float& x, float& y, float& z) const {
         x = 1.5707964f;
         y = atan2(m[1][0], m[1][1]);
         z = 0.0f;
+    }
+}
+
+void CMatrix::Ident() {
+    register CMatrix* mtx = this;
+    register float c_zero = 0.0f;
+    register float c_one = 1.0f;
+    register float c_01;
+    register float c_10;
+
+    asm {
+        psq_st c_zero, 8(mtx), 0, 0
+        ps_merge01 c_01, c_zero, c_one
+        psq_st c_zero, 24(mtx), 0, 0
+        ps_merge10 c_10, c_one, c_zero
+        psq_st c_zero, 32(mtx), 0, 0
+        psq_st c_zero, 48(mtx), 0, 0
+        psq_st c_01, 16(mtx), 0, 0
+        psq_st c_10, 0(mtx), 0, 0
+        psq_st c_10, 40(mtx), 0, 0
+        psq_st c_01, 56(mtx), 0, 0
+        nop
     }
 }

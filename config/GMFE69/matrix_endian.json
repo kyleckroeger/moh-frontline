@@ -40,7 +40,7 @@
     {
       "name": ".text",
       "address": "0x8008ebf0",
-      "size": 1472,
+      "size": 1528,
       "type": 1
     },
     {
@@ -57,6 +57,12 @@
     }
   ],
   "functions": [
+    {
+      "name": "Ident__7CMatrixFv",
+      "address": "0x8008f1b0",
+      "size": 56,
+      "binding": 1
+    },
     {
       "name": "EndianSwap__7CMatrixFv",
       "address": "0x8008ebf0",
