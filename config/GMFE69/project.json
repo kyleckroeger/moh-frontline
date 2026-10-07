@@ -612,7 +612,8 @@
     "AIObject_arbitrary.json",
     "AIObject_globallist.json",
     "AIObject_searchnodes.json",
-    "player_init.json"
+    "player_init.json",
+    "hierobject_tree.json"
   ],
   "progress": {
     "code_bytes": 1414572,
