@@ -769,7 +769,13 @@
     "scene_fastvec_node.json",
     "scene_fastvec_commands.json",
     "scene_fastvec_pairs.json",
-    "scene_fastvec_shadow.json"
+    "scene_fastvec_shadow.json",
+    "buddy_list.json",
+    "alarm_list.json",
+    "world_object_list.json",
+    "pumhandler_list.json",
+    "world_volume_list.json",
+    "scene_list_extent.json"
   ],
   "progress": {
     "code_bytes": 1414572,
