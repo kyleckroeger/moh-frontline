@@ -40,19 +40,25 @@
     {
       "name": ".text",
       "address": "0x800312e0",
-      "size": 532,
+      "size": 860,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009fcc",
-      "size": 24,
+      "size": 32,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80010d78",
-      "size": 36,
+      "size": 48,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80182ac0",
+      "size": 48,
       "type": 1
     }
   ],
@@ -76,6 +82,12 @@
       "binding": 1
     },
     {
+      "name": "BIFunc_SetMechanicCollision__FPPiPv",
+      "address": "0x800314f4",
+      "size": 328,
+      "binding": 1
+    },
+    {
       "name": "SetCollisionId__13CPlayerObjectF7EClsnId",
       "address": "0x800313bc",
       "size": 8,
@@ -86,6 +98,7 @@
     "GetPlayer__6CSceneCFi": "0x800d8274",
     "SetHeadTrans__14CSoldierObjectFb": "0x800a9b80",
     "g_iCurrentBIFIndex": "0x8034e77c",
+    "g_pBSObject": "0x8034e7e0",
     "g_pBuiltInFunctions": "0x8034e778",
     "g_scene": "0x8019484c"
   },
@@ -96,6 +109,7 @@
   "discarded_local_functions": [],
   "sda_externals": [
     "g_iCurrentBIFIndex",
+    "g_pBSObject",
     "g_pBuiltInFunctions"
   ],
   "original_file": "bsbifunc.cpp",

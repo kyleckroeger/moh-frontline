@@ -4,7 +4,10 @@
 // block), the weak CPlayerObject::SetCollisionId (the id at +1740) it
 // emits, then built-ins that set the
 // soldier's head as the animation root and allow a path mechanic's collision
-// damage (a flag bit of the static object). Each reads its argument below the
+// damage (a flag bit of the static object), and the one that sets the
+// collision id of the calling node (or its static object, unless the script
+// trigger is of type 8) by mode, with the same kept -1 and an equivalent
+// copy for the type-8 case. Each reads its argument below the
 // script stack top and pops the built-in's arguments. The file name is this
 // project's; the original record is bsbifunc.cpp. The
 // functions, classes and globals are named by the mangled symbols; ISceneNode
@@ -110,6 +113,23 @@ public:
 
 extern CScene g_scene;
 
+struct TriggerCoreView {
+    unsigned char unknown00[12];
+    int type;
+};
+
+struct TriggerObject_struct {
+    unsigned char unknown00[4];
+    TriggerCoreView* core;
+};
+
+struct BSObjectView {
+    unsigned char unknown00[8];
+    TriggerObject_struct* trigger;
+};
+
+extern BSObjectView* g_pBSObject;
+
 struct BSBuiltinView {
     void (*function)(int**, void*);
     unsigned char unknown04[6];
@@ -158,3 +178,58 @@ void BIFunc_PathMechAllowCollisionDamage(int** stack, void* object) {
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
 }
 
+void BIFunc_SetMechanicCollision(int** stack, void* object) {
+    ISceneNode* node;
+    ISceneNode* self = node = (ISceneNode*)object;
+    int mode = *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1));
+    switch (g_pBSObject->trigger->core->type) {
+    case 8:
+        node = self;
+        break;
+    default:
+        node = (ISceneNode*)node->AsStaticObject();
+        break;
+    }
+    int id;
+    int none = id = -1;
+    switch (mode) {
+    case 0:
+        id = 0;
+        break;
+    case 1:
+        id = none;
+        break;
+    case 2:
+        id = 15;
+        break;
+    case 3:
+        id = 17;
+        break;
+    case 4:
+        id = 16;
+        break;
+    case 5:
+        id = 19;
+        break;
+    case 6:
+        id = 18;
+        break;
+    case 7:
+        id = 20;
+        break;
+    case 8:
+        id = 24;
+        break;
+    case 9:
+        id = 26;
+        break;
+    case 10:
+        id = 27;
+        break;
+    case 11:
+        id = 1;
+        break;
+    }
+    node->SetCollisionId((EClsnId)id);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
