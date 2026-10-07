@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 401472,
+    "matching_code_bytes": 403544,
     "total_executable_code_bytes": 1414572,
-    "percent": 28.381164055276084,
+    "percent": 28.527639455609187,
     "categories": {
-      "reconstructed_game": 125168,
+      "reconstructed_game": 127240,
       "restored_library": 276304
     },
-    "matching_functions": 2504
+    "matching_functions": 2508
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -511,7 +511,7 @@
     "config/GMFE69/sinit16.json": "1fe69c7afc1922b89561c7e175f2611fc832431c8e7e07ebbae6e0e54c202a2e",
     "config/GMFE69/sinitut.json": "689b9132782994796219ad392cc3a0133827537356591f4c93adb2e384e70366",
     "config/GMFE69/sinitxa.json": "411b577b864a696f54ca6f728819538a238b294030608ccd59f1af782b46221e",
-    "config/GMFE69/skeleton.json": "59eb5bbcdb9201ab638e9f6d0758948e988ed6bb213887caf66e66cccbe9be70",
+    "config/GMFE69/skeleton.json": "f8a7a2ca94901c7b505fe98572da97c75638732325777eab75505995999c519f",
     "config/GMFE69/skybox.json": "b8d4f94947576b333da72b92081b74ebfc5cc563621a81440f266f2bd48595d3",
     "config/GMFE69/slib.json": "175b59682d7176e6914e303e81ec26cb60fcb86ab08f884e84a2df96c09626de",
     "config/GMFE69/slinklst.json": "b628536bfbcd9772b6a89f60c30663cca9adb8dbca84452a261ea3f0b3c42c60",
@@ -1802,7 +1802,7 @@
     "src/game/real_bridge.cpp": "3528e557dcb6116823246402f1003e63fd82246a624dcbc2f18e5ee8b9bf8e41",
     "src/game/renderlist.cpp": "5236dd688778b89b3d4b6cba52021ad3ae4dd27fdf84d672038c78294306bfd0",
     "src/game/scene.cpp": "5a6e68bfdae9428ac19481084c64018aec36832400df2981d05ebb3dfb9dac35",
-    "src/game/skeleton.cpp": "f1a961b5edcb8f9e4a8a629f364c914daf4e193f68348fbe81cceee12d774959",
+    "src/game/skeleton.cpp": "9b1683e21a438e638340e27133e7171efe815a6bfa063b3675ba18e6ea224294",
     "src/game/skybox.cpp": "51c0fbd12e9ef49c313bcc7055d61c7ad7fcd8c243abaea7ef80bb1dc8b33da8",
     "src/game/sound.cpp": "09a7a15e802021a5756266ba749fc363a337c930203b4df623cd125f3c1541a8",
     "src/game/sound_music.cpp": "ae069b09ea2fc37e3a1dcf56203bd6eb717f9d13b1a0b405e841e4ae1aa9433a",
@@ -16846,8 +16846,8 @@
     {
       "id": "skeleton",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 140,
+      "functions": 5,
+      "code_bytes": 2212,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -16879,8 +16879,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "c793f8b3640a21bff6b2d1ddbf7adf22267d1d19e72b7c89cfd5cc7d1b84b2ac",
-      "linked_sha256": "3d21c38c13fa0d4c8827493cf35a58c7807a7272aa3c3d1c0bd13fac1a782e09"
+      "object_sha256": "5497364ab4473babe0734741e612f7a6312f5480117c2c2914a942ccd9c93cbb",
+      "linked_sha256": "31aeb0e6198ebead22b31cafd2010aecfdda1a238a1e7650cfd0f6090fe4e382"
     },
     {
       "id": "animintf",
@@ -33030,41 +33030,6 @@
             "kind": "function",
             "name": "_AnimTranDoTransition__FP12AnimStInfo_tP12AnimObjHdr_tP13AnimChannel_tUsUsUlPv",
             "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/skeleton.cpp [symbol evidence]",
-        "file_record": 58,
-        "file_name": "skeleton.cpp",
-        "ranges": [
-          {
-            "address": "0x80069468",
-            "size": 416,
-            "kind": "function",
-            "name": "CharRelocateSkeleton__FP10CharSkel_t",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80069608",
-            "size": 736,
-            "kind": "function",
-            "name": "EndianSwap__FR10CharSkel_t",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800698e8",
-            "size": 724,
-            "kind": "function",
-            "name": "CharTraverseSkeleton__FP20CharJointHierarchy_tPFP20CharJointHierarchy_tPv_vPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80069bbc",
-            "size": 196,
-            "kind": "function",
-            "name": "_SkelRelocateHierarchyNode__FP20CharJointHierarchy_tPv",
-            "evidence": "local-file-symbol"
           }
         ]
       },

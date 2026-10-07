@@ -40,31 +40,56 @@
     {
       "name": ".text",
       "address": "0x800693dc",
-      "size": 140,
+      "size": 2212,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000b5a8",
-      "size": 8,
+      "size": 40,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x8001277c",
-      "size": 12,
+      "size": 60,
       "type": 1
     }
   ],
   "functions": [
     {
+      "name": "_SkelRelocateHierarchyNode__FP20CharJointHierarchy_tPv",
+      "address": "0x80069bbc",
+      "size": 196,
+      "binding": 0
+    },
+    {
       "name": "CharSkelGetJointByName__FP10CharSkel_tPc",
       "address": "0x800693dc",
       "size": 140,
       "binding": 1
+    },
+    {
+      "name": "EndianSwap__FR10CharSkel_t",
+      "address": "0x80069608",
+      "size": 736,
+      "binding": 2
+    },
+    {
+      "name": "CharTraverseSkeleton__FP20CharJointHierarchy_tPFP20CharJointHierarchy_tPv_vPv",
+      "address": "0x800698e8",
+      "size": 724,
+      "binding": 1
+    },
+    {
+      "name": "CharRelocateSkeleton__FP10CharSkel_t",
+      "address": "0x80069468",
+      "size": 416,
+      "binding": 1
     }
   ],
   "externals": {
+    "EndianSwap__7CMatrixFv": "0x8008ebf0",
     "strcmp": "0x8013fed4"
   },
   "undefined_in_discarded_code": [],
