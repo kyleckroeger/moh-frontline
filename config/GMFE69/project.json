@@ -688,7 +688,8 @@
     "ShellMenu_audioset.json",
     "ShellMenu_buttons.json",
     "ShellMenu_lastlevel.json",
-    "ShellMenu_fade.json"
+    "ShellMenu_fade.json",
+    "ShellMenu_shelloff.json"
   ],
   "progress": {
     "code_bytes": 1414572,
