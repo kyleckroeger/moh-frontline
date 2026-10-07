@@ -1,9 +1,13 @@
-// CAIObject::SetTarget, the distance helpers and GetCoordinateAxisDirection.
+// CAIObject::SetNonAITarget (drops the AI target as SetTarget does, then takes
+// a script object's scene position as the target position, the point 1 below
+// it as the aim point), SetTarget, the distance helpers and
+// GetCoordinateAxisDirection.
 // The distance helpers (squared XY, squared XYZ to another object or to the
 // target position, XYZ between AI objects' real positions) forward to
 // CAIFilterRealPosition. The class names come from the mangled symbols; the
 // position (+24), axis directions (+112), target (+196) and target position
-// (+240) members are inferred from offsets, the other members SetTarget uses
+// (+240) members, the position copy (z first) and the script object's
+// scene-node view are inferred from offsets, the other members SetTarget uses
 // are named by offset, and CAIObject is a non-virtual view. The rest of the
 // file is not part of this unit.
 class CAIFilterRealPosition {
@@ -11,6 +15,17 @@ public:
     float GetDistanceSquaredXYReal(const CAIFilterRealPosition&) const;
     float GetDistanceSquaredXYZReal(const CAIFilterRealPosition&) const;
     float GetDistanceXYZReal(const CAIFilterRealPosition&) const;
+
+    CAIFilterRealPosition& operator=(const CAIFilterRealPosition& other) {
+        float x_, y_, z_;
+        z_ = other.z;
+        y_ = other.y;
+        x_ = other.x;
+        x = x_;
+        y = y_;
+        z = z_;
+        return *this;
+    }
 
     float x;
     float y;
@@ -31,8 +46,26 @@ public:
     CVector3 v;
 };
 
+// Inferred: the scene object a script object refers to, with its position.
+struct BSPositionView {
+    unsigned char unknown00[16];
+    CAIFilterRealPosition position;
+};
+
+struct BSUserView {
+    unsigned char unknown00[4];
+    BSPositionView* node;
+};
+
+class BSObject {
+public:
+    unsigned char unknown00[8];
+    BSUserView* user;
+};
+
 class CAIObject {
 public:
+    void SetNonAITarget(BSObject*);
     void GetCoordinateAxisDirection(CAIFilterRealVector3*, CAIFilterRealVector3*, CAIFilterRealVector3*);
     CAIObject* SetTarget(CAIObject*);
     void CalculateTargetPosition();
@@ -49,7 +82,8 @@ public:
     bool m_unknown0c0;
     unsigned char unknown0c1[3];
     CAIObject* m_target;
-    unsigned char unknown0c8[40];
+    CAIFilterRealPosition m_nonAITarget;
+    unsigned char unknown0d4[28];
     CAIFilterRealPosition m_targetPosition;
     unsigned char unknown0fc[84];
     CAIFilterRealPosition m_unknown150;
@@ -75,6 +109,28 @@ static inline void AdjustTargetedCount(CAIObject* object, int delta) {
         object->m_unknown1d4 = object->m_unknown1ec;
     else
         object->m_unknown1d4 = 15;
+}
+
+void CAIObject::SetNonAITarget(BSObject* object) {
+    m_unknown0c0 = false;
+    if (m_target) {
+        m_unknown6d8 = false;
+        CAIObject* old = m_target;
+        m_target = 0;
+        if (m_unknown218 == 8 || m_unknown218 == 2) {
+            if (m_unknown2d8 == 1 || m_unknown2d8 == 2)
+                m_unknown2d8 = 3;
+        }
+        if (old)
+            AdjustTargetedCount(old, -1);
+    }
+    m_unknown0c0 = true;
+    if (object && object->user && object->user->node) {
+        m_nonAITarget = object->user->node->position;
+        m_targetPosition = m_nonAITarget;
+        m_unknown150 = m_nonAITarget;
+        m_unknown150.z -= 1.0f;
+    }
 }
 
 CAIObject* CAIObject::SetTarget(CAIObject* target) {
