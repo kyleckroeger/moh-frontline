@@ -1,0 +1,24 @@
+// A fragment of hwvideodisplaylist.cpp (0x80102cf4): the weak class operator delete of GCHW_VD, which frees through the RCMP system's free hook. RCMP, RCMP_SYSTEM, rcmp_sys and GCHW_VD
+// are named by the symbols; the hook slot is as in rcmp_mpc_codec.cpp. The
+// delete is inline in the original (a weak symbol), so it is defined
+// __declspec(weak). The rest of the file is not part of this unit.
+namespace RCMP {
+class RCMP_SYSTEM {
+public:
+    virtual ~RCMP_SYSTEM();
+
+    void* (*m_alloc)(unsigned long);
+    void (*m_free)(void*);
+};
+
+extern RCMP_SYSTEM rcmp_sys;
+}
+
+class GCHW_VD {
+public:
+    void operator delete(void*);
+};
+
+__declspec(weak) void GCHW_VD::operator delete(void* p) {
+    RCMP::rcmp_sys.m_free(p);
+}
