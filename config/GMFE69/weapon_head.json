@@ -40,7 +40,7 @@
     {
       "name": ".text",
       "address": "0x800d4f28",
-      "size": 56,
+      "size": 132,
       "type": 1
     },
     {
@@ -74,6 +74,12 @@
       "address": "0x800d4f28",
       "size": 4,
       "binding": 2
+    },
+    {
+      "name": "GetMuzzleFlashStatus__7CWeaponFv",
+      "address": "0x800d4f60",
+      "size": 76,
+      "binding": 1
     }
   ],
   "externals": {
@@ -86,5 +92,16 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "weapon.cpp",
-  "original_file_index": 8261
+  "original_file_index": 8261,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80350e08"
+    }
+  ]
 }
