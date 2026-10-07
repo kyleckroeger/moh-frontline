@@ -788,7 +788,8 @@
     "player_sqrtf.json",
     "ShellMenu_messages.json",
     "bsbifunc_anim.json",
-    "AIObject_spline.json"
+    "AIObject_spline.json",
+    "targimpl_fpr.json"
   ],
   "progress": {
     "code_bytes": 1414572,

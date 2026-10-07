@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 497516,
+    "matching_code_bytes": 498056,
     "total_executable_code_bytes": 1414572,
-    "percent": 35.17077957148876,
+    "percent": 35.20895366230916,
     "categories": {
       "reconstructed_game": 279096,
-      "restored_library": 218420
+      "restored_library": 218960
     },
-    "matching_functions": 3137
+    "matching_functions": 3138
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -526,7 +526,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "a3edf947dea15d8d06ac508de8575953ad92255e061594bcb36d36d50b6948d4",
+    "config/GMFE69/project.json": "2afd665f8047bf133576f98d1b976cb9d17f54c01e15c2f071d173a6b4fd2bf7",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_init.json": "59efa2f81e573b18eb9d4793a24578d542a47e4cded42890b4e9f88779a0b4a4",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
@@ -768,6 +768,7 @@
     "config/GMFE69/target.json": "f7e8d7b660fd35f21cdc13385271d7b73fabda6669a0d112db63b3b1f3e8b3b2",
     "config/GMFE69/target_options.json": "89566eaeb8524e74b697e212fd6b56f53c2276681df67bd4ab9ac2fdf4761b95",
     "config/GMFE69/targimpl.json": "4ad26e4555e8bd03b88046ace467ae932290620320087ae93d82981fe61c3440",
+    "config/GMFE69/targimpl_fpr.json": "e322537cfec9f4c51a1af0152fdb5c5609895a35e42e2f2b88039706140897f8",
     "config/GMFE69/targimpl_head.json": "c0639bb15df0cb59179b1f2f77c545cbe1e9f866e6f0d737bbcf793fe51809d0",
     "config/GMFE69/targimpl_post.json": "4309356a7ba504d32f1ddf1df2ebaa8501985c26edc585b4e124d16ccb747c57",
     "config/GMFE69/targimpl_step.json": "4fde52c66246c87b644241ba980658b973f2679d42792de87237bb9be7f9372d",
@@ -2392,6 +2393,7 @@
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/flush_cache.c": "74d00b1ce946e215e802d49076d72718cba3299ed46d59a8103ea3c157a091eb",
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/mpc_7xx_603e.c": "f01b0d4b9eb846a5d367fd2c1b6749a53174232a01e693a3674bf5551fbc328c",
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl.c": "c91886ab096963681e400c8055d30c4be95c08c8cef13811372d3aa0820a6bfd",
+    "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl_fpr.c": "bde4e7c12bc14fe75a9d190a4a07a77d669e5836778b4df19953fb4140f82f6c",
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl_head.c": "f757b9176c43c44e8cbf10ae39fafee58b2fe2a44e6f46ce97ea3ddef0f82c83",
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl_post.c": "fc3b9af6af0562460c321e7f2ca641de82cd90de9afe04c98d80d90e78e5efda",
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl_step.c": "40082f8c2a855b246494e50559262c61a9c8ebf0d1a9095d5284297e79b15b43",
@@ -35143,6 +35145,68 @@
       "discarded_functions": [],
       "object_sha256": "b742037c46a2810a65962e2c14be8bacc5f1ed45eba92311fbdeaba7afcc8861",
       "linked_sha256": "750d3c5975ac348df9957593d9d9864a9accded292bd8b2c09cb8d8d1dfbb529"
+    },
+    {
+      "id": "targimpl_fpr",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 540,
+      "compiler_family": "GC",
+      "compiler_version": "1.3",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-pragma",
+        "warn_notinlined off",
+        "-maxerrors",
+        "1",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-fp_contract",
+        "on",
+        "-str",
+        "reuse",
+        "-multibyte",
+        "-DVERSION=0",
+        "-DNDEBUG=1",
+        "-O4,p",
+        "-use_lmw_stmw",
+        "on",
+        "-rostr",
+        "-str",
+        "reuse",
+        "-common",
+        "off",
+        "-inline",
+        "deferred,auto",
+        "-char",
+        "signed",
+        "-sdata",
+        "0",
+        "-sdata2",
+        "0"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "TRKPPCAccessSpecialReg",
+        "TRKPPCAccessSPR"
+      ],
+      "object_sha256": "6257f5e72c212f859d3aded17b4e3f199c17a2403cf6b444eac02603e4192ff8",
+      "linked_sha256": "6fbf5ce89b1393fd14307b0a1e28b5b5a4ad179158974e00c3c06ea2512e9758"
     }
   ],
   "code_map": {
@@ -48380,20 +48444,6 @@
             "kind": "function",
             "name": "TRKSuppAccessFile",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/targimpl.c [symbol evidence]",
-        "file_record": 286,
-        "file_name": "targimpl.c",
-        "ranges": [
-          {
-            "address": "0x80135b70",
-            "size": 540,
-            "kind": "function",
-            "name": "TRKPPCAccessFPRegister",
-            "evidence": "between-same-file"
           }
         ]
       },
