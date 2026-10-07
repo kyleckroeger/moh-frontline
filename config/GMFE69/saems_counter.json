@@ -37,8 +37,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x801554a4",
-      "size": 172,
+      "address": "0x80155228",
+      "size": 808,
       "type": 1
     }
   ],
@@ -48,9 +48,24 @@
       "address": "0x801554a4",
       "size": 172,
       "binding": 1
+    },
+    {
+      "name": "AEMSI_updateenvelope__FP15AEMSCOMPDYNAMICP6MODULE",
+      "address": "0x801552c0",
+      "size": 484,
+      "binding": 1
+    },
+    {
+      "name": "AEMSI_updaterangetrig__FP15AEMSCOMPDYNAMICP6MODULE",
+      "address": "0x80155228",
+      "size": 152,
+      "binding": 1
     }
   ],
-  "externals": {},
+  "externals": {
+    "__div2i": "0x80138b60",
+    "sndaems": "0x80340410"
+  },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
