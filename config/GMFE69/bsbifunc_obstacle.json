@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x80032778",
-      "size": 1088,
+      "size": 1404,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000a07c",
-      "size": 32,
+      "size": 40,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80010e80",
-      "size": 48,
+      "size": 60,
       "type": 1
     }
   ],
@@ -61,6 +61,12 @@
       "name": "BIFunc_AICollisionTest__FPPiPv",
       "address": "0x80032894",
       "size": 200,
+      "binding": 1
+    },
+    {
+      "name": "BIFunc_AISetRunAwayMovepoint__FPPiPv",
+      "address": "0x80032bb8",
+      "size": 316,
       "binding": 1
     },
     {
@@ -102,7 +108,9 @@
   ],
   "externals": {
     "EngageObstacleAvoidance__9CAIObjectFbfff": "0x80049e28",
+    "FindRunAwayPoint__15CAIFilterObjectFPC10ISceneNodefP21CAIFilterRealPosition": "0x8005c9c8",
     "PerformCollisionTest__9CAIObjectF23ECollisionTestDirectionf": "0x8004d788",
+    "SetupArbitraryPointUpdate__9CAIObjectF14EMovePointTypeP23BS_STRUCT_Vector_structf": "0x8004a0dc",
     "g_iCurrentBIFIndex": "0x8034e77c",
     "g_pBoxList": "0x8034e890",
     "g_pBuiltInFunctions": "0x8034e778",
@@ -120,5 +128,16 @@
     "g_pTankList"
   ],
   "original_file": "bsbifunc.cpp",
-  "original_file_index": 443
+  "original_file_index": 443,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034f6cc"
+    }
+  ]
 }

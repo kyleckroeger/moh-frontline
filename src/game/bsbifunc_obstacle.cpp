@@ -1,22 +1,27 @@
 // A fragment of bsbifunc.cpp (0x80032778): AI built-ins that engage obstacle
 // avoidance, perform a collision test in a direction (returning the float
-// result through its address), fire the mounted machine gun of the given script
-// object's trigger (the box- or tank-list node, through the scene node's AI
-// doodad), followed by the weak, empty CAIDoodad::FireMMGAtCurrentTarget and
-// the weak CSoldierObject::GetAIDoodad (the doodad at +12512), and fire at the
-// current target, followed by the weak, empty CAIDoodad::FireAtCurrentTarget.
-// Each reads its arguments below the script stack top (through inferred inline
-// argument helpers) and pops the built-in's arguments. The file name is this
-// project's; the original record is bsbifunc.cpp and the built-ins around these
-// are not reconstructed. The functions, classes and globals are named by the
-// mangled symbols; ISceneNode is declared with its virtual functions in the
-// order of __vt__10ISceneNode (GetScriptObject at +96, AsStaticObject at +116,
+// result through its address), fire the mounted machine gun of the given
+// script object's trigger (the box- or tank-list node, through the scene
+// node's AI doodad), followed by the weak, empty
+// CAIDoodad::FireMMGAtCurrentTarget and the weak CSoldierObject::GetAIDoodad
+// (the doodad at +12512), and fire at the current target, followed by the
+// weak, empty CAIDoodad::FireAtCurrentTarget, and set a run-away move point
+// (the filter finds a point away from the given node; it is stored in the
+// script data at +172 and set as an arbitrary-point update of type 3 with
+// 0.8, an entry of the file's .sdata2 pool; the declarations at the top
+// reproduce the original register use). Each reads its arguments below the
+// script stack top (through inferred inline argument helpers) and pops the
+// built-in's arguments. The file name is this project's; the original record
+// is bsbifunc.cpp and the built-ins around these are not reconstructed. The
+// functions, classes and globals are named by the mangled symbols;
+// ISceneNode is declared with its virtual functions in the order of
+// __vt__10ISceneNode (GetScriptObject at +96, AsStaticObject at +116,
 // AsHierObject at +124, GetAIDoodad at +204), CAIDoodad in the order of
-// __vt__9CAIDoodad (the unnamed entry at +12 as a placeholder), BSGO_Basic in
-// the order of __vt__10BSGO_Basic (the list link at +4); CSoldierObject derives
-// from ISceneNode (its destructor declared and defined elsewhere); the filter,
-// AI object, script-object and built-in record views, the node search and the
-// argument helpers are inferred.
+// __vt__9CAIDoodad (the unnamed entry at +12 as a placeholder), BSGO_Basic
+// in the order of __vt__10BSGO_Basic (the list link at +4); CSoldierObject
+// derives from ISceneNode (its destructor declared and defined elsewhere);
+// the filter, AI object, script-object and built-in record views, the node
+// search and the argument helpers are inferred.
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
@@ -95,13 +100,27 @@ union BSValueView {
     float f;
 };
 
+enum EMovePointType {};
+struct BS_STRUCT_Vector_struct;
+
 class CAIObject {
 public:
+    void SetupArbitraryPointUpdate(EMovePointType, BS_STRUCT_Vector_struct*, float);
     void EngageObstacleAvoidance(bool, float, float, float);
     float PerformCollisionTest(ECollisionTestDirection, float);
 };
 
-struct CAIFilterView {
+class CAIFilterRealPosition {
+public:
+    float x;
+    float y;
+    float z;
+};
+
+class CAIFilterObject {
+public:
+    bool FindRunAwayPoint(const ISceneNode*, float, CAIFilterRealPosition*);
+
     unsigned char unknown00[8];
     CAIObject* object;
 };
@@ -113,7 +132,7 @@ public:
     virtual void FireAtCurrentTarget(float);
     virtual void FireMMGAtCurrentTarget(CStaticObject*);
 
-    CAIFilterView* filter;
+    CAIFilterObject* filter;
 };
 
 class CSoldierObject : public ISceneNode {
@@ -127,9 +146,20 @@ public:
 
 struct TriggerObject_struct;
 
+class BSGO_Basic;
+
 struct BSObjectView {
     unsigned char unknown00[8];
     TriggerObject_struct* trigger;
+    BSGO_Basic* user;
+};
+
+// Inferred: the script data's move point at +172.
+struct ScriptMovePointView {
+    unsigned char unknown00[172];
+    float x;
+    float y;
+    float z;
 };
 
 class BSGO_Basic {
@@ -139,7 +169,7 @@ public:
     BSGO_Basic* next;
     unsigned char unknown08[4];
     virtual void Destroy();
-    virtual int GetScriptData();
+    virtual ScriptMovePointView* GetScriptData();
     virtual ISceneNode* GetSceneNode();
 };
 
@@ -235,4 +265,31 @@ void BIFunc_AIFireAtCurrentTarget(int** stack, void* object) {
 }
 
 __declspec(weak) void CAIDoodad::FireAtCurrentTarget(float) {
+}
+
+void BIFunc_AISetRunAwayMovepoint(int** stack, void* object) {
+    float distance;
+    CAIDoodad* doodad;
+    CAIFilterObject* filter;
+    ISceneNode* from;
+    bool found;
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    from = (ISceneNode*)*(*stack - (count - 1));
+    distance = *(float*)(*stack - (count - 2));
+    doodad = ((ISceneNode*)object)->GetAIDoodad();
+    found = false;
+    if (from) {
+        filter = doodad->filter;
+        CAIFilterRealPosition point;
+        found = filter->FindRunAwayPoint(from, distance, &point);
+        if (found) {
+            ScriptMovePointView* data = ((ISceneNode*)object)->GetScriptObject()->user->GetScriptData();
+            data->x = point.x;
+            data->y = point.y;
+            data->z = point.z;
+            filter->object->SetupArbitraryPointUpdate((EMovePointType)3, (BS_STRUCT_Vector_struct*)&data->x, 0.8f);
+        }
+    }
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    **stack = found;
 }
