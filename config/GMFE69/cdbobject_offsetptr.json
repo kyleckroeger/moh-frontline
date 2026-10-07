@@ -1,0 +1,100 @@
+{
+  "id": "cdbobject_offsetptr",
+  "source": "src/game/cdbobject_offsetptr.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800727d4",
+      "size": 168,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "offsetPtr<6CDBTri>__FRP6CDBTrii",
+      "address": "0x80072864",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<11CDBTriGroup>__FRP11CDBTriGroupi",
+      "address": "0x8007284c",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<11CDBLeafNode>__FRP11CDBLeafNodei",
+      "address": "0x80072834",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<13CDBBranchNode>__FRP13CDBBranchNodei",
+      "address": "0x8007281c",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<11CDBMaterial>__FRP11CDBMateriali",
+      "address": "0x80072804",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<9CDBVector>__FRP9CDBVectori",
+      "address": "0x800727ec",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<7CDBNode>__FRP7CDBNodei",
+      "address": "0x800727d4",
+      "size": 24,
+      "binding": 2
+    }
+  ],
+  "externals": {},
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "cdbobject.cpp",
+  "original_file_index": 3304
+}

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 470156,
+    "matching_code_bytes": 470612,
     "total_executable_code_bytes": 1414572,
-    "percent": 33.23662563658831,
+    "percent": 33.26886153550332,
     "categories": {
-      "reconstructed_game": 253752,
+      "reconstructed_game": 254208,
       "restored_library": 216404
     },
-    "matching_functions": 2895
+    "matching_functions": 2914
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -307,6 +307,7 @@
     "config/GMFE69/cdbobject.json": "05d0a5d951c8fd3d451e360560441b26335e47a75eac59645e9848879f9b01b8",
     "config/GMFE69/cdbobject_csg.json": "0e09c5d71dfb5ffad62ba844f58db635002af1e324718db6db82442af439c054",
     "config/GMFE69/cdbobject_ivolume.json": "8edd0de4d9a2bfaeeec4fcca0eba3659f5c4fb566e96d50f0b71797cd9859c7c",
+    "config/GMFE69/cdbobject_offsetptr.json": "0d67bbd2cab2036cd652831eb2cba088e30e569df1f5f590bd8e026e668b60ee",
     "config/GMFE69/coda.json": "ed79629f16e36603a2a74fe3bfd2db4c7043efb597de702316a222bcbb355440",
     "config/GMFE69/collisionvolume.json": "4b42015c953c1335d95d5edae0ec810f53e76935e2b6b0e446fd20b039dbc795",
     "config/GMFE69/collisionvolume_rows.json": "0f8077a02165836278ca1deb17b647eb0462e2710072860d7fad4b6d814b354d",
@@ -480,11 +481,12 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "9b7d7a5a8be31d184f2189075190e690e0b469a4e8974d69005e5a39e7738051",
+    "config/GMFE69/project.json": "a5ecb014567a0961c8bdcb85bb7b9a1d17c098e456ea33d2583f3cae74f946ce",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "bd4b85e3a27ac50301d2ad04642bca1abf864b5f74397505530539b31bf4c0d1",
     "config/GMFE69/propdat_core.json": "f39ac88bbf9ece15072d202c6e8c58a47906feb1a12bf62fcc97388a73c1fdff",
+    "config/GMFE69/propdat_offsetptr.json": "0c16d9baa89a90905971cf9955e8c0f70058bdb5de40304bc152c2ed34603509",
     "config/GMFE69/ptmf.json": "b261bfb2316a4aae28596c05a3ae448164b71e7fc35a597b7f09e1115a699973",
     "config/GMFE69/publisher.json": "89c7f107dc348d73abd19bedbaf5b7c4ad534145f63e8a71a9ab5646117cd718",
     "config/GMFE69/publisher_reset.json": "525ac32866b4d5a629c17f1a41c9bbaf99f35c5021df3527e5c15acb68638682",
@@ -1906,6 +1908,7 @@
     "src/game/cdbobject.cpp": "8d9ba3051b730eaceb1df207075b6d193ad9ee06b403ef50da260ff8821c0e51",
     "src/game/cdbobject_csg.cpp": "bb7127382fa858d062be70cea94314cae89892c289bf36cd5c27a8c1ca90da5d",
     "src/game/cdbobject_ivolume.cpp": "667be4a63693c3f9caea78517a3bfe2b54a07a83f6249a32995cfda6b560d1cd",
+    "src/game/cdbobject_offsetptr.cpp": "f82eb14ae3f2e366291ce6f2ee0dda723985a0a5b2b1e11b300bf9d73e05d7cd",
     "src/game/collisionvolume.cpp": "43ba2b786b6016be28ed111443666151b7721d434b959794c048a582f6b8b826",
     "src/game/collisionvolume_rows.cpp": "99bf2752de600fe57337217065052826b62f776cd7fb728d5dcddead6ed52cb0",
     "src/game/compartment.cpp": "0f672d3fdb0861873ed8382e8e30b6a38756d059ec6156f3d6cc61c4ef0cc866",
@@ -1979,6 +1982,7 @@
     "src/game/propdat.cpp": "b1e26b00f10be619cc409432f6748e200a0064248119fafa81774718c305885d",
     "src/game/propdat_bsp.cpp": "1433421b4435385d1bde79defe5895260b12b84328ae62750cf9b5db44d0b0ef",
     "src/game/propdat_core.cpp": "7523e56194069cbb910b3aa8f1fe42a31a57936bcfd3358e1fe1f92a1122037f",
+    "src/game/propdat_offsetptr.cpp": "50897c5d8ad1992eb302e37bf51c5a7a155273c5a8953ed8d96b588368fce18c",
     "src/game/publisher.cpp": "87dc201dcba9b510e214728ce34a9be1e5464a58669450da2666ef90c33df968",
     "src/game/publisher_reset.cpp": "1ae8b5029986a458ea12de5e4f78bdab7a5f32764197c83b01f1dbfa68f14af2",
     "src/game/pumhandler.cpp": "e57974fbd64a054880e20417a2677e984dab9d510d6681e542f811b257cd123a",
@@ -32264,6 +32268,84 @@
       "discarded_functions": [],
       "object_sha256": "c760cc1660d4728ac3c375e0da7b18f6b08e95dfdd5304041aa28ff5d10d4515",
       "linked_sha256": "c7c44937b93fedfa42b1de711e9da07eef6a053d6d7224d029747b166a9f6213"
+    },
+    {
+      "id": "propdat_offsetptr",
+      "category": "reconstructed_game",
+      "functions": 12,
+      "code_bytes": 288,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "c92ea2a692e10216cd73a357a5a0337fa7a7df15189b36f848a3c60dbea57ebc",
+      "linked_sha256": "89bcb67715ac71de3c55e22df6c4d596b01e2e6a7c2b2fed638a3ba5453ac66d"
+    },
+    {
+      "id": "cdbobject_offsetptr",
+      "category": "reconstructed_game",
+      "functions": 7,
+      "code_bytes": 168,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "b792bbd87aef3d81c0eaa35f7f73facbef2fcc6cb16cee35ff405c01a386a636",
+      "linked_sha256": "0b90c9b17ef6b4be4727da60088086b811f47c4195c5a271f83764d777699dc4"
     }
   ],
   "code_map": {
@@ -34229,95 +34311,6 @@
             "kind": "function",
             "name": "EndianSwap__FR9BPDHeader",
             "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80044c1c",
-        "ranges": [
-          {
-            "address": "0x80044c1c",
-            "size": 24,
-            "kind": "function",
-            "name": "offsetPtr<11BPDPolyPath>__FRP11BPDPolyPathi",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80044c34",
-            "size": 24,
-            "kind": "function",
-            "name": "offsetPtr<18BPDParticleTweaker>__FRP18BPDParticleTweakeri",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80044c4c",
-            "size": 24,
-            "kind": "function",
-            "name": "offsetPtr<8BPDLight>__FRP8BPDLighti",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80044c64",
-            "size": 24,
-            "kind": "function",
-            "name": "offsetPtr<10PropPlane4>__FRP10PropPlane4i",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80044c7c",
-            "size": 24,
-            "kind": "function",
-            "name": "offsetPtr<14BPDLightVolume>__FRP14BPDLightVolumei",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80044c94",
-            "size": 24,
-            "kind": "function",
-            "name": "offsetPtr<f>__FRPfi",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80044cac",
-            "size": 24,
-            "kind": "function",
-            "name": "offsetPtr<Ul>__FRPUli",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80044cc4",
-            "size": 24,
-            "kind": "function",
-            "name": "offsetPtr<24MOH_animatedLight_Struct>__FRP24MOH_animatedLight_Structi",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80044cdc",
-            "size": 24,
-            "kind": "function",
-            "name": "offsetPtr<c>__FRPci",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80044cf4",
-            "size": 24,
-            "kind": "function",
-            "name": "offsetPtr<19MOH_particle_Struct>__FRP19MOH_particle_Structi",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80044d0c",
-            "size": 24,
-            "kind": "function",
-            "name": "offsetPtr<Pv>__FRPPvi",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80044d24",
-            "size": 24,
-            "kind": "function",
-            "name": "offsetPtr<v>__FRPvi",
-            "evidence": "unknown-file"
           }
         ]
       },
@@ -37285,55 +37278,6 @@
             "kind": "function",
             "name": "TestCDBBranchNodeCollision<7CVolBox>__10CCDBObjectCFRC13CDBBranchNodeRC7CVolBoxR10CCollisionbRQ23dwi24fast_vec<P11CDBTriGroup>",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x800727d4",
-            "size": 24,
-            "kind": "function",
-            "name": "offsetPtr<7CDBNode>__FRP7CDBNodei",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800727ec",
-            "size": 24,
-            "kind": "function",
-            "name": "offsetPtr<9CDBVector>__FRP9CDBVectori",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80072804",
-            "size": 24,
-            "kind": "function",
-            "name": "offsetPtr<11CDBMaterial>__FRP11CDBMateriali",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007281c",
-            "size": 24,
-            "kind": "function",
-            "name": "offsetPtr<13CDBBranchNode>__FRP13CDBBranchNodei",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80072834",
-            "size": 24,
-            "kind": "function",
-            "name": "offsetPtr<11CDBLeafNode>__FRP11CDBLeafNodei",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007284c",
-            "size": 24,
-            "kind": "function",
-            "name": "offsetPtr<11CDBTriGroup>__FRP11CDBTriGroupi",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80072864",
-            "size": 24,
-            "kind": "function",
-            "name": "offsetPtr<6CDBTri>__FRP6CDBTrii",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x8007287c",

@@ -717,7 +717,9 @@
     "player_vec_add.json",
     "player_vec_sub.json",
     "Moh2_movingnode.json",
-    "Moh2_scenenode.json"
+    "Moh2_scenenode.json",
+    "propdat_offsetptr.json",
+    "cdbobject_offsetptr.json"
   ],
   "progress": {
     "code_bytes": 1414572,
