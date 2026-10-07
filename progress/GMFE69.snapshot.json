@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 468196,
+    "matching_code_bytes": 468536,
     "total_executable_code_bytes": 1414572,
-    "percent": 33.0980678254624,
+    "percent": 33.1221033641271,
     "categories": {
-      "reconstructed_game": 251792,
+      "reconstructed_game": 252132,
       "restored_library": 216404
     },
-    "matching_functions": 2841
+    "matching_functions": 2842
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -296,7 +296,7 @@
     "config/GMFE69/bulletfactory_init.json": "4b194af230dd50d8427df78f1882da7aa08d422576dc8985afdb312dbab6d505",
     "config/GMFE69/bulletfactory_sprites.json": "ae311cccd0ef2fe2fcf7da4dc35b195c719409e68b70d0b9fb677f9e129d2722",
     "config/GMFE69/camera_rows.json": "1b74ab2186218d87b08ef8188d1c247dc7997f17ff2a25340764ea861db80d35",
-    "config/GMFE69/capsule_create.json": "b0a96cce86dc4a756805007986a3049c107e3149b43625bb7a1cf6e2717111bb",
+    "config/GMFE69/capsule_create.json": "7ea379e9f4627abeeeaad959530bebd332ea158e9e77b0b66fe4115669d57173",
     "config/GMFE69/capsule_dispatch.json": "e3b88e37e85899d48a897bde04b47d7536eb680a1060fcffefd4d60f2638a991",
     "config/GMFE69/capsule_dispatch2.json": "246a1105784823a9a0860573243e4715e1dfc1fdee38a7525a4e67c0bd954175",
     "config/GMFE69/cdbgeom.json": "5a109535b401c445086faf5c376577d4b6f060dae9fd6a6071fdfecf36255cdf",
@@ -1887,7 +1887,7 @@
     "src/game/bulletfactory_init.cpp": "0ebf18ed93f90155ea51cb32053bf74d60a670c1688dd9c97e0b52ac45080c09",
     "src/game/bulletfactory_sprites.cpp": "b9f54fc574513bbe0ca4b8adf5d9f1a60975f2ad5ffc6f9744650d11e41e4993",
     "src/game/camera_rows.cpp": "ad6da75e4f2269b17a88cd8f54e5e65003cd57b25bb284dce60bf13894115962",
-    "src/game/capsule_create.cpp": "8d680a9b341ac1069bec80e831f5306759887ec063d114cd764d280d5ff021b1",
+    "src/game/capsule_create.cpp": "e5bdd4e3000036dbae68266376af90a76a315822e580f2da15283faec1d3127b",
     "src/game/capsule_dispatch.cpp": "8e22f3ac4fd707a45c49a10d1b265abfa71ac1ca61c991807b38b9439b4a2baa",
     "src/game/capsule_dispatch2.cpp": "6059fab262cc1517dd2b31f1b59ddf0df000b3728d91a7993daaffd5bd960393",
     "src/game/cdbgeom.cpp": "dbb319b1ba8edc52c87f565f57a506fb7e3934a7195ac17ae7d79e86ac4e8c06",
@@ -31784,8 +31784,8 @@
     {
       "id": "capsule_create",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 68,
+      "functions": 2,
+      "code_bytes": 408,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -31817,8 +31817,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "4c366b2c796282a4244e288e82034f7b99c39c6d9634f036423e92040d682468",
-      "linked_sha256": "491f686858b1086c62f944410c0764410cf97f9d4fcb976bddd2e0327167a81f"
+      "object_sha256": "0b15b20c71dfe430ba2a4bd5006dba71126de89c967c854c91b92d7c4cad50b1",
+      "linked_sha256": "fb5f321960d74009cf77ebc90beaa012b7fbb7759c4d5cf31e873b6fc221933b"
     },
     {
       "id": "fiber_create",
@@ -42809,13 +42809,6 @@
             "size": 788,
             "kind": "function",
             "name": "TestCollision__11CVolCapsuleCFRC10CVolSphereR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800c72d4",
-            "size": 340,
-            "kind": "function",
-            "name": "TransformedCopy__11CVolCapsuleFRC7IVolumeRC7CMatrix",
             "evidence": "exception-index"
           },
           {
