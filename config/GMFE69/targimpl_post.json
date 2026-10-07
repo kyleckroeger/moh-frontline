@@ -66,8 +66,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8013642c",
-      "size": 288,
+      "address": "0x801362d0",
+      "size": 636,
       "type": 1
     }
   ],
@@ -79,6 +79,12 @@
       "binding": 1
     },
     {
+      "name": "TRKTargetInterrupt",
+      "address": "0x801362d0",
+      "size": 348,
+      "binding": 1
+    },
+    {
       "name": "TRKTargetCPUType",
       "address": "0x801364ec",
       "size": 96,
@@ -87,15 +93,21 @@
   ],
   "externals": {
     "TRKConstructEvent": "0x80131048",
+    "TRKDoNotifyStopped": "0x80135600",
     "TRKPostEvent": "0x80131060",
     "TRKTargetAccessMemory": "0x80136dec",
     "TRKTargetCPUMinorType": "0x80137530",
     "gTRKBigEndian": "0x80330080",
     "gTRKCPUState": "0x80331b08",
-    "gTRKState": "0x80331a64"
+    "gTRKState": "0x80331a64",
+    "gTRKStepStatus": "0x80190484"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [
+    "TRKTargetCheckStep",
+    "TRKTargetDoStep",
+    "TRKTargetStepDone",
+    "TRKTargetEnableTrace",
     "TRKTargetReadInstruction"
   ],
   "upstream": {
@@ -103,8 +115,15 @@
     "commit": "a1854d47ce5aa9d0f21c7fb5a71aaade63659693",
     "path": "src/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl.c"
   },
-  "local_externals": [],
-  "discarded_local_functions": [],
+  "local_externals": [
+    "gTRKStepStatus"
+  ],
+  "discarded_local_functions": [
+    "TRKTargetCheckStep",
+    "TRKTargetDoStep",
+    "TRKTargetStepDone",
+    "TRKTargetEnableTrace"
+  ],
   "sda_externals": [],
   "original_file": "targimpl.c",
   "original_file_index": 11493

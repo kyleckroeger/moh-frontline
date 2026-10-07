@@ -1,11 +1,17 @@
-/* A fragment of Frontline's targimpl.c (0x8013642c): TRKPostInterruptEvent,
+/* A fragment of Frontline's targimpl.c (0x801362d0): TRKTargetInterrupt,
+   which on a breakpoint or exception event checks a pending step (the static
+   trace and step-check helpers and TRKTargetSetStopped inlined, as in
+   targimpl_step.c) and otherwise stops and notifies; TRKPostInterruptEvent,
    which turns the saved exception into a breakpoint, exception or support
-   event and posts it (TRKTargetReadInstruction inlined), and
-   TRKTargetCPUType, which fills in the CPU type record. The body is Pikmin's CC0 targimpl.c
-   (https://github.com/doldecomp/pikmin), compiled like the other targimpl.c
-   fragments at GC 1.3. The file name is this project's; the original record
-   is targimpl.c. The other functions are declared only and the file's data is
-   declared extern (its file-local objects without static). */
+   event and posts it (TRKTargetReadInstruction inlined); and
+   TRKTargetCPUType, which fills in the CPU type record. The bodies are
+   Pikmin's CC0 targimpl.c (https://github.com/doldecomp/pikmin), compiled
+   like the other targimpl.c fragments at GC 1.3; the unit emits in reverse
+   source order. Clearing the trace bit needs the mask as unsigned
+   (~(u32)MSR_SE gives rlwinm; ~MSR_SE gives li/and). The file name is this
+   project's; the original record is targimpl.c. The other functions are
+   declared only and the file's data is declared extern (its file-local
+   objects without static). */
 #include "TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl.h"
 #include "TRK_MINNOW_DOLPHIN/utils/common/MWTrace.h"
 #include <stdint.h>
@@ -366,7 +372,23 @@ void TRKInterruptHandlerEnableInterrupts(void);
 /**
  * @TODO: Documentation
  */
-DSError TRKTargetInterrupt(TRKEvent* event);
+DSError TRKTargetInterrupt(TRKEvent* event)
+{
+	DSError error = DS_NoError;
+	switch (event->eventType) {
+	case NUBEVENT_Breakpoint:
+	case NUBEVENT_Exception:
+		if (TRKTargetCheckStep() == FALSE) {
+			TRKTargetSetStopped(TRUE);
+			error = TRKDoNotifyStopped(DSMSG_NotifyStopped);
+		}
+		break;
+	default:
+		break;
+	}
+
+	return error;
+}
 
 /**
  * @TODO: Documentation
@@ -381,22 +403,76 @@ DSError TRKTargetAddExceptionInfo(TRKBuffer* buffer);
 /**
  * @TODO: Documentation
  */
-static DSError TRKTargetEnableTrace(BOOL val);
+static DSError TRKTargetEnableTrace(BOOL val)
+{
+	if (val) {
+		gTRKCPUState.Extended1.MSR |= MSR_SE;
+	} else {
+		gTRKCPUState.Extended1.MSR &= ~(u32)MSR_SE;
+	}
+	return DS_NoError;
+}
 
 /**
  * @TODO: Documentation
  */
-static BOOL TRKTargetStepDone();
+static BOOL TRKTargetStepDone()
+{
+	BOOL result = TRUE;
+
+	if (gTRKStepStatus.active && ((u16)gTRKCPUState.Extended1.exceptionID) == PPC_Trace) {
+		switch (gTRKStepStatus.type) {
+		case DSSTEP_IntoCount:
+			if (gTRKStepStatus.count > 0) {
+				result = FALSE;
+			}
+			break;
+		case DSSTEP_IntoRange:
+			if (gTRKCPUState.Default.PC >= gTRKStepStatus.rangeStart && gTRKCPUState.Default.PC <= gTRKStepStatus.rangeEnd) {
+				result = FALSE;
+			}
+			break;
+		default:
+			break;
+		}
+	}
+
+	return result;
+}
 
 /**
  * @TODO: Documentation
  */
-static DSError TRKTargetDoStep();
+static DSError TRKTargetDoStep()
+{
+	gTRKStepStatus.active = TRUE;
+	TRKTargetEnableTrace(TRUE);
+
+	if (gTRKStepStatus.type == DSSTEP_IntoCount || gTRKStepStatus.type == DSSTEP_OverCount) {
+		gTRKStepStatus.count--;
+	}
+
+	TRKTargetSetStopped(FALSE);
+	return DS_NoError;
+}
 
 /**
  * @TODO: Documentation
  */
-static BOOL TRKTargetCheckStep();
+static BOOL TRKTargetCheckStep()
+{
+	if (gTRKStepStatus.active) {
+		TRKTargetEnableTrace(FALSE);
+
+		if (TRKTargetStepDone()) {
+			gTRKStepStatus.active = FALSE;
+		} else {
+			TRKTargetDoStep();
+		}
+	}
+
+	return gTRKStepStatus.active;
+}
 
 /**
  * @TODO: Documentation
@@ -431,7 +507,10 @@ BOOL TRKTargetStopped();
 /**
  * @TODO: Documentation
  */
-void TRKTargetSetStopped(uint stopped);
+inline void TRKTargetSetStopped(uint stopped)
+{
+	gTRKState.isStopped = stopped;
+}
 
 /**
  * @TODO: Documentation

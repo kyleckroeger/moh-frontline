@@ -9,8 +9,11 @@ extern "C" {
 
 typedef u32 NubEventID;
 
+// The event type is a byte, as in Pikmin's CC0 trktypes.h
+// (https://github.com/doldecomp/pikmin): targimpl.c, compiled with int-sized
+// enums, reads it with lbz.
 typedef struct TRKEvent {
-    NubEventType eventType;
+    u8 eventType;
     NubEventID eventID;
     MessageBufferID msgBufID;
 } TRKEvent;
