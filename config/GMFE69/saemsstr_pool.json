@@ -1,0 +1,83 @@
+{
+  "id": "saemsstr_pool",
+  "source": "src/ea/saemsstr_pool.c",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "off",
+    "-lang",
+    "c++"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x801578e0",
+      "size": 664,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SNDAEMS_streamrestore",
+      "address": "0x801578e0",
+      "size": 228,
+      "binding": 1
+    },
+    {
+      "name": "SNDAEMSI_streamdying__FP16AEMSSTREAMSTATUS",
+      "address": "0x80157af8",
+      "size": 128,
+      "binding": 1
+    },
+    {
+      "name": "SNDAEMSI_streamgethandle__FP21AEMSCOMPDYNAMICPLAYERi",
+      "address": "0x801579c4",
+      "size": 308,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "SNDAEMSI_streamsystemtask__Fv": "0x801581fc",
+    "SNDMEMI_free__FPv": "0x80158ff0",
+    "SNDSTRM_destroy": "0x8015bef4",
+    "SNDSTRM_purge": "0x8015c028",
+    "SNDSYS_entercritical": "0x80153554",
+    "SNDSYS_leavecritical": "0x80153588",
+    "iSNDserverremoveclient__FPFv_v": "0x80153110",
+    "sndaems": "0x80340410"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "saemsstr.c",
+  "original_file_index": 12630
+}
