@@ -1,15 +1,18 @@
-// A fragment of bsbifunc.cpp (0x8002013c): the script built-in that fires a
-// sub-object weapon of the calling node's hierarchy tank (when it is one),
-// followed by the weak CStaticObject::AsHierTankObject (0). It reads its
-// argument below the script stack top and pops the built-in's arguments. The
-// file name is this project's; the original record is bsbifunc.cpp and the
-// built-ins around these are not reconstructed. The functions, classes and
-// globals are named by the mangled symbols; ISceneNode is declared with its
-// virtual functions in the order of __vt__10ISceneNode (AsHierObject at +124),
-// IMovingSceneNode's and CStaticObject's after them in the order of
-// __vt__13CStaticObject (AsHierTankObject at +328; the unnamed entry at +300 as
-// a placeholder); the tank-object and built-in record views and the argument
-// helper are inferred.
+// A fragment of bsbifunc.cpp (0x80020030): the script built-in that
+// registers bullet damage on the calling node's hierarchy object (three
+// integers and a scale, a negative scale meaning its reciprocal; the
+// constants are entries of the file's .sdata2 pool), and the one that fires
+// a sub-object weapon of the calling node's hierarchy tank (when it is one),
+// followed by the weak CStaticObject::AsHierTankObject (0). Each reads its
+// arguments below the script stack top and pops the built-in's arguments.
+// The file name is this project's; the original record is bsbifunc.cpp and
+// the built-ins around these are not reconstructed. The functions, classes
+// and globals are named by the mangled symbols; ISceneNode is declared with
+// its virtual functions in the order of __vt__10ISceneNode (AsHierObject at
+// +124), IMovingSceneNode's and CStaticObject's after them in the order of
+// __vt__13CStaticObject (AsHierTankObject at +328; the unnamed entry at +300
+// as a placeholder); the tank-object and built-in record views and the
+// argument helper are inferred.
 class CVector3 {
 public:
     float x;
@@ -26,6 +29,7 @@ class CBullet;
 class CLight;
 class CPlayerObject;
 class CStaticObject;
+class CHierObject;
 class CTankObject;
 struct AIDoodadView;
 
@@ -61,7 +65,7 @@ public:
     virtual const void* AsMovingNode() const;
     virtual void* AsStaticObject();
     virtual const void* AsStaticObject() const;
-    virtual CStaticObject* AsHierObject();
+    virtual CHierObject* AsHierObject();
     virtual const void* AsHierObject() const;
     virtual void* AsWorldObject();
     virtual const void* AsWorldObject() const;
@@ -139,6 +143,14 @@ public:
     int m_lookObject;
 };
 
+// CHierObject derives from CStaticObject (its destructor declared and defined
+// elsewhere).
+class CHierObject : public CStaticObject {
+public:
+    virtual ~CHierObject();
+    void RegisterBulletDamage(int, int, int, float);
+};
+
 struct BSBuiltinView {
     void (*function)(int**, void*);
     unsigned char unknown04[6];
@@ -152,6 +164,19 @@ extern int g_iCurrentBIFIndex;
 
 inline int BSArgInt(int** stack, int index) {
     return *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - index));
+}
+
+void BIFunc_HierObjectRegisterBulletDamage(int** stack, void* object) {
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    int a = *(*stack - (count - 1));
+    int b = *(*stack - (count - 2));
+    int c = *(*stack - (count - 3));
+    float scale = *(float*)(*stack - (count - 4));
+    CHierObject* hier = ((ISceneNode*)object)->AsHierObject();
+    if (scale < 0.0f)
+        scale = 1.0f / -scale;
+    hier->RegisterBulletDamage(a, b, c, scale);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
 }
 
 void BIFunc_HierObjectFire(int** stack, void* object) {

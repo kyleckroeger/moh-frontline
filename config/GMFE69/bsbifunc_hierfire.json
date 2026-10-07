@@ -39,24 +39,30 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8002013c",
-      "size": 184,
+      "address": "0x80020030",
+      "size": 452,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x800099dc",
-      "size": 8,
+      "address": "0x800099d4",
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x800104c0",
-      "size": 12,
+      "address": "0x800104b4",
+      "size": 24,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "BIFunc_HierObjectRegisterBulletDamage__FPPiPv",
+      "address": "0x80020030",
+      "size": 268,
+      "binding": 1
+    },
     {
       "name": "BIFunc_HierObjectFire__FPPiPv",
       "address": "0x8002013c",
@@ -72,6 +78,7 @@
   ],
   "externals": {
     "FireSubObject__11CTankObjectFi": "0x800b437c",
+    "RegisterBulletDamage__11CHierObjectFiiif": "0x80098ee8",
     "g_iCurrentBIFIndex": "0x8034e77c",
     "g_pBuiltInFunctions": "0x8034e778"
   },
@@ -85,5 +92,22 @@
     "g_pBuiltInFunctions"
   ],
   "original_file": "bsbifunc.cpp",
-  "original_file_index": 443
+  "original_file_index": 443,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034f640"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x8034f620"
+    }
+  ]
 }
