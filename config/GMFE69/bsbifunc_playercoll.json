@@ -39,24 +39,30 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800313bc",
-      "size": 312,
+      "address": "0x800312e0",
+      "size": 532,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x80009fd4",
-      "size": 16,
+      "address": "0x80009fcc",
+      "size": 24,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80010d84",
-      "size": 24,
+      "address": "0x80010d78",
+      "size": 36,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "BIFunc_SetPlayerCollision__FPPiPv",
+      "address": "0x800312e0",
+      "size": 220,
+      "binding": 1
+    },
     {
       "name": "BIFunc_SetHeadAsRoot__FPPiPv",
       "address": "0x800313c4",
@@ -77,9 +83,11 @@
     }
   ],
   "externals": {
+    "GetPlayer__6CSceneCFi": "0x800d8274",
     "SetHeadTrans__14CSoldierObjectFb": "0x800a9b80",
     "g_iCurrentBIFIndex": "0x8034e77c",
-    "g_pBuiltInFunctions": "0x8034e778"
+    "g_pBuiltInFunctions": "0x8034e778",
+    "g_scene": "0x8019484c"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],

@@ -1,10 +1,12 @@
-// A fragment of bsbifunc.cpp (0x800313bc): the weak
-// CPlayerObject::SetCollisionId (the id at +1740), then built-ins that set the
+// A fragment of bsbifunc.cpp (0x800312e0): the built-in that sets the first
+// player's collision id by mode (1, -1 or 21; the -1 kept in a second local
+// and copied back for mode 1, which reproduces the target's empty case
+// block), the weak CPlayerObject::SetCollisionId (the id at +1740) it
+// emits, then built-ins that set the
 // soldier's head as the animation root and allow a path mechanic's collision
 // damage (a flag bit of the static object). Each reads its argument below the
 // script stack top and pops the built-in's arguments. The file name is this
-// project's; the original record is bsbifunc.cpp; SetPlayerCollision before
-// these is 1 instruction off (an extra branch for its empty case). The
+// project's; the original record is bsbifunc.cpp. The
 // functions, classes and globals are named by the mangled symbols; ISceneNode
 // is declared with its virtual functions in the order of __vt__10ISceneNode
 // (AsStaticObject at +116), CPlayerObject derives from it (its destructor is
@@ -119,7 +121,27 @@ struct BSBuiltinView {
 extern BSBuiltinView* g_pBuiltInFunctions;
 extern int g_iCurrentBIFIndex;
 
-void BIFunc_SetPlayerCollision(int** stack, void*);
+void BIFunc_SetPlayerCollision(int** stack, void*) {
+    int mode = *(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1));
+    CPlayerObject* player = g_scene.GetPlayer(0);
+    if (player) {
+        int id;
+        int none = id = -1;
+        switch (mode) {
+        case 0:
+            id = 1;
+            break;
+        case 1:
+            id = none;
+            break;
+        case 2:
+            id = 21;
+            break;
+        }
+        ((ISceneNode*)player)->SetCollisionId((EClsnId)id);
+    }
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
 
 __declspec(weak) void CPlayerObject::SetCollisionId(EClsnId id) {
     m_collisionId = id;
