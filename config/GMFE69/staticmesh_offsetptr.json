@@ -1,0 +1,106 @@
+{
+  "id": "staticmesh_offsetptr",
+  "source": "src/game/staticmesh_offsetptr.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800f32a0",
+      "size": 192,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "offsetPtr<P10StaticMesh>__FRPP10StaticMeshi",
+      "address": "0x800f32b8",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<10StaticMesh>__FRP10StaticMeshi",
+      "address": "0x800f32a0",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<10CMSHMatBin>__FRP10CMSHMatBini",
+      "address": "0x800f3348",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<8MSHChunk>__FRP8MSHChunki",
+      "address": "0x800f3330",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<7MSHNode>__FRP7MSHNodei",
+      "address": "0x800f3318",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<13MSHAttachNode>__FRP13MSHAttachNodei",
+      "address": "0x800f3300",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<Uc>__FRPUci",
+      "address": "0x800f32e8",
+      "size": 24,
+      "binding": 2
+    },
+    {
+      "name": "offsetPtr<12MSHVertex_GC>__FRP12MSHVertex_GCi",
+      "address": "0x800f32d0",
+      "size": 24,
+      "binding": 2
+    }
+  ],
+  "externals": {},
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "staticmesh.cpp",
+  "original_file_index": 9367
+}

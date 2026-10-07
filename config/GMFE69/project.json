@@ -729,7 +729,10 @@
     "particlesystem_validate.json",
     "particlesystem_moving.json",
     "compartment_bins.json",
-    "AIObject_weak.json"
+    "AIObject_weak.json",
+    "staticmesh_offsetptr.json",
+    "hierobject_weak.json",
+    "animplayer_weak.json"
   ],
   "progress": {
     "code_bytes": 1414572,
