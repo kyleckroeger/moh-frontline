@@ -40,20 +40,27 @@
     {
       "name": ".text",
       "address": "0x80051e8c",
-      "size": 292,
+      "size": 744,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000aa6c",
-      "size": 8,
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80011be8",
-      "size": 12,
+      "size": 24,
       "type": 1
+    },
+    {
+      "name": ".rodata",
+      "address": "0x8016fbe4",
+      "size": 133,
+      "type": 1,
+      "input_alignment": 4
     }
   ],
   "functions": [
@@ -68,9 +75,16 @@
       "address": "0x80051ef8",
       "size": 184,
       "binding": 1
+    },
+    {
+      "name": "ResetTargetMatchList__13CAITankObjectF20aifilter_target_mode",
+      "address": "0x80051fb0",
+      "size": 452,
+      "binding": 1
     }
   ],
   "externals": {
+    "DebugMsg__FPCce": "0x80018c88",
     "SetTarget__9CAIObjectFP9CAIObject": "0x8004d41c"
   },
   "undefined_in_discarded_code": [],

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 422728,
+    "matching_code_bytes": 423180,
     "total_executable_code_bytes": 1414572,
-    "percent": 29.883809378384417,
+    "percent": 29.91576250625631,
     "categories": {
-      "reconstructed_game": 206324,
+      "reconstructed_game": 206776,
       "restored_library": 216404
     },
-    "matching_functions": 2594
+    "matching_functions": 2595
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -33,7 +33,7 @@
     "config/GMFE69/AISplinePath_segment.json": "8b706d83284089137939fa8605cc1d103831a6e46f8fa661f208153cb2f48036",
     "config/GMFE69/AIStatus.json": "660a5d8ecd6c07021df76f56c05e8c09028a125b685db2bdc15ffc00155e6916",
     "config/GMFE69/AITankDoodad.json": "733dd452ed553547b1c19276c94ec192493fdac622dc9fe66b677e200a12a55a",
-    "config/GMFE69/AITankObject.json": "54209ee1ab743f0d8017cb711d982fb33b4245e15735be547afa6a0efce27d77",
+    "config/GMFE69/AITankObject.json": "c22940ad844f57e41ae90453d0f3a59482f748692aa22e9de34d36f2a126f68f",
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
     "config/GMFE69/AXAlloc.json": "b51afdb5cb97132361ccd2fe3e018cda2e215277e2c457b6ff35b3a9cd352f47",
     "config/GMFE69/AXAux.json": "e73769cf63d05e457ce16280d154d201b73a7014df5904ad30b39446572b82ce",
@@ -1619,7 +1619,7 @@
     "src/game/AISplinePath_segment.cpp": "7e91c21740cea7493fb92544cf91582d518c968a0e12795a5a687e1d325ecb54",
     "src/game/AIStatus.cpp": "b0cb64aa93cf6090a9a87ef0cecc6265f1501230bb50b10428d58cfb2173001c",
     "src/game/AITankDoodad.cpp": "35252fb5c75740ecddc982a39bfecfc3c4a046a4e75046679eff1050fd598da9",
-    "src/game/AITankObject.cpp": "989f179f7393296bff0366bc3b627bec9d608f2a1546e6dd954c58ee3cfc63fb",
+    "src/game/AITankObject.cpp": "d08f8aaea2eb44b990720c13ef97541d442300a050d416fb99b0a64607996f73",
     "src/game/AnimObjFactory.cpp": "2e2b57fc04c9964fdce19f6a41496489c097cd607462f4cb7bd82763e1df4ab8",
     "src/game/ConfigGC.cpp": "35750548ef3be7d73255922d6d95a4fa99fe3ae468addf410d4d636ab925abce",
     "src/game/IStudio.cpp": "02443b5cf9cd73ad24c7e1e4525f498ca333a0f93d0975a8c293d41d0335cf7a",
@@ -21904,8 +21904,8 @@
     {
       "id": "AITankObject",
       "category": "reconstructed_game",
-      "functions": 2,
-      "code_bytes": 292,
+      "functions": 3,
+      "code_bytes": 744,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -21937,8 +21937,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "a9b2a14c824678c23665a846ade74769ad26032397f54e547e1e95ec2e5147a2",
-      "linked_sha256": "a615f2ca157543720261d677da2376317a57500615968deb3b1dd132609a8436"
+      "object_sha256": "304b8054efc9daed5ba38af27a77d12b7a4864413e333ea0fbe6fc957eaea317",
+      "linked_sha256": "784439e1ae4911228b328e25f27d5e6698d382c330205a0f3c881c9577a65cc3"
     },
     {
       "id": "sfecho",
@@ -32126,13 +32126,6 @@
         "file_record": 30,
         "file_name": "AITankObject.cpp",
         "ranges": [
-          {
-            "address": "0x80051fb0",
-            "size": 452,
-            "kind": "function",
-            "name": "ResetTargetMatchList__13CAITankObjectF20aifilter_target_mode",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x80052174",
             "size": 140,
