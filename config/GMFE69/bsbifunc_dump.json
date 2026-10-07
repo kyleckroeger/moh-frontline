@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800269f0",
-      "size": 504,
+      "size": 648,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009bc4",
-      "size": 16,
+      "size": 24,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x8001076c",
-      "size": 24,
+      "size": 36,
       "type": 1
     }
   ],
@@ -64,6 +64,12 @@
       "binding": 1
     },
     {
+      "name": "BIFunc_DisablePlayerShoot__FPPiPv",
+      "address": "0x80026be8",
+      "size": 144,
+      "binding": 1
+    },
+    {
       "name": "BIFunc_CreateDumpObject__FPPiPv",
       "address": "0x800269f0",
       "size": 312,
@@ -72,6 +78,8 @@
   ],
   "externals": {
     "CreateDumpObject__FRC8CVector3RC11CQuaternionii": "0x8003fc2c",
+    "GetCurrentWeapon__13CPlayerObjectCFv": "0x8009fb78",
+    "Shoot__7CWeaponF16EWeaponShootTypeff": "0x800d6238",
     "g_iCurrentBIFIndex": "0x8034e77c",
     "g_pBuiltInFunctions": "0x8034e778"
   },
@@ -85,5 +93,22 @@
     "g_pBuiltInFunctions"
   ],
   "original_file": "bsbifunc.cpp",
-  "original_file_index": 443
+  "original_file_index": 443,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034f620"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x8034f6d4"
+    }
+  ]
 }

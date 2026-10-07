@@ -1,16 +1,18 @@
 // A fragment of bsbifunc.cpp (0x80023b6c): script built-ins that create a
-// script explosion (a CExplosion constructed and destroyed on the stack, bullet
-// type 21, at the calling node's position or the script trigger's, moved by the
-// given offset), set the ambient track's location to the script trigger's
-// position (or clear it), and switch the player's muzzle fire. Each reads its
-// arguments below the script stack top and pops the built-in's arguments. The
-// file name is this project's; the original record is bsbifunc.cpp and the
-// built-ins around these are not reconstructed. The functions, classes and
-// globals are named by the mangled symbols; ISceneNode is declared with its
-// virtual functions in the order of __vt__10ISceneNode (GetPosition at +64);
-// CExplosion is a view of 80 bytes, 16-byte aligned (inferred from the stack
-// frame), and the vector view (four floats, 8-byte aligned, with an inline
-// setter), trigger, script-object and built-in record views are inferred.
+// script explosion (a CExplosion constructed and destroyed on the stack,
+// bullet type 21, at the calling node's position or the script trigger's,
+// moved by the given offset), set the ambient track's location to the script
+// trigger's position (or clear it), switch the player's muzzle fire, and set
+// the ambient track's volume (the argument in thousandths; 1000.0f is an
+// entry of the file's .sdata2 pool). Each reads its arguments below the
+// script stack top and pops the built-in's arguments. The file name is this
+// project's; the original record is bsbifunc.cpp and the built-ins around
+// these are not reconstructed. The functions, classes and globals are named
+// by the mangled symbols; ISceneNode is declared with its virtual functions
+// in the order of __vt__10ISceneNode (GetPosition at +64); CExplosion is a
+// view of 80 bytes, 16-byte aligned (inferred from the stack frame), and the
+// vector view (four floats, 8-byte aligned, with an inline setter), trigger,
+// script-object and built-in record views are inferred.
 class CVector3 {
 public:
     float x;
@@ -137,6 +139,8 @@ struct BSBuiltinView {
 extern BSBuiltinView* g_pBuiltInFunctions;
 extern int g_iCurrentBIFIndex;
 
+void AmbientTrack_Volume(float);
+
 void BIFunc_CreateExplosion(int** stack, void* object) {
     int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
     float radius = *(float*)(*stack - (count - 1));
@@ -173,5 +177,10 @@ void BIFunc_AmbientTrack_Azimuth(int** stack, void*) {
 
 void BIFunc_SetMuzzleFireForPlayer(int** stack, void*) {
     SetMuzzleStatusForPlayer(*(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1)) != 0);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+void BIFunc_AmbientTrack_Volume(int** stack, void*) {
+    AmbientTrack_Volume(*(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1)) / 1000.0f);
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
 }

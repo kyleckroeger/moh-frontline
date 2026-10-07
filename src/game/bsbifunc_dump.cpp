@@ -1,17 +1,19 @@
-// A fragment of bsbifunc.cpp (0x800269f0): script built-ins that create a dump
-// object at the calling node's position and its script trigger's rotation (the
-// dump type and flag read from the trigger for trigger types 2, 3 and 8;
-// nothing for type 0 or -1) and set whether the current weapon of the node's
-// soldier is drawn (a flag bit of the weapon). Each reads its argument below
-// the script stack top and pops the built-in's arguments. The file name is this
-// project's; the original record is bsbifunc.cpp and the built-ins around these
-// are not reconstructed. The functions, classes and globals are named by the
-// mangled symbols; ISceneNode is declared with its virtual functions in the
-// order of __vt__10ISceneNode (GetPosition at +64, GetScriptObject at +96,
-// AsSoldierObject at +148); the vector view (four floats, 8-byte aligned), the
-// quaternion view (built by an inline constructor), the trigger, script-object,
-// soldier, weapon and built-in record views are inferred (members at their
-// offsets, names not original).
+// A fragment of bsbifunc.cpp (0x800269f0): script built-ins that create a
+// dump object at the calling node's position and its script trigger's
+// rotation (the dump type and flag read from the trigger for trigger types
+// 2, 3 and 8; nothing for type 0 or -1) and set whether the current weapon
+// of the node's soldier is drawn (a flag bit of the weapon), and make the
+// calling player's current weapon stop shooting (a shot of type 1; the
+// constants are entries of the file's .sdata2 pool). Each reads its argument
+// below the script stack top and pops the built-in's arguments. The file
+// name is this project's; the original record is bsbifunc.cpp and the
+// built-ins around these are not reconstructed. The functions, classes and
+// globals are named by the mangled symbols; ISceneNode is declared with its
+// virtual functions in the order of __vt__10ISceneNode (GetPosition at +64,
+// GetScriptObject at +96, AsSoldierObject at +148); the vector view (four
+// floats, 8-byte aligned), the quaternion view (built by an inline
+// constructor), the trigger, script-object, soldier, weapon and built-in
+// record views are inferred (members at their offsets, names not original).
 class CVector3 {
 public:
     float x;
@@ -125,8 +127,12 @@ struct BSObjectView {
     TriggerObject_struct* trigger;
 };
 
+enum EWeaponShootType {};
+
 class CWeapon {
 public:
+    void Shoot(EWeaponShootType, float, float);
+
     unsigned char unknown000[480];
     unsigned char m_drawn : 1;
     unsigned char unknown1e0 : 7;
@@ -134,6 +140,8 @@ public:
 
 class CPlayerObject {
 public:
+    CWeapon* GetCurrentWeapon() const;
+
     unsigned char unknown0000[16400];
     CWeapon* m_weapons[25];
     int m_currentWeapon;
@@ -190,5 +198,12 @@ void BIFunc_SetWeaponDraw(int** stack, void* object) {
     CWeapon* weapon = soldier->m_weapons[soldier->m_currentWeapon];
     if (weapon)
         weapon->m_drawn = draw;
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+void BIFunc_DisablePlayerShoot(int** stack, void* object) {
+    CPlayerObject* player = ((ISceneNode*)object)->AsPlayerObject();
+    if (player->GetCurrentWeapon())
+        player->GetCurrentWeapon()->Shoot((EWeaponShootType)1, 0.0f, -1.0f);
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
 }

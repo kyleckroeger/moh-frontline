@@ -40,23 +40,29 @@
     {
       "name": ".text",
       "address": "0x80023f28",
-      "size": 120,
+      "size": 300,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x80009b2c",
-      "size": 8,
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80010688",
-      "size": 12,
+      "size": 24,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "BIFunc_AEMSSetMasterVolume__FPPiPv",
+      "address": "0x80023fa0",
+      "size": 180,
+      "binding": 1
+    },
     {
       "name": "BIFunc_AmbientTrack_Select__FPPiPv",
       "address": "0x80023f28",
@@ -65,7 +71,9 @@
     }
   ],
   "externals": {
+    "AEMS_SetVolume__Ff": "0x800ec368",
     "AmbientTrack_Select__Fi": "0x800ebedc",
+    "g_Shell": "0x80195090",
     "g_iCurrentBIFIndex": "0x8034e77c",
     "g_pBuiltInFunctions": "0x8034e778"
   },
@@ -79,5 +87,22 @@
     "g_pBuiltInFunctions"
   ],
   "original_file": "bsbifunc.cpp",
-  "original_file_index": 443
+  "original_file_index": 443,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 8,
+      "address": "0x8034f6a0"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 8,
+      "address": "0x8034f618"
+    }
+  ]
 }
