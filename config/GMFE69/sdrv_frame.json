@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8016c364",
-      "size": 300,
+      "size": 660,
       "type": 1
     }
   ],
@@ -54,11 +54,21 @@
       "address": "0x8016c3e8",
       "size": 168,
       "binding": 1
+    },
+    {
+      "name": "SNDPLATFORM_stop__Fi",
+      "address": "0x8016c490",
+      "size": 360,
+      "binding": 1
     }
   ],
   "externals": {
+    "AXSetVoiceState": "0x80121b70",
     "MIX_getframe": "0x801611dc",
     "MIX_sethighpass": "0x80161344",
+    "MIXstopfn": "0x8034f4ac",
+    "SNDDRV_freeaxvoice__Fii": "0x80169250",
+    "SNDVOICEI_free__Fi": "0x8015dbd4",
     "_restgpr_27": "0x80138a5c",
     "_savegpr_27": "0x80138a10",
     "snddrv": "0x80341a20",
@@ -69,7 +79,9 @@
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": [],
+  "sda_externals": [
+    "MIXstopfn"
+  ],
   "original_file": "snddrv.c",
   "original_file_index": 13274
 }
