@@ -699,7 +699,9 @@
     "fader_update.json",
     "player_weapon_drawenabled.json",
     "player_weapon_donereload.json",
-    "player_weapon_selectable.json"
+    "player_weapon_selectable.json",
+    "debug_prof_bins.json",
+    "animated_finish.json"
   ],
   "progress": {
     "code_bytes": 1414572,
