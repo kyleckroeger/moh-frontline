@@ -601,7 +601,8 @@
     "bsbifunc_staticcollision.json",
     "bsbifunc_animscript.json",
     "recon.json",
-    "motion.json"
+    "motion.json",
+    "getvlc.json"
   ],
   "progress": {
     "code_bytes": 1414572,

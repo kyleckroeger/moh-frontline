@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 377116,
+    "matching_code_bytes": 379280,
     "total_executable_code_bytes": 1414572,
-    "percent": 26.659371173754323,
+    "percent": 26.81235030807905,
     "categories": {
-      "reconstructed_game": 100516,
+      "reconstructed_game": 102680,
       "restored_library": 276600
     },
-    "matching_functions": 2443
+    "matching_functions": 2450
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -326,6 +326,7 @@
     "config/GMFE69/framework.json": "e6e2f5ab9ffcca32c46ee9fe9bbb30502c1e4fa61c9b4b005822a66bd7f586a9",
     "config/GMFE69/fstload.json": "c101975fb01250bc8f0325effbe643330b62ccd00eac41e24aff682c06866309",
     "config/GMFE69/gcSystem.json": "3bf2743737fe9c041930fdcb9879f7d17600a25c1ffc836927c0901688b92aea",
+    "config/GMFE69/getvlc.json": "77db77821435a705cc4cac966fc3a2f4ebbd4327e55395878628760177a47341",
     "config/GMFE69/global_destructor_chain.json": "0fe0a3698440cd1f1bff61944bd62409272132d09eb6b5c82b9745b82413e6fa",
     "config/GMFE69/hearingvolume.json": "e8aff4213b28d2f4046c3a9b25e9c4d289c97b8a4f6aad7802217f6faf9faa28",
     "config/GMFE69/hearingvolume_rows.json": "73b213aa8f22014d8a81f302790467b294fb239077aafc92e908e80f8a373fdd",
@@ -409,7 +410,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "953280c54a199e88a8ca735c3dabc333292dd0b1f90e15b63300fd368931aec9",
+    "config/GMFE69/project.json": "2451bde829a13c5694021732d4ed3282921a4365ffa647b2f0c762b7f038c4e7",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -1396,6 +1397,7 @@
     "src/ea/fontdriver.cpp": "799464786df81aa82291f1d18699c4c4d2283338c1e6c75e4e508bc368470f9c",
     "src/ea/fontinit.cpp": "23ee3e1e4457de8dba71c1b08e1355e02844f0753acb1b2cdf4d8bc9ab7e7fa3",
     "src/ea/fontnull.cpp": "f5c2dfb2e21956fc5d3a1b11c46ae763d9b5cd956badc5e3db912b1e59a9d641",
+    "src/ea/getvlc.cpp": "29e34e61054a5753c4f7d278fc4f41bff003d9c0dcaf2adf0a831c6528ad9914",
     "src/ea/hlafile.cpp": "5b4d6d664b41d3d8d33ffdb8c5b894b10d12187ec7d6d55060314e252f7ac150",
     "src/ea/hlsfile.cpp": "c8095cd394607595fc29daf20812c5430140171a6214048367943aa62f453105",
     "src/ea/idct.cpp": "3b7bdbfcdd18cec05464d9548ab67cc8f59366ff8eb00a9fc24d3bff2e4705c3",
@@ -27492,6 +27494,45 @@
       "discarded_functions": [],
       "object_sha256": "58fa0dae3afd9a2ef2a827218830a1bc830680aaea3880929fe5521e5e79c006",
       "linked_sha256": "ac0972f14dbcfb4596a738346153dc67b4991f69144809a57bde17e9fc6660c3"
+    },
+    {
+      "id": "getvlc",
+      "category": "reconstructed_game",
+      "functions": 7,
+      "code_bytes": 2164,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "5b262c944481bdbdb04c4f1f3079bb91d85620c3c1389b1b194cacddc2da07c4",
+      "linked_sha256": "a1905c891a3c5e3f68b7d90a33349a48b8bd1e9e01b16d0310effebdc5182891"
     }
   ],
   "code_map": {
@@ -43800,62 +43841,6 @@
             "kind": "function",
             "name": "Add_Block__Fiiiii",
             "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/getvlc.cpp [symbol evidence]",
-        "file_record": 172,
-        "file_name": "getvlc.cpp",
-        "ranges": [
-          {
-            "address": "0x80101a1c",
-            "size": 196,
-            "kind": "function",
-            "name": "Get_Chroma_DC_dct_diff__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80101ae0",
-            "size": 196,
-            "kind": "function",
-            "name": "Get_Luma_DC_dct_diff__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80101ba4",
-            "size": 256,
-            "kind": "function",
-            "name": "Get_macroblock_address_increment__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80101ca4",
-            "size": 220,
-            "kind": "function",
-            "name": "Get_coded_block_pattern__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80101d80",
-            "size": 76,
-            "kind": "function",
-            "name": "Get_dmvector__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80101dcc",
-            "size": 340,
-            "kind": "function",
-            "name": "Get_motion_code__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80101f20",
-            "size": 880,
-            "kind": "function",
-            "name": "Get_macroblock_type__Fv",
-            "evidence": "exception-index"
           }
         ]
       },

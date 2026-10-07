@@ -1,0 +1,120 @@
+{
+  "id": "getvlc",
+  "source": "src/ea/getvlc.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80101a1c",
+      "size": 2164,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018b9e8",
+      "size": 2284,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "Get_Chroma_DC_dct_diff__Fv",
+      "address": "0x80101a1c",
+      "size": 196,
+      "binding": 1
+    },
+    {
+      "name": "Get_Luma_DC_dct_diff__Fv",
+      "address": "0x80101ae0",
+      "size": 196,
+      "binding": 1
+    },
+    {
+      "name": "Get_macroblock_address_increment__Fv",
+      "address": "0x80101ba4",
+      "size": 256,
+      "binding": 1
+    },
+    {
+      "name": "Get_coded_block_pattern__Fv",
+      "address": "0x80101ca4",
+      "size": 220,
+      "binding": 1
+    },
+    {
+      "name": "Get_dmvector__Fv",
+      "address": "0x80101d80",
+      "size": 76,
+      "binding": 1
+    },
+    {
+      "name": "Get_motion_code__Fv",
+      "address": "0x80101dcc",
+      "size": 340,
+      "binding": 1
+    },
+    {
+      "name": "Get_macroblock_type__Fv",
+      "address": "0x80101f20",
+      "size": 880,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "Flush_Buffer__Fi": "0x800fd53c",
+    "Get_Bits1__Fv": "0x800fd670",
+    "Get_Bits__Fi": "0x800fd3fc",
+    "MPDfault_flag": "0x8034ede0",
+    "MPDld": "0x8034ef30",
+    "MPDpicture_coding_type": "0x8034ee74",
+    "Show_Bits__Fi": "0x800fd7a8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {
+    "name": "MPEG Software Simulation Group mpeg2decode",
+    "path": "getvlc.c, getvlc.h",
+    "reference_copy": "https://github.com/dzavalishin/phantomuserland/blob/0fa666cb50e6ca13dd048d67d397485266c0e814/phantom/apps/mpeg/getvlc.c"
+  },
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "MPDfault_flag",
+    "MPDld",
+    "MPDpicture_coding_type"
+  ],
+  "original_file": "getvlc.cpp",
+  "original_file_index": 10083
+}
