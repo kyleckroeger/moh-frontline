@@ -1,12 +1,15 @@
-/* A fragment of Frontline's targimpl.c (0x80136008): the program counter,
-   stepping (over a range or by count) and the exception information appended
-   to a reply. The static trace and step-check helpers,
+/* A fragment of Frontline's targimpl.c (0x80135e00): the support request
+   (Frontline's version, written from the image: Pikmin's read/write path
+   plus open, close and position requests through support.c's handlers), the
+   program counter, stepping (over a range or by count) and the exception
+   information appended to a reply. The static trace and step-check helpers,
    TRKTargetReadInstruction and TRKTargetSetStopped are inlined into them, as
-   in the original (deferred inlining). The bodies are Pikmin's CC0 targimpl.c
-   (https://github.com/doldecomp/pikmin), compiled like the other targimpl.c
-   fragments at GC 1.3. The file name is this project's; the original record
-   is targimpl.c. The other functions are declared only and the file's data is
-   declared extern (its file-local objects without static). */
+   in the original (deferred inlining). The other bodies are Pikmin's CC0
+   targimpl.c (https://github.com/doldecomp/pikmin), compiled like the other
+   targimpl.c fragments at GC 1.3. The file name is this project's; the
+   original record is targimpl.c. The other functions are declared only and
+   the file's data is declared extern (its file-local objects without
+   static). */
 #include "TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl.h"
 #include "TRK_MINNOW_DOLPHIN/utils/common/MWTrace.h"
 #include <stdint.h>
@@ -480,7 +483,66 @@ u32 TRKTargetGetPC()
 /**
  * @TODO: Documentation
  */
-DSError TRKTargetSupportRequest(void);
+DSError TRKSuppAccessFile(u32 file_handle, u8* data, size_t* count, u8* io_result, BOOL need_reply, BOOL read);
+DSError HandleOpenFileSupportRequest(const char* path, u8 mode, u32* handle, u8* ioResult);
+DSError HandleCloseFileSupportRequest(u32 handle, u8* ioResult);
+DSError HandlePositionFileSupportRequest(DSFileHandle handle, u32* position, u8 mode, u8* ioResult);
+void TRK_flush_cache(void* addr, u32 length);
+
+DSError TRKTargetSupportRequest(void)
+{
+	DSError error;
+	TRKEvent event;
+	u32 position;
+	u8 ioResult;
+	u8 commandId;
+	size_t* length;
+
+	commandId = (MessageCommandID)gTRKCPUState.Default.GPR[3];
+	if (commandId != DSMSG_ReadFile && commandId != DSMSG_WriteFile && commandId != DSMSG_OpenFile
+	    && commandId != DSMSG_CloseFile && commandId != DSMSG_PositionFile) {
+		TRKConstructEvent(&event, NUBEVENT_Exception);
+		TRKPostEvent(&event);
+		return DS_NoError;
+	}
+
+	if (commandId == DSMSG_OpenFile) {
+		error = HandleOpenFileSupportRequest((const char*)gTRKCPUState.Default.GPR[4], (u8)gTRKCPUState.Default.GPR[5],
+		                                     (u32*)gTRKCPUState.Default.GPR[6], &ioResult);
+		if (ioResult == DS_IONoError && error != DS_NoError) {
+			ioResult = DS_IOError;
+		}
+		gTRKCPUState.Default.GPR[3] = ioResult;
+	} else if (commandId == DSMSG_CloseFile) {
+		error = HandleCloseFileSupportRequest(gTRKCPUState.Default.GPR[4], &ioResult);
+		if (ioResult == DS_IONoError && error != DS_NoError) {
+			ioResult = DS_IOError;
+		}
+		gTRKCPUState.Default.GPR[3] = ioResult;
+	} else if (commandId == DSMSG_PositionFile) {
+		position = *(u32*)gTRKCPUState.Default.GPR[5];
+		error = HandlePositionFileSupportRequest((DSFileHandle)gTRKCPUState.Default.GPR[4], &position,
+		                                         (u8)gTRKCPUState.Default.GPR[6], &ioResult);
+		if (ioResult == DS_IONoError && error != DS_NoError) {
+			ioResult = DS_IOError;
+		}
+		gTRKCPUState.Default.GPR[3] = ioResult;
+		*(u32*)gTRKCPUState.Default.GPR[5] = position;
+	} else {
+		length = (size_t*)gTRKCPUState.Default.GPR[5];
+		error  = TRKSuppAccessFile((u8)gTRKCPUState.Default.GPR[4], (u8*)gTRKCPUState.Default.GPR[6], length, &ioResult, TRUE,
+		                           commandId == DSMSG_ReadFile);
+		if (ioResult == DS_IONoError && error != DS_NoError) {
+			ioResult = DS_IOError;
+		}
+		gTRKCPUState.Default.GPR[3] = ioResult;
+		if (commandId == DSMSG_ReadFile) {
+			TRK_flush_cache((void*)gTRKCPUState.Default.GPR[6], *length);
+		}
+	}
+	gTRKCPUState.Default.PC += 4;
+	return error;
+}
 
 /**
  * @TODO: Documentation

@@ -66,12 +66,18 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80136008",
-      "size": 420,
+      "address": "0x80135e00",
+      "size": 940,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "TRKTargetSupportRequest",
+      "address": "0x80135e00",
+      "size": 520,
+      "binding": 1
+    },
     {
       "name": "TRKTargetGetPC",
       "address": "0x80136008",
@@ -98,9 +104,16 @@
     }
   ],
   "externals": {
+    "HandleCloseFileSupportRequest": "0x80134eb8",
+    "HandleOpenFileSupportRequest": "0x80134fd8",
+    "HandlePositionFileSupportRequest": "0x80134d28",
     "TRKAppendBuffer1_ui16": "0x80131c14",
     "TRKAppendBuffer1_ui32": "0x80131bb0",
+    "TRKConstructEvent": "0x80131048",
+    "TRKPostEvent": "0x80131060",
+    "TRKSuppAccessFile": "0x80135324",
     "TRKTargetAccessMemory": "0x80136dec",
+    "TRK_flush_cache": "0x801356d8",
     "gTRKCPUState": "0x80331b08",
     "gTRKExceptionStatus": "0x80190474",
     "gTRKState": "0x80331a64",
