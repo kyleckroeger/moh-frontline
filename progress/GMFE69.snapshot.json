@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 477824,
+    "matching_code_bytes": 478228,
     "total_executable_code_bytes": 1414572,
-    "percent": 33.77869772623804,
+    "percent": 33.80725760159257,
     "categories": {
-      "reconstructed_game": 261420,
+      "reconstructed_game": 261824,
       "restored_library": 216404
     },
-    "matching_functions": 3037
+    "matching_functions": 3038
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -524,7 +524,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "6666dadc8be04dfbc10d60b5f0c854331ed5aecbdc3e9d67a9c7839187ab227b",
+    "config/GMFE69/project.json": "4a88c32f393fa9d8ba8fbd9b6aacf6ea2c46d563babddfb1b4a23da9550fe08b",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_init.json": "59efa2f81e573b18eb9d4793a24578d542a47e4cded42890b4e9f88779a0b4a4",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
@@ -593,6 +593,7 @@
     "config/GMFE69/scene_fastvec_shadow.json": "61fabf6b77ad1b03ea04704f4c0ea5a52fb2098cb94f52d14351207edcee4694",
     "config/GMFE69/scene_list_extent.json": "e647bbe1c43e5b76df432484b3cf01b794093cc6d38c845cb595b318d934b3e9",
     "config/GMFE69/scene_query.json": "f6f187122282a828b0cd87a0e33158d51c659e0d9c0adcc58a3e01bef01cb831",
+    "config/GMFE69/scene_reset.json": "70df0efb45b7ba74acc493a8a688ecfc5d24150c92765c646b4c58139515196e",
     "config/GMFE69/scene_shutdown.json": "1069702be70b5c86a4020160874f99bce0e03adb8ec674f1f03f497293acf23e",
     "config/GMFE69/scene_vec_begin.json": "5cae122f12d4fa7eccf262febf64031a65bda60a88ffc7445159836a5a44e31e",
     "config/GMFE69/scene_vec_dtor.json": "9109918cc789e30e172ce9f1cfdfbdc98a968d71cbc9572354a28faf8f16faf3",
@@ -2111,6 +2112,7 @@
     "src/game/scene_fastvec_shadow.cpp": "58bb891914e16e9135266ea318038edbcbb830a1c64f5aebcf37a92f9df2c8b0",
     "src/game/scene_list_extent.cpp": "5592b75c5ec220e1094c28c9626e169f7c156f9e18489189f624135840b6b614",
     "src/game/scene_query.cpp": "9a17d3f98eb538a2dc63cf897ced0011eb3041b55523a2c17c97eff9f76b6f5f",
+    "src/game/scene_reset.cpp": "c2b641e24e891aeff9b71ace81ab49d9c287b989d50b05a82dc0e75d3ca60c3a",
     "src/game/scene_shutdown.cpp": "8438028260d157d6d654302ee715081177115ec815e8b85bf3aa68e8b9777f7d",
     "src/game/scene_vec_begin.cpp": "4ad3b952d19afd6fe539fa2ee69c89f2b77f80c8b6fe885b0ee5a8b6213e4452",
     "src/game/scene_vec_dtor.cpp": "4161253ae669c0c99f30d56180fed662529405e598ebb5cc856f0b13a976ad1e",
@@ -34970,6 +34972,45 @@
       "discarded_functions": [],
       "object_sha256": "98cccc8e5f97b6c51db6fa3b49987005b1c76f508b3cd480291f4cd4adc0b446",
       "linked_sha256": "819fee0e53a155256c7661a730ef7d638f7fe6c363488f20369f2232f2725e25"
+    },
+    {
+      "id": "scene_reset",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 404,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "deferred,auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [],
+      "object_sha256": "b2cf305cbfa6df0c86bb24b32705a8bb311d4b497dc9bc1197400552a08edea7",
+      "linked_sha256": "a6832525ce9ce4324e35f10bc21e4de270902b94afac3ea5860e49b6bff40c73"
     }
   ],
   "code_map": {
@@ -46235,13 +46276,6 @@
             "size": 152,
             "kind": "function",
             "name": "AddPlayer_now__6CSceneFP10ISceneNode",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800dc44c",
-            "size": 404,
-            "kind": "function",
-            "name": "Reset__6CSceneFv",
             "evidence": "exception-index"
           },
           {
