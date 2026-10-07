@@ -39,24 +39,30 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8008fc50",
-      "size": 32,
+      "address": "0x8008fc0c",
+      "size": 100,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000c648",
-      "size": 8,
+      "address": "0x8000c640",
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80013688",
-      "size": 12,
+      "address": "0x8001367c",
+      "size": 24,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "Perspective__7CMatrixFffff",
+      "address": "0x8008fc0c",
+      "size": 68,
+      "binding": 1
+    },
     {
       "name": "Multiply__7CMatrixFRC7CMatrixRC7CMatrix",
       "address": "0x8008fc50",
@@ -65,6 +71,7 @@
     }
   ],
   "externals": {
+    "C_MTXFrustum": "0x80116d20",
     "PSMultMatrix__FPfPCfPCf": "0x8008e9ec"
   },
   "undefined_in_discarded_code": [],
@@ -74,5 +81,16 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "matrix.cpp",
-  "original_file_index": 5373
+  "original_file_index": 5373,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80350268"
+    }
+  ]
 }
