@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x801578e0",
-      "size": 1204,
+      "size": 2332,
       "type": 1
     },
     {
@@ -72,14 +72,29 @@
       "address": "0x80157b78",
       "size": 540,
       "binding": 1
+    },
+    {
+      "name": "SNDAEMSI_updateplayerstream__FP21AEMSCOMPDYNAMICPLAYER",
+      "address": "0x80157d94",
+      "size": 1128,
+      "binding": 1
     }
   ],
   "externals": {
     "SNDAEMSI_streamsystemtask__Fv": "0x801581fc",
+    "SNDAEMSI_streamupdateattributes__FP21AEMSCOMPDYNAMICPLAYER": "0x8015834c",
     "SNDMEMI_free__FPv": "0x80158ff0",
+    "SNDSTRM_3dpos": "0x8015c6c4",
     "SNDSTRM_destroy": "0x8015bef4",
+    "SNDSTRM_drylevel": "0x8015c778",
+    "SNDSTRM_fxlevel": "0x8015c7c8",
+    "SNDSTRM_highpass": "0x8015c878",
+    "SNDSTRM_lowpass": "0x8015c828",
+    "SNDSTRM_pitchmult": "0x8015c728",
     "SNDSTRM_purge": "0x8015c028",
     "SNDSTRM_requeststatus": "0x8015c37c",
+    "SNDSTRM_timemult": "0x8015c8c8",
+    "SNDSTRM_vol": "0x8015c5b0",
     "SNDSYS_entercritical": "0x80153554",
     "SNDSYS_leavecritical": "0x80153588",
     "iSNDserverremoveclient__FPFv_v": "0x80153110",
