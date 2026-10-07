@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8016645c",
-      "size": 132,
+      "size": 376,
       "type": 1
     }
   ],
@@ -54,11 +54,20 @@
       "address": "0x801664a0",
       "size": 64,
       "binding": 1
+    },
+    {
+      "name": "SFILTER_modifyECHO__FP9ECHOSTATEPi",
+      "address": "0x801664e0",
+      "size": 244,
+      "binding": 1
     }
   ],
   "externals": {
     "SFILTER_echo__FPviPvPvi": "0x80166284",
-    "SNDMEMI_free__FPv": "0x80158ff0"
+    "SNDI_findmult16__Fii": "0x8015fc8c",
+    "SNDMEMI_allocz__Fi": "0x80158d64",
+    "SNDMEMI_free__FPv": "0x80158ff0",
+    "memset": "0x80009410"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -67,5 +76,22 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "sfecho.c",
-  "original_file_index": 13195
+  "original_file_index": 13195,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80351bf4"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 8,
+      "address": "0x80351bf8"
+    }
+  ]
 }
