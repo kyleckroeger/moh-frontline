@@ -1,0 +1,87 @@
+{
+  "id": "motion",
+  "source": "src/ea/motion.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "off",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "src/ea",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80102e10",
+      "size": 2300,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "Dual_Prime_Arithmetic__FPA2_iPiii",
+      "address": "0x80102e10",
+      "size": 380,
+      "binding": 1
+    },
+    {
+      "name": "motion_vector__FPiPiiiiii",
+      "address": "0x80102f8c",
+      "size": 528,
+      "binding": 1
+    },
+    {
+      "name": "motion_vectors__FPA2_A2_iPiPA2_iiiiiiii",
+      "address": "0x8010319c",
+      "size": 1392,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "Get_Bits__Fi": "0x800fd3fc",
+    "Get_dmvector__Fv": "0x80101d80",
+    "Get_motion_code__Fv": "0x80101dcc",
+    "MPDpicture_structure": "0x8034ee90",
+    "MPDtop_field_first": "0x8034ee94"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {
+    "name": "MPEG Software Simulation Group mpeg2decode",
+    "path": "motion.c",
+    "reference_copy": "https://github.com/dzavalishin/phantomuserland/blob/0fa666cb50e6ca13dd048d67d397485266c0e814/phantom/apps/mpeg/motion.c"
+  },
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "MPDpicture_structure",
+    "MPDtop_field_first"
+  ],
+  "original_file": "motion.cpp",
+  "original_file_index": 10171
+}

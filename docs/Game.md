@@ -368,6 +368,7 @@ establish a type, the source comments say so.
 | `slinkmix.c` | 1 | 88 | Installs the seven main-CPU mixer entry points |
 | `idct.cpp` | 1 | 232 | Clip-table set-up of the MPEG-2 reference decoder's fast IDCT (`iclp[i]` clamped to -256..255) |
 | `recon.cpp` (fragment) | 1 | 6,388 | — | `0x801067d4`: the MPEG-2 reference decoder's `form_predictions` (motion compensation for frame and field pictures, forward and backward, dual prime), with `form_prediction` inlined, the decoder globals under their `MPD` names and chroma fixed at 4:2:0. The static `form_component_prediction` before it is larger than the reference's and is not reconstructed |
+| `motion.cpp` | 3 | 2,300 | — | The MPEG-2 reference decoder's motion vector decoding: `Dual_Prime_Arithmetic`, `motion_vector` (with `decode_motion_vector` inlined) and `motion_vectors`; globals under their `MPD` names, no trace output |
 | `inittmr.cpp` | 5 | 524 | REAL timer set-up: a periodic OS alarm at `bus clock / 4 / hz` posts to the timer thread, which runs eight handler slots; the tick counters are volatile |
 | `timerthread.cpp` | 4 | 352 | The timer thread's message loop and its queue, stack and thread objects |
 | `exit.cpp` | 4 | 488 | REAL exit handlers: a 64-entry table run in reverse on restore; `REAL_exit` inlines `REAL_restore` |
