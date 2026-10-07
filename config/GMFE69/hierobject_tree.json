@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x8009ba2c",
-      "size": 832,
+      "size": 1368,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000ccbc",
-      "size": 16,
+      "size": 24,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80013e20",
-      "size": 24,
+      "size": 36,
       "type": 1
     },
     {
@@ -86,18 +86,32 @@
       "address": "0x8009bd48",
       "size": 36,
       "binding": 1
+    },
+    {
+      "name": "Init__11CHierObjectFP11CHierObjectiiiR8CVector3",
+      "address": "0x8009bd6c",
+      "size": 536,
+      "binding": 1
     }
   ],
   "externals": {
     "DebugMsg__FPCce": "0x80018c88",
-    "__as__7CMatrixFRC7CMatrix": "0x80090b34"
+    "Ident__7CMatrixFv": "0x8008f1b0",
+    "InitClass__7CMatrixFv": "0x80090b78",
+    "Init__10CCSGVolumeFiP11CHierObject": "0x800c9200",
+    "Init__13CStaticObjectFv": "0x800b1b28",
+    "MEM_free": "0x8014f83c",
+    "__as__7CMatrixFRC7CMatrix": "0x80090b34",
+    "s_ClassInit__7CMatrix": "0x8034eab0"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": [],
+  "sda_externals": [
+    "s_ClassInit__7CMatrix"
+  ],
   "original_file": "hierobject.cpp",
   "original_file_index": 5972
 }

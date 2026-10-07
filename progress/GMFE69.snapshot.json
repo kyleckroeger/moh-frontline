@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 397544,
+    "matching_code_bytes": 398080,
     "total_executable_code_bytes": 1414572,
-    "percent": 28.103482890938036,
+    "percent": 28.141374210715327,
     "categories": {
-      "reconstructed_game": 121240,
+      "reconstructed_game": 121776,
       "restored_library": 276304
     },
-    "matching_functions": 2492
+    "matching_functions": 2493
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -340,7 +340,7 @@
     "config/GMFE69/hearingvolume.json": "e8aff4213b28d2f4046c3a9b25e9c4d289c97b8a4f6aad7802217f6faf9faa28",
     "config/GMFE69/hearingvolume_rows.json": "73b213aa8f22014d8a81f302790467b294fb239077aafc92e908e80f8a373fdd",
     "config/GMFE69/hierobject.json": "f2b07428fc55483edb8cef681c572b6c3a560b38528f22ca681d5f862e3711b8",
-    "config/GMFE69/hierobject_tree.json": "416bb5bdd8ad434e25eb514e63ba7f3a2fbe57cdd9a78817e705afaf7460c39f",
+    "config/GMFE69/hierobject_tree.json": "4019a5f59361891791d4b2f43f18d3f495bf5a54efbd135d400c14b295ca3334",
     "config/GMFE69/hlafile.json": "3ca3b38bf7bda52bff5a0e1826aecf7d2679095f435266c2cafd7c1c66d48184",
     "config/GMFE69/hlsfile.json": "949cb6bbf006231f6e840512648466c8cc1f095827bbb723bf5ff1c4a55603e5",
     "config/GMFE69/hwvideodisplaylist.json": "be40b2a07c0ea8739ac364144c6b15439b89b2ecc9d69a147d74d38579b38e9b",
@@ -1754,7 +1754,7 @@
     "src/game/hearingvolume.cpp": "60c5c156b6483fd8b538aec12fe17bfbe67f89d90750f57d4bf72ca6b9716d6b",
     "src/game/hearingvolume_rows.cpp": "0a512f6b7973404a5afa698bedc79a84b6386bacadd4419f718ed92f09e98681",
     "src/game/hierobject.cpp": "c837a9242fb1b897ee014e5dab2008cd0ca7a1a7323b6bfc77c8b0e4fec7d4d3",
-    "src/game/hierobject_tree.cpp": "3c258259f08218fa4c799c0ce23f60fa898513620ca7851ef10de6dee54b0126",
+    "src/game/hierobject_tree.cpp": "953e69eabb2e3c59a9ff5d867ac278d891a0ef981d090dc1a8691d5a640b83ab",
     "src/game/hwvideodisplaylist.cpp": "fe8e660f0b288020cf2eaa33d3dbe1d4cdcfda4142ceb040328033e34140aadf",
     "src/game/input.cpp": "9b914f9339fceba59b141fcb97b7cce47a6e04470aac30a23f30a5f69e35fae9",
     "src/game/isShellGroup.cpp": "a276f86c558cbb5460692a1b2ae338e44366b0b6f9b45abc5406e266afaf1835",
@@ -27949,8 +27949,8 @@
     {
       "id": "hierobject_tree",
       "category": "reconstructed_game",
-      "functions": 4,
-      "code_bytes": 832,
+      "functions": 5,
+      "code_bytes": 1368,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -27982,8 +27982,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "85a8e359ae7ec575d7f5ed642221573a8382f083d458690a7aa9798e1403e718",
-      "linked_sha256": "841d6a551b24bcb96714dbf70aad71a6c29306a2e02d7d00103a94ff5d9cf684"
+      "object_sha256": "d1fb4b73ac4a77e3254cc152a998e8aad17184326f0d5ed22670e6e3c37e47f5",
+      "linked_sha256": "3690953c66257fc2fa4d276a871d166515e578752b8400395d213d2fa33b66cd"
     }
   ],
   "code_map": {
@@ -37056,13 +37056,6 @@
             "size": 152,
             "kind": "function",
             "name": "CleanUp__11CHierObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8009bd6c",
-            "size": 536,
-            "kind": "function",
-            "name": "Init__11CHierObjectFP11CHierObjectiiiR8CVector3",
             "evidence": "exception-index"
           },
           {
