@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 504512,
+    "matching_code_bytes": 506024,
     "total_executable_code_bytes": 1414572,
-    "percent": 35.665346125895326,
+    "percent": 35.772233580192456,
     "categories": {
-      "reconstructed_game": 285552,
+      "reconstructed_game": 287064,
       "restored_library": 218960
     },
-    "matching_functions": 3165
+    "matching_functions": 3171
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -524,7 +524,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "b435d5142525d019956b25145befe2ba6432479761d0efba2ee7675ec4fac62a",
+    "config/GMFE69/project.json": "a8555fb7456f91504b8721541feaa8ebcc7e62631a2863951de25fa0a8bf30f5",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_init.json": "59efa2f81e573b18eb9d4793a24578d542a47e4cded42890b4e9f88779a0b4a4",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
@@ -806,6 +806,7 @@
     "config/GMFE69/world_object_list.json": "0a798c5962759e5c41809c9ecfe09adcd66d7513d19f443b3ff34a796f03ee01",
     "config/GMFE69/world_volume.json": "b58335a5f969f8461603ce74500ac1d689974d936b2dd3ba5ab66987d43fd109",
     "config/GMFE69/world_volume_list.json": "26915355228a63f644959d7487b1714a059e5564b0db40635ef25bcf541a587c",
+    "config/GMFE69/world_volume_subvol.json": "967349cf57417a3d3b366ee3eb21fdf4ca3fde7046da55e825c82dd2dc3d8a5a",
     "include/dolphin-sdk/charPipeline/fileCache.h": "9fc5bbfba874376ec1d239271cda99d84c256b2bd07f884d1177bee6b705b985",
     "include/dolphin-sdk/charPipeline/structures/HTable.h": "e1e36439d044200512635bc37470f318258d75767fad9ec2d9c407f9c0ee1af8",
     "include/dolphin-sdk/charPipeline/structures/List.h": "5646f12d28166b80aa7ad18711a2a01b1b1e836f4f509c25a03b2220adcc3c58",
@@ -2176,6 +2177,7 @@
     "src/game/world_object_list.cpp": "975335f001f74f6c9af25efb83889c2f276313a73d1d774806725fd9444c72da",
     "src/game/world_volume.cpp": "f6615e2f32df0c136d86133089d3957929a83d826a0294df1b6e0e21e25a4949",
     "src/game/world_volume_list.cpp": "1e7bf4e425352d630a3d6cdf70d16bc6cc19ed06675f44c597f0aeebadd945bc",
+    "src/game/world_volume_subvol.cpp": "798b2639c619e5396c6c2cdb0bba2f16e3b2608c749f54855b8fe25531fd9dc2",
     "src/msl/NewMore.cp": "cb60e70e586609256a8ff5c7a4b0efbdf7586b7fa7e3cb43b7f84e309e87c1be",
     "src/msl/bsearch.c": "e18222caa9298644a58b0d497c283f472396491e6297b39abb4865632978533a",
     "src/msl/mslsupp.c": "dd035227b8e683320b6147ec006a50b26ba14f315be2755a3d573476e16eb2e8",
@@ -35125,6 +35127,45 @@
       ],
       "object_sha256": "6257f5e72c212f859d3aded17b4e3f199c17a2403cf6b444eac02603e4192ff8",
       "linked_sha256": "6fbf5ce89b1393fd14307b0a1e28b5b5a4ad179158974e00c3c06ea2512e9758"
+    },
+    {
+      "id": "world_volume_subvol",
+      "category": "reconstructed_game",
+      "functions": 6,
+      "code_bytes": 1512,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "8e5bb2fd7e92ac4439b545363d956a758b6616da6c253c6465ccae757b0c913c",
+      "linked_sha256": "d8b473c82a1e5f013aaaf2aade3c050aeb45f8d8ef7956edb0c683f9c8d2ce71"
     }
   ],
   "code_map": {
@@ -44745,48 +44786,6 @@
             "size": 628,
             "kind": "function",
             "name": "reserve__Q23dwi20list<PC10CCDBObject>FiPc",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cc594",
-            "size": 252,
-            "kind": "function",
-            "name": "TestCollisionWithSubVolumes<15CAnimatedVolume>__12CWorldVolumeCFRC15CAnimatedVolumeR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cc690",
-            "size": 252,
-            "kind": "function",
-            "name": "TestCollisionWithSubVolumes<9CVolFiber>__12CWorldVolumeCFRC9CVolFiberR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cc78c",
-            "size": 252,
-            "kind": "function",
-            "name": "TestCollisionWithSubVolumes<6CLine3>__12CWorldVolumeCFRC6CLine3R10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cc888",
-            "size": 252,
-            "kind": "function",
-            "name": "TestCollisionWithSubVolumes<11CVolCapsule>__12CWorldVolumeCFRC11CVolCapsuleR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cc984",
-            "size": 252,
-            "kind": "function",
-            "name": "TestCollisionWithSubVolumes<10CVolSphere>__12CWorldVolumeCFRC10CVolSphereR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cca80",
-            "size": 252,
-            "kind": "function",
-            "name": "TestCollisionWithSubVolumes<7CVolBox>__12CWorldVolumeCFRC7CVolBoxR10CCollisionb",
             "evidence": "exception-index"
           }
         ]
