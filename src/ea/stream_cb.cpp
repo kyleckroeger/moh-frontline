@@ -26,11 +26,14 @@
    marker when the tail is too short), and then copies the next part of a
    memory request or starts a file read; the stream is stalled (state 2)
    while there is too little room. STREAM_overhead is the memory a stream
-   needs besides its buffer. STREAMHEADERtag and REQUESTSTRUCTtag are named
-   by the mangled symbols; their members, the other views and the helpers'
-   signatures are inferred. STREAM_create, next in the file, is drafted in
-   scratch/game/stream_create_wip.cpp (two callee-saved registers
-   swapped). */
+   needs besides its buffer; STREAM_create checks the limits (a buffer of at
+   least 6 KB, 2..256 requests, 1..16 chunk types, 1..types taps), lays the
+   header, request, type and tap tables and the 32-byte aligned buffer out
+   in the given memory, picks the minimum read from the buffer size, chains
+   the free requests, and returns the first tap as the handle.
+   STREAMHEADERtag and REQUESTSTRUCTtag are named by the mangled symbols;
+   their members, the other views and the helpers' signatures are
+   inferred. */
 /* inferred: a stream request (state, type, file size) */
 struct REQUESTSTRUCTtag {
     int index;
@@ -106,6 +109,8 @@ char* strcpy(char*, const char*);
 void MUTEX_lock(void*);
 void MUTEX_unlock(void*);
 void MEM_copy(void*, const void*, int);
+void MEM_clear(void*, int);
+void MUTEX_create(void*);
 }
 
 static void restartstream(STREAMHEADERtag*, int);
@@ -429,8 +434,86 @@ static void restartstream(STREAMHEADERtag* header, int priority) {
 /* inferred: the bytes a stream needs besides its buffer (header, request,
    chunk type and tap tables, and 32 for aligning the buffer) */
 #define STREAM_OVERHEAD(requests, types, taps) \
-    (sizeof(STREAMHEADERtag) + 32 + (requests) * sizeof(REQUESTSTRUCTtag) + (types) * sizeof(CHUNKTYPEVIEW) + (taps) * sizeof(CHUNKLISTVIEW))
+    (int)(sizeof(STREAMHEADERtag) + 32 + (requests) * sizeof(REQUESTSTRUCTtag) + (types) * sizeof(CHUNKTYPEVIEW) + (taps) * sizeof(CHUNKLISTVIEW))
 
 extern "C" int STREAM_overhead(int requests, int types, int taps) {
     return STREAM_OVERHEAD(requests, types, taps);
+}
+
+extern "C" int STREAM_create(int requests, int types, int taps, void* memory, int size) {
+    STREAMHEADERtag* header;
+    int buffer;
+    int i;
+
+    if (size - STREAM_OVERHEAD(requests, types, taps) < 6144)
+        return 0;
+    if (requests < 2)
+        return 0;
+    if (requests > 256)
+        return 0;
+    if (types < 1 || types > 16)
+        return 0;
+    if (taps < 1 || taps > types)
+        return 0;
+    header = (STREAMHEADERtag*)memory;
+    header->magic = 0x4D525453;
+    MUTEX_create(header->mutex);
+    header->requests = (REQUESTSTRUCTtag*)(header + 1);
+    header->requestCount = requests;
+    header->types = (CHUNKTYPEVIEW*)(header->requests + requests);
+    header->typeCount = types;
+    header->lists = (CHUNKLISTVIEW*)(header->types + types);
+    header->listCount = taps;
+    header->bufferStart = (unsigned char*)(((unsigned int)(header->lists + taps) & ~31) + 32);
+    header->chunkStart = header->bufferStart;
+    header->bufferEnd = (unsigned char*)memory + size;
+    header->state = 0;
+    header->unknown48 = 150;
+    header->priority = 50;
+    header->threshold = 0;
+    header->greedy = 0;
+    header->buffered = 0;
+    header->read = header->chunkStart;
+    header->requestStart = header->chunkStart;
+    header->write = header->chunkStart;
+    header->first = 0;
+    header->current = 0;
+    header->last = 0;
+    header->free = header->requests;
+    MEM_clear(header->filename, 255);
+    header->handle = 0;
+    buffer = size - STREAM_OVERHEAD(requests, types, taps);
+    if (buffer < 16384)
+        header->minimum = 2048;
+    else if (buffer < 32768)
+        header->minimum = 4096;
+    else if (buffer < 65536)
+        header->minimum = 8192;
+    else if (buffer < 131072)
+        header->minimum = 16384;
+    else
+        header->minimum = 32768;
+    for (i = 0; i < requests; i++) {
+        REQUESTSTRUCTtag* request = &header->requests[i];
+
+        request->index = i;
+        request->state = 0;
+        request->next = &header->requests[i + 1];
+    }
+    header->requests[requests - 1].next = 0;
+    for (i = 0; i < types; i++) {
+        CHUNKTYPEVIEW* type = &header->types[i];
+
+        type->mask = 0;
+        type->value = 0;
+        type->type = 1;
+    }
+    for (i = 0; i < taps; i++) {
+        CHUNKLISTVIEW* tap = &header->lists[i];
+
+        tap->header = header;
+        tap->number = i + 1;
+        tap->size = 0;
+    }
+    return (int)header->lists;
 }
