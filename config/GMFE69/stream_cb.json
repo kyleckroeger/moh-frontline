@@ -37,12 +37,24 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8014bee0",
-      "size": 1756,
+      "address": "0x8014bb68",
+      "size": 2672,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "freerequest__FP15STREAMHEADERtagP16REQUESTSTRUCTtag",
+      "address": "0x8014bb68",
+      "size": 136,
+      "binding": 0
+    },
+    {
+      "name": "parsechunks__FP15STREAMHEADERtag",
+      "address": "0x8014bbf0",
+      "size": 752,
+      "binding": 0
+    },
     {
       "name": "restartstream__FP15STREAMHEADERtagi",
       "address": "0x8014c23c",
@@ -72,6 +84,12 @@
       "address": "0x8014bf8c",
       "size": 292,
       "binding": 0
+    },
+    {
+      "name": "STREAM_overhead",
+      "address": "0x8014c5bc",
+      "size": 28,
+      "binding": 1
     }
   ],
   "externals": {
@@ -83,18 +101,15 @@
     "MEM_copy": "0x80150880",
     "MUTEX_lock": "0x8015212c",
     "MUTEX_unlock": "0x80152150",
-    "freerequest__FP15STREAMHEADERtagP16REQUESTSTRUCTtag": "0x8014bb68",
-    "parsechunks__FP15STREAMHEADERtag": "0x8014bbf0",
+    "_restgpr_26": "0x80138a58",
+    "_savegpr_26": "0x80138a0c",
     "strcmp": "0x8013fed4",
     "strcpy": "0x80140040"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
-  "local_externals": [
-    "freerequest__FP15STREAMHEADERtagP16REQUESTSTRUCTtag",
-    "parsechunks__FP15STREAMHEADERtag"
-  ],
+  "local_externals": [],
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "stream.cpp",

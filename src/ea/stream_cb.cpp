@@ -1,55 +1,92 @@
-/* A fragment of EA's streaming layer (stream.cpp, 0x8014bee0): the file
-   operation callbacks and the buffer refill. opencallback records the
-   opened handle and restarts the stream; closecallback reopens the stream's
-   file and installs opencallback; readcallback adds the bytes read to the
-   file position and the write pointer, parses the new chunks, and then
-   starts the next request when this one is finished (its whole file read,
-   or a short read, or chunks parsed), marking it done, or restarts the
-   stream; startnextrequest moves to the next queued request (or marks the
-   stream idle), resets the read position, and switches files (closing the
-   open one, or opening the new one) when the request names another file,
-   else restarts the stream. restartstream skips consumed chunks (an id of
-   -1 wraps to the chunk start, -2 skips its length), frees finished
-   requests whose data left the unread part of the ring, finds the free
-   space (moving the partial request to the buffer start behind a wrap
+/* A fragment of EA's streaming layer (stream.cpp, 0x8014bb68): the request
+   list, the chunk parser, the file operation callbacks, the buffer refill
+   and STREAM_overhead. freerequest unlinks a request from the queue (moving
+   the current request on, or back when it was the last) and puts it on the
+   free list. parsechunks walks the chunks written for the current request:
+   a chunk whose size word has a high byte is a raw read and gets a header
+   naming the request; the request's own chunks are padded to 32 bytes; the
+   id is matched against the chunk type table (id & mask == value), unknown
+   types are marked free (-2) and known ones get their type in the size
+   word's high byte and are added to their tap's list and the buffered
+   count, leaving greedy mode when the count crosses the threshold. It
+   returns 1 when it reaches the request's end chunk, and stops (leaving the
+   chunk unclaimed) once the request is cancelled (state 4). opencallback
+   records the opened handle and restarts the stream; closecallback reopens
+   the stream's file and installs opencallback; readcallback adds the bytes
+   read to the file position and the write pointer, parses the new chunks,
+   and then starts the next request when this one is finished (its whole
+   file read, or a short read, or chunks parsed), marking it done, or
+   restarts the stream; startnextrequest moves to the next queued request
+   (or marks the stream idle), resets the read position, and switches files
+   (closing the open one, or opening the new one) when the request names
+   another file, else restarts the stream. restartstream skips consumed
+   chunks (an id of -1 wraps to the chunk start, -2 skips its length), frees
+   finished requests whose data left the unread part of the ring, finds the
+   free space (moving the partial request to the buffer start behind a wrap
    marker when the tail is too short), and then copies the next part of a
    memory request or starts a file read; the stream is stalled (state 2)
-   while there is too little room. STREAMHEADERtag and REQUESTSTRUCTtag are
-   named by the mangled symbols; their members, the request view and the
-   helpers' signatures are inferred. */
+   while there is too little room. STREAM_overhead is the memory a stream
+   needs besides its buffer. STREAMHEADERtag and REQUESTSTRUCTtag are named
+   by the mangled symbols; their members, the other views and the helpers'
+   signatures are inferred. STREAM_create, next in the file, is drafted in
+   scratch/game/stream_create_wip.cpp (two callee-saved registers
+   swapped). */
 /* inferred: a stream request (state, type, file size) */
-struct REQUESTVIEW {
-    unsigned char unknown00[4];
+struct REQUESTSTRUCTtag {
+    int index;
     int state;
-    unsigned char unknown08[4];
-    REQUESTVIEW* next;
+    REQUESTSTRUCTtag* prev;
+    REQUESTSTRUCTtag* next;
     int type;
     char filename[256];
     unsigned char* source;
     int size;
-    unsigned char unknown11c[4];
+    int id;
     unsigned char* start;
 };
 
-struct REQUESTSTRUCTtag;
+struct STREAMHEADERtag;
+
+/* inferred: a chunk type match (id & mask == value) */
+struct CHUNKTYPEVIEW {
+    int mask;
+    int value;
+    int type;
+};
+
+/* inferred: the chunks buffered for one type */
+struct CHUNKLISTVIEW {
+    STREAMHEADERtag* header;
+    int number;
+    int size;
+    unsigned char* first;
+};
 
 struct STREAMHEADERtag {
     int magic;
-    unsigned char mutex[44];
-    unsigned char unknown30[8];
+    unsigned char mutex[28];
+    REQUESTSTRUCTtag* requests;
+    int requestCount;
+    CHUNKTYPEVIEW* types;
+    int typeCount;
+    CHUNKLISTVIEW* lists;
+    int listCount;
     unsigned char* bufferStart;
     unsigned char* chunkStart;
     unsigned char* bufferEnd;
     int state;
-    unsigned char unknown48[4];
+    int unknown48;
     int priority;
-    unsigned char unknown50[12];
+    int threshold;
+    int greedy;
+    int buffered;
     unsigned char* read;
     unsigned char* requestStart;
     unsigned char* write;
-    REQUESTVIEW* first;
-    REQUESTVIEW* current;
-    unsigned char unknown70[8];
+    REQUESTSTRUCTtag* first;
+    REQUESTSTRUCTtag* current;
+    REQUESTSTRUCTtag* last;
+    REQUESTSTRUCTtag* free;
     char filename[256];
     int handle;
     int position;
@@ -71,11 +108,127 @@ void MUTEX_unlock(void*);
 void MEM_copy(void*, const void*, int);
 }
 
-// File-local in the original (defined elsewhere in the file).
-int parsechunks(STREAMHEADERtag*);
-void freerequest(STREAMHEADERtag*, REQUESTSTRUCTtag*);
 static void restartstream(STREAMHEADERtag*, int);
 static void startnextrequest(STREAMHEADERtag*, int);
+
+#define STREAM_GET32(p) (((p)[3] << 24) | ((p)[2] << 16) | ((p)[1] << 8) | (p)[0])
+
+/* inferred: stores a little-endian word */
+static inline void put32(unsigned char* p, unsigned int value) {
+    p[0] = value;
+    p[1] = value >> 8;
+    p[2] = value >> 16;
+    p[3] = value >> 24;
+}
+
+static void freerequest(STREAMHEADERtag* header, REQUESTSTRUCTtag* request) {
+    if (request == header->first)
+        header->first = request->next;
+    else
+        request->prev->next = request->next;
+    if (request == header->last)
+        header->last = request->prev;
+    else
+        request->next->prev = request->prev;
+    if (request == header->current) {
+        if (!request->next)
+            header->current = request->prev;
+        else
+            header->current = request->next;
+    }
+    request->state = 0;
+    request->next = header->free;
+    header->free = request;
+}
+
+static inline int chunktype(STREAMHEADERtag* header, int id) {
+    int i;
+
+    for (i = 0; i < header->typeCount; i++) {
+        CHUNKTYPEVIEW* entry = &header->types[i];
+
+        if (entry->value == (id & entry->mask))
+            return entry->type;
+    }
+    return -2;
+}
+
+static int parsechunks(STREAMHEADERtag* header) {
+    unsigned char* chunk;
+    REQUESTSTRUCTtag* request;
+    int size;
+    int type;
+    int done;
+
+    request = header->current;
+    while (header->write - (chunk = header->requestStart) >= 8) {
+        size = STREAM_GET32(chunk + 4);
+        if (size & 0xFF000000) {
+            put32(chunk, request->id);
+            chunk[4] = 8;
+            chunk[5] = 0;
+            chunk[6] = 0;
+            chunk[7] = 0;
+            size = 8;
+        }
+        if (header->requestStart + size > header->write)
+            break;
+        if (request->id == STREAM_GET32(chunk)) {
+            int rest = (unsigned int)header->requestStart & 31;
+
+            size = ((size + rest + 31) & ~31) - rest;
+        }
+        type = chunktype(header, STREAM_GET32(chunk));
+        if (type < 0) {
+            MUTEX_lock(header->mutex);
+            done = request->state == 4;
+            if (!done) {
+                chunk[0] = 0xFE;
+                chunk[1] = 0xFF;
+                chunk[2] = 0xFF;
+                chunk[3] = 0xFF;
+                header->requestStart += size;
+            }
+            MUTEX_unlock(header->mutex);
+        } else {
+            int word = size | (type << 24);
+
+            put32(chunk + 4, word);
+            MUTEX_lock(header->mutex);
+            done = request->state == 4;
+            if (!done) {
+                CHUNKLISTVIEW* list = &header->lists[type - 1];
+                int before;
+                int after;
+                int threshold;
+
+                list->size += size;
+                if (list->size == size)
+                    list->first = chunk;
+                header->requestStart += size;
+                before = header->buffered;
+                after = before + size;
+                header->buffered = after;
+                threshold = header->threshold;
+                if (before < threshold && after >= threshold)
+                    header->greedy = 0;
+            }
+            MUTEX_unlock(header->mutex);
+        }
+        if (done) {
+            if (request->id != STREAM_GET32(chunk)) {
+                int rest = (unsigned int)header->requestStart & 31;
+
+                size = ((size + rest + 31) & ~31) - rest;
+                put32(chunk + 4, size | (type << 24));
+            }
+            break;
+        }
+        if (request->id == STREAM_GET32(chunk))
+            return 1;
+    }
+    return 0;
+}
 
 static void opencallback(int, int, void* data) {
     STREAMHEADERtag* header = (STREAMHEADERtag*)data;
@@ -96,7 +249,7 @@ static void closecallback(int, int, void* data) {
 
 static void readcallback(int, int, void* data) {
     STREAMHEADERtag* header = (STREAMHEADERtag*)data;
-    REQUESTVIEW* request = header->current;
+    REQUESTSTRUCTtag* request = header->current;
     int done;
     int count;
     int parsed;
@@ -125,7 +278,7 @@ static void readcallback(int, int, void* data) {
 }
 
 static void startnextrequest(STREAMHEADERtag* header, int priority) {
-    REQUESTVIEW* request = 0;
+    REQUESTSTRUCTtag* request = 0;
     int idle;
 
     MUTEX_lock(header->mutex);
@@ -171,12 +324,10 @@ static void startnextrequest(STREAMHEADERtag* header, int priority) {
     restartstream(header, priority);
 }
 
-#define STREAM_GET32(p) (((p)[3] << 24) | ((p)[2] << 16) | ((p)[1] << 8) | (p)[0])
-
 static void restartstream(STREAMHEADERtag* header, int priority) {
     int space;
     int length;
-    REQUESTVIEW* request;
+    REQUESTSTRUCTtag* request;
 
     while (header->read != header->requestStart) {
         int id = STREAM_GET32(header->read);
@@ -190,7 +341,7 @@ static void restartstream(STREAMHEADERtag* header, int priority) {
     }
     MUTEX_lock(header->mutex);
     for (;;) {
-        REQUESTVIEW* next = header->first->next;
+        REQUESTSTRUCTtag* next = header->first->next;
         int inside;
         unsigned char* read;
         unsigned char* write;
@@ -207,7 +358,7 @@ static void restartstream(STREAMHEADERtag* header, int priority) {
             inside = start - 1 >= read || start - 1 < write;
         if (inside)
             break;
-        freerequest(header, (REQUESTSTRUCTtag*)header->first);
+        freerequest(header, header->first);
     }
     MUTEX_unlock(header->mutex);
     if (header->read > header->write) {
@@ -273,4 +424,13 @@ static void restartstream(STREAMHEADERtag* header, int priority) {
         if (header->fileOp)
             FILESYS_callbackop(header->fileOp, readcallback);
     }
+}
+
+/* inferred: the bytes a stream needs besides its buffer (header, request,
+   chunk type and tap tables, and 32 for aligning the buffer) */
+#define STREAM_OVERHEAD(requests, types, taps) \
+    (sizeof(STREAMHEADERtag) + 32 + (requests) * sizeof(REQUESTSTRUCTtag) + (types) * sizeof(CHUNKTYPEVIEW) + (taps) * sizeof(CHUNKLISTVIEW))
+
+extern "C" int STREAM_overhead(int requests, int types, int taps) {
+    return STREAM_OVERHEAD(requests, types, taps);
 }
