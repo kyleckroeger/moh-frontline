@@ -38,13 +38,7 @@
     {
       "name": ".text",
       "address": "0x80165e24",
-      "size": 212,
-      "type": 1
-    },
-    {
-      "name": ".sdata2",
-      "address": "0x80351bd0",
-      "size": 4,
+      "size": 584,
       "type": 1
     }
   ],
@@ -60,9 +54,17 @@
       "address": "0x80165eb8",
       "size": 64,
       "binding": 1
+    },
+    {
+      "name": "SFILTER_modifyRESON__FP10RESONSTATEPi",
+      "address": "0x80165ef8",
+      "size": 372,
+      "binding": 1
     }
   ],
   "externals": {
+    "SNDI_cos__Ff": "0x8015fb04",
+    "SNDI_rootof1plusx__Ff": "0x8015fb80",
     "resonx87__FP10RESONSTATEiPvPv": "0x801659ac"
   },
   "undefined_in_discarded_code": [],
@@ -72,5 +74,52 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "sfreson.c",
-  "original_file_index": 13177
+  "original_file_index": 13177,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80351bd0"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x80351be0"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 4,
+      "address": "0x80351be4"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 12,
+      "size": 4,
+      "address": "0x80351bcc"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 16,
+      "size": 4,
+      "address": "0x80351bc8"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 20,
+      "size": 4,
+      "address": "0x80351be8"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 24,
+      "size": 8,
+      "address": "0x80351bd8"
+    }
+  ]
 }
