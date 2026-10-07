@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 457140,
+    "matching_code_bytes": 457508,
     "total_executable_code_bytes": 1414572,
-    "percent": 32.31648866229503,
+    "percent": 32.34250359826152,
     "categories": {
-      "reconstructed_game": 240736,
+      "reconstructed_game": 241104,
       "restored_library": 216404
     },
-    "matching_functions": 2725
+    "matching_functions": 2727
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -440,7 +440,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "da23634fc15e7f2f63be9abd5f5fe8c1c6ecf462c0daf9e8418c428280929034",
+    "config/GMFE69/project.json": "5db736d0f9e3673fcb4b3a017fa4c0d5927aa6679c413cf2d515ef0b28575405",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "bd4b85e3a27ac50301d2ad04642bca1abf864b5f74397505530539b31bf4c0d1",
@@ -480,6 +480,7 @@
     "config/GMFE69/saemsstr_pool.json": "7ba443e70b25896778d915fd8dd84553e3828efa56599afb0c648f66aa57e924",
     "config/GMFE69/salloc.json": "ef3ec4f12f03a954dcf6987abf6f3758f75a48fdf016e8928adde29968cc5d4b",
     "config/GMFE69/saramman.json": "f3b24db465f9155f71b8e87e5be925838d41336f84ed7c65f079b9f1b037a1f9",
+    "config/GMFE69/saramman_free.json": "c6d08c1831c9d96125a67aec171867d665e65d785a7c14a08ffb9332900e8847",
     "config/GMFE69/satospkr.json": "95be38de4220d9d37dafbce159f384a58b9e9a5c045b895578083eb8c1e2723e",
     "config/GMFE69/sattrdef.json": "2062535254eee3ac4100a4a8a86e83bf872f5c8bad922fe3e395962696444769",
     "config/GMFE69/sautovol.json": "3e768a8b8dd848c78836821a40fafb446f97d5c43f920bb0b2ded4e0447bbec1",
@@ -551,6 +552,7 @@
     "config/GMFE69/smemman_free.json": "9d1970b7571223294042123a4c80c199b802ca1900dddcdbe11cc2ee124727ce",
     "config/GMFE69/smixc.json": "02df5e7acacf931ac3a7d7e050a3362b8bb65dabdaf1fcebe5bbea843ba2b101",
     "config/GMFE69/smixer.json": "2ff9d9a8c952ddc00ce6c9de4df2ab0090ae102c9a5b040edcbc642f0cd59922",
+    "config/GMFE69/smixer_destroy.json": "c7f9054b12e6e06e84a406f33d38d123829e0f63c96720a8bf90cb8999d2300c",
     "config/GMFE69/smixer_dry.json": "08fb2043e1a9bc4a1dd232a98b76b0cbfe91a47dab00386a183028478ed19d6c",
     "config/GMFE69/smixer_reset.json": "58c23a15b2de4fe8c811d7c48458987d9edc48707f992093db3ca0ba98a0d67f",
     "config/GMFE69/smixfram.json": "d51872b43a7c17cc24a25006ba590aa09cb544d5c2c3cf82734f9da270731eb7",
@@ -1510,6 +1512,7 @@
     "src/ea/saemsstr_pool.c": "c535c15a97692da9d19f0ad10fb62aa679a32b7282c604b3b89f3ef509851e51",
     "src/ea/salloc.c": "3ac96aeac05c97dbc75a0a10fd30800dc8d61d636ec073ae89d3bcacd001affe",
     "src/ea/saramman.c": "a1fc41a18822adc35b7bfab01340e095d9a0e9aeefe021415e771332e38998f1",
+    "src/ea/saramman_free.c": "54acc2065bc6b84614d7faf3003f09ec908250c2b52aa064191ec4e84cb9f106",
     "src/ea/satospkr.c": "d137e13f23efd99ee57439697995f372dc4103627b5d739e539adebe7ae32e1d",
     "src/ea/sattrdef.c": "5e55d42f497ca48214b54fe67659d8ed3943f33e3491bdc4832a83938bf10363",
     "src/ea/sautovol.c": "4a573f376ca2d42262ef525803125fff38c6da2c74ef17423cf1ef7ec4c75ced",
@@ -1575,6 +1578,7 @@
     "src/ea/smemman_free.c": "549f4906315d73f1bef30401bdac0031dbd68022ad3f11626e0a2a2e6aaf309f",
     "src/ea/smixc.c": "d72ae89323bd6d4b639820f99931a5b3e179e87bad9466dd45091ab22f60f90d",
     "src/ea/smixer.c": "42f20d586014ed92c3f870b261de87733f26d111fdf95ebe384c1da426216d28",
+    "src/ea/smixer_destroy.c": "a6a97733c892887be40ae6f1db014e248827a1ffaec14fca7a25cbf8f314a1a8",
     "src/ea/smixer_dry.c": "3f9c2be825d4e024a1ac72bf67ce11121e2a63fb6969230dac903d17911ce285",
     "src/ea/smixer_reset.c": "8061f975db5e5e97f5aeec01fde18019bc8797a92f96b7e6a9d607d82ac80655",
     "src/ea/smixfram.c": "f9b2f944adf9a8e1e4cfc3dd30ce49ba917154599824ac5c528febb47dff988a",
@@ -30130,6 +30134,84 @@
       "discarded_functions": [],
       "object_sha256": "70fa723d5b2fe139a811f03b5e72d8ce100a10d6fb1ad93c9d0d556c38dc46da",
       "linked_sha256": "6e3e59bd04780e5ec4570b78856ad9cece66c6fd304347b731fc0510604ec15f"
+    },
+    {
+      "id": "saramman_free",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 152,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "5b56c8e9d3fd987eb8954d145f38559ce94c45151ad51c01ddda7f53b81141be",
+      "linked_sha256": "8205adc62d0789c098304ac8fb2321884631ddbb0120046108315ab3e8647bcb"
+    },
+    {
+      "id": "smixer_destroy",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 216,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "02a9ed36271ea21ade826cdff77fdb5ca2e80ab39758dce5367d338c343d6461",
+      "linked_sha256": "d430e3d474269aa8b1b9affe12d2ad524f750c9d2a98ca8c1d8e75f79f7edf2a"
     }
   ],
   "code_map": {
@@ -47086,13 +47168,6 @@
             "evidence": "between-same-file"
           },
           {
-            "address": "0x801604b8",
-            "size": 216,
-            "kind": "function",
-            "name": "MIX_destroy",
-            "evidence": "between-same-file"
-          },
-          {
             "address": "0x801605bc",
             "size": 580,
             "kind": "function",
@@ -47563,21 +47638,16 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 8016ccc0",
+        "name": "Unmatched files/saramman.c [symbol evidence]",
+        "file_record": 553,
+        "file_name": "saramman.c",
         "ranges": [
           {
             "address": "0x8016ccc0",
             "size": 692,
             "kind": "function",
             "name": "SNDARAM_alloc__Fi",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x8016cf74",
-            "size": 152,
-            "kind": "function",
-            "name": "SNDARAM_free__FUi",
-            "evidence": "unknown-file"
+            "evidence": "between-same-file"
           }
         ]
       },
