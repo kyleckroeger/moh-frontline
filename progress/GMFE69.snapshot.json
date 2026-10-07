@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 413724,
+    "matching_code_bytes": 414344,
     "total_executable_code_bytes": 1414572,
-    "percent": 29.247291760334576,
+    "percent": 29.29112127201726,
     "categories": {
       "reconstructed_game": 135236,
-      "restored_library": 278488
+      "restored_library": 279108
     },
-    "matching_functions": 2548
+    "matching_functions": 2553
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -88,6 +88,9 @@
     "config/GMFE69/MallocInit.json": "8084909a7be143dbe22e68d1ec13bf2de5447a3ce15fc2023dff212530d007d1",
     "config/GMFE69/MathFun.json": "d1ab7afb2af9cadf02e249106d121c5a9d825d11e0c21945f3b10467862b5682",
     "config/GMFE69/MemoryCardGC.json": "181b70b0acd6c7b7ce4e3285a39a302993af67a5082bd61b037246bdeabc3d68",
+    "config/GMFE69/MemoryCardGC_blocks.json": "6fc6d310ca2a2848c892ccf2e64d0ac7a61dd23d1ea8b5c59fc424fe325ba860",
+    "config/GMFE69/MemoryCardGC_probe.json": "995039d5b35651845ccf30927ef2cdde2c044c204e940e57f47053c5a5bd475e",
+    "config/GMFE69/MemoryCardGC_status.json": "dc44d2ebc99ad91976934531e7164061caf63eb0ccf22785ae65c63bbdb425a4",
     "config/GMFE69/Moh2.json": "5f1f093ff156a9f0b0641ede8edc5664e6e11dfc10ed0e6ad1e75fa8d857054d",
     "config/GMFE69/NMWException.json": "993919adc03819f768ac97f37687a067894f1324f0097fa28477b34baf8f9157",
     "config/GMFE69/NewMore.json": "a73fc17ffb36c223ebeace7005486781fe8461b7cdeead36cec2f2532fdd9aea",
@@ -427,7 +430,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "d990c250aa967843a7c6dd03b24c86bf03dddebc4106828d96572ea43ff7e676",
+    "config/GMFE69/project.json": "df24695313de80d308c7237af3376788a3a44fd053e1bbd47630ac5aaa7614a1",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "d6477ae48704deec4b2af8c72a873eacdb17dd3cece2b8fb52a2210b244a9c5c",
@@ -1612,6 +1615,9 @@
     "src/game/MallocInit.cpp": "ba35f4c9ac530c717f81930ab9aa3a203ea81844e4776914ae6b51acf4188a74",
     "src/game/MathFun.cpp": "5a60cf13aeb557c033e5adb906365756165d8401c8d9f239c72e95a9c96b96df",
     "src/game/MemoryCardGC.cpp": "e1ba23aa6e93c5a5957581dfb804d9446e03f95caefa87437b92a318a2ff28f4",
+    "src/game/MemoryCardGC_blocks.cpp": "b93559d245898ca3e48a7c1411237e778fe6c7ea1cceba9e3c2a7b21d16c517e",
+    "src/game/MemoryCardGC_probe.cpp": "e74ecd33e3695c481a191bbafee9ad7804e30c798a7614f126b83868d5a06ab2",
+    "src/game/MemoryCardGC_status.cpp": "bb609eb01a4392fb17f4b857c88593b5cc89b764f01b5bcc9c93d26513478a8e",
     "src/game/Moh2.cpp": "de6c92093366f02578f9e8b8d2f69e0de0bece31142f95b7a51ed02dd533c3fb",
     "src/game/Pause.cpp": "8cb08efb80ca5f837f5fe7e9f2755ec247d10282133bd0f6d5229a573779951e",
     "src/game/Pause_tail.cpp": "310007d04a15e06e5d13ad63bc14571c9fafd2fb56d66851af547fb37e6c1e27",
@@ -28476,6 +28482,123 @@
       "discarded_functions": [],
       "object_sha256": "5b4ae5ef53df0d96a7e8861ee01fc9b9668fda008476f3ee6bebbfaa33ca7c4f",
       "linked_sha256": "66b4eeb8297f9b3f28820d9260f64f8ed654156afbbb533237c722cf2930937c"
+    },
+    {
+      "id": "MemoryCardGC_status",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 236,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "af4034335f3e54d76089752c9d45b6bdef376cf2a264c3cf680f651c1b8c86c4",
+      "linked_sha256": "25b0a9c9860bf9518b4c94b3d4c61dff712bb1fce7f391382bec2d4e873c5ebf"
+    },
+    {
+      "id": "MemoryCardGC_blocks",
+      "category": "restored_library",
+      "functions": 1,
+      "code_bytes": 100,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "26977a6c8f86f7cf31ce5f5e09cee2bf3b2db5ceca1525ecdb0508c9ab55c510",
+      "linked_sha256": "7cc4ca1782ee8f8c5a81b9d20931f606331121b16202c8c284e9f0799736f00c"
+    },
+    {
+      "id": "MemoryCardGC_probe",
+      "category": "restored_library",
+      "functions": 2,
+      "code_bytes": 284,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "1e62f973ca0e608ed242e278561ffad04e0235088a208b9bf63a73b54d55f0f6",
+      "linked_sha256": "8fca0577d214fcebe2b326b0285898064debf865e745e5b39c64b0bf06f28481"
     }
   ],
   "code_map": {
@@ -42988,20 +43111,6 @@
             "evidence": "exception-index"
           },
           {
-            "address": "0x800f00c0",
-            "size": 88,
-            "kind": "function",
-            "name": "GetCheckCardStatus__11CMemoryCardFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f0118",
-            "size": 148,
-            "kind": "function",
-            "name": "GetFilesFree__11CMemoryCardFi",
-            "evidence": "exception-index"
-          },
-          {
             "address": "0x800f01ac",
             "size": 284,
             "kind": "function",
@@ -43016,31 +43125,10 @@
             "evidence": "exception-index"
           },
           {
-            "address": "0x800f0378",
-            "size": 100,
-            "kind": "function",
-            "name": "GetMaxBlocksOnCard__11CMemoryCardFi",
-            "evidence": "exception-index"
-          },
-          {
             "address": "0x800f03dc",
             "size": 616,
             "kind": "function",
             "name": "MountPortIfRequired__11CMemoryCardFi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f0644",
-            "size": 152,
-            "kind": "function",
-            "name": "Is8KCard__11CMemoryCardFi",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f06dc",
-            "size": 132,
-            "kind": "function",
-            "name": "IsAnyDeviceInPort__11CMemoryCardFi",
             "evidence": "exception-index"
           },
           {

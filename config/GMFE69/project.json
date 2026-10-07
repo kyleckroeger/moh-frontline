@@ -625,7 +625,10 @@
     "hierobject_draw.json",
     "snddrv_frame.json",
     "snddrv_voice.json",
-    "snddrv_thread.json"
+    "snddrv_thread.json",
+    "MemoryCardGC_status.json",
+    "MemoryCardGC_blocks.json",
+    "MemoryCardGC_probe.json"
   ],
   "progress": {
     "code_bytes": 1414572,

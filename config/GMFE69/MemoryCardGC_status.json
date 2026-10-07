@@ -1,0 +1,96 @@
+{
+  "id": "MemoryCardGC_status",
+  "source": "src/game/MemoryCardGC_status.cpp",
+  "category": "restored_library",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800f00c0",
+      "size": 236,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000f5c8",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800161a8",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": ".rodata",
+      "address": "0x8017a008",
+      "size": 26,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "GetCheckCardStatus__11CMemoryCardFv",
+      "address": "0x800f00c0",
+      "size": 88,
+      "binding": 1
+    },
+    {
+      "name": "GetFilesFree__11CMemoryCardFi",
+      "address": "0x800f0118",
+      "size": 148,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "CARDCheckAsync": "0x801267dc",
+    "CARDFreeBlocks": "0x80123b10",
+    "CARDGetResultCode": "0x80123ae0",
+    "CARDUnmount": "0x801271c0",
+    "DebugMsg__FPCce": "0x80018c88",
+    "MohDVDErrorTask__Fii": "0x80016e80",
+    "MountPortIfRequired__11CMemoryCardFi": "0x800f03dc"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "MemoryCardGC.cpp",
+  "original_file_index": 9213
+}
