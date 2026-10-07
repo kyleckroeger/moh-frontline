@@ -1,0 +1,100 @@
+{
+  "id": "AIObject_spline",
+  "source": "src/game/AIObject_spline.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8004cd34",
+      "size": 328,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000a868",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800119a8",
+      "size": 24,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "WalkNextSplinePathPoint__9CAIObjectFv",
+      "address": "0x8004cd34",
+      "size": 76,
+      "binding": 1
+    },
+    {
+      "name": "StartSplinePathWalkForward__9CAIObjectFP13CAISplinePath",
+      "address": "0x8004cd80",
+      "size": 252,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "GetDistanceSquaredXYZReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition": "0x8005a6f4",
+    "GetNextPointForward__22CAISplinePathTraversalFRC21CAIFilterRealPositionP21CAIFilterRealPositionP15CAIFilterObject": "0x8004fdd4",
+    "PrepareForTraversalForward__22CAISplinePathTraversalFP13CAISplinePathbP15CAIFilterObject": "0x8005041c",
+    "RemoveElement__11CLinkedListFP18CLinkedListElement": "0x800535a0",
+    "__dt__11CSearchNodeFv": "0x80056210",
+    "g_aigAIFilterGlobalObject": "0x801c6cd4"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "AIObject.cpp",
+  "original_file_index": 1752,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034f8bc"
+    }
+  ]
+}
