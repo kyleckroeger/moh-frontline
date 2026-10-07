@@ -1,6 +1,7 @@
 /* A fragment of Frontline's targimpl.c (0x8013642c): TRKPostInterruptEvent,
    which turns the saved exception into a breakpoint, exception or support
-   event and posts it (TRKTargetReadInstruction inlined). The body is Pikmin's CC0 targimpl.c
+   event and posts it (TRKTargetReadInstruction inlined), and
+   TRKTargetCPUType, which fills in the CPU type record. The body is Pikmin's CC0 targimpl.c
    (https://github.com/doldecomp/pikmin), compiled like the other targimpl.c
    fragments at GC 1.3. The file name is this project's; the original record
    is targimpl.c. The other functions are declared only and the file's data is
@@ -11,6 +12,7 @@
 #include "string.h"
 void TRKSaveExtended1Block();
 void TRKRestoreExtended1Block();
+u8 TRKTargetCPUMinorType(void);
 
 /* MSR bits, from Pikmin's CC0 Dolphin/PPCArch.h. */
 #define MSR_00  0x80000000
@@ -294,7 +296,17 @@ extern BOOL gTRKBigEndian;
 /**
  * @TODO: Documentation
  */
-DSError TRKTargetCPUType(DSCPUType* cpuType);
+DSError TRKTargetCPUType(DSCPUType* cpuType)
+{
+	cpuType->cpuMajor          = 0;
+	cpuType->cpuMinor          = TRKTargetCPUMinorType();
+	cpuType->bigEndian         = gTRKBigEndian;
+	cpuType->defaultTypeSize   = 4;
+	cpuType->fpTypeSize        = 8;
+	cpuType->extended1TypeSize = 4;
+	cpuType->extended2TypeSize = 8;
+	return DS_NoError;
+}
 
 
 /**
@@ -339,6 +351,7 @@ void TRKPostInterruptEvent(void)
 		TRKPostEvent(&event);
 	}
 }
+
 
 /**
  * @TODO: Documentation

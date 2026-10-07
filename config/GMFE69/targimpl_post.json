@@ -67,7 +67,7 @@
     {
       "name": ".text",
       "address": "0x8013642c",
-      "size": 192,
+      "size": 288,
       "type": 1
     }
   ],
@@ -77,12 +77,20 @@
       "address": "0x8013642c",
       "size": 192,
       "binding": 1
+    },
+    {
+      "name": "TRKTargetCPUType",
+      "address": "0x801364ec",
+      "size": 96,
+      "binding": 1
     }
   ],
   "externals": {
     "TRKConstructEvent": "0x80131048",
     "TRKPostEvent": "0x80131060",
     "TRKTargetAccessMemory": "0x80136dec",
+    "TRKTargetCPUMinorType": "0x80137530",
+    "gTRKBigEndian": "0x80330080",
     "gTRKCPUState": "0x80331b08",
     "gTRKState": "0x80331a64"
   },

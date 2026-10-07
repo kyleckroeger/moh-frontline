@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 495500,
+    "matching_code_bytes": 495596,
     "total_executable_code_bytes": 1414572,
-    "percent": 35.028262965759254,
+    "percent": 35.03504947079399,
     "categories": {
       "reconstructed_game": 279096,
-      "restored_library": 216404
+      "restored_library": 216500
     },
-    "matching_functions": 3129
+    "matching_functions": 3130
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -771,7 +771,7 @@
     "config/GMFE69/target_options.json": "89566eaeb8524e74b697e212fd6b56f53c2276681df67bd4ab9ac2fdf4761b95",
     "config/GMFE69/targimpl.json": "4ad26e4555e8bd03b88046ace467ae932290620320087ae93d82981fe61c3440",
     "config/GMFE69/targimpl_head.json": "c0639bb15df0cb59179b1f2f77c545cbe1e9f866e6f0d737bbcf793fe51809d0",
-    "config/GMFE69/targimpl_post.json": "34418d1d02f4e8355b67a637c238234df11fb354c16925569a9622a91c2c3150",
+    "config/GMFE69/targimpl_post.json": "f9556b5ad953aee0357695767d6d3af1fb74ab196f54591b1000c2d150899c68",
     "config/GMFE69/targimpl_step.json": "af21179a871f347eb9860734b1f76b78804b0ef5c60add3e7eb6bec30743bf53",
     "config/GMFE69/targimpl_stop.json": "44420ea2f5a10a88f1937520601413bebbee631af8fb0062ca1e98dd7204b3ce",
     "config/GMFE69/texpack.json": "e72b98cff12a06a8815f3de46a2dddeaaff0a28ea13a88b19df4444349d53607",
@@ -2397,7 +2397,7 @@
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/mpc_7xx_603e.c": "f01b0d4b9eb846a5d367fd2c1b6749a53174232a01e693a3674bf5551fbc328c",
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl.c": "c91886ab096963681e400c8055d30c4be95c08c8cef13811372d3aa0820a6bfd",
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl_head.c": "f757b9176c43c44e8cbf10ae39fafee58b2fe2a44e6f46ce97ea3ddef0f82c83",
-    "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl_post.c": "5ab1e6a1c2a0d7459f001f2e2508bbf992466c6fef51ef13eae3ecc5d0bfac16",
+    "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl_post.c": "f30719acfc3d9d7cb617b9cc11ae9e782d8c78775b35f0ba28339d3e2bc04c48",
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl_step.c": "578e5add6150c20f42399b2a2ce3005db08da4573e8013ad1ba6c72de92db845",
     "src/tww/TRK_MINNOW_DOLPHIN/ppc/Generic/targimpl_stop.c": "75f3bd0c70c83015a915eaa0c2f55285898a8f618469564367426472b725896f",
     "src/tww/amcstubs/AmcExi2Stubs.c": "b03f8845bf930e4846506376b0a81d97bab493ce8d394868a38d3626403fb9a3",
@@ -22939,8 +22939,8 @@
     {
       "id": "targimpl_post",
       "category": "restored_library",
-      "functions": 1,
-      "code_bytes": 192,
+      "functions": 2,
+      "code_bytes": 288,
       "compiler_family": "GC",
       "compiler_version": "1.3",
       "compiler_flags": [
@@ -22994,8 +22994,8 @@
       "discarded_functions": [
         "TRKTargetReadInstruction"
       ],
-      "object_sha256": "eb777bfadf58b1ab42f47f66d05083fbd52026e6e7ac097551129623865b19ad",
-      "linked_sha256": "851ecc1bdf0e8030a26da8ebd09c1867dbf04adcf8d441e6876d2c6241218fe8"
+      "object_sha256": "8cf1eaf42dbcb0b64ac603942b7306dd51430be6e39a0d80f4aabab002d9088b",
+      "linked_sha256": "09d029fb7ba6d769138ce934a6c223d586c41b49043470435f5c110d3d5e9619"
     },
     {
       "id": "font_draw",
@@ -48528,13 +48528,6 @@
             "size": 348,
             "kind": "function",
             "name": "TRKTargetInterrupt",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x801364ec",
-            "size": 96,
-            "kind": "function",
-            "name": "TRKTargetCPUType",
             "evidence": "between-same-file"
           }
         ]
