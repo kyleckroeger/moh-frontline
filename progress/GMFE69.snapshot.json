@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 506968,
+    "matching_code_bytes": 507688,
     "total_executable_code_bytes": 1414572,
-    "percent": 35.83896754636738,
+    "percent": 35.88986633412792,
     "categories": {
-      "reconstructed_game": 288008,
+      "reconstructed_game": 288728,
       "restored_library": 218960
     },
-    "matching_functions": 3173
+    "matching_functions": 3174
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -327,7 +327,7 @@
     "config/GMFE69/bulletfactory_thrown_pool.json": "c72b05045b24264f3fce4169a7c503b0cebd24f69da74e897db104aaaf516ba1",
     "config/GMFE69/camera_rows.json": "1b74ab2186218d87b08ef8188d1c247dc7997f17ff2a25340764ea861db80d35",
     "config/GMFE69/capsule_create.json": "7ea379e9f4627abeeeaad959530bebd332ea158e9e77b0b66fe4115669d57173",
-    "config/GMFE69/capsule_dispatch.json": "e3b88e37e85899d48a897bde04b47d7536eb680a1060fcffefd4d60f2638a991",
+    "config/GMFE69/capsule_dispatch.json": "8d4ce50085d048b2ca15db431aa32afcb32d3faf6e2d9555a17e8dd9ed937f06",
     "config/GMFE69/capsule_dispatch2.json": "246a1105784823a9a0860573243e4715e1dfc1fdee38a7525a4e67c0bd954175",
     "config/GMFE69/cdbgeom.json": "5a109535b401c445086faf5c376577d4b6f060dae9fd6a6071fdfecf36255cdf",
     "config/GMFE69/cdbgeom_fiber.json": "97f71f075556256285b961bb4fe5f0bb63eb52faf1b931c41b859105611774f9",
@@ -1997,7 +1997,7 @@
     "src/game/bulletfactory_thrown_pool.cpp": "9833f26e5bd172ba5aaaa3b25a86c6b63760bd1ec4aca397b989ffb3ac67509b",
     "src/game/camera_rows.cpp": "ad6da75e4f2269b17a88cd8f54e5e65003cd57b25bb284dce60bf13894115962",
     "src/game/capsule_create.cpp": "e5bdd4e3000036dbae68266376af90a76a315822e580f2da15283faec1d3127b",
-    "src/game/capsule_dispatch.cpp": "8e22f3ac4fd707a45c49a10d1b265abfa71ac1ca61c991807b38b9439b4a2baa",
+    "src/game/capsule_dispatch.cpp": "6797cda02018a30483dbb8d1dd412f91c6c0110513b9a9b8b4c39d710ed6056a",
     "src/game/capsule_dispatch2.cpp": "6059fab262cc1517dd2b31f1b59ddf0df000b3728d91a7993daaffd5bd960393",
     "src/game/cdbgeom.cpp": "dbb319b1ba8edc52c87f565f57a506fb7e3934a7195ac17ae7d79e86ac4e8c06",
     "src/game/cdbgeom_fiber.cpp": "aec87b1ec98038c4914d03643a6192d0c80174b0724059f2ffba6e35f6c9b0e1",
@@ -24447,8 +24447,8 @@
     {
       "id": "capsule_dispatch",
       "category": "reconstructed_game",
-      "functions": 5,
-      "code_bytes": 512,
+      "functions": 6,
+      "code_bytes": 1232,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -24480,8 +24480,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "1cb1e117e31e9eeba954863fda143db9d8f3f231ee65476cbaf4a2c6b1055df6",
-      "linked_sha256": "3ac561c68d9842e8e11f446a440029e52ec85a9764429b24b785d299d2397b6b"
+      "object_sha256": "69f5dc16c18388e0fc32b9dfb653e647829b5c912cafb4d0a3453d77d645aca0",
+      "linked_sha256": "8d66612844ede82beaa8f5a1730cd1c075bb5c02a2636551df6c7597d64f8942"
     },
     {
       "id": "animated_volume_dispatch",
@@ -44432,13 +44432,6 @@
             "kind": "function",
             "name": "FindIntersection__FRC6CLine3RC11CVolCapsulePf",
             "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x800c64e0",
-            "size": 720,
-            "kind": "function",
-            "name": "TestCollision__11CVolCapsuleCF8CVector3R10CCollisionb",
-            "evidence": "exception-index"
           },
           {
             "address": "0x800c69b0",
