@@ -603,7 +603,8 @@
     "recon.json",
     "motion.json",
     "getvlc.json",
-    "getbits.json"
+    "getbits.json",
+    "getblk.json"
   ],
   "progress": {
     "code_bytes": 1414572,
