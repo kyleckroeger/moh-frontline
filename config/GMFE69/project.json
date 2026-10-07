@@ -646,7 +646,8 @@
     "filesys_ea_del.json",
     "filedev_head.json",
     "saems_system.json",
-    "saemsstr_pool.json"
+    "saemsstr_pool.json",
+    "smemman.json"
   ],
   "progress": {
     "code_bytes": 1414572,

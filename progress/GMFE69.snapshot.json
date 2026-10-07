@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 442660,
+    "matching_code_bytes": 442796,
     "total_executable_code_bytes": 1414572,
-    "percent": 31.29285748622198,
+    "percent": 31.30247170168786,
     "categories": {
-      "reconstructed_game": 226256,
+      "reconstructed_game": 226392,
       "restored_library": 216404
     },
-    "matching_functions": 2663
+    "matching_functions": 2665
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -438,7 +438,7 @@
     "config/GMFE69/popup.json": "936d178555a724186f4c82a016c2e4eb4b6987e2fbe7eb974d042de8c9d60354",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "00c2e752f8cc182d8c7c660cca68c1e36923146b7e86f75c6bc4874e9b2369a8",
+    "config/GMFE69/project.json": "ecad0c365014b850e9977248c3f6928d37018d7bcd1d2759b94e6e7df9a028e1",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "bd4b85e3a27ac50301d2ad04642bca1abf864b5f74397505530539b31bf4c0d1",
@@ -535,6 +535,7 @@
     "config/GMFE69/slowpass.json": "86bcb6af76bf115d442202e3711fedc6c8d03888bdb3ad22656c8a33a11456d8",
     "config/GMFE69/smasterv.json": "1245cb91ada7f2ff389f9047ab175039c6eda03400cce7c5a9dfbdf2c43c88a6",
     "config/GMFE69/smemhigh.json": "ea6b341d40e7ab890ab17969892078adf62f1c2986c1d12a97bd0035e3c25156",
+    "config/GMFE69/smemman.json": "20240f31ec6b886db4b5ded6936667026ca21ba7c615f2fd5237af28b57ce366",
     "config/GMFE69/smixc.json": "02df5e7acacf931ac3a7d7e050a3362b8bb65dabdaf1fcebe5bbea843ba2b101",
     "config/GMFE69/smixer.json": "2ff9d9a8c952ddc00ce6c9de4df2ab0090ae102c9a5b040edcbc642f0cd59922",
     "config/GMFE69/smixfram.json": "d51872b43a7c17cc24a25006ba590aa09cb544d5c2c3cf82734f9da270731eb7",
@@ -1540,6 +1541,7 @@
     "src/ea/slowpass.c": "50974ba23d1b0adf20b719306eb2457171fdbc979b397a59ed0865bbf60fcb38",
     "src/ea/smasterv.c": "8dd6bc618f934b245a33bf94dd6adda38c24ac8858394d3ce088a96f525f0232",
     "src/ea/smemhigh.cpp": "19480b666796ebdee8028af12b3caa2477681e1d6cc63303029e78a56649d1c4",
+    "src/ea/smemman.c": "a3b12121fce0cbfeefb85861b1a58f9bfcd588a94eb2b7e17f2e6a5943b6fbca",
     "src/ea/smixc.c": "d72ae89323bd6d4b639820f99931a5b3e179e87bad9466dd45091ab22f60f90d",
     "src/ea/smixer.c": "42f20d586014ed92c3f870b261de87733f26d111fdf95ebe384c1da426216d28",
     "src/ea/smixfram.c": "f9b2f944adf9a8e1e4cfc3dd30ce49ba917154599824ac5c528febb47dff988a",
@@ -29349,6 +29351,45 @@
       "discarded_functions": [],
       "object_sha256": "2c4d51a5860c031f4ae906ea9a225affb73b2fc23e25d6f487b2a5a34cc12eb4",
       "linked_sha256": "5980ad4e92650c9e0d7730a8231b6f116035eef8cb4741490f5edba01c5ebf10"
+    },
+    {
+      "id": "smemman",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 136,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "32e3bd8f8a59e26f1f81a0118d729bdb1ef50623c356d3eb42efaf2a663d2981",
+      "linked_sha256": "7b47c131ab77f1a99169e3e18053a5217f0788d9a6cdeadc20ae2231ae11c197"
     }
   ],
   "code_map": {
@@ -46141,22 +46182,8 @@
         ]
       },
       {
-        "name": "Unknown file/.text @ 80158cdc",
+        "name": "Unknown file/.text @ 80158d64",
         "ranges": [
-          {
-            "address": "0x80158cdc",
-            "size": 104,
-            "kind": "function",
-            "name": "SNDMEMI_init__FPvi",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80158d44",
-            "size": 32,
-            "kind": "function",
-            "name": "SNDMEMI_restore__Fv",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x80158d64",
             "size": 652,
