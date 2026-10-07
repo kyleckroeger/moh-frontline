@@ -39,8 +39,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800ee6cc",
-      "size": 216,
+      "address": "0x800ee164",
+      "size": 1600,
       "type": 1
     },
     {
@@ -51,14 +51,14 @@
     },
     {
       "name": "extab",
-      "address": "0x8000f538",
-      "size": 16,
+      "address": "0x8000f528",
+      "size": 32,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x800160d0",
-      "size": 24,
+      "address": "0x800160b8",
+      "size": 48,
       "type": 1
     },
     {
@@ -80,6 +80,18 @@
       "address": "0x800ee768",
       "size": 60,
       "binding": 0
+    },
+    {
+      "name": "EndianSwap__11CSoundTableFv",
+      "address": "0x800ee474",
+      "size": 600,
+      "binding": 1
+    },
+    {
+      "name": "Init__11CSoundTableFii",
+      "address": "0x800ee164",
+      "size": 784,
+      "binding": 1
     },
     {
       "name": "offsetPtr<Q211CSoundTable4SKey>__FRPQ211CSoundTable4SKeyi",
@@ -108,6 +120,8 @@
   ],
   "externals": {
     "TLT_CloseFile__FPv": "0x8001d820",
+    "TLT_FindNextResourceByType__F13TLTResourceIDP24LevelFileContentsStruct_": "0x8001d910",
+    "TLT_LoadFileFromLevelBigFile__FPCcPi": "0x8001dcb4",
     "__dl__FPv": "0x8001ca2c",
     "__register_global_object": "0x801381bc"
   },
