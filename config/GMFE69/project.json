@@ -655,7 +655,8 @@
     "sdrv_range.json",
     "sdrv_pkt.json",
     "sdrv_destroy.json",
-    "sdrv_mem.json"
+    "sdrv_mem.json",
+    "sdrv_frame.json"
   ],
   "progress": {
     "code_bytes": 1414572,
