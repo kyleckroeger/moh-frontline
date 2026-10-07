@@ -39,24 +39,30 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x801081dc",
-      "size": 96,
+      "address": "0x801080c8",
+      "size": 372,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000fd6c",
-      "size": 16,
+      "address": "0x8000fd5c",
+      "size": 32,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80016b20",
-      "size": 24,
+      "address": "0x80016b08",
+      "size": 48,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "CompleteDraw__7GCSW_VDFv",
+      "address": "0x801080c8",
+      "size": 60,
+      "binding": 1
+    },
     {
       "name": "SetScale__7GCSW_VDFff",
       "address": "0x8010820c",
@@ -70,17 +76,29 @@
       "binding": 1
     },
     {
+      "name": "ReDraw__7GCSW_VDFv",
+      "address": "0x80108104",
+      "size": 216,
+      "binding": 1
+    },
+    {
       "name": "Draw__7GCSW_VDFPQ24RCMP5FRAME",
       "address": "0x801081dc",
       "size": 48,
       "binding": 1
     }
   ],
-  "externals": {},
+  "externals": {
+    "ReleaseFrame__Q24RCMP7DECODERFPQ24RCMP5FRAME": "0x80105304",
+    "VIWaitForRetrace": "0x8011b738",
+    "YUV_convert__FPPUciiiiiPviii": "0x8010823c"
+  },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
-  "local_externals": [],
+  "local_externals": [
+    "YUV_convert__FPPUciiiiiPviii"
+  ],
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "swvideodisplaylist.cpp",
