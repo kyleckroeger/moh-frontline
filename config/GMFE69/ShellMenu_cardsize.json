@@ -1,0 +1,93 @@
+{
+  "id": "ShellMenu_cardsize",
+  "source": "src/game/ShellMenu_cardsize.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800e421c",
+      "size": 204,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000f090",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80015b6c",
+      "size": 36,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "MemoryCardFreeSpace__10CShellMenuFi",
+      "address": "0x800e421c",
+      "size": 124,
+      "binding": 1
+    },
+    {
+      "name": "MemoryCardSavePrefsSize__10CShellMenuFv",
+      "address": "0x800e4298",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "MemoryCardSaveGameSize__10CShellMenuFv",
+      "address": "0x800e42c0",
+      "size": 40,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "GetAvailableMemory__11CMemoryCardFv": "0x800f01ac",
+    "GetPort__11CMemoryCardFv": "0x800ee7a4",
+    "GetSaveGameOverheadSize__11CMemoryCardFb": "0x800ee7ac",
+    "OpenSlot__11CMemoryCardFi": "0x800f083c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "ShellMenu.cpp",
+  "original_file_index": 8612
+}
