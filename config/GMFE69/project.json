@@ -610,7 +610,8 @@
     "AIObject_enemy.json",
     "AIObject_obstacle.json",
     "AIObject_arbitrary.json",
-    "AIObject_globallist.json"
+    "AIObject_globallist.json",
+    "AIObject_searchnodes.json"
   ],
   "progress": {
     "code_bytes": 1414572,
