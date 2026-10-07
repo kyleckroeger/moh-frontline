@@ -37,12 +37,18 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8015ac50",
-      "size": 1112,
+      "address": "0x8015ab48",
+      "size": 1376,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "SNDPKTPLAY_submit",
+      "address": "0x8015ab48",
+      "size": 264,
+      "binding": 1
+    },
     {
       "name": "SNDPKTPLAY_submitspace",
       "address": "0x8015ac50",

@@ -1,14 +1,15 @@
-// A fragment of the packet player (0x8015ac50): the free packet slots and
-// outstanding frames, stopping a player (stopping its voice, flushing the
-// deferred callbacks and freeing the channel buffers) and destroying it,
-// fetching a channel's next packet (frame count and first flag out, the
-// primary channel also releasing the oldest delivered packet and moving its
-// frames from queued to pending), returning played frames, and running the
-// deferred frames-done and release callbacks. SNDPKTPLAY_start and
-// SNDPKTPLAY_submit before it are not reconstructed (submit differs in the
-// load order of its fullness test; draft in scratch/path/spkt_sub5.cpp).
-// Player records and sndpps are inferred views; the released-packet index
-// is volatile (the original rereads it after comparing it).
+// A fragment of the packet player (0x8015ab48): submitting a packet (copied
+// into the next free slot with a sequence number, its channels' data counted
+// as queued), the free packet slots and outstanding frames, stopping a player
+// (stopping its voice, flushing the deferred callbacks and freeing the
+// channel buffers) and destroying it, fetching a channel's next packet (frame
+// count and first flag out, the primary channel also releasing the oldest
+// delivered packet and moving its frames from queued to pending), returning
+// played frames, and running the deferred frames-done and release callbacks.
+// SNDPKTPLAY_start before it is not reconstructed. Player records and sndpps
+// are inferred views; the sequence number, queued counts, packet count and
+// released-packet index are volatile (the original rereads them, or loads
+// them in source order).
 /* inferred: a packet as queued in a player */
 struct SNDPKTPLAYPACKET {
     int sequence;
@@ -17,16 +18,25 @@ struct SNDPKTPLAYPACKET {
     void* data[4];
 };
 
+/* inferred: a packet as submitted (the stream layer's packet) */
+struct SNDPKTSUBMIT {
+    int unknown00;
+    unsigned int frames : 31;
+    unsigned int first : 1;
+    int unknown08;
+    void* data[4];
+};
+
 struct SNDPKTPLAYER {
     int handle;
     volatile int sequence;
     short read[4];
-    short queued[4];
-    short maxpackets;
+    volatile short queued[4];
+    volatile short maxpackets;
     signed char primary;
     signed char active;
     volatile short released;
-    short write;
+    volatile short write;
     unsigned int frames;
     unsigned int pending;
     void* memory;
@@ -60,6 +70,32 @@ void SNDstop(int);
 void SNDPKTPLAYI_flushcallbackdata(void);
 void SNDMEMI_free(void*);
 void SNDPLATFORM_packetplaydestroy(int);
+
+extern "C" int SNDPKTPLAY_submit(int index, SNDPKTSUBMIT* submit) {
+    SNDPKTPLAYER* player = sndpps.players[index];
+    SNDPKTPLAYPACKET* packet;
+    int i;
+    int sequence;
+
+    if (player->queued[0] >= player->maxpackets - 1)
+        return -13;
+    packet = &player->packets[player->write];
+    packet->frames = submit->frames;
+    packet->first = submit->first;
+    packet->sequence = player->sequence;
+    for (i = 0; i < player->channels; i++) {
+        packet->data[i] = submit->data[i];
+        player->queued[i]++;
+    }
+    player->frames += submit->frames;
+    sequence = player->sequence;
+    player->sequence++;
+    player->write++;
+    player->active = 1;
+    if (player->write >= player->maxpackets)
+        player->write = 0;
+    return sequence;
+}
 
 extern "C" int SNDPKTPLAY_submitspace(int index) {
     SNDPKTPLAYER* player = sndpps.players[index];
