@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 526148,
+    "matching_code_bytes": 526520,
     "total_executable_code_bytes": 1414572,
-    "percent": 37.1948546980995,
+    "percent": 37.22115240510911,
     "categories": {
-      "reconstructed_game": 307188,
+      "reconstructed_game": 307560,
       "restored_library": 218960
     },
-    "matching_functions": 3236
+    "matching_functions": 3237
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -262,7 +262,7 @@
     "config/GMFE69/bsbifunc_ground.json": "69e8185c13a7c676e7c10fdb8a5c04bdf98c4b45c6c4a3e1b02442d8cd6754ba",
     "config/GMFE69/bsbifunc_hier.json": "5ad8f3f13ab2ad46f21eaf8ae512b96c7c651be2bad28cd6f2ffd6f9c0b7e1ae",
     "config/GMFE69/bsbifunc_hierfire.json": "7d0ebddc7539491b095e6ae3cef1bc447f536d370283ff2bb9d105a1a3c64e57",
-    "config/GMFE69/bsbifunc_hiermap.json": "d590cd22f2e24d8f16fc3769f33f15a8053e989440241789cae0005732b2a5af",
+    "config/GMFE69/bsbifunc_hiermap.json": "398839d5e30a01fa9dcd17f21a1cc3d61161a1fd31585ff3ee7200718e77d59a",
     "config/GMFE69/bsbifunc_holdtime.json": "f6b54ccdce1386687473fb3047ff8b2c2fb0f77ec224f8ea9773311d4f2c63c2",
     "config/GMFE69/bsbifunc_jaw.json": "725d6ec8748dc0a35b26efadb00a7a05c3daab608410247ea9c94b26699e302d",
     "config/GMFE69/bsbifunc_level.json": "b8d340b3107f783dc35bb00b7e655d3a8fb6be8018eaa24ff457d6aae8ba966c",
@@ -1935,7 +1935,7 @@
     "src/game/bsbifunc_ground.cpp": "66788db093b932478b7f56325762cb374c7d12d4bb6c88c98dbc85ba1fb88358",
     "src/game/bsbifunc_hier.cpp": "6382d0dd5086aede6ba386898d21e3739f60a1cb346345e24dba445cf382e678",
     "src/game/bsbifunc_hierfire.cpp": "ecf65a8a689bab6a0ed7fede357c6549ddce34507cffe7896464b1dd20363b74",
-    "src/game/bsbifunc_hiermap.cpp": "0d613aa61aab491254b7694fada8c06de0c83e5254ec83b912ee2a5103b4c173",
+    "src/game/bsbifunc_hiermap.cpp": "7d38f855e2189ec7ed8b087a0ffb34706d6725a74e5b23fda2a7ca249da1d8d7",
     "src/game/bsbifunc_holdtime.cpp": "6e9fc66483be188cf10247ea9c15de21174873c14d5668e2dfc46e4e8362ed11",
     "src/game/bsbifunc_jaw.cpp": "3473828e12aa08ab2130f5c2fd076ac0d36a34a8a8db95e9862e8a6a542517ac",
     "src/game/bsbifunc_level.cpp": "75b9d17e1e1c28ccf0a7b3c9d03c07158d7634782ff38199d338a979a0bfce18",
@@ -26945,8 +26945,8 @@
     {
       "id": "bsbifunc_hiermap",
       "category": "reconstructed_game",
-      "functions": 2,
-      "code_bytes": 360,
+      "functions": 3,
+      "code_bytes": 732,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -26978,8 +26978,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "8103c0b0e00fad755d4edc39b3d0c0e8763bae5601351a3275102d1ef94cfaab",
-      "linked_sha256": "73e66de5158dd3d94e56ea103d9f3e481cffa4594010858bee25fa6dd4dcad24"
+      "object_sha256": "3d48d4cf76d59e1407340cec32b3d07694b4c5c154c7a143b17f6320f022d63e",
+      "linked_sha256": "a93b03b9e8be1eaee87b7f672d7517bb0d891d33eb5c327e00359d53f08eb659"
     },
     {
       "id": "bsbifunc_pathfinder",
@@ -35815,13 +35815,6 @@
             "size": 492,
             "kind": "function",
             "name": "BIFunc_HierObjectGetAimAngle__FPPiPv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80020548",
-            "size": 372,
-            "kind": "function",
-            "name": "BIFunc_SetAIObjectSharedDataPropVars__FPPiPv",
             "evidence": "exception-index"
           },
           {

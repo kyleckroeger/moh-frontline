@@ -1,14 +1,20 @@
 // A fragment of bsbifunc.cpp (0x800203e0): script built-ins that map a weapon
-// slot of the calling node's hierarchy tank (the weapon given 1-based) and set
-// the tank's look object. Each reads its arguments below the script stack top
-// and pops the built-in's arguments. The file name is this project's; the
-// original record is bsbifunc.cpp and the built-ins around these are not
-// reconstructed. The functions, classes and globals are named by the mangled
-// symbols; ISceneNode is declared with its virtual functions in the order of
-// __vt__10ISceneNode (AsHierObject at +124), IMovingSceneNode's and
-// CStaticObject's after them in the order of __vt__13CStaticObject
-// (AsHierTankObject at +328; the unnamed entry at +300 as a placeholder); the
-// tank-object and built-in record views and the argument helper are inferred.
+// slot of the calling node's hierarchy tank (the weapon given 1-based), set
+// the tank's look object, and copy property values of the running script
+// object's trigger into its script data (bytes and shorts, four of the shorts
+// shifted right by 4 and stored as floats, the larger of two of them taken,
+// and two of the floats given defaults of 100 and 50 when at most 0.001). Each
+// reads its arguments below the script stack top and pops the built-in's
+// arguments. The file name is this project's; the original record is
+// bsbifunc.cpp and the built-ins around these are not reconstructed. The
+// functions, classes and globals are named by the mangled symbols; ISceneNode
+// is declared with its virtual functions in the order of __vt__10ISceneNode
+// (AsHierObject at +124), IMovingSceneNode's and CStaticObject's after them in
+// the order of __vt__13CStaticObject (AsHierTankObject at +328; the unnamed
+// entry at +300 as a placeholder), and BSGO_Basic in the order of
+// __vt__10BSGO_Basic; the tank-object, trigger, script-object, script-data
+// (fields named by offset; their meanings are not known) and built-in record
+// views and the argument helper are inferred.
 class CVector3 {
 public:
     float x;
@@ -138,6 +144,60 @@ public:
     int m_lookObject;
 };
 
+struct TriggerCoreView {
+    unsigned char unknown00[118];
+    unsigned char unknown76;
+    unsigned char unknown77;
+    unsigned char unknown78;
+    unsigned char unknown79;
+    unsigned char unknown7a;
+    unsigned char unknown7b[3];
+    short unknown7e;
+    short unknown80;
+    unsigned char unknown82[2];
+    short unknown84;
+    unsigned char unknown86[2];
+    short unknown88;
+    short unknown8a;
+    unsigned char unknown8c[12];
+    int unknown98;
+};
+
+struct TriggerObject_struct {
+    unsigned char unknown00[4];
+    TriggerCoreView* core;
+};
+
+struct SharedDataView {
+    unsigned char unknown00[52];
+    int unknown34;
+    int unknown38;
+    unsigned char unknown3c[12];
+    float unknown48;
+    int unknown4c;
+    float unknown50;
+    float unknown54;
+    int unknown58;
+    int unknown5c;
+    int unknown60;
+};
+
+class BSGO_Basic {
+    unsigned char unknown00[12];
+
+public:
+    virtual void Destroy();
+    virtual SharedDataView* GetScriptData();
+};
+
+struct BSObjectView {
+    unsigned char unknown00[8];
+    TriggerObject_struct* trigger;
+    BSGO_Basic* user;
+};
+
+extern BSObjectView* g_pBSObject;
+
 struct BSBuiltinView {
     void (*function)(int**, void*);
     unsigned char unknown04[6];
@@ -165,5 +225,29 @@ void BIFunc_HierObjectSetLookObject(int** stack, void* object) {
     int look = BSArgInt(stack, 1);
     CTankObject* tank = ((ISceneNode*)object)->AsHierObject()->AsHierTankObject();
     tank->m_lookObject = look;
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+}
+
+void BIFunc_SetAIObjectSharedDataPropVars(int** stack, void*) {
+    SharedDataView* data = g_pBSObject->user->GetScriptData();
+    TriggerCoreView* core = g_pBSObject->trigger->core;
+    data->unknown34 = core->unknown77;
+    data->unknown38 = core->unknown78;
+    data->unknown48 = core->unknown7e >> 4;
+    data->unknown4c = core->unknown76;
+    int a = core->unknown80 >> 4;
+    int b = core->unknown88 >> 4;
+    if (a > b)
+        data->unknown50 = a;
+    else
+        data->unknown50 = b;
+    data->unknown54 = core->unknown8a >> 4;
+    data->unknown58 = core->unknown98;
+    data->unknown5c = core->unknown84;
+    data->unknown60 = core->unknown7a;
+    if (data->unknown50 <= 0.001f)
+        data->unknown50 = 100.0f;
+    if (data->unknown54 <= 0.001f)
+        data->unknown54 = 50.0f;
     *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
 }
