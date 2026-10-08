@@ -39,7 +39,7 @@
     {
       "name": ".text",
       "address": "0x80114794",
-      "size": 132,
+      "size": 980,
       "type": 1
     },
     {
@@ -51,17 +51,53 @@
   ],
   "functions": [
     {
+      "name": "Reset",
+      "address": "0x80114818",
+      "size": 112,
+      "binding": 0
+    },
+    {
       "name": "OSRegisterResetFunction",
       "address": "0x80114794",
       "size": 132,
       "binding": 1
+    },
+    {
+      "name": "__OSDoHotReset",
+      "address": "0x80114888",
+      "size": 72,
+      "binding": 1
+    },
+    {
+      "name": "OSResetSystem",
+      "address": "0x801148d0",
+      "size": 616,
+      "binding": 1
+    },
+    {
+      "name": "OSGetResetCode",
+      "address": "0x80114b38",
+      "size": 48,
+      "binding": 1
     }
   ],
   "externals": {
+    "ICFlashInvalidate": "0x80111980",
+    "LCDisable": "0x801119a4",
+    "OSCancelThread": "0x8011629c",
+    "OSDisableInterrupts": "0x801135cc",
+    "OSDisableScheduler": "0x80115af8",
+    "OSEnableScheduler": "0x80115b38",
+    "__OSLockSram": "0x801151a0",
+    "__OSReboot": "0x801145c8",
+    "__OSStopAudioSystem": "0x80111764",
     "__OSSyncSram": "0x801155a8",
+    "__OSUnlockSram": "0x80115560",
+    "__PADDisableRecalibration": "0x8011dd5c",
     "__flush_cache": "0x80007350",
     "__init_hardware": "0x80007330",
-    "__start": "0x80007140"
+    "__start": "0x80007140",
+    "memset": "0x80009410"
   },
   "undefined_in_discarded_code": [
     "__copy_rom_section",
@@ -71,18 +107,21 @@
   ],
   "discarded_functions": [
     "OSUnregisterResetFunction",
-    "__OSCallResetFunctions"
+    "__OSCallResetFunctions",
+    "KillThreads"
   ],
   "upstream": {
     "repository": "https://github.com/doldecomp/dolsdk2004",
     "commit": "2328b4164b1a98422a2255d83ce9a5a7548990cc",
     "path": "src/os/OSReset.c"
   },
+  "local_externals": [],
+  "discarded_local_functions": [
+    "KillThreads"
+  ],
+  "sda_externals": [],
   "original_file": "OSReset.c",
   "original_file_index": 10794,
-  "local_externals": [],
-  "discarded_local_functions": [],
-  "sda_externals": [],
   "adapted_from": {
     "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
     "manifest": "OSReset.json"

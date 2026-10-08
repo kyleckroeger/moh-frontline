@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 536168,
+    "matching_code_bytes": 537016,
     "total_executable_code_bytes": 1414572,
-    "percent": 37.90319616110032,
+    "percent": 37.96314362224051,
     "categories": {
       "reconstructed_game": 317208,
-      "restored_library": 218960
+      "restored_library": 219808
     },
-    "matching_functions": 3280
+    "matching_functions": 3284
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -116,7 +116,7 @@
     "config/GMFE69/OSMessage.json": "28f4ca013eb889f29452ce4b60a40bb32e49647ac513ed167fb959d48d32f37e",
     "config/GMFE69/OSMutex.json": "73821799678006005768465d02abed822ac63d97c863f28923bb68efacc692ab",
     "config/GMFE69/OSReboot.json": "c7ab286a47094c84a62c5bf2ccd6b6af3c07333d3c1b5349edb9756a4a1c927e",
-    "config/GMFE69/OSReset.json": "77625b94ecae7bcd0bab3364c46eb2b225853b5c4b4799e9d23e634962621119",
+    "config/GMFE69/OSReset.json": "7395ff1dde2d732435f15a043fedb7382ec0b5cea071ba93ec2de2953e8c445a",
     "config/GMFE69/OSResetSW.json": "448c1b07ffd33631e830f0aad1595aad417cad2159f0b897410bae4027a16f14",
     "config/GMFE69/OSRtc.json": "2b3f59e100a488b914b76173a7bf9182eb89539f5a156a569a2e3743451c22b8",
     "config/GMFE69/OSSync.json": "06255b0aaf96ae8e5c7cf3b363d66e1b7b7a7ba742a870e2256f7705d5eb2a14",
@@ -1393,7 +1393,7 @@
     "src/dolphin/os/OSMemory.c": "6e048e6ca0c1a39e7045b57f4091e157f54ba1ea022467fe43fd06944d920705",
     "src/dolphin/os/OSMessage.c": "9bb48fe1a23cd3921bdaf5695af91ca39bc6aaa271d3057a11220349467464b0",
     "src/dolphin/os/OSMutex.c": "4e604e4f34cbea5246aff955fd852e988cc1a784b6d0fcdabf85326baa50f37e",
-    "src/dolphin/os/OSReset.c": "7ab5d656c32b63ed41216b706d8e5f42e4b789c0c15ce633cd2fce3d22c29e47",
+    "src/dolphin/os/OSReset.c": "8ac83ed398183f686e3e43732d24ca206ff3976cae796a4b386c4240afc36cfa",
     "src/dolphin/os/OSResetSW.c": "788867f6d5feb79c50dea0457ab8bd254968011393c5b15f8c320ac758342686",
     "src/dolphin/os/OSRtc.c": "6df2bbe5ee8665e14185fb345bc971ce3a948f32a27beac43019c98a436bfc9b",
     "src/dolphin/os/OSSync.c": "8bf8d449fb45c92ca95f8a2ee64cd3b26afc33d5df90781f040df72ca086810b",
@@ -3260,8 +3260,8 @@
     {
       "id": "OSReset",
       "category": "restored_library",
-      "functions": 1,
-      "code_bytes": 132,
+      "functions": 5,
+      "code_bytes": 980,
       "compiler_family": "GC",
       "compiler_version": "1.2.5n",
       "compiler_flags": [
@@ -3293,10 +3293,11 @@
       "strip_unused": true,
       "discarded_functions": [
         "OSUnregisterResetFunction",
-        "__OSCallResetFunctions"
+        "__OSCallResetFunctions",
+        "KillThreads"
       ],
-      "object_sha256": "77bd297b52ae3d348ec7c73093ef21f202e64d509ef5633be1487efeed23beeb",
-      "linked_sha256": "ec938ccd6396bdec633e4977cdb2116127419ae4885726cf789d64da41d50adf"
+      "object_sha256": "1d917e2e75e0a3e7eb7f40f4a104f923b9c5be24a3af53057f4a9aa2ac66ec0d",
+      "linked_sha256": "be98e47d328bac393d7492dd055abb84a6918572f2669c6dfde91e45a4993d20"
     },
     {
       "id": "OSSync",
@@ -47456,46 +47457,6 @@
             "kind": "function",
             "name": "PATHI_sortprojects__Fv",
             "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/OSReset.c [symbol evidence]",
-        "file_record": 205,
-        "file_name": "OSReset.c",
-        "ranges": [
-          {
-            "address": "0x80114818",
-            "size": 112,
-            "kind": "function",
-            "name": "Reset",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80114888",
-            "size": 72,
-            "kind": "function",
-            "name": "__OSDoHotReset",
-            "evidence": "private-reference"
-          },
-          {
-            "address": "0x801148d0",
-            "size": 616,
-            "kind": "function",
-            "name": "OSResetSystem",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80114b38",
-        "ranges": [
-          {
-            "address": "0x80114b38",
-            "size": 48,
-            "kind": "function",
-            "name": "OSGetResetCode",
-            "evidence": "unknown-file"
           }
         ]
       },
