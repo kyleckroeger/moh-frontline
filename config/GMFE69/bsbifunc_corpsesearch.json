@@ -39,24 +39,30 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8001e4f8",
-      "size": 164,
+      "address": "0x8001e3ec",
+      "size": 432,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x800098fc",
-      "size": 8,
+      "address": "0x800098f4",
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80010370",
-      "size": 12,
+      "address": "0x80010364",
+      "size": 24,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "DoBuddyPlayerCheck__FP8BSObjectiiiPiPi",
+      "address": "0x8001e3ec",
+      "size": 268,
+      "binding": 1
+    },
     {
       "name": "GetSceneNode__10BSGO_BasicFv",
       "address": "0x8001e4f8",
@@ -71,7 +77,8 @@
     }
   ],
   "externals": {
-    "CheckFieldOfViewCorpse__9CAIObjectFv": "0x80049288"
+    "CheckFieldOfViewCorpse__9CAIObjectFv": "0x80049288",
+    "IsObjectInLineOfSight__9CAIObjectFR21CAIFilterRealPositionfb": "0x80048408"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -80,5 +87,16 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "bsbifunc.cpp",
-  "original_file_index": 443
+  "original_file_index": 443,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 8,
+      "address": "0x8034f618"
+    }
+  ]
 }

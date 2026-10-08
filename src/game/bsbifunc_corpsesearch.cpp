@@ -1,18 +1,29 @@
-// A fragment of bsbifunc.cpp (0x8001e4f8): the weak BSGO_Basic::GetSceneNode
-// (0), then the scheduled corpse-search check: when the script object's AI sees
-// a corpse, it stores the corpse's script object and 0 in the two outputs and
-// returns 1, otherwise 0. The file name is this project's; the original record
+// A fragment of bsbifunc.cpp (0x8001e3ec): the scheduled buddy-player check
+// (clears the second output; for a nonzero mode, 1 when the script object's AI
+// does not have the target's scene-node position in line of sight within the
+// distance, otherwise 1 when it does), the weak BSGO_Basic::GetSceneNode (0),
+// emitted after its first use, then the scheduled corpse-search check: when
+// the script object's AI sees a corpse, it stores the corpse's script object
+// and 0 in the two outputs and returns 1, otherwise 0. The file name is this project's; the original record
 // is bsbifunc.cpp and the functions around these are not reconstructed. The
 // functions, classes and globals are named by the mangled symbols; ISceneNode
 // is declared with its virtual functions in the order of __vt__10ISceneNode
 // (GetAIDoodad at +204) and BSGO_Basic in the order of __vt__10BSGO_Basic;
-// BSObject, the AI object, filter, doodad, owner and trigger views and the
-// script helper are inferred (members at their offsets, names not original).
+// BSObject, the AI object, filter, doodad, owner, trigger and vector views and
+// the script helper are inferred (members at their offsets,
+// names not original; the position is passed to the AI as its real-position
+// type).
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
 class CMatrix;
-class CVector3;
+class CVector3 {
+public:
+    float x;
+    float y;
+    float z;
+    float w;
+} __attribute__((aligned(8)));
 class CBullet;
 class CLight;
 class CPlayerObject;
@@ -84,8 +95,11 @@ struct AIOwnerView {
     BSObject* script;
 };
 
+class CAIFilterRealPosition;
+
 class CAIObject {
 public:
+    bool IsObjectInLineOfSight(CAIFilterRealPosition&, float, bool);
     CAIObject* CheckFieldOfViewCorpse();
     CAIObject* CheckFieldOfViewModeList();
     CAIObject* CheckLineOfSightModeList();
@@ -134,6 +148,16 @@ inline BSObject* GetScript(CAIObject* ai) {
     if (ai)
         return ai->m_owner->script;
     return 0;
+}
+
+int DoBuddyPlayerCheck(BSObject* object, int mode, int distance, int target, int*, int* extra) {
+    CAIFilterView* filter = object->user->GetSceneNode()->GetAIDoodad()->filter;
+    CVector3 position;
+    ((BSObject*)target)->user->GetSceneNode()->GetPosition(position);
+    *extra = 0;
+    if (mode)
+        return filter->object->IsObjectInLineOfSight((CAIFilterRealPosition&)position, distance, false) ? 0 : 1;
+    return filter->object->IsObjectInLineOfSight((CAIFilterRealPosition&)position, distance, false) != 0;
 }
 
 __declspec(weak) ISceneNode* BSGO_Basic::GetSceneNode() {
