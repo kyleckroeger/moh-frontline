@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8016d00c",
-      "size": 196,
+      "size": 732,
       "type": 1
     },
     {
@@ -66,9 +66,24 @@
       "address": "0x8016d064",
       "size": 108,
       "binding": 1
+    },
+    {
+      "name": "SNDDRV_DSPMixerInit__Fi",
+      "address": "0x8016d0d0",
+      "size": 264,
+      "binding": 1
+    },
+    {
+      "name": "SNDDRV_DSPMixerInitChannel__FP6_AXVPBUliUsUs",
+      "address": "0x8016d1d8",
+      "size": 272,
+      "binding": 1
     }
   ],
-  "externals": {},
+  "externals": {
+    "OSDisableInterrupts": "0x801135cc",
+    "OSRestoreInterrupts": "0x801135f4"
+  },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
