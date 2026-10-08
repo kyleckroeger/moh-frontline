@@ -846,7 +846,10 @@
     "light_dtor.json",
     "impact_dtor.json",
     "explosion_dtor.json",
-    "AIFilter_mechchecker_dtor.json"
+    "AIFilter_mechchecker_dtor.json",
+    "light_instanced_dtor.json",
+    "light_propertyanim_dtor.json",
+    "light_animmanager_dtor.json"
   ],
   "progress": {
     "code_bytes": 1414572,
