@@ -840,7 +840,8 @@
     "bullet_ctor.json",
     "Soldier_object_ctor.json",
     "compartment_ctor.json",
-    "anim_obj_dtor.json"
+    "anim_obj_dtor.json",
+    "anim_obj_ctor.json"
   ],
   "progress": {
     "code_bytes": 1414572,
