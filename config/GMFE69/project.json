@@ -825,7 +825,13 @@
     "particlesystem_cparticlesystem_dtor.json",
     "Screen_cscreen_dtor.json",
     "AIFilter_tank_dtor.json",
-    "AIFilter_soldier_dtor.json"
+    "AIFilter_soldier_dtor.json",
+    "animmorph_dtor.json",
+    "animskinned_dtor.json",
+    "particlesystem_cpropertyparticlesystem_dtor.json",
+    "particlesystem_cinstancedparticlesystem_dtor.json",
+    "staticmesh_cstaticanimmesh_dtor.json",
+    "dmesh_cpartbin_dtor.json"
   ],
   "progress": {
     "code_bytes": 1414572,
