@@ -39,36 +39,42 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800b34e0",
-      "size": 452,
+      "address": "0x800b3298",
+      "size": 1036,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000d61c",
-      "size": 48,
+      "address": "0x8000d614",
+      "size": 56,
       "type": 1,
       "linked_offset": 0,
-      "linked_size": 64,
+      "linked_size": 72,
       "stripped_objects": [
-        "@60",
-        "@73"
+        "@106",
+        "@119"
       ]
     },
     {
       "name": "extabindex",
-      "address": "0x80014660",
-      "size": 24,
+      "address": "0x80014654",
+      "size": 36,
       "type": 1,
       "linked_offset": 0,
-      "linked_size": 48,
+      "linked_size": 60,
       "stripped_objects": [
-        "@61",
-        "@74"
+        "@107",
+        "@120"
       ]
     }
   ],
   "functions": [
+    {
+      "name": "Reset__20CStaticObjectFactoryFv",
+      "address": "0x800b3298",
+      "size": 584,
+      "binding": 1
+    },
     {
       "name": "GetMotionData__20CStaticObjectFactoryFii",
       "address": "0x800b34e0",
@@ -83,12 +89,36 @@
     }
   ],
   "externals": {
+    "AllocateStaticObject__20CStaticObjectFactoryFii": "0x800b386c",
     "CompareStaticObjectDefinitions__FPCvPCv": "0x800b4314",
     "__dl__FPv": "0x8001ca2c",
     "__dt__20StaticObjectTemplateFv": "0x800b24ac",
     "bsearch": "0x8013c274",
+    "g_currentAlternateAllocatorArrayIndex": "0x8034eb68",
+    "g_iAttachObjectPoolSize": "0x8034eb4c",
+    "g_iHierObjectPoolSize": "0x8034eb50",
+    "g_iMaxThrownObjects": "0x8034eb58",
+    "g_iRecycledThrownObjectsIndex": "0x8034eb60",
+    "g_iStaticAIObjectPoolSize": "0x8034eb44",
+    "g_iStaticObjectPoolSize": "0x8034eb48",
     "g_numTemplates": "0x8034eb54",
-    "g_pStaticObjectTemplates": "0x8034eb64"
+    "g_pAttachableObjectArray": "0x8034eb80",
+    "g_pAttachableObjectFreeList": "0x8034eb90",
+    "g_pHierObjectArray": "0x8034eb70",
+    "g_pHierObjectFreeList": "0x8034eb74",
+    "g_pStaticAIObjectArray": "0x8034eb78",
+    "g_pStaticAIObjectFreeList": "0x8034eb7c",
+    "g_pStaticObjectArray": "0x8034eb6c",
+    "g_pStaticObjectBazooka": "0x8034eb34",
+    "g_pStaticObjectFreeList": "0x8034eb8c",
+    "g_pStaticObjectGrenade": "0x8034eb30",
+    "g_pStaticObjectKnife": "0x8034eb3c",
+    "g_pStaticObjectStickGrenade": "0x8034eb38",
+    "g_pStaticObjectTemplates": "0x8034eb64",
+    "g_pStaticObjectWrench": "0x8034eb40",
+    "g_pThrownObjectArray": "0x8034eb84",
+    "g_pThrownObjectFreeList": "0x8034eb94",
+    "g_ppAllocatorFreeLists": "0x801ef368"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [
@@ -96,13 +126,53 @@
   ],
   "upstream": {},
   "local_externals": [
+    "g_currentAlternateAllocatorArrayIndex",
+    "g_iAttachObjectPoolSize",
+    "g_iHierObjectPoolSize",
+    "g_iMaxThrownObjects",
+    "g_iRecycledThrownObjectsIndex",
+    "g_iStaticAIObjectPoolSize",
+    "g_iStaticObjectPoolSize",
     "g_numTemplates",
-    "g_pStaticObjectTemplates"
+    "g_pAttachableObjectArray",
+    "g_pAttachableObjectFreeList",
+    "g_pHierObjectArray",
+    "g_pHierObjectFreeList",
+    "g_pStaticAIObjectArray",
+    "g_pStaticAIObjectFreeList",
+    "g_pStaticObjectArray",
+    "g_pStaticObjectFreeList",
+    "g_pStaticObjectTemplates",
+    "g_pThrownObjectArray",
+    "g_pThrownObjectFreeList",
+    "g_ppAllocatorFreeLists"
   ],
   "discarded_local_functions": [],
   "sda_externals": [
+    "g_currentAlternateAllocatorArrayIndex",
+    "g_iAttachObjectPoolSize",
+    "g_iHierObjectPoolSize",
+    "g_iMaxThrownObjects",
+    "g_iRecycledThrownObjectsIndex",
+    "g_iStaticAIObjectPoolSize",
+    "g_iStaticObjectPoolSize",
     "g_numTemplates",
-    "g_pStaticObjectTemplates"
+    "g_pAttachableObjectArray",
+    "g_pAttachableObjectFreeList",
+    "g_pHierObjectArray",
+    "g_pHierObjectFreeList",
+    "g_pStaticAIObjectArray",
+    "g_pStaticAIObjectFreeList",
+    "g_pStaticObjectArray",
+    "g_pStaticObjectBazooka",
+    "g_pStaticObjectFreeList",
+    "g_pStaticObjectGrenade",
+    "g_pStaticObjectKnife",
+    "g_pStaticObjectStickGrenade",
+    "g_pStaticObjectTemplates",
+    "g_pStaticObjectWrench",
+    "g_pThrownObjectArray",
+    "g_pThrownObjectFreeList"
   ],
   "original_file": "staticobjfactory.cpp",
   "original_file_index": 6860,
