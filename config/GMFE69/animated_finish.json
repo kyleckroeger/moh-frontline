@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x80061384",
-      "size": 88,
+      "size": 572,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000b348",
-      "size": 8,
+      "size": 40,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x800123ec",
-      "size": 12,
+      "size": 60,
       "type": 1
     }
   ],
@@ -62,11 +62,43 @@
       "address": "0x80061384",
       "size": 88,
       "binding": 1
+    },
+    {
+      "name": "SetAnimationState__9CAnimatedFUsfRUslPv",
+      "address": "0x800613dc",
+      "size": 236,
+      "binding": 1
+    },
+    {
+      "name": "ValidState__9CAnimatedFUs",
+      "address": "0x800614c8",
+      "size": 104,
+      "binding": 1
+    },
+    {
+      "name": "Init__9CAnimatedFP11CAnimObjectUs",
+      "address": "0x80061530",
+      "size": 112,
+      "binding": 1
+    },
+    {
+      "name": "InitClass__9CAnimatedFv",
+      "address": "0x800615a0",
+      "size": 32,
+      "binding": 1
     }
   ],
   "externals": {
+    "AnimChanInitChannels": "0x80061bf8",
     "AnimStGetStateUserMemory": "0x80067100",
-    "FinishAnimationState__11CAnimObjectFlb": "0x80095508"
+    "AnimStInitStructure": "0x80067c48",
+    "AnimStStartState": "0x800676d8",
+    "AnimStTransPreCheck": "0x80067b5c",
+    "DebugMsg__FPCce": "0x80018c88",
+    "FinishAnimationState__11CAnimObjectFlb": "0x80095508",
+    "GetStateCallbackID__13CAnimDatabaseFUlUs": "0x80061f04",
+    "InitClass__12CAnimSkinnedFv": "0x80066e38",
+    "g_AnimDB": "0x801d4a84"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -75,5 +107,16 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "animated.cpp",
-  "original_file_index": 2818
+  "original_file_index": 2818,
+  "pooled_sections": [
+    ".rodata"
+  ],
+  "pool_references": [
+    {
+      "section": ".rodata",
+      "offset": 0,
+      "size": 101,
+      "address": "0x80170498"
+    }
+  ]
 }
