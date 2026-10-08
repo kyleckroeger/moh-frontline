@@ -834,7 +834,8 @@
     "dmesh_cpartbin_dtor.json",
     "Screen_cscreenfieldmode_dtor.json",
     "projectilebullet_ctor.json",
-    "animated_volume_ctor.json"
+    "animated_volume_ctor.json",
+    "cdbobject_ctor.json"
   ],
   "progress": {
     "code_bytes": 1414572,

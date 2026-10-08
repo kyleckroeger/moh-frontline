@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 548520,
+    "matching_code_bytes": 548628,
     "total_executable_code_bytes": 1414572,
-    "percent": 38.776393142236664,
+    "percent": 38.78402796040074,
     "categories": {
-      "reconstructed_game": 328328,
+      "reconstructed_game": 328436,
       "restored_library": 220192
     },
-    "matching_functions": 3350
+    "matching_functions": 3353
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -346,6 +346,7 @@
     "config/GMFE69/cdbgeom_volbox.json": "c7f125bacd8ac480e5550e4bfade61f562ff85f608292e2f3059692d83eedd91",
     "config/GMFE69/cdbobject.json": "05d0a5d951c8fd3d451e360560441b26335e47a75eac59645e9848879f9b01b8",
     "config/GMFE69/cdbobject_csg.json": "61e61d8462435b658a6c4d384f13c8e9b07feb190f0624670a746ad9dd8f9d8d",
+    "config/GMFE69/cdbobject_ctor.json": "17c5de33bddcfe6b76fe4b222f9f7e606514c39ed21666bf7556f888b84b5f95",
     "config/GMFE69/cdbobject_dtor.json": "dd4a1b1929eddcd398618422e1ba8f18cf84cc1f587f7356add847a0ecdb35f2",
     "config/GMFE69/cdbobject_fastvec_branch.json": "0bccba109667cd4ab51465f8f4add80f256f6e5b151d133741a27f1035be6c0d",
     "config/GMFE69/cdbobject_fastvec_frame.json": "898185339062a856afd45c4424bf40480cd7d4d130b87c309a8ffaada595e109",
@@ -559,7 +560,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "ad7372663664c9f13adb7b50e24c26502cdd42bbe32fd8a084801f2ccaa74549",
+    "config/GMFE69/project.json": "6b5ddeb7a8000eaf6e802f4ee995a9b158f42d5586fa22824fdbedf16c05b63c",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -2065,7 +2066,8 @@
     "src/game/cdbgeom_volbox.cpp": "0ec9357d4cf5361b82e2d159a7712cb214f710a9284710d2d103c8b9d977ac18",
     "src/game/cdbobject.cpp": "8d9ba3051b730eaceb1df207075b6d193ad9ee06b403ef50da260ff8821c0e51",
     "src/game/cdbobject_csg.cpp": "fd41a1fa38e7b0497972a6d63d4a19b01277cc530e94f59040c7b011b6f2353e",
-    "src/game/cdbobject_dtor.cpp": "d053e89210f5a0a72ee886fd2e6f5ea902f2b9556eb5e597afeffc92c79bb10b",
+    "src/game/cdbobject_ctor.cpp": "4ef3d8ae7c6a59de2b8a6a2e8ecaf0bfa5d2495899a28cb4a7381db951fa91f0",
+    "src/game/cdbobject_dtor.cpp": "994dea16ba11a5b0019cf28c70e42a6fbb20e920a2b20acaeecb7aac5cccfeea",
     "src/game/cdbobject_fastvec_branch.cpp": "b59233f54b8e8b3c49ce04a5859460a66d783d1d3f7320571a3b31837043be98",
     "src/game/cdbobject_fastvec_frame.cpp": "9e4071d8be4a6dada815d66979bc764f3284af7c4e459ea0a39e2a4d604ac48a",
     "src/game/cdbobject_line.cpp": "9a1aca01d57b33016c9bee73e665ee19bac161dca1e16b28ce4a1f094c76c3f1",
@@ -37076,6 +37078,45 @@
       "discarded_functions": [],
       "object_sha256": "0467b9cb20cb7d14ba69c887eadcbc07e314687015c10dc7a60aec2231ef0eb0",
       "linked_sha256": "acc97b49171effdfc724312d30c2a49a46fad1ccc9f38ff340da6265f43e0e96"
+    },
+    {
+      "id": "cdbobject_ctor",
+      "category": "reconstructed_game",
+      "functions": 3,
+      "code_bytes": 108,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [],
+      "object_sha256": "e29364945ec48f9cd2ade37788d2aee67359506c7217ad9fcb9800fb0ca28820",
+      "linked_sha256": "23d8bdad365bcb09b39310dc1e63b534b9a95279f7b4db999933b20306fffc8e"
     }
   ],
   "code_map": {
@@ -41007,27 +41048,6 @@
             "kind": "function",
             "name": "Init__10CCDBObjectFP3CDB",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007164c",
-            "size": 8,
-            "kind": "function",
-            "name": "DisablePassThru__10CCDBObjectFb",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80071654",
-            "size": 68,
-            "kind": "function",
-            "name": "__ct__10CCDBObjectFRC10CCDBObject",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80071698",
-            "size": 32,
-            "kind": "function",
-            "name": "__ct__10CCDBObjectFP3CDB",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x800716b8",
