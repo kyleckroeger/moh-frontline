@@ -1,0 +1,105 @@
+{
+  "id": "particlesystem_manager_dtor",
+  "source": "src/game/particlesystem_manager_dtor.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8007d394",
+      "size": 164,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000c08c",
+      "size": 8,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 24
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80013028",
+      "size": 12,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 36
+    }
+  ],
+  "functions": [
+    {
+      "name": "__dt__22CParticleSystemManagerFv",
+      "address": "0x8007d394",
+      "size": 164,
+      "binding": 2
+    }
+  ],
+  "externals": {
+    "Init__10CRenderBinFv": "0x80073b2c",
+    "IsUsed__10CRenderBinFv": "0x80073b84",
+    "Link__10CRenderBinFP7CDmaTagR10CDmaPacket": "0x80076e20",
+    "MarkForDestruction__13IDestructibleFi": "0x800dd524",
+    "Render__10CRenderBinFR10CDmaPacketPv": "0x80076e18",
+    "__dl__FPv": "0x8001ca2c",
+    "__dt__10ISceneNodeFv": "0x8001ada0",
+    "__dt__15CUcodeRenderBinFv": "0x80074304",
+    "__dt__9IObserverFv": "0x800d80e0",
+    "__vt__10CRenderBin": "0x80183c5c",
+    "__vt__10ISceneNode": "0x80181c78",
+    "__vt__15CUcodeRenderBin": "0x80183c40",
+    "__vt__22CParticleSystemManager": "0x801848d4"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "particlesystem.cpp",
+  "original_file_index": 4057,
+  "stripped_sections": [
+    ".data"
+  ],
+  "weak_duplicates": [
+    "Link__10CRenderBinFP7CDmaTagR10CDmaPacket",
+    "Render__10CRenderBinFR10CDmaPacketPv",
+    "__dt__10ISceneNodeFv",
+    "__dt__15CUcodeRenderBinFv",
+    "__vt__10ISceneNode",
+    "__vt__15CUcodeRenderBin"
+  ]
+}
