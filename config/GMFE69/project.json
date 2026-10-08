@@ -851,7 +851,9 @@
     "light_propertyanim_dtor.json",
     "light_animmanager_dtor.json",
     "font_dtor.json",
-    "sprite_csprite_dtor.json"
+    "sprite_csprite_dtor.json",
+    "camera_dtor.json",
+    "skybox_dtor.json"
   ],
   "progress": {
     "code_bytes": 1414572,

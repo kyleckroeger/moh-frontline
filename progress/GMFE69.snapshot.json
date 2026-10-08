@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 554256,
+    "matching_code_bytes": 554620,
     "total_executable_code_bytes": 1414572,
-    "percent": 39.18188681806228,
+    "percent": 39.207618982985665,
     "categories": {
-      "reconstructed_game": 334064,
+      "reconstructed_game": 334428,
       "restored_library": 220192
     },
-    "matching_functions": 3381
+    "matching_functions": 3384
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -341,6 +341,7 @@
     "config/GMFE69/bulletfactory_sprites.json": "ae311cccd0ef2fe2fcf7da4dc35b195c719409e68b70d0b9fb677f9e129d2722",
     "config/GMFE69/bulletfactory_thrown_ctor.json": "5bc56bbfbbb13c0d38cda13a6362b98a81761e593324bf6c0c2bfe41500dd90b",
     "config/GMFE69/bulletfactory_thrown_pool.json": "c72b05045b24264f3fce4169a7c503b0cebd24f69da74e897db104aaaf516ba1",
+    "config/GMFE69/camera_dtor.json": "8fda5d013b822dddd4ca34337ca7d0e498694d558397e2429fb3bd14cd03a8c7",
     "config/GMFE69/camera_rows.json": "1b74ab2186218d87b08ef8188d1c247dc7997f17ff2a25340764ea861db80d35",
     "config/GMFE69/capsule_create.json": "7ea379e9f4627abeeeaad959530bebd332ea158e9e77b0b66fe4115669d57173",
     "config/GMFE69/capsule_dispatch.json": "8d4ce50085d048b2ca15db431aa32afcb32d3faf6e2d9555a17e8dd9ed937f06",
@@ -573,7 +574,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "0bf6f662cf70e8b3d9ec8ed8e6ebb2816e00e9261fef6e54fcb85f09c6e1943f",
+    "config/GMFE69/project.json": "bbdd541e822dbc36d7b330f03491d39b726f8b99ed91771710db368d4da159ef",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -703,6 +704,7 @@
     "config/GMFE69/sinitxa.json": "411b577b864a696f54ca6f728819538a238b294030608ccd59f1af782b46221e",
     "config/GMFE69/skeleton.json": "f8a7a2ca94901c7b505fe98572da97c75638732325777eab75505995999c519f",
     "config/GMFE69/skybox.json": "b8d4f94947576b333da72b92081b74ebfc5cc563621a81440f266f2bd48595d3",
+    "config/GMFE69/skybox_dtor.json": "15f6a9dd1b7428e45f1751a9635ac39caf36b75f5b4c253275b81c2d32122b05",
     "config/GMFE69/slib.json": "175b59682d7176e6914e303e81ec26cb60fcb86ab08f884e84a2df96c09626de",
     "config/GMFE69/slinklst.json": "b628536bfbcd9772b6a89f60c30663cca9adb8dbca84452a261ea3f0b3c42c60",
     "config/GMFE69/slinkmix.json": "0d66b0e0297a0e7e7bf0c13cc7f212971c66ee4114cf017c282deb2b452f6755",
@@ -2077,6 +2079,7 @@
     "src/game/bulletfactory_sprites.cpp": "b9f54fc574513bbe0ca4b8adf5d9f1a60975f2ad5ffc6f9744650d11e41e4993",
     "src/game/bulletfactory_thrown_ctor.cpp": "e4395dc0515217717387866d4c9dbb72929d0eea865ba32b5f0b406065bd0985",
     "src/game/bulletfactory_thrown_pool.cpp": "9833f26e5bd172ba5aaaa3b25a86c6b63760bd1ec4aca397b989ffb3ac67509b",
+    "src/game/camera_dtor.cpp": "487e766431ac762673f547730cf5165f26bf8a858bfbe2233e7368bd17c66379",
     "src/game/camera_rows.cpp": "ad6da75e4f2269b17a88cd8f54e5e65003cd57b25bb284dce60bf13894115962",
     "src/game/capsule_create.cpp": "e5bdd4e3000036dbae68266376af90a76a315822e580f2da15283faec1d3127b",
     "src/game/capsule_dispatch.cpp": "6797cda02018a30483dbb8d1dd412f91c6c0110513b9a9b8b4c39d710ed6056a",
@@ -2246,6 +2249,7 @@
     "src/game/scene_veciter_plus.cpp": "ad93d66d1c8007e54b4d61711cdf4de56b871064dc900a76265dd6bdd638136e",
     "src/game/skeleton.cpp": "9b1683e21a438e638340e27133e7171efe815a6bfa063b3675ba18e6ea224294",
     "src/game/skybox.cpp": "51c0fbd12e9ef49c313bcc7055d61c7ad7fcd8c243abaea7ef80bb1dc8b33da8",
+    "src/game/skybox_dtor.cpp": "898f3cc5465b6b63aa82edaf66e4061a92d1a91a5f3d1f75d4859805498a32db",
     "src/game/sound.cpp": "09a7a15e802021a5756266ba749fc363a337c930203b4df623cd125f3c1541a8",
     "src/game/sound_endian.cpp": "9b1551246dece633f361354cb5fa2ed2a147651a6bd96913a638fbd6f322478b",
     "src/game/sound_music.cpp": "5314d6a6e57ef854980b4ee4c583dafa42d3ca4b6fe3e8fd40d927c81f919d10",
@@ -37773,6 +37777,84 @@
       "discarded_functions": [],
       "object_sha256": "50e6238b0620802f495cb26f2370121159e9ba82d6c32a92d5a2c647d6217240",
       "linked_sha256": "8fc70b3058f21d16db19332fb39cff106b0c86e9b140224b6f40e4974712b8df"
+    },
+    {
+      "id": "camera_dtor",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 196,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [],
+      "object_sha256": "a466e9d7010b2aeed62e4bd35b5044cfe7fd33aa4632f686a3db0dc4018e9b3d",
+      "linked_sha256": "f000d3eab22d997ad4fac58cc1a66972bfcff1ba7a09bcd57cd5573d65a52bba"
+    },
+    {
+      "id": "skybox_dtor",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 168,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [],
+      "object_sha256": "f6303be48853475de6c09cb0cf8464f12fe07e083ba938e9caed3ca48eef797e",
+      "linked_sha256": "99042981a153e59816bb5ab73e73e7fd5da6ff6b2d126db6a3dd7cee7a9a3e1e"
     }
   ],
   "code_map": {
@@ -42285,20 +42367,6 @@
             "kind": "function",
             "name": "AttemptUpdate__7CCameraFf",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007a534",
-            "size": 4,
-            "kind": "function",
-            "name": "BeginUpdate__7CCameraFf",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007a538",
-            "size": 192,
-            "kind": "function",
-            "name": "__dt__7CCameraFv",
-            "evidence": "exception-index"
           }
         ]
       },
@@ -44889,13 +44957,6 @@
             "size": 272,
             "kind": "function",
             "name": "SetTextures__7CSkyBoxFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800a918c",
-            "size": 168,
-            "kind": "function",
-            "name": "__dt__7CSkyBoxFv",
             "evidence": "exception-index"
           },
           {
