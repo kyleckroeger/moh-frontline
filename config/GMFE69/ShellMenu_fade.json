@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800e1f48",
-      "size": 184,
+      "size": 1008,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000eff8",
-      "size": 40,
+      "size": 48,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80015b0c",
-      "size": 12,
+      "size": 24,
       "type": 1
     }
   ],
@@ -62,6 +62,12 @@
       "address": "0x800e1f48",
       "size": 184,
       "binding": 1
+    },
+    {
+      "name": "CheckDataCRC__10CShellMenuCFPUciUl",
+      "address": "0x800e2000",
+      "size": 824,
+      "binding": 1
     }
   ],
   "externals": {
@@ -69,7 +75,9 @@
     "GetVolume__12CSoundStreamCFv": "0x800ecc9c",
     "UpdateREAL__Fv": "0x8001b098",
     "__ct__13CSoundSysLockFv": "0x800ecbf8",
+    "__dl__FPv": "0x8001ca2c",
     "__dt__13CSoundSysLockFv": "0x800ecba8",
+    "__nw__FUl": "0x8001cb60",
     "pSoundStream": "0x8034eca0"
   },
   "undefined_in_discarded_code": [],

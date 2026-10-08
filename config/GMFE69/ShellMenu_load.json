@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800e2338",
-      "size": 176,
+      "size": 980,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000f028",
-      "size": 8,
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80015b24",
-      "size": 12,
+      "size": 24,
       "type": 1
     }
   ],
@@ -62,11 +62,19 @@
       "address": "0x800e2338",
       "size": 176,
       "binding": 1
+    },
+    {
+      "name": "SaveData__10CShellMenuFv",
+      "address": "0x800e23e8",
+      "size": 804,
+      "binding": 1
     }
   ],
   "externals": {
     "CheckDataCRC__10CShellMenuCFPUciUl": "0x800e2000",
     "Get__7LoadElfFv": "0x80108a28",
+    "__dl__FPv": "0x8001ca2c",
+    "__nw__FUl": "0x8001cb60",
     "memcpy": "0x800094f8",
     "memset": "0x80009410"
   },

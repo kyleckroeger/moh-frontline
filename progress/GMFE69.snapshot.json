@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 530508,
+    "matching_code_bytes": 532136,
     "total_executable_code_bytes": 1414572,
-    "percent": 37.503075135093866,
+    "percent": 37.6181629496413,
     "categories": {
-      "reconstructed_game": 311548,
+      "reconstructed_game": 313176,
       "restored_library": 218960
     },
-    "matching_functions": 3263
+    "matching_functions": 3265
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -148,11 +148,11 @@
     "config/GMFE69/ShellMenu_cardquery.json": "a62188697027b88aa4a536c3f1ed038884979039cf4401a136e0177306df8608",
     "config/GMFE69/ShellMenu_cardsize.json": "739e680e3c92dd8606a0dcd8295a2591be22f9b01ca695b56e21d4853646ff04",
     "config/GMFE69/ShellMenu_dtor.json": "0a63e8a0bdd75c2c7e60283100e6c092625721f838226010e42fd7c21301ca65",
-    "config/GMFE69/ShellMenu_fade.json": "b3caa77c5f4f3a8d78c7b26f81322513b7db6bd7caf25255d77a978a88d899d4",
+    "config/GMFE69/ShellMenu_fade.json": "0fd80286af9cab6f438b558b6f15fa754d9684e1c05d140db984ab7c9c8052e1",
     "config/GMFE69/ShellMenu_gallery.json": "24637baf8fca81c6f8cde925c7c7fe398f7d4f9bd8226a844f7d23b87180d72c",
     "config/GMFE69/ShellMenu_lastlevel.json": "6603db54eec39831d89af1ac3f9e37b85da56136856f77b93997615b3eaad248",
     "config/GMFE69/ShellMenu_levels.json": "f2ef8f3404387c4a7efd85a6c8445fbd6cc1eec9e119bc83a32a605a48b3d5fb",
-    "config/GMFE69/ShellMenu_load.json": "b4bbb7a45b0902a7ebfe7bce80d394078ddf1d1e1f6bfec107f9a4ae1db0ed0c",
+    "config/GMFE69/ShellMenu_load.json": "871179b1cb01622f61e64d48de8addcfba3682ca2df14e757614fa6d674b54c8",
     "config/GMFE69/ShellMenu_messages.json": "7a51b162dbdbca042eebe511c3eca1f52f491eaa004ea29019a0a55fd7aa0b6a",
     "config/GMFE69/ShellMenu_mp.json": "66c562a8f05bb59e38b2ec1c439d05338d7f94208ad391d475af75ad32a5dcc5",
     "config/GMFE69/ShellMenu_options.json": "dd2a3ce084ed281a45bfccb649197257d333d767b91ad963a3d44774969d19fa",
@@ -1838,11 +1838,11 @@
     "src/game/ShellMenu_cardquery.cpp": "14bed4e6741ebc072c6770bbde04a3f4c7e82ba846bfb1ba9f3770ccf628b1ad",
     "src/game/ShellMenu_cardsize.cpp": "c2551c932c46ea513a170685cbaf3bc3fb154d51112828f63941ab0dd1e1fa0a",
     "src/game/ShellMenu_dtor.cpp": "b7b79f580b8c0de75140427ee0a71590e260016e60441dc5e588511777d84be2",
-    "src/game/ShellMenu_fade.cpp": "782eeab1b5e12c5d2f4226232ef72336c186310c401963df30afb76492cb002f",
+    "src/game/ShellMenu_fade.cpp": "dd8ca1153bb5a1e5283e12593e8b476801d39497863a785f20adf0edc4404c4d",
     "src/game/ShellMenu_gallery.cpp": "8e18cbfa4dd6168d52c1b1a7a2cd6322a5499065fbfba56b45bae0131607a917",
     "src/game/ShellMenu_lastlevel.cpp": "145b45eaec5354964b4676873a718cd8510dfa0a81f1bb4b1263e2442eb155a8",
     "src/game/ShellMenu_levels.cpp": "7725919006107aa8c2dee7d6142fb64ed999096ac96d51e9d55c418630259a7b",
-    "src/game/ShellMenu_load.cpp": "7162cdf863c9f5966a817e42e80c1748a8e88c040017d908e440a6b0a17fdc1d",
+    "src/game/ShellMenu_load.cpp": "c45fd2491d1763a5a6cc7c15973e530c1bcd9c55a4b68fc5fda8a5b11716c615",
     "src/game/ShellMenu_messages.cpp": "c6c46ac78f03f26fbb583211a9bfebd75ccf16c69c226b6f5d4eaa2140a075ed",
     "src/game/ShellMenu_mp.cpp": "068a1dbfb73dc9e9185333e445a81b131ff752805de6c40cfa863fc92fba0151",
     "src/game/ShellMenu_options.cpp": "3a387c801176c3b405ad614a811e4f70b586d1c7d9b08ff02ed56f8f54592467",
@@ -30939,8 +30939,8 @@
     {
       "id": "ShellMenu_fade",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 184,
+      "functions": 2,
+      "code_bytes": 1008,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -30972,8 +30972,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "a42de9ca1cc9ed7c3fad1c7499cf0d70b6979ab22b1bd812f0b5db83984599a2",
-      "linked_sha256": "8c31375440b92bd9ccc2f53e9bb2b155ffa408a35dca033b2aaa96c698251bfd"
+      "object_sha256": "2c9d8df2bd9e16b196950c577a478e7dd869c2668a453f9f52993d9459eecc86",
+      "linked_sha256": "16849b73752849c9e93468b7fb755ff06492986a6506e7e1482443e838c063fe"
     },
     {
       "id": "ShellMenu_shelloff",
@@ -31134,8 +31134,8 @@
     {
       "id": "ShellMenu_load",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 176,
+      "functions": 2,
+      "code_bytes": 980,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -31167,8 +31167,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "3340057370b97750686cd545481004f5173c715b13203522e89a31788b01330c",
-      "linked_sha256": "db45fda91db380f61ed3a9b960c259520ac333e9a34e04e1734291f03b996346"
+      "object_sha256": "b99a442f725206c1e75bd68568a8e039d6f9a75660e13466f540725f23c3979e",
+      "linked_sha256": "45b86604fdfa6b13fe482589e6e0deb6fa1539a7b8ff833804243a2e1980910d"
     },
     {
       "id": "ShellMenu_gallery",
@@ -45323,20 +45323,6 @@
             "size": 152,
             "kind": "function",
             "name": "PlayGalleryMovie__10CShellMenuFiiii",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800e2000",
-            "size": 824,
-            "kind": "function",
-            "name": "CheckDataCRC__10CShellMenuCFPUciUl",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800e23e8",
-            "size": 804,
-            "kind": "function",
-            "name": "SaveData__10CShellMenuFv",
             "evidence": "exception-index"
           },
           {
