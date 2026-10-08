@@ -2,10 +2,15 @@
 // buffer at +248), the clear rectangle and colour getters, GetClear (false
 // while capturing), the depth buffer's maximum by depth format (16, 24 or 28
 // bits), the depth and frame formats (returned by address), the width and
-// height, the clear rectangle, colour and flag setters and the vertical sync
-// count. CScreen, CRect, CColor and the functions are named by the mangled
+// height, the clear rectangle, colour and flag setters, the vertical sync
+// count and Wait (waiting while a swap is pending, updating the fader by the
+// frames since the last wait, which it returns, switching the copy buffer
+// between the two frame buffers, setting the viewport - with jitter for a
+// field render mode - and re-enabling colour updates when not clearing).
+// CScreen, CRect, CColor, CFader and the functions are named by the mangled
 // symbols; the members, the format records (their first word the format
-// type), the rectangle and colour layouts and the result types are inferred.
+// type), the render mode view, the rectangle and colour layouts and the result
+// types are inferred; g_bSwap is read as volatile (the wait reloads it).
 // The rest of the file is not part of this unit.
 struct CRect {
     int left;
@@ -21,7 +26,31 @@ struct CColor {
     unsigned char a;
 };
 
-extern "C" void GXCopyDisp(void*, int);
+extern "C" {
+void GXCopyDisp(void*, int);
+unsigned long VIGetNextField();
+void GXSetViewportJitter(float, float, float, float, float, float, unsigned long);
+void GXSetViewport(float, float, float, float, float, float);
+void GXInvalidateVtxCache();
+void GXSetColorUpdate(int);
+}
+
+class CFader {
+public:
+    static void Update(float);
+};
+
+// Inferred: the render mode record the screen points to.
+struct ScreenModeView {
+    unsigned char unknown00[4];
+    unsigned short width;
+    unsigned short height;
+    unsigned char unknown08[16];
+    unsigned char field;
+};
+
+extern volatile bool g_bSwap;
+extern unsigned long g_WaitFrameNum;
 
 extern bool g_bCapture;
 extern unsigned long g_FrameNum;
@@ -42,6 +71,7 @@ public:
     void SetClearColor(const CColor&);
     void SetClear(bool);
     unsigned long GetVSyncs();
+    unsigned long Wait();
     ScreenFormatView* GetDepthFormat();
     ScreenFormatView* GetFrameFormat();
     int GetWidth();
@@ -58,7 +88,11 @@ public:
     unsigned char unknown28[8];
     ScreenFormatView m_frameFormat;
     ScreenFormatView m_depthFormat;
-    unsigned char unknown38[192];
+    unsigned char unknown38[120];
+    ScreenModeView* m_mode;
+    unsigned char unknownb4[60];
+    void* m_frameBuffer0;
+    void* m_frameBuffer1;
     void* m_copyBuffer;
 };
 
@@ -126,4 +160,24 @@ void CScreen::SetClear(bool clear) {
 
 unsigned long CScreen::GetVSyncs() {
     return g_FrameNum;
+}
+
+unsigned long CScreen::Wait() {
+    while (g_bSwap == 1) {
+    }
+    unsigned long frames = g_FrameNum - g_WaitFrameNum;
+    g_WaitFrameNum = g_FrameNum;
+    CFader::Update(frames);
+    if (m_copyBuffer == m_frameBuffer0)
+        m_copyBuffer = m_frameBuffer1;
+    else
+        m_copyBuffer = m_frameBuffer0;
+    if (m_mode->field)
+        GXSetViewportJitter(0.0f, 0.0f, m_mode->width, m_mode->height, 0.0f, 1.0f, VIGetNextField());
+    else
+        GXSetViewport(0.0f, 0.0f, m_mode->width, m_mode->height, 0.0f, 1.0f);
+    GXInvalidateVtxCache();
+    if (!m_clear)
+        GXSetColorUpdate(1);
+    return frames;
 }
