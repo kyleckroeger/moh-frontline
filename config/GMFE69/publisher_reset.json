@@ -34,26 +34,30 @@
   "include_dirs": [
     "include/dolphin-sdk/libc"
   ],
-  "strip_unused": false,
+  "strip_unused": true,
   "source_root": "src/game",
   "sections": [
     {
       "name": ".text",
       "address": "0x800d7e08",
-      "size": 172,
+      "size": 420,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000e8a4",
-      "size": 8,
-      "type": 1
+      "size": 32,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 40
     },
     {
       "name": "extabindex",
       "address": "0x80015638",
-      "size": 12,
-      "type": 1
+      "size": 24,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 36
     }
   ],
   "functions": [
@@ -68,15 +72,25 @@
       "address": "0x800d7e60",
       "size": 84,
       "binding": 1
+    },
+    {
+      "name": "Init__10CPublisherFi",
+      "address": "0x800d7eb4",
+      "size": 248,
+      "binding": 1
     }
   ],
   "externals": {
+    "DWI_allocalign__FPCciii": "0x8001c8ec",
     "MEM_free": "0x8014f83c",
     "__dl__FPv": "0x8001ca2c",
+    "__nw__FUl": "0x8001cb60",
     "sm_pThePublisher__10CPublisher": "0x8034ec80"
   },
   "undefined_in_discarded_code": [],
-  "discarded_functions": [],
+  "discarded_functions": [
+    "__dt__Q23dwi41hash_map<P8ISubject,Q210CPublisher5SItem>Fv"
+  ],
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
@@ -84,5 +98,16 @@
     "sm_pThePublisher__10CPublisher"
   ],
   "original_file": "publisher.cpp",
-  "original_file_index": 8359
+  "original_file_index": 8359,
+  "pooled_sections": [
+    ".rodata"
+  ],
+  "pool_references": [
+    {
+      "section": ".rodata",
+      "offset": 0,
+      "size": 108,
+      "address": "0x80178098"
+    }
+  ]
 }
