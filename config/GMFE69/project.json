@@ -858,7 +858,8 @@
     "world_volume_dtor.json",
     "player_dtor.json",
     "weapon_ctor.json",
-    "thrownbullet_ctor.json"
+    "thrownbullet_ctor.json",
+    "player_ctor.json"
   ],
   "progress": {
     "code_bytes": 1414572,

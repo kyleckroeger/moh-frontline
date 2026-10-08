@@ -62,9 +62,11 @@ public:
     unsigned char unknown00[32];
 };
 
-/* inferred: the ten planes are held in a member object with its own inline
-   destructor (the code checks its address before the array destructor); its
-   name is not known */
+/* inferred: the code checks the planes' address before the array
+   destructor, which a member object with its own inline destructor
+   reproduces. This is uncertain: the original has no weak destructor for
+   such a wrapper, and the inlined CCamera constructor in player_ctor.cpp
+   matches with a plain CPlane array, so the check may have another cause. */
 struct CameraPlanesView {
     ~CameraPlanesView() {}
 
