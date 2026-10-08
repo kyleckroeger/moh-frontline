@@ -37,12 +37,18 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x801647d0",
-      "size": 200,
+      "address": "0x80164644",
+      "size": 596,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "SFILTER_unpackxapf__FPviPvPvi",
+      "address": "0x80164644",
+      "size": 396,
+      "binding": 1
+    },
     {
       "name": "SFILTER_unpackxapfrestore__FPv",
       "address": "0x801647d0",
@@ -57,13 +63,18 @@
     }
   ],
   "externals": {
-    "SFILTER_unpackxapf__FPviPvPvi": "0x80164644",
+    "Decode__Q23SND12CEAXABLKDecfFPPfi": "0x80168a60",
+    "Feed__Q23SND12CEAXABLKDecfFPvii": "0x80168a28",
     "SNDDRV_getmastervoice__Fi": "0x8016b600",
     "SNDDRV_getsamplechan__Fi": "0x8016b630",
+    "SNDPKTPLAYI_freeframes__Fiii": "0x8015af8c",
+    "SNDPKTPLAYI_get__FiiPiPi": "0x8015ad74",
     "SNDPKTPLAYI_voicetopackethandle__Fi": "0x8015b0a8",
+    "SetState__Q23SND12CEAXABLKDecfFPQ23SND8XAFSTATE": "0x80168ec4",
     "__ct__Q23SND12CEAXABLKDecfFv": "0x80168a08",
     "__dl__Q23SND12CEAXABLKDecfFPv": "0x801689e0",
-    "__nw__Q23SND12CEAXABLKDecfFUl": "0x801689b8"
+    "__nw__Q23SND12CEAXABLKDecfFUl": "0x801689b8",
+    "memset": "0x80009410"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -72,5 +83,16 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "supxapf.cpp",
-  "original_file_index": 13113
+  "original_file_index": 13113,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 8,
+      "address": "0x80351b40"
+    }
+  ]
 }

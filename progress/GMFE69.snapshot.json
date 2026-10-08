@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 542976,
+    "matching_code_bytes": 543372,
     "total_executable_code_bytes": 1414572,
-    "percent": 38.38447247648052,
+    "percent": 38.412466809748814,
     "categories": {
-      "reconstructed_game": 322784,
+      "reconstructed_game": 323180,
       "restored_library": 220192
     },
-    "matching_functions": 3299
+    "matching_functions": 3300
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -760,7 +760,7 @@
     "config/GMFE69/support.json": "ab678e1f218c1f088288543d73bdc61b6b3126ae3ff480714f8d3f13a83e360c",
     "config/GMFE69/supxaf.json": "07cb26751de588b28f4dbc0821a96a7f1103ec73da7c38694c0fd0dd27b19c7c",
     "config/GMFE69/supxalf.json": "5649c5ead2c3498e6abe7d13c59af2f8cf2bdde86e3c3a499a6b2ab53142f7b8",
-    "config/GMFE69/supxapf.json": "457bb8fd7ea60dd99df9dabe06c30302b93e5be91f431a0e2cfebe2d0c41666d",
+    "config/GMFE69/supxapf.json": "ed96fba3d4f7bec21bd81ddad8e03c9d1fb2f14d221c809e0cb4d9d18f0fc533",
     "config/GMFE69/surfacetype.json": "86dc7dabf78f07ec11a9d5eca99eb78762ddd2392826818716ae3082c324a362",
     "config/GMFE69/susercb.json": "587008bf46b9cbf799648b72f1a0957c62a9d4eeb29586cf54c5170bdb97f045",
     "config/GMFE69/svol.json": "d8a88817980d0e9762a77fbe16ea5420750e51bb76915aad39f96858658fa525",
@@ -1783,7 +1783,7 @@
     "src/ea/suppf.c": "8b7a849da40a4b7f11f438a10e331fd9ee368139d8419d818ecb789219a2b7cf",
     "src/ea/supxaf.cpp": "8466eb56327cbf7858f548254cfcaced984063e9be11486858dcc56d8a6d1dc3",
     "src/ea/supxalf.cpp": "219c6a2b342a03647116cbf400a132c5d69b5d3f7b17d5676e519410962a92f3",
-    "src/ea/supxapf.cpp": "f756eaffcda6852170d8cc887fea1dec50098ba897f1e36c354e5434a6098058",
+    "src/ea/supxapf.cpp": "27fb1b8932a5635f57b548f6f1c025edd7dbac066527ec1c1f7adb70c597f9af",
     "src/ea/susercb.c": "1481568dd7d17c637e274529b8e41784ff435133c690f7158a53f8428c6e997a",
     "src/ea/svol.c": "dabcc2146bc3fa483578622427735a10cd4f30225e656a9b6082e1a912134db4",
     "src/ea/sx87d16.c": "c1dd596abc75c11f30754a6dba703855646d4b8f22e144410e386724486258d4",
@@ -16931,8 +16931,8 @@
     {
       "id": "supxapf",
       "category": "reconstructed_game",
-      "functions": 2,
-      "code_bytes": 200,
+      "functions": 3,
+      "code_bytes": 596,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -16964,8 +16964,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "8efc21d1793e94a4a8461cd5f55c520d8e946258d36221928bc2c1b6b3db9851",
-      "linked_sha256": "c7b552d587d210ce7b833cb9bc6dbd5f8a93f8a60f38f1ded522d457477ef978"
+      "object_sha256": "e0609ed3c4dee0627e21e5b4f999a1aa30578fc3907294c9aa1dcb178d85af4f",
+      "linked_sha256": "edd21d228a5a1b0324afc32a027151f8320999834f6ba28440da6cd43e177b94"
     },
     {
       "id": "eaxadecf",
@@ -48562,20 +48562,6 @@
             "kind": "function",
             "name": "SFILTER_unpackxalf__FPviPvPvi",
             "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/supxapf.cpp [symbol evidence]",
-        "file_record": 530,
-        "file_name": "supxapf.cpp",
-        "ranges": [
-          {
-            "address": "0x80164644",
-            "size": 396,
-            "kind": "function",
-            "name": "SFILTER_unpackxapf__FPviPvPvi",
-            "evidence": "private-reference"
           }
         ]
       },
