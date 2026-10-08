@@ -794,7 +794,8 @@
     "hearingvolume_init.json",
     "nubinit.json",
     "smixer_create.json",
-    "smixer_play.json"
+    "smixer_play.json",
+    "sdrv_3dpos.json"
   ],
   "progress": {
     "code_bytes": 1414572,

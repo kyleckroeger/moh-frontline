@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 542184,
+    "matching_code_bytes": 542860,
     "total_executable_code_bytes": 1414572,
-    "percent": 38.328483809943926,
+    "percent": 38.37627211623021,
     "categories": {
-      "reconstructed_game": 321992,
+      "reconstructed_game": 322668,
       "restored_library": 220192
     },
-    "matching_functions": 3297
+    "matching_functions": 3298
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -527,7 +527,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "60410864f01c1c17ca93da90afc8f713c4ef15a31a2f698a04a2a4a2a5753152",
+    "config/GMFE69/project.json": "58b32444a6daf506a8988db118167aec4dac0fd1e397fd9b2e09e45ad8a4c883",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_init.json": "59efa2f81e573b18eb9d4793a24578d542a47e4cded42890b4e9f88779a0b4a4",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
@@ -610,6 +610,7 @@
     "config/GMFE69/sctlfilt.json": "b1b4403df5f172a96a7c8189f27b7f46a0c740002e8f50e74e0a783e2488cd73",
     "config/GMFE69/sctrldry.json": "561b4b93070d6a4cbfb714e3f6de5824f583795298bba426606a1ad4803dc401",
     "config/GMFE69/sdfx.json": "6985d96463b5ccc311927984ccfb649a26f4ecd6d154e532138a036ae75a2d70",
+    "config/GMFE69/sdrv_3dpos.json": "766ef22873eacebfa42c4daff4da690eb9987c97b8234826f9dd2ae719781dff",
     "config/GMFE69/sdrv_destroy.json": "f21896f67ae2b5fbda451435cbbae8e196e3fddbff872d5d027860d640e88883",
     "config/GMFE69/sdrv_drop.json": "ade7c591ad819991e592af3460f0b8749b57b9fceec8692c23c001d8cb5885b6",
     "config/GMFE69/sdrv_dry.json": "ddb331302c2ddf0123a7f2bb136b1c082f50f3d4090e9ceb709c134862fed5ed",
@@ -1662,6 +1663,7 @@
     "src/ea/sctlfilt.c": "f0ee0f9939f8a8bf3d378bd02f819abd234a5da38120e7e84861b2ec0a3b180b",
     "src/ea/sctrldry.cpp": "98429e0252980217b230bcd6d5250668bdac5623e921d3124d66481497622d43",
     "src/ea/sdfx.c": "9d83385a1a795ded1328d0f6f4b30339b8a2c7b14b2b7243908abdcbf11ef50a",
+    "src/ea/sdrv_3dpos.cpp": "993211daf6f64479c052d70fc8c337391e86d3a0a337422515177ff9e9bf1f1e",
     "src/ea/sdrv_destroy.cpp": "e7dc7da3a9f0eb70a88d23623fdd3f20fc37dee84133b5ed12764ff86aed9b40",
     "src/ea/sdrv_drop.c": "203a1db7bd77ff377c124e0ef2816fde0ed1602965342325b96d4b36ff240a4e",
     "src/ea/sdrv_dry.cpp": "a9fed6b626e1a66c849ca4852b168c3cda74caf6313ad85f226e5530ba470e81",
@@ -35436,6 +35438,45 @@
       "discarded_functions": [],
       "object_sha256": "8081c576da22b1d39085c616549a603538097c48a5d5b03147bdc2db25433b64",
       "linked_sha256": "af6e5b44e92d8640c1c267329265f5b2a910d66cc1f14baf6af3a7250a600bf1"
+    },
+    {
+      "id": "sdrv_3dpos",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 676,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "f5c8d6dfc13008018c60e70e4991445eee7b350ad31b1589d519974b81199749",
+      "linked_sha256": "f5a331fb53036a04c7e8c7dc6f8ac4ffea6020aa260bac841d691e9cb0bc2c85"
     }
   ],
   "code_map": {
@@ -48791,13 +48832,6 @@
             "size": 968,
             "kind": "function",
             "name": "SNDPLATFORM_packetplay__FiiiiiiP15SNDSAMPLEFORMATPPv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8016bdfc",
-            "size": 676,
-            "kind": "function",
-            "name": "SNDPLATFORM_set3dpos__Fi",
             "evidence": "between-same-file"
           },
           {
