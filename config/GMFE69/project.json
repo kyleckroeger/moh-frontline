@@ -823,7 +823,9 @@
     "AIFilter_caifilterobject_dtor.json",
     "animated_dtor.json",
     "particlesystem_cparticlesystem_dtor.json",
-    "Screen_cscreen_dtor.json"
+    "Screen_cscreen_dtor.json",
+    "AIFilter_tank_dtor.json",
+    "AIFilter_soldier_dtor.json"
   ],
   "progress": {
     "code_bytes": 1414572,
