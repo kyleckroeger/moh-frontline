@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 549792,
+    "matching_code_bytes": 550216,
     "total_executable_code_bytes": 1414572,
-    "percent": 38.866314333946946,
+    "percent": 38.896288064517044,
     "categories": {
-      "reconstructed_game": 329600,
+      "reconstructed_game": 330024,
       "restored_library": 220192
     },
-    "matching_functions": 3356
+    "matching_functions": 3361
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -327,6 +327,7 @@
     "config/GMFE69/buddy_veciter_path_dtor.json": "c370ecacaddd40e7e143c2b4fa6c758b3778c631d0a3dc0a362fafddb789c925",
     "config/GMFE69/buffer_io.json": "9a997068c0c387e86e9609ec66493e7caa8d98ea675676441eb2ff729f5d4186",
     "config/GMFE69/bullet_asbullet.json": "b71b282c15d9e53319ebbc43dcd7686ce181305594ca0ffb1f0a806bf91b3423",
+    "config/GMFE69/bullet_ctor.json": "9add1d122271268908101d2653fbaac15ecde508972e65e20cc26b1ee967ba39",
     "config/GMFE69/bullet_draw.json": "094d31966b0f5d63864f43d166790e5c9f0549c3cce656f8fd959a57de16a6b8",
     "config/GMFE69/bullet_rows.json": "04f963eead009d03fdc93e869e912722f4de27e7df41deb0f51d96c85794b1a6",
     "config/GMFE69/bulletfactory.json": "ef77b1567d451a726bf128c4491067160f2c9ef66d2481fd6981d85e28c61a21",
@@ -560,7 +561,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "c5e4ff40f017109e59b9145252d7b47722e6b5f1cecdf5f202797661d93efbac",
+    "config/GMFE69/project.json": "4abbde73722e449c710784a5a58979449c527e0d30e0e38a406b3ddbff0b05f0",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -2048,6 +2049,7 @@
     "src/game/buddy_veciter_info_dtor.cpp": "33b35199d802def65633c148e421a5eee99020a2f980def95114003d29112a24",
     "src/game/buddy_veciter_path_dtor.cpp": "da28bd810e9d80517ac0bdd7eefe9f5c58bb71a8c1391bd137ad6eccc7475c43",
     "src/game/bullet_asbullet.cpp": "2975a506b876058410ff94b47dac21c0128e08b6504df39afc4aeb9cc85b7c87",
+    "src/game/bullet_ctor.cpp": "31bd1fb0be715a1bcae0e167d6711ee92f8feabb6ed6635f8d23ca72dd4772aa",
     "src/game/bullet_draw.cpp": "09df292753cae3ef115faaa9d446070b7a605ae7f70bceff59a555dad9e17add",
     "src/game/bullet_rows.cpp": "61a2169543f0cd466b957ceddfb3f97973bfa5e73bf310829732a37229a1f0a2",
     "src/game/bulletfactory.cpp": "30a1dfed133da377fe27dc08135a3e2f022d21e8c278aa03c655122a53f68ce1",
@@ -37158,6 +37160,45 @@
       "discarded_functions": [],
       "object_sha256": "da94dd7a626e4eb640ab4b8ad3dfa9019160a38e5cb65c90ce7eab86f6c71195",
       "linked_sha256": "6b41d04d3dfd2a847b34d4637a3c618bf413f739c28fb76f9fb43f1ff692e55b"
+    },
+    {
+      "id": "bullet_ctor",
+      "category": "reconstructed_game",
+      "functions": 5,
+      "code_bytes": 424,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [],
+      "object_sha256": "d5711b3fc3e02d5cd37505385d346ff64ad198d4da3b72403aa79db8c1b8b484",
+      "linked_sha256": "996fc1fb694456538470533eb672a86090d68305f4c4f7e6c6364e29ecdc8bfc"
     }
   ],
   "code_map": {
@@ -45798,48 +45839,6 @@
             "size": 628,
             "kind": "function",
             "name": "reserve__Q23dwi20list<PC10CCDBObject>FiPc",
-            "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/bullet.cpp [symbol evidence]",
-        "file_record": 135,
-        "file_name": "bullet.cpp",
-        "ranges": [
-          {
-            "address": "0x800ccc00",
-            "size": 4,
-            "kind": "function",
-            "name": "Draw__7CBulletFR12CDrawContext",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800ccc04",
-            "size": 28,
-            "kind": "function",
-            "name": "Shutdown__7CBulletFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800ccc20",
-            "size": 84,
-            "kind": "function",
-            "name": "Init__7CBulletFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800ccc74",
-            "size": 128,
-            "kind": "function",
-            "name": "__dt__7CBulletFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800cccf4",
-            "size": 180,
-            "kind": "function",
-            "name": "__ct__7CBulletFv",
             "evidence": "exception-index"
           }
         ]
