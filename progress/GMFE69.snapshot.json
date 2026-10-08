@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 537860,
+    "matching_code_bytes": 538532,
     "total_executable_code_bytes": 1414572,
-    "percent": 38.02280831233758,
+    "percent": 38.07031384758075,
     "categories": {
-      "reconstructed_game": 317668,
+      "reconstructed_game": 318340,
       "restored_library": 220192
     },
-    "matching_functions": 3288
+    "matching_functions": 3290
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -527,7 +527,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "3b9e8415995a22ac6fbd3f1ac15266acd35e353f40a18aa33de3a66ff0219cae",
+    "config/GMFE69/project.json": "60410864f01c1c17ca93da90afc8f713c4ef15a31a2f698a04a2a4a2a5753152",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_init.json": "59efa2f81e573b18eb9d4793a24578d542a47e4cded42890b4e9f88779a0b4a4",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
@@ -667,6 +667,7 @@
     "config/GMFE69/smixer_create.json": "518a6d506e6644127d22e7e02c46242859f090fffdf5b73969a7b1b5fffcfae5",
     "config/GMFE69/smixer_destroy.json": "c7f9054b12e6e06e84a406f33d38d123829e0f63c96720a8bf90cb8999d2300c",
     "config/GMFE69/smixer_dry.json": "08fb2043e1a9bc4a1dd232a98b76b0cbfe91a47dab00386a183028478ed19d6c",
+    "config/GMFE69/smixer_play.json": "863c3254355da3c3e60bbd7d19006c6008e6d69a1c7010a9afbb9bac46b397e4",
     "config/GMFE69/smixer_reset.json": "58c23a15b2de4fe8c811d7c48458987d9edc48707f992093db3ca0ba98a0d67f",
     "config/GMFE69/smixer_stop.json": "0438b58dc8e4527dd53f8dab69d5aa96ed5fdb0c117179a247790346f6daa29f",
     "config/GMFE69/smixfram.json": "d51872b43a7c17cc24a25006ba590aa09cb544d5c2c3cf82734f9da270731eb7",
@@ -1714,6 +1715,7 @@
     "src/ea/smixer_create.c": "f91636251d802cefdba99fdedd61ce052f522bfc16c7e72a033f09f4abd73843",
     "src/ea/smixer_destroy.c": "a6a97733c892887be40ae6f1db014e248827a1ffaec14fca7a25cbf8f314a1a8",
     "src/ea/smixer_dry.c": "3f9c2be825d4e024a1ac72bf67ce11121e2a63fb6969230dac903d17911ce285",
+    "src/ea/smixer_play.c": "4317334be3a096b121c249b158d4be735437ad53197100c8db40540a10d7d326",
     "src/ea/smixer_reset.c": "8061f975db5e5e97f5aeec01fde18019bc8797a92f96b7e6a9d607d82ac80655",
     "src/ea/smixer_stop.c": "76b102d37d5cbeedf318784213b1d95c86e990eaad3bc4676f1bff6777c98b35",
     "src/ea/smixfram.c": "f9b2f944adf9a8e1e4cfc3dd30ce49ba917154599824ac5c528febb47dff988a",
@@ -35395,6 +35397,45 @@
       "discarded_functions": [],
       "object_sha256": "796b3ac4c4079dbba5983e46f198c9ec8bd64fbc272a0a300434ab4228addae6",
       "linked_sha256": "5ef7e0cd1b632ae090a071ad1be6e31dac069af4bc07c37e2199c9c5926d3b39"
+    },
+    {
+      "id": "smixer_play",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 672,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse",
+        "-use_lmw_stmw",
+        "off",
+        "-lang",
+        "c++"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "8081c576da22b1d39085c616549a603538097c48a5d5b03147bdc2db25433b64",
+      "linked_sha256": "af6e5b44e92d8640c1c267329265f5b2a910d66cc1f14baf6af3a7250a600bf1"
     }
   ],
   "code_map": {
@@ -48399,20 +48440,6 @@
             "size": 408,
             "kind": "function",
             "name": "SNDMIXI_volramp__FP11SNDMIXVOICE",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x801605bc",
-            "size": 580,
-            "kind": "function",
-            "name": "MIX_playinit",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80160800",
-            "size": 92,
-            "kind": "function",
-            "name": "MIX_play",
             "evidence": "between-same-file"
           },
           {

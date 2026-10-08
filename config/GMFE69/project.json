@@ -793,7 +793,8 @@
     "matrix_scale.json",
     "hearingvolume_init.json",
     "nubinit.json",
-    "smixer_create.json"
+    "smixer_create.json",
+    "smixer_play.json"
   ],
   "progress": {
     "code_bytes": 1414572,
