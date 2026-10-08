@@ -9,11 +9,13 @@
 // tanks, or at the script trigger's position and rotation; then moved by the
 // offset) and return it, followed by the weak, empty
 // CParticleSystem::SetLocalToWorld and the weak CStaticObject::AsThrownObject
-// (0). Each reads its arguments below the script stack top (the system first)
-// and pops the built-in's arguments; a null system is skipped. The file name is
-// this project's; the original record is bsbifunc.cpp and the built-ins around
-// these are not reconstructed (ResetParticleSystemRotation after them copies a
-// matrix row field by field here, not as the original's two doubles). The
+// (0), then reset a particle system's rotation (its matrix from the virtual
+// function at +84, kept position only). Each reads its arguments below the
+// script stack top (the system first) and pops the built-in's arguments; a
+// null system is skipped. CVector3 is a view with its components and a double
+// pair overlaid in a named union, which gives the position's doubleword copy.
+// The file name is this project's; the original record is bsbifunc.cpp and the
+// built-ins around these are not reconstructed. The
 // functions, classes and globals are named by the mangled symbols; ISceneNode
 // is declared with its virtual functions in the order of __vt__10ISceneNode
 // (SetAttachedLight at +212) and IMovingSceneNode's after them in the order of
@@ -33,14 +35,20 @@
 // CVector3 view: four floats, 8-byte aligned, built by an inline constructor
 // from x, y and z (inferred; the copy to the by-value argument is two lfd/stfd
 // pairs).
+union CVector3Data {
+    double pair[2];
+    float v[4];
+};
+
 class CVector3 {
 public:
-    CVector3(float ax, float ay, float az) : x(ax), y(ay), z(az) {}
+    CVector3(float ax, float ay, float az) {
+        d.v[0] = ax;
+        d.v[1] = ay;
+        d.v[2] = az;
+    }
 
-    float x;
-    float y;
-    float z;
-    float w;
+    CVector3Data d;
 } __attribute__((aligned(8)));
 
 class CMatrix {
@@ -50,6 +58,7 @@ public:
             InitClass();
     }
     static void InitClass();
+    void Ident();
     void SetPos(CVector3);
     void PreTranslate(CVector3);
 
@@ -248,7 +257,7 @@ public:
     virtual void unknown48() = 0;
     virtual void unknown4c() = 0;
     virtual void unknown50() = 0;
-    virtual void unknown54() = 0;
+    virtual void unknown54(CMatrix&) const = 0;
     virtual void unknown58() = 0;
     virtual void unknown5c() = 0;
     virtual void unknown60() = 0;
@@ -365,4 +374,17 @@ __declspec(weak) void CParticleSystem::SetLocalToWorld(const CMatrix&) {
 
 __declspec(weak) void* CStaticObject::AsThrownObject() {
     return 0;
+}
+
+void BIFunc_ResetParticleSystemRotation(int** stack, void*) {
+    CParticleSystem* system = *(CParticleSystem**)(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - 1));
+    if (system) {
+        CMatrix matrix;
+        system->unknown54(matrix);
+        CVector3 position = *(const CVector3*)matrix.m[3];
+        matrix.Ident();
+        matrix.SetPos(position);
+        system->SetLocalToWorld(matrix);
+    }
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
 }
