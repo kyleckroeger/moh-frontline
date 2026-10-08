@@ -818,7 +818,12 @@
     "dmesh_cpart_dtor.json",
     "dmesh_cremapbin_dtor.json",
     "csg_volume_ctor.json",
-    "compartment_volbox.json"
+    "compartment_volbox.json",
+    "Moh2_idestructible_dtor.json",
+    "AIFilter_caifilterobject_dtor.json",
+    "animated_dtor.json",
+    "particlesystem_cparticlesystem_dtor.json",
+    "Screen_cscreen_dtor.json"
   ],
   "progress": {
     "code_bytes": 1414572,
