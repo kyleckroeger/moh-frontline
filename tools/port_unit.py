@@ -255,6 +255,13 @@ def kept_span(obj, index, kept, original, locals_):
     roots = [(f["section"], f["address"], f["address"] + f["size"]) for f, _ in kept]
     # Objects that point at kept code (exception-index entries) are kept too.
     kept_ranges = [(f["section"], f["address"], f["address"] + f["size"]) for f, _ in kept]
+    if not objects:
+        # No objects to trim by (a .ctors entry): kept whole if it points at kept code.
+        if any(where_section == index and any(symbol["section"] == c and a <= symbol["address"] + addend < b
+                                              for c, a, b in kept_ranges)
+               for where_section, _, _, symbol, addend in relocations(obj)):
+            return 0, obj.sections[index]["size"], []
+        return None
     by_section = {}
     for s in symbols:
         if s["type"] == 1 and s["size"] and s["section"] and s["section"] < 0xFF00:

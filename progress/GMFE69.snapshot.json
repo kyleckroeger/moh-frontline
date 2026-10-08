@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 550432,
+    "matching_code_bytes": 550492,
     "total_executable_code_bytes": 1414572,
-    "percent": 38.9115577008452,
+    "percent": 38.915799266491916,
     "categories": {
-      "reconstructed_game": 330240,
+      "reconstructed_game": 330300,
       "restored_library": 220192
     },
-    "matching_functions": 3362
+    "matching_functions": 3363
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -383,7 +383,7 @@
     "config/GMFE69/devicemgr.json": "10f2721824edfcdffcf31106d2c358bfa4faef3f1b172aa3fb212dcf84859bd1",
     "config/GMFE69/direct_io.json": "6bc91b9814ea8394c4fb8292d3c0f477dd5841c089e81e92061adaca275f77ab",
     "config/GMFE69/dispatch.json": "9785b3256f8baf02b4d894ff082a1103522e7730d2bea7f05c504b418b5a462f",
-    "config/GMFE69/dmcluster.json": "380b39532addd96fa0901e774bf40c9587a0c3162eaf86cef30c634a59fe0f75",
+    "config/GMFE69/dmcluster.json": "a755dd872c12d4f9b8c8a07f7d57b1748ad25961fbf9dd950ab398647b885f48",
     "config/GMFE69/dmesh_cdmrenderbin_dtor.json": "9268c39adea76876007405b66193ec625771adcbaf7ec550e54206a3828962dc",
     "config/GMFE69/dmesh_cpart_dtor.json": "0855cb19e56c581f16276a547691ac2749ea3dcaae715227de3f371dc271f9a4",
     "config/GMFE69/dmesh_cpartbin_dtor.json": "afd04783e41e05afbc1cac4fa7f84bd1386ef01427128bf934fe1896a2253d37",
@@ -2099,7 +2099,7 @@
     "src/game/decal_dtor.cpp": "b4562921b5a9a8a5d306e7121c8ea46eaa105eef9d475b027239c0a6c29de8f4",
     "src/game/destructor_queue.cpp": "96832ec7b1265822d1e18a69dea9302e793bb1a399694519922f360dbfc5c361",
     "src/game/devicemgr.cpp": "8e6a3c45bc811693b9e025c82952ae10e5b41aaa87683eca70c28ff647b85f97",
-    "src/game/dmcluster.cpp": "53094808d6cd32d22589b68470693b6cb3bce9afd0ce6f661eeb0055dbed17fa",
+    "src/game/dmcluster.cpp": "4d5c64614596f9e6b4f07e58c306e10efccb4877c60c1a797f610bac16cdcbe1",
     "src/game/dmesh_cdmrenderbin_dtor.cpp": "f7166e01710b5976a04c82f69bedf1d0abe9770f52d41a9ae0cc94e87b446af7",
     "src/game/dmesh_cpart_dtor.cpp": "f7eeccfca131178dc41494f0e11284ce3b8ccc407280df4e395087431fb68f69",
     "src/game/dmesh_cpartbin_dtor.cpp": "aa5d43450684e64a6db29448c81c11c1f327d4809c7f388ff7b8682669485b3a",
@@ -2509,7 +2509,7 @@
     "tools/formats.py": "3124d742d0518c913dfc575602bba63befbd9e0e78220e5a85059cda277f8f81",
     "tools/import_disc.py": "a76b0fc8a963fa5e26e432e8261c26f199989c7e2fc2c90cf0116878db15597b",
     "tools/objdiff_config.py": "4133276adf513df6f4aad3d70df298f0bb0f8ced4ae1abc72703e8e0dc9bb13a",
-    "tools/port_unit.py": "a41882ace0d54899f9918473f099209dd6c45bc7b18aa44b8835bceab6076fdc",
+    "tools/port_unit.py": "d12baa5b6325c1011c974e18e89d6192a5c9155c6b53fdcfddf2235825458bf1",
     "tools/progress_report.py": "6f77d4f04165a2875275be1fe3d5a84fe128690c3b850c7ea3aaf1e1e307be1f",
     "tools/project_build.py": "5eeba828632757de7768d302165685ffd8f6b38a66773fcb37e200bdd93f4429",
     "tools/reconstruct.py": "ae713fceeb3eef9f113af483ad5e3d5d6f1123fc424d0595099247e3e07a4cf2",
@@ -21501,8 +21501,8 @@
     {
       "id": "dmcluster",
       "category": "reconstructed_game",
-      "functions": 2,
-      "code_bytes": 112,
+      "functions": 3,
+      "code_bytes": 172,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -21532,10 +21532,10 @@
         "-fp_contract",
         "on"
       ],
-      "strip_unused": false,
+      "strip_unused": true,
       "discarded_functions": [],
-      "object_sha256": "3d7546b908d560953dee1cc101742b8918f05b6ec0c878e7fed01e8496765a67",
-      "linked_sha256": "e43d85c80388c0d3121b13e1ab0b3df35182b48249df2a5aca7465a38627ca6f"
+      "object_sha256": "cf4b661d293fb609286801a8c2a4d9b715d2efcbbd7f4af8b114bd2e42ea5036",
+      "linked_sha256": "9bc3c7b410e5a3a520c39cbcb0cdd231026e858d3fda0e18a53ac319c67f05b1"
     },
     {
       "id": "animplayer",
@@ -47832,13 +47832,6 @@
             "kind": "function",
             "name": "DMClusterSynthesizeMatrices__FUlP17DMClusterObject_TP6CDMeshP13CharOrient3_t",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f5824",
-            "size": 60,
-            "kind": "function",
-            "name": "__sinit_dmcluster_cpp",
-            "evidence": "local-file-symbol"
           }
         ]
       },
