@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 542860,
+    "matching_code_bytes": 542976,
     "total_executable_code_bytes": 1414572,
-    "percent": 38.37627211623021,
+    "percent": 38.38447247648052,
     "categories": {
-      "reconstructed_game": 322668,
+      "reconstructed_game": 322784,
       "restored_library": 220192
     },
-    "matching_functions": 3298
+    "matching_functions": 3299
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -667,7 +667,7 @@
     "config/GMFE69/smixer.json": "2ff9d9a8c952ddc00ce6c9de4df2ab0090ae102c9a5b040edcbc642f0cd59922",
     "config/GMFE69/smixer_create.json": "518a6d506e6644127d22e7e02c46242859f090fffdf5b73969a7b1b5fffcfae5",
     "config/GMFE69/smixer_destroy.json": "c7f9054b12e6e06e84a406f33d38d123829e0f63c96720a8bf90cb8999d2300c",
-    "config/GMFE69/smixer_dry.json": "08fb2043e1a9bc4a1dd232a98b76b0cbfe91a47dab00386a183028478ed19d6c",
+    "config/GMFE69/smixer_dry.json": "e1947c4ff72736a6a361619c53fe0f113d5333b1c34b888ef96773ecc1aeb83d",
     "config/GMFE69/smixer_play.json": "863c3254355da3c3e60bbd7d19006c6008e6d69a1c7010a9afbb9bac46b397e4",
     "config/GMFE69/smixer_reset.json": "58c23a15b2de4fe8c811d7c48458987d9edc48707f992093db3ca0ba98a0d67f",
     "config/GMFE69/smixer_stop.json": "0438b58dc8e4527dd53f8dab69d5aa96ed5fdb0c117179a247790346f6daa29f",
@@ -1716,7 +1716,7 @@
     "src/ea/smixer.c": "42f20d586014ed92c3f870b261de87733f26d111fdf95ebe384c1da426216d28",
     "src/ea/smixer_create.c": "f91636251d802cefdba99fdedd61ce052f522bfc16c7e72a033f09f4abd73843",
     "src/ea/smixer_destroy.c": "a6a97733c892887be40ae6f1db014e248827a1ffaec14fca7a25cbf8f314a1a8",
-    "src/ea/smixer_dry.c": "3f9c2be825d4e024a1ac72bf67ce11121e2a63fb6969230dac903d17911ce285",
+    "src/ea/smixer_dry.c": "f550454e9a28a0dbe8b0f1961e30a48087bf300111badf38e7d0d81a913e2ee2",
     "src/ea/smixer_play.c": "4317334be3a096b121c249b158d4be735437ad53197100c8db40540a10d7d326",
     "src/ea/smixer_reset.c": "8061f975db5e5e97f5aeec01fde18019bc8797a92f96b7e6a9d607d82ac80655",
     "src/ea/smixer_stop.c": "76b102d37d5cbeedf318784213b1d95c86e990eaad3bc4676f1bff6777c98b35",
@@ -30050,8 +30050,8 @@
     {
       "id": "smixer_dry",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 52,
+      "functions": 2,
+      "code_bytes": 168,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -30083,8 +30083,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "70fa723d5b2fe139a811f03b5e72d8ce100a10d6fb1ad93c9d0d556c38dc46da",
-      "linked_sha256": "6e3e59bd04780e5ec4570b78856ad9cece66c6fd304347b731fc0510604ec15f"
+      "object_sha256": "6ebc37d63dfec43cb15258eddd6ed02e407ec1b4141ee8fa2ce86d5e2c756fbd",
+      "linked_sha256": "db85f605b8f520d83d49d2509fbe4d25dd8e2c8587ad0529df602220b0174b86"
     },
     {
       "id": "saramman_free",
@@ -48456,13 +48456,6 @@
             "kind": "function",
             "name": "SNDMIXI_volramp__FP11SNDMIXVOICE",
             "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8016095c",
-            "size": 116,
-            "kind": "function",
-            "name": "SNDMIX_setwetgain",
-            "evidence": "private-reference"
           },
           {
             "address": "0x801609d0",

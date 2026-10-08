@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x80160928",
-      "size": 52,
+      "size": 168,
       "type": 1
     }
   ],
@@ -47,6 +47,12 @@
       "name": "SNDMIX_setdrygain",
       "address": "0x80160928",
       "size": 52,
+      "binding": 1
+    },
+    {
+      "name": "SNDMIX_setwetgain",
+      "address": "0x8016095c",
+      "size": 116,
       "binding": 1
     }
   ],
@@ -60,5 +66,16 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "smixer.c",
-  "original_file_index": 12973
+  "original_file_index": 12973,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80351ac0"
+    }
+  ]
 }
