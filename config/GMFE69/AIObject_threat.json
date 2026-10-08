@@ -39,20 +39,20 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8004d0fc",
-      "size": 540,
+      "address": "0x8004cf48",
+      "size": 976,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000a880",
-      "size": 24,
+      "address": "0x8000a878",
+      "size": 32,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x800119cc",
-      "size": 36,
+      "address": "0x800119c0",
+      "size": 48,
       "type": 1
     }
   ],
@@ -61,6 +61,12 @@
       "name": "ComputeStatusExponentialDistance__9CAIObjectFP9CAIObject",
       "address": "0x8004d164",
       "size": 344,
+      "binding": 1
+    },
+    {
+      "name": "ComputeStatusLOSValue__9CAIObjectFP9CAIObject",
+      "address": "0x8004cf48",
+      "size": 436,
       "binding": 1
     },
     {
@@ -83,8 +89,10 @@
     }
   ],
   "externals": {
+    "CheckVisionLineToEnvironment__15CAIFilterGlobalFRC21CAIFilterRealPositionRC21CAIFilterRealPositionP15CAIFilterObject": "0x8005c370",
     "GetDistanceXYReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition": "0x8005a728",
-    "GetDistanceXYZReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition": "0x8005a7b0"
+    "GetDistanceXYZReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition": "0x8005a7b0",
+    "printf": "0x8013dc88"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -95,108 +103,151 @@
   "original_file": "AIObject.cpp",
   "original_file_index": 1752,
   "pooled_sections": [
-    ".sdata2"
+    ".sdata2",
+    ".rodata"
   ],
   "pool_references": [
     {
-      "section": ".sdata2",
+      "section": ".rodata",
       "offset": 0,
-      "size": 4,
-      "address": "0x8034f900"
+      "size": 63,
+      "address": "0x8016f640"
     },
     {
       "section": ".sdata2",
-      "offset": 4,
-      "size": 4,
-      "address": "0x8034f904"
+      "offset": 0,
+      "size": 8,
+      "address": "0x8034f840"
     },
     {
       "section": ".sdata2",
       "offset": 8,
-      "size": 4,
-      "address": "0x8034f8fc"
-    },
-    {
-      "section": ".sdata2",
-      "offset": 12,
-      "size": 4,
-      "address": "0x8034f878"
+      "size": 8,
+      "address": "0x8034f848"
     },
     {
       "section": ".sdata2",
       "offset": 16,
       "size": 4,
-      "address": "0x8034f908"
+      "address": "0x8034f8b0"
     },
     {
       "section": ".sdata2",
       "offset": 20,
       "size": 4,
-      "address": "0x8034f90c"
+      "address": "0x8034f8a0"
     },
     {
       "section": ".sdata2",
       "offset": 24,
       "size": 4,
-      "address": "0x8034f880"
+      "address": "0x8034f8a8"
     },
     {
       "section": ".sdata2",
       "offset": 28,
       "size": 4,
-      "address": "0x8034f910"
+      "address": "0x8034f8ac"
     },
     {
       "section": ".sdata2",
       "offset": 32,
       "size": 4,
-      "address": "0x8034f914"
+      "address": "0x8034f900"
     },
     {
       "section": ".sdata2",
       "offset": 36,
       "size": 4,
-      "address": "0x8034f8f8"
+      "address": "0x8034f904"
     },
     {
       "section": ".sdata2",
       "offset": 40,
       "size": 4,
-      "address": "0x8034f918"
+      "address": "0x8034f8fc"
     },
     {
       "section": ".sdata2",
       "offset": 44,
       "size": 4,
-      "address": "0x8034f91c"
+      "address": "0x8034f878"
     },
     {
       "section": ".sdata2",
       "offset": 48,
       "size": 4,
-      "address": "0x8034f920"
+      "address": "0x8034f908"
     },
     {
       "section": ".sdata2",
       "offset": 52,
       "size": 4,
-      "address": "0x8034f924"
+      "address": "0x8034f90c"
     },
     {
       "section": ".sdata2",
       "offset": 56,
       "size": 4,
-      "address": "0x8034f928"
+      "address": "0x8034f880"
     },
     {
       "section": ".sdata2",
       "offset": 60,
       "size": 4,
-      "address": "0x8034f8bc"
+      "address": "0x8034f910"
     },
     {
       "section": ".sdata2",
       "offset": 64,
+      "size": 4,
+      "address": "0x8034f914"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 68,
+      "size": 4,
+      "address": "0x8034f8f8"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 72,
+      "size": 4,
+      "address": "0x8034f918"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 76,
+      "size": 4,
+      "address": "0x8034f91c"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 80,
+      "size": 4,
+      "address": "0x8034f920"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 84,
+      "size": 4,
+      "address": "0x8034f924"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 88,
+      "size": 4,
+      "address": "0x8034f928"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 92,
+      "size": 4,
+      "address": "0x8034f8bc"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 96,
       "size": 4,
       "address": "0x8034f8c0"
     }
