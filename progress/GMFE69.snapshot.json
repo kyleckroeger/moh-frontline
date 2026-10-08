@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 547540,
+    "matching_code_bytes": 547676,
     "total_executable_code_bytes": 1414572,
-    "percent": 38.70711423667371,
+    "percent": 38.716728452139584,
     "categories": {
-      "reconstructed_game": 327348,
+      "reconstructed_game": 327484,
       "restored_library": 220192
     },
-    "matching_functions": 3342
+    "matching_functions": 3343
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -142,6 +142,7 @@
     "config/GMFE69/SNDI_sin.json": "0b60fa9265dea81e4c4dc40bdaf11377f21325b62ab47bfd58ada88b7602fee2",
     "config/GMFE69/Screen.json": "f0db15b69156e55f32895e46a503a385b61d059debf39de4ba68893b2071b820",
     "config/GMFE69/Screen_cscreen_dtor.json": "6a21be9d3bd77d59150803fb92a394e9e948f20f53e5ffc37416aeb68788dbfe",
+    "config/GMFE69/Screen_cscreenfieldmode_dtor.json": "0de7b07303bafdb16b2aa5b04808db885097b71f9365f81695259fe44a7b60b4",
     "config/GMFE69/SearchNode.json": "2c7114d770c452c5de63f622ad4584807bd0b1ca57c24e32d8c7f24281651762",
     "config/GMFE69/SearchNodeList.json": "94a6f88f4b8062b0b71ee5f431cf4a7f102d07ca517660d3fe098a7fd2a44a2c",
     "config/GMFE69/SearchNode_tail.json": "82bf47d102a265a3559cd1ad02896cff8eff8e0fddd7370f762c1247835d7a4b",
@@ -557,7 +558,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "ccc1adfd2f7b662807486040ab85bfb3b5b27e729fcea94b2d041d5720f8dbf5",
+    "config/GMFE69/project.json": "1d7087c4add15ad43eaac9b9b6a602e0a2571f387f4787fa480478bcaf0ce5da",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
     "config/GMFE69/projectilebullet_init.json": "59efa2f81e573b18eb9d4793a24578d542a47e4cded42890b4e9f88779a0b4a4",
@@ -1876,6 +1877,7 @@
     "src/game/Pause_unpause.cpp": "ce619ade12ef215f4aa85cb7d5f8e9a7b23aa483a4180d456210c0df3c22cfa1",
     "src/game/Screen.cpp": "6c4492b89d7cc8a41dea765c8ef19369a5aae16329f0a3b00621e2b86415703b",
     "src/game/Screen_cscreen_dtor.cpp": "eb113ea173454cb3f8b58e4c3cf7c80e073dfc7ba9ba0a6891ed59b2cc3f5e50",
+    "src/game/Screen_cscreenfieldmode_dtor.cpp": "c4ec43062429166db49696fd7258120e372ddbb1b231fffff97c39b528fbbaef",
     "src/game/SearchNode.cpp": "6b76164fd42a19131dcf90f9fe0ec86b20e0ef3d9c948defd80b5441bde9d333",
     "src/game/SearchNodeList.cpp": "738d75054ffdc5c611f06f3c0f8d330d60226794efc3684079e2280494a4d65c",
     "src/game/SearchNode_tail.cpp": "ac957dcb51976bf56af734d6ff8433a4bc34a95f066fdc0708034b825032e2e2",
@@ -36953,6 +36955,45 @@
       "discarded_functions": [],
       "object_sha256": "a16f1b5a06945e4a6e3192e009799098be4544418f6891d3b2b67489f67147e4",
       "linked_sha256": "092f10034c3f0544c3d1798c53e8cfbb3b7e2318a6412966ca83e4f2f55f7e49"
+    },
+    {
+      "id": "Screen_cscreenfieldmode_dtor",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 136,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "6750085248d6cdbbefae22015420b3c625ad1054cdbaef2c8bb16cc27344d4f2",
+      "linked_sha256": "45d1fe616b19ef82060bef7ee3082ca44082bf53652a46fe6eba0e55127c8c61"
     }
   ],
   "code_map": {
@@ -37170,13 +37211,6 @@
             "kind": "function",
             "name": "Rebuild__16CScreenFieldModeFv",
             "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001b4bc",
-            "size": 136,
-            "kind": "function",
-            "name": "__dt__16CScreenFieldModeFv",
-            "evidence": "exception-index"
           },
           {
             "address": "0x8001b544",
