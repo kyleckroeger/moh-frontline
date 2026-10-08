@@ -39,24 +39,30 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80031d50",
-      "size": 1208,
+      "address": "0x80031bc4",
+      "size": 1604,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000a034",
-      "size": 40,
+      "address": "0x8000a02c",
+      "size": 48,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80010e14",
-      "size": 60,
+      "address": "0x80010e08",
+      "size": 72,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "BIFunc_SetupGrenadeShot__FPPiPv",
+      "address": "0x80031bc4",
+      "size": 396,
+      "binding": 1
+    },
     {
       "name": "BIFunc_AISetStatusVar__FPPiPv",
       "address": "0x80031d50",
@@ -90,6 +96,7 @@
   ],
   "externals": {
     "GetDistanceXYReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition": "0x8005a728",
+    "TestGrenadeShot__9CAIObjectFf": "0x8004e9f8",
     "g_iCurrentBIFIndex": "0x8034e77c",
     "g_pBuiltInFunctions": "0x8034e778"
   },
@@ -103,5 +110,34 @@
     "g_pBuiltInFunctions"
   ],
   "original_file": "bsbifunc.cpp",
-  "original_file_index": 443
+  "original_file_index": 443,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034f6d4"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x8034f704"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 4,
+      "address": "0x8034f708"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 12,
+      "size": 4,
+      "address": "0x8034f70c"
+    }
+  ]
 }

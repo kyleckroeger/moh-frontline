@@ -1,4 +1,8 @@
-// A fragment of bsbifunc.cpp (0x80031d50): AI built-ins that set a status
+// A fragment of bsbifunc.cpp (0x80031bc4): AI built-ins that set up a grenade
+// shot (for each of flags 1, 2 and 4 in turn, while the AI object has the
+// pointer at +196, test a grenade shot at 20, 45 or 5 degrees and return the
+// first flag whose test gives an angle other than -1, else 0; the last tested
+// angle is stored in the script data at +184), set a status
 // variable (status 13 set to 15 also clears status 0 and switches the animated
 // object's high-detail or player collision id to 25), send a flag (flags 1, 4
 // and others set bits; flags 2 and 8 set or clear a bit by the second argument,
@@ -14,7 +18,8 @@
 // __vt__10ISceneNode (GetCollisionId at +88, SetCollisionId at +92,
 // AsAnimObject at +140, GetAIDoodad at +204); the doodad, filter, AI object
 // (members at their offsets, names not original) and built-in record views, the
-// argument helpers and the reversed copy of the move point are inferred.
+// argument helpers, the grenade-shot helper, the script-object, script-data
+// and result views and the reversed copy of the move point are inferred.
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
@@ -24,6 +29,7 @@ class CBullet;
 class CLight;
 class CPlayerObject;
 struct AIDoodadView;
+struct BSObjectView;
 
 class ISceneNode {
 public:
@@ -50,7 +56,7 @@ public:
     virtual int IsDrawEnabled() const;
     virtual EClsnId GetCollisionId() const;
     virtual void SetCollisionId(EClsnId);
-    virtual int GetScriptObject() const;
+    virtual BSObjectView* GetScriptObject() const;
     virtual void TriggerScriptEvent(int, void*, bool);
     virtual void HandleBulletCollision(CBullet*, const CCollision&);
     virtual void* AsMovingNode();
@@ -95,6 +101,8 @@ public:
 
 class CAIObject {
 public:
+    float TestGrenadeShot(float);
+
     unsigned char unknown000[24];
     CAIFilterRealPosition m_position;
     unsigned char unknown024[20];
@@ -102,7 +110,9 @@ public:
     unsigned char unknown044[4];
     float m_snapAngle;
     bool m_snapToAngle;
-    unsigned char unknown04d[347];
+    unsigned char unknown04d[119];
+    void* m_unknown0c4;
+    unsigned char unknown0c8[224];
     unsigned int m_flags424;
     unsigned char unknown1ac[4];
     unsigned int m_flags432;
@@ -118,6 +128,29 @@ struct CAIFilterView {
 struct AIDoodadView {
     void* unknown00;
     CAIFilterView* filter;
+};
+
+struct ScriptDataView {
+    unsigned char unknown00[184];
+    float m_unknown0b8;
+};
+
+class BSGO_Basic {
+    unsigned char unknown00[12];
+
+public:
+    virtual void Destroy();
+    virtual ScriptDataView* GetScriptData();
+};
+
+struct BSObjectView {
+    unsigned char unknown00[12];
+    BSGO_Basic* user;
+};
+
+union BSValueView {
+    int i;
+    float f;
 };
 
 struct BSBuiltinView {
@@ -141,6 +174,28 @@ inline float BSArgFloat(int** stack, int index) {
 
 inline CAIObject* GetAIObject(void* object) {
     return ((ISceneNode*)object)->GetAIDoodad()->filter->object;
+}
+
+inline int ChooseGrenadeShot(CAIObject* ai, int flags, float& angle) {
+    if (ai->m_unknown0c4) {
+        if ((flags & 1) && (angle = ai->TestGrenadeShot(0.34906584f)) != -1.0f)
+            return 1;
+        if ((flags & 2) && (angle = ai->TestGrenadeShot(0.7853982f)) != -1.0f)
+            return 2;
+        if ((flags & 4) && (angle = ai->TestGrenadeShot(0.08726646f)) != -1.0f)
+            return 4;
+    }
+    return 0;
+}
+
+void BIFunc_SetupGrenadeShot(int** stack, void* object) {
+    BSValueView value;
+    float angle;
+    int flags = BSArgInt(stack, 1);
+    value.i = ChooseGrenadeShot(GetAIObject(object), flags, angle);
+    ((ISceneNode*)object)->GetScriptObject()->user->GetScriptData()->m_unknown0b8 = angle;
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    *(BSValueView*)*stack = value;
 }
 
 void BIFunc_AISetStatusVar(int** stack, void* object) {
