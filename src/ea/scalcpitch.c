@@ -1,10 +1,34 @@
-/* iSNDcalcpitch (0x8015e03c; the original has no file record for it) works
-   out a voice's pitch - when it is not yet known, the detune plus the pitch-bend
+/* sclcptch.c (0x8015df5c): iSNDdetunetolinear converts a detune in cents to
+   a linear pitch factor (4096 at no detune: whole octaves double or halve it,
+   the remaining cents index the sndcents table), and iSNDcalcpitch works out
+   a voice's pitch - when it is not yet known, the detune plus the pitch-bend
    wheel (through the voice's bend table when it has one) and the LFO
    contribution, converted to a linear factor - and scales it by the voice's
-   rate. sndgs is named by its symbol; its view and the voice record (128
-   bytes) are inferred. */
+   rate. The file is built without automatic inlining (-inline on, as sst.c
+   in the same library): iSNDcalcpitch calls iSNDdetunetolinear rather than
+   inlining it. sndgs and sndcents (the file's own data, declared extern here)
+   are named by their symbols; sndgs's view and the voice record (128 bytes)
+   are inferred. */
 extern "C" char sndgs[];
+extern "C" unsigned char sndcents[];
+
+int iSNDdetunetolinear(int detune) {
+    int scale = 4096;
+    while (detune >= 1200) {
+        scale <<= 1;
+        detune -= 1200;
+    }
+    while (detune <= -1200) {
+        scale >>= 1;
+        detune += 1200;
+    }
+    int index = detune * 13981 >> 16;
+    if (index < -255)
+        index = -255;
+    if (index < 0)
+        return scale * (sndcents[index + 256] + 256) >> 9;
+    return scale * (sndcents[index] + 256) >> 8;
+}
 
 /* inferred: a sound voice record (128 bytes) */
 struct SNDVOICEVIEW {

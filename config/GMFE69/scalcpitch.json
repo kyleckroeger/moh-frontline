@@ -18,7 +18,7 @@
     "off",
     "-O4,p",
     "-inline",
-    "auto",
+    "on",
     "-pragma",
     "cats off",
     "-nosyspath",
@@ -37,12 +37,18 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8015e03c",
-      "size": 212,
+      "address": "0x8015df5c",
+      "size": 436,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "iSNDdetunetolinear__Fi",
+      "address": "0x8015df5c",
+      "size": 224,
+      "binding": 1
+    },
     {
       "name": "iSNDcalcpitch__Fi",
       "address": "0x8015e03c",
@@ -51,7 +57,7 @@
     }
   ],
   "externals": {
-    "iSNDdetunetolinear__Fi": "0x8015df5c",
+    "sndcents": "0x801934f8",
     "sndgs": "0x80340860"
   },
   "undefined_in_discarded_code": [],
@@ -59,5 +65,7 @@
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": []
+  "sda_externals": [],
+  "original_file": "sclcptch.c",
+  "original_file_index": 12872
 }

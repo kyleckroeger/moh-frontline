@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 528924,
+    "matching_code_bytes": 529148,
     "total_executable_code_bytes": 1414572,
-    "percent": 37.39109780202068,
+    "percent": 37.40693298043507,
     "categories": {
-      "reconstructed_game": 309964,
+      "reconstructed_game": 310188,
       "restored_library": 218960
     },
-    "matching_functions": 3244
+    "matching_functions": 3245
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -584,7 +584,7 @@
     "config/GMFE69/sbremove.json": "9116966e0a4af54871d355ceb5f88cafb659766b12e39879b128dfd8649f75da",
     "config/GMFE69/sbvalid.json": "863cd244b11a9ed40c9fc6be27ba563a378f41b8c056b17c470d2542642cff7e",
     "config/GMFE69/scalcfx.json": "dcf000d282f99f538f32548197301e551a344bc7825d4af12e83db9bf708aff2",
-    "config/GMFE69/scalcpitch.json": "1044f6870d3247c40bf595714395ad94aa4011f16aa3a571ec5a334a2cd63a36",
+    "config/GMFE69/scalcpitch.json": "9d4551385edd15dca009b7c5f5db6ed09af26a9329f2454819f15d975c3fede6",
     "config/GMFE69/scanf.json": "8b6c8c106b3e30ef33cf95e2b2598aa1fa8faba019ccbe4cde367c2c19efc736",
     "config/GMFE69/scene.json": "f6c9a8b19f28e3eb26520cf536804107387532f4b48ac2fef4eaa9a57a03639f",
     "config/GMFE69/scene_cmppairs.json": "6b9e284642ade4004aa96888acd6466e3a30484908f6b83036f102837837bef0",
@@ -1652,7 +1652,7 @@
     "src/ea/sbremove.c": "26dd4db3e8b310787ea3f1d6aa09605f2eebf0c64908a3ee8408d15d29e3da9b",
     "src/ea/sbvalid.c": "9ee5cfd72307b1db2bed61b641eadeebcfc1650a951751ace625be64ec24c10f",
     "src/ea/scalcfx.c": "85fda0fc3ffdc7563b22f679957d60cf1299536991c8cb699928150067286be5",
-    "src/ea/scalcpitch.c": "9ddaa5ca31c6eb80a94779fe20dfaef74839e59dbc2623c32951dfecfa4c96f7",
+    "src/ea/scalcpitch.c": "926dcf6048d0f4d5a2cccd84255306ca1c55bdba5f8f47e59bdc6a86d14951bc",
     "src/ea/sclnt100.c": "b66db7c5dd3ac2f356f6d1a28160a54beae4ba3a0b9c96c20bce6ef6d59fddca",
     "src/ea/sctlfilt.c": "f0ee0f9939f8a8bf3d378bd02f819abd234a5da38120e7e84861b2ec0a3b180b",
     "src/ea/sctrldry.cpp": "98429e0252980217b230bcd6d5250668bdac5623e921d3124d66481497622d43",
@@ -30233,8 +30233,8 @@
     {
       "id": "scalcpitch",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 212,
+      "functions": 2,
+      "code_bytes": 436,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -30251,7 +30251,7 @@
         "off",
         "-O4,p",
         "-inline",
-        "auto",
+        "on",
         "-pragma",
         "cats off",
         "-nosyspath",
@@ -30266,8 +30266,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "9a6f0ce0be08220380ce6f96ada46dac518a3f2a7c98dd9ca25bcd7c1c1110e7",
-      "linked_sha256": "ca1c12dd1218cedd7cad293034dee1a46c4b1a09c9a4056425e5ffa41928fc33"
+      "object_sha256": "621ba7fc979036b3f1f305562efe35d47a16d52d6b909a9e01432aff23848243",
+      "linked_sha256": "0fd3581fb8114931d042e49b20905bae3a8bfc892bcea183dd7490f5ed12038d"
     },
     {
       "id": "sdrv_drop",
@@ -48419,18 +48419,6 @@
             "kind": "function",
             "name": "SNDVOICEI_free__Fi",
             "evidence": "between-same-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 8015df5c",
-        "ranges": [
-          {
-            "address": "0x8015df5c",
-            "size": 224,
-            "kind": "function",
-            "name": "iSNDdetunetolinear__Fi",
-            "evidence": "unknown-file"
           }
         ]
       },
