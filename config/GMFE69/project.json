@@ -838,7 +838,8 @@
     "cdbobject_ctor.json",
     "static_obj_dtor.json",
     "bullet_ctor.json",
-    "Soldier_object_ctor.json"
+    "Soldier_object_ctor.json",
+    "compartment_ctor.json"
   ],
   "progress": {
     "code_bytes": 1414572,

@@ -1,0 +1,111 @@
+{
+  "id": "compartment_ctor",
+  "source": "src/game/compartment_ctor.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80076030",
+      "size": 408,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000bc4c",
+      "size": 56,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 64,
+      "stripped_objects": [
+        "@20"
+      ]
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80012b30",
+      "size": 24,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 36,
+      "stripped_objects": [
+        "@21"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "__ct__12CCompartmentFRC12CCompartment",
+      "address": "0x80076030",
+      "size": 216,
+      "binding": 1
+    },
+    {
+      "name": "__ct__12CCompartmentFv",
+      "address": "0x80076108",
+      "size": 192,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "MarkForDestruction__13IDestructibleFi": "0x800dd524",
+    "__ct__10CCDBObjectFP3CDB": "0x80071698",
+    "__ct__10CCDBObjectFRC10CCDBObject": "0x80071654",
+    "__dl__FPv": "0x8001ca2c",
+    "__dt__10ISceneNodeFv": "0x8001ada0",
+    "__dt__9IObserverFv": "0x800d80e0",
+    "__vt__10ISceneNode": "0x80181c78",
+    "__vt__12CCompartment": "0x80183d58",
+    "__vt__13IDestructible": "0x8018a228",
+    "__vt__8ISubject": "0x8018a1d4",
+    "__vt__9IObserver": "0x8018a1c0"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "compartment.cpp",
+  "original_file_index": 3422,
+  "stripped_sections": [
+    ".data"
+  ],
+  "weak_duplicates": [
+    "__dt__10ISceneNodeFv",
+    "__vt__10ISceneNode"
+  ]
+}
