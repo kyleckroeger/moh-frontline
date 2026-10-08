@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 540452,
+    "matching_code_bytes": 541144,
     "total_executable_code_bytes": 1414572,
-    "percent": 38.20604394827552,
+    "percent": 38.254963338734264,
     "categories": {
-      "reconstructed_game": 320260,
+      "reconstructed_game": 320952,
       "restored_library": 220192
     },
-    "matching_functions": 3293
+    "matching_functions": 3294
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -572,7 +572,7 @@
     "config/GMFE69/saemsstr.json": "dad2043399e558352b031e5eb44c4bdaf11ee59957cd1190a5cda86cb3dd9a02",
     "config/GMFE69/saemsstr_pool.json": "7ba443e70b25896778d915fd8dd84553e3828efa56599afb0c648f66aa57e924",
     "config/GMFE69/salloc.json": "ef3ec4f12f03a954dcf6987abf6f3758f75a48fdf016e8928adde29968cc5d4b",
-    "config/GMFE69/saramman.json": "f3b24db465f9155f71b8e87e5be925838d41336f84ed7c65f079b9f1b037a1f9",
+    "config/GMFE69/saramman.json": "e26068f491d904f0bb4635cae4c3a1d79c09d3000d1a7084cabd77c41f739bb7",
     "config/GMFE69/saramman_free.json": "c6d08c1831c9d96125a67aec171867d665e65d785a7c14a08ffb9332900e8847",
     "config/GMFE69/satospkr.json": "95be38de4220d9d37dafbce159f384a58b9e9a5c045b895578083eb8c1e2723e",
     "config/GMFE69/sattrdef.json": "2062535254eee3ac4100a4a8a86e83bf872f5c8bad922fe3e395962696444769",
@@ -1642,7 +1642,7 @@
     "src/ea/saemsstr.c": "b8752a11f73916a4f3988277cb1acff803d4b497a19c1ac59f92e0a28da6e58f",
     "src/ea/saemsstr_pool.c": "c535c15a97692da9d19f0ad10fb62aa679a32b7282c604b3b89f3ef509851e51",
     "src/ea/salloc.c": "3ac96aeac05c97dbc75a0a10fd30800dc8d61d636ec073ae89d3bcacd001affe",
-    "src/ea/saramman.c": "a1fc41a18822adc35b7bfab01340e095d9a0e9aeefe021415e771332e38998f1",
+    "src/ea/saramman.c": "0afe008493c693b4631d40d8719168380377965f4b94df45ab696846675e6d15",
     "src/ea/saramman_free.c": "54acc2065bc6b84614d7faf3003f09ec908250c2b52aa064191ec4e84cb9f106",
     "src/ea/satospkr.c": "d137e13f23efd99ee57439697995f372dc4103627b5d739e539adebe7ae32e1d",
     "src/ea/sattrdef.c": "5e55d42f497ca48214b54fe67659d8ed3943f33e3491bdc4832a83938bf10363",
@@ -15873,8 +15873,8 @@
     {
       "id": "saramman",
       "category": "reconstructed_game",
-      "functions": 3,
-      "code_bytes": 256,
+      "functions": 4,
+      "code_bytes": 948,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -15906,8 +15906,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "baa1ea1cdb08324a72237ee7e5f050f2887bf1c8202e60ee7576848c7aacc22e",
-      "linked_sha256": "fb0682a3e83c52a20a4c8b7d1d2b37d4068baac2f00ec0e3878e3d1e22d31605"
+      "object_sha256": "a539ce7a89008b6183e016db71c6295cc60044c6fc5f95d1c8f3849eaffc2373",
+      "linked_sha256": "abb324c2322421c0a34a1bc8fe482495c6df5c75f0702d7a1278e3303f42f6f3"
     },
     {
       "id": "hlsfile",
@@ -48826,20 +48826,6 @@
             "size": 708,
             "kind": "function",
             "name": "SNDPLATFORM_downloadcomplete__Fi",
-            "evidence": "between-same-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/saramman.c [symbol evidence]",
-        "file_record": 553,
-        "file_name": "saramman.c",
-        "ranges": [
-          {
-            "address": "0x8016ccc0",
-            "size": 692,
-            "kind": "function",
-            "name": "SNDARAM_alloc__Fi",
             "evidence": "between-same-file"
           }
         ]

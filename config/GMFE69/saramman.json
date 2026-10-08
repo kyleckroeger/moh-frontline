@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x8016cbc0",
-      "size": 256,
+      "size": 948,
       "type": 1
     }
   ],
@@ -59,6 +59,12 @@
       "name": "SNDARAM_restore__Fv",
       "address": "0x8016cc70",
       "size": 80,
+      "binding": 1
+    },
+    {
+      "name": "SNDARAM_alloc__Fi",
+      "address": "0x8016ccc0",
+      "size": 692,
       "binding": 1
     }
   ],
