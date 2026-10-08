@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 539204,
+    "matching_code_bytes": 540452,
     "total_executable_code_bytes": 1414572,
-    "percent": 38.117819382823924,
+    "percent": 38.20604394827552,
     "categories": {
-      "reconstructed_game": 319012,
+      "reconstructed_game": 320260,
       "restored_library": 220192
     },
-    "matching_functions": 3291
+    "matching_functions": 3293
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -505,7 +505,7 @@
     "config/GMFE69/path_stop.json": "bc02afb9ccaed23708f662127ac20759e21a75d3a9ec807c831db8fb0d92f425",
     "config/GMFE69/pathxSND.json": "711dcdf3a5a5a7b4124ae70e377c5e863dc39c8de8a0de785b3dc3921c685fa0",
     "config/GMFE69/pathx_end.json": "7484c88869bec7e430a3b47fa51b54d5a188ba3058fdfb2ad26e19c404452373",
-    "config/GMFE69/pathx_hold.json": "faf2fddaa72a83b5ce0023be8f2a6f62f34b0d27c8d7cfc410c344b121e7330f",
+    "config/GMFE69/pathx_hold.json": "2a7ca4efffd9195ba078ab52a6ed343078475831916c0b617b8fff5c137cc7bc",
     "config/GMFE69/pathx_overhead.json": "6648b30c83936865ee7b84aa098e523ff049f607999e698979038f6e77a89abe",
     "config/GMFE69/pathx_query.json": "c19da9ac0c894f2fba121fb450c720b6c24998629f5a7d2dfbf15f8637259b74",
     "config/GMFE69/player.json": "3da0c4cee17b1719306604f17cd111a3daf02a1570b02b9e882d2a8f93852850",
@@ -1626,7 +1626,7 @@
     "src/ea/path_stop.c": "537f4c59b1580047eae281b514ae40c3c6b08250fde74da9fbc51788e936a129",
     "src/ea/pathxSND.c": "f41cae88d965e8b7d18f31e14a637dacad3642c3cf929fc249ae80d3e1588980",
     "src/ea/pathx_end.c": "855efb78bb295174bc1170d322b5dda724145d529654c10ecade0575a10a3b3c",
-    "src/ea/pathx_hold.c": "c263d27f170d1ef27ee217eba2fae4701bd8115cf609b06662e9176933ccb655",
+    "src/ea/pathx_hold.c": "725079cb26f9c4f3473b2b18f304cb6c3a6365f072fa13e470411e5e85d0822a",
     "src/ea/pathx_overhead.c": "4cc62b67f16257e6bd135206595379201f6c390ce294c8916685d1543c39ed50",
     "src/ea/pathx_query.c": "94122ccac9973756706673ec88d21060e6c75c4534308bc842b7d0b106778376",
     "src/ea/printstr.cpp": "2c1c6b33e96dbf7dc958d521d28061da022a21ef0c80e3bfe2fd1ae6d4c07186",
@@ -30321,8 +30321,8 @@
     {
       "id": "pathx_hold",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 68,
+      "functions": 3,
+      "code_bytes": 1316,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -30348,14 +30348,14 @@
         "-str",
         "reuse",
         "-use_lmw_stmw",
-        "off",
+        "on",
         "-lang",
         "c++"
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "245ee27d05e463007b1c9531810aa60667de1ab71e590f6c2197b0b13c655916",
-      "linked_sha256": "ca42eda479a96450a6fa55190c0bda2af3c25667e068b8f6623e0b4bf1490684"
+      "object_sha256": "4def0bfd5cfc3d5baca102903ba3fd9750ce8850db16e260237ae602b8173bf1",
+      "linked_sha256": "938ba2edd6137b5665bbe3e03260cc27d2c3866255cc177d2fcbe262d2da8469"
     },
     {
       "id": "pathx_end",
@@ -45553,20 +45553,6 @@
             "size": 152,
             "kind": "function",
             "name": "PATHX_pause",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800e8940",
-            "size": 220,
-            "kind": "function",
-            "name": "PATHX_volume",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800e8a60",
-            "size": 1028,
-            "kind": "function",
-            "name": "PATHX_queuefile",
             "evidence": "exception-index"
           },
           {

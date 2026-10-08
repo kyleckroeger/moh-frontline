@@ -27,7 +27,7 @@
     "-str",
     "reuse",
     "-use_lmw_stmw",
-    "off",
+    "on",
     "-lang",
     "c++"
   ],
@@ -37,21 +37,42 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800e8a1c",
-      "size": 68,
+      "address": "0x800e8940",
+      "size": 1316,
       "type": 1
     }
   ],
   "functions": [
     {
+      "name": "PATHX_volume",
+      "address": "0x800e8940",
+      "size": 220,
+      "binding": 1
+    },
+    {
       "name": "PATHX_modifyhold",
       "address": "0x800e8a1c",
       "size": 68,
       "binding": 1
+    },
+    {
+      "name": "PATHX_queuefile",
+      "address": "0x800e8a60",
+      "size": 1028,
+      "binding": 1
     }
   ],
   "externals": {
+    "PATHX_statusall": "0x800e9000",
+    "SNDBANK_play": "0x8015a628",
     "SNDSTRM_modifyhold": "0x8015c4b0",
+    "SNDSTRM_purge": "0x8015c028",
+    "SNDSTRM_queuefile": "0x8015c004",
+    "SNDSTRM_queuemem": "0x8015c544",
+    "SNDSTRM_vol": "0x8015c5b0",
+    "SNDSYS_entercritical": "0x80153554",
+    "SNDSYS_leavecritical": "0x80153588",
+    "SNDvol": "0x8015ccf0",
     "pathxinfo": "0x801f7410"
   },
   "undefined_in_discarded_code": [],
