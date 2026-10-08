@@ -816,7 +816,9 @@
     "debug_prof_cdbgstatsrenderbin_dtor.json",
     "dmesh_cdmrenderbin_dtor.json",
     "dmesh_cpart_dtor.json",
-    "dmesh_cremapbin_dtor.json"
+    "dmesh_cremapbin_dtor.json",
+    "csg_volume_ctor.json",
+    "compartment_volbox.json"
   ],
   "progress": {
     "code_bytes": 1414572,

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 546112,
+    "matching_code_bytes": 546272,
     "total_executable_code_bytes": 1414572,
-    "percent": 38.606164974281974,
+    "percent": 38.61747581600654,
     "categories": {
-      "reconstructed_game": 325920,
+      "reconstructed_game": 326080,
       "restored_library": 220192
     },
-    "matching_functions": 3326
+    "matching_functions": 3329
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -352,10 +352,12 @@
     "config/GMFE69/compartment_fastvec.json": "7713e637d0fc612620e8a649b85e20f06ae17e77a1b007db110fda38c192d73c",
     "config/GMFE69/compartment_fastvec_tri.json": "9e1ce0b12ee1bf635d83384bf922f51bb30d5b16e88ac5fbf7d664abf3124bb9",
     "config/GMFE69/compartment_offsetptr.json": "c89f7040f223afc1a4bf47cbc9062b8e67e605676fecdd5439b2f8b3bca083c8",
+    "config/GMFE69/compartment_volbox.json": "60e9697c52b33cd7ad5ed9a52e998873dcba750d0b14da707f9cbb4150dac009",
     "config/GMFE69/compartment_weak.json": "8d88934ef186771c55a05cc2076b48db401b666de46763666bd34f0fb2006e42",
     "config/GMFE69/configfile.json": "91ea7c527a01fbdf35a79bee7b9f1f527b45ca2c45cceaca096207d590220903",
     "config/GMFE69/cpudetect.json": "f617351e9aa4e5ec3cd84ed1322674cc8c654e2e1e9b138b5402edf93e1acd56",
     "config/GMFE69/csg_volume.json": "cb29ef030d68541ead362c8978b49a6fd0022c7e03ff2fc307baea31a36d4dba",
+    "config/GMFE69/csg_volume_ctor.json": "4e6c099cbf87a23016c89a4b6f0ba79e410fbc26690578ca9ca3454996078585",
     "config/GMFE69/ctype.json": "204f2baf71f1c77a57c8bb685dba45f7583994fc6c39201224cb2a0ed20eb580",
     "config/GMFE69/db.json": "f5cdac8d1b6ec28c05d82995e2918679665f81055beaea75273deb9b2bb4a458",
     "config/GMFE69/debug_prof.json": "fc022c31fbdf1fe2fa84de0cb0877b7afe2292684a07adf20353043be58ded5b",
@@ -543,7 +545,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "8f840925cf9f5c708a13fadc70441b47a4c831131cab0df2e9cb6cdbdf3f7a15",
+    "config/GMFE69/project.json": "bc953676576902a938f36cb4f06fd632277d8a93277d3ee492f97fd6c13562d3",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
     "config/GMFE69/projectilebullet_init.json": "59efa2f81e573b18eb9d4793a24578d542a47e4cded42890b4e9f88779a0b4a4",
@@ -2052,9 +2054,11 @@
     "src/game/compartment_fastvec.cpp": "b67fa66488486aa480bb256f6ce890c1659c38fd1ed0706c56064105ff4d9bb5",
     "src/game/compartment_fastvec_tri.cpp": "b1c8700913471fca13bbcce6ed019d1086ac70f3980e9e9603caf2af6d9c2cae",
     "src/game/compartment_offsetptr.cpp": "98eb0a97ef56f3f224fd6fade8b1f349452f64bc0539de3d7be49fb1b8877569",
+    "src/game/compartment_volbox.cpp": "4d47baf56398e986673057cdcf470b32b9e44344010a55e7093e2209158105ab",
     "src/game/compartment_weak.cpp": "76746f3dbf4e403d7c70b37d5123368361d57125d1bd3fa3652c1c93cb1a3c8d",
     "src/game/configfile.cpp": "d7e5f7aff38b5ab2c1744e81f1a3469c55b6e00a561d1f5cd43f49ccf6b6d2ec",
     "src/game/csg_volume.cpp": "5f94cdc9215e07b08bad62dd336d2ceb79a02d68a3bf8adb95eec0a4dc8f6129",
+    "src/game/csg_volume_ctor.cpp": "91cdabd19158930c53b27cf3ded45aa06aa4a162468d6c0e5d6c57ae0e7f47e2",
     "src/game/debug_prof.cpp": "eae6608546f1d34876d1b81af9672ebc2984b06c7a1e67da717fb68e7e77b9d0",
     "src/game/debug_prof_bins.cpp": "244d57b6d0b353a0fa4940864deb9b3b0d65840a5a6979e9ecd315e2ac2682af",
     "src/game/debug_prof_cdbgstatsrenderbin_dtor.cpp": "0609e8ee16b0884ca0c8944030f4db7bf87693e65bad6bfc67002b895b88a11d",
@@ -36338,6 +36342,84 @@
       "discarded_functions": [],
       "object_sha256": "a14d4153eea37d7f8e159f64bc6588102ca0c54195fbec969db79ef064174f9d",
       "linked_sha256": "445a35af418e180989c927c0616d9ede654fd0a9bc54ae3f84feaacc4a598a83"
+    },
+    {
+      "id": "csg_volume_ctor",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 132,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [],
+      "object_sha256": "388284e123ee8eea5824eb14f0f207026a116338d5007651c7c0ea13864c064e",
+      "linked_sha256": "018b3f4631149fb58e4553c342d369cccca8aad847545627821aa780c78bd096"
+    },
+    {
+      "id": "compartment_volbox",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 28,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [],
+      "object_sha256": "8f903940f136f3a4102168a2ef5540e155b213425bb90bb1544a23f17f10548a",
+      "linked_sha256": "180ccc5c6bf6a4c0841c053679f78d997cd1991bfdfff0400f825b56fdfecfb5"
     }
   ],
   "code_map": {
@@ -40618,13 +40700,6 @@
             "size": 20,
             "kind": "function",
             "name": "__ct__8CVector3FRC8CVector3",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80074bec",
-            "size": 28,
-            "kind": "function",
-            "name": "__ct__7CVolBoxFv",
             "evidence": "between-same-file"
           },
           {
@@ -44955,7 +45030,7 @@
         ]
       },
       {
-        "name": "Unmatched files/csg_volume.cpp [inferred file group]",
+        "name": "Unmatched files/csg_volume.cpp [symbol evidence]",
         "file_record": 131,
         "file_name": "csg_volume.cpp",
         "ranges": [
@@ -44979,20 +45054,6 @@
             "kind": "function",
             "name": "Init__10CCSGVolumeFiP11CHierObject",
             "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800c920c",
-            "size": 92,
-            "kind": "function",
-            "name": "__dt__10CCSGVolumeFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800c9268",
-            "size": 40,
-            "kind": "function",
-            "name": "__ct__10CCSGVolumeFv",
-            "evidence": "same-class (inferred)"
           }
         ]
       },

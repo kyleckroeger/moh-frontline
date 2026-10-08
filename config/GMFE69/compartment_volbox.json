@@ -1,0 +1,78 @@
+{
+  "id": "compartment_volbox",
+  "source": "src/game/compartment_volbox.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80074bec",
+      "size": 28,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "__ct__7CVolBoxFv",
+      "address": "0x80074bec",
+      "size": 28,
+      "binding": 2
+    }
+  ],
+  "externals": {
+    "__dl__FPv": "0x8001ca2c",
+    "__dt__7IVolumeFv": "0x8001c078",
+    "__vt__7CVolBox": "0x801894f4",
+    "__vt__7IVolume": "0x80181e28"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "compartment.cpp",
+  "original_file_index": 3422,
+  "stripped_sections": [
+    "extab",
+    "extabindex",
+    ".data"
+  ],
+  "weak_duplicates": [
+    "__dt__7IVolumeFv",
+    "__vt__7IVolume"
+  ]
+}
