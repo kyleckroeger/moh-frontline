@@ -39,24 +39,36 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800e7160",
-      "size": 276,
+      "address": "0x800e6f4c",
+      "size": 808,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000f1b8",
-      "size": 48,
+      "address": "0x8000f188",
+      "size": 96,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80015cc8",
-      "size": 24,
+      "address": "0x80015cb0",
+      "size": 48,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "ShutdownShell__10CShellMenuFv",
+      "address": "0x800e6f4c",
+      "size": 148,
+      "binding": 1
+    },
+    {
+      "name": "TurnShellOn__10CShellMenuFv",
+      "address": "0x800e6fe0",
+      "size": 384,
+      "binding": 1
+    },
     {
       "name": "TurnShellOff__10CShellMenuFv",
       "address": "0x800e7160",
@@ -80,12 +92,24 @@
     "FadeVolume__12CSoundStreamFii": "0x800ecc78",
     "GetVolume__12CSoundStreamCFv": "0x800ecc9c",
     "PurgeQueue__12CSoundStreamFv": "0x800ecd30",
+    "QueueFile__12CSoundStreamFPCcii": "0x800ecd54",
+    "SetVolume__12CSoundStreamFi": "0x800ecd0c",
+    "SoundSetVolumes__Fff": "0x800ecf60",
+    "UnloadShellBigFile__Fv": "0x8008bc5c",
+    "UnloadShellSoundModules__Fv": "0x800ed050",
+    "Unload__17CUserMessageTableFv": "0x800b8544",
     "UpdateREAL__Fv": "0x8001b098",
+    "__ct__12CSoundStreamFii": "0x800ecdf0",
     "__ct__13CSoundSysLockFv": "0x800ecbf8",
+    "__dl__FPv": "0x8001ca2c",
+    "__dt__11CMemoryCardFv": "0x800f09f8",
     "__dt__12CSoundStreamFv": "0x800ecd84",
     "__dt__13CSoundSysLockFv": "0x800ecba8",
+    "__nw__FUl": "0x8001cb60",
+    "g_soundStreamFilename": "0x801de44c",
     "g_soundStreamRequest": "0x8034dc80",
     "iSirenDrawProcessFnc__7IStudioFUl": "0x8008b6a4",
+    "iSirenShutDown__7IStudioFv": "0x8008b5e0",
     "pSoundStream": "0x8034eca0"
   },
   "undefined_in_discarded_code": [],
@@ -98,5 +122,28 @@
     "pSoundStream"
   ],
   "original_file": "ShellMenu.cpp",
-  "original_file_index": 8612
+  "original_file_index": 8612,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80350f58"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x80350f54"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 8,
+      "address": "0x80350ee0"
+    }
+  ]
 }
