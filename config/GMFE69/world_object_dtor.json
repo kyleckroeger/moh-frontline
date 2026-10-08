@@ -40,24 +40,30 @@
     {
       "name": ".text",
       "address": "0x800b7608",
-      "size": 416,
+      "size": 1240,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000d844",
-      "size": 8,
+      "size": 144,
       "type": 1,
       "linked_offset": 0,
-      "linked_size": 16
+      "linked_size": 184
     },
     {
       "name": "extabindex",
       "address": "0x80014840",
-      "size": 12,
+      "size": 24,
       "type": 1,
       "linked_offset": 0,
-      "linked_size": 24
+      "linked_size": 84
+    },
+    {
+      "name": ".bss",
+      "address": "0x801ef378",
+      "size": 40,
+      "type": 8
     }
   ],
   "functions": [
@@ -66,25 +72,50 @@
       "address": "0x800b7608",
       "size": 416,
       "binding": 1
+    },
+    {
+      "name": "__ct__12CWorldObjectFv",
+      "address": "0x800b77a8",
+      "size": 824,
+      "binding": 1
     }
   ],
   "externals": {
+    "DWI_allocalign__FPCciii": "0x8001c8ec",
+    "GetCompartmentSizeFromIndex__Fi": "0x8001d4a4",
+    "GetSharedSize__12CCompartmentFv": "0x80075b88",
+    "LoadShared__12CCompartmentFv": "0x80075b90",
     "MEM_free": "0x8014f83c",
     "MarkForDestruction__13IDestructibleFi": "0x800dd524",
+    "__ct__12CCompartmentFRC12CCompartment": "0x80076030",
+    "__ct__12CCompartmentFv": "0x80076108",
+    "__ct__12CWorldVolumeFi": "0x800cc29c",
     "__dl__FPv": "0x8001ca2c",
     "__dt__10ISceneNodeFv": "0x8001ada0",
     "__dt__12CCompartmentFv": "0x80075ea8",
     "__dt__12CWorldVolumeFv": "0x800cc124",
     "__dt__9IObserverFv": "0x800d80e0",
+    "__dt__Q23dwi11CMemFactoryFv": "0x800b82a0",
+    "__dt__Q23dwi20list<12CCompartment>Fv": "0x800b8180",
+    "__dt__Q23dwi25list_node<12CCompartment>Fv": "0x800b8248",
+    "__dt__Q23dwi31list<Q212CWorldObject8SRequest>Fv": "0x800b80d8",
     "__vt__10ISceneNode": "0x80181c78",
-    "__vt__12CWorldObject": "0x80188bc0"
+    "__vt__12CWorldObject": "0x80188bc0",
+    "__vt__13IDestructible": "0x8018a228",
+    "__vt__8ISubject": "0x8018a1d4",
+    "__vt__9IObserver": "0x8018a1c0",
+    "m_sCompartmentSize__12CWorldObject": "0x8034eb98",
+    "reserve__Q23dwi20list<12CCompartment>FiPc": "0x800b7e08",
+    "reserve__Q23dwi31list<Q212CWorldObject8SRequest>FiPc": "0x800b7ae0"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": [],
+  "sda_externals": [
+    "m_sCompartmentSize__12CWorldObject"
+  ],
   "original_file": "world_object.cpp",
   "original_file_index": 7059,
   "stripped_sections": [
@@ -92,6 +123,27 @@
   ],
   "weak_duplicates": [
     "__dt__10ISceneNodeFv",
+    "__dt__Q23dwi11CMemFactoryFv",
+    "__dt__Q23dwi20list<12CCompartment>Fv",
+    "__dt__Q23dwi25list_node<12CCompartment>Fv",
+    "__dt__Q23dwi31list<Q212CWorldObject8SRequest>Fv",
     "__vt__10ISceneNode"
+  ],
+  "pooled_sections": [
+    ".rodata"
+  ],
+  "pool_references": [
+    {
+      "section": ".rodata",
+      "offset": 0,
+      "size": 19,
+      "address": "0x8017770c"
+    },
+    {
+      "section": ".rodata",
+      "offset": 20,
+      "size": 22,
+      "address": "0x80177720"
+    }
   ]
 }
