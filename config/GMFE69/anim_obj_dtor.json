@@ -1,0 +1,108 @@
+{
+  "id": "anim_obj_dtor",
+  "source": "src/game/anim_obj_dtor.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80095734",
+      "size": 284,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000c988",
+      "size": 16,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 32
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80013aa8",
+      "size": 24,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 48
+    }
+  ],
+  "functions": [
+    {
+      "name": "__dt__11CAnimObjectFv",
+      "address": "0x80095734",
+      "size": 240,
+      "binding": 1
+    },
+    {
+      "name": "BindLocationCollision__11CAnimObjectFP25CObjLocationCollisionDataP24CObjLocationCollisionMap",
+      "address": "0x80095824",
+      "size": 44,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "MEM_free": "0x8014f83c",
+    "MarkForDestruction__13IDestructibleFi": "0x800dd524",
+    "Set__15CAnimatedVolumeFP25CObjLocationCollisionDataP24CObjLocationCollisionMap": "0x800c0208",
+    "__dl__FPv": "0x8001ca2c",
+    "__dt__10ISceneNodeFv": "0x8001ada0",
+    "__dt__12CAnimSkinnedFv": "0x80066e3c",
+    "__dt__16IMovingSceneNodeFv": "0x8001ad30",
+    "__dt__19CLightVolumeManagerFv": "0x800790cc",
+    "__dt__9IObserverFv": "0x800d80e0",
+    "__vt__10ISceneNode": "0x80181c78",
+    "__vt__11CAnimObject": "0x801872a4",
+    "__vt__16IMovingSceneNode": "0x80181b54"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "anim_obj.cpp",
+  "original_file_index": 5634,
+  "stripped_sections": [
+    ".data"
+  ],
+  "weak_duplicates": [
+    "__dt__10ISceneNodeFv",
+    "__dt__16IMovingSceneNodeFv",
+    "__vt__10ISceneNode",
+    "__vt__16IMovingSceneNode"
+  ]
+}
