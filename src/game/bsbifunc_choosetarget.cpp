@@ -1,4 +1,6 @@
-// A fragment of bsbifunc.cpp (0x80033ee0): AI built-ins that choose a target by
+// A fragment of bsbifunc.cpp (0x80033de4): AI built-ins that set the hearing
+// radius (at most 0.001 replaced by 20 with a warning; stored at +528
+// truncated to sixteenths), choose a target by
 // script object (none for 0 or -1, returning false; otherwise that object's AI
 // object, reached through its user object's scene node, AI doodad and filter,
 // or the object itself as a non-AI target, returning true) and choose a target
@@ -10,8 +12,8 @@
 // with its virtual functions in the order of __vt__10ISceneNode,
 // CAIFilterObject in the order of __vt__15CAIFilterObject (its AI object at +8)
 // and BSGO_Basic in the order of __vt__10BSGO_Basic; BSObject (its user object
-// at +12), the doodad, value and built-in record views and the filter helper
-// are inferred.
+// at +12), the doodad, value and built-in record views, the AI object's
+// hearing radius and the filter and argument helpers are inferred.
 enum EClsnId {};
 class CCollision;
 class CDrawContext;
@@ -90,6 +92,9 @@ class CAIObject {
 public:
     void SetTarget(CAIObject*);
     void SetNonAITarget(BSObject*);
+
+    unsigned char unknown000[528];
+    float m_hearingRadius;
 };
 
 class BSGO_Basic {
@@ -139,6 +144,12 @@ struct BSBuiltinView {
 extern BSBuiltinView* g_pBuiltInFunctions;
 extern int g_iCurrentBIFIndex;
 
+inline float BSArgFloat(int** stack, int index) {
+    return *(float*)(*stack - (g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount - index));
+}
+
+extern "C" int printf(const char*, ...);
+
 inline CAIFilterObject* GetAIFilter(BSObject* script) {
     if (script && script->user) {
         ISceneNode* node = script->user->GetSceneNode();
@@ -149,6 +160,19 @@ inline CAIFilterObject* GetAIFilter(BSObject* script) {
         }
     }
     return 0;
+}
+
+void BIFunc_AISetHearingRadius(int** stack, void* object) {
+    AIDoodadView* doodad = ((ISceneNode*)object)->GetAIDoodad();
+    CAIFilterObject* filter = doodad->filter;
+    float radius = BSArgFloat(stack, 1);
+    CAIObject* ai = filter->m_object;
+    if (radius <= 0.001f) {
+        printf("Warning: Hearing Radius is zero, changing to default\n");
+        radius = 20.0f;
+    }
+    ai->m_hearingRadius = 0.0625f * (short)(16.0f * radius);
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
 }
 
 void BIFunc_AIChooseTargetByID(int** stack, void* object) {

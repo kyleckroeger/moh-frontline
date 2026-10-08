@@ -39,24 +39,30 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80033ee0",
-      "size": 544,
+      "address": "0x80033de4",
+      "size": 796,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000a174",
-      "size": 16,
+      "address": "0x8000a16c",
+      "size": 24,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80010ff4",
-      "size": 24,
+      "address": "0x80010fe8",
+      "size": 36,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "BIFunc_AISetHearingRadius__FPPiPv",
+      "address": "0x80033de4",
+      "size": 252,
+      "binding": 1
+    },
     {
       "name": "BIFunc_AIChooseTargetByID__FPPiPv",
       "address": "0x80033ee0",
@@ -74,7 +80,8 @@
     "SetNonAITarget__9CAIObjectFP8BSObject": "0x8004d318",
     "SetTarget__9CAIObjectFP9CAIObject": "0x8004d41c",
     "g_iCurrentBIFIndex": "0x8034e77c",
-    "g_pBuiltInFunctions": "0x8034e778"
+    "g_pBuiltInFunctions": "0x8034e778",
+    "printf": "0x8013dc88"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -86,5 +93,47 @@
     "g_pBuiltInFunctions"
   ],
   "original_file": "bsbifunc.cpp",
-  "original_file_index": 443
+  "original_file_index": 443,
+  "pooled_sections": [
+    ".sdata2",
+    ".rodata"
+  ],
+  "pool_references": [
+    {
+      "section": ".rodata",
+      "offset": 0,
+      "size": 54,
+      "address": "0x8016e9e0"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034f648"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x8034f714"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 4,
+      "address": "0x8034f718"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 12,
+      "size": 4,
+      "address": "0x8034f71c"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 16,
+      "size": 8,
+      "address": "0x8034f618"
+    }
+  ]
 }
