@@ -842,7 +842,11 @@
     "compartment_ctor.json",
     "anim_obj_dtor.json",
     "anim_obj_ctor.json",
-    "world_object_dtor.json"
+    "world_object_dtor.json",
+    "light_dtor.json",
+    "impact_dtor.json",
+    "explosion_dtor.json",
+    "AIFilter_mechchecker_dtor.json"
   ],
   "progress": {
     "code_bytes": 1414572,
