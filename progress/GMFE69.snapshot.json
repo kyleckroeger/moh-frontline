@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 538532,
+    "matching_code_bytes": 539204,
     "total_executable_code_bytes": 1414572,
-    "percent": 38.07031384758075,
+    "percent": 38.117819382823924,
     "categories": {
-      "reconstructed_game": 318340,
+      "reconstructed_game": 319012,
       "restored_library": 220192
     },
-    "matching_functions": 3290
+    "matching_functions": 3291
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -728,7 +728,7 @@
     "config/GMFE69/ssttmul.json": "78e88e3e43a4bbe702ff7ba3e27b23b38f9b04fe9ca359380c30a0eb841a4b3c",
     "config/GMFE69/sstvol.json": "37522fdb7eac982dea029b6fcdddc4a9b232ed1ff5b0919c519cf77f6f70b758",
     "config/GMFE69/ssysinit.json": "bc5cc6f00077822fc429b11faedcdcc3313e5befafecc1981d8ef797cb9cbfc6",
-    "config/GMFE69/ssysreal.json": "3b9fb3ecf4cd22c2c1d2c57eab822d87cdfdb5e946081517b26a19ceb8db67e1",
+    "config/GMFE69/ssysreal.json": "9e50d3a1743c3946bd968f12808ce4adb4c03c3ce4437b9a4eff20f09ab4d815",
     "config/GMFE69/ssysserv.json": "49f2852bbf809fe6219540041d9217ec9f6389f59e15723314a1482fc110739b",
     "config/GMFE69/static_obj_bounds.json": "017358940e40c16193afee9a8d7a7c2d081178ca69416a081c9866c003b1801a",
     "config/GMFE69/static_obj_commit.json": "1e9efe044d9950abbd21c280932160eb8c7e7501ec2a053a3f563811ab6a0289",
@@ -1766,7 +1766,7 @@
     "src/ea/ssttmul.c": "e38c7d8ea9f8511ce44b80b4ea0e0884fa1ed85241d6fcd6c83cd56efcba0643",
     "src/ea/sstvol.c": "a2619b5183147baa7733cfc2f9c582057754591f7f13f984c3725bd89629aa8c",
     "src/ea/ssysinit.c": "ce0f0fef85896056ef8ef4beeecfd8316036da5567484386c6dc21481811c693",
-    "src/ea/ssysreal.c": "08872d0af87f62ff0a9c5171fb908b629202f85e585ef45923d546f90b77f4f8",
+    "src/ea/ssysreal.c": "2a5f454268823038839a4ea3219f804e213c28358abedaf60e10cb978d3c2a41",
     "src/ea/ssysserv.c": "c652ea041a804d456cc780e25f0ecfa648623be37c1c1bd170e18555761ec31d",
     "src/ea/stimemul.c": "fe4a33747721800f1d82a72032bc415a12b399b6a6ebdc8bed634faeb2ed7494",
     "src/ea/stream.cpp": "7998a165a467c9b0d0d6ddbd139d8e7c881c05fe7d8ec3a74d8ee53aac581451",
@@ -11466,8 +11466,8 @@
     {
       "id": "ssysreal",
       "category": "reconstructed_game",
-      "functions": 3,
-      "code_bytes": 172,
+      "functions": 4,
+      "code_bytes": 844,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -11499,8 +11499,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "b8bd345888dd3d94afcf8c12583112e16996e57033bdb310b9e20f6c80bdf86b",
-      "linked_sha256": "8534000a3fb2316fe09fb79f3c3181c84a96de5cfecf8d2823fb6660597f9709"
+      "object_sha256": "176056b995f444cda32c7109b820dd84728bba25a7cdf74ce14e63bbc8b961d1",
+      "linked_sha256": "39eaaead52f5eaadb5ec7c9882ccbe63ad3dcf5c4c95df3a9eabebafa1ba63a3"
     },
     {
       "id": "initosalloc",
@@ -48087,18 +48087,6 @@
             "kind": "function",
             "name": "SNDSYSI_init",
             "evidence": "between-same-file"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 801532b4",
-        "ranges": [
-          {
-            "address": "0x801532b4",
-            "size": 672,
-            "kind": "function",
-            "name": "SNDSYSI_100hzserver__Fv",
-            "evidence": "unknown-file"
           }
         ]
       },

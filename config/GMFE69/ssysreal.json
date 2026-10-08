@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x80153208",
-      "size": 172,
+      "size": 844,
       "type": 1
     },
     {
@@ -66,13 +66,25 @@
       "address": "0x80153230",
       "size": 132,
       "binding": 1
+    },
+    {
+      "name": "SNDSYSI_100hzserver__Fv",
+      "address": "0x801532b4",
+      "size": 672,
+      "binding": 1
     }
   ],
   "externals": {
     "REAL_addexit": "0x801519b0",
+    "SNDPLATFORM_setpitch__Fi": "0x8016c0a0",
+    "SNDPLATFORM_setvol__Fi": "0x8016bbbc",
     "SNDREAL_exithandler__Fv": "0x8015fcb8",
     "SNDSYS_service": "0x80153190",
+    "SNDstop": "0x8015d148",
     "SYNCTASK_add": "0x801521a4",
+    "iSNDcalcpitch__Fi": "0x8015e03c",
+    "iSNDcalcvol__Fi": "0x8015de40",
+    "iSNDserve__Fv": "0x8016ada0",
     "sndgs": "0x80340860"
   },
   "undefined_in_discarded_code": [],
