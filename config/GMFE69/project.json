@@ -798,7 +798,12 @@
     "sdrv_3dpos.json",
     "collisionvolume_ctor.json",
     "hearingvolume_ctor.json",
-    "compartment_bindtors.json"
+    "compartment_bindtors.json",
+    "sphere_dtor.json",
+    "box_dtor.json",
+    "capsule_dtor.json",
+    "fiber_dtor.json",
+    "cdbobject_dtor.json"
   ],
   "progress": {
     "code_bytes": 1414572,

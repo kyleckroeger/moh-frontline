@@ -1,0 +1,24 @@
+// A fragment of box.cpp (0x800c5458): the CVolBox destructor (its virtual
+// table pointer, then IVolume's through the inline base destructor, and the
+// object freed when asked). The file name is this project's; the original
+// record is box.cpp, and the destructor follows box_create.cpp. IVolume and
+// CVolBox are named by the mangled symbols; only the virtuals the destructor
+// needs are declared. CVolBox declares Create (defined elsewhere) before its
+// destructor, so its own virtual table, which belongs with the destructor in
+// the original file, is not emitted twice: the override keeps IVolume's slot
+// order either way. IVolume's destructor is inline (weak in the original), so
+// the compiler's copies of it and of IVolume's weak virtual table are weak
+// duplicates, linked to the original copies.
+class IVolume {
+public:
+    virtual ~IVolume() {}
+};
+
+class CVolBox : public IVolume {
+public:
+    virtual IVolume* Create() const;
+    virtual ~CVolBox();
+};
+
+CVolBox::~CVolBox() {
+}
