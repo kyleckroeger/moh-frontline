@@ -1,9 +1,12 @@
 // A fragment of bsbifunc.cpp (0x80020030): the script built-in that
 // registers bullet damage on the calling node's hierarchy object (three
 // integers and a scale, a negative scale meaning its reciprocal; the
-// constants are entries of the file's .sdata2 pool), and the one that fires
+// constants are entries of the file's .sdata2 pool), the one that fires
 // a sub-object weapon of the calling node's hierarchy tank (when it is one),
-// followed by the weak CStaticObject::AsHierTankObject (0). Each reads its
+// followed by the weak CStaticObject::AsHierTankObject (0), and the one that
+// returns the aim angle in degrees (pan, or negated tilt) from a sub-object
+// of the tank to its aim target (or alternate target) raised by a height.
+// The angle helpers are declared returning float. Each reads its
 // arguments below the script stack top and pops the built-in's arguments.
 // The file name is this project's; the original record is bsbifunc.cpp and
 // the built-ins around these are not reconstructed. The functions, classes
@@ -13,12 +16,14 @@
 // __vt__13CStaticObject (AsHierTankObject at +328; the unnamed entry at +300
 // as a placeholder); the tank-object and built-in record views and the
 // argument helper are inferred.
+union CVector3Data {
+    double pair[2];
+    float v[4];
+};
+
 class CVector3 {
 public:
-    float x;
-    float y;
-    float z;
-    float w;
+    CVector3Data d;
 } __attribute__((aligned(8)));
 
 enum EClsnId {};
@@ -141,6 +146,9 @@ public:
 
     unsigned char unknown000[1940];
     int m_lookObject;
+    unsigned char unknown798[120];
+    CVector3 m_aimTarget;
+    CVector3 m_altAimTarget;
 };
 
 // CHierObject derives from CStaticObject (its destructor declared and defined
@@ -148,6 +156,7 @@ public:
 class CHierObject : public CStaticObject {
 public:
     virtual ~CHierObject();
+    CStaticObject* GetSubObject(int);
     void RegisterBulletDamage(int, int, int, float);
 };
 
@@ -189,4 +198,45 @@ void BIFunc_HierObjectFire(int** stack, void* object) {
 
 __declspec(weak) CTankObject* CStaticObject::AsHierTankObject() {
     return 0;
+}
+
+float MathFunGetTiltAngleDiffNoRoll(CVector3*, CVector3*, CVector3*, CVector3*);
+float MathFunGetPanAngleDiffNoRoll(CVector3*, CVector3*, CVector3*);
+
+void BIFunc_HierObjectGetAimAngle(int** stack, void* object) {
+    int count = g_pBuiltInFunctions[g_iCurrentBIFIndex].parameterCount;
+    float height;
+    bool alternate;
+    bool tilt;
+    int index;
+    index = *(*stack - (count - 1));
+    tilt = *(*stack - (count - 2)) != 0;
+    alternate = *(*stack - (count - 3)) != 0;
+    height = *(float*)(*stack - (count - 4));
+    float angle;
+    CVector3 aim;
+    CVector3 position;
+    CVector3 target;
+    CVector3 rightward;
+    CVector3 forward;
+    CTankObject* tank = ((ISceneNode*)object)->AsHierObject()->AsHierTankObject();
+    CStaticObject* sub = ((CHierObject*)tank)->GetSubObject(index);
+    sub->GetPosition(position);
+    if (alternate)
+        aim = tank->m_altAimTarget;
+    else
+        aim = tank->m_aimTarget;
+    target = aim;
+    target.d.v[2] += height;
+    sub->GetRightward(rightward);
+    if (tilt) {
+        sub->GetForward(forward);
+        angle = MathFunGetTiltAngleDiffNoRoll(&position, &target, &rightward, &forward);
+        angle = -angle;
+    } else {
+        angle = MathFunGetPanAngleDiffNoRoll(&position, &target, &rightward);
+    }
+    angle = 57.295776f * angle;
+    *stack -= g_pBuiltInFunctions[g_iCurrentBIFIndex].argumentCount;
+    **stack = *(int*)&angle;
 }
