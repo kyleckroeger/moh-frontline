@@ -791,7 +791,8 @@
     "bsmachin_props.json",
     "propdat_restart.json",
     "matrix_scale.json",
-    "hearingvolume_init.json"
+    "hearingvolume_init.json",
+    "nubinit.json"
   ],
   "progress": {
     "code_bytes": 1414572,

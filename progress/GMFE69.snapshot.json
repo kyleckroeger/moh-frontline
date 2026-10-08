@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 537016,
+    "matching_code_bytes": 537400,
     "total_executable_code_bytes": 1414572,
-    "percent": 37.96314362224051,
+    "percent": 37.99028964237946,
     "categories": {
       "reconstructed_game": 317208,
-      "restored_library": 219808
+      "restored_library": 220192
     },
-    "matching_functions": 3284
+    "matching_functions": 3287
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -486,6 +486,7 @@
     "config/GMFE69/mutex_TRK.json": "c1339b6a00e96b3e2606f9882d05781f6e62b5c42a06ac18f6b3c3d3ff807a35",
     "config/GMFE69/notify.json": "c38d6c9a4082d80e5a32878f9cd688b3a1f471536d75f5c5735906a7d0084251",
     "config/GMFE69/nubevent.json": "d6afc4bc3a93eb5ab6fc791d166d4243a4fee57863e76656a656235d2e20e0f2",
+    "config/GMFE69/nubinit.json": "31d1c39b2e8b521619a8057a399755f5ef941d3d9949999f6b99a43d81fe87a2",
     "config/GMFE69/objcreate.json": "7ee5848d9937fe23daf92c6b95a773f1ad6e3f253bce5a15d91f930b10582c63",
     "config/GMFE69/objcreate_volumes.json": "9ea49b4ea422dcafd7ef99eeb655960f126c1add85c3f19fb7512d661eb9bacb",
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
@@ -526,7 +527,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "f0155c5611a36832797c790809dc4a9f6696272bc76c63a97c59dd2b4741f6f5",
+    "config/GMFE69/project.json": "88ae3399f123db31a3bcd39f4e0388b59d0c93db0c3540020def6190bb90050e",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_init.json": "59efa2f81e573b18eb9d4793a24578d542a47e4cded42890b4e9f88779a0b4a4",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
@@ -2388,7 +2389,7 @@
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/mutex_TRK.c": "1c3bd477483b9971d23dd6a767bc643ebdc8242c0ed33881f8b2e45e0b66db90",
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/notify.c": "c9cd381f7ce38f51999c7978e6641155895d782110da437c6456fd73ece6414c",
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/nubevent.c": "a41d7572df570cfc078384c59729d88bb42bf60da82cec67411bb367319b671b",
-    "src/tww/TRK_MINNOW_DOLPHIN/Portable/nubinit.c": "7fc710c16db5f932e64232cafe00aaf62741343b0eebf007eb055f65375b0110",
+    "src/tww/TRK_MINNOW_DOLPHIN/Portable/nubinit.c": "15388195f704abe90d1fed3dd7dcc1ddfb7b56977a07f9e5292aff8d383e0484",
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/serpoll.c": "d4df692db6cdd5dce0fe431f72dc1d1a9dc0a5c2c3953e550f863cbbe7685fe5",
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/support.c": "dd06df08831ebfb73004e07d3018fd123ac4f10f0e4f727ba5a6f8151fe7f6fd",
     "src/tww/TRK_MINNOW_DOLPHIN/Portable/usr_put.c": "5eab8f8b2a06943f52ef98cdaa9d0c9df64e14aa52e36461ecc399cb2648cf3f",
@@ -35292,6 +35293,67 @@
       "discarded_functions": [],
       "object_sha256": "7ef3a1750d72d2af192b3d7b751fbceaa16a73bd37dc97f71f0b5299d04bda3c",
       "linked_sha256": "66598ca5561cedfbeec58b719e4550b2ec701a02b76cad3f9a20e7fd63e45a20"
+    },
+    {
+      "id": "nubinit",
+      "category": "restored_library",
+      "functions": 3,
+      "code_bytes": 384,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "off",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-pragma",
+        "warn_notinlined off",
+        "-maxerrors",
+        "1",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-fp_contract",
+        "on",
+        "-str",
+        "reuse",
+        "-multibyte",
+        "-DVERSION=0",
+        "-DNDEBUG=1",
+        "-O4,p",
+        "-use_lmw_stmw",
+        "on",
+        "-rostr",
+        "-str",
+        "reuse",
+        "-common",
+        "off",
+        "-inline",
+        "deferred,auto",
+        "-char",
+        "signed",
+        "-sdata",
+        "0",
+        "-sdata2",
+        "0"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [
+        "TRKInitializeEndian"
+      ],
+      "object_sha256": "17373cbd138b3a30196c99d80f5c20fbe00f95bb217d52f33f3a9f2bb7f084c3",
+      "linked_sha256": "911b860e50796eb00be9bf387adcbece2ede0b818a72f3cc36ac36aed764d211"
     }
   ],
   "code_map": {
@@ -47461,36 +47523,8 @@
         ]
       },
       {
-        "name": "Unmatched files/nubinit.c [symbol evidence]",
-        "file_record": 273,
-        "file_name": "nubinit.c",
+        "name": "Unknown file/.text @ 801313cc",
         "ranges": [
-          {
-            "address": "0x8013124c",
-            "size": 40,
-            "kind": "function",
-            "name": "TRKNubWelcome",
-            "evidence": "private-reference"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80131274",
-        "ranges": [
-          {
-            "address": "0x80131274",
-            "size": 36,
-            "kind": "function",
-            "name": "TRKTerminateNub",
-            "evidence": "unknown-file"
-          },
-          {
-            "address": "0x80131298",
-            "size": 308,
-            "kind": "function",
-            "name": "TRKInitializeNub",
-            "evidence": "unknown-file"
-          },
           {
             "address": "0x801313cc",
             "size": 476,

@@ -5,8 +5,10 @@
 BOOL gTRKBigEndian;
 
 DSError TRKInitializeNub(void) {
-    DSError ret;
-    DSError uartErr;
+    /* int locals in this build: the inlined TRKInitializeEndian result then
+       shares the return register, as in the target (DSError locals do not) */
+    int ret;
+    int uartErr;
 
     ret = TRKInitializeEndian();
 
