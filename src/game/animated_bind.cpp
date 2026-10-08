@@ -1,4 +1,9 @@
-// A fragment of animated.cpp (0x80060c50): CAnimated's binding helpers.
+// A fragment of animated.cpp (0x80060a04): CAnimMatrixCache and CAnimated's
+// binding helpers. The cache keeps an age per keyed entry: GetEntry returns
+// the entry's slice of the vector and matrix buffers, reusing the oldest (or
+// a free) entry and flagging it as created when the key is new; Update ages
+// the used entries and resets the buffer index; the constructor allocates the
+// entries and matrix buffer 0. The cache members and result view are inferred.
 // BindSkeleton and BindMesh bind through the cluster and render objects and
 // keep the pointer; SetAnimSpeed sets a channel's speed (136-byte channels);
 // AdjustRootTrans adds a vector to the root translation; SetGeomNodeState
@@ -79,6 +84,94 @@ public:
     unsigned char unknownCB8[4];
     AnimRootView* m_root;
 };
+
+void* DWI_alloc(const char*, int, int);
+
+// Inferred views of the cache's buffers: 16-byte and 48-byte elements.
+struct AnimCacheVectorView {
+    unsigned char unknown00[16];
+};
+struct AnimCacheMatrixView {
+    unsigned char unknown00[48];
+};
+struct AnimCacheEntryView {
+    void* key;
+    int age;
+};
+struct AnimCacheSlotView {
+    AnimCacheSlotView(AnimCacheVectorView* v, AnimCacheMatrixView* m) : vectors(v), matrices(m) {}
+
+    AnimCacheVectorView* vectors;
+    AnimCacheMatrixView* matrices;
+};
+
+class CAnimMatrixCache {
+public:
+    CAnimMatrixCache(int, int, int);
+    AnimCacheSlotView GetEntry(void*, bool&);
+    void Update();
+
+    AnimCacheSlotView Slot(int index) {
+        return AnimCacheSlotView(m_vectors[m_buffer] + index * m_vectorCount,
+                                 m_matrices[m_buffer] + index * m_matrixCount);
+    }
+
+    int m_count;
+    int m_vectorCount;
+    int m_matrixCount;
+    int m_buffer;
+    AnimCacheEntryView* m_entries;
+    AnimCacheVectorView* m_vectors[2];
+    AnimCacheMatrixView* m_matrices[2];
+};
+
+AnimCacheSlotView CAnimMatrixCache::GetEntry(void* key, bool& created) {
+    int oldest = 0;
+    int oldestAge = 0;
+
+    created = false;
+    for (int i = 0; i < m_count; i++) {
+        if (m_entries[i].key == key) {
+            m_entries[i].age = 0;
+            return Slot(i);
+        }
+        if (m_entries[i].key == 0) {
+            oldest = i;
+            oldestAge = 0x7FFFFFF;
+        } else if (m_entries[i].age > oldestAge) {
+            oldest = i;
+            oldestAge = m_entries[i].age;
+        }
+    }
+    created = true;
+    m_entries[oldest].key = key;
+    m_entries[oldest].age = 0;
+    return Slot(oldest);
+}
+
+void CAnimMatrixCache::Update() {
+    m_buffer = 0;
+    for (int i = 0; i < m_count; i++) {
+        if (m_entries[i].key)
+            m_entries[i].age++;
+    }
+}
+
+CAnimMatrixCache::CAnimMatrixCache(int count, int vectorCount, int matrixCount) {
+    m_count = count;
+    m_vectorCount = vectorCount;
+    m_matrixCount = matrixCount;
+    m_buffer = 0;
+    m_entries = (AnimCacheEntryView*)DWI_alloc("Animation Matrix Cache", m_count * sizeof(AnimCacheEntryView), 1024);
+    for (int i = 0; i < m_count; i++) {
+        m_entries[i].key = 0;
+        m_entries[i].age = 0;
+    }
+    m_vectors[0] = 0;
+    m_vectors[1] = 0;
+    m_matrices[0] = (AnimCacheMatrixView*)DWI_alloc("Animation Matrix buffer 0", m_matrixCount * (m_count * sizeof(AnimCacheMatrixView)), 1024);
+    m_matrices[1] = 0;
+}
 
 void CAnimated::BindSkeleton(CharSkel_t* skeleton) {
     DMClusterBindSkeleton(&m_cluster, skeleton);

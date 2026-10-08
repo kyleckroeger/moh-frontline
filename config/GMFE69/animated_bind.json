@@ -39,20 +39,20 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80060c50",
-      "size": 444,
+      "address": "0x80060a04",
+      "size": 1032,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000b318",
-      "size": 32,
+      "address": "0x8000b308",
+      "size": 48,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x800123a4",
-      "size": 48,
+      "address": "0x8001238c",
+      "size": 72,
       "type": 1
     }
   ],
@@ -61,6 +61,24 @@
       "name": "BindSkeleton__9CAnimatedFP10CharSkel_t",
       "address": "0x80060c50",
       "size": 64,
+      "binding": 1
+    },
+    {
+      "name": "GetEntry__16CAnimMatrixCacheFPvRb",
+      "address": "0x80060a04",
+      "size": 308,
+      "binding": 1
+    },
+    {
+      "name": "Update__16CAnimMatrixCacheFv",
+      "address": "0x80060b38",
+      "size": 72,
+      "binding": 1
+    },
+    {
+      "name": "__ct__16CAnimMatrixCacheFiii",
+      "address": "0x80060b80",
+      "size": 208,
       "binding": 1
     },
     {
@@ -104,7 +122,8 @@
     "AnimChanSetSpeed": "0x800615c0",
     "DMClusterBindSkeleton__FP17DMClusterObject_TP10CharSkel_t": "0x800f5290",
     "DMGeomSetNodeState__FP17DMGeometryState_Tll": "0x800f6db8",
-    "DMRenderBindModel__FP16DMRenderObject_TP6CDMesh": "0x800f4d98"
+    "DMRenderBindModel__FP16DMRenderObject_TP6CDMesh": "0x800f4d98",
+    "DWI_alloc__FPCcii": "0x8001c974"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -113,5 +132,22 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "animated.cpp",
-  "original_file_index": 2818
+  "original_file_index": 2818,
+  "pooled_sections": [
+    ".rodata"
+  ],
+  "pool_references": [
+    {
+      "section": ".rodata",
+      "offset": 0,
+      "size": 23,
+      "address": "0x80170464"
+    },
+    {
+      "section": ".rodata",
+      "offset": 24,
+      "size": 26,
+      "address": "0x8017047c"
+    }
+  ]
 }
