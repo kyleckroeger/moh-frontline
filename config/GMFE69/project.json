@@ -792,7 +792,8 @@
     "propdat_restart.json",
     "matrix_scale.json",
     "hearingvolume_init.json",
-    "nubinit.json"
+    "nubinit.json",
+    "smixer_create.json"
   ],
   "progress": {
     "code_bytes": 1414572,
