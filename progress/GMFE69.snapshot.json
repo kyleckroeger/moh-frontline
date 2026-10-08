@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 555548,
+    "matching_code_bytes": 555824,
     "total_executable_code_bytes": 1414572,
-    "percent": 39.27322186498814,
+    "percent": 39.29273306696301,
     "categories": {
-      "reconstructed_game": 335356,
+      "reconstructed_game": 335632,
       "restored_library": 220192
     },
-    "matching_functions": 3388
+    "matching_functions": 3390
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -576,7 +576,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "3a7219523508d434fd0510cf7015214ffa18a37f6bdecbca9a87aa283b7ea70a",
+    "config/GMFE69/project.json": "cf63aa394d4e960b2c2028a0209c4f2e5b279328b8d403c24b6f49a07cd917c3",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -845,6 +845,7 @@
     "config/GMFE69/thrown_obj_ctor.json": "18bf9826990ba15362eef5da31f1f16aea68dd4fc98c4789dacf8173aef3baac",
     "config/GMFE69/thrown_obj_dtor.json": "72f2f5e295aad653e777b64fc8b88eb774f13de886cedf76b6ed902f06474f8b",
     "config/GMFE69/thrownbullet.json": "c7fcb36666daf14bfafc0deeae23d847dc7180f3b492f57599caefdd16d65377",
+    "config/GMFE69/thrownbullet_ctor.json": "8d6f0190e7363d38b82dbfb53afa9c20a5f006ad5ff2edfe2e88df164c2c4792",
     "config/GMFE69/thrownbullet_init.json": "10a5f19e7b35fedc692565268aabba11d4e6e83bde6bfa0e0ec6483d812c9189",
     "config/GMFE69/timer.json": "ae3403f8235fadb3bdcbcd4f4648ddf27c185cdab7db3542519793fce7267534",
     "config/GMFE69/timerthread.json": "993154fd5f472860102c81015ebb43aaf30afcf22cd46655a20003306ccdd50c",
@@ -865,6 +866,7 @@
     "config/GMFE69/wchar_io.json": "ee564e1aaa5348b7e3cb91d1b7ac0dcbd1a22c55f06404f16e5fd322e84baf3e",
     "config/GMFE69/weapon.json": "2f6c4fcca93afb29b542486815d23ee31d26e4a2a0c379b80dee60c719e7df85",
     "config/GMFE69/weapon_bullet.json": "3e29bf32229bf089aa1080866fecfb0b15126d53060a3d186bf8c30d81b29fb3",
+    "config/GMFE69/weapon_ctor.json": "7bd5108a029485fac5e21005285ef911e1bac56526734e17f9820b09fb0ccad4",
     "config/GMFE69/weapon_head.json": "fe2f21c551af2ffd8eade55d98a8bf62f06d0cbd769ec9775deb5720bf7526bd",
     "config/GMFE69/weaponfactory.json": "20cd24f59303b1482f3445e5292fea0c1d91d58faa58adf58b2ae313e9df2245",
     "config/GMFE69/weaponfactory_params.json": "14a59c223d256ecacfbff3516bdbaf9ef359b19fa2d019cdd661089006684b01",
@@ -2294,6 +2296,7 @@
     "src/game/thrown_obj_ctor.cpp": "647f68be7799d6f797bddad332d8755facbe936767d16742c7146bb7696886cb",
     "src/game/thrown_obj_dtor.cpp": "73d76c29bff7bf4004c1d4bfc5e60f9196fe78672836bfc627794fc0411915dd",
     "src/game/thrownbullet.cpp": "63c247c0b65dba2577e06ff79bcf90d35b2a39d37d239b7d50cc477802819eed",
+    "src/game/thrownbullet_ctor.cpp": "a5c573142816c74cb823471f7822d73221f19bb177243b8708daaf567b1b1f97",
     "src/game/thrownbullet_init.cpp": "daa1111b2b9542c866d16975a93f5034fcfbdaf55649f408e262f3d081c02ff3",
     "src/game/toilet.cpp": "1b4725c34f78f8c4965b5b8d9af77137e41dc334faeb0a90aa615229ba0724a9",
     "src/game/toilet_hashmap.cpp": "72018d6bdef6dc6c9c8678545711107cd8c2ed9a1357d5a4237e62b90f42a4a0",
@@ -2303,6 +2306,7 @@
     "src/game/volume_query_test.cpp": "dfabcded647a5ca39c7833cec01e21238ee0464e97bf280c0a07be25e1b72bad",
     "src/game/weapon.cpp": "d562e81d39494c17dda2d6e23e07f6404ca2343a43346745c8e1dbe443add709",
     "src/game/weapon_bullet.cpp": "49c71457e81b4c7ae35a8e8de0a0f749bd8200c52e3bbe3d1821e83b6476484a",
+    "src/game/weapon_ctor.cpp": "7c33defe0825bf5e5157a073a679f14df77057023d38bf9c6551ff31551e975d",
     "src/game/weapon_head.cpp": "36a5f5dc586625ba2fb3e1e3a1cc14f4afba1510c079678f84897da0c59b45dd",
     "src/game/weaponfactory.cpp": "918057846d18e297a460e23fc2153ee2dcd97d2c042c6f6b71658c9fcdecb0f9",
     "src/game/weaponfactory_params.cpp": "6c2867b23701561b489c0f430b24c90da7f0fc0a3d4fcfd9f300b9b2c873c8c9",
@@ -37978,6 +37982,84 @@
       "discarded_functions": [],
       "object_sha256": "24bb45980fce80db9db8d3b2d810b8ca7ede4f13ffd0f0df292489c605655252",
       "linked_sha256": "542fdef4841dd7787b5cefb640c99f1a8f91aaff5d9a004508af9888d1d2d932"
+    },
+    {
+      "id": "weapon_ctor",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 128,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "dcd2936e0bb37cc525f498a011e59748e2111b664891e3e88e322e81720c9dcb",
+      "linked_sha256": "e50e734b6eca8c27a0f6ff2afae05e66a87a80efd2178241b062d0780b5ead8a"
+    },
+    {
+      "id": "thrownbullet_ctor",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 148,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [],
+      "object_sha256": "af1a08e026c6a22c330087c78236307397685809eb9758488634c091a0ea19d1",
+      "linked_sha256": "87e51e6288d3cac37e1ac8ca92ff327e467b9ba2e24b25c174baf7a520dcc308"
     }
   ],
   "code_map": {
@@ -46831,13 +46913,6 @@
             "evidence": "exception-index"
           },
           {
-            "address": "0x800d4e68",
-            "size": 148,
-            "kind": "function",
-            "name": "__ct__13CThrownBulletFv",
-            "evidence": "exception-index"
-          },
-          {
             "address": "0x800d4efc",
             "size": 44,
             "kind": "function",
@@ -46877,13 +46952,6 @@
             "size": 96,
             "kind": "function",
             "name": "__dt__7CWeaponFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800d6548",
-            "size": 128,
-            "kind": "function",
-            "name": "__ct__7CWeaponFv",
             "evidence": "exception-index"
           },
           {
