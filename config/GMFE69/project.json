@@ -854,7 +854,8 @@
     "sprite_csprite_dtor.json",
     "camera_dtor.json",
     "skybox_dtor.json",
-    "particlesystem_manager_dtor.json"
+    "particlesystem_manager_dtor.json",
+    "world_volume_dtor.json"
   ],
   "progress": {
     "code_bytes": 1414572,

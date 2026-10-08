@@ -40,24 +40,24 @@
     {
       "name": ".text",
       "address": "0x800cf634",
-      "size": 120,
+      "size": 352,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000e4d4",
-      "size": 8,
+      "size": 48,
       "type": 1,
       "linked_offset": 0,
-      "linked_size": 16
+      "linked_size": 64
     },
     {
       "name": "extabindex",
       "address": "0x80015260",
-      "size": 12,
+      "size": 24,
       "type": 1,
       "linked_offset": 0,
-      "linked_size": 24
+      "linked_size": 48
     }
   ],
   "functions": [
@@ -66,13 +66,25 @@
       "address": "0x800cf634",
       "size": 120,
       "binding": 1
+    },
+    {
+      "name": "__ct__10CExplosionFR6CScene8CVector3fff17EScriptBulletTypeP10ISceneNodeb",
+      "address": "0x800cf6ac",
+      "size": 232,
+      "binding": 1
     }
   ],
   "externals": {
+    "HandleExplosion__12CWorldObjectFRC10CExplosion": "0x800b72ec",
+    "MakeNoise__FPvP15CAIFilterObjectRC8CVector3ifbi": "0x8002bd00",
+    "VisitAllNodesInVolume__6CSceneFRQ23dwi22IVisitor<10ISceneNode>RC7IVolumeQ210ISceneNode11EVolumeTypeb": "0x800db458",
     "__dl__FPv": "0x8001ca2c",
     "__dt__10CVolSphereFv": "0x800cbb24",
+    "__dt__7IVolumeFv": "0x8001c078",
     "__dt__Q23dwi22IVisitor<10ISceneNode>Fv": "0x8001c030",
     "__vt__10CExplosion": "0x80189954",
+    "__vt__10CVolSphere": "0x801896b4",
+    "__vt__7IVolume": "0x80181e28",
     "__vt__Q23dwi22IVisitor<10ISceneNode>": "0x80181e74"
   },
   "undefined_in_discarded_code": [],
@@ -87,7 +99,20 @@
     ".data"
   ],
   "weak_duplicates": [
+    "__dt__7IVolumeFv",
     "__dt__Q23dwi22IVisitor<10ISceneNode>Fv",
+    "__vt__7IVolume",
     "__vt__Q23dwi22IVisitor<10ISceneNode>"
+  ],
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 8,
+      "address": "0x80350cb8"
+    }
   ]
 }
