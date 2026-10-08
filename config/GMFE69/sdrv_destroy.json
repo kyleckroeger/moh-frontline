@@ -38,11 +38,17 @@
     {
       "name": ".text",
       "address": "0x8016bb50",
-      "size": 108,
+      "size": 612,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "SNDPLATFORM_setvol__Fi",
+      "address": "0x8016bbbc",
+      "size": 504,
+      "binding": 1
+    },
     {
       "name": "SNDPLATFORM_packetplaydestroy__Fi",
       "address": "0x8016bb50",
@@ -57,8 +63,13 @@
     }
   ],
   "externals": {
+    "SNDDRV_DSPMixerSetVol__FP6_AXVPBi": "0x8016d304",
+    "SNDMIX_setdrygain": "0x80160928",
     "SNDPLATFORM_memfree__FiUi": "0x8016c648",
-    "snddrv": "0x80341a20"
+    "_restgpr_23": "0x80138a4c",
+    "_savegpr_23": "0x80138a00",
+    "snddrv": "0x80341a20",
+    "sndgs": "0x80340860"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -67,5 +78,28 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "snddrv.c",
-  "original_file_index": 13274
+  "original_file_index": 13274,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80351c80"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x80351c84"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 8,
+      "address": "0x80351c78"
+    }
+  ]
 }
