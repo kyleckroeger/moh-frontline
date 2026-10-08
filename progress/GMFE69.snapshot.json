@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 547676,
+    "matching_code_bytes": 548036,
     "total_executable_code_bytes": 1414572,
-    "percent": 38.716728452139584,
+    "percent": 38.74217784601986,
     "categories": {
-      "reconstructed_game": 327484,
+      "reconstructed_game": 327844,
       "restored_library": 220192
     },
-    "matching_functions": 3343
+    "matching_functions": 3346
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -413,7 +413,7 @@
     "config/GMFE69/fader_init.json": "dcb3730a5cb01b2a7e6cc17da285fceecb7f6bf5ba428cd32a56d857cea1d2d6",
     "config/GMFE69/fader_update.json": "0c9ed80624a54840959baa642d7316d7a7d4d1a98cc649988e037b8ab85b74d2",
     "config/GMFE69/fiber_create.json": "938ba809ac54783c41830ae4f6eb7fb405616573546d706251078240fc8596c9",
-    "config/GMFE69/fiber_dtor.json": "3be58acb0a64a33ed6e406b0ac205e27576083e7a825e4be8bcdfc19f6cb9b6d",
+    "config/GMFE69/fiber_dtor.json": "2de9b087334c266100e74b4246854d5f7094442ab8e5b7f29ca04c8983bb1e40",
     "config/GMFE69/fiber_ivolume.json": "f15f67e947e1ec765c55257ea9c665dd79e39e96446d48beeebbd527281e2ac1",
     "config/GMFE69/file_io.json": "1f7376a3e1cbacd1b77840e0eae4b3069ae28a805f71eb751ebf19dcd296e710",
     "config/GMFE69/filedev.json": "345d10da83f1a2011e5fc4b9278fee1b53e1cdef4497f8fe2b0ee38ca1bafa48",
@@ -2104,7 +2104,7 @@
     "src/game/fader_init.cpp": "612b172b55f0b71cc1f9211d30ea2e1c0f3b4d7ba54229e6b395ddb076afd381",
     "src/game/fader_update.cpp": "96e37c287e4dff318305811dc8043fa3f57508ff89228e71f6fe7b5a4f4a868c",
     "src/game/fiber_create.cpp": "e5a72cb63b144e4a46e8ef3d80ac92f0c81c086bc10c1d134c9e1f2854dd01fe",
-    "src/game/fiber_dtor.cpp": "d578ba00fe405255cbeb8292807269ad340cb7133b66df99aaddbf9d68366ac4",
+    "src/game/fiber_dtor.cpp": "d50da700dbc3466b57f6db8814aa242436409e50ea176842cb073f01153e49c0",
     "src/game/fiber_ivolume.cpp": "6ef502741988da285d30efd673faad6726732f10c1f264b4773aa29b7dcd5e0c",
     "src/game/filesys.cpp": "edc914b77e55cfec7501ffc2150c34cefc432d28c3e9aa1eceea55a4cbe755ad",
     "src/game/font.cpp": "20dc282ade8622a6477d4a787b1df38aa6a0af7c35078543606bbd3b26152cf1",
@@ -35789,8 +35789,8 @@
     {
       "id": "fiber_dtor",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 92,
+      "functions": 4,
+      "code_bytes": 452,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -35822,8 +35822,8 @@
       ],
       "strip_unused": true,
       "discarded_functions": [],
-      "object_sha256": "93bae4f55d7089114407993e60aff80a488e30d02f2b72ca8e4e07e2a12e1d17",
-      "linked_sha256": "b61e474c2625432d6cf8e9b8f543bd811dbdf1d7bd2a314c1dea12cda17cc939"
+      "object_sha256": "9e9891f4081ef771d1ba9a341a20e4e43027d27a6cfeb6951980027bdc07e034",
+      "linked_sha256": "622d1af31087589f4c0b2b7716fa5c46cd1d76d3e56bf7c698a2534920cd97f6"
     },
     {
       "id": "cdbobject_dtor",
@@ -45548,7 +45548,7 @@
         ]
       },
       {
-        "name": "Unmatched files/fiber.cpp [inferred file group]",
+        "name": "Unmatched files/fiber.cpp [symbol evidence]",
         "file_record": 132,
         "file_name": "fiber.cpp",
         "ranges": [
@@ -45600,27 +45600,6 @@
             "kind": "function",
             "name": "TestCollision__9CVolFiberCF8CVector3R10CCollisionb",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x800ca560",
-            "size": 108,
-            "kind": "function",
-            "name": "__ct__9CVolFiberFRC6CLine3",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800ca5cc",
-            "size": 144,
-            "kind": "function",
-            "name": "__ct__9CVolFiberF8CVector38CVector3",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800ca65c",
-            "size": 108,
-            "kind": "function",
-            "name": "__ct__9CVolFiberFRC9CVolFiber",
-            "evidence": "same-class (inferred)"
           }
         ]
       },

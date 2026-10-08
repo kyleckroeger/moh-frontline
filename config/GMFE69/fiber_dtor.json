@@ -40,24 +40,30 @@
     {
       "name": ".text",
       "address": "0x800ca504",
-      "size": 92,
+      "size": 452,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000e12c",
-      "size": 8,
+      "size": 16,
       "type": 1,
       "linked_offset": 0,
-      "linked_size": 16
+      "linked_size": 24,
+      "stripped_objects": [
+        "@27"
+      ]
     },
     {
       "name": "extabindex",
       "address": "0x80014f24",
-      "size": 12,
+      "size": 24,
       "type": 1,
       "linked_offset": 0,
-      "linked_size": 24
+      "linked_size": 36,
+      "stripped_objects": [
+        "@28"
+      ]
     }
   ],
   "functions": [
@@ -65,6 +71,24 @@
       "name": "__dt__9CVolFiberFv",
       "address": "0x800ca504",
       "size": 92,
+      "binding": 1
+    },
+    {
+      "name": "__ct__9CVolFiberFRC6CLine3",
+      "address": "0x800ca560",
+      "size": 108,
+      "binding": 1
+    },
+    {
+      "name": "__ct__9CVolFiberF8CVector38CVector3",
+      "address": "0x800ca5cc",
+      "size": 144,
+      "binding": 1
+    },
+    {
+      "name": "__ct__9CVolFiberFRC9CVolFiber",
+      "address": "0x800ca65c",
+      "size": 108,
       "binding": 1
     }
   ],
