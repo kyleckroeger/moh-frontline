@@ -9,12 +9,14 @@ Relocations located in bytes the original linker removed (parked sections,
 trimmed slices and stripped objects) are pointed at their own section, so that
 dead data does not keep discarded functions alive in SN's link.
 
-A unit may list `weak_duplicates`: weak functions it compiles whose copy in
-the original came from another file, as MW's linker kept the first weak
-definition and dropped later ones. The compiled copy is renamed
-`<name>$duplicate` and every relocation to it is pointed at a new undefined
-symbol of the original name, which the unit resolves to the retained copy;
-SN's unused-code stripping then drops the renamed copy.
+A unit may list `weak_duplicates`: weak functions, or weak data objects such
+as a class's virtual table, that it compiles but whose copy in the original
+came from another file, as MW's linker kept the first weak definition and
+dropped later ones. The compiled copy is renamed `<name>$duplicate` and every
+relocation to it is pointed at a new undefined symbol of the original name,
+which the unit resolves to the retained copy; SN's unused-code stripping then
+drops a renamed function, and a data section holding only renamed objects is
+a stripped section.
 
 A unit may list `pooled_sections`: compiler data sections whose objects the
 original file shares with code outside the unit (a pool of `@N` constants or
@@ -103,15 +105,16 @@ def redirect_weak_duplicates(data, unit):
     found = []
     for name in names:
         matches = [i for i, s in enumerate(symbols) if s["name"] == name and s["section"]]
-        if (len(matches) != 1 or symbols[matches[0]]["binding"] != STB_WEAK
-                or symbols[matches[0]]["type"] != STT_FUNC
-                or obj.sections[symbols[matches[0]]["section"]]["name"] not in (".text", ".init")):
-            raise ValueError(f"Weak duplicate is not one compiled weak function: {name}")
+        symbol = symbols[matches[0]] if len(matches) == 1 else None
+        code = symbol is not None and obj.sections[symbol["section"]]["name"] in (".text", ".init")
+        if (symbol is None or symbol["binding"] != STB_WEAK
+                or (symbol["type"], code) not in ((STT_FUNC, True), (STT_OBJECT, False))):
+            raise ValueError(f"Weak duplicate is not one compiled weak function or data object: {name}")
         found.append(matches[0])
     # The new global reuses the original name's string-table offset.
     original_names = [struct.unpack_from(">I", obj.contents(symtab), i * 16)[0] for i in found]
     out, added = append_symbols(data, obj, {i: symbols[i]["name"] + DUPLICATE_SUFFIX for i in found},
-                                [(offset, STT_FUNC) for offset in original_names])
+                                [(offset, symbols[i]["type"]) for offset, i in zip(original_names, found)])
     redirect = dict(zip(found, added))
     redirect_relocations(data, obj, out, lambda index, addend: (redirect[index], addend) if index in redirect else None)
     return bytes(out)

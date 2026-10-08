@@ -150,7 +150,7 @@ def validate_units(original, units):
         for name in unit.get("weak_duplicates", []):
             kept = [s for s in symbols if s["name"] == name and s["section"]]
             if (not unit["strip_unused"] or name not in unit["externals"] or len(kept) != 1
-                    or kept[0]["type"] != 2 or kept[0]["binding"] != 2
+                    or kept[0]["type"] not in (1, 2) or kept[0]["binding"] != 2
                     or name in unit["discarded_functions"] or name in unit.get("sda_externals", [])):
                 raise ValueError(f"Weak duplicate lacks one retained original copy: {name}")
         validate_pool(original, unit)
@@ -254,7 +254,8 @@ def validate_object(obj, unit):
         raise ValueError("Expected a relocatable compiler object")
     symbols = list(obj.symbols())
     functions = [s for s in symbols if s["type"] == 2 and s["section"]]
-    duplicates = {name + DUPLICATE_SUFFIX for name in unit.get("weak_duplicates", [])}
+    renamed = {name + DUPLICATE_SUFFIX for name in unit.get("weak_duplicates", [])}
+    duplicates = {s["name"] for s in functions if s["name"] in renamed}
     expected = {f["name"] for f in unit["functions"]} | set(unit["discarded_functions"]) | duplicates
     if len(functions) != len(expected) or {s["name"] for s in functions} != expected:
         raise ValueError("Unexpected compiler function set")

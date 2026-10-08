@@ -193,6 +193,12 @@ The original was linked by the MW linker, unlike Rising Sun's ProDG link:
   stripping and exactly one weak original function of that name;
   `validate_object` treats the duplicate like a discarded function. The
   duplicate's exception records, between kept ones, are `stripped_objects`.
+  A weak data object, such as the virtual table of a class with no key
+  function (all its virtuals inline), is handled the same way: the copy is
+  renamed, references go to the original object (`validate_units` requires
+  one weak original object or function of that name), and a compiler data
+  section that holds only such copies is a stripped section. Its bytes are
+  never placed, compared or counted.
   `port_unit.py --weak-duplicate NAME` drafts all of this.
 - **Pooled constants and strings.** MW collects a file's `@N` floats, doubles
   and string literals into shared `.sdata2`, `.rodata` or `.data` pools. A

@@ -795,7 +795,8 @@
     "nubinit.json",
     "smixer_create.json",
     "smixer_play.json",
-    "sdrv_3dpos.json"
+    "sdrv_3dpos.json",
+    "collisionvolume_ctor.json"
   ],
   "progress": {
     "code_bytes": 1414572,

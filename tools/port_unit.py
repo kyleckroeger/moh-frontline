@@ -158,7 +158,8 @@ def match(obj, original, file_index, duplicates=(), pooled=()):
     # Named functions and objects anchor their sections.
     for symbol in symbols:
         if (symbol["section"] and symbol["section"] < 0xFF00 and symbol["type"] in (1, 2)
-                and not symbol["name"].startswith("@") and names[symbol["section"]] not in pooled):
+                and not symbol["name"].startswith("@") and names[symbol["section"]] not in pooled
+                and symbol["name"] not in duplicates):
             target = find(symbol, original, locals_)
             offset = position(symbol["section"], symbol["address"])
             if target is not None and target["size"] == symbol["size"] and offset is not None:
@@ -220,7 +221,7 @@ def match(obj, original, file_index, duplicates=(), pooled=()):
                 continue
             okind, osymbol, oaddend = original.relocs[base + where]
             if (symbol["section"] and symbol["section"] < 0xFF00 and names[symbol["section"]] not in addresses
-                    and names[symbol["section"]] not in pooled):
+                    and names[symbol["section"]] not in pooled and symbol["name"] not in duplicates):
                 offset = position(symbol["section"], symbol["address"] + addend)
                 if offset is not None and okind == kind:
                     anchor(addresses, names[symbol["section"]], osymbol["address"] + oaddend - offset)
@@ -228,11 +229,14 @@ def match(obj, original, file_index, duplicates=(), pooled=()):
     return addresses, externals, layout, discarded, pool
 
 
-def referenced(obj, index, kept, addresses):
-    """Whether retained code, or a placed section, refers into a section."""
+def referenced(obj, index, kept, addresses, duplicates=()):
+    """Whether retained code, or a placed section, refers into a section.
+
+    References to a weak duplicate do not count: they link to the original copy.
+    """
     names = {s["index"]: s["name"] for s in obj.sections}
     for section, where, _, symbol, _ in relocations(obj):
-        if symbol["section"] != index:
+        if symbol["section"] != index or symbol["name"] in duplicates:
             continue
         if names[section] in CODE_SECTIONS:
             if any(f["section"] == section and f["address"] <= where < f["address"] + f["size"] for f, _ in kept):
@@ -328,7 +332,7 @@ def draft(args):
         if not section["flags"] & 2 or not section["size"] or section["name"] in args.pool:
             continue
         if section["name"] not in addresses:
-            if dropped and not referenced(obj, section["index"], kept, addresses):
+            if dropped and not referenced(obj, section["index"], kept, addresses, set(args.weak_duplicate)):
                 stripped.append(section["name"])
                 continue
             raise ValueError(f"Could not place compiled section {section['name']}")
@@ -411,7 +415,7 @@ if __name__ == "__main__":
     parser.add_argument("--define", action="append", help="Replace or add a -D definition, e.g. SDK_REVISION=0")
     parser.add_argument("--category", default="restored_library")
     parser.add_argument("--weak-duplicate", action="append", default=[],
-                        help="A weak function this unit compiles whose original copy came from another file")
+                        help="A weak function or data object (a vtable) this unit compiles whose original copy came from another file")
     parser.add_argument("--pool", action="append", default=[],
                         help="A compiler data section whose items link at their original pool addresses")
     parser.add_argument("--upstream-path", help="Path of the source in the upstream repository")

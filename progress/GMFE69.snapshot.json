@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 543372,
+    "matching_code_bytes": 543724,
     "total_executable_code_bytes": 1414572,
-    "percent": 38.412466809748814,
+    "percent": 38.43735066154286,
     "categories": {
-      "reconstructed_game": 323180,
+      "reconstructed_game": 323532,
       "restored_library": 220192
     },
-    "matching_functions": 3300
+    "matching_functions": 3303
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -340,6 +340,7 @@
     "config/GMFE69/cdbobject_offsetptr.json": "0d67bbd2cab2036cd652831eb2cba088e30e569df1f5f590bd8e026e668b60ee",
     "config/GMFE69/coda.json": "ed79629f16e36603a2a74fe3bfd2db4c7043efb597de702316a222bcbb355440",
     "config/GMFE69/collisionvolume.json": "4b42015c953c1335d95d5edae0ec810f53e76935e2b6b0e446fd20b039dbc795",
+    "config/GMFE69/collisionvolume_ctor.json": "74a3ffe0b9e4cb4a528ab49d378a9927cb04979868253a451f08228a030492b3",
     "config/GMFE69/collisionvolume_rows.json": "0f8077a02165836278ca1deb17b647eb0462e2710072860d7fad4b6d814b354d",
     "config/GMFE69/compartment.json": "479e056c1224c6ba61656c0bc4a423b7ad42dc361d2bc51e4b48dc69f739cef8",
     "config/GMFE69/compartment_bins.json": "4c750e628935453e0ab25cfb5e9f9f7241afe8249fc112ec59fe931c0d6cf7a8",
@@ -527,7 +528,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "58b32444a6daf506a8988db118167aec4dac0fd1e397fd9b2e09e45ad8a4c883",
+    "config/GMFE69/project.json": "886340f8e332a5b1fa0a1dcf8dad657db9b6d107b302a64bcee66c8d8968eba7",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_init.json": "59efa2f81e573b18eb9d4793a24578d542a47e4cded42890b4e9f88779a0b4a4",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
@@ -2019,6 +2020,7 @@
     "src/game/cdbobject_line.cpp": "9a1aca01d57b33016c9bee73e665ee19bac161dca1e16b28ce4a1f094c76c3f1",
     "src/game/cdbobject_offsetptr.cpp": "f82eb14ae3f2e366291ce6f2ee0dda723985a0a5b2b1e11b300bf9d73e05d7cd",
     "src/game/collisionvolume.cpp": "43ba2b786b6016be28ed111443666151b7721d434b959794c048a582f6b8b826",
+    "src/game/collisionvolume_ctor.cpp": "0c3d7d24cf70b216ef8f6f78f03cf55e040c5c6e26208dd4bbfbb4790dcde5d6",
     "src/game/collisionvolume_rows.cpp": "99bf2752de600fe57337217065052826b62f776cd7fb728d5dcddead6ed52cb0",
     "src/game/compartment.cpp": "0f672d3fdb0861873ed8382e8e30b6a38756d059ec6156f3d6cc61c4ef0cc866",
     "src/game/compartment_bins.cpp": "409ec7f06c13ee2414a3b803f316f0d77fa3c119c82e96acce7bec67d2f649d4",
@@ -2417,15 +2419,15 @@
     "tools/baseline.py": "b1bcca74f43dbe7d4bb323a4a76db013527907f4ec739f1fb0d3b1fb246d0dd2",
     "tools/code_map.py": "2d148710de147a8d4b8b834b982de64ea0a0da56a743173df8772f06dace7204",
     "tools/compilers.json": "a7d66ea0a76c35649ab1313e5c6d8257cbee1f2790e230fafbbfb47fd6fa0367",
-    "tools/data_strip.py": "ff44be58ffe5b2937d3934234274034f5ca0dee4f860694421b0154994504340",
+    "tools/data_strip.py": "59b1a092218303c6fa6253f832c24db0119054127316567cf83cc8232c82867d",
     "tools/dependencies.py": "904789a0085a12fbc9405b95f47e5b827a33850738bf7e2aa2b3c3ed548da118",
     "tools/file_map.py": "01c2996472bee139aad5b50c663c3df6bf2513aa9724989c0bb648ef36425d00",
     "tools/formats.py": "3124d742d0518c913dfc575602bba63befbd9e0e78220e5a85059cda277f8f81",
     "tools/import_disc.py": "a76b0fc8a963fa5e26e432e8261c26f199989c7e2fc2c90cf0116878db15597b",
     "tools/objdiff_config.py": "4133276adf513df6f4aad3d70df298f0bb0f8ced4ae1abc72703e8e0dc9bb13a",
-    "tools/port_unit.py": "fe753ced442dc326a52afec2e3a4b4aad7c3ea6397ee2a3e374cd44f290782bc",
+    "tools/port_unit.py": "a41882ace0d54899f9918473f099209dd6c45bc7b18aa44b8835bceab6076fdc",
     "tools/progress_report.py": "6f77d4f04165a2875275be1fe3d5a84fe128690c3b850c7ea3aaf1e1e307be1f",
-    "tools/project_build.py": "e7f1ce1e7eb4dd3b7fb6c9be16986695cb1923b22372526b6f46485871a4a957",
+    "tools/project_build.py": "5eeba828632757de7768d302165685ffd8f6b38a66773fcb37e200bdd93f4429",
     "tools/reconstruct.py": "ae713fceeb3eef9f113af483ad5e3d5d6f1123fc424d0595099247e3e07a4cf2",
     "tools/sdk_build.py": "bce48583e82168e61676ef3a3d7a88e646e699fe515f85ac8f43df2534f03db3",
     "tools/setup.py": "99f9d6bf69d36a45530565f597d0bdc926da68d96515bfdd1ec011719b8ebe84",
@@ -35477,6 +35479,45 @@
       "discarded_functions": [],
       "object_sha256": "f5c8d6dfc13008018c60e70e4991445eee7b350ad31b1589d519974b81199749",
       "linked_sha256": "f5a331fb53036a04c7e8c7dc6f8ac4ffea6020aa260bac841d691e9cb0bc2c85"
+    },
+    {
+      "id": "collisionvolume_ctor",
+      "category": "reconstructed_game",
+      "functions": 3,
+      "code_bytes": 352,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [],
+      "object_sha256": "a0acdfd13f94193afccb814d81a526f1f86d6130c29c6846c3b852bfb9712a17",
+      "linked_sha256": "4348e90c24a537c7557544f780571de9907e51894bfb11f00dabe03c3e33b26c"
     }
   ],
   "code_map": {
@@ -42292,27 +42333,6 @@
             "size": 200,
             "kind": "function",
             "name": "BeginUpdate__16CCollisionVolumeFf",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80098200",
-            "size": 72,
-            "kind": "function",
-            "name": "Init__16CCollisionVolumeFP7IVolumeP7CMatrix7EClsnId",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80098248",
-            "size": 112,
-            "kind": "function",
-            "name": "__dt__16CCollisionVolumeFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800982b8",
-            "size": 168,
-            "kind": "function",
-            "name": "__ct__16CCollisionVolumeFv",
             "evidence": "exception-index"
           }
         ]

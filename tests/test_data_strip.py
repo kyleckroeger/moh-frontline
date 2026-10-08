@@ -143,6 +143,35 @@ class DataStripping(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'not one compiled weak function'):
             strip_objects(compiled, unit)
 
+    def weak_data_duplicate_unit(self):
+        compiled = (self.build / 'units/collisionvolume_ctor/compiled.o').read_bytes()
+        return compiled, json.loads((CONFIG / 'collisionvolume_ctor.json').read_text())
+
+    def test_weak_data_duplicate_references_go_to_the_original_copy(self):
+        compiled, unit = self.weak_data_duplicate_unit()
+        name = '__vt__10ISceneNode'
+        self.assertIn(name, unit['weak_duplicates'])
+        self.assertEqual(unit['stripped_sections'], ['.data'])
+        after = Elf32(strip_objects(compiled, unit))
+        defined = [s for s in after.symbols() if s['name'] == name + '$duplicate']
+        self.assertEqual([(s['binding'], s['type']) for s in defined], [(2, 1)])
+        targets = [s for s in relocation_targets(after, '.text') if s['name'].startswith(name)]
+        self.assertTrue(targets)
+        self.assertTrue(all(s['name'] == name and not s['section'] for s in targets))
+        validate_object(after, unit)
+
+    def test_weak_data_duplicate_must_be_listed(self):
+        compiled, unit = self.weak_data_duplicate_unit()
+        unit['weak_duplicates'].remove('__vt__10ISceneNode')
+        with self.assertRaisesRegex(ValueError, 'Unexpected compiler dependencies'):
+            validate_object(Elf32(strip_objects(compiled, unit)), unit)
+
+    def test_weak_data_duplicate_must_be_compiled_weak(self):
+        compiled, unit = self.weak_data_duplicate_unit()
+        unit['weak_duplicates'].append('@9')
+        with self.assertRaisesRegex(ValueError, 'not one compiled weak function or data object'):
+            strip_objects(compiled, unit)
+
     def test_unknown_object_fails(self):
         with self.assertRaisesRegex(ValueError, 'not one compiler object'):
             strip_objects(self.compiled, self.mutated('.sbss', ['NoSuchObject']))
