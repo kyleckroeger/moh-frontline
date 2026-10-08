@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 544068,
+    "matching_code_bytes": 544376,
     "total_executable_code_bytes": 1414572,
-    "percent": 38.46166897125067,
+    "percent": 38.48344234157045,
     "categories": {
-      "reconstructed_game": 323876,
+      "reconstructed_game": 324184,
       "restored_library": 220192
     },
-    "matching_functions": 3305
+    "matching_functions": 3308
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -343,6 +343,7 @@
     "config/GMFE69/collisionvolume_ctor.json": "74a3ffe0b9e4cb4a528ab49d378a9927cb04979868253a451f08228a030492b3",
     "config/GMFE69/collisionvolume_rows.json": "0f8077a02165836278ca1deb17b647eb0462e2710072860d7fad4b6d814b354d",
     "config/GMFE69/compartment.json": "479e056c1224c6ba61656c0bc4a423b7ad42dc361d2bc51e4b48dc69f739cef8",
+    "config/GMFE69/compartment_bindtors.json": "951ce58858c5898cf6aad90776d271d5a2063b2eee5a31deded1d5c5804d456e",
     "config/GMFE69/compartment_bins.json": "4c750e628935453e0ab25cfb5e9f9f7241afe8249fc112ec59fe931c0d6cf7a8",
     "config/GMFE69/compartment_fastvec.json": "7713e637d0fc612620e8a649b85e20f06ae17e77a1b007db110fda38c192d73c",
     "config/GMFE69/compartment_fastvec_tri.json": "9e1ce0b12ee1bf635d83384bf922f51bb30d5b16e88ac5fbf7d664abf3124bb9",
@@ -529,7 +530,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "7441f56e264d9dfcd9cb102f8319d337644f60b4ae221b7a67e1705bc5ac9b97",
+    "config/GMFE69/project.json": "407008c83929cfa294b2303ba15d58e67b6d3f0bf04fa7314af77e9a2e53007d",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_init.json": "59efa2f81e573b18eb9d4793a24578d542a47e4cded42890b4e9f88779a0b4a4",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
@@ -2024,6 +2025,7 @@
     "src/game/collisionvolume_ctor.cpp": "0c3d7d24cf70b216ef8f6f78f03cf55e040c5c6e26208dd4bbfbb4790dcde5d6",
     "src/game/collisionvolume_rows.cpp": "99bf2752de600fe57337217065052826b62f776cd7fb728d5dcddead6ed52cb0",
     "src/game/compartment.cpp": "0f672d3fdb0861873ed8382e8e30b6a38756d059ec6156f3d6cc61c4ef0cc866",
+    "src/game/compartment_bindtors.cpp": "bdbb1db55d3fbcdefa25457f0c027c104e49b3b05c53edc52ffb85bd208717ca",
     "src/game/compartment_bins.cpp": "409ec7f06c13ee2414a3b803f316f0d77fa3c119c82e96acce7bec67d2f649d4",
     "src/game/compartment_fastvec.cpp": "b67fa66488486aa480bb256f6ce890c1659c38fd1ed0706c56064105ff4d9bb5",
     "src/game/compartment_fastvec_tri.cpp": "b1c8700913471fca13bbcce6ed019d1086ac70f3980e9e9603caf2af6d9c2cae",
@@ -35559,6 +35561,45 @@
       "discarded_functions": [],
       "object_sha256": "89cc96ba224a1dd2e4bd884892b0a6a05c48f27fb98f1fe9735a62ef99d547c4",
       "linked_sha256": "73d5f654cd0585cb12490e122894698b8bda8a3dd8479df96d09543ad07ee47b"
+    },
+    {
+      "id": "compartment_bindtors",
+      "category": "reconstructed_game",
+      "functions": 3,
+      "code_bytes": 308,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [],
+      "object_sha256": "33949b8ab85acf94e76d23f4e44ce304791a9a178043dd4db8f9bd1b229b65b1",
+      "linked_sha256": "e83d39e2ef096bf4dbe16b17e78a8add1abec75c5ddc54de544f1fe2256353e3"
     }
   ],
   "code_map": {
@@ -39972,27 +40013,6 @@
             "size": 76,
             "kind": "function",
             "name": "Init__12CCompartmentFiPcP9CPTHeaderP3CDB",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80076e24",
-            "size": 92,
-            "kind": "function",
-            "name": "__dt__20CCptShadowCleanUpBinFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80076e80",
-            "size": 108,
-            "kind": "function",
-            "name": "__dt__13CCptShadowBinFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80076eec",
-            "size": 108,
-            "kind": "function",
-            "name": "__dt__13CCptSimpleBinFv",
             "evidence": "exception-index"
           },
           {

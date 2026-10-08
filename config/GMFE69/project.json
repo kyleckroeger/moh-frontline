@@ -797,7 +797,8 @@
     "smixer_play.json",
     "sdrv_3dpos.json",
     "collisionvolume_ctor.json",
-    "hearingvolume_ctor.json"
+    "hearingvolume_ctor.json",
+    "compartment_bindtors.json"
   ],
   "progress": {
     "code_bytes": 1414572,
