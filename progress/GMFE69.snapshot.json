@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 529148,
+    "matching_code_bytes": 529412,
     "total_executable_code_bytes": 1414572,
-    "percent": 37.40693298043507,
+    "percent": 37.4255958692806,
     "categories": {
-      "reconstructed_game": 310188,
+      "reconstructed_game": 310452,
       "restored_library": 218960
     },
-    "matching_functions": 3245
+    "matching_functions": 3255
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -136,7 +136,7 @@
     "config/GMFE69/SNDI_mult16.json": "833732210b2687248ee9e85d7d585acc47190e661085eec78d0ddad969eb0951",
     "config/GMFE69/SNDI_root1x.json": "ea826a27a8d9e2588fd750844842c1e363c3555078469ac393e6172f6aedada7",
     "config/GMFE69/SNDI_sin.json": "0b60fa9265dea81e4c4dc40bdaf11377f21325b62ab47bfd58ada88b7602fee2",
-    "config/GMFE69/Screen.json": "2aa83342b878e16d3db95e22f1ed2c049d64dc5cfde3c14badbc7f4b82ce6869",
+    "config/GMFE69/Screen.json": "d5455a8773a8c42a07e79d8f3e72d52eb3f6f14e808c3c6fcf5cc05b9faf8087",
     "config/GMFE69/SearchNode.json": "2c7114d770c452c5de63f622ad4584807bd0b1ca57c24e32d8c7f24281651762",
     "config/GMFE69/SearchNodeList.json": "94a6f88f4b8062b0b71ee5f431cf4a7f102d07ca517660d3fe098a7fd2a44a2c",
     "config/GMFE69/SearchNode_tail.json": "82bf47d102a265a3559cd1ad02896cff8eff8e0fddd7370f762c1247835d7a4b",
@@ -1825,7 +1825,7 @@
     "src/game/Pause.cpp": "2d6d321b8fcd54038857a76293913fd0c891dd06d69d5bda64af7fe8b1519da8",
     "src/game/Pause_tail.cpp": "310007d04a15e06e5d13ad63bc14571c9fafd2fb56d66851af547fb37e6c1e27",
     "src/game/Pause_unpause.cpp": "ce619ade12ef215f4aa85cb7d5f8e9a7b23aa483a4180d456210c0df3c22cfa1",
-    "src/game/Screen.cpp": "7ee74460c46aef1832de0e8aad39f65a7b2dedad15386f1ed8f1657a47566cae",
+    "src/game/Screen.cpp": "17484a0a6ae4d5fc7b26e0d24bf2313a7687c9333ee962f090901e1184648497",
     "src/game/SearchNode.cpp": "6b76164fd42a19131dcf90f9fe0ec86b20e0ef3d9c948defd80b5441bde9d333",
     "src/game/SearchNodeList.cpp": "738d75054ffdc5c611f06f3c0f8d330d60226794efc3684079e2280494a4d65c",
     "src/game/SearchNode_tail.cpp": "ac957dcb51976bf56af734d6ff8433a4bc34a95f066fdc0708034b825032e2e2",
@@ -19449,8 +19449,8 @@
     {
       "id": "Screen",
       "category": "reconstructed_game",
-      "functions": 4,
-      "code_bytes": 32,
+      "functions": 14,
+      "code_bytes": 296,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -19482,8 +19482,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "e2d7b1c24fede06cf5f9298080dfe77f6a8e29108a91b7d3cb47eb945b3b0c36",
-      "linked_sha256": "22dbcc480e5d3c6e422ba3ef34b5759130d14370b12a2f2dcfe804fd16720a25"
+      "object_sha256": "23cbb99e29c559306baaadeb8a0d163b88ef97bfb38c02df32ed43d4728df4bd",
+      "linked_sha256": "ff2c760a6e68d03f619ff266c751e96b678600dbf0b038c2324fcd18ccbb49d7"
     },
     {
       "id": "staticmesh",
@@ -35473,76 +35473,6 @@
             "kind": "function",
             "name": "GetTMViewToScreen__7CScreenFv",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001b7e8",
-            "size": 4,
-            "kind": "function",
-            "name": "PutDisp__7CScreenFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001b7ec",
-            "size": 40,
-            "kind": "function",
-            "name": "Clear__7CScreenFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001b814",
-            "size": 8,
-            "kind": "function",
-            "name": "GetClearRect__7CScreenFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001b81c",
-            "size": 8,
-            "kind": "function",
-            "name": "GetClearColor__7CScreenFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001b824",
-            "size": 28,
-            "kind": "function",
-            "name": "GetClear__7CScreenFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001b840",
-            "size": 88,
-            "kind": "function",
-            "name": "GetDepthBufferMax__7CScreenFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001b8b8",
-            "size": 36,
-            "kind": "function",
-            "name": "SetClearRect__7CScreenFRC5CRect",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001b8dc",
-            "size": 36,
-            "kind": "function",
-            "name": "SetClearColor__7CScreenFRC6CColor",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001b900",
-            "size": 8,
-            "kind": "function",
-            "name": "SetClear__7CScreenFb",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001b908",
-            "size": 8,
-            "kind": "function",
-            "name": "GetVSyncs__7CScreenFv",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x8001b910",

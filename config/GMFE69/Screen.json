@@ -39,12 +39,48 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8001b898",
-      "size": 32,
+      "address": "0x8001b7e8",
+      "size": 296,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x80009744",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x8001013c",
+      "size": 12,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "Clear__7CScreenFv",
+      "address": "0x8001b7ec",
+      "size": 40,
+      "binding": 1
+    },
+    {
+      "name": "GetClearRect__7CScreenFv",
+      "address": "0x8001b814",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "GetClearColor__7CScreenFv",
+      "address": "0x8001b81c",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "GetClear__7CScreenFv",
+      "address": "0x8001b824",
+      "size": 28,
+      "binding": 1
+    },
     {
       "name": "GetDepthFormat__7CScreenFv",
       "address": "0x8001b898",
@@ -68,15 +104,61 @@
       "address": "0x8001b8b0",
       "size": 8,
       "binding": 1
+    },
+    {
+      "name": "SetClearRect__7CScreenFRC5CRect",
+      "address": "0x8001b8b8",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "SetClearColor__7CScreenFRC6CColor",
+      "address": "0x8001b8dc",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "SetClear__7CScreenFb",
+      "address": "0x8001b900",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "PutDisp__7CScreenFv",
+      "address": "0x8001b7e8",
+      "size": 4,
+      "binding": 1
+    },
+    {
+      "name": "GetDepthBufferMax__7CScreenFv",
+      "address": "0x8001b840",
+      "size": 88,
+      "binding": 1
+    },
+    {
+      "name": "GetVSyncs__7CScreenFv",
+      "address": "0x8001b908",
+      "size": 8,
+      "binding": 1
     }
   ],
-  "externals": {},
+  "externals": {
+    "GXCopyDisp": "0x8012cf78",
+    "g_FrameNum": "0x8034e718",
+    "g_bCapture": "0x8034e722"
+  },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
-  "local_externals": [],
+  "local_externals": [
+    "g_FrameNum",
+    "g_bCapture"
+  ],
   "discarded_local_functions": [],
-  "sda_externals": [],
+  "sda_externals": [
+    "g_FrameNum",
+    "g_bCapture"
+  ],
   "original_file": "Screen.cpp",
   "original_file_index": 183
 }
