@@ -448,7 +448,7 @@
     "targimpl.json",
     "renderlist.json",
     "debug_prof_timers.json",
-    "alarm.json",
+    "alarm_builtins.json",
     "toilet.json",
     "stream.json",
     "sfxrevc.json",
@@ -918,7 +918,8 @@
     "font.json",
     "decal.json",
     "animskinned.json",
-    "world_object.json"
+    "world_object.json",
+    "alarm.json"
   ],
   "progress": {
     "code_bytes": 1414572,

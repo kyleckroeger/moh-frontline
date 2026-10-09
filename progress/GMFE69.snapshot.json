@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 585016,
+    "matching_code_bytes": 585120,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.35639613960972,
+    "percent": 41.36374818673069,
     "categories": {
-      "reconstructed_game": 364824,
+      "reconstructed_game": 364928,
       "restored_library": 220192
     },
-    "matching_functions": 3546
+    "matching_functions": 3547
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -199,7 +199,8 @@
     "config/GMFE69/abort_exit.json": "6ece500a463798efa6113ceec565b1bc449b5f23ea3602f03a676c413fa303b8",
     "config/GMFE69/abortmsg.json": "c0c949e594119457eb59e9099947f2addabeeba17a17580f509c0584d09cd4a5",
     "config/GMFE69/ai.json": "57c30f25d932fdeb3f89033a5520f9d2de67dc88142e1f33a09be06723837827",
-    "config/GMFE69/alarm.json": "4f25fa7227f16fbbdcc3db8c13fa13381c10aace1aaeb79df67b17151ec148d2",
+    "config/GMFE69/alarm.json": "52d26bbdd3f1c1af737585bb1a5d36e40f6853cfebb3d04319fe1ec6e2a71283",
+    "config/GMFE69/alarm_builtins.json": "be8676929c2524fa154d309d226193b9335a36d7f10317dd89050b68ddc0afc1",
     "config/GMFE69/alarm_list.json": "3f8474bf95aa9c6fa36dee21ebe1f013685f99c927d4da8a4b618535148f0668",
     "config/GMFE69/alloc.json": "fb00980764751afb051dcf8d20531d16fad345cbb4ab5446ac3f13dae1d82c1e",
     "config/GMFE69/anim.json": "6c0f7deb10acc52b25def57dae0a0ea6329965cecfc7a591ba086eda441dd7a8",
@@ -618,7 +619,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "7e100f2ac73f06f92bb8ee92996bb040ad7f685bf03df1580c26cedede12bfcd",
+    "config/GMFE69/project.json": "2f9a4add1311f4398b8cb92b542403df46dd9725601772b07b7547d44f5f655e",
     "config/GMFE69/projectilebullet.json": "cdb5672aceab48b4c354e7df26f4d02a36355002f12a5c0901f81866b26f9213",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -2012,7 +2013,8 @@
     "src/game/UIStudio.c": "0c976854e73e490693e1a4a9a96506de7032024bc92eb6971d7485c49b822474",
     "src/game/UIStudio_active.c": "65f9fb1ea6af8be25aba72e9387ba85f94281ae6d24788b0b04ea987e9be3772",
     "src/game/UserInterface.cpp": "5e2d62e5410ad16508efa4e2243c541de362afbf7c74aa7ee3b63f4be695fe8e",
-    "src/game/alarm.cpp": "758bb9a1e937336151aa37ab17fd2b09abf28f61a0cdaa37197476b3ac8f707c",
+    "src/game/alarm.cpp": "f9abe7f8bffec4b060a9d15ca8352c618fc54613728b1e9b0065707e5f574c33",
+    "src/game/alarm_builtins.cpp": "41bdd95eb6acd4520235301af721659ae2c76635d563cb405a5ca8e0b7f781b2",
     "src/game/alarm_list.cpp": "b5313d7b9c04afdb831347013d8105b6269879eec1840643341937665400bd01",
     "src/game/anim.cpp": "9e086af4631ac941623f4e90cc4d858d9a4a1ddde96c1433e494b2f9411978d3",
     "src/game/anim_callback.cpp": "6364e30e1a95c04cf9b0da29fc29dddb3a3b2d334fdedb52b88d73ac2c3b574b",
@@ -21996,7 +21998,7 @@
       "linked_sha256": "8a2edd5c766456168f5867f2980e60e0db0b7391e5b65dbcfdfb20fc615b86e7"
     },
     {
-      "id": "alarm",
+      "id": "alarm_builtins",
       "category": "reconstructed_game",
       "functions": 2,
       "code_bytes": 132,
@@ -22031,8 +22033,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "95dce172e9693cbb70ca8d37eb55fc7ff69913bb328f44248d4b33b5f13dfa88",
-      "linked_sha256": "3fe5914b86eefaa3950af0cb08290713eb432a14b9f14e7b004b36b525371c42"
+      "object_sha256": "673fd942e503b1d4d9676acb2f90abd75704852a79445fc1a359178f27f47f90",
+      "linked_sha256": "d1c8b4aa089fb6422c99f86014530eca17619cdb2514323d8212e34e7e4593e8"
     },
     {
       "id": "toilet",
@@ -40520,6 +40522,45 @@
       "discarded_functions": [],
       "object_sha256": "d2f34b10f071be9e1fada2bc4e3a07d784f6d4ee97500e0539ace6b683d0b072",
       "linked_sha256": "a990bd9eed620237316dbd457b5bd4843129a7fb0996382a4365961068802009"
+    },
+    {
+      "id": "alarm",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 104,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "b91192efbc5b4cb5cc3b957808d67ca42274cc0fdb75af75293254943df8263a",
+      "linked_sha256": "9cb41ff6993c7a4414f2aa59d81842ef9057ee2b7cd6a998c033b4f01a071416"
     }
   ],
   "code_map": {
@@ -43094,13 +43135,6 @@
             "size": 312,
             "kind": "function",
             "name": "__ct<Q23dwi21list_iter<9AlarmInfo>>__Q23dwi16list<9AlarmInfo>FiQ23dwi21list_iter<9AlarmInfo>Q23dwi21list_iter<9AlarmInfo>Pc",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x8005a3a8",
-            "size": 104,
-            "kind": "function",
-            "name": "__sinit_alarm_cpp",
             "evidence": "local-file-symbol"
           }
         ]
