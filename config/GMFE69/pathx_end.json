@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x800e8e64",
-      "size": 72,
+      "size": 412,
       "type": 1
     }
   ],
@@ -48,14 +48,34 @@
       "address": "0x800e8e64",
       "size": 72,
       "binding": 1
+    },
+    {
+      "name": "PATHX_initservice",
+      "address": "0x800e8eac",
+      "size": 192,
+      "binding": 1
+    },
+    {
+      "name": "PATHX_status",
+      "address": "0x800e8f6c",
+      "size": 148,
+      "binding": 1
     }
   ],
   "externals": {
     "PATHX_isynctask__Fii": "0x800e9ab8",
+    "PATHX_statusall": "0x800e9000",
+    "REAL_abortmessage": "0x80151078",
+    "SNDSYS_add100hzclient": "0x801535bc",
     "SNDSYS_remove100hzclient": "0x801535f4",
+    "SYNCTASK_add": "0x801521a4",
     "SYNCTASK_del": "0x8015233c",
     "pathService": "0x8034ecb0",
-    "pathTimer": "0x8034ecb4"
+    "pathTimer": "0x8034ecb4",
+    "pathabortmsg": "0x8034eca8",
+    "pathprintf": "0x8034ecac",
+    "pathxinfo": "0x801f7410",
+    "printf": "0x8013dc88"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -64,7 +84,9 @@
   "discarded_local_functions": [],
   "sda_externals": [
     "pathService",
-    "pathTimer"
+    "pathTimer",
+    "pathabortmsg",
+    "pathprintf"
   ],
   "original_file": "pathxSND.c",
   "original_file_index": 8920
