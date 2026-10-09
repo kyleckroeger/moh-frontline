@@ -859,7 +859,9 @@
     "player_dtor.json",
     "weapon_ctor.json",
     "thrownbullet_ctor.json",
-    "player_ctor.json"
+    "player_ctor.json",
+    "skybox_renderbin.json",
+    "dmesh_cremapbin_ctor.json"
   ],
   "progress": {
     "code_bytes": 1414572,
