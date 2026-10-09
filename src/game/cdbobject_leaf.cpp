@@ -26,7 +26,7 @@ class CAnimatedVolume;
 class CVolFiber;
 class CCollision;
 
-/* Inferred: CVector3 as four floats overlaid with two doubles; 16-aligned. */
+/* Inferred: CVector3 as four floats overlaid with two doubles. */
 union CVector3Data {
     double pair[2];
     float v[4];
@@ -35,7 +35,7 @@ union CVector3Data {
 class CVector3 {
 public:
     CVector3Data d;
-} __attribute__((aligned(16)));
+} __attribute__((aligned(8)));
 
 /* IVolume's virtual functions in the order of __vt__7IVolume. */
 class IVolume {
@@ -57,14 +57,20 @@ public:
     virtual int TestCollision(const CTriangle&, CCollision&, bool) const;
 };
 
-/* The box's extents and its four rows (the vectors make it 16-aligned). */
+/* Only the 16-aligned layout of the matrix is part of this view. */
+class CMatrix {
+public:
+    float m[4][4];
+} __attribute__((aligned(16)));
+
+/* The box's extents and its matrix (which makes it 16-aligned). */
 class CVolBox : public IVolume {
 public:
     virtual ~CVolBox();
     int TestCollision(const CVolBox&, CCollision&, bool) const;
 
     float m_values[3];
-    CVector3 m_vectors[4];
+    CMatrix m_transform;
 };
 
 class CVolSphere : public IVolume {};

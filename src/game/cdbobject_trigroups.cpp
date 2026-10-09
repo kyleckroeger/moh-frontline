@@ -15,8 +15,7 @@
 // duplicates.
 class CMatrix;
 /* Inferred: CVector3 as four floats overlaid with two doubles (its copies
-   move doubleword pairs); 16-aligned (the stack frames holding vectors,
-   planes and lines are 16-aligned). */
+   move doubleword pairs). */
 union CVector3Data {
     double pair[2];
     float v[4];
@@ -27,9 +26,10 @@ public:
     CVector3() {}
     CVector3(const struct CDBVector& v);
     CVector3Data d;
-} __attribute__((aligned(16)));
+} __attribute__((aligned(8)));
 
-/* CPlane: the normal and the distance (inferred layout). Its destructor is
+/* CPlane: the normal and the distance (inferred layout; 16-aligned, as the
+   frames holding planes are). Its destructor is
    inline (weak in the original, which keeps a local plane in memory); Dist,
    the signed distance of a point, is an inferred inline helper (the name is
    this project's). The constructor from the database's node plane is inline
@@ -70,8 +70,8 @@ public:
     unsigned char unknown10[16];
 };
 
-/* The line's two stored points; the by-value accessors are inferred inline
-   helpers (names are this project's). */
+/* The line's two stored points (16-aligned); the by-value accessors are
+   inferred inline helpers (names are this project's). */
 class CLine3 {
 public:
     CVector3 GetStart() const { return m_start; }
