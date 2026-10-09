@@ -31,41 +31,91 @@
     "-fp_contract",
     "on"
   ],
-  "include_dirs": [
-    "include/dolphin-sdk/libc"
-  ],
-  "strip_unused": false,
-  "source_root": "src/game",
+  "include_dirs": [],
+  "strip_unused": true,
+  "source_root": "scratch/game",
   "sections": [
     {
       "name": ".text",
-      "address": "0x8007bec0",
-      "size": 120,
+      "address": "0x8007bfa4",
+      "size": 344,
       "type": 1
     },
     {
-      "name": ".sdata2",
-      "address": "0x8034ffb0",
+      "name": ".ctors",
+      "address": "0x8016dfa0",
       "size": 4,
       "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000bfc0",
+      "size": 24,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 32
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80012f2c",
+      "size": 36,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 48
+    },
+    {
+      "name": ".bss",
+      "address": "0x801de550",
+      "size": 44,
+      "type": 8
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034e9f0",
+      "size": 12,
+      "type": 8
     }
   ],
   "functions": [
     {
-      "name": "IsFading__13CFaderControlCFv",
-      "address": "0x8007bec0",
-      "size": 28,
+      "name": "__sinit_fader_cpp",
+      "address": "0x8007c070",
+      "size": 140,
+      "binding": 0
+    },
+    {
+      "name": "MathFunClamp<i>__Fiii",
+      "address": "0x8007c050",
+      "size": 32,
+      "binding": 2
+    },
+    {
+      "name": "SetColor__6CFaderF6CColor",
+      "address": "0x8007bfa4",
+      "size": 40,
       "binding": 1
     },
     {
-      "name": "__ct__13CFaderControlF6CColor6CColorf",
-      "address": "0x8007bedc",
-      "size": 92,
+      "name": "Update__6CFaderFf",
+      "address": "0x8007bfcc",
+      "size": 88,
+      "binding": 1
+    },
+    {
+      "name": "Init__6CFaderFP11CRenderList",
+      "address": "0x8007c024",
+      "size": 44,
       "binding": 1
     }
   ],
   "externals": {
-    "__vt__13CFaderControl": "0x8018477c"
+    "Register__11CRenderListFR10CRenderBin": "0x800f127c",
+    "__dl__FPv": "0x8001ca2c",
+    "__dt__10CRenderBinFv": "0x80074290",
+    "__dt__9CFaderBinFv": "0x8007b914",
+    "__register_global_object": "0x801381bc",
+    "__vt__10CRenderBin": "0x80183c5c",
+    "__vt__9CFaderBin": "0x80184760"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -74,5 +124,8 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "fader.cpp",
-  "original_file_index": 3903
+  "original_file_index": 3903,
+  "weak_duplicates": [
+    "__dt__10CRenderBinFv"
+  ]
 }

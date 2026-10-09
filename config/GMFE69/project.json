@@ -347,7 +347,7 @@
     "rcmpbase.json",
     "matstack.json",
     "anim_obj.json",
-    "fader.json",
+    "fader_control.json",
     "dmrender.json",
     "sserver.json",
     "sdspmix.json",
@@ -488,8 +488,6 @@
     "memalloc_tail.json",
     "Soldier_object_bone.json",
     "bsutil_size.json",
-    "fader_color.json",
-    "fader_init.json",
     "collisionvolume_rows.json",
     "light_rows.json",
     "camera_rows.json",
@@ -689,7 +687,6 @@
     "ShellMenu_load.json",
     "ShellMenu_gallery.json",
     "scene_query.json",
-    "fader_update.json",
     "player_weapon_drawenabled.json",
     "player_weapon_donereload.json",
     "player_weapon_selectable.json",
@@ -903,7 +900,8 @@
     "compartment_cptmaterial_dtor.json",
     "compartment_renderbin_dtor.json",
     "staticmesh_mshmaterial_dtor.json",
-    "Moh2_scenenode_dtors.json"
+    "Moh2_scenenode_dtors.json",
+    "fader.json"
   ],
   "progress": {
     "code_bytes": 1414572,
