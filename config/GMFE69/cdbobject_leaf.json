@@ -1,0 +1,118 @@
+{
+  "id": "cdbobject_leaf",
+  "source": "src/game/cdbobject_leaf.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80072ab0",
+      "size": 1008,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000ba6c",
+      "size": 96,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 104,
+      "stripped_objects": [
+        "@73"
+      ]
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80012a10",
+      "size": 48,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 60,
+      "stripped_objects": [
+        "@74"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "TestCDBLeafNodeCollision<15CAnimatedVolume>__10CCDBObjectCFRC11CDBLeafNodeRC15CAnimatedVolumeR10CCollisionbRQ23dwi24fast_vec<P11CDBTriGroup>",
+      "address": "0x80072da4",
+      "size": 252,
+      "binding": 2
+    },
+    {
+      "name": "TestCDBLeafNodeCollision<11CVolCapsule>__10CCDBObjectCFRC11CDBLeafNodeRC11CVolCapsuleR10CCollisionbRQ23dwi24fast_vec<P11CDBTriGroup>",
+      "address": "0x80072ca8",
+      "size": 252,
+      "binding": 2
+    },
+    {
+      "name": "TestCDBLeafNodeCollision<10CVolSphere>__10CCDBObjectCFRC11CDBLeafNodeRC10CVolSphereR10CCollisionbRQ23dwi24fast_vec<P11CDBTriGroup>",
+      "address": "0x80072bac",
+      "size": 252,
+      "binding": 2
+    },
+    {
+      "name": "TestCDBLeafNodeCollision<7CVolBox>__10CCDBObjectCFRC11CDBLeafNodeRC7CVolBoxR10CCollisionbRQ23dwi24fast_vec<P11CDBTriGroup>",
+      "address": "0x80072ab0",
+      "size": 252,
+      "binding": 2
+    }
+  ],
+  "externals": {
+    "OSGetTick": "0x80116a58",
+    "TestCollision__10CCDBVolBoxCFRC10CVolSphereR10CCollisionb": "0x8006f590",
+    "TestCollision__10CCDBVolBoxCFRC11CVolCapsuleR10CCollisionb": "0x8006f53c",
+    "TestCollision__10CCDBVolBoxCFRC15CAnimatedVolumeR10CCollisionb": "0x8006f564",
+    "TestCollision__7CVolBoxCFRC7CVolBoxR10CCollisionb": "0x800c37d0",
+    "__ct__10CCDBVolBoxFRC6CDBBox": "0x8006f738",
+    "__dl__FPv": "0x8001ca2c",
+    "__dt__10CCDBVolBoxFv": "0x8006a620",
+    "__dt__7CVolBoxFv": "0x800c5458",
+    "__vt__10CCDBVolBox": "0x80183978"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "cdbobject.cpp",
+  "original_file_index": 3304,
+  "weak_duplicates": [
+    "__dt__10CCDBVolBoxFv"
+  ]
+}

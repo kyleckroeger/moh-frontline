@@ -873,7 +873,8 @@
     "light_animmanager.json",
     "compartment_shadowbins.json",
     "compartment_renderbin.json",
-    "cdbobject_trigroups.json"
+    "cdbobject_trigroups.json",
+    "cdbobject_leaf.json"
   ],
   "progress": {
     "code_bytes": 1414572,
