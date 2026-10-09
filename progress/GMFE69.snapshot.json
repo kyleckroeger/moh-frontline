@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 585888,
+    "matching_code_bytes": 586136,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.418040227008596,
+    "percent": 41.435572031681666,
     "categories": {
       "reconstructed_game": 365944,
-      "restored_library": 219944
+      "restored_library": 220192
     },
-    "matching_functions": 3562
+    "matching_functions": 3563
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -534,7 +534,8 @@
     "config/GMFE69/light_visible.json": "8c836e812fe34c340bb43e1008bd7983aa6c949f63d6d4772676498915b7a608",
     "config/GMFE69/locatbig.json": "951de0b6c115be49b7755a129307e91c30deb6c630ba9c49821cf71f0db076f0",
     "config/GMFE69/main_TRK.json": "53a7c3f8fdc516d26210c5002897d55d0bb651015e4e46852c26248d117ade9b",
-    "config/GMFE69/mainloop.json": "9c61d478a014eecb2e02c270160acc1dba843f11b0ac1ac93bc3c6d6eaef466a",
+    "config/GMFE69/mainloop.json": "2994436609fef577d03fa3220d0c44d5933025297dcfae7a7880dded142e765a",
+    "config/GMFE69/mainloop_game.json": "a6b94a41d3040d709bae4325a7985c520182530cf40ccd6f4f7a07b741606910",
     "config/GMFE69/math_ppc.json": "b9333b4067895dff685beb9b33137457e747e7894562c6b8de8258785645b3f6",
     "config/GMFE69/matrix.json": "b03949cf47d4c176d47539cbe3753fd3f81477f14b7b6ed44254db12e93e3f87",
     "config/GMFE69/matrix_endian.json": "35c628c3517d44c1bfa0c1a6b556a95393a1b0890fb43fd4206e279493ad5784",
@@ -627,7 +628,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "be20bb0d1c252d1c830ee1b4020f5443fdcc27c1168e650a0c4dc47a4c60d32b",
+    "config/GMFE69/project.json": "dc3eaccf48c3e523fe91b5e4b6795230b571b0c9149dc863322eaa03c1b56d7f",
     "config/GMFE69/projectilebullet.json": "cdb5672aceab48b4c354e7df26f4d02a36355002f12a5c0901f81866b26f9213",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -9449,9 +9450,9 @@
     },
     {
       "id": "mainloop",
-      "category": "reconstructed_game",
+      "category": "restored_library",
       "functions": 1,
-      "code_bytes": 124,
+      "code_bytes": 248,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -9465,26 +9466,48 @@
         "-fp",
         "hardware",
         "-Cpp_exceptions",
-        "on",
-        "-O4,p",
+        "off",
         "-inline",
         "auto",
         "-pragma",
         "cats off",
+        "-pragma",
+        "warn_notinlined off",
+        "-maxerrors",
+        "1",
         "-nosyspath",
         "-RTTI",
         "off",
+        "-fp_contract",
+        "on",
         "-str",
-        "reuse,readonly",
+        "reuse",
+        "-multibyte",
+        "-DVERSION=0",
+        "-DNDEBUG=1",
+        "-O4,p",
         "-use_lmw_stmw",
         "on",
-        "-fp_contract",
-        "on"
+        "-rostr",
+        "-str",
+        "reuse",
+        "-common",
+        "off",
+        "-inline",
+        "deferred,auto",
+        "-char",
+        "signed",
+        "-sdata",
+        "0",
+        "-sdata2",
+        "0",
+        "-enum",
+        "min"
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "21f31ddd97c8d1415fb5564eb36bdc2ecac0cea3e4a60f202f2925612e0e033e",
-      "linked_sha256": "f38ae8a5fe079d7c907e518ca25df1beb8a88b58788c20bd3adfe6ee077590c3"
+      "object_sha256": "31bde3b1e34871c0706ef491434b96ee673ba3d48dfb342c4e0750760910e740",
+      "linked_sha256": "c3c54f83ce105d75bd5bd973062876ff2f9c8ae5fdc29a97ea19a52b9d3c851a"
     },
     {
       "id": "nubevent",
@@ -40950,6 +40973,45 @@
       "discarded_functions": [],
       "object_sha256": "35116e3a6e48dfce43b0caf96ce7a07a10030f6b04d41ad8fecbf792b7a1cba5",
       "linked_sha256": "18789f9abc48484cd77972b339a5d1882469206bee93050fb166b9c12767bbb5"
+    },
+    {
+      "id": "mainloop_game",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 124,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "21f31ddd97c8d1415fb5564eb36bdc2ecac0cea3e4a60f202f2925612e0e033e",
+      "linked_sha256": "f38ae8a5fe079d7c907e518ca25df1beb8a88b58788c20bd3adfe6ee077590c3"
     }
   ],
   "code_map": {
@@ -51234,18 +51296,6 @@
             "kind": "function",
             "name": "PATHI_sortprojects__Fv",
             "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80130f2c",
-        "ranges": [
-          {
-            "address": "0x80130f2c",
-            "size": 248,
-            "kind": "function",
-            "name": "TRKNubMainLoop",
-            "evidence": "unknown-file"
           }
         ]
       },

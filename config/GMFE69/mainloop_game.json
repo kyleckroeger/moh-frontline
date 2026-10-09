@@ -1,0 +1,95 @@
+{
+  "id": "mainloop_game",
+  "source": "src/game/mainloop.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "scratch/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8007b898",
+      "size": 124,
+      "type": 1
+    },
+    {
+      "name": ".ctors",
+      "address": "0x8016df9c",
+      "size": 4,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000bf98",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80012ef0",
+      "size": 12,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x801ddde0",
+      "size": 1644,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "__sinit_mainloop_cpp",
+      "address": "0x8007b898",
+      "size": 124,
+      "binding": 0
+    }
+  ],
+  "externals": {
+    "__ct__14CBulletFactoryFv": "0x800cda34",
+    "__ct__14CWeaponFactoryFv": "0x800d76fc",
+    "__ct__18CAnimObjectFactoryFv": "0x800971bc",
+    "__ct__19CBulletDecalManagerFv": "0x80083d10",
+    "__dt__14CBulletFactoryFv": "0x800cd9d0",
+    "__dt__14CWeaponFactoryFv": "0x800d76c0",
+    "__dt__19CBulletDecalManagerFv": "0x80083c50",
+    "__register_global_object": "0x801381bc"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "mainloop.cpp",
+  "original_file_index": 3848
+}

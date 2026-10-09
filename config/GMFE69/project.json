@@ -929,7 +929,8 @@
     "bsutil.json",
     "sound.json",
     "player_weapon_object.json",
-    "toilet.json"
+    "toilet.json",
+    "mainloop_game.json"
   ],
   "progress": {
     "code_bytes": 1414572,
