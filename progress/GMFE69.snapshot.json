@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 592740,
+    "matching_code_bytes": 592784,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.90242702386305,
+    "percent": 41.90553750533731,
     "categories": {
-      "reconstructed_game": 372548,
+      "reconstructed_game": 372592,
       "restored_library": 220192
     },
-    "matching_functions": 3620
+    "matching_functions": 3621
   },
   "input_sha256": {
     "config/GMFE69/AIDoodad.json": "fbe6da2750e71d43ae68554e3fcdce413e76e9d8463f18206e347c607056e6f8",
@@ -552,7 +552,7 @@
     "config/GMFE69/matrix_multiply.json": "f611599b3b2bd945ae34e05365a7d7d9c254077d6553774eabb6131620413691",
     "config/GMFE69/matrix_ps.json": "c4b6d56bc2559da083fc64c3749010d25d78d759d907fc0973f6d80ed82495c6",
     "config/GMFE69/matrix_scale.json": "34b5696bce63061bdc48ae02c60bec10f59129e20df1ecd7ddae743f1f7c54b3",
-    "config/GMFE69/matstack.json": "10a9ddc9f124f5d96294b44dcac09baaf301ff5e39713633638d67e7fe600ba4",
+    "config/GMFE69/matstack.json": "06ed41bcf932ae41e73ebbb9e73ee0eb339eeef02982bd7b29c3bff94cfd3242",
     "config/GMFE69/mbstring.json": "9de9f46cc9601517195f1c54fab48fb7e78bb2f47d69f7aa83c76823aea418d9",
     "config/GMFE69/mem.json": "ca3c317259aa8b4ae29fb186b81dae2190665955e0af421cfa574e77be7bb350",
     "config/GMFE69/mem_TRK.json": "82b5639f357bff0171c140ac4e8673074ecd259a7578e9dd2cc0fa8f032114aa",
@@ -2320,7 +2320,7 @@
     "src/game/matrix_multiply.cpp": "042a95889b8f9cc8ca1e37ee3097ccc485cf5f94943c7f753507c5dc1cdcfa0c",
     "src/game/matrix_ps.cpp": "7e8d5b559fc6aada067af7c5aa5099ec0bbc22005548f2c48d21783cd3a81738",
     "src/game/matrix_scale.cpp": "753085888744f7dff95c84c808ead401e146a67ef683fb90fb48de22aa333983",
-    "src/game/matstack.cpp": "6634a4f6e298738943789d4f05c03cb1b8cf92892785cdac08855af4fec0cf58",
+    "src/game/matstack.cpp": "638dd12848a38cfa8685f9555ed05c03824115e83eb4ebe1caf090175a1351ff",
     "src/game/memory.cpp": "75e50f5f66acd16755a070f59afef29e6869b97dede92fada6399d2931c1b27c",
     "src/game/motionblur.cpp": "1b31c01402463956146e455b7b7d444b73c86d939f8738f31f1bce3f99ee9a83",
     "src/game/objcreate.cpp": "0d48087a61a1db87a72c4aae93711e3bdaba21d7e9f05667d9a8b48bc8ef92ee",
@@ -17912,8 +17912,8 @@
     {
       "id": "matstack",
       "category": "reconstructed_game",
-      "functions": 14,
-      "code_bytes": 1020,
+      "functions": 15,
+      "code_bytes": 1064,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -17943,10 +17943,10 @@
         "-fp_contract",
         "on"
       ],
-      "strip_unused": false,
+      "strip_unused": true,
       "discarded_functions": [],
-      "object_sha256": "cd3eb2c58faaba25b9427bb86dae8da305f649ced4f6dbaa27e84e71bb95c3f3",
-      "linked_sha256": "c77914564307e60e2183cee45a6b7ed542cc4feda5d12fb2c5ff5c57407ab917"
+      "object_sha256": "1d1dedcd59b075b1c998a1fa251c648aec0a22ac9b3d3ed500fd21eaa50d81e5",
+      "linked_sha256": "716d6b2f555f88462c3ae78b16db0241fcb3ad0b35a05c5baec42488eefede29"
     },
     {
       "id": "anim_obj",
@@ -46255,20 +46255,6 @@
             "size": 208,
             "kind": "function",
             "name": "__sinit_matrix_cpp",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/matstack.cpp [local symbols only]",
-        "file_record": 100,
-        "file_name": "matstack.cpp",
-        "ranges": [
-          {
-            "address": "0x80091080",
-            "size": 44,
-            "kind": "function",
-            "name": "__sinit_matstack_cpp",
             "evidence": "local-file-symbol"
           }
         ]

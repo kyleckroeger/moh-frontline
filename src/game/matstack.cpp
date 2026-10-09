@@ -14,8 +14,14 @@ public:
 
 class CMatrix {
 public:
+    CMatrix() {
+        if (!s_ClassInit)
+            InitClass();
+    }
     CMatrix& operator=(const CMatrix&);
     void Ident();
+    static void InitClass();
+    static bool s_ClassInit;
 
     float m[4][4];
 };
@@ -126,6 +132,8 @@ void CMatrixStack::InitClass() {
     g_matStack->SetCurrent();
 }
 
-// __sinit_matstack_cpp follows: it runs the inline CMatrix constructor
-// (CMatrix::InitClass on first use) for a global CMatrix that is not
-// identified, so it is not part of this unit.
+// The static initialisation runs the inline CMatrix constructor (CMatrix::
+// InitClass on first use) for a file-level CMatrix that nothing else
+// references; the object is not identified (no symbol survives), so its name
+// is a placeholder.
+static CMatrix s_unidentifiedMatrix;
