@@ -23,7 +23,7 @@
     "cats off",
     "-nosyspath",
     "-RTTI",
-    "off",
+    "on",
     "-str",
     "reuse,readonly",
     "-use_lmw_stmw",
@@ -34,29 +34,51 @@
   "include_dirs": [
     "include/dolphin-sdk/libc"
   ],
-  "strip_unused": false,
+  "strip_unused": true,
   "source_root": "src/game",
   "sections": [
     {
       "name": ".text",
       "address": "0x800dd3a4",
-      "size": 384,
+      "size": 516,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000ec60",
-      "size": 40,
-      "type": 1
+      "size": 48,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 56
     },
     {
       "name": "extabindex",
       "address": "0x800158c0",
-      "size": 36,
+      "size": 48,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 60
+    },
+    {
+      "name": ".data",
+      "address": "0x8018a228",
+      "size": 20,
+      "type": 1
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034e2b8",
+      "size": 8,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "MarkForDestruction__13IDestructibleFi",
+      "address": "0x800dd524",
+      "size": 132,
+      "binding": 1
+    },
     {
       "name": "Execute__16CDestructorQueueFv",
       "address": "0x800dd3a4",
@@ -84,8 +106,11 @@
   ],
   "externals": {
     "DWI_allocalign__FPCciii": "0x8001c8ec",
+    "DebugMsg__FPCce": "0x80018c88",
+    "Destroy__13IDestructibleFv": "0x8001b054",
     "MEM_free": "0x8014f83c",
     "__dl__FPv": "0x8001ca2c",
+    "__dt__13IDestructibleFv": "0x8001ae00",
     "__nw__FUl": "0x8001cb60",
     "sm_pSingleton__16CDestructorQueue": "0x8034ec90"
   },
@@ -98,5 +123,30 @@
     "sm_pSingleton__16CDestructorQueue"
   ],
   "original_file": "destructor_queue.cpp",
-  "original_file_index": 8542
+  "original_file_index": 8542,
+  "weak_duplicates": [
+    "Destroy__13IDestructibleFv",
+    "__dt__13IDestructibleFv"
+  ],
+  "pooled_sections": [
+    ".rodata"
+  ],
+  "pool_references": [
+    {
+      "section": ".rodata",
+      "offset": 0,
+      "size": 70,
+      "address": "0x80178250"
+    },
+    {
+      "section": ".rodata",
+      "offset": 72,
+      "size": 14,
+      "address": "0x80178240"
+    }
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "dq_rtti.json"
+  }
 }

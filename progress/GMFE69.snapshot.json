@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 591124,
+    "matching_code_bytes": 591256,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.78818752244495,
+    "percent": 41.79751896686772,
     "categories": {
-      "reconstructed_game": 370932,
+      "reconstructed_game": 371064,
       "restored_library": 220192
     },
-    "matching_functions": 3608
+    "matching_functions": 3609
   },
   "input_sha256": {
     "config/GMFE69/AIDoodad.json": "fbe6da2750e71d43ae68554e3fcdce413e76e9d8463f18206e347c607056e6f8",
@@ -429,7 +429,7 @@
     "config/GMFE69/decal_dtor.json": "a454c6b4f69ad8d7b90dd660a437dd63dba158c6bb2328ad6cf5dbd6d6b165cc",
     "config/GMFE69/decal_link.json": "a9cd419b7f28f863b525d23f4d8f33aaf81204d1a1c12a6f8e9fa4f2c48ffd11",
     "config/GMFE69/decal_reset.json": "4547a8eb423bd81d2a64715034a3a2f954412e0a9f28961b5830b92c7fe9e41f",
-    "config/GMFE69/destructor_queue.json": "2350cf976029cd809d15a75f5f5d41195d68c7984d9c637caabbf8766be0ddd5",
+    "config/GMFE69/destructor_queue.json": "2681bc94de5791a7acc222645df7d05f2ad43135ea364b05a7f000a85f14b50b",
     "config/GMFE69/devicemgr.json": "10f2721824edfcdffcf31106d2c358bfa4faef3f1b172aa3fb212dcf84859bd1",
     "config/GMFE69/direct_io.json": "6bc91b9814ea8394c4fb8292d3c0f477dd5841c089e81e92061adaca275f77ab",
     "config/GMFE69/dispatch.json": "9785b3256f8baf02b4d894ff082a1103522e7730d2bea7f05c504b418b5a462f",
@@ -1922,6 +1922,7 @@
     "src/ea/stream_greedy.cpp": "3357523a97088d2259a33a67b7a43549a03167dd7038677aa0f03d15fa5f40e7",
     "src/ea/stream_prio.cpp": "78e45fbfeaf50cbbd39f4f2543003d4b23b0bf084724f61f1a8124ec88df293b",
     "src/ea/stretch.c": "ee57f26e69055ee4d65ebc19c03a895da6badd9bc262a26c99808ab396ea8eb1",
+    "src/ea/stricmp.cpp": "dae5cff2aa9c92c020ffc191f7049b131c7b0ca4d9ef514427033ef3ba7ae823",
     "src/ea/supf.c": "6887947b6223d085d1b4ae151937fb4107e5f1338b36fe73fd37bb15718a7cf9",
     "src/ea/suplf.c": "dfe878bc5bc53b45e72bb0ed6608b43d00ace2d55bb924f9cd199a5c04123aad",
     "src/ea/supmutf.c": "9dd420f031cc5c776078ad4d7385adfbd4be1c6fe16b6832cf0130623106f98e",
@@ -2250,7 +2251,7 @@
     "src/game/decal_dtor.cpp": "612f9bb1293cebeabc6c596c8fa245727867b0e79fba157ab4d406951cb84c93",
     "src/game/decal_link.cpp": "bacae8a4e726d84634f4a9723e7c05de4257ccf33c187ce51740130f12d99ab3",
     "src/game/decal_reset.cpp": "7e30742ab9acdc0d18aecd5095453f38574bc5887d26a04547d45f5fad367412",
-    "src/game/destructor_queue.cpp": "96832ec7b1265822d1e18a69dea9302e793bb1a399694519922f360dbfc5c361",
+    "src/game/destructor_queue.cpp": "e03cf0b6880befec4f40a6abaa44cef7bdbfff9ef781396eec3ab266e7f89d14",
     "src/game/devicemgr.cpp": "8e6a3c45bc811693b9e025c82952ae10e5b41aaa87683eca70c28ff647b85f97",
     "src/game/dmcluster.cpp": "4d5c64614596f9e6b4f07e58c306e10efccb4877c60c1a797f610bac16cdcbe1",
     "src/game/dmesh.cpp": "fda3ac22581dfba2add41b5be146f15f0e9e5ff8c42d34fd3dc0263451feb0a6",
@@ -18462,8 +18463,8 @@
     {
       "id": "destructor_queue",
       "category": "reconstructed_game",
-      "functions": 4,
-      "code_bytes": 384,
+      "functions": 5,
+      "code_bytes": 516,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -18485,7 +18486,7 @@
         "cats off",
         "-nosyspath",
         "-RTTI",
-        "off",
+        "on",
         "-str",
         "reuse,readonly",
         "-use_lmw_stmw",
@@ -18493,10 +18494,10 @@
         "-fp_contract",
         "on"
       ],
-      "strip_unused": false,
+      "strip_unused": true,
       "discarded_functions": [],
-      "object_sha256": "7c67deded2929f057fd756a5e0859ec950412f89a74c34c6d5704d099cd7f91e",
-      "linked_sha256": "e44dcdaa2deb0f3133cd05a274405328312b93b825dd5d617ef2329136920f10"
+      "object_sha256": "ba55c961a5a471ee42cac31bf19c5abd72f44a75f1ac3c39bc3e767b920b2a1e",
+      "linked_sha256": "0e052546a76c9b36545f55af8fd58bb899c1837b3e0c0c50b8ed0d6cedd149fa"
     },
     {
       "id": "AITankDoodad",
@@ -49325,20 +49326,6 @@
             "size": 680,
             "kind": "function",
             "name": "reserve__Q23dwi28list<Q210ISceneNode7SExtent>FiPc",
-            "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/destructor_queue.cpp [symbol evidence]",
-        "file_record": 145,
-        "file_name": "destructor_queue.cpp",
-        "ranges": [
-          {
-            "address": "0x800dd524",
-            "size": 132,
-            "kind": "function",
-            "name": "MarkForDestruction__13IDestructibleFi",
             "evidence": "exception-index"
           }
         ]
