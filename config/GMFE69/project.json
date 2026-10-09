@@ -903,7 +903,8 @@
     "sprite.json",
     "staticmesh.json",
     "particlesystem.json",
-    "debug_prof.json"
+    "debug_prof.json",
+    "dmesh.json"
   ],
   "progress": {
     "code_bytes": 1414572,

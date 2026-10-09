@@ -1,0 +1,125 @@
+{
+  "id": "dmesh",
+  "source": "src/game/dmesh.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800f6b1c",
+      "size": 516,
+      "type": 1
+    },
+    {
+      "name": ".ctors",
+      "address": "0x8016dffc",
+      "size": 4,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000f8e0",
+      "size": 16,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 32
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800165e0",
+      "size": 24,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 48
+    },
+    {
+      "name": ".bss",
+      "address": "0x80313c80",
+      "size": 1552,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "__sinit_dmesh_cpp",
+      "address": "0x800f6b1c",
+      "size": 460,
+      "binding": 0
+    },
+    {
+      "name": "__arraydtor$497",
+      "address": "0x800f6ce8",
+      "size": 56,
+      "binding": 0
+    }
+  ],
+  "externals": {
+    "InitClass__7CMatrixFv": "0x80090b78",
+    "__construct_array": "0x8013834c",
+    "__ct__9CRemapBinFv": "0x800f6d20",
+    "__destroy_arr": "0x801382d4",
+    "__dl__FPv": "0x8001ca2c",
+    "__dt__10CRenderBinFv": "0x80074290",
+    "__dt__12CDMRenderBinFv": "0x800f5860",
+    "__dt__14CFinishPartBinFv": "0x800f6d5c",
+    "__dt__15CUcodeRenderBinFv": "0x80074304",
+    "__dt__9CRemapBinFv": "0x800f6a54",
+    "__register_global_object": "0x801381bc",
+    "__vt__10CRenderBin": "0x80183c5c",
+    "__vt__12CDMRenderBin": "0x8018b5cc",
+    "__vt__14CFinishPartBin": "0x8018b69c",
+    "__vt__15CUcodeRenderBin": "0x80183c40",
+    "s_ClassInit__7CMatrix": "0x8034eab0"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "s_ClassInit__7CMatrix"
+  ],
+  "original_file": "dmesh.cpp",
+  "original_file_index": 9689,
+  "weak_duplicates": [
+    "__dt__10CRenderBinFv",
+    "__dt__15CUcodeRenderBinFv"
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "dmesh_cpartbin_dtor.json"
+  }
+}

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 579888,
+    "matching_code_bytes": 580404,
     "total_executable_code_bytes": 1414572,
-    "percent": 40.99388366233744,
+    "percent": 41.03036112689916,
     "categories": {
-      "reconstructed_game": 359696,
+      "reconstructed_game": 360212,
       "restored_library": 220192
     },
-    "matching_functions": 3516
+    "matching_functions": 3518
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -412,6 +412,7 @@
     "config/GMFE69/direct_io.json": "6bc91b9814ea8394c4fb8292d3c0f477dd5841c089e81e92061adaca275f77ab",
     "config/GMFE69/dispatch.json": "9785b3256f8baf02b4d894ff082a1103522e7730d2bea7f05c504b418b5a462f",
     "config/GMFE69/dmcluster.json": "a755dd872c12d4f9b8c8a07f7d57b1748ad25961fbf9dd950ab398647b885f48",
+    "config/GMFE69/dmesh.json": "374dd03361d67385d6b7419b035ac37c10dafacb048efd7397333bcfa9b77655",
     "config/GMFE69/dmesh_bins.json": "bed9ef710a20bde94fd3d05e7a5bd4bb437c22d839da779c49eed55ee99bc5b1",
     "config/GMFE69/dmesh_cdmrenderbin_dtor.json": "9268c39adea76876007405b66193ec625771adcbaf7ec550e54206a3828962dc",
     "config/GMFE69/dmesh_cpart_dtor.json": "0855cb19e56c581f16276a547691ac2749ea3dcaae715227de3f371dc271f9a4",
@@ -605,7 +606,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "05c5f05f68b087a8cffc40eccb9c386d59a78b4d58505b7a7934ab93eaaa4b95",
+    "config/GMFE69/project.json": "f8bce2841ec2606cdc4ac4b302f0e570d38b011eb5f95857fc19e6fb774d8883",
     "config/GMFE69/projectilebullet.json": "cdb5672aceab48b4c354e7df26f4d02a36355002f12a5c0901f81866b26f9213",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -2193,6 +2194,7 @@
     "src/game/destructor_queue.cpp": "96832ec7b1265822d1e18a69dea9302e793bb1a399694519922f360dbfc5c361",
     "src/game/devicemgr.cpp": "8e6a3c45bc811693b9e025c82952ae10e5b41aaa87683eca70c28ff647b85f97",
     "src/game/dmcluster.cpp": "4d5c64614596f9e6b4f07e58c306e10efccb4877c60c1a797f610bac16cdcbe1",
+    "src/game/dmesh.cpp": "fda3ac22581dfba2add41b5be146f15f0e9e5ff8c42d34fd3dc0263451feb0a6",
     "src/game/dmesh_bins.cpp": "7fbbef7254a61a8e02ff62e9fe1d52f2ab5ceb49a6790d85dcb534e3e2190d55",
     "src/game/dmesh_cdmrenderbin_dtor.cpp": "f7166e01710b5976a04c82f69bedf1d0abe9770f52d41a9ae0cc94e87b446af7",
     "src/game/dmesh_cpart_dtor.cpp": "f7eeccfca131178dc41494f0e11284ce3b8ccc407280df4e395087431fb68f69",
@@ -2641,7 +2643,7 @@
     "tools/objdiff_config.py": "4133276adf513df6f4aad3d70df298f0bb0f8ced4ae1abc72703e8e0dc9bb13a",
     "tools/port_unit.py": "e622b2a49b72215143ea09f53cceb5d151bab6ce94125fbfbcf36b11ddcc7f60",
     "tools/progress_report.py": "6f77d4f04165a2875275be1fe3d5a84fe128690c3b850c7ea3aaf1e1e307be1f",
-    "tools/project_build.py": "9ad74ec680d9a2b8c5d3b189ec72abe1fb115f24059c4b52f7db0f3aa153f598",
+    "tools/project_build.py": "31d9424038146382f004e3454c38c45874ecc8ac21c74c32ffcd388bdbbb88fe",
     "tools/reconstruct.py": "ae713fceeb3eef9f113af483ad5e3d5d6f1123fc424d0595099247e3e07a4cf2",
     "tools/sdk_build.py": "7e3412b31c53a289d28b6824fe8c348cd153eb4718c0f5fd15fb0489880e093b",
     "tools/setup.py": "99f9d6bf69d36a45530565f597d0bdc926da68d96515bfdd1ec011719b8ebe84",
@@ -39905,6 +39907,45 @@
       "discarded_functions": [],
       "object_sha256": "7f7181d42f95db5c8e99408b30729bc8817a770e69fd0ab9c01cb30a2c54ba01",
       "linked_sha256": "d3639d4fa4061043d9602f7fb8d3a93badcf3ffd09b96db2cb0c56da5b67a305"
+    },
+    {
+      "id": "dmesh",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 516,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [],
+      "object_sha256": "eff90d28b0b9356a38e7643996e05d41a4ff73937315e6d07d1f1e7b6244fd9d",
+      "linked_sha256": "55b8a064b568a4e9eccd60e20fdc64f6a1d76acba2aea130aabbe8088a142020"
     }
   ],
   "code_map": {
@@ -49538,20 +49579,6 @@
             "kind": "function",
             "name": "InitClass__6CDMeshFP11CRenderList",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f6b1c",
-            "size": 460,
-            "kind": "function",
-            "name": "__sinit_dmesh_cpp",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x800f6ce8",
-            "size": 56,
-            "kind": "function",
-            "name": "__arraydtor$497",
-            "evidence": "local-file-symbol"
           }
         ]
       },
