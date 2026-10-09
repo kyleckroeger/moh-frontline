@@ -392,7 +392,7 @@
     "world_volume.json",
     "cdbobject.json",
     "Screen.json",
-    "staticmesh.json",
+    "staticmesh_head.json",
     "attachobject.json",
     "animated.json",
     "skybox.json",
@@ -720,7 +720,6 @@
     "particlesystem_moving.json",
     "compartment_bins.json",
     "AIObject_weak.json",
-    "staticmesh_offsetptr.json",
     "hierobject_weak.json",
     "animplayer_weak.json",
     "attachobject_type.json",
@@ -902,7 +901,8 @@
     "staticmesh_mshmaterial_dtor.json",
     "Moh2_scenenode_dtors.json",
     "fader.json",
-    "sprite.json"
+    "sprite.json",
+    "staticmesh.json"
   ],
   "progress": {
     "code_bytes": 1414572,
