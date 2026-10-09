@@ -1,0 +1,113 @@
+{
+  "id": "cdbobject_intersect",
+  "source": "src/game/cdbobject_intersect.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8006fa54",
+      "size": 1196,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000b6b4",
+      "size": 188,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 212
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800128d8",
+      "size": 12,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 48
+    }
+  ],
+  "functions": [
+    {
+      "name": "GetIntersectingTris__10CCDBObjectCFRQ23dwi19fast_vec<PC6CDBTri>RC10CVolSphere",
+      "address": "0x8006fa54",
+      "size": 1196,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "GetCenter__10CVolSphereCFv": "0x800cba30",
+    "GetRadius__10CVolSphereCFv": "0x800cba28",
+    "MEM_free": "0x8014f83c",
+    "OSGetTick": "0x80116a58",
+    "TestCollision__10CCDBVolBoxCFRC10CVolSphereR10CCollisionb": "0x8006f590",
+    "TestCollision__12CCDBTriangleCFRC10CVolSphereR10CCollisionPC6CDBTrib": "0x8006c614",
+    "__ct__10CCDBVolBoxFRC6CDBBox": "0x8006f738",
+    "__ct__10CCollisionFv": "0x800c7cf4",
+    "__ct__12CCDBTriangleFRC6CDBTri": "0x8006e058",
+    "__dl__FPv": "0x8001ca2c",
+    "__dt__10CCDBVolBoxFv": "0x8006a620",
+    "__dt__10CCollisionFv": "0x800c7b80",
+    "__dt__6CPlaneFv": "0x8001acf0",
+    "__dt__7CVolBoxFv": "0x800c5458",
+    "__dt__Q23dwi27fast_vec<PC13CDBBranchNode>Fv": "0x8006ff00",
+    "__vt__10CCDBVolBox": "0x80183978"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "cdbobject.cpp",
+  "original_file_index": 3304,
+  "weak_duplicates": [
+    "__dt__10CCDBVolBoxFv",
+    "__dt__6CPlaneFv",
+    "__dt__Q23dwi27fast_vec<PC13CDBBranchNode>Fv"
+  ],
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034fd98"
+    }
+  ]
+}

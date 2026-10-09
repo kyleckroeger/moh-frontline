@@ -874,7 +874,8 @@
     "compartment_shadowbins.json",
     "compartment_renderbin.json",
     "cdbobject_trigroups.json",
-    "cdbobject_leaf.json"
+    "cdbobject_leaf.json",
+    "cdbobject_intersect.json"
   ],
   "progress": {
     "code_bytes": 1414572,
