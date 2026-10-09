@@ -97,7 +97,7 @@ and layouts it marks as descriptive stay descriptive here.
 | `real_bridge.cpp` | 3 | 196 | — | REAL runtime start-up, update and shutdown calls |
 | `system.cpp` | 3 | 208 | — | `SysInit`/`SysShutdown` with the module-active flag and a 36-byte critical section |
 | `gcSystem.cpp` | 5 | 232 | — | Critical sections over `MUTEX_create`/`MUTEX_destroy` (a 28-byte mutex, owner thread and count) and `SysInitDependent` (`OSInit`, `DVDInit`) |
-| `dmgeom.cpp` (fragment) | 1 | 44 | — | `DMGeomSetNodeState` only; `DMGeomResetState` is drafted but not matched |
+| `dmgeom.cpp` (fragment) | 2 | 292 | — | `DMGeomSetNodeState` only; `DMGeomResetState` is drafted but not matched; plus `DMGeomResetState` (every node byte set to 0xff through a pointer local and its bit set; the loop unrolled eight times) |
 | `LinkedList.cpp` | 8 | 424 | — | Singly linked list (head, tail, count) and its element |
 | `texpack.cpp` | 6 | 428 | — | Texture pack lookup (`bsearch` over 16-byte names) and offset fix-up; with its weak `offsetPtr` instantiations. Its own copy of `offsetPtr<void>` was dropped by the linker in favour of propdat's, so the source declares that specialisation instead of instantiating it |
 | `anim.cpp` | 11 | 532 | — | Animation module start-up, the user-opcode callback stacks and the global `g_AnimDB` (constructed by `__sinit_anim_cpp`) |

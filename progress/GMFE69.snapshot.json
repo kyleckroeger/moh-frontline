@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 588412,
+    "matching_code_bytes": 588660,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.59646875521359,
+    "percent": 41.61400055988666,
     "categories": {
-      "reconstructed_game": 368220,
+      "reconstructed_game": 368468,
       "restored_library": 220192
     },
-    "matching_functions": 3589
+    "matching_functions": 3590
   },
   "input_sha256": {
     "config/GMFE69/AIDoodad.json": "fbe6da2750e71d43ae68554e3fcdce413e76e9d8463f18206e347c607056e6f8",
@@ -442,7 +442,7 @@
     "config/GMFE69/dmesh_cremapbin_dtor.json": "4757177099b8934a7ac51c704cdf494dff8a18fb9cbd804ae585b266cc1162ff",
     "config/GMFE69/dmesh_part_name.json": "ae8f08c8da84a94247283c156c8d9fe0382c19fd39f890c97011ba837f036cf8",
     "config/GMFE69/dmesh_partbin_render.json": "95845b22cb231252ab2b4a5f8f6c7b840bbe3986c248c1bfe31a9df7c13a63a3",
-    "config/GMFE69/dmgeom.json": "9829feea0b00aad311216a345cb671d1c82c01af17c198cd9ecea52129f159fa",
+    "config/GMFE69/dmgeom.json": "bb2758feb3b60f952cfd9efdd51d8f45dc2061ead593ccbc4522635f7fa9bc0d",
     "config/GMFE69/dmmorph.json": "5d6bcd1c343237b6b5c06843d43fc5af43e209e616b20d6aca1dcad294146828",
     "config/GMFE69/dmrender.json": "a4e5a155bcb40cefc60608fed6f7359cea5bc51b9fec0b9f80c0e4dbac97ac56",
     "config/GMFE69/dolphin_trk.json": "9f66a923f4f6e4103cb15c12022e534d623c661d7ace9cc644364dfd361c06b7",
@@ -2259,7 +2259,7 @@
     "src/game/dmesh_cremapbin_dtor.cpp": "a34c70166296936cdd65de8c6b072aa6e05196316aa4fef78567dbbae22f8485",
     "src/game/dmesh_part_name.cpp": "b7de98c22ce22f34dd40e4b02a8e981c645e6198dc9c987ea8271aa17b51c088",
     "src/game/dmesh_partbin_render.cpp": "7a81234238a8459231650c0167bc0da8458a441e07ba1dfb4e0288c08377cc08",
-    "src/game/dmgeom.cpp": "6f176541b44727ce39e90fbc33d60d1c7cd572e20cde4bc86401f647cd9f7f14",
+    "src/game/dmgeom.cpp": "a9ba8c7f28b8ea7a19164a736931a3b39be4dbeb10294b4b86e5ff78a23aa6e5",
     "src/game/dmmorph.cpp": "bd3896c6b9956acda3fe9efaa958a3ae4ae04e95a706b93e0a682241354a77f3",
     "src/game/dmrender.cpp": "7b92ea9bad0f52f4ba4728f8386f4da6fd4a3b93b5293dd87d1fdcf6bc6c3ec8",
     "src/game/draw_context.cpp": "261589cc092b9c8c7b80605255eefc78641468141f4d33264252696f62c9782b",
@@ -11483,8 +11483,8 @@
     {
       "id": "dmgeom",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 44,
+      "functions": 2,
+      "code_bytes": 292,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -11516,8 +11516,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "7cbcdd54e8464d3d4e12b7ec8626feb0c55f2da56031ad43d2d986da82ac5a4c",
-      "linked_sha256": "3ddcb83f334b367e283ce13bd5606983d6bd745b0108d1c9f5aeb6b2ffa294f3"
+      "object_sha256": "ba6191f32922eba50490bd069a0d3175a0b47d34e671fa02ab90f92ca2f82346",
+      "linked_sha256": "99988fc2a02fb42bd868dc46ff7f73e64f886034584da55dd2be7a50e710f3c7"
     },
     {
       "id": "LinkedList",
@@ -50466,20 +50466,6 @@
             "size": 100,
             "kind": "function",
             "name": "InitClass__6CDMeshFP11CRenderList",
-            "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/dmgeom.cpp [symbol evidence]",
-        "file_record": 160,
-        "file_name": "dmgeom.cpp",
-        "ranges": [
-          {
-            "address": "0x800f6de4",
-            "size": 248,
-            "kind": "function",
-            "name": "DMGeomResetState__FP17DMGeometryState_T",
             "evidence": "exception-index"
           }
         ]

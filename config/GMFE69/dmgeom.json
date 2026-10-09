@@ -40,7 +40,19 @@
     {
       "name": ".text",
       "address": "0x800f6db8",
-      "size": 44,
+      "size": 292,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000f8f8",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80016604",
+      "size": 12,
       "type": 1
     }
   ],
@@ -49,6 +61,12 @@
       "name": "DMGeomSetNodeState__FP17DMGeometryState_Tll",
       "address": "0x800f6db8",
       "size": 44,
+      "binding": 1
+    },
+    {
+      "name": "DMGeomResetState__FP17DMGeometryState_T",
+      "address": "0x800f6de4",
+      "size": 248,
       "binding": 1
     }
   ],
@@ -60,5 +78,9 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "dmgeom.cpp",
-  "original_file_index": 9789
+  "original_file_index": 9789,
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "dmgeom.json"
+  }
 }
