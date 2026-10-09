@@ -1,0 +1,153 @@
+{
+  "id": "dmesh_bins",
+  "source": "src/game/dmesh_bins.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800f5f04",
+      "size": 636,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000f878",
+      "size": 40,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 48,
+      "stripped_objects": [
+        "@215"
+      ]
+    },
+    {
+      "name": "extabindex",
+      "address": "0x8001655c",
+      "size": 36,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 48,
+      "stripped_objects": [
+        "@216"
+      ]
+    }
+  ],
+  "functions": [
+    {
+      "name": "IsUsed__12CDMRenderBinFv",
+      "address": "0x800f5f04",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Link__12CDMRenderBinFP7CDmaTagR10CDmaPacket",
+      "address": "0x800f5f0c",
+      "size": 164,
+      "binding": 1
+    },
+    {
+      "name": "Render__5CPartFR10CDmaPacketPv",
+      "address": "0x800f5fb0",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Link__9CRemapBinFP7CDmaTagR10CDmaPacket",
+      "address": "0x800f5fb8",
+      "size": 380,
+      "binding": 1
+    },
+    {
+      "name": "Render__9CRemapBinFR10CDmaPacketPv",
+      "address": "0x800f6134",
+      "size": 52,
+      "binding": 1
+    },
+    {
+      "name": "Init__8CPartBinFv",
+      "address": "0x800f6168",
+      "size": 24,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "GXCopyDisp": "0x8012cf78",
+    "GXSetColorUpdate": "0x8012fb7c",
+    "GXSetCopyClear": "0x8012cccc",
+    "GXSetZMode": "0x8012fbfc",
+    "Render__10CRenderBinFR10CDmaPacketPv": "0x80076e18",
+    "__dl__FPv": "0x8001ca2c",
+    "__dt__10CRenderBinFv": "0x80074290",
+    "__vt__10CRenderBin": "0x80183c5c",
+    "_finish_draw": "0x8034e390",
+    "_finish_draw_weapon": "0x8034e391",
+    "_remap_next": "0x8034ed8c",
+    "g_screen": "0x80196ac0"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [
+    "_finish_draw",
+    "_finish_draw_weapon",
+    "_remap_next"
+  ],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "_finish_draw",
+    "_finish_draw_weapon",
+    "_remap_next"
+  ],
+  "original_file": "dmesh.cpp",
+  "original_file_index": 9689,
+  "weak_duplicates": [
+    "Render__10CRenderBinFR10CDmaPacketPv",
+    "__dt__10CRenderBinFv"
+  ],
+  "pooled_sections": [
+    ".sbss2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sbss2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80351cc8"
+    }
+  ]
+}

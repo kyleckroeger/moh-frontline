@@ -246,5 +246,33 @@ class PoolReferences(unittest.TestCase):
                 validate_units(self.original, [unit])
 
 
+class ZeroFillPoolReferences(unittest.TestCase):
+    """dmesh_bins links its zero GXColor initializer to an entry of the .sbss2 pool."""
+
+    @classmethod
+    def setUpClass(cls):
+        path = ROOT / 'build/reconstruction/units/dmesh_bins/compiled.o'
+        if not path.exists():
+            raise unittest.SkipTest('Run reconstruct.py first')
+        cls.original_path, cls.original = load_target()
+        cls.unit = json.loads((CONFIG / 'dmesh_bins.json').read_text())
+        cls.compiled = path.read_bytes()
+
+    def test_zero_fill_item_links_to_the_original_address(self):
+        self.assertEqual(self.unit['pool_references'],
+                         [{'section': '.sbss2', 'offset': 0, 'size': 4, 'address': '0x80351cc8'}])
+        validate_units(self.original, [self.unit])
+        check_pool(self.original, Elf32(self.compiled), self.unit)
+        obj = Elf32(strip_objects(self.compiled, self.unit))
+        names = {s['name'] for s in relocation_targets(obj, '.text') if s['name'].startswith('__pool_')}
+        self.assertEqual(names, {'__pool_80351cc8'})
+
+    def test_a_reference_outside_the_zero_fill_section_fails(self):
+        unit = json.loads(json.dumps(self.unit))
+        unit['pool_references'][0]['address'] = '0x80351cd0'  # past the 12-byte .sbss2
+        with self.assertRaisesRegex(ValueError, 'outside the original section'):
+            validate_units(self.original, [unit])
+
+
 if __name__ == '__main__':
     unittest.main()

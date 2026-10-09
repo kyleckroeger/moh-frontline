@@ -216,7 +216,7 @@ def validate_pool(original, unit):
                 or not isinstance(reference["offset"], int) or reference["offset"] < 0
                 or reference["address"] != f"{address:#x}"):
             raise ValueError("Invalid pool reference")
-        if not any(s["name"] == reference["section"] and s["flags"] & 2 and s["type"] == 1
+        if not any(s["name"] == reference["section"] and s["flags"] & 2 and s["type"] in (1, 8)
                    and s["address"] <= address < address + size <= s["address"] + s["size"]
                    for s in original.sections):
             raise ValueError("Pool reference is outside the original section")
@@ -234,7 +234,7 @@ def check_pool(original, obj, unit):
                 relocated.setdefault(rela["info"], []).append(struct.unpack_from(">I", obj.contents(rela), offset)[0])
     for reference in unit.get("pool_references", []):
         section = by_name.get(reference["section"])
-        if section is None or not section["flags"] & 2 or section["type"] != 1:
+        if section is None or not section["flags"] & 2 or section["type"] not in (1, 8):
             raise ValueError(f"Pooled compiler section is missing: {reference['section']}")
         start, size = reference["offset"], reference["size"]
         if pool_item(obj, section, start) != size:
@@ -245,8 +245,15 @@ def check_pool(original, obj, unit):
         target = next(s for s in original.sections if s["name"] == reference["section"] and s["flags"] & 2
                       and s["address"] <= address < s["address"] + s["size"])
         offset = address - target["address"]
-        if obj.contents(section)[start:start + size] != original.contents(target)[offset:offset + size]:
+        if pool_bytes(obj, section, start, size) != pool_bytes(original, target, offset, size):
             raise ValueError(f"Pool item differs from the original: {unit['id']} {reference['section']}+{start:#x}")
+
+
+def pool_bytes(elf, section, offset, size):
+    """A pool item's bytes; a zero-initialized (NOBITS) section such as .sbss2 holds zeros."""
+    if section["type"] == 8:
+        return bytes(size)
+    return elf.contents(section)[offset:offset + size]
 
 
 def validate_object(obj, unit):

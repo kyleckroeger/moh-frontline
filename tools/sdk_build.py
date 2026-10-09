@@ -82,7 +82,7 @@ def sdk_link_script(unit, obj, original, tools, work, execute):
             script.append(f"{symbol} = {address};")
             continue
         if name in pool:
-            section = next(s for s in original.sections if s["flags"] & 2 and s["type"] == 1
+            section = next(s for s in original.sections if s["flags"] & 2 and s["type"] in (1, 8)
                            and s["address"] <= int(address, 16) < s["address"] + s["size"])
         else:
             section = original.sections[resolve_external(original, unit, name)["section"]]
