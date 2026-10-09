@@ -1,5 +1,5 @@
 // A fragment of skybox.cpp (0x800a9840): CSkyBoxRenderBin's weak Render
-// (the sky box given as the render data is kept and, with the next word,
+// (the sky box given as the render data is kept and, with the bin's face,
 // added to the packet), Link (for a non-empty tag list: the GX vertex
 // format and TEV state for one textured, unlit stage blended over the frame,
 // then for each tag the sky box's matrix is loaded, the face's texture is
@@ -112,7 +112,7 @@ public:
     virtual bool IsUsed();
 
     CSkyBox* m_sky;
-    unsigned int data24;
+    int m_face;
     bool m_enabled;
 };
 
@@ -120,7 +120,7 @@ __declspec(weak) int CSkyBoxRenderBin::Render(CDmaPacket& packet, void* data) {
     m_sky = (CSkyBox*)data;
     m_sky = (CSkyBox*)data;
     packet.Add((unsigned int)m_sky);
-    packet.Add(data24);
+    packet.Add(m_face);
     return 0;
 }
 

@@ -1,0 +1,91 @@
+{
+  "id": "skybox_initclass",
+  "source": "src/game/skybox_initclass.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800a9420",
+      "size": 136,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000d1bc",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80014294",
+      "size": 12,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034eb2c",
+      "size": 2,
+      "type": 8,
+      "input_alignment": 4
+    }
+  ],
+  "functions": [
+    {
+      "name": "InitClass__7CSkyBoxFP11CRenderListP7CScreen",
+      "address": "0x800a9420",
+      "size": 136,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "Register__11CRenderListFR10CRenderBin": "0x800f127c",
+    "g_skyBoxRenderBin": "0x801ef25c",
+    "sm_pRenderList__7CSkyBox": "0x8034eb20",
+    "sm_pScreen__7CSkyBox": "0x8034eb24"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "sm_pRenderList__7CSkyBox",
+    "sm_pScreen__7CSkyBox"
+  ],
+  "original_file": "skybox.cpp",
+  "original_file_index": 6516
+}
