@@ -39,30 +39,36 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800f4c74",
-      "size": 548,
+      "address": "0x800f4a98",
+      "size": 1024,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000f7e0",
-      "size": 56,
+      "address": "0x8000f7d8",
+      "size": 64,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80016490",
-      "size": 84,
-      "type": 1
-    },
-    {
-      "name": ".sdata2",
-      "address": "0x80351178",
-      "size": 4,
+      "address": "0x80016484",
+      "size": 96,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "DMLightingScaleAlpha__FP16DMRenderObject_Tf",
+      "address": "0x800f4a98",
+      "size": 16,
+      "binding": 1
+    },
+    {
+      "name": "DMLightingUpdate__FP16DMRenderObject_TP12DMLighting_T",
+      "address": "0x800f4aa8",
+      "size": 460,
+      "binding": 1
+    },
     {
       "name": "DMRenderSetClusterMatrices__FP16DMRenderObject_TPA3_A4_f",
       "address": "0x800f4c74",
@@ -153,7 +159,9 @@
     "DMClusterShutdown__Fv": "0x800f57b4",
     "DMGeomBuildPartList__FP16DMGeomPartData_TP6CDMeshP17DMGeometryState_T": "0x800f6edc",
     "DMGeomResetState__FP17DMGeometryState_T": "0x800f6de4",
+    "TransformVector__7CMatrixCFR8CVector38CVector3": "0x8008fa84",
     "__as__7CMatrixFRC7CMatrix": "0x80090b34",
+    "g_matStack": "0x8034eab8",
     "memset": "0x80009410"
   },
   "undefined_in_discarded_code": [],
@@ -161,7 +169,30 @@
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": [],
+  "sda_externals": [
+    "g_matStack"
+  ],
   "original_file": "dmrender.cpp",
-  "original_file_index": 9632
+  "original_file_index": 9632,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80351178"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x8035117c"
+    }
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "dmrender.json"
+  }
 }

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 588660,
+    "matching_code_bytes": 589136,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.61400055988666,
+    "percent": 41.64765031401724,
     "categories": {
-      "reconstructed_game": 368468,
+      "reconstructed_game": 368944,
       "restored_library": 220192
     },
-    "matching_functions": 3590
+    "matching_functions": 3592
   },
   "input_sha256": {
     "config/GMFE69/AIDoodad.json": "fbe6da2750e71d43ae68554e3fcdce413e76e9d8463f18206e347c607056e6f8",
@@ -444,7 +444,7 @@
     "config/GMFE69/dmesh_partbin_render.json": "95845b22cb231252ab2b4a5f8f6c7b840bbe3986c248c1bfe31a9df7c13a63a3",
     "config/GMFE69/dmgeom.json": "bb2758feb3b60f952cfd9efdd51d8f45dc2061ead593ccbc4522635f7fa9bc0d",
     "config/GMFE69/dmmorph.json": "5d6bcd1c343237b6b5c06843d43fc5af43e209e616b20d6aca1dcad294146828",
-    "config/GMFE69/dmrender.json": "a4e5a155bcb40cefc60608fed6f7359cea5bc51b9fec0b9f80c0e4dbac97ac56",
+    "config/GMFE69/dmrender.json": "63db620859de1cf70482680a1608384e51272f07a9c663800bdf9b2b5d56cece",
     "config/GMFE69/dolphin_trk.json": "9f66a923f4f6e4103cb15c12022e534d623c661d7ace9cc644364dfd361c06b7",
     "config/GMFE69/dolphin_trk_glue.json": "9bad22a0d1cea134a59e1015e9c02cc8418e9b47e3975f25993cc3bca1bcebd7",
     "config/GMFE69/draw_context.json": "982726912b09ce3e360e31108753cc5cd578e2c0267a2268454edfd80816387a",
@@ -2261,7 +2261,7 @@
     "src/game/dmesh_partbin_render.cpp": "7a81234238a8459231650c0167bc0da8458a441e07ba1dfb4e0288c08377cc08",
     "src/game/dmgeom.cpp": "a9ba8c7f28b8ea7a19164a736931a3b39be4dbeb10294b4b86e5ff78a23aa6e5",
     "src/game/dmmorph.cpp": "bd3896c6b9956acda3fe9efaa958a3ae4ae04e95a706b93e0a682241354a77f3",
-    "src/game/dmrender.cpp": "7b92ea9bad0f52f4ba4728f8386f4da6fd4a3b93b5293dd87d1fdcf6bc6c3ec8",
+    "src/game/dmrender.cpp": "0c5d7e63d3e8745e0e94191ab8773469f4dde49126919b9ab13b926685d84b19",
     "src/game/draw_context.cpp": "261589cc092b9c8c7b80605255eefc78641468141f4d33264252696f62c9782b",
     "src/game/explosion_dtor.cpp": "e817a0dbeefc80acc2a66d71b33f5452f43316084e641a96af448c533cd5bbd2",
     "src/game/fader.cpp": "b5982f2407c5af7f4f8a253151abce96f20294fc0962986bb3174d92bcac718b",
@@ -18023,8 +18023,8 @@
     {
       "id": "dmrender",
       "category": "reconstructed_game",
-      "functions": 14,
-      "code_bytes": 548,
+      "functions": 16,
+      "code_bytes": 1024,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -18056,8 +18056,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "b9d3702b10aa3288973b3890bd9c2695523e391f242b9cfc88ee12c91f1591d6",
-      "linked_sha256": "6619e1b725c1965dc0ed855a86027b181b91553ba8d5db99ad4d08c3367df7d3"
+      "object_sha256": "3c6ceaeea4377ec950f66ff78a3aad72e905e5c8e8d45746b761f0b0c2c89f55",
+      "linked_sha256": "c2b139077991e6a50716e444de369e06b6150ed0d16918ad185e78faa1d83c79"
     },
     {
       "id": "sserver",
@@ -50342,32 +50342,6 @@
             "size": 836,
             "kind": "function",
             "name": "__ct__17CProfileInitClassFv",
-            "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 800f4a98",
-        "ranges": [
-          {
-            "address": "0x800f4a98",
-            "size": 16,
-            "kind": "function",
-            "name": "DMLightingScaleAlpha__FP16DMRenderObject_Tf",
-            "evidence": "unknown-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/dmrender.cpp [symbol evidence]",
-        "file_record": 157,
-        "file_name": "dmrender.cpp",
-        "ranges": [
-          {
-            "address": "0x800f4aa8",
-            "size": 460,
-            "kind": "function",
-            "name": "DMLightingUpdate__FP16DMRenderObject_TP12DMLighting_T",
             "evidence": "exception-index"
           }
         ]

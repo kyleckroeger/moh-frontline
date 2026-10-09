@@ -1,15 +1,63 @@
-// Display-mesh render objects: binding a mesh, cluster and morph objects,
+// Display-mesh render objects: lighting (the three camera-space light
+// directions and colours and the doubled ambient colour, and scaling its
+// alpha), binding a mesh, cluster and morph objects,
 // matrices, scale and flags, and the part list rebuilt when the geometry
 // state changes. DMRenderObject_T and the referenced types are named by the
 // mangled symbols; the record's members are inferred from offsets and are not
 // original.
 extern "C" void* memset(void*, int, unsigned long);
 
+class CVector3 {
+public:
+    CVector3() {}
+    CVector3(float ax, float ay, float az) : x(ax), y(ay), z(az) {}
+
+    float x;
+    float y;
+    float z;
+    float w;
+} __attribute__((aligned(8)));
+
 class CMatrix {
 public:
     CMatrix& operator=(const CMatrix&);
+    void TransformVector(CVector3&, CVector3) const;
 
     float m[4][4];
+};
+
+class CMatrixStack {
+public:
+    unsigned long m_size;
+    int m_index;
+    CMatrix* m_stack;
+
+    CMatrix& Current() { return m_stack[m_index]; }
+};
+
+extern CMatrixStack* g_matStack;
+
+/* Inferred: the light record is built by a four-float constructor (its
+   loads are ordered z, y, x); a lighting setup (three light colours, the ambient colour, and
+   three light directions). */
+struct DMColorView {
+    double pair[2];
+};
+
+struct DMLighting_T {
+    DMColorView colors[3];
+    DMColorView ambient;
+    float directions[3][3];
+};
+
+struct DMLightView {
+    DMLightView() {}
+    DMLightView(float ax, float ay, float az, float aw) : x(ax), y(ay), z(az), w(aw) {}
+
+    float x;
+    float y;
+    float z;
+    float w;
 };
 
 class CDMesh;
@@ -40,7 +88,10 @@ struct DMRenderObject_T {
     int field0C4;
     float scale[3];
     unsigned long reject2d;
-    unsigned char field0D8[120];
+    DMLightView lights[3];
+    DMColorView lightColors[3];
+    DMColorView ambient;
+    unsigned char field148[8];
     void* parts;
     DMGeomPartData_T partData;
     DMClusterObject_T* cluster;
@@ -55,6 +106,29 @@ void DMClusterInit();
 
 // DMLightingScaleAlpha and DMLightingUpdate come first in the original file
 // and are not part of this unit.
+
+void DMLightingScaleAlpha(DMRenderObject_T* object, float scale) {
+    ((float*)&object->ambient)[3] *= scale;
+}
+
+void DMLightingUpdate(DMRenderObject_T* object, DMLighting_T* lighting) {
+    CVector3 direction0(lighting->directions[0][0], lighting->directions[0][1], lighting->directions[0][2]);
+    CVector3 direction1(lighting->directions[1][0], lighting->directions[1][1], lighting->directions[1][2]);
+    CVector3 direction2(lighting->directions[2][0], lighting->directions[2][1], lighting->directions[2][2]);
+    CVector3 camera[3];
+    g_matStack->Current().TransformVector(camera[0], direction0);
+    g_matStack->Current().TransformVector(camera[1], direction1);
+    g_matStack->Current().TransformVector(camera[2], direction2);
+    for (int i = 0; i < 3; i++) {
+        object->lights[i] = DMLightView(camera[i].x, camera[i].y, camera[i].z, 1.0f);
+        object->lightColors[i] = lighting->colors[i];
+    }
+    object->ambient = lighting->ambient;
+    float* ambient = (float*)&object->ambient;
+    ambient[0] *= 2.0f;
+    ambient[1] *= 2.0f;
+    ambient[2] *= 2.0f;
+}
 
 void DMRenderSetClusterMatrices(DMRenderObject_T* object, float (*matrices)[3][4]) {
     object->clusterMatrices = matrices;
