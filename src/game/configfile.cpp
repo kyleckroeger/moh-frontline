@@ -1,11 +1,20 @@
 // CConfigFile: a loaded text file split into "[section]" blocks, with
-// "key = value" lookups in the current section. CConfigFile and
-// CConfigSection are named by the mangled symbols; members are inferred from
-// offsets and are not original.
+// "key = value" lookups in the current section (GetString copies the value up
+// to the end of its line, GetBool compares its first four characters with
+// "true"; both find the value through the inline FindValue). CConfigFile and
+// CConfigSection are named by the mangled symbols; members and the FindValue
+// helper are inferred and are not original.
 extern "C" {
+void* memcpy(void*, const void*, unsigned long);
+char* strncpy(char*, const char*, unsigned long);
 char* strchr(const char*, int);
+char* strstr(const char*, const char*);
 int stricmp(const char*, const char*);
+extern unsigned char __ctype_map[];
 }
+
+// MSL's isspace macro: the whitespace bits (0x06) of the character class map.
+#define isspace(c) (__ctype_map[(unsigned char)(c)] & 0x06)
 
 void* TLT_LoadFileNormal(const char*, int*, int);
 void TLT_CloseFile(void*);
@@ -30,15 +39,60 @@ public:
     bool GetBool(const char*, bool);
     bool GetString(const char*, char*, int);
 
+    char* FindValue(const char* key) {
+        if (m_current < 0)
+            return 0;
+        char* entry = strstr(m_sections[m_current].m_start, key);
+        char* eol;
+        if (entry) {
+            char* found = strstr(entry, eolString);
+            eol = found;
+            if (found == 0)
+                eol = m_sections[m_current].m_end;
+            char* equals = strchr(entry, '=');
+            if (equals && equals < eol) {
+                char* value;
+                for (value = equals + 1; isspace(*value); value++)
+                    ;
+                return value;
+            }
+        }
+        return 0;
+    }
+
     CConfigSection m_sections[64];
     int m_count;
     int m_current;
     char* m_data;
 };
 
-// GetString and GetBool come first in the original file. They share an
-// inlined "key = value" lookup and are drafted in scratch but not matched, so
-// this unit starts at SetSection.
+bool CConfigFile::GetString(const char* key, char* buffer, int size) {
+    char* value = FindValue(key);
+
+    if (value) {
+        memcpy(buffer, value, size);
+        char* eol = strstr(buffer, eolString);
+        if (eol)
+            *eol = 0;
+        return true;
+    }
+    return false;
+}
+
+bool CConfigFile::GetBool(const char* key, bool defaultValue) {
+    char* value = FindValue(key);
+
+    if (value) {
+        char text[5];
+
+        strncpy(text, value, 4);
+        text[4] = 0;
+        if (stricmp(text, "true") == 0)
+            return true;
+        return false;
+    }
+    return defaultValue;
+}
 
 bool CConfigFile::SetSection(const char* name) {
     CConfigSection* section = m_sections;

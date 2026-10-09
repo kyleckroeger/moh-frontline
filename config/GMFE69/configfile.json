@@ -39,20 +39,20 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8001c350",
-      "size": 640,
+      "address": "0x8001c138",
+      "size": 1176,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000979c",
-      "size": 24,
+      "address": "0x8000978c",
+      "size": 40,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x800101c0",
-      "size": 36,
+      "address": "0x800101a8",
+      "size": 60,
       "type": 1
     },
     {
@@ -70,11 +70,23 @@
     {
       "name": ".sdata2",
       "address": "0x8034f5f8",
-      "size": 3,
+      "size": 9,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "GetString__11CConfigFileFPCcPci",
+      "address": "0x8001c138",
+      "size": 260,
+      "binding": 1
+    },
+    {
+      "name": "GetBool__11CConfigFileFPCcb",
+      "address": "0x8001c23c",
+      "size": 276,
+      "binding": 1
+    },
     {
       "name": "SetSection__11CConfigFileFPCc",
       "address": "0x8001c350",
@@ -105,9 +117,13 @@
     "TLT_CloseFile__FPv": "0x8001d820",
     "TLT_LoadFileNormal__FPCcPii": "0x8001d308",
     "__construct_array": "0x8013834c",
+    "__ctype_map": "0x80190858",
     "__dl__FPv": "0x8001ca2c",
+    "memcpy": "0x800094f8",
     "strchr": "0x8013fe64",
-    "stricmp": "0x80151ab8"
+    "stricmp": "0x80151ab8",
+    "strncpy": "0x8013fffc",
+    "strstr": "0x8013fdb4"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -116,5 +132,9 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "configfile.cpp",
-  "original_file_index": 278
+  "original_file_index": 278,
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "configfile.json"
+  }
 }
