@@ -384,7 +384,7 @@
     "Moh2.json",
     "volume_query_test.json",
     "popup.json",
-    "particlesystem.json",
+    "particlesystem_property.json",
     "ShellMenu.json",
     "thrown_obj.json",
     "thrownbullet.json",
@@ -713,7 +713,6 @@
     "compartment_weak.json",
     "compartment_offsetptr.json",
     "compartment_fastvec.json",
-    "particlesystem_weak.json",
     "particlesystem_rotation.json",
     "particlesystem_active.json",
     "particlesystem_validate.json",
@@ -902,7 +901,8 @@
     "Moh2_scenenode_dtors.json",
     "fader.json",
     "sprite.json",
-    "staticmesh.json"
+    "staticmesh.json",
+    "particlesystem.json"
   ],
   "progress": {
     "code_bytes": 1414572,
