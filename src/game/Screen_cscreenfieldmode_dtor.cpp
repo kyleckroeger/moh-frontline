@@ -1,4 +1,5 @@
-// A fragment of Screen.cpp (0x8001b4bc): the CScreenFieldMode destructor (its
+// A fragment of Screen.cpp (0x8001b4b0): CScreenFieldMode's empty PutDisp,
+// SetDraw and Rebuild, then the CScreenFieldMode destructor (its
 // virtual table pointer, then CScreen's destructor inlined: its table pointer
 // and the file-local current or previous screen released when it is this one;
 // then the object freed when asked). The file
@@ -31,7 +32,19 @@ class CScreenFieldMode : public CScreen {
 public:
     virtual void SetCurrent(); /* result type not known */
     virtual ~CScreenFieldMode();
+    virtual void Rebuild();
+    virtual void PutDisp();
+    virtual void SetDraw();
 };
+
+void CScreenFieldMode::PutDisp() {
+}
+
+void CScreenFieldMode::SetDraw() {
+}
+
+void CScreenFieldMode::Rebuild() {
+}
 
 CScreenFieldMode::~CScreenFieldMode() {
 }

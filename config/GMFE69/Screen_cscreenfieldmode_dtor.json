@@ -39,8 +39,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8001b4bc",
-      "size": 136,
+      "address": "0x8001b4b0",
+      "size": 148,
       "type": 1
     },
     {
@@ -57,6 +57,24 @@
     }
   ],
   "functions": [
+    {
+      "name": "PutDisp__16CScreenFieldModeFv",
+      "address": "0x8001b4b0",
+      "size": 4,
+      "binding": 1
+    },
+    {
+      "name": "SetDraw__16CScreenFieldModeFv",
+      "address": "0x8001b4b4",
+      "size": 4,
+      "binding": 1
+    },
+    {
+      "name": "Rebuild__16CScreenFieldModeFv",
+      "address": "0x8001b4b8",
+      "size": 4,
+      "binding": 1
+    },
     {
       "name": "__dt__16CScreenFieldModeFv",
       "address": "0x8001b4bc",
@@ -84,5 +102,9 @@
     "g_prevScreen"
   ],
   "original_file": "Screen.cpp",
-  "original_file_index": 183
+  "original_file_index": 183,
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "Screen_cscreenfieldmode_dtor.json"
+  }
 }

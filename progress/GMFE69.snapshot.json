@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 592016,
+    "matching_code_bytes": 592028,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.8512454650594,
+    "percent": 41.85209377818874,
     "categories": {
-      "reconstructed_game": 371824,
+      "reconstructed_game": 371836,
       "restored_library": 220192
     },
-    "matching_functions": 3613
+    "matching_functions": 3616
   },
   "input_sha256": {
     "config/GMFE69/AIDoodad.json": "fbe6da2750e71d43ae68554e3fcdce413e76e9d8463f18206e347c607056e6f8",
@@ -158,7 +158,7 @@
     "config/GMFE69/SNDI_sin.json": "0b60fa9265dea81e4c4dc40bdaf11377f21325b62ab47bfd58ada88b7602fee2",
     "config/GMFE69/Screen.json": "f0db15b69156e55f32895e46a503a385b61d059debf39de4ba68893b2071b820",
     "config/GMFE69/Screen_cscreen_dtor.json": "6a21be9d3bd77d59150803fb92a394e9e948f20f53e5ffc37416aeb68788dbfe",
-    "config/GMFE69/Screen_cscreenfieldmode_dtor.json": "0de7b07303bafdb16b2aa5b04808db885097b71f9365f81695259fe44a7b60b4",
+    "config/GMFE69/Screen_cscreenfieldmode_dtor.json": "c55d5324fbc42c5d9a5e6a17f247fe384636c3967a76f2e9341cd8b5e65e99ab",
     "config/GMFE69/Screen_fieldmode.json": "a533897eb466189fdaea3e9e66d1f708950b87d07289e5425afdc17f35fd0d03",
     "config/GMFE69/Screen_vblank.json": "6fe843f6af4c9bf529ac95a181974b901b1e783441059fdc954e0620a3a6cd0e",
     "config/GMFE69/SearchNode.json": "2c7114d770c452c5de63f622ad4584807bd0b1ca57c24e32d8c7f24281651762",
@@ -2003,7 +2003,7 @@
     "src/game/Pause_unpause.cpp": "ce619ade12ef215f4aa85cb7d5f8e9a7b23aa483a4180d456210c0df3c22cfa1",
     "src/game/Screen.cpp": "6c4492b89d7cc8a41dea765c8ef19369a5aae16329f0a3b00621e2b86415703b",
     "src/game/Screen_cscreen_dtor.cpp": "eb113ea173454cb3f8b58e4c3cf7c80e073dfc7ba9ba0a6891ed59b2cc3f5e50",
-    "src/game/Screen_cscreenfieldmode_dtor.cpp": "c4ec43062429166db49696fd7258120e372ddbb1b231fffff97c39b528fbbaef",
+    "src/game/Screen_cscreenfieldmode_dtor.cpp": "e6bea55f3444224efcdd80c48f290037f2f92ed4290d47d0016f46c98eaa34f7",
     "src/game/Screen_fieldmode.cpp": "c85584352168628795f1d57208d6b1746231ab10d8471bdd08857199f9d536f3",
     "src/game/Screen_vblank.cpp": "ab1180a24be3a78047287b670035a6960b002c7ca506b78082d206411441ef1e",
     "src/game/SearchNode.cpp": "6b76164fd42a19131dcf90f9fe0ec86b20e0ef3d9c948defd80b5441bde9d333",
@@ -36945,8 +36945,8 @@
     {
       "id": "Screen_cscreenfieldmode_dtor",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 136,
+      "functions": 4,
+      "code_bytes": 148,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -36978,8 +36978,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "6750085248d6cdbbefae22015420b3c625ad1054cdbaef2c8bb16cc27344d4f2",
-      "linked_sha256": "45d1fe616b19ef82060bef7ee3082ca44082bf53652a46fe6eba0e55127c8c61"
+      "object_sha256": "ccd927e2b9537eef78b98a1be3552cb28f135bb5ee3edcd841ff87e5cedb4358",
+      "linked_sha256": "eca1fa1ac248f6703f2327ba9953182593a21daa183cdbf9d4bd6551d267bcff"
     },
     {
       "id": "projectilebullet_ctor",
@@ -41686,27 +41686,6 @@
             "kind": "function",
             "name": "_Capture__16CScreenFieldModeFv",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x8001b4b0",
-            "size": 4,
-            "kind": "function",
-            "name": "PutDisp__16CScreenFieldModeFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001b4b4",
-            "size": 4,
-            "kind": "function",
-            "name": "SetDraw__16CScreenFieldModeFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8001b4b8",
-            "size": 4,
-            "kind": "function",
-            "name": "Rebuild__16CScreenFieldModeFv",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x8001b690",
