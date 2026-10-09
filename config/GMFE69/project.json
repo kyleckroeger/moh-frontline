@@ -886,7 +886,8 @@
     "projectilebullet_link.json",
     "dmesh_partbin_render.json",
     "csg_volume_line.json",
-    "skybox_instance.json"
+    "skybox_instance.json",
+    "skybox_textures.json"
   ],
   "progress": {
     "code_bytes": 1414572,
