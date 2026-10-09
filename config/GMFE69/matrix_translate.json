@@ -1,6 +1,6 @@
 {
-  "id": "matrix",
-  "source": "src/game/matrix.cpp",
+  "id": "matrix_translate",
+  "source": "src/game/matrix_translate.cpp",
   "category": "reconstructed_game",
   "compiler_family": "GC",
   "compiler_version": "1.3.2",
@@ -39,82 +39,88 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80090aa0",
-      "size": 484,
-      "type": 1
-    },
-    {
-      "name": ".ctors",
-      "address": "0x8016dfc0",
-      "size": 4,
+      "address": "0x80090660",
+      "size": 800,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000c6a8",
-      "size": 16,
-      "type": 1
-    },
-    {
-      "name": "extabindex",
-      "address": "0x80013718",
+      "address": "0x8000c688",
       "size": 24,
       "type": 1
     },
     {
-      "name": ".bss",
-      "address": "0x801eeed0",
-      "size": 128,
-      "type": 8
+      "name": "extabindex",
+      "address": "0x800136e8",
+      "size": 36,
+      "type": 1
     }
   ],
   "functions": [
     {
-      "name": "__sinit_matrix_cpp",
-      "address": "0x80090bb4",
-      "size": 208,
-      "binding": 0
-    },
-    {
-      "name": "__as__7CMatrixFRC7CMatrix",
-      "address": "0x80090b34",
-      "size": 68,
+      "name": "Translate__7CMatrixF8CVector3",
+      "address": "0x80090660",
+      "size": 52,
       "binding": 1
     },
     {
-      "name": "BuildScale__7CMatrixF8CVector3",
-      "address": "0x80090aa0",
-      "size": 80,
+      "name": "PreTranslate__7CMatrixF8CVector3",
+      "address": "0x80090694",
+      "size": 148,
       "binding": 1
     },
     {
-      "name": "BuildScale__7CMatrixFf",
-      "address": "0x80090af0",
-      "size": 68,
+      "name": "SetPos__7CMatrixF8CVector3",
+      "address": "0x80090728",
+      "size": 28,
       "binding": 1
     },
     {
-      "name": "InitClass__7CMatrixFv",
-      "address": "0x80090b78",
-      "size": 60,
+      "name": "SetUp__7CMatrixF8CVector3",
+      "address": "0x80090744",
+      "size": 28,
+      "binding": 1
+    },
+    {
+      "name": "SetFront__7CMatrixF8CVector3",
+      "address": "0x80090760",
+      "size": 28,
+      "binding": 1
+    },
+    {
+      "name": "SetRight__7CMatrixF8CVector3",
+      "address": "0x8009077c",
+      "size": 28,
+      "binding": 1
+    },
+    {
+      "name": "BuildTrans__7CMatrixF8CVector3",
+      "address": "0x80090798",
+      "size": 104,
+      "binding": 1
+    },
+    {
+      "name": "BuildRotZ__7CMatrixFf",
+      "address": "0x80090800",
+      "size": 192,
+      "binding": 1
+    },
+    {
+      "name": "BuildRotX__7CMatrixFf",
+      "address": "0x800908c0",
+      "size": 192,
       "binding": 1
     }
   ],
   "externals": {
-    "_Mat_Data": "0x801871d8",
-    "memcpy": "0x800094f8",
-    "s_ClassInit__7CMatrix": "0x8034eab0"
+    "MathSinCos__FlPfPf": "0x80091e9c"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
-  "local_externals": [
-    "_Mat_Data"
-  ],
+  "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": [
-    "s_ClassInit__7CMatrix"
-  ],
+  "sda_externals": [],
   "original_file": "matrix.cpp",
   "original_file_index": 5373,
   "pooled_sections": [
@@ -132,10 +138,12 @@
       "offset": 4,
       "size": 4,
       "address": "0x80350230"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 4,
+      "address": "0x80350270"
     }
-  ],
-  "adapted_from": {
-    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
-    "manifest": "matrix.json"
-  }
+  ]
 }

@@ -1,13 +1,17 @@
-// CMatrix translations, row setters and builders: Translate adds a vector to
-// the position, PreTranslate adds it rotated by the matrix rows; position, up,
-// front and right copy a vector's three coordinates into the matrix rows.
-// BuildTrans/BuildRotZ/BuildRotX reset the matrix to identity and set the
-// translation or a Z/X rotation (angle scaled to MathSinCos's fixed-point
-// units). CMatrix and CVector3 are named by the mangled symbols; the row
-// layout (right, front, up, position, 16 bytes each) is inferred from the
-// offsets. Ident is the paired-single routine of matrix_endian, inlined here
-// (inferred from the identical store sequence). The rest of the file is not
-// part of this unit.
+// The end of matrix.cpp (0x80090aa0): CMatrix::BuildScale for a vector and
+// for a single factor (identity with the scale on the diagonal), operator=
+// (the 64-byte copy as paired-single loads and stores, in asm), InitClass
+// (copies the unit matrix data into _Mat_Unit and sets s_ClassInit) and the
+// static initialisation of the file's matrices: s_TempMat through the inline
+// default constructor (class initialisation on first use) and _Mat_Unit as an
+// identity. It follows BuildRot, which is not reconstructed yet. CMatrix,
+// CVector3, s_TempMat, _Mat_Unit, _Mat_Data and s_ClassInit are named by the
+// symbols; the row layout (right, front, up, position, 16 bytes each) is
+// inferred from the offsets, as are the identity-setting constructor (as in
+// decal.cpp) and the default constructor. Ident is the paired-single routine
+// of matrix_endian, inlined here (inferred from the identical store
+// sequence); its 0 and 1 are entries of the file's .sdata2 pool. The unit
+// defines the file's .bss block (s_TempMat, _Mat_Unit).
 class CVector3 {
 public:
     float x;
@@ -16,62 +20,37 @@ public:
     float w;
 } __attribute__((aligned(8)));
 
-void MathSinCos(long, float*, float*);
+extern "C" void* memcpy(void*, const void*, unsigned long);
+
+class CMatrix;
+extern const CMatrix _Mat_Data;
 
 class CMatrix {
 public:
+    CMatrix() {
+        if (!s_ClassInit)
+            InitClass();
+    }
+    /* Inferred: a constructor that also sets the identity. */
+    CMatrix(bool identity) {
+        if (!s_ClassInit)
+            InitClass();
+        if (identity)
+            Ident();
+    }
     void Ident();
-    void BuildTrans(CVector3);
-    void BuildRotZ(float);
-    void BuildRotX(float);
-    void Translate(CVector3);
-    void PreTranslate(CVector3);
-    void SetPos(CVector3);
-    void SetUp(CVector3);
-    void SetFront(CVector3);
-    void SetRight(CVector3);
+    void BuildScale(CVector3);
+    void BuildScale(float);
+    CMatrix& operator=(const CMatrix&);
+    static void InitClass();
+    static bool s_ClassInit;
+    static CMatrix s_TempMat;
 
     CVector3 right;
     CVector3 front;
     CVector3 up;
     CVector3 pos;
 };
-
-void CMatrix::Translate(CVector3 v) {
-    pos.x += v.x;
-    pos.y += v.y;
-    pos.z += v.z;
-}
-
-void CMatrix::PreTranslate(CVector3 v) {
-    pos.x += right.x * v.x + front.x * v.y + up.x * v.z;
-    pos.y += right.y * v.x + front.y * v.y + up.y * v.z;
-    pos.z += right.z * v.x + front.z * v.y + up.z * v.z;
-}
-
-void CMatrix::SetPos(CVector3 v) {
-    pos.x = v.x;
-    pos.y = v.y;
-    pos.z = v.z;
-}
-
-void CMatrix::SetUp(CVector3 v) {
-    up.x = v.x;
-    up.y = v.y;
-    up.z = v.z;
-}
-
-void CMatrix::SetFront(CVector3 v) {
-    front.x = v.x;
-    front.y = v.y;
-    front.z = v.z;
-}
-
-void CMatrix::SetRight(CVector3 v) {
-    right.x = v.x;
-    right.y = v.y;
-    right.z = v.z;
-}
 
 inline void CMatrix::Ident() {
     register CMatrix* mtx = this;
@@ -95,35 +74,45 @@ inline void CMatrix::Ident() {
     }
 }
 
-void CMatrix::BuildTrans(CVector3 v) {
+CMatrix CMatrix::s_TempMat;
+static CMatrix _Mat_Unit(true);
+
+void CMatrix::BuildScale(CVector3 scale) {
     Ident();
-    CVector3 p = v;
-    float x = p.x;
-    float y = p.y;
-    float z = p.z;
-    pos.x = x;
-    pos.y = y;
-    pos.z = z;
+    right.x = scale.x;
+    front.y = scale.y;
+    up.z = scale.z;
 }
 
-void CMatrix::BuildRotZ(float angle) {
-    float s;
-    float c;
-    MathSinCos(2670176.8f * angle, &s, &c);
+void CMatrix::BuildScale(float scale) {
     Ident();
-    right.x = c;
-    right.y = s;
-    front.x = -s;
-    front.y = c;
+    up.z = scale;
+    front.y = scale;
+    right.x = scale;
 }
 
-void CMatrix::BuildRotX(float angle) {
-    float s;
-    float c;
-    MathSinCos(2670176.8f * angle, &s, &c);
-    Ident();
-    front.y = c;
-    front.z = s;
-    up.y = -s;
-    up.z = c;
+asm CMatrix& CMatrix::operator=(const CMatrix& m) {
+    nofralloc
+    psq_l f0, 0(r4), 0, 0
+    psq_l f1, 8(r4), 0, 0
+    psq_l f2, 16(r4), 0, 0
+    psq_l f3, 24(r4), 0, 0
+    psq_st f0, 0(r3), 0, 0
+    psq_st f1, 8(r3), 0, 0
+    psq_st f2, 16(r3), 0, 0
+    psq_st f3, 24(r3), 0, 0
+    psq_l f0, 32(r4), 0, 0
+    psq_l f1, 40(r4), 0, 0
+    psq_l f2, 48(r4), 0, 0
+    psq_l f3, 56(r4), 0, 0
+    psq_st f0, 32(r3), 0, 0
+    psq_st f1, 40(r3), 0, 0
+    psq_st f2, 48(r3), 0, 0
+    psq_st f3, 56(r3), 0, 0
+    blr
+}
+
+void CMatrix::InitClass() {
+    memcpy(&_Mat_Unit, &_Mat_Data, sizeof(CMatrix));
+    s_ClassInit = true;
 }

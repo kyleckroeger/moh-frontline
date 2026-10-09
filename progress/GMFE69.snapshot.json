@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 592784,
+    "matching_code_bytes": 592992,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.90553750533731,
+    "percent": 41.920241599579235,
     "categories": {
-      "reconstructed_game": 372592,
+      "reconstructed_game": 372800,
       "restored_library": 220192
     },
-    "matching_functions": 3621
+    "matching_functions": 3622
   },
   "input_sha256": {
     "config/GMFE69/AIDoodad.json": "fbe6da2750e71d43ae68554e3fcdce413e76e9d8463f18206e347c607056e6f8",
@@ -547,11 +547,11 @@
     "config/GMFE69/mainloop.json": "2994436609fef577d03fa3220d0c44d5933025297dcfae7a7880dded142e765a",
     "config/GMFE69/mainloop_game.json": "a6b94a41d3040d709bae4325a7985c520182530cf40ccd6f4f7a07b741606910",
     "config/GMFE69/math_ppc.json": "b9333b4067895dff685beb9b33137457e747e7894562c6b8de8258785645b3f6",
-    "config/GMFE69/matrix.json": "b03949cf47d4c176d47539cbe3753fd3f81477f14b7b6ed44254db12e93e3f87",
+    "config/GMFE69/matrix.json": "e7268ce943b862381fd76ce1474cc849e21ef3e2bfb20fd849cfefb7f48aa3b6",
     "config/GMFE69/matrix_endian.json": "35c628c3517d44c1bfa0c1a6b556a95393a1b0890fb43fd4206e279493ad5784",
     "config/GMFE69/matrix_multiply.json": "f611599b3b2bd945ae34e05365a7d7d9c254077d6553774eabb6131620413691",
     "config/GMFE69/matrix_ps.json": "c4b6d56bc2559da083fc64c3749010d25d78d759d907fc0973f6d80ed82495c6",
-    "config/GMFE69/matrix_scale.json": "34b5696bce63061bdc48ae02c60bec10f59129e20df1ecd7ddae743f1f7c54b3",
+    "config/GMFE69/matrix_translate.json": "900602450318b946b85d28017e4485d12c6def5d30ddce8292b8b2216b3fa58d",
     "config/GMFE69/matstack.json": "06ed41bcf932ae41e73ebbb9e73ee0eb339eeef02982bd7b29c3bff94cfd3242",
     "config/GMFE69/mbstring.json": "9de9f46cc9601517195f1c54fab48fb7e78bb2f47d69f7aa83c76823aea418d9",
     "config/GMFE69/mem.json": "ca3c317259aa8b4ae29fb186b81dae2190665955e0af421cfa574e77be7bb350",
@@ -640,7 +640,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "b246cda1e0d921dc787fce9f573c807a4555ddb84d0fde566f0830c11d424c8e",
+    "config/GMFE69/project.json": "37e3ffe8a732612f70a040c8b6205874eb742f5ba5fa3e07357b6311ea067318",
     "config/GMFE69/projectilebullet.json": "cdb5672aceab48b4c354e7df26f4d02a36355002f12a5c0901f81866b26f9213",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -2315,11 +2315,11 @@
     "src/game/light_statics.cpp": "3b668c751c5611c7fcb137dca194e5abf94fac42d94cf7ec498be79b9b11f1eb",
     "src/game/light_visible.cpp": "1aff95e093197ccb9edc92eb0c3b9a76e3b409725a66d9992627ca3f1bfaaca5",
     "src/game/mainloop.cpp": "737d1965982728d6b7eaa43a46e3a6b9ce55122ca931a402690524e1af5cf172",
-    "src/game/matrix.cpp": "a96eb3870d35734f394703c179de4a81405cd1554ff2efeec3fbf4920a567683",
+    "src/game/matrix.cpp": "f70a0142eeb28c529bf11a33e99b3c5fd0ea55e1cf068f038b9228c29f9659d5",
     "src/game/matrix_endian.cpp": "a3cb6bd6ab0ddf9752630e1e14e237a2239fe328cd296ba457666c13e73434d3",
     "src/game/matrix_multiply.cpp": "042a95889b8f9cc8ca1e37ee3097ccc485cf5f94943c7f753507c5dc1cdcfa0c",
     "src/game/matrix_ps.cpp": "7e8d5b559fc6aada067af7c5aa5099ec0bbc22005548f2c48d21783cd3a81738",
-    "src/game/matrix_scale.cpp": "753085888744f7dff95c84c808ead401e146a67ef683fb90fb48de22aa333983",
+    "src/game/matrix_translate.cpp": "365451a1bd73d6cb6103620f96a3f7d55b734ecfa0627f9a386a17172ac989a4",
     "src/game/matstack.cpp": "638dd12848a38cfa8685f9555ed05c03824115e83eb4ebe1caf090175a1351ff",
     "src/game/memory.cpp": "75e50f5f66acd16755a070f59afef29e6869b97dede92fada6399d2931c1b27c",
     "src/game/motionblur.cpp": "1b31c01402463956146e455b7b7d444b73c86d939f8738f31f1bce3f99ee9a83",
@@ -20223,7 +20223,7 @@
       "linked_sha256": "e166b688740316f555f4510ac710803cf8d069ce8d15c14eefa32aa7788c7000"
     },
     {
-      "id": "matrix",
+      "id": "matrix_translate",
       "category": "reconstructed_game",
       "functions": 9,
       "code_bytes": 800,
@@ -20258,8 +20258,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "1485478d7319a775552b1991a1f993e54206249c2eb5d8d8f1811b039d917109",
-      "linked_sha256": "6b9c414ef0ccc3bae1dc6237f78dd86ba0ab45fa5114b521a04a2617340dd03f"
+      "object_sha256": "4981c4b5a130f7d7fa923253aac166e0060d1b350650733fea5c40d47e1646d1",
+      "linked_sha256": "e97b9487ec09bcbe35dcfb14432cd47e9f87372b961e7cb122c42ea08b015ebe"
     },
     {
       "id": "smixer",
@@ -35322,10 +35322,10 @@
       "linked_sha256": "2442691ccddc9d9801bb2a843a18ed28a9dc7eb42aaddf8cb5c940684deff197"
     },
     {
-      "id": "matrix_scale",
+      "id": "matrix",
       "category": "reconstructed_game",
-      "functions": 4,
-      "code_bytes": 276,
+      "functions": 5,
+      "code_bytes": 484,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -35357,8 +35357,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "b9776740fbd8c1cf59261e9981cc488f31afb9bc93acdea036234dc8800a0410",
-      "linked_sha256": "96f0e44aba4fc29692e67027ff88663d3938f4a83497a6d289a1f2c717892da0"
+      "object_sha256": "39fa81e27603635c8dedc99802208187520181536c2b6a29dd176770b9055e67",
+      "linked_sha256": "a75bdbe678135d53753761e4775c627e12528efb21bd01878cd267916296a173"
     },
     {
       "id": "hearingvolume_init",
@@ -46249,13 +46249,6 @@
             "kind": "function",
             "name": "BuildRot__7CMatrixF8CVector3f",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x80090bb4",
-            "size": 208,
-            "kind": "function",
-            "name": "__sinit_matrix_cpp",
-            "evidence": "local-file-symbol"
           }
         ]
       },
