@@ -1,0 +1,90 @@
+{
+  "id": "cdbgeom_volbox_ctor",
+  "source": "src/game/cdbgeom_volbox_ctor.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8006f738",
+      "size": 320,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000b690",
+      "size": 28,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800128c0",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "__ct__10CCDBVolBoxFRC6CDBBox",
+      "address": "0x8006f738",
+      "size": 320,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "SetBasis__7CVolBoxF8CVector38CVector38CVector3": "0x800c5288",
+    "SetCenter__7CVolBoxF8CVector3": "0x800c52bc",
+    "SetDepth__7CVolBoxFf": "0x800c5258",
+    "SetHeight__7CVolBoxFf": "0x800c5268",
+    "SetWidth__7CVolBoxFf": "0x800c5278",
+    "__dt__7CVolBoxFv": "0x800c5458",
+    "__vt__10CCDBVolBox": "0x80183978",
+    "__vt__7CVolBox": "0x801894f4",
+    "__vt__7IVolume": "0x80181e28"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "cdbgeom.cpp",
+  "original_file_index": 3230,
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "cdbgeom_volbox.json"
+  }
+}

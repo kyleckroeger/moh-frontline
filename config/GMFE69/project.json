@@ -908,7 +908,9 @@
     "light.json",
     "bsbifunc.json",
     "sprite_ctor.json",
-    "fiber_visibility.json"
+    "fiber_visibility.json",
+    "cdbgeom_volbox_ctor.json"
+
   ],
   "progress": {
     "code_bytes": 1414572,

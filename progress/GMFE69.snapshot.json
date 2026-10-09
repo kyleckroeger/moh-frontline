@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 581476,
+    "matching_code_bytes": 581796,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.10614376645374,
+    "percent": 41.128765449902865,
     "categories": {
-      "reconstructed_game": 361284,
+      "reconstructed_game": 361604,
       "restored_library": 220192
     },
-    "matching_functions": 3522
+    "matching_functions": 3523
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -360,6 +360,7 @@
     "config/GMFE69/cdbgeom_triangle_ctor.json": "3e0bc085bb313200e034eadfa0736bc4c08b6dfb90676400b1887f08fe437ffe",
     "config/GMFE69/cdbgeom_vector.json": "3683639f0963802e8426cafbec7ae354be6f6ca56cc86ac51d69dd4614fb97c1",
     "config/GMFE69/cdbgeom_volbox.json": "c7f125bacd8ac480e5550e4bfade61f562ff85f608292e2f3059692d83eedd91",
+    "config/GMFE69/cdbgeom_volbox_ctor.json": "52315395bb9becc1d8434e3a27621efec614f1743530d5f04fc8b047eb15e829",
     "config/GMFE69/cdbobject.json": "05d0a5d951c8fd3d451e360560441b26335e47a75eac59645e9848879f9b01b8",
     "config/GMFE69/cdbobject_csg.json": "61e61d8462435b658a6c4d384f13c8e9b07feb190f0624670a746ad9dd8f9d8d",
     "config/GMFE69/cdbobject_ctor.json": "17c5de33bddcfe6b76fe4b222f9f7e606514c39ed21666bf7556f888b84b5f95",
@@ -609,7 +610,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "cb702c03d9341463bdd118a0335ab52c1e21a9799a292adae8a63bd28dbd3d80",
+    "config/GMFE69/project.json": "03a5bcdb276d43f45c2689b3fd742225af713779ef3e7eb234be1bb2328e20c7",
     "config/GMFE69/projectilebullet.json": "cdb5672aceab48b4c354e7df26f4d02a36355002f12a5c0901f81866b26f9213",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -2153,6 +2154,7 @@
     "src/game/cdbgeom_triangle_ctor.cpp": "18e8165e2a434a6e6d7f2f4a16fbbaa8425bbd0164ca944aad5e8252ecb75483",
     "src/game/cdbgeom_vector.cpp": "e99a4a3d5e422a4abda51e36a94370d6eeb08199dad0b8d43dffa47bf7f1912b",
     "src/game/cdbgeom_volbox.cpp": "0ec9357d4cf5361b82e2d159a7712cb214f710a9284710d2d103c8b9d977ac18",
+    "src/game/cdbgeom_volbox_ctor.cpp": "0a28b3ef3aff644e65da3d8cb988e898a365356ad37f7be649f25ba46d623c8d",
     "src/game/cdbobject.cpp": "8d9ba3051b730eaceb1df207075b6d193ad9ee06b403ef50da260ff8821c0e51",
     "src/game/cdbobject_csg.cpp": "fd41a1fa38e7b0497972a6d63d4a19b01277cc530e94f59040c7b011b6f2353e",
     "src/game/cdbobject_ctor.cpp": "4ef3d8ae7c6a59de2b8a6a2e8ecaf0bfa5d2495899a28cb4a7381db951fa91f0",
@@ -40110,6 +40112,45 @@
       "discarded_functions": [],
       "object_sha256": "f52e7eaf11ba0656ca5774029cf9d345797ea272e1f38eda2b4c253fcdd4142f",
       "linked_sha256": "f4c958bd337969d1e3500f536f74ef60e09c70a30117b4cfe1b11587acae5129"
+    },
+    {
+      "id": "cdbgeom_volbox_ctor",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 320,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "98d50b95efdb067510a263d1f911f1166e8973b3c7265c452726e47ea2895b23",
+      "linked_sha256": "68eec936ea0706dc82bb5fd2fb9eaa7ec2397f5dbf70f5f4151b73586890b24b"
     }
   ],
   "code_map": {
@@ -43823,13 +43864,6 @@
             "size": 424,
             "kind": "function",
             "name": "TestCollision__10CCDBVolBoxCFRC10CVolSphereR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8006f738",
-            "size": 320,
-            "kind": "function",
-            "name": "__ct__10CCDBVolBoxFRC6CDBBox",
             "evidence": "exception-index"
           },
           {
