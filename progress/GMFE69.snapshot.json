@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 593312,
+    "matching_code_bytes": 593420,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.942863283028366,
+    "percent": 41.950498101192444,
     "categories": {
-      "reconstructed_game": 373120,
+      "reconstructed_game": 373228,
       "restored_library": 220192
     },
-    "matching_functions": 3624
+    "matching_functions": 3625
   },
   "input_sha256": {
     "config/GMFE69/AIDoodad.json": "fbe6da2750e71d43ae68554e3fcdce413e76e9d8463f18206e347c607056e6f8",
@@ -640,7 +640,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "8cb3c644f346cbf3fa95334715186915f3ad469586b6d4fb16a51825ff7fee57",
+    "config/GMFE69/project.json": "7751cf6f0d8fd9525ad4925aafa517b34e757705751cc4bc7df23b0724dc73d0",
     "config/GMFE69/projectilebullet.json": "cdb5672aceab48b4c354e7df26f4d02a36355002f12a5c0901f81866b26f9213",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -904,6 +904,7 @@
     "config/GMFE69/susercb.json": "587008bf46b9cbf799648b72f1a0957c62a9d4eeb29586cf54c5170bdb97f045",
     "config/GMFE69/svol.json": "d8a88817980d0e9762a77fbe16ea5420750e51bb76915aad39f96858658fa525",
     "config/GMFE69/swvideodisplaylist.json": "fc1d3b9353b7ddc182e3d5d98d71b458870ff73edb865d57b273a2ed918f65ae",
+    "config/GMFE69/swvideodisplaylist_dtor.json": "13fc516b6b485481945ed6a1ea4c1119db9414db92fe5b8bae5474ef358e7c26",
     "config/GMFE69/sx87d16.json": "8db07e92493ba063618c550310b083b722c98e9843bbe9e1676bc525ced828d8",
     "config/GMFE69/syncfile.json": "c33d07d48b5325ac1b036ded00dbb632d156bd5b19b438cf37e2eb467807e6b2",
     "config/GMFE69/systask.json": "26903b4345f60da176e9919b3acdf5fbccf8b21b572e7041418810c542b6d5c9",
@@ -2453,6 +2454,7 @@
     "src/game/staticobjfactory_weak.cpp": "56a75fc11a7d8e1ad182c3759e1e7cc376527a84a4da644d13b31eb10b6fa912",
     "src/game/surfacetype.cpp": "3499ce5dc7d066f093e39c158e9b096e37683df4d6b6d234eb9b08395d411390",
     "src/game/swvideodisplaylist.cpp": "c34c6c419863bfc9939f4820a28e9db1e34f525cbc5628eca0ae422b5238880e",
+    "src/game/swvideodisplaylist_dtor.cpp": "c8bebb49b923d50c1c1079024d34925617559fa12b806e6380a36dab63378725",
     "src/game/system.cpp": "a6b1bce950e974ebaf7e6c7afc31ecab8f41566550163428c632534bc8f78b83",
     "src/game/texpack.cpp": "170a3a9592cbea2d199a09aba976cc93963f0104100915e1f5d9d23eaf30f61a",
     "src/game/thrown_obj.cpp": "96b3022a0fc57bf98f807cc8d280e8d11c00e38febddbb8fa1dcb71971a9d451",
@@ -41504,6 +41506,45 @@
       "discarded_functions": [],
       "object_sha256": "e43455ae74c27d625cc66d32f838542c8083d3f05a83504126f13b50cdd340f2",
       "linked_sha256": "5ad03e1e5a543a88e7817e9751152d1d49e687ff13bd16f9dea852a8c7ee5c86"
+    },
+    {
+      "id": "swvideodisplaylist_dtor",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 108,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "on",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "53afa393d92a4ed554da573aa986db67155208eed2bed6f17fd4a8d6bc98e0f1",
+      "linked_sha256": "5f387a4df531ea3dfa702cea3bf4dc88c4807aa89ff17cd670ec7dd2d885e86f"
     }
   ],
   "code_map": {
@@ -50982,13 +51023,6 @@
             "kind": "function",
             "name": "YUV_WriteRow__FPUcPUcPUcPci",
             "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80108648",
-            "size": 108,
-            "kind": "function",
-            "name": "__dt__7GCSW_VDFv",
-            "evidence": "exception-index"
           },
           {
             "address": "0x801086b4",
