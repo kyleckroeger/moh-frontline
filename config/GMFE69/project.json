@@ -916,7 +916,8 @@
     "particlesystem_visible.json",
     "objcreate_thrown.json",
     "font.json",
-    "decal.json"
+    "decal.json",
+    "animskinned.json"
   ],
   "progress": {
     "code_bytes": 1414572,
