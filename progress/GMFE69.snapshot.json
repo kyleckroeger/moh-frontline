@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 585120,
+    "matching_code_bytes": 585236,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.36374818673069,
+    "percent": 41.371948546980995,
     "categories": {
-      "reconstructed_game": 364928,
+      "reconstructed_game": 365044,
       "restored_library": 220192
     },
-    "matching_functions": 3547
+    "matching_functions": 3548
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -71,7 +71,7 @@
     "config/GMFE69/CARDUnlock.json": "7716542ea7b19b3b01b0afaf41869f75a4772afefa61129b459ba5b420bc3285",
     "config/GMFE69/CARDWrite.json": "281660a172ac3b60419b0fb73f382239d55a0c22e81768890c98b0e0ca2bb817",
     "config/GMFE69/CPlusLibPPC.json": "7130e3e0ed13640ac092a923a5e6e634569f91e7222d5e00b557489223254e1d",
-    "config/GMFE69/ConfigGC.json": "7119a77d83c494da9ed17fbe67f2c9928bd1edeb9e53c1a29839920a416e2f5a",
+    "config/GMFE69/ConfigGC.json": "31aca1b97ed95450f9e3761b71159181b1edf0ba84692d235f60df48d3fe1a34",
     "config/GMFE69/DebuggerDriver.json": "7a5c123e9e9bc8021ee1522ee00a951b061611e8ffecada9c1595d55525ee62c",
     "config/GMFE69/EXIBios.json": "c9390151ed61c1e36be176f48feef883f85c6733e4cb6389153a8ad9b732e034",
     "config/GMFE69/EXIUart.json": "3664769d38b00c6667a6a8d583bd985d8a26b24d7fdb3c09c978c7fbdf4d64ee",
@@ -1946,7 +1946,7 @@
     "src/game/AITankDoodad.cpp": "35252fb5c75740ecddc982a39bfecfc3c4a046a4e75046679eff1050fd598da9",
     "src/game/AITankObject.cpp": "d08f8aaea2eb44b990720c13ef97541d442300a050d416fb99b0a64607996f73",
     "src/game/AnimObjFactory.cpp": "2e2b57fc04c9964fdce19f6a41496489c097cd607462f4cb7bd82763e1df4ab8",
-    "src/game/ConfigGC.cpp": "35750548ef3be7d73255922d6d95a4fa99fe3ae468addf410d4d636ab925abce",
+    "src/game/ConfigGC.cpp": "046f94990755952d7365859a057d8e875e0e78e8e4b4a7c82186f1ec54912a3f",
     "src/game/IStudio.cpp": "475da8a6cac14dba071556791d28fa6fb39f7fb4ec8a0f04509aa437a3bd75ef",
     "src/game/IStudioFuncs.cpp": "b165a33f98e96f81832733bc9c7f57c198951e7c5297b42486c1184a62b9a756",
     "src/game/LinkedList.cpp": "3007b79180a5844b8b799dc4fc11618f6b5da77679e6c73c6f388fec501beb2a",
@@ -21349,8 +21349,8 @@
     {
       "id": "ConfigGC",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 184,
+      "functions": 2,
+      "code_bytes": 300,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -21382,8 +21382,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "bfdd77381dc7e118cccd5b948aa50c313d07157d1ea3f33f6705ca71806bcbe4",
-      "linked_sha256": "191606dbe057380a543edd29cc7991b961e70ce1de69f37bdbfc7fb814e97d1e"
+      "object_sha256": "5c053f43f7bb05cd57cdb962b763ca0d895b31781332b9e0e2cb662b43a614f5",
+      "linked_sha256": "544781b94e4bbb005fe1ed2361e93f1da6da4849a36747fd8a8955b656091b96"
     },
     {
       "id": "pumhandler",
@@ -50178,13 +50178,6 @@
             "kind": "function",
             "name": "Init__11CDualConfigFv",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x800fb078",
-            "size": 116,
-            "kind": "function",
-            "name": "__sinit_ConfigGC_cpp",
-            "evidence": "local-file-symbol"
           }
         ]
       },
