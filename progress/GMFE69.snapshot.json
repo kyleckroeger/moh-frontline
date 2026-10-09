@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 582804,
+    "matching_code_bytes": 583244,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.20002375276762,
+    "percent": 41.231128567510176,
     "categories": {
-      "reconstructed_game": 362612,
+      "reconstructed_game": 363052,
       "restored_library": 220192
     },
-    "matching_functions": 3528
+    "matching_functions": 3529
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -584,6 +584,7 @@
     "config/GMFE69/particlesystem_register.json": "221ab54e8c5b1d84d320a51cc3cfd8ff77c189e3f2e95b19d9160eb5d00b6521",
     "config/GMFE69/particlesystem_rotation.json": "f93990bd126de25a1b458dd4e7554b136b5c9214c1915c7370abb2df09b17bf7",
     "config/GMFE69/particlesystem_validate.json": "8c30a0e92f270c6048852dba827c52cee7de7537a3148b0bf6202986e349c1e4",
+    "config/GMFE69/particlesystem_visible.json": "af0e2d756156ab4e2eb1aa84606eff09325ef22deb830d34dfb1c318a6635140",
     "config/GMFE69/path.json": "a130e3f795d3112c351a4623a4f8499a6f136708db1fbba95b835f98112bf65c",
     "config/GMFE69/path_restore.json": "6c384a9302ea3cbc0ed80be802a63d69cd7e0e0e0cc22e743ecdfa09ecad8042",
     "config/GMFE69/path_stop.json": "bc02afb9ccaed23708f662127ac20759e21a75d3a9ec807c831db8fb0d92f425",
@@ -613,7 +614,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "56c1e22db64a039f2f667bf1c40403f213351e5cc3b159cf9c1482f9981b0907",
+    "config/GMFE69/project.json": "fdd8df1e798194fb648bee3ee8c028d42835c64481b3650d94c99f36fb2adb03",
     "config/GMFE69/projectilebullet.json": "cdb5672aceab48b4c354e7df26f4d02a36355002f12a5c0901f81866b26f9213",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -2288,6 +2289,7 @@
     "src/game/particlesystem_register.cpp": "7a9bdb9294f119307b470a3f450a519d6660435ca9cb6bd95c806ea7086df563",
     "src/game/particlesystem_rotation.cpp": "41bd5b6cf4c66b720f11cd0a65f702fbfaaff0fccd0cdc966cbfa82beee31855",
     "src/game/particlesystem_validate.cpp": "476c288024b835bb90c93ce2497b7fbad53ceed4011b106daa0489be983cbdc0",
+    "src/game/particlesystem_visible.cpp": "3ae71d853719340435287205399c3b226c6d6e6d337f4bf903425023e312b80c",
     "src/game/player.cpp": "5d6de79298166b94651df7f614dd61e0fd190ffe6084abb5575e5f6212fb19fc",
     "src/game/player_bounds.cpp": "a43082b50053789054a368258cd5874dae55cfd38403e80d87c402d1f5d54ac7",
     "src/game/player_ctor.cpp": "c3c04b2fabbfb00a00d81d7e50a2ca86ec9ed4dd1b293b4c7b7ebbb48c99790a",
@@ -40274,6 +40276,45 @@
       "discarded_functions": [],
       "object_sha256": "68236f48591f8eab31dcc46942a3d9f8e7e396886de27b4a5a68fb996c753e3c",
       "linked_sha256": "33342056c5b389e461f98706f4c1d058a6c920cfbc03a4efae578622fe6c35a6"
+    },
+    {
+      "id": "particlesystem_visible",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 440,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "a900b18aea341b51c00c468b3d2c474d8a9c9bae7baa699c9e3bd0e5e3b7b91f",
+      "linked_sha256": "b079dc5a3d1e8aba020e5359209fa70fde7437587c8c56f479826d1caae9e8aa"
     }
   ],
   "code_map": {
@@ -44624,13 +44665,6 @@
             "size": 1052,
             "kind": "function",
             "name": "__ct__23CPropertyParticleSystemFP19MOH_particle_Struct",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007f7ec",
-            "size": 440,
-            "kind": "function",
-            "name": "IsVisible__15CParticleSystemFR12CDrawContext",
             "evidence": "exception-index"
           },
           {

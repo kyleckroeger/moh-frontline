@@ -1,0 +1,112 @@
+{
+  "id": "particlesystem_visible",
+  "source": "src/game/particlesystem_visible.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8007f7ec",
+      "size": 440,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000c118",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800130dc",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "IsVisible__15CParticleSystemFR12CDrawContext",
+      "address": "0x8007f7ec",
+      "size": 440,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "InitClass__7CMatrixFv": "0x80090b78",
+    "IsBoxVisible__FRC7CVolBoxR12CDrawContext": "0x8007f9a4",
+    "SetBasis__7CVolBoxF8CVector38CVector38CVector3": "0x800c5288",
+    "SetCorners__7CVolBoxF8CVector38CVector3": "0x800c516c",
+    "TransformPoint__7CMatrixCFR8CVector38CVector3": "0x8008fab0",
+    "TransformedCopy__7CVolBoxFRC7IVolumeRC7CMatrix": "0x800c52d0",
+    "__dt__7CVolBoxFv": "0x800c5458",
+    "__vt__7CVolBox": "0x801894f4",
+    "__vt__7IVolume": "0x80181e28",
+    "s_ClassInit__7CMatrix": "0x8034eab0"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [
+    "IsBoxVisible__FRC7CVolBoxR12CDrawContext"
+  ],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "s_ClassInit__7CMatrix"
+  ],
+  "original_file": "particlesystem.cpp",
+  "original_file_index": 4057,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034fff8"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x8034fffc"
+    }
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "particlesystem_register.json"
+  }
+}

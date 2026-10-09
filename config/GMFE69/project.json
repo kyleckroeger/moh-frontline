@@ -912,7 +912,8 @@
     "cdbgeom_volbox_ctor.json",
     "particlesystem_register.json",
     "compartment_intersect.json",
-    "capsule_plane.json"
+    "capsule_plane.json",
+    "particlesystem_visible.json"
   ],
   "progress": {
     "code_bytes": 1414572,
