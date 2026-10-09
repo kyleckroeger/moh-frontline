@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 569408,
+    "matching_code_bytes": 570320,
     "total_executable_code_bytes": 1414572,
-    "percent": 40.253023529378495,
+    "percent": 40.31749532720851,
     "categories": {
-      "reconstructed_game": 349216,
+      "reconstructed_game": 350128,
       "restored_library": 220192
     },
-    "matching_functions": 3448
+    "matching_functions": 3450
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -434,6 +434,7 @@
     "config/GMFE69/fader_color.json": "04b9cd494bd4be9c60d0d816d832a217306237f4c69e8eeb5ab9d758c32599b9",
     "config/GMFE69/fader_dtor.json": "5662994976edfa8ebc4b444663df2c690c6567deb22fef332142bc8595eb6c28",
     "config/GMFE69/fader_init.json": "dcb3730a5cb01b2a7e6cc17da285fceecb7f6bf5ba428cd32a56d857cea1d2d6",
+    "config/GMFE69/fader_link.json": "6b1c3ca66711053d0ad5ca017cb86e3dcb38bda3fb9c3367935155f67fe17085",
     "config/GMFE69/fader_update.json": "0c9ed80624a54840959baa642d7316d7a7d4d1a98cc649988e037b8ab85b74d2",
     "config/GMFE69/fiber_create.json": "938ba809ac54783c41830ae4f6eb7fb405616573546d706251078240fc8596c9",
     "config/GMFE69/fiber_dtor.json": "2de9b087334c266100e74b4246854d5f7094442ab8e5b7f29ca04c8983bb1e40",
@@ -591,7 +592,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "717ed76430e095ccd60340a1db261c684d55ac3304c0cd14712a599e5f567547",
+    "config/GMFE69/project.json": "1ea1219e7ca4242dd32647d66b1c3d32546dbcf6a1253dd74e01dd84771f2f49",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -2170,6 +2171,7 @@
     "src/game/fader_color.cpp": "8c041255266809a9f0daac7f0c18d24e098261f8b38a98feeadc404661a57b72",
     "src/game/fader_dtor.cpp": "861a3b0d0136e98e1e30306616fad940637a6bf899313eedf28bbd12fdb2aca8",
     "src/game/fader_init.cpp": "612b172b55f0b71cc1f9211d30ea2e1c0f3b4d7ba54229e6b395ddb076afd381",
+    "src/game/fader_link.cpp": "c6f822eb64bacc85c7a0a64c69b26e7d8d331105537011fb27801aa2d3ed797e",
     "src/game/fader_update.cpp": "96e37c287e4dff318305811dc8043fa3f57508ff89228e71f6fe7b5a4f4a868c",
     "src/game/fiber_create.cpp": "e5a72cb63b144e4a46e8ef3d80ac92f0c81c086bc10c1d134c9e1f2854dd01fe",
     "src/game/fiber_dtor.cpp": "d50da700dbc3466b57f6db8814aa242436409e50ea176842cb073f01153e49c0",
@@ -38839,6 +38841,45 @@
       "discarded_functions": [],
       "object_sha256": "17db1ac8ca1f2780328844e00d214ef66a130d205a849a706d77f63bcf8a97ac",
       "linked_sha256": "b7505a52027336f24a50ada31fb4d86e4d49553b3077fd64e55688ea2719c32d"
+    },
+    {
+      "id": "fader_link",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 912,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "2206e7838367db5c682f9823dff7ee9cfd777a300de72e9dbccd3a8845f140d0",
+      "linked_sha256": "6aeff8586287c68547ce555ad3929140200b9352da6b9bb50e160ee648ff4f05"
     }
   ],
   "code_map": {
@@ -43114,20 +43155,6 @@
         "file_record": 71,
         "file_name": "fader.cpp",
         "ranges": [
-          {
-            "address": "0x8007b970",
-            "size": 24,
-            "kind": "function",
-            "name": "IsUsed__9CFaderBinFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8007b988",
-            "size": 888,
-            "kind": "function",
-            "name": "Link__9CFaderBinFP7CDmaTagR10CDmaPacket",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x8007bd00",
             "size": 448,
