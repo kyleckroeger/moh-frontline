@@ -23,7 +23,7 @@
     "cats off",
     "-nosyspath",
     "-RTTI",
-    "off",
+    "on",
     "-str",
     "reuse,readonly",
     "-use_lmw_stmw",
@@ -39,8 +39,32 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8010296c",
-      "size": 108,
+      "address": "0x801028d4",
+      "size": 260,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000fbc0",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80016934",
+      "size": 12,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018c2d8",
+      "size": 44,
+      "type": 1
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034e3e8",
+      "size": 16,
       "type": 1
     }
   ],
@@ -56,9 +80,23 @@
       "address": "0x801029a0",
       "size": 56,
       "binding": 1
+    },
+    {
+      "name": "__dt__7GCHW_VDFv",
+      "address": "0x801028d4",
+      "size": 152,
+      "binding": 1
     }
   ],
-  "externals": {},
+  "externals": {
+    "CompleteDraw__7GCHW_VDFv": "0x80102290",
+    "DELETE_tBigYUVSwizzler__FP15tBigYUVSwizzler": "0x800fce14",
+    "Draw__7GCHW_VDFPQ24RCMP5FRAME": "0x801022b4",
+    "ReDraw__7GCHW_VDFv": "0x80102294",
+    "ReleaseFrame__Q24RCMP7DECODERFPQ24RCMP5FRAME": "0x80105304",
+    "__vt__Q24RCMP12VIDEO_DRIVER": "0x8018c304",
+    "rcmp_sys__4RCMP": "0x803158ac"
+  },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
@@ -66,5 +104,27 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "hwvideodisplaylist.cpp",
-  "original_file_index": 10127
+  "original_file_index": 10127,
+  "pooled_sections": [
+    ".rodata",
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".rodata",
+      "offset": 0,
+      "size": 19,
+      "address": "0x8017aaac"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 8,
+      "address": "0x803512a8"
+    }
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "hwv_rtti.json"
+  }
 }
