@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800fbb40",
-      "size": 96,
+      "size": 172,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000fa84",
-      "size": 16,
+      "size": 24,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80016778",
-      "size": 24,
+      "size": 36,
       "type": 1
     }
   ],
@@ -61,6 +61,12 @@
       "name": "__dl__Q24RCMP7DECODERFPv",
       "address": "0x800fbb70",
       "size": 48,
+      "binding": 2
+    },
+    {
+      "name": "__dt__Q24RCMP11CODEC_IDATAFv",
+      "address": "0x800fbba0",
+      "size": 76,
       "binding": 2
     },
     {
@@ -80,5 +86,9 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "avplayer.cpp",
-  "original_file_index": 9905
+  "original_file_index": 9905,
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "avplayer.json"
+  }
 }

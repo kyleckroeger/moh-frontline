@@ -1,5 +1,6 @@
 // The class deletes of RCMP::AV_MS_TIMER and RCMP::DECODER, which free through
-// the RCMP system's free hook. The names come from the mangled symbols; the
+// the RCMP system's free hook, and the weak empty RCMP::CODEC_IDATA destructor
+// (its class delete, the same free hook, inlined). The names come from the mangled symbols; the
 // hook slot of RCMP_SYSTEM is inferred (as in rcmpbase.cpp). They are inline
 // in the original (weak symbols), so they are defined __declspec(weak). The
 // rest of the file is not part of this unit.
@@ -31,6 +32,15 @@ __declspec(weak) void AV_MS_TIMER::operator delete(void* p) {
 
 __declspec(weak) void DECODER::operator delete(void* p) {
     rcmp_sys.m_free(p);
+}
+
+class CODEC_IDATA {
+public:
+    ~CODEC_IDATA();
+    void operator delete(void* p) { rcmp_sys.m_free(p); }
+};
+
+__declspec(weak) CODEC_IDATA::~CODEC_IDATA() {
 }
 
 }
