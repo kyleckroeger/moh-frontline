@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 582416,
+    "matching_code_bytes": 582804,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.17259496158555,
+    "percent": 41.20002375276762,
     "categories": {
-      "reconstructed_game": 362224,
+      "reconstructed_game": 362612,
       "restored_library": 220192
     },
-    "matching_functions": 3525
+    "matching_functions": 3528
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -354,6 +354,7 @@
     "config/GMFE69/capsule_dispatch.json": "8d4ce50085d048b2ca15db431aa32afcb32d3faf6e2d9555a17e8dd9ed937f06",
     "config/GMFE69/capsule_dispatch2.json": "246a1105784823a9a0860573243e4715e1dfc1fdee38a7525a4e67c0bd954175",
     "config/GMFE69/capsule_dtor.json": "177319596dc914de76158b4bbcc4dc54c296e8d842f7a9c8c044e4d50ca55b8c",
+    "config/GMFE69/capsule_plane.json": "6c8239aaf690c29dede48b1f312fa283b50b5d54d1fc28274da5a5b652492192",
     "config/GMFE69/cdbgeom.json": "5a109535b401c445086faf5c376577d4b6f060dae9fd6a6071fdfecf36255cdf",
     "config/GMFE69/cdbgeom_fiber.json": "97f71f075556256285b961bb4fe5f0bb63eb52faf1b931c41b859105611774f9",
     "config/GMFE69/cdbgeom_sphere.json": "2bdf06d98245491d4636eb3a70c1b73f6322acdc4817e34461242061c95023b3",
@@ -612,7 +613,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "25afb6008ed04941939a5c3c7ba059c1ad8cc88f88654940b51efeb07feed5a6",
+    "config/GMFE69/project.json": "56c1e22db64a039f2f667bf1c40403f213351e5cc3b159cf9c1482f9981b0907",
     "config/GMFE69/projectilebullet.json": "cdb5672aceab48b4c354e7df26f4d02a36355002f12a5c0901f81866b26f9213",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -2150,6 +2151,7 @@
     "src/game/capsule_dispatch.cpp": "6797cda02018a30483dbb8d1dd412f91c6c0110513b9a9b8b4c39d710ed6056a",
     "src/game/capsule_dispatch2.cpp": "6059fab262cc1517dd2b31f1b59ddf0df000b3728d91a7993daaffd5bd960393",
     "src/game/capsule_dtor.cpp": "333de2394a1a5f4a94e0c2449a2b496c5c6dbb635476bc68c75def6ae5ea903c",
+    "src/game/capsule_plane.cpp": "c926909d0b313b5700580991d0dfc8fa8edd8076cb7aa81d3450299edd909ba7",
     "src/game/cdbgeom.cpp": "dbb319b1ba8edc52c87f565f57a506fb7e3934a7195ac17ae7d79e86ac4e8c06",
     "src/game/cdbgeom_fiber.cpp": "aec87b1ec98038c4914d03643a6192d0c80174b0724059f2ffba6e35f6c9b0e1",
     "src/game/cdbgeom_sphere.cpp": "605ff9d0967a760758ffbbea364ac7618865c71de12bd994c46e19b19ed7ca29",
@@ -40233,6 +40235,45 @@
       "discarded_functions": [],
       "object_sha256": "b0328f0d97d046e9d386aa4574261238fd19414d51972e5b1cebe717cba9e3f2",
       "linked_sha256": "8cd97f44e68c269097939047589a1dafd25f5dabfde6ff8040475db7be45e83f"
+    },
+    {
+      "id": "capsule_plane",
+      "category": "reconstructed_game",
+      "functions": 3,
+      "code_bytes": 388,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "68236f48591f8eab31dcc46942a3d9f8e7e396886de27b4a5a68fb996c753e3c",
+      "linked_sha256": "33342056c5b389e461f98706f4c1d058a6c920cfbc03a4efae578622fe6c35a6"
     }
   ],
   "code_map": {
@@ -47692,27 +47733,6 @@
             "size": 304,
             "kind": "function",
             "name": "GetExtents__11CVolCapsuleCFR8CVector3R8CVector3",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800c568c",
-            "size": 8,
-            "kind": "function",
-            "name": "TestVisibility__11CVolCapsuleCFR12CDrawContext",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800c5694",
-            "size": 8,
-            "kind": "function",
-            "name": "TestCollision__11CVolCapsuleCFRC9CTriangleR10CCollisionb",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800c569c",
-            "size": 372,
-            "kind": "function",
-            "name": "TestCollision__11CVolCapsuleCFRC6CPlaneR10CCollisionb",
             "evidence": "exception-index"
           },
           {
