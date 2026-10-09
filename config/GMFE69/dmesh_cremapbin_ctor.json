@@ -40,7 +40,7 @@
     {
       "name": ".text",
       "address": "0x800f6d20",
-      "size": 60,
+      "size": 152,
       "type": 1
     }
   ],
@@ -50,12 +50,19 @@
       "address": "0x800f6d20",
       "size": 60,
       "binding": 2
+    },
+    {
+      "name": "__dt__14CFinishPartBinFv",
+      "address": "0x800f6d5c",
+      "size": 92,
+      "binding": 2
     }
   ],
   "externals": {
     "__dl__FPv": "0x8001ca2c",
     "__dt__10CRenderBinFv": "0x80074290",
     "__vt__10CRenderBin": "0x80183c5c",
+    "__vt__14CFinishPartBin": "0x8018b69c",
     "__vt__9CRemapBin": "0x8018b630"
   },
   "undefined_in_discarded_code": [],

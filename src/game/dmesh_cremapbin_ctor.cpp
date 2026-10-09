@@ -1,6 +1,7 @@
 // A fragment of dmesh.cpp (0x800f6d20): the weak CRemapBin default
 // constructor (CRenderBinData's inline constructor: the link words cleared and
-// the priority 3; then the CRenderBin and CRemapBin table pointers). The file
+// the priority 3; then the CRenderBin and CRemapBin table pointers) and the
+// weak CFinishPartBin destructor after it (0x800f6d5c). The file
 // name is this project's; the original record is dmesh.cpp. The classes and
 // the function are named by the mangled symbols (CRenderBinData by
 // CRenderBin's RTTI record). CRemapBin declares its Render override (defined
@@ -50,4 +51,16 @@ public:
 };
 
 __declspec(weak) CRemapBin::CRemapBin() {
+}
+
+/* The next class in the file. Its Render override (defined elsewhere) is
+   declared first so its table is not emitted here; the original table is
+   weak and is referenced. */
+class CFinishPartBin : public CRenderBin {
+public:
+    virtual int Render(CDmaPacket&, void*);
+    virtual ~CFinishPartBin();
+};
+
+__declspec(weak) CFinishPartBin::~CFinishPartBin() {
 }
