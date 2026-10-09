@@ -1,0 +1,169 @@
+{
+  "id": "AIObject_ctor",
+  "source": "src/game/AIObject_ctor.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "deferred,auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "on",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8004eee0",
+      "size": 652,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000a900",
+      "size": 96,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80011a8c",
+      "size": 36,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80183420",
+      "size": 28,
+      "type": 1
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034da58",
+      "size": 8,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "__dt__9CAIObjectFv",
+      "address": "0x8004eee0",
+      "size": 324,
+      "binding": 1
+    },
+    {
+      "name": "__ct__9CAIObjectFv",
+      "address": "0x8004f024",
+      "size": 268,
+      "binding": 1
+    },
+    {
+      "name": "__dt__19CAIObjectParametersFv",
+      "address": "0x8004f130",
+      "size": 60,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "IsCrouching__9CAIObjectCFv": "0x800478a8",
+    "IsPlayer__9CAIObjectCFv": "0x800478b0",
+    "PreUpdate__9CAIObjectFv": "0x8004ec00",
+    "RemoveElement__11CLinkedListFP18CLinkedListElement": "0x800535a0",
+    "RemoveFromGlobalList__9CAIObjectFv": "0x8004ee44",
+    "Update__9CAIObjectFf": "0x8004ebfc",
+    "__ct__15CSearchNodeListFv": "0x800566f8",
+    "__ct__18CObstacleAvoidanceFv": "0x800544b0",
+    "__ct__22CAISplinePathTraversalFv": "0x80050ae4",
+    "__ct__9CAIStatusFv": "0x80051e88",
+    "__dl__FPv": "0x8001ca2c",
+    "__dt__11CSearchNodeFv": "0x80056210",
+    "__dt__15CSearchNodeListFv": "0x800566a4",
+    "__dt__18CObstacleAvoidanceFv": "0x80054434",
+    "__dt__22CAISplinePathTraversalFv": "0x80050aa8",
+    "__dt__9CAIStatusFv": "0x80051e4c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "AIObject.cpp",
+  "original_file_index": 1752,
+  "pooled_sections": [
+    ".sdata2",
+    ".rodata"
+  ],
+  "pool_references": [
+    {
+      "section": ".rodata",
+      "offset": 0,
+      "size": 10,
+      "address": "0x8016f634"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034f860"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x8034f890"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 4,
+      "address": "0x8034f95c"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 12,
+      "size": 4,
+      "address": "0x8034f948"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 16,
+      "size": 4,
+      "address": "0x8034f974"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 20,
+      "size": 4,
+      "address": "0x8034f978"
+    }
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "aio_rtti_def.json"
+  }
+}

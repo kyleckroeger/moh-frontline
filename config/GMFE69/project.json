@@ -941,7 +941,8 @@
     "debug_picker.json",
     "plane_ctor.json",
     "AIFilter_soldier_ctor.json",
-    "particlesystem_reset.json"
+    "particlesystem_reset.json",
+    "AIObject_ctor.json"
   ],
   "progress": {
     "code_bytes": 1414572,

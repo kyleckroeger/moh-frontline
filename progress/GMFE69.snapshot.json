@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 591364,
+    "matching_code_bytes": 592016,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.8051537850318,
+    "percent": 41.8512454650594,
     "categories": {
-      "reconstructed_game": 371172,
+      "reconstructed_game": 371824,
       "restored_library": 220192
     },
-    "matching_functions": 3610
+    "matching_functions": 3613
   },
   "input_sha256": {
     "config/GMFE69/AIDoodad.json": "fbe6da2750e71d43ae68554e3fcdce413e76e9d8463f18206e347c607056e6f8",
@@ -30,6 +30,7 @@
     "config/GMFE69/AIFilter_visit.json": "d796125fd78b1b7b47cfed013f2f4dfae0df978e85e39e8e4fc28c5ca94a6adf",
     "config/GMFE69/AIObject.json": "78272cd8e1cac270e55d0a7c4398d75f6fd061fb21c7e354531af28d1bceade6",
     "config/GMFE69/AIObject_arbitrary.json": "ec69b61edf7e8ca5d7df8be0377e9a6f097c7234d891642f9ae58c4d77733807",
+    "config/GMFE69/AIObject_ctor.json": "7077aba0ea479fea2b3730bf12d04056c0e758273f1fa07d2e578ffc51b4a87d",
     "config/GMFE69/AIObject_enemy.json": "59502e12ffe7782c05a67a681f29e81b902cb6aaed21af44b8ec0fbdb4e5dcd5",
     "config/GMFE69/AIObject_globallist.json": "1086c0107e5eb97c2277bb23d4ffe9144bfdc00390e9df5ee167038259bc26d5",
     "config/GMFE69/AIObject_obstacle.json": "556f3c53684060b358df34f7b016464a2863d927d355b4c5c8b3e5731f9cc9c5",
@@ -639,7 +640,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "8fde1273ed11c550fb82edc5f3e43eb5e91fc5ffd42c4a0c60eec93c30294f87",
+    "config/GMFE69/project.json": "b246cda1e0d921dc787fce9f573c807a4555ddb84d0fde566f0830c11d424c8e",
     "config/GMFE69/projectilebullet.json": "cdb5672aceab48b4c354e7df26f4d02a36355002f12a5c0901f81866b26f9213",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -1953,6 +1954,7 @@
     "src/game/AIFilter_visit.cpp": "c51216f358db283d3a19cc78f7c5bbbd1c35819d50071a98ba361cd6e4083ea2",
     "src/game/AIObject.cpp": "3a8fa9ba36ed6fad882da222f8ff9734bd2ee4bb6f375c7be6781e40ff65539b",
     "src/game/AIObject_arbitrary.cpp": "005b0c6e6ed97f87b1cdf736b83eef96667bf81834ca547ea2a1694b9aacca8f",
+    "src/game/AIObject_ctor.cpp": "e23a81d466c3d56d591da66a8218eb89e295f1aa254bb4afaea072d378607cf3",
     "src/game/AIObject_enemy.cpp": "a2b3f80aaf450d23b0e8a8e5dd19374c4c038c8e57d8b1a5a5b7994ef500ae5b",
     "src/game/AIObject_globallist.cpp": "edcc289b7f85a465625675fbc7dccab8ce375254e14235264effbb08f2698501",
     "src/game/AIObject_obstacle.cpp": "fd13f7cfd90fe23b32456fed402e5ff7860a39020f4fd5ba2e22dd68a3ab38d0",
@@ -41463,6 +41465,45 @@
       "discarded_functions": [],
       "object_sha256": "6dca2ef21438d6ceaa48307da08c1799ca2b8640c07fa31e63fa51f556a88d62",
       "linked_sha256": "c34eae956d14a8b3607e8876bc1b0bdf30f3cf4ae6fd22b0ef04a22397ae784c"
+    },
+    {
+      "id": "AIObject_ctor",
+      "category": "reconstructed_game",
+      "functions": 3,
+      "code_bytes": 652,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "deferred,auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "on",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "e43455ae74c27d625cc66d32f838542c8083d3f05a83504126f13b50cdd340f2",
+      "linked_sha256": "5ad03e1e5a543a88e7817e9751152d1d49e687ff13bd16f9dea852a8c7ee5c86"
     }
   ],
   "code_map": {
@@ -43155,27 +43196,6 @@
             "kind": "function",
             "name": "UpdateReactionTime__9CAIObjectFv",
             "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8004eee0",
-            "size": 324,
-            "kind": "function",
-            "name": "__dt__9CAIObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8004f024",
-            "size": 268,
-            "kind": "function",
-            "name": "__ct__9CAIObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8004f130",
-            "size": 60,
-            "kind": "function",
-            "name": "__dt__19CAIObjectParametersFv",
-            "evidence": "exception-index"
           }
         ]
       },
