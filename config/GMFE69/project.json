@@ -890,7 +890,8 @@
     "skybox_textures.json",
     "cdbgeom_vector.json",
     "cdbgeom_sphere.json",
-    "cdbgeom_triangle_ctor.json"
+    "cdbgeom_triangle_ctor.json",
+    "staticmesh_animdraw.json"
   ],
   "progress": {
     "code_bytes": 1414572,
