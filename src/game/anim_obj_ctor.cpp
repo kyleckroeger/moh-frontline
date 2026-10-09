@@ -12,7 +12,10 @@
 // storage, growth -1; the list's constructor is inferred), a transform at
 // +9312, the light-volume manager at +9400 and 128 collision records at
 // +9432; then the animated volume pointer cleared) and the weak, empty
-// CAnimObject::CClsnInfo constructor the record array uses. The file name is
+// CAnimObject::CClsnInfo constructor the record array uses, then the weak
+// dwi::fast_vec<CAnimObject::CClsnInfo> destructor (frees owned storage) and
+// the compiler's __defctor__7CMatrixFv array wrapper (CMatrix's inline
+// constructor with its default argument), emitted after them. The file name is
 // this project's; the original record is anim_obj.cpp. The classes and
 // functions are named by the mangled symbols; the member positions come from
 // the code (the transform at +9312 from the gap Init leaves), while their
@@ -22,10 +25,9 @@
 // address. CAnimObject
 // declares MarkForDestruction (defined elsewhere) before its destructor so
 // its global virtual table is not emitted here. CMatrix's default constructor
-// takes an unknown default argument (the compiler's __defctor__7CMatrixFv
-// array wrapper). That wrapper, the collision list's weak destructor (kept in
-// anim_obj_fastvec.cpp) and the scene-node bases' weak tables and inline
-// destructors are weak duplicates, linked to the original copies.
+// takes an unknown default argument. The scene-node bases' weak tables and
+// inline destructors are weak duplicates, linked to the original copies.
+// Formerly also the anim_obj_fastvec unit.
 extern "C" void MEM_free(void*);
 
 class IDestructible {

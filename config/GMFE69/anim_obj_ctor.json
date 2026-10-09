@@ -40,13 +40,13 @@
     {
       "name": ".text",
       "address": "0x80095850",
-      "size": 648,
+      "size": 812,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000c998",
-      "size": 96,
+      "size": 112,
       "type": 1,
       "linked_offset": 0,
       "linked_size": 128
@@ -54,7 +54,7 @@
     {
       "name": "extabindex",
       "address": "0x80013ac0",
-      "size": 24,
+      "size": 48,
       "type": 1,
       "linked_offset": 0,
       "linked_size": 72
@@ -74,9 +74,21 @@
       "binding": 1
     },
     {
+      "name": "__defctor__7CMatrixFv",
+      "address": "0x80095b40",
+      "size": 60,
+      "binding": 2
+    },
+    {
       "name": "__ct__Q211CAnimObject9CClsnInfoFv",
       "address": "0x80095ad4",
       "size": 4,
+      "binding": 2
+    },
+    {
+      "name": "__dt__Q23dwi35fast_vec<Q211CAnimObject9CClsnInfo>Fv",
+      "address": "0x80095ad8",
+      "size": 104,
       "binding": 2
     }
   ],
@@ -89,14 +101,12 @@
     "__construct_array": "0x8013834c",
     "__ct__12CAnimSkinnedFv": "0x80066e98",
     "__ct__19CLightVolumeManagerFv": "0x80079128",
-    "__defctor__7CMatrixFv": "0x80095b40",
     "__dl__FPv": "0x8001ca2c",
     "__dt__10ISceneNodeFv": "0x8001ada0",
     "__dt__12CAnimSkinnedFv": "0x80066e3c",
     "__dt__16IMovingSceneNodeFv": "0x8001ad30",
     "__dt__19CLightVolumeManagerFv": "0x800790cc",
     "__dt__9IObserverFv": "0x800d80e0",
-    "__dt__Q23dwi35fast_vec<Q211CAnimObject9CClsnInfo>Fv": "0x80095ad8",
     "__vt__10ISceneNode": "0x80181c78",
     "__vt__11CAnimObject": "0x801872a4",
     "__vt__13IDestructible": "0x8018a228",
@@ -119,10 +129,8 @@
     ".data"
   ],
   "weak_duplicates": [
-    "__defctor__7CMatrixFv",
     "__dt__10ISceneNodeFv",
     "__dt__16IMovingSceneNodeFv",
-    "__dt__Q23dwi35fast_vec<Q211CAnimObject9CClsnInfo>Fv",
     "__vt__10ISceneNode",
     "__vt__16IMovingSceneNode"
   ],
@@ -136,5 +144,9 @@
       "size": 4,
       "address": "0x803503e4"
     }
-  ]
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "anim_obj_ctor.json"
+  }
 }

@@ -752,7 +752,6 @@
     "cdbobject_line.json",
     "cdbobject_fastvec_frame.json",
     "compartment_fastvec_tri.json",
-    "anim_obj_fastvec.json",
     "player_fastvec.json",
     "scene_fastvec_node.json",
     "scene_fastvec_commands.json",
