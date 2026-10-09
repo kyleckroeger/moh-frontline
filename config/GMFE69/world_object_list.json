@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800b80d8",
-      "size": 168,
+      "size": 368,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000d908",
-      "size": 8,
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80014870",
-      "size": 12,
+      "size": 24,
       "type": 1
     }
   ],
@@ -62,11 +62,18 @@
       "address": "0x800b80d8",
       "size": 168,
       "binding": 2
+    },
+    {
+      "name": "__dt__Q23dwi20list<12CCompartment>Fv",
+      "address": "0x800b8180",
+      "size": 200,
+      "binding": 2
     }
   ],
   "externals": {
     "MEM_free": "0x8014f83c",
-    "__dl__FPv": "0x8001ca2c"
+    "__dl__FPv": "0x8001ca2c",
+    "__dt__12CCompartmentFv": "0x80075ea8"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -75,5 +82,9 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "world_object.cpp",
-  "original_file_index": 7059
+  "original_file_index": 7059,
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "wol_old.json"
+  }
 }
