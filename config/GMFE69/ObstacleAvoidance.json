@@ -1,0 +1,92 @@
+{
+  "id": "ObstacleAvoidance",
+  "source": "src/game/ObstacleAvoidance.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [],
+  "strip_unused": true,
+  "source_root": "scratch/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800547d0",
+      "size": 60,
+      "type": 1
+    },
+    {
+      "name": ".ctors",
+      "address": "0x8016df68",
+      "size": 4,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000ab4c",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80011cf0",
+      "size": 12,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x801aaad0",
+      "size": 208,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "__sinit_ObstacleAvoidance_cpp",
+      "address": "0x800547d0",
+      "size": 60,
+      "binding": 0
+    }
+  ],
+  "externals": {
+    "__construct_array": "0x8013834c",
+    "__ct__8CVector3Fv": "0x8005480c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "ObstacleAvoidance.cpp",
+  "original_file_index": 2213,
+  "weak_duplicates": [
+    "__ct__8CVector3Fv"
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "id": "animmorph",
+  "source": "src/game/animmorph.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [],
+  "strip_unused": false,
+  "source_root": "scratch/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80065684",
+      "size": 52,
+      "type": 1
+    },
+    {
+      "name": ".ctors",
+      "address": "0x8016df80",
+      "size": 4,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000b478",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800125b4",
+      "size": 12,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x801d3660",
+      "size": 36,
+      "type": 8
+    }
+  ],
+  "functions": [
+    {
+      "name": "__sinit_animmorph_cpp",
+      "address": "0x80065684",
+      "size": 52,
+      "binding": 0
+    }
+  ],
+  "externals": {
+    "__ct__16CAnimMatrixCacheFiii": "0x80060b80"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "animmorph.cpp",
+  "original_file_index": 2977
+}

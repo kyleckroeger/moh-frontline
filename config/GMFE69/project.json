@@ -919,7 +919,11 @@
     "decal.json",
     "animskinned.json",
     "world_object.json",
-    "alarm.json"
+    "alarm.json",
+    "animmorph.json",
+    "ObstacleAvoidance.json",
+    "animmot.json",
+    "PathNodeList.json"
   ],
   "progress": {
     "code_bytes": 1414572,

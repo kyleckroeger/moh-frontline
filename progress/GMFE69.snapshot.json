@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 585236,
+    "matching_code_bytes": 585484,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.371948546980995,
+    "percent": 41.38948035165407,
     "categories": {
-      "reconstructed_game": 365044,
+      "reconstructed_game": 365292,
       "restored_library": 220192
     },
-    "matching_functions": 3548
+    "matching_functions": 3553
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -131,9 +131,11 @@
     "config/GMFE69/OSSync.json": "06255b0aaf96ae8e5c7cf3b363d66e1b7b7a7ba742a870e2256f7705d5eb2a14",
     "config/GMFE69/OSThread.json": "38638c5451250dd068469a8b6b609d98e9aabad647ceb265a4cfd78f3d497cca",
     "config/GMFE69/OSTime.json": "f59f3f37208ab6ad04e71ab8586afb08b51deaad6157f0183cead030e4d8749c",
+    "config/GMFE69/ObstacleAvoidance.json": "6adb27651f31e4b593568115c2ceb354967b95fff882d8d2e449ef7591984b04",
     "config/GMFE69/PPCArch.json": "50ec6b45f5de2b4550e0dd0179b4dc3147c26faa63dffcd8bd32d9afa71f2ff8",
     "config/GMFE69/Pad.json": "0b2c4b221832a5e352c0236d90c02e9938bb4a00392741832f1510da07a7770d",
     "config/GMFE69/Padclamp.json": "570f443e7a228e96a9e869248c68a59a1d9e68052c20523d1c9a482772bfe76b",
+    "config/GMFE69/PathNodeList.json": "34b38f257aac355b91d2f9445d576d0223a8048609af71e85c29c7505ae7ebaf",
     "config/GMFE69/PathNodeList_hashmap.json": "f17589d19801d73c4a867563bb3fb3d236004a3f211c4c0edfc86fdc5c131207",
     "config/GMFE69/Pause.json": "c951796a85f2b4e4117496b88679ef9d2c01f318ca6693f8ab76810e4210a4f8",
     "config/GMFE69/Pause_tail.json": "8d8de43bb61aad5ba637b493cd7d0f2e90ead550a022066e1fa2fbb797836376",
@@ -222,7 +224,9 @@
     "config/GMFE69/animdb.json": "bb5f95b38785b1dbd10de555e7a48050f9187bed1d9ce716634786e1f809c851",
     "config/GMFE69/animemot.json": "dda9f478a5e308bf6a5b89f4e4b4d1e0fabdd9f1a41a1984adbbda2cf689184b",
     "config/GMFE69/animintf.json": "e91af6bf29eeff53f9eebe801ede9cf93426f363777b7aeba4ab4fbbfc53a675",
+    "config/GMFE69/animmorph.json": "6f7032efdc2356ff6413543f4816af703b5e600dcd915aab9c6416328c704759",
     "config/GMFE69/animmorph_dtor.json": "4c07a2b66746cfdb466d7c0a56247186ac3080cb983d3621e828a21662ecac59",
+    "config/GMFE69/animmot.json": "4db280bf4ae0d64c8a3625af885fcea8cd216882da3025b38c8d4bd4627b7f76",
     "config/GMFE69/animplayer.json": "123a8b6fa4ff0d201d93990013084ba2542118c0a6c8b02c04d3a5b5515c1ba1",
     "config/GMFE69/animplayer_weak.json": "51f6719bb37fdb213a30e4327c6e68dd3035b75162b455968ff59f21626988a9",
     "config/GMFE69/animseq.json": "a95b2f2e7ccd61f0b10abfb3da323a97765e9028204bfa193457dad4a01ba62f",
@@ -619,7 +623,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "2f9a4add1311f4398b8cb92b542403df46dd9725601772b07b7547d44f5f655e",
+    "config/GMFE69/project.json": "cfe12abfd846633bec0dafc46588c793c550cdacf464dba638dac5002d7f8c46",
     "config/GMFE69/projectilebullet.json": "cdb5672aceab48b4c354e7df26f4d02a36355002f12a5c0901f81866b26f9213",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -1963,6 +1967,8 @@
     "src/game/Moh2_movingnode.cpp": "1ddb6655d9d1c4666a2d6d2065f5da6d0896e7cbf563c7539b5750fd399afff6",
     "src/game/Moh2_scenenode.cpp": "f26229e634619bdb5091b4605f43d55167a264eee0b7c6fc3d3502c0bbfd1c52",
     "src/game/Moh2_scenenode_dtors.cpp": "dab6d649b43418c48d0ed3d0a1ed5c4097222eb7ffef5eb7290da2c0a39d31e1",
+    "src/game/ObstacleAvoidance.cpp": "b2584a08472e756cc15146c5ca916020c736dcb13be9783c5d1fcd2c5548102b",
+    "src/game/PathNodeList.cpp": "4d07813471d9d4fc31984159dbc04bd6875ace05f4ceb3267d05c7be06169ad9",
     "src/game/PathNodeList_hashmap.cpp": "522d28711d39f28e6493d57afc12e848b3a0dba2f4b8c6b8dc44b1c061813aeb",
     "src/game/Pause.cpp": "2d6d321b8fcd54038857a76293913fd0c891dd06d69d5bda64af7fe8b1519da8",
     "src/game/Pause_tail.cpp": "310007d04a15e06e5d13ad63bc14571c9fafd2fb56d66851af547fb37e6c1e27",
@@ -2035,7 +2041,9 @@
     "src/game/animdb.cpp": "2ad9555c6c6df924ebfa81b4d627ee1284c7634ec8c91330edafca9d2753c2ac",
     "src/game/animemot.cpp": "d262253f736c6e9824e5ffe86a57d78758e052c56e78a1a9f201096659f1705b",
     "src/game/animintf.cpp": "30da38919557e3702eab8683fdc04613b8d4720da1b24216908f957e8ce63ca5",
+    "src/game/animmorph.cpp": "a0c2d5ef1227819866cac47c919b81d784fb15332b97e96ae4577103303035cf",
     "src/game/animmorph_dtor.cpp": "6521fc2f47cbe35266b08dfeeae7573a720f8a6f74438c8d3b20dc0d5f5cda04",
+    "src/game/animmot.cpp": "a45a8abe1f4cf7ff29d111e21ddc34a94f2de557f14ba7b00b699d7cec9acad9",
     "src/game/animplayer.cpp": "99b4ef928b5180420a1d053c44deb1a4abd0d58f4e02dbbbe517d147af5c696a",
     "src/game/animplayer_weak.cpp": "4477f9d5a90d9ec10a41c0bbeddbf126956059c3c77c45c7893b164445d6d098",
     "src/game/animseq.cpp": "41ae1e334e9a48b7d9b8fa506401aa98bb74422f5ff869e6865e116682792658",
@@ -40561,6 +40569,162 @@
       "discarded_functions": [],
       "object_sha256": "b91192efbc5b4cb5cc3b957808d67ca42274cc0fdb75af75293254943df8263a",
       "linked_sha256": "9cb41ff6993c7a4414f2aa59d81842ef9057ee2b7cd6a998c033b4f01a071416"
+    },
+    {
+      "id": "animmorph",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 52,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "1634e440e734c7d8d49ca396d290ebf62f5417de4d7ea34862d3982ab30795b6",
+      "linked_sha256": "95ad50774e3947049d9283e816e8e1b1147c81be26f1e3de85972f59536f8074"
+    },
+    {
+      "id": "ObstacleAvoidance",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 60,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [],
+      "object_sha256": "9f4355482f98537ec16b2083112205d685eba5b554596947ff016d4414ce326d",
+      "linked_sha256": "ca9d5330391ee4188441b1fc99cb24615a2abcfc48f2b27c0eb8a963b70c9785"
+    },
+    {
+      "id": "animmot",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 68,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "cb1b8c2fe511ea05cda10d783b6f79564176e37e4509ccc1578622f5d46ce992",
+      "linked_sha256": "7e82e95a79509e5bf670fdbc289468dc801f5cea899b3a62ec997d2bd387ecd6"
+    },
+    {
+      "id": "PathNodeList",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 68,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "061a1e541ea0baf28b5aa4915999fdf5a2487b754de5ff9487a404b662c42d27",
+      "linked_sha256": "b197d8ae0f5ae5cd7d9db66de354926c2167d435ae8656c8a644dc856fa96645"
     }
   ],
   "code_map": {
@@ -42711,13 +42875,6 @@
             "kind": "function",
             "name": "__ct__18CObstacleGridEntryFv",
             "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800547d0",
-            "size": 60,
-            "kind": "function",
-            "name": "__sinit_ObstacleAvoidance_cpp",
-            "evidence": "local-file-symbol"
           }
         ]
       },
@@ -42793,13 +42950,6 @@
             "kind": "function",
             "name": "__ct__13CPathNodeListFPvP18BPDPathFindingNodei",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x80055f1c",
-            "size": 68,
-            "kind": "function",
-            "name": "__sinit_PathNodeList_cpp",
-            "evidence": "local-file-symbol"
           }
         ]
       },
@@ -43864,13 +44014,6 @@
             "kind": "function",
             "name": "__ct__13AnimChannel_tFv",
             "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80065684",
-            "size": 52,
-            "kind": "function",
-            "name": "__sinit_animmorph_cpp",
-            "evidence": "local-file-symbol"
           }
         ]
       },
@@ -43906,25 +44049,6 @@
             "kind": "function",
             "name": "AnimMotCreateWeightList",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x80066050",
-            "size": 64,
-            "kind": "function",
-            "name": "__sinit_animmot_cpp",
-            "evidence": "local-file-symbol"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 80066090",
-        "ranges": [
-          {
-            "address": "0x80066090",
-            "size": 4,
-            "kind": "function",
-            "name": "__ct__20AnimMotWeightFrame_tFv",
-            "evidence": "unknown-file"
           }
         ]
       },
