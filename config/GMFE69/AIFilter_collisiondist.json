@@ -1,0 +1,114 @@
+{
+  "id": "AIFilter_collisiondist",
+  "source": "src/game/AIFilter_collisiondist.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8005bea4",
+      "size": 608,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000b040",
+      "size": 144,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 168
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800121c4",
+      "size": 12,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 48
+    }
+  ],
+  "functions": [
+    {
+      "name": "GetCollisionDistLineToEnvironment__15CAIFilterGlobalFRC21CAIFilterRealPositionRC21CAIFilterRealPositionP15CAIFilterObjectf",
+      "address": "0x8005bea4",
+      "size": 608,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "VisitAllStaticObjects__6CSceneFRQ23dwi22IVisitor<10ISceneNode>": "0x800db5c0",
+    "__ct__10CCollisionFv": "0x800c7cf4",
+    "__ct__9CVolFiberFRC6CLine3": "0x800ca560",
+    "__ct__9CVolFiberFRC9CVolFiber": "0x800ca65c",
+    "__dl__FPv": "0x8001ca2c",
+    "__dt__10CCollisionFv": "0x800c7b80",
+    "__dt__24MechanicCollisionCheckerFv": "0x8005c104",
+    "__dt__6CLine3Fv": "0x8001c5d0",
+    "__dt__9CVolFiberFv": "0x800ca504",
+    "__dt__Q23dwi22IVisitor<10ISceneNode>Fv": "0x8001c030",
+    "__vt__24MechanicCollisionChecker": "0x80183830",
+    "__vt__Q23dwi22IVisitor<10ISceneNode>": "0x80181e74",
+    "g_scene": "0x8019484c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "AIFilter.cpp",
+  "original_file_index": 2575,
+  "stripped_sections": [
+    ".data"
+  ],
+  "weak_duplicates": [
+    "__dt__24MechanicCollisionCheckerFv",
+    "__dt__6CLine3Fv",
+    "__dt__Q23dwi22IVisitor<10ISceneNode>Fv",
+    "__vt__Q23dwi22IVisitor<10ISceneNode>"
+  ],
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034fba4"
+    }
+  ]
+}
