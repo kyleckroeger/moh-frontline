@@ -1,0 +1,92 @@
+{
+  "id": "objcreate_thrown",
+  "source": "src/game/objcreate_thrown.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8003ebb4",
+      "size": 348,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000a4c4",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800114d4",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "CreateSpecialThrownObject__FP20TriggerObject_structii",
+      "address": "0x8003ebb4",
+      "size": 348,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "Add__6CSceneFR10ISceneNode": "0x800dc21c",
+    "AllocateStaticObject__20CStaticObjectFactoryFii": "0x800b386c",
+    "BSObjectTriggerEvent__FP8BSObjectUsPvP8BSObjectb": "0x8003a46c",
+    "CreateBSObject__FPCcPP8BSObjectP10BSGO_BasicP20TriggerObject_structPPv": "0x8003a630",
+    "GetFreeElement__35BSUtilObjectInstanceMemoryAllocatorFb": "0x8003bd90",
+    "__vt__10BSGO_Basic": "0x8018334c",
+    "__vt__17BSGO_Destructable": "0x80183374",
+    "g_pObjectAllocators": "0x801a112c",
+    "g_scene": "0x8019484c"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [
+    "g_pObjectAllocators"
+  ],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "objcreate.cpp",
+  "original_file_index": 1440,
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "objcreate.json"
+  }
+}

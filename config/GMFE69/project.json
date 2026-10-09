@@ -913,7 +913,8 @@
     "particlesystem_register.json",
     "compartment_intersect.json",
     "capsule_plane.json",
-    "particlesystem_visible.json"
+    "particlesystem_visible.json",
+    "objcreate_thrown.json"
   ],
   "progress": {
     "code_bytes": 1414572,
