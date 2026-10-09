@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 584640,
+    "matching_code_bytes": 585016,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.32981566155699,
+    "percent": 41.35639613960972,
     "categories": {
-      "reconstructed_game": 364448,
+      "reconstructed_game": 364824,
       "restored_library": 220192
     },
-    "matching_functions": 3541
+    "matching_functions": 3546
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -618,7 +618,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "be4d7a0ebd2c6325cb9bd0b3689990ee31bbc5384ba8229136d1ef7db75aabf2",
+    "config/GMFE69/project.json": "7e100f2ac73f06f92bb8ee92996bb040ad7f685bf03df1580c26cedede12bfcd",
     "config/GMFE69/projectilebullet.json": "cdb5672aceab48b4c354e7df26f4d02a36355002f12a5c0901f81866b26f9213",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -928,7 +928,8 @@
     "config/GMFE69/weapon_head.json": "fe2f21c551af2ffd8eade55d98a8bf62f06d0cbd769ec9775deb5720bf7526bd",
     "config/GMFE69/weaponfactory.json": "20cd24f59303b1482f3445e5292fea0c1d91d58faa58adf58b2ae313e9df2245",
     "config/GMFE69/weaponfactory_params.json": "14a59c223d256ecacfbff3516bdbaf9ef359b19fa2d019cdd661089006684b01",
-    "config/GMFE69/world_object.json": "6244848dd9131779a17dba9a8d8c90b2afe41e2eb7c86f5388aa87ed56fc79fd",
+    "config/GMFE69/world_object.json": "39e2976cde987ce2b62cf81df6e3fc429a97613aeaa2f5f291b2560ff7ea13e4",
+    "config/GMFE69/world_object_draw.json": "15115a01fa0b7e788d1465730d30fc0a38139c4ac2bd072165cb9ab2d7a0a38b",
     "config/GMFE69/world_object_dtor.json": "be19570f814397f4583dfa363b2da4843312b071caa6c09ced524f0b6f77a092",
     "config/GMFE69/world_object_list.json": "0a798c5962759e5c41809c9ecfe09adcd66d7513d19f443b3ff34a796f03ee01",
     "config/GMFE69/world_volume.json": "b58335a5f969f8461603ce74500ac1d689974d936b2dd3ba5ab66987d43fd109",
@@ -2427,7 +2428,8 @@
     "src/game/weapon_head.cpp": "36a5f5dc586625ba2fb3e1e3a1cc14f4afba1510c079678f84897da0c59b45dd",
     "src/game/weaponfactory.cpp": "918057846d18e297a460e23fc2153ee2dcd97d2c042c6f6b71658c9fcdecb0f9",
     "src/game/weaponfactory_params.cpp": "6c2867b23701561b489c0f430b24c90da7f0fc0a3d4fcfd9f300b9b2c873c8c9",
-    "src/game/world_object.cpp": "770d95a2e201486895961d9b54e0ec2d0d1fdb168e553159b7926865f747aac4",
+    "src/game/world_object.cpp": "873a97a1b663e39ab1b96ed82d1b43eba7dc38b78a1cc9942c5491c49f2a3740",
+    "src/game/world_object_draw.cpp": "f2b34f4519d28c52ea318baa0ddbd5d2a916b6fcb034fbc7ef21b1c8bd48731e",
     "src/game/world_object_dtor.cpp": "064c9ece58bd87cd4b359a01ed3117b37e6204628fc896257bb56142f3b740b3",
     "src/game/world_object_list.cpp": "975335f001f74f6c9af25efb83889c2f276313a73d1d774806725fd9444c72da",
     "src/game/world_volume.cpp": "f6615e2f32df0c136d86133089d3957929a83d826a0294df1b6e0e21e25a4949",
@@ -18845,7 +18847,7 @@
       "linked_sha256": "4209e4812fbc62cb53935795a7b226a40393dbe887e89b249507c8c7a2e2d15b"
     },
     {
-      "id": "world_object",
+      "id": "world_object_draw",
       "category": "reconstructed_game",
       "functions": 10,
       "code_bytes": 496,
@@ -18880,8 +18882,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "4c537d937faf130f8b5d898487de3470df6ca83e7eeb3bb0a76a9a96e6d8305e",
-      "linked_sha256": "1ca4ae8f269f9b1d5f18eb2c00790e9f5ffec6d1af0f3b0786382fa240ac4da8"
+      "object_sha256": "281e259446ac270796eee562f07099d5efdf002ac9871c5e5909cb1997e16e9e",
+      "linked_sha256": "1a7d0550ae40c236aa73d7f427e523defea05492cb6926d5c6d7b562c37497b6"
     },
     {
       "id": "font_driver",
@@ -40479,6 +40481,45 @@
       "discarded_functions": [],
       "object_sha256": "3fdc8091c84af1fd7d27126dc07f9b2c64068316418a13681febb22e61f318c7",
       "linked_sha256": "bc670c00690855ecf887a16e2596d3bfd04d880b021020f697932d2ecd6de0af"
+    },
+    {
+      "id": "world_object",
+      "category": "reconstructed_game",
+      "functions": 5,
+      "code_bytes": 376,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "d2f34b10f071be9e1fada2bc4e3a07d784f6d4ee97500e0539ace6b683d0b072",
+      "linked_sha256": "a990bd9eed620237316dbd457b5bd4843129a7fb0996382a4365961068802009"
     }
   ],
   "code_map": {
@@ -47371,41 +47412,6 @@
             "size": 88,
             "kind": "function",
             "name": "__dt__Q23dwi25list_node<12CCompartment>Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800b82a0",
-            "size": 120,
-            "kind": "function",
-            "name": "__dt__Q23dwi11CMemFactoryFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800b8318",
-            "size": 32,
-            "kind": "function",
-            "name": "GetCdbFilenameFromBigFile__FiPci",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800b8338",
-            "size": 32,
-            "kind": "function",
-            "name": "GetCptFilenameFromBigFile__FiPci",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800b8358",
-            "size": 108,
-            "kind": "function",
-            "name": "__sinit_world_object_cpp",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x800b83c4",
-            "size": 84,
-            "kind": "function",
-            "name": "__dt__14CFilenameTableFv",
             "evidence": "exception-index"
           }
         ]

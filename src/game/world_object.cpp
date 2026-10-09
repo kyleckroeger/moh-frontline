@@ -1,181 +1,57 @@
-// CWorldObject, the functions at the start of the file: identity and
-// scene-node queries, and drawing the world's compartments. The class names
-// come from the mangled symbols. CWorldObject is an inferred, non-virtual
-// view: only the members these functions touch are declared, at their offsets
-// (their names are not original), and its virtual table is not reproduced.
-// The compartments sit in a linked list whose nodes hold a CCompartment after
-// the two links (the list view is inferred). CCompartment is declared with the
-// ISceneNode virtual functions in the order of __vt__10ISceneNode, flattened
-// into one class; only the calls made here matter. BeginUpdate services the
-// data streamer while streaming, then stores the bounding volume's extent in
-// the sorted bounds entries; the vector view, the bounds entries and the
-// volume's extent call at +72 of its vtable (earlier entries as placeholders
-// named by offset) are inferred.
-class CDrawContext;
-class CCollision;
-class CMatrix;
+// The end of world_object.cpp (0x800b82a0): the weak memory-factory
+// destructor (owned memory freed, its words cleared), the two filename
+// wrappers that read a compartment's CDB and CPT names from the big file, the
+// static initialisation of the compartment and CDB filename tables (cleared;
+// destructors registered) and the weak filename-table destructor emitted
+// after it (its names array deleted). The weak compartment-list and node
+// destructors before these are not part of this unit (the node destructor's
+// out-of-line copy is not reproduced). The classes, functions and globals are
+// named by the symbols; the members are inferred.
 
-struct VECTOR3VIEW {
-    float x;
-    float y;
-    float z;
-} __attribute__((aligned(8)));
+extern "C" void MEM_free(void*);
+void GetCompartmentCDBNameFromIndex(int, char*, int);
+void GetCompartmentCPTNameFromIndex(int, char*, int);
 
-class CVector3 {
+namespace dwi {
+class CMemFactory {
 public:
-    VECTOR3VIEW v;
+    ~CMemFactory();
+
+    void* m_memory;
+    int data04;
+    int data08;
+    int data0c;
+    int data10;
+    bool m_owned;
 };
 
-struct WorldBoundView {
-    unsigned char unknown0[8];
-    float key;
-};
+__declspec(weak) CMemFactory::~CMemFactory() {
+    if (m_owned)
+        MEM_free(m_memory);
+    m_memory = 0;
+    data04 = 0;
+    data08 = 0;
+    data0c = 0;
+    data10 = 0;
+}
+}
 
-class WorldVolumeView {
+void GetCdbFilenameFromBigFile(int index, char* name, int size) {
+    GetCompartmentCDBNameFromIndex(index, name, size);
+}
+
+void GetCptFilenameFromBigFile(int index, char* name, int size) {
+    GetCompartmentCPTNameFromIndex(index, name, size);
+}
+
+class CFilenameTable {
 public:
-    virtual void unknown08();
-    virtual void unknown0c();
-    virtual void unknown10();
-    virtual void unknown14();
-    virtual void unknown18();
-    virtual void unknown1c();
-    virtual void unknown20();
-    virtual void unknown24();
-    virtual void unknown28();
-    virtual void unknown2c();
-    virtual void unknown30();
-    virtual void unknown34();
-    virtual void unknown38();
-    virtual void unknown3c();
-    virtual void unknown40();
-    virtual void unknown44();
-    virtual void unknown48(CVector3&, CVector3&);
+    CFilenameTable() : m_count(0), m_names(0) {}
+    ~CFilenameTable() { delete[] m_names; }
+
+    int m_count;
+    char* m_names;
 };
 
-class CCompartment {
-public:
-    enum EVolumeType {};
-
-    virtual void MarkForDestruction(int);
-    virtual ~CCompartment();
-    virtual void Destroy();
-    virtual void BeginUpdate(float);
-    virtual void UpdateAI(float);
-    virtual void CommitAI();
-    virtual void ConstrainVelocity();
-    virtual void AttemptUpdate(float);
-    virtual void OnCollision(const CCollision&);
-    virtual void CommitUpdate();
-    virtual void Draw(CDrawContext&);
-    virtual const void* GetLocalBoundingVolume(EVolumeType) const;
-    virtual const void* GetWorldBoundingVolume(EVolumeType) const;
-    virtual void GetTMLocalToWorld(CMatrix&) const;
-    virtual void GetPosition(CVector3&) const;
-    virtual void GetRightward(CVector3&) const;
-    virtual void GetForward(CVector3&) const;
-    virtual void GetUpward(CVector3&) const;
-    virtual bool IsVisible(CDrawContext&) const;
-    virtual bool IsDrawEnabled() const;
-
-    void DrawShadows(CDrawContext&);
-};
-
-struct WorldCompartmentNodeView {
-    WorldCompartmentNodeView* prev;
-    WorldCompartmentNodeView* next;
-    CCompartment compartment;
-};
-
-struct WorldListLinkView {
-    WorldCompartmentNodeView* prev;
-    WorldCompartmentNodeView* next;
-};
-
-class ISceneNode {
-public:
-    enum EVolumeType {};
-};
-
-class CWorldObject {
-public:
-    const CWorldObject* AsWorldObject() const;
-    CWorldObject* AsWorldObject();
-    int GetCollisionId() const;
-    bool IsDrawEnabled() const;
-    bool IsVisible(CDrawContext&) const;
-    const void* GetWorldBoundingVolume(ISceneNode::EVolumeType) const;
-    const void* GetLocalBoundingVolume(ISceneNode::EVolumeType) const;
-    void DrawShadows(CDrawContext&);
-    void Draw(CDrawContext&);
-    void BeginUpdate(float);
-    void ServiceDataStreamer(float);
-
-    unsigned char unknown000[12];
-    WorldBoundView* m_bounds[4];
-    unsigned char unknown01C[52];
-    WorldListLinkView m_compartments;
-    unsigned char unknown058[112];
-    int m_streaming;
-    unsigned char unknown0CC[68];
-    unsigned char m_boundingVolume[80];
-    bool m_drawEnabled;
-};
-
-__declspec(weak) const CWorldObject* CWorldObject::AsWorldObject() const {
-    return this;
-}
-
-__declspec(weak) CWorldObject* CWorldObject::AsWorldObject() {
-    return this;
-}
-
-int CWorldObject::GetCollisionId() const {
-    return 0;
-}
-
-bool CWorldObject::IsDrawEnabled() const {
-    return m_drawEnabled;
-}
-
-bool CWorldObject::IsVisible(CDrawContext&) const {
-    return true;
-}
-
-const void* CWorldObject::GetWorldBoundingVolume(ISceneNode::EVolumeType) const {
-    return m_boundingVolume;
-}
-
-const void* CWorldObject::GetLocalBoundingVolume(ISceneNode::EVolumeType) const {
-    return m_boundingVolume;
-}
-
-void CWorldObject::DrawShadows(CDrawContext& context) {
-    WorldCompartmentNodeView* node = m_compartments.next;
-    WorldCompartmentNodeView* end = (WorldCompartmentNodeView*)&m_compartments;
-    for (; node != end; node = node->next) {
-        if (node->compartment.IsDrawEnabled() && node->compartment.IsVisible(context))
-            node->compartment.DrawShadows(context);
-    }
-}
-
-void CWorldObject::Draw(CDrawContext& context) {
-    WorldCompartmentNodeView* node = m_compartments.next;
-    WorldCompartmentNodeView* end = (WorldCompartmentNodeView*)&m_compartments;
-    for (; node != end; node = node->next) {
-        if (node->compartment.IsDrawEnabled() && node->compartment.IsVisible(context))
-            node->compartment.Draw(context);
-    }
-}
-
-void CWorldObject::BeginUpdate(float dt) {
-    CVector3 low;
-    CVector3 high;
-
-    if (m_streaming)
-        ServiceDataStreamer(dt);
-    ((WorldVolumeView*)m_boundingVolume)->unknown48(low, high);
-    m_bounds[0]->key = low.v.x;
-    m_bounds[2]->key = low.v.y;
-    m_bounds[1]->key = high.v.x;
-    m_bounds[3]->key = high.v.y;
-}
+CFilenameTable g_CptFnameTable;
+CFilenameTable g_CdbFnameTable;

@@ -369,7 +369,7 @@
     "msgbuf.json",
     "mem_TRK.json",
     "Soldier_object.json",
-    "world_object.json",
+    "world_object_draw.json",
     "font_driver.json",
     "AIFilter.json",
     "collisionvolume.json",
@@ -917,7 +917,8 @@
     "objcreate_thrown.json",
     "font.json",
     "decal.json",
-    "animskinned.json"
+    "animskinned.json",
+    "world_object.json"
   ],
   "progress": {
     "code_bytes": 1414572,
