@@ -1,80 +1,27 @@
-// The sound lock and the CSoundStream wrappers over the EA stream API
-// (pitch-multiplier pause, fades, volume, status, purge and file queueing).
-// CSoundSysLock, CSoundStream, SSndStrmRequestStatus and SSndStreamStatus are
-// named by the mangled symbols; the stream handle at the start of the object
-// and the result types are inferred, and the status records are left
-// incomplete. The rest of the file is not part of this unit.
-struct SSndStrmRequestStatus;
-struct SSndStreamStatus;
+// The static initialisation of sound.cpp (0x800ede28): the three subtitle
+// colours (white, yellow and green, half alpha) and the ambient source
+// position (the origin; 0.0 is an entry of the file's .sdata2 pool). The rest
+// of the file is in other units or not reconstructed. _subtitle_rgb and
+// g_ambientSourcePos are named by the symbols; the colour and vector
+// constructors are inferred.
+struct CColor {
+    CColor(unsigned char ar, unsigned char ag, unsigned char ab, unsigned char aa) : r(ar), g(ag), b(ab), a(aa) {}
 
-extern "C" {
-void SNDSYS_entercritical(void);
-int SNDSTRM_pitchmult(int, unsigned int);
-int SNDSTRM_autovol(int, int, int);
-int SNDSTRM_getprogvol(int);
-int SNDSTRM_requeststatus(int, SSndStrmRequestStatus*);
-int SNDSTRM_status(int, SSndStreamStatus*);
-int SNDSTRM_vol(int, int);
-int SNDSTRM_purge(int);
-int SNDSTRM_queuefile(int, int, const char*, int);
-}
-
-class CSoundSysLock {
-public:
-    CSoundSysLock();
+    unsigned char r;
+    unsigned char g;
+    unsigned char b;
+    unsigned char a;
 };
 
-class CSoundStream {
+class CVector3 {
 public:
-    void Unpause();
-    void Pause();
-    void FadeVolume(int, int);
-    int GetVolume() const;
-    int GetRequestStatus(int, SSndStrmRequestStatus&) const;
-    int GetStatus(SSndStreamStatus&) const;
-    void SetVolume(int);
-    void PurgeQueue();
-    int QueueFile(const char*, int, int);
+    CVector3(float ax, float ay, float az) : x(ax), y(ay), z(az) {}
 
-    int m_stream;
-};
+    float x;
+    float y;
+    float z;
+    float w;
+} __attribute__((aligned(8)));
 
-CSoundSysLock::CSoundSysLock() {
-    SNDSYS_entercritical();
-}
-
-void CSoundStream::Unpause() {
-    SNDSTRM_pitchmult(m_stream, 4096);
-}
-
-void CSoundStream::Pause() {
-    SNDSTRM_pitchmult(m_stream, 0);
-}
-
-void CSoundStream::FadeVolume(int time, int volume) {
-    SNDSTRM_autovol(m_stream, time, volume);
-}
-
-int CSoundStream::GetVolume() const {
-    return SNDSTRM_getprogvol(m_stream);
-}
-
-int CSoundStream::GetRequestStatus(int request, SSndStrmRequestStatus& status) const {
-    return SNDSTRM_requeststatus(request, &status);
-}
-
-int CSoundStream::GetStatus(SSndStreamStatus& status) const {
-    return SNDSTRM_status(m_stream, &status);
-}
-
-void CSoundStream::SetVolume(int volume) {
-    SNDSTRM_vol(m_stream, volume);
-}
-
-void CSoundStream::PurgeQueue() {
-    SNDSTRM_purge(m_stream);
-}
-
-int CSoundStream::QueueFile(const char* name, int offset, int flags) {
-    return SNDSTRM_queuefile(m_stream, offset, name, flags);
-}
+static CColor _subtitle_rgb[3] = {CColor(255, 255, 255, 128), CColor(255, 255, 0, 128), CColor(0, 255, 0, 128)};
+static CVector3 g_ambientSourcePos(0.0f, 0.0f, 0.0f);

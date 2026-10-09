@@ -378,7 +378,7 @@
     "audioplayer.json",
     "sbasync.json",
     "hearingvolume.json",
-    "player_weapon_object.json",
+    "player_weapon_object_head.json",
     "Pause.json",
     "objcreate.json",
     "Moh2.json",
@@ -400,7 +400,7 @@
     "Tank_object.json",
     "player.json",
     "UIStudio.json",
-    "sound.json",
+    "sound_stream.json",
     "memalloc.json",
     "AIObject.json",
     "matrix.json",
@@ -449,7 +449,7 @@
     "renderlist.json",
     "debug_prof_timers.json",
     "alarm_builtins.json",
-    "toilet.json",
+    "toilet_files.json",
     "stream.json",
     "sfxrevc.json",
     "saemsstr.json",
@@ -926,7 +926,10 @@
     "PathNodeList.json",
     "bsevents.json",
     "input.json",
-    "bsutil.json"
+    "bsutil.json",
+    "sound.json",
+    "player_weapon_object.json",
+    "toilet.json"
   ],
   "progress": {
     "code_bytes": 1414572,

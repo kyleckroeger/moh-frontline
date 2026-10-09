@@ -31,104 +31,38 @@
     "-fp_contract",
     "on"
   ],
-  "include_dirs": [
-    "include/dolphin-sdk/libc"
-  ],
+  "include_dirs": [],
   "strip_unused": false,
-  "source_root": "src/game",
+  "source_root": "scratch/game",
   "sections": [
     {
       "name": ".text",
-      "address": "0x800ecbf8",
-      "size": 396,
+      "address": "0x800ede28",
+      "size": 92,
       "type": 1
     },
     {
-      "name": "extab",
-      "address": "0x8000f458",
-      "size": 80,
+      "name": ".ctors",
+      "address": "0x8016dfe8",
+      "size": 4,
       "type": 1
     },
     {
-      "name": "extabindex",
-      "address": "0x80015f98",
-      "size": 120,
-      "type": 1
+      "name": ".bss",
+      "address": "0x80229490",
+      "size": 32,
+      "type": 8
     }
   ],
   "functions": [
     {
-      "name": "__ct__13CSoundSysLockFv",
-      "address": "0x800ecbf8",
-      "size": 48,
-      "binding": 1
-    },
-    {
-      "name": "Unpause__12CSoundStreamFv",
-      "address": "0x800ecc28",
-      "size": 40,
-      "binding": 1
-    },
-    {
-      "name": "Pause__12CSoundStreamFv",
-      "address": "0x800ecc50",
-      "size": 40,
-      "binding": 1
-    },
-    {
-      "name": "FadeVolume__12CSoundStreamFii",
-      "address": "0x800ecc78",
-      "size": 36,
-      "binding": 1
-    },
-    {
-      "name": "GetVolume__12CSoundStreamCFv",
-      "address": "0x800ecc9c",
-      "size": 36,
-      "binding": 1
-    },
-    {
-      "name": "GetRequestStatus__12CSoundStreamCFiR21SSndStrmRequestStatus",
-      "address": "0x800eccc0",
-      "size": 40,
-      "binding": 1
-    },
-    {
-      "name": "GetStatus__12CSoundStreamCFR16SSndStreamStatus",
-      "address": "0x800ecce8",
-      "size": 36,
-      "binding": 1
-    },
-    {
-      "name": "SetVolume__12CSoundStreamFi",
-      "address": "0x800ecd0c",
-      "size": 36,
-      "binding": 1
-    },
-    {
-      "name": "PurgeQueue__12CSoundStreamFv",
-      "address": "0x800ecd30",
-      "size": 36,
-      "binding": 1
-    },
-    {
-      "name": "QueueFile__12CSoundStreamFPCcii",
-      "address": "0x800ecd54",
-      "size": 48,
-      "binding": 1
+      "name": "__sinit_sound_cpp",
+      "address": "0x800ede28",
+      "size": 92,
+      "binding": 0
     }
   ],
-  "externals": {
-    "SNDSTRM_autovol": "0x8015c600",
-    "SNDSTRM_getprogvol": "0x8015c674",
-    "SNDSTRM_pitchmult": "0x8015c728",
-    "SNDSTRM_purge": "0x8015c028",
-    "SNDSTRM_queuefile": "0x8015c004",
-    "SNDSTRM_requeststatus": "0x8015c37c",
-    "SNDSTRM_status": "0x8015c288",
-    "SNDSTRM_vol": "0x8015c5b0",
-    "SNDSYS_entercritical": "0x80153554"
-  },
+  "externals": {},
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
@@ -136,5 +70,16 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "sound.cpp",
-  "original_file_index": 8971
+  "original_file_index": 8971,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80350fcc"
+    }
+  ]
 }

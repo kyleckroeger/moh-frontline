@@ -39,74 +39,57 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8001d820",
-      "size": 400,
+      "address": "0x8001e04c",
+      "size": 68,
+      "type": 1
+    },
+    {
+      "name": ".ctors",
+      "address": "0x8016df48",
+      "size": 4,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x80009894",
-      "size": 16,
+      "address": "0x800098dc",
+      "size": 8,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x800102d4",
-      "size": 24,
+      "address": "0x80010340",
+      "size": 12,
       "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x80197458",
+      "size": 24,
+      "type": 8
     }
   ],
   "functions": [
     {
-      "name": "TLT_CloseFile__FPv",
-      "address": "0x8001d820",
-      "size": 88,
-      "binding": 1
-    },
-    {
-      "name": "TLT_FindNextResourceByTypeAndVal__F13TLTResourceIDiiP24LevelFileContentsStruct_",
-      "address": "0x8001d878",
-      "size": 152,
-      "binding": 1
-    },
-    {
-      "name": "TLT_FindNextResourceByType__F13TLTResourceIDP24LevelFileContentsStruct_",
-      "address": "0x8001d910",
-      "size": 104,
-      "binding": 1
-    },
-    {
-      "name": "TLT_UnLoadShellBriefingLogBigFile__Fv",
-      "address": "0x8001d978",
-      "size": 56,
-      "binding": 1
+      "name": "__sinit_toilet_cpp",
+      "address": "0x8001e04c",
+      "size": 68,
+      "binding": 0
     }
   ],
   "externals": {
-    "MEM_free": "0x8014f83c",
-    "g_LevelBigFileSize": "0x8034e758",
-    "g_ShellBriefingLogBigFileSize": "0x8034e75c",
-    "g_pLevelBigFile": "0x8034e750",
-    "g_pLevelFileContentsArray": "0x8034e768",
-    "g_pLevelFileContentsEndMarker": "0x8034e770",
-    "g_pShellBriefingLogBigFile": "0x8034e754"
+    "__dt__Q23dwi15hash_map<Pc,Pc>Fv": "0x8001e090",
+    "__register_global_object": "0x801381bc"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
-  "local_externals": [
-    "g_pLevelFileContentsArray",
-    "g_pLevelFileContentsEndMarker"
-  ],
+  "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": [
-    "g_LevelBigFileSize",
-    "g_ShellBriefingLogBigFileSize",
-    "g_pLevelBigFile",
-    "g_pLevelFileContentsArray",
-    "g_pLevelFileContentsEndMarker",
-    "g_pShellBriefingLogBigFile"
-  ],
+  "sda_externals": [],
   "original_file": "toilet.cpp",
-  "original_file_index": 367
+  "original_file_index": 367,
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "toilet_files.json"
+  }
 }
