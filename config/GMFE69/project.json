@@ -896,7 +896,8 @@
     "renderlist_finish.json",
     "compartment_render.json",
     "staticmesh_render.json",
-    "staticmesh_simplebin.json"
+    "staticmesh_simplebin.json",
+    "font_render.json"
   ],
   "progress": {
     "code_bytes": 1414572,

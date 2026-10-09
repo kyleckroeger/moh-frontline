@@ -1,0 +1,108 @@
+{
+  "id": "font_render",
+  "source": "src/game/font_render.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8007ca34",
+      "size": 308,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000c010",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80012f8c",
+      "size": 24,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "Render__5CFontFR10CDmaPacketPv",
+      "address": "0x8007ca34",
+      "size": 208,
+      "binding": 1
+    },
+    {
+      "name": "GetHeight__5CFontFv",
+      "address": "0x8007cb04",
+      "size": 12,
+      "binding": 1
+    },
+    {
+      "name": "SetHeight__5CFontFf",
+      "address": "0x8007cb10",
+      "size": 12,
+      "binding": 1
+    },
+    {
+      "name": "SetScale__5CFontFff",
+      "address": "0x8007cb1c",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "GetScale__5CFontFRfRf",
+      "address": "0x8007cb30",
+      "size": 28,
+      "binding": 1
+    },
+    {
+      "name": "SetDepth__5CFontFUl",
+      "address": "0x8007cb4c",
+      "size": 28,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "memcpy": "0x800094f8"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "font.cpp",
+  "original_file_index": 3954
+}
