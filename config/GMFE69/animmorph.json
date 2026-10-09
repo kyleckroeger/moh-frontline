@@ -32,13 +32,13 @@
     "on"
   ],
   "include_dirs": [],
-  "strip_unused": false,
+  "strip_unused": true,
   "source_root": "scratch/game",
   "sections": [
     {
       "name": ".text",
-      "address": "0x80065684",
-      "size": 52,
+      "address": "0x800655c4",
+      "size": 244,
       "type": 1
     },
     {
@@ -49,15 +49,25 @@
     },
     {
       "name": "extab",
-      "address": "0x8000b478",
-      "size": 8,
-      "type": 1
+      "address": "0x8000b470",
+      "size": 16,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 24,
+      "stripped_objects": [
+        "@18"
+      ]
     },
     {
       "name": "extabindex",
-      "address": "0x800125b4",
-      "size": 12,
-      "type": 1
+      "address": "0x800125a8",
+      "size": 24,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 36,
+      "stripped_objects": [
+        "@19"
+      ]
     },
     {
       "name": ".bss",
@@ -72,17 +82,51 @@
       "address": "0x80065684",
       "size": 52,
       "binding": 0
+    },
+    {
+      "name": "__ct__8CVector4Fv",
+      "address": "0x8006567c",
+      "size": 4,
+      "binding": 2
+    },
+    {
+      "name": "__ct__10CAnimMorphFv",
+      "address": "0x800655c4",
+      "size": 184,
+      "binding": 1
+    },
+    {
+      "name": "__ct__13AnimChannel_tFv",
+      "address": "0x80065680",
+      "size": 4,
+      "binding": 2
     }
   ],
   "externals": {
-    "__ct__16CAnimMatrixCacheFiii": "0x80060b80"
+    "InitClass__7CMatrixFv": "0x80090b78",
+    "__construct_array": "0x8013834c",
+    "__ct__16CAnimMatrixCacheFiii": "0x80060b80",
+    "__dl__FPv": "0x8001ca2c",
+    "__dt__9CAnimatedFv": "0x800609a0",
+    "__vt__10CAnimMorph": "0x801838e4",
+    "__vt__9CAnimated": "0x801838a8",
+    "s_ClassInit__7CMatrix": "0x8034eab0"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": [],
+  "sda_externals": [
+    "s_ClassInit__7CMatrix"
+  ],
   "original_file": "animmorph.cpp",
-  "original_file_index": 2977
+  "original_file_index": 2977,
+  "weak_duplicates": [
+    "__dt__9CAnimatedFv"
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "animmorph.json"
+  }
 }
