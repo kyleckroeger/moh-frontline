@@ -3,8 +3,8 @@
 // (__construct_array). The rest of the file is not reconstructed.
 // f_rv3ObstacleAvoidanceLines and CVector3 are named by the symbols; the
 // array size comes from the symbol and the vector layout is inferred. The
-// vector's inline constructor (emitted for the array construction) is a weak
-// duplicate.
+// vector's inline constructor, emitted for the array construction, follows
+// the static initialisation (a weak copy of this file).
 class CVector3 {
 public:
     CVector3() {}

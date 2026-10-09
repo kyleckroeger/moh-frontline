@@ -32,13 +32,13 @@
     "on"
   ],
   "include_dirs": [],
-  "strip_unused": true,
+  "strip_unused": false,
   "source_root": "scratch/game",
   "sections": [
     {
       "name": ".text",
       "address": "0x800547d0",
-      "size": 60,
+      "size": 64,
       "type": 1
     },
     {
@@ -72,11 +72,16 @@
       "address": "0x800547d0",
       "size": 60,
       "binding": 0
+    },
+    {
+      "name": "__ct__8CVector3Fv",
+      "address": "0x8005480c",
+      "size": 4,
+      "binding": 2
     }
   ],
   "externals": {
-    "__construct_array": "0x8013834c",
-    "__ct__8CVector3Fv": "0x8005480c"
+    "__construct_array": "0x8013834c"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -86,7 +91,8 @@
   "sda_externals": [],
   "original_file": "ObstacleAvoidance.cpp",
   "original_file_index": 2213,
-  "weak_duplicates": [
-    "__ct__8CVector3Fv"
-  ]
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "ObstacleAvoidance.json"
+  }
 }
