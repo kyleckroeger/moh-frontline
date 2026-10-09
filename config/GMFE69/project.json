@@ -341,7 +341,7 @@
     "dolphin_trk_glue.json",
     "MathFun.json",
     "ssysinit.json",
-    "bsutil.json",
+    "bsutil_pools.json",
     "sst.json",
     "filedev.json",
     "rcmpbase.json",
@@ -356,8 +356,8 @@
     "UISUtils.json",
     "soundtable.json",
     "animst.json",
-    "input.json",
-    "bsevents.json",
+    "input_manager.json",
+    "bsevents_head.json",
     "pathxSND.json",
     "destructor_queue.json",
     "AITankDoodad.json",
@@ -923,7 +923,10 @@
     "animmorph.json",
     "ObstacleAvoidance.json",
     "animmot.json",
-    "PathNodeList.json"
+    "PathNodeList.json",
+    "bsevents.json",
+    "input.json",
+    "bsutil.json"
   ],
   "progress": {
     "code_bytes": 1414572,

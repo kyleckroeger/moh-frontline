@@ -40,23 +40,47 @@
     {
       "name": ".text",
       "address": "0x8010422c",
-      "size": 84,
+      "size": 136,
+      "type": 1
+    },
+    {
+      "name": ".ctors",
+      "address": "0x8016e008",
+      "size": 4,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000fc54",
-      "size": 16,
+      "size": 24,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x800169b8",
-      "size": 24,
+      "size": 36,
       "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x80314db8",
+      "size": 12,
+      "type": 8
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034edc8",
+      "size": 4,
+      "type": 8
     }
   ],
   "functions": [
+    {
+      "name": "__sinit_rcmp_main_cpp",
+      "address": "0x80104280",
+      "size": 52,
+      "binding": 0
+    },
     {
       "name": "RCMP_Shutdown__Fv",
       "address": "0x8010422c",
@@ -74,7 +98,8 @@
     "Init__9FRAMEWORKFv": "0x800fce58",
     "Restore__9FRAMEWORKFv": "0x800fce54",
     "SetREALDefaults__Q24RCMP11RCMP_SYSTEMFv": "0x80105234",
-    "g_fw": "0x8034edc8",
+    "__dt__9FRAMEWORKFv": "0x801042b4",
+    "__register_global_object": "0x801381bc",
     "rcmp_sys__4RCMP": "0x803158ac"
   },
   "undefined_in_discarded_code": [],
@@ -82,9 +107,11 @@
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": [
-    "g_fw"
-  ],
+  "sda_externals": [],
   "original_file": "rcmp_main.cpp",
-  "original_file_index": 10180
+  "original_file_index": 10180,
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "rcmp_main.json"
+  }
 }

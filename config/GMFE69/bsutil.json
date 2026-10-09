@@ -18,7 +18,7 @@
     "on",
     "-O4,p",
     "-inline",
-    "deferred,auto",
+    "auto",
     "-pragma",
     "cats off",
     "-nosyspath",
@@ -31,34 +31,67 @@
     "-fp_contract",
     "on"
   ],
-  "include_dirs": [
-    "include/dolphin-sdk/libc"
-  ],
+  "include_dirs": [],
   "strip_unused": false,
-  "source_root": "src/game",
+  "source_root": "scratch/game",
   "sections": [
     {
       "name": ".text",
-      "address": "0x8003bd6c",
-      "size": 100,
+      "address": "0x8003bedc",
+      "size": 148,
       "type": 1
+    },
+    {
+      "name": ".ctors",
+      "address": "0x8016df58",
+      "size": 4,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000a41c",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800113d8",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x801a10c0",
+      "size": 96,
+      "type": 8
     }
   ],
   "functions": [
     {
-      "name": "FreeElement__35BSUtilObjectInstanceMemoryAllocatorFPv",
-      "address": "0x8003bd6c",
-      "size": 36,
-      "binding": 1
+      "name": "__sinit_bsutil_cpp",
+      "address": "0x8003bedc",
+      "size": 88,
+      "binding": 0
     },
     {
-      "name": "GetFreeElement__35BSUtilObjectInstanceMemoryAllocatorFb",
-      "address": "0x8003bd90",
-      "size": 64,
-      "binding": 1
+      "name": "__arraydtor$623",
+      "address": "0x8003bf34",
+      "size": 56,
+      "binding": 0
+    },
+    {
+      "name": "__ct__35BSUtilObjectInstanceMemoryAllocatorFv",
+      "address": "0x8003bf6c",
+      "size": 4,
+      "binding": 2
     }
   ],
-  "externals": {},
+  "externals": {
+    "__construct_array": "0x8013834c",
+    "__destroy_arr": "0x801382d4",
+    "__dt__35BSUtilObjectInstanceMemoryAllocatorFv": "0x80035a6c",
+    "__register_global_object": "0x801381bc"
+  },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
