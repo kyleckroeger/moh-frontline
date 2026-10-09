@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 592028,
+    "matching_code_bytes": 592056,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.85209377818874,
+    "percent": 41.854073175490534,
     "categories": {
-      "reconstructed_game": 371836,
+      "reconstructed_game": 371864,
       "restored_library": 220192
     },
-    "matching_functions": 3616
+    "matching_functions": 3618
   },
   "input_sha256": {
     "config/GMFE69/AIDoodad.json": "fbe6da2750e71d43ae68554e3fcdce413e76e9d8463f18206e347c607056e6f8",
@@ -409,7 +409,7 @@
     "config/GMFE69/compartment_renderbin.json": "fa245038da69a28a010b1187885941cccd72a67ea9a4792fbff780ca8abdc9e9",
     "config/GMFE69/compartment_renderbin_dtor.json": "2fe709fc74e1de5f587ed05655d9d85b1a4b6cbb4009c1fabb257969f37f0a84",
     "config/GMFE69/compartment_shadowbins.json": "752d140e5687cc9ac04909b2e3e3e390f689724b41bd7d628324464ced429490",
-    "config/GMFE69/compartment_volbox.json": "60e9697c52b33cd7ad5ed9a52e998873dcba750d0b14da707f9cbb4150dac009",
+    "config/GMFE69/compartment_volbox.json": "23b84fa850a5a180b240ba8f413fadcf7e4b6c193aaa700aadaacae4d35d577f",
     "config/GMFE69/compartment_weak.json": "8d88934ef186771c55a05cc2076b48db401b666de46763666bd34f0fb2006e42",
     "config/GMFE69/configfile.json": "6326e9f1e15eb6013004460d3fbdeea00432dd5e597d3d15bc6046d0c15807fa",
     "config/GMFE69/cpudetect.json": "f617351e9aa4e5ec3cd84ed1322674cc8c654e2e1e9b138b5402edf93e1acd56",
@@ -2235,7 +2235,7 @@
     "src/game/compartment_renderbin.cpp": "d20855d8450d97ca6150c490cfde412a3d9cc5f3833650c6ffb908ccb6f13042",
     "src/game/compartment_renderbin_dtor.cpp": "27318602e98e49e9f856754c5790850ee7c1aa1b74c6fff5312a870e582af98f",
     "src/game/compartment_shadowbins.cpp": "3bc461a16e8b10802385e2da119e89f54d457aedfb68523e0e08e1ba2803da98",
-    "src/game/compartment_volbox.cpp": "4d47baf56398e986673057cdcf470b32b9e44344010a55e7093e2209158105ab",
+    "src/game/compartment_volbox.cpp": "266c0e0e4e041d6bd99280a223926cec254e55bd5978c8fbfa1b7559ba807112",
     "src/game/compartment_weak.cpp": "76746f3dbf4e403d7c70b37d5123368361d57125d1bd3fa3652c1c93cb1a3c8d",
     "src/game/configfile.cpp": "e71239c66131f5a2ec56f4c0ddff2b928ec91d259e735cc3fa9c709315910496",
     "src/game/csg_volume.cpp": "5f94cdc9215e07b08bad62dd336d2ceb79a02d68a3bf8adb95eec0a4dc8f6129",
@@ -36399,8 +36399,8 @@
     {
       "id": "compartment_volbox",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 28,
+      "functions": 3,
+      "code_bytes": 56,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -36432,8 +36432,8 @@
       ],
       "strip_unused": true,
       "discarded_functions": [],
-      "object_sha256": "8f903940f136f3a4102168a2ef5540e155b213425bb90bb1544a23f17f10548a",
-      "linked_sha256": "180ccc5c6bf6a4c0841c053679f78d997cd1991bfdfff0400f825b56fdfecfb5"
+      "object_sha256": "0b6729b0ed525bf5f2051c993fc32374ef1dab285c835f3eac07989fdd4f8440",
+      "linked_sha256": "7f4a75b20f262ad403b91c2bdecab845cf10e56125d2de2f0b378dda7bdf2f6d"
     },
     {
       "id": "Moh2_idestructible_dtor",
@@ -44853,20 +44853,6 @@
             "kind": "function",
             "name": "DrawNodeShadows__12CCompartmentFR7CPTNodeR16CCharacterShadow",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x80074bd0",
-            "size": 8,
-            "kind": "function",
-            "name": "GetBox__16CCharacterShadowFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80074bd8",
-            "size": 20,
-            "kind": "function",
-            "name": "__ct__8CVector3FRC8CVector3",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x80074c28",

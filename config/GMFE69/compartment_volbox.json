@@ -39,8 +39,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80074bec",
-      "size": 28,
+      "address": "0x80074bd0",
+      "size": 56,
       "type": 1
     }
   ],
@@ -49,6 +49,18 @@
       "name": "__ct__7CVolBoxFv",
       "address": "0x80074bec",
       "size": 28,
+      "binding": 2
+    },
+    {
+      "name": "__ct__8CVector3FRC8CVector3",
+      "address": "0x80074bd8",
+      "size": 20,
+      "binding": 2
+    },
+    {
+      "name": "GetBox__16CCharacterShadowFv",
+      "address": "0x80074bd0",
+      "size": 8,
       "binding": 2
     }
   ],
@@ -74,5 +86,9 @@
   "weak_duplicates": [
     "__dt__7IVolumeFv",
     "__vt__7IVolume"
-  ]
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "compartment_volbox.json"
+  }
 }
