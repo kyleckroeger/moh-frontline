@@ -40,20 +40,27 @@
     {
       "name": ".text",
       "address": "0x800d605c",
-      "size": 556,
+      "size": 1164,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000e7d0",
-      "size": 24,
+      "size": 32,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80015530",
-      "size": 36,
+      "size": 48,
       "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x8018a13c",
+      "size": 96,
+      "type": 1,
+      "input_alignment": 4
     }
   ],
   "functions": [
@@ -116,6 +123,12 @@
       "address": "0x800d6284",
       "size": 4,
       "binding": 1
+    },
+    {
+      "name": "Init__7CWeaponF12EWeaponTypesP23WeaponProperties_structP10ISceneNodes",
+      "address": "0x800d6288",
+      "size": 608,
+      "binding": 1
     }
   ],
   "externals": {
@@ -123,7 +136,9 @@
     "Draw__13CStaticObjectFR12CDrawContext": "0x800b013c",
     "ForceUpdateProximityTriggerStatus__FP10BSGO_Basicb": "0x8004618c",
     "GetBulletSprite__14CBulletFactoryFbi": "0x800cd7e0",
-    "g_pBulletFactory": "0x8034e9e0"
+    "Init__13CStaticObjectFv": "0x800b1b28",
+    "g_pBulletFactory": "0x8034e9e0",
+    "g_pStaticObjectMuzzleFlashNPC": "0x8034ec78"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -131,8 +146,36 @@
   "local_externals": [],
   "discarded_local_functions": [],
   "sda_externals": [
-    "g_pBulletFactory"
+    "g_pBulletFactory",
+    "g_pStaticObjectMuzzleFlashNPC"
   ],
   "original_file": "weapon.cpp",
-  "original_file_index": 8261
+  "original_file_index": 8261,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80350e08"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x80350e4c"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 4,
+      "address": "0x80350e0c"
+    }
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "weapon.json"
+  }
 }

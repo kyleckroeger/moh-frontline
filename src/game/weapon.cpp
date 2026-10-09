@@ -6,11 +6,16 @@
 // clip (up to the clip size from the weapon's properties), starting a reload
 // and emptying the weapon, adding ammunition (starting a reload when the
 // weapon was empty; capped at the property maximum), recording a shot, the
-// bullet sprite from the bullet factory and an empty Shutdown. CWeapon,
+// bullet sprite from the bullet factory, an empty Shutdown, and Init (the
+// static-object part initialised, then the properties, holder, type and
+// defaults set, the reserve capped at the property maximum and a reload
+// finished as DoneReloading does, the holder-type-specific value at +660
+// and the muzzle flash chosen by weapon type; the switch's jump table is
+// the unit's .data). CWeapon,
 // CStaticObject, CDrawContext, BSGO_Basic, CBulletFactory and
 // EWeaponShootType are named by the mangled symbols; the members, the
-// holder's virtual slot, the property record and the flag-byte bit-field view
-// are inferred (CWeapon is a non-virtual view derived from a CStaticObject
+// holder's virtual slots (the type query's name too), the property record
+// and the flag-byte bit-field view are inferred (CWeapon is a non-virtual view derived from a CStaticObject
 // view).
 // The rest of the file is not part of this unit.
 class CDrawContext;
@@ -40,7 +45,7 @@ public:
     virtual void unknown4c();
     virtual void unknown50();
     virtual void unknown54();
-    virtual void unknown58();
+    virtual unsigned int GetWeaponHolderType(); /* name and result type inferred */
     virtual void unknown5c();
     virtual void unknown60();
     virtual void unknown64();
@@ -62,6 +67,7 @@ public:
 
 class CStaticObject {
 public:
+    void Init();
     void Draw(CDrawContext&);
     void BeginUpdate(float);
 };
@@ -73,7 +79,14 @@ struct WeaponPropertiesView {
     short bulletSpriteFlag;
     unsigned char unknown10[2];
     short maxReserve;
+    unsigned char unknown14[20];
+    void* unknown28;
 };
+
+enum EWeaponTypes {};
+struct WeaponProperties_struct;
+class ISceneNode;
+extern void* g_pStaticObjectMuzzleFlashNPC;
 
 enum EWeaponShootType {};
 
@@ -94,6 +107,7 @@ public:
     void Shoot(EWeaponShootType, float, float);
     void* GetBulletSprite() const;
     void Shutdown();
+    void Init(EWeaponTypes, WeaponProperties_struct*, ISceneNode*, short);
     void StartReloading();
     void Empty();
 
@@ -103,20 +117,37 @@ public:
     WeaponPropertiesView* m_properties;
     short m_reserve;
     short m_loaded;
-    unsigned char unknown288[4];
+    float m_unknown288;
     int m_reloadState;
     float m_shootValue;
-    unsigned char unknown294[8];
+    int m_unknown294;
+    EWeaponTypes m_type;
     float m_shootValue2;
-    unsigned char unknown2a0[32];
+    unsigned char unknown2a0[16];
+    float m_unknown2b0;
+    float m_unknown2b4;
+    float m_unknown2b8;
+    unsigned char unknown2bc[4];
     unsigned char reloading : 1;
     unsigned char flag6 : 1;
     unsigned char triggerFlag : 1;
     unsigned char infiniteAmmo : 1;
-    unsigned char flags : 4;
-    unsigned char unknown2c1[19];
+    unsigned char flag3 : 1;
+    unsigned char flag2 : 1;
+    unsigned char flags : 2;
+    unsigned char unknown2c1[3];
+    float m_unknown2c4;
+    float m_unknown2c8;
+    void* m_muzzleFlash;
+    float m_unknown2d0;
     CWeaponHolderView* m_holder;
     unsigned char m_trigger[4];
+    unsigned char unknown2dc[12];
+    CWeapon* m_unknown2e8;
+    int m_unknown2ec;
+    int m_unknown2f0;
+    int m_unknown2f4;
+    int m_unknown2f8;
 };
 
 void CWeapon::Draw(CDrawContext& context) {
@@ -178,4 +209,72 @@ void* CWeapon::GetBulletSprite() const {
 }
 
 void CWeapon::Shutdown() {
+}
+
+void CWeapon::Init(EWeaponTypes type, WeaponProperties_struct* properties, ISceneNode* holder, short reserve) {
+    CStaticObject::Init();
+    m_unknown288 = 0.0f;
+    m_reloadState = 1;
+    flag6 = 0;
+    m_unknown2c8 = 4.0f;
+    m_holder = (CWeaponHolderView*)holder;
+    infiniteAmmo = 0;
+    m_properties = (WeaponPropertiesView*)properties;
+    m_type = type;
+    m_shown = ((WeaponPropertiesView*)properties)->unknown28;
+    flag3 = 0;
+    flag2 = 0;
+    m_unknown2c4 = 0.0f;
+    triggerFlag = 0;
+    m_unknown2d0 = 1.0f;
+    m_reserve = reserve > m_properties->maxReserve ? m_properties->maxReserve : reserve;
+    DoneReloading();
+    m_unknown2b8 = 0.0f;
+    m_unknown2b4 = 0.0f;
+    m_unknown2b0 = 0.0f;
+    if (m_holder) {
+        switch (m_holder->GetWeaponHolderType()) {
+        case 2:
+        case 13:
+        case 23:
+            if (m_properties->bulletSpriteFlag)
+                m_unknown294 = 4;
+            else
+                m_unknown294 = 10;
+            break;
+        case 1:
+            if (m_properties->bulletSpriteFlag)
+                m_unknown294 = 3;
+            else
+                m_unknown294 = 9;
+            break;
+        case 5:
+            if (m_properties->bulletSpriteFlag)
+                m_unknown294 = 6;
+            else
+                m_unknown294 = 11;
+            break;
+        default:
+            m_unknown294 = -1;
+            break;
+        }
+    }
+    switch (m_type) {
+    case 35:
+    case 36:
+    case 37:
+    case 38:
+    case 40:
+        m_muzzleFlash = 0;
+        break;
+    default:
+        m_muzzleFlash = g_pStaticObjectMuzzleFlashNPC;
+        break;
+    }
+    m_unknown2f0 = 0;
+    m_unknown2ec = 0;
+    m_unknown2f8 = 0;
+    m_unknown2f4 = 0;
+    *(int*)m_trigger = 0;
+    m_unknown2e8 = this;
 }
