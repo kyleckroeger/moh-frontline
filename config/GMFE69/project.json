@@ -419,7 +419,7 @@
     "hwvideodisplaylist.json",
     "weaponfactory.json",
     "weapon.json",
-    "bsbifunc.json",
+    "bsbifunc_orient.json",
     "publisher.json",
     "hierobject.json",
     "motionblur.json",
@@ -904,7 +904,9 @@
     "staticmesh.json",
     "particlesystem.json",
     "debug_prof.json",
-    "dmesh.json"
+    "dmesh.json",
+    "light.json",
+    "bsbifunc.json"
   ],
   "progress": {
     "code_bytes": 1414572,

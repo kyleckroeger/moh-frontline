@@ -34,6 +34,14 @@ def manifest_functions(unit):
                   for f in unit["functions"])
 
 
+def function_name(name, binding):
+    # MW numbers compiler-generated local functions per compilation
+    # (__arraydtor$497); compare their identifier, binding, address and size.
+    if binding == 0 and re.fullmatch(r"[A-Za-z_]\w*\$\d+", name):
+        return name.rsplit("$", 1)[0]
+    return name
+
+
 def object_record(symbol):
     name = symbol["name"]
     # MW and SN append compilation-local sequence numbers to function statics.
@@ -263,8 +271,10 @@ def validate_object(obj, unit):
     functions = [s for s in symbols if s["type"] == 2 and s["section"]]
     renamed = {name + DUPLICATE_SUFFIX for name in unit.get("weak_duplicates", [])}
     duplicates = {s["name"] for s in functions if s["name"] in renamed}
-    expected = {f["name"] for f in unit["functions"]} | set(unit["discarded_functions"]) | duplicates
-    if len(functions) != len(expected) or {s["name"] for s in functions} != expected:
+    expected = ({function_name(f["name"], f["binding"]) for f in unit["functions"]}
+                | set(unit["discarded_functions"]) | duplicates)
+    if (len(functions) != len(unit["functions"]) + len(unit["discarded_functions"]) + len(duplicates)
+            or {function_name(s["name"], s["binding"]) for s in functions} != expected):
         raise ValueError("Unexpected compiler function set")
     output = {s["name"]: s for s in allocated(obj)}
     # MW's linker also dead-strips data. A compiler section that only discarded
@@ -281,8 +291,8 @@ def validate_object(obj, unit):
         raise ValueError("Unexpected compiler text")
     # SN's linker emits weak definitions as global, so the original binding
     # (weak, global or local) is checked here, before linking.
-    compiled_binding = {s["name"]: s["binding"] for s in functions}
-    if any(compiled_binding[f["name"]] != f["binding"] for f in unit["functions"]):
+    compiled_binding = {function_name(s["name"], s["binding"]): s["binding"] for s in functions}
+    if any(compiled_binding.get(function_name(f["name"], f["binding"])) != f["binding"] for f in unit["functions"]):
         raise ValueError("Compiled function binding differs from original")
     if any(f["section"] not in code for f in functions):
         raise ValueError("Unaccounted compiler code")
@@ -392,7 +402,8 @@ def verify_unit(original, linked, unit):
                             offset=s["offset"] + kept_slice(manifest_sections[s["name"]])[0],
                             size=manifest_sections[s["name"]]["size"]) for s in actual_sections]
     def linked_binding(records):
-        return [(name, address, size, min(binding, 1)) for name, address, size, binding in records]
+        return sorted((function_name(name, binding), address, size, min(binding, 1))
+                      for name, address, size, binding in records)
 
     if linked_binding(function_records(linked)) != linked_binding(manifest_functions(unit)):
         raise ValueError("Linked source functions differ from original")

@@ -12,7 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
 from audit import load_target
-from project_build import progress, validate_units
+from project_build import function_name, progress, validate_units
 from setup import CONFIG
 
 
@@ -69,3 +69,14 @@ class CodeSectionCoverage(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+
+class NumberedLocalFunctions(unittest.TestCase):
+    def test_numbered_local_function_compares_by_identifier(self):
+        self.assertEqual(function_name('__arraydtor$497', 0), function_name('__arraydtor$11', 0))
+
+    def test_global_and_plain_names_are_unchanged(self):
+        self.assertEqual(function_name('__arraydtor$497', 1), '__arraydtor$497')
+        self.assertEqual(function_name('__sinit_dmesh_cpp', 0), '__sinit_dmesh_cpp')
+        self.assertNotEqual(function_name('__arraydtor$497', 0), function_name('__arraydtor2$497', 0))
+

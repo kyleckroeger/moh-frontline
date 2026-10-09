@@ -23,7 +23,7 @@
     "cats off",
     "-nosyspath",
     "-RTTI",
-    "off",
+    "on",
     "-str",
     "reuse,readonly",
     "-use_lmw_stmw",
@@ -34,49 +34,107 @@
   "include_dirs": [
     "include/dolphin-sdk/libc"
   ],
-  "strip_unused": false,
+  "strip_unused": true,
   "source_root": "src/game",
   "sections": [
     {
       "name": ".text",
-      "address": "0x80033098",
-      "size": 120,
+      "address": "0x80034be4",
+      "size": 328,
       "type": 1
+    },
+    {
+      "name": ".ctors",
+      "address": "0x8016df4c",
+      "size": 4,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000a1dc",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80011078",
+      "size": 12,
+      "type": 1
+    },
+    {
+      "name": ".rodata",
+      "address": "0x8016ec18",
+      "size": 30,
+      "type": 1
+    },
+    {
+      "name": ".data",
+      "address": "0x80182b1c",
+      "size": 12,
+      "type": 1,
+      "linked_offset": 0,
+      "linked_size": 24,
+      "input_alignment": 4
+    },
+    {
+      "name": ".bss",
+      "address": "0x80197470",
+      "size": 2936,
+      "type": 8
+    },
+    {
+      "name": ".sdata",
+      "address": "0x8034da10",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": ".sbss",
+      "address": "0x8034e778",
+      "size": 40,
+      "type": 8
     }
   ],
   "functions": [
     {
-      "name": "BIFunc_AIContinueOrientTowardsCoverPoint__FPPiPv",
-      "address": "0x800330c0",
-      "size": 40,
-      "binding": 1
-    },
-    {
-      "name": "BIFunc_AIStopOrientTowardsCoverPoint__FPPiPv",
-      "address": "0x80033098",
-      "size": 40,
-      "binding": 1
-    },
-    {
-      "name": "BIFunc_AIStartOrientTowardsCoverPoint__FPPiPv",
-      "address": "0x800330e8",
-      "size": 40,
-      "binding": 1
+      "name": "__sinit_bsbifunc_cpp",
+      "address": "0x80034be4",
+      "size": 328,
+      "binding": 0
     }
   ],
   "externals": {
-    "g_iCurrentBIFIndex": "0x8034e77c",
-    "g_pBuiltInFunctions": "0x8034e778"
+    "Update__13CFaderControlFf": "0x8007bd00",
+    "__ct__10BSScheduleFv": "0x8003ace8",
+    "__ct__12PopUpMessageFv": "0x800bf954",
+    "__ct__13CFaderControlF6CColor6CColorf": "0x8007bedc",
+    "__ct__13SoundScheduleFv": "0x80047858",
+    "__dt__10BSScheduleFv": "0x8003acac",
+    "__dt__12PopUpMessageFv": "0x800bf918",
+    "__dt__13SoundScheduleFv": "0x8004781c",
+    "__register_global_object": "0x801381bc",
+    "__vt__12CScreenFlash": "0x80182b28"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": [
-    "g_iCurrentBIFIndex",
-    "g_pBuiltInFunctions"
-  ],
+  "sda_externals": [],
   "original_file": "bsbifunc.cpp",
-  "original_file_index": 443
+  "original_file_index": 443,
+  "weak_duplicates": [
+    "__vt__12CScreenFlash"
+  ],
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034f700"
+    }
+  ]
 }

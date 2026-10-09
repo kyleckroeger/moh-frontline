@@ -252,12 +252,21 @@ def referenced(obj, index, kept, addresses, duplicates=()):
     return False
 
 
-def kept_span(obj, index, kept, original, locals_):
+def kept_span(obj, index, kept, original, locals_, base=None):
     """Compiled [start, end) of objects the original kept, if MW trimmed the ends."""
     symbols = list(obj.symbols())
     objects = [s for s in symbols if s["section"] == index and s["type"] == 1 and s["size"]]
     keep = {(s["address"], s["size"]) for s in objects
             if not s["name"].startswith("@") and find(s, original, locals_) is not None}
+    if base is not None and obj.sections[index]["type"] == 8:
+        # Compiler-numbered zero-fill objects (a static initialiser's registration
+        # records) are reached through a block base register, not their own
+        # relocations; keep one when the original file has a numbered object
+        # of the same size at the placed address.
+        numbered = {(s["address"], s["size"]) for items in locals_.values() for s in items
+                    if s["name"].startswith("@")}
+        keep |= {(s["address"], s["size"]) for s in objects
+                 if s["name"].startswith("@") and (base + s["address"], s["size"]) in numbered}
     roots = [(f["section"], f["address"], f["address"] + f["size"]) for f, _ in kept]
     # Objects that point at kept code (exception-index entries) are kept too.
     kept_ranges = [(f["section"], f["address"], f["address"] + f["size"]) for f, _ in kept]
@@ -355,7 +364,8 @@ def draft(args):
             sections.append({"name": section["name"], "address": hex(addresses[section["name"]]),
                              "size": layout[section["index"]][1], "type": 1})
             continue
-        span = kept_span(obj, section["index"], kept, original, original.locals_of(file_index))
+        span = kept_span(obj, section["index"], kept, original, original.locals_of(file_index),
+                         addresses[section["name"]])
         if span is None and dropped:
             stripped.append(section["name"])
             continue
