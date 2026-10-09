@@ -1,11 +1,27 @@
-// Inline default bodies of the volume interface emitted at the end of
-// volume_query_test.cpp: IVolume's Create, TransformedCopy, every
-// TestCollision overload (no collision), TestVisibility and GetExtents. They
-// are inline in the original (weak symbols), so they are defined
-// __declspec(weak); IVolume is a non-virtual view here. The names come from
-// the mangled symbols; the result types (a volume pointer and bool) are
-// inferred. The destructors and the query test before them are not part of
-// this unit.
+// The whole of volume_query_test.cpp as linked: only inline code survives,
+// the weak destructors of dwi::IVisitor<ISceneNode> and IVolume, then IVolume's
+// Create, TransformedCopy, every TestCollision overload (no collision),
+// TestVisibility and GetExtents. They are inline in the original (weak
+// symbols), so they are defined __declspec(weak). The names come from the
+// mangled symbols; the result types (a volume pointer and bool) are inferred,
+// and the visitor's table lists its destructor and a pure Visit. The virtuals
+// are declared in table order. Defining IVolume's destructor out of line makes
+// it the key function, so the compiler emits a global copy of the weak
+// original table: both tables are weak duplicates, linked to the originals.
+class ISceneNode;
+
+namespace dwi {
+template <class T>
+class IVisitor {
+public:
+    virtual ~IVisitor();
+    virtual void Visit(T&) = 0;
+};
+
+template <>
+__declspec(weak) IVisitor<ISceneNode>::~IVisitor() {
+}
+}
 
 class CCollision;
 class CMatrix;
@@ -31,23 +47,27 @@ public:
 
 class IVolume {
 public:
-    IVolume* Create() const;
-    void TransformedCopy(const IVolume&, const CMatrix&);
-    bool TestCollision(const CTriangle&, CCollision&, bool) const;
-    bool TestCollision(const CPlane&, CCollision&, bool) const;
-    bool TestCollision(const CLine3&, CCollision&, bool) const;
-    bool TestCollision(CVector3, CCollision&, bool) const;
-    bool TestCollision(const CWorldVolume&, CCollision&, bool) const;
-    bool TestCollision(const CAnimatedVolume&, CCollision&, bool) const;
-    bool TestCollision(const CVolFiber&, CCollision&, bool) const;
-    bool TestCollision(const CCDBObject&, CCollision&, bool) const;
-    bool TestCollision(const CVolCapsule&, CCollision&, bool) const;
-    bool TestCollision(const CVolSphere&, CCollision&, bool) const;
-    bool TestCollision(const CVolBox&, CCollision&, bool) const;
-    bool TestCollision(const IVolume&, CCollision&, bool) const;
-    bool TestVisibility(CDrawContext&) const;
-    void GetExtents(CVector3&, CVector3&) const;
+    virtual ~IVolume();
+    virtual IVolume* Create() const;
+    virtual void TransformedCopy(const IVolume&, const CMatrix&);
+    virtual bool TestCollision(const IVolume&, CCollision&, bool) const;
+    virtual bool TestCollision(const CVolBox&, CCollision&, bool) const;
+    virtual bool TestCollision(const CVolSphere&, CCollision&, bool) const;
+    virtual bool TestCollision(const CVolCapsule&, CCollision&, bool) const;
+    virtual bool TestCollision(const CCDBObject&, CCollision&, bool) const;
+    virtual bool TestCollision(const CVolFiber&, CCollision&, bool) const;
+    virtual bool TestCollision(const CAnimatedVolume&, CCollision&, bool) const;
+    virtual bool TestCollision(const CWorldVolume&, CCollision&, bool) const;
+    virtual bool TestCollision(CVector3, CCollision&, bool) const;
+    virtual bool TestCollision(const CLine3&, CCollision&, bool) const;
+    virtual bool TestCollision(const CPlane&, CCollision&, bool) const;
+    virtual bool TestCollision(const CTriangle&, CCollision&, bool) const;
+    virtual bool TestVisibility(CDrawContext&) const;
+    virtual void GetExtents(CVector3&, CVector3&) const;
 };
+
+__declspec(weak) IVolume::~IVolume() {
+}
 
 __declspec(weak) IVolume* IVolume::Create() const {
     return 0;

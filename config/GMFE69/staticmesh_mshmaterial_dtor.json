@@ -1,0 +1,94 @@
+{
+  "id": "staticmesh_mshmaterial_dtor",
+  "source": "src/game/staticmesh_mshmaterial_dtor.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": true,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800f1da0",
+      "size": 92,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000f6a8",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800162f8",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "__dt__11MSHMaterialFv",
+      "address": "0x800f1da0",
+      "size": 92,
+      "binding": 2
+    }
+  ],
+  "externals": {
+    "Init__10CRenderBinFv": "0x80073b2c",
+    "IsUsed__10CRenderBinFv": "0x80073b84",
+    "Link__10CRenderBinFP7CDmaTagR10CDmaPacket": "0x80076e20",
+    "Render__10CRenderBinFR10CDmaPacketPv": "0x80076e18",
+    "__dl__FPv": "0x8001ca2c",
+    "__vt__10CRenderBin": "0x80183c5c",
+    "__vt__11MSHMaterial": "0x8018b464"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "staticmesh.cpp",
+  "original_file_index": 9367,
+  "stripped_sections": [
+    ".data"
+  ],
+  "weak_duplicates": [
+    "__vt__11MSHMaterial"
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "compartment_cptmaterial_dtor.json"
+  }
+}

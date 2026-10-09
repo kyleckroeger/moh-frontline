@@ -34,17 +34,41 @@
   "include_dirs": [
     "include/dolphin-sdk/libc"
   ],
-  "strip_unused": false,
+  "strip_unused": true,
   "source_root": "src/game",
   "sections": [
     {
       "name": ".text",
-      "address": "0x8001c0c0",
-      "size": 120,
+      "address": "0x8001c030",
+      "size": 264,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000977c",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80010190",
+      "size": 24,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "__dt__Q23dwi22IVisitor<10ISceneNode>Fv",
+      "address": "0x8001c030",
+      "size": 72,
+      "binding": 2
+    },
+    {
+      "name": "__dt__7IVolumeFv",
+      "address": "0x8001c078",
+      "size": 72,
+      "binding": 2
+    },
     {
       "name": "GetExtents__7IVolumeCFR8CVector3R8CVector3",
       "address": "0x8001c134",
@@ -142,7 +166,11 @@
       "binding": 2
     }
   ],
-  "externals": {},
+  "externals": {
+    "__dl__FPv": "0x8001ca2c",
+    "__vt__7IVolume": "0x80181e28",
+    "__vt__Q23dwi22IVisitor<10ISceneNode>": "0x80181e74"
+  },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
@@ -150,5 +178,16 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "volume_query_test.cpp",
-  "original_file_index": 261
+  "original_file_index": 261,
+  "stripped_sections": [
+    ".data"
+  ],
+  "weak_duplicates": [
+    "__vt__7IVolume",
+    "__vt__Q23dwi22IVisitor<10ISceneNode>"
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "volume_query_test.json"
+  }
 }
