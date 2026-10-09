@@ -40,11 +40,59 @@
     {
       "name": ".text",
       "address": "0x800a7898",
-      "size": 16,
+      "size": 216,
       "type": 1
+    },
+    {
+      "name": ".ctors",
+      "address": "0x8016dfc8",
+      "size": 4,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000d0cc",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80014174",
+      "size": 12,
+      "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x801eefe0",
+      "size": 64,
+      "type": 8
     }
   ],
   "functions": [
+    {
+      "name": "__sinit_player_cpp",
+      "address": "0x800a7914",
+      "size": 92,
+      "binding": 0
+    },
+    {
+      "name": "MathFunClamp<f>__Ffff",
+      "address": "0x800a78f4",
+      "size": 32,
+      "binding": 2
+    },
+    {
+      "name": "Destroy__13CPlayerObjectFv",
+      "address": "0x800a78bc",
+      "size": 56,
+      "binding": 2
+    },
+    {
+      "name": "GetWorldLinearVelocity__13CPlayerObjectCFv",
+      "address": "0x800a78a8",
+      "size": 20,
+      "binding": 2
+    },
     {
       "name": "AsPlayerObject__13CPlayerObjectFv",
       "address": "0x800a78a4",
@@ -72,5 +120,38 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "player.cpp",
-  "original_file_index": 6101
+  "original_file_index": 6101,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x80350540"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x8035071c"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 4,
+      "address": "0x803505a0"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 12,
+      "size": 4,
+      "address": "0x80350720"
+    }
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "player.json"
+  }
 }

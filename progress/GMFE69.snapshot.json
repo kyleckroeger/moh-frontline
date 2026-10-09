@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 584180,
+    "matching_code_bytes": 584380,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.29729699159887,
+    "percent": 41.31143554375458,
     "categories": {
-      "reconstructed_game": 363988,
+      "reconstructed_game": 364188,
       "restored_library": 220192
     },
-    "matching_functions": 3535
+    "matching_functions": 3539
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -596,7 +596,7 @@
     "config/GMFE69/pathx_hold.json": "2a7ca4efffd9195ba078ab52a6ed343078475831916c0b617b8fff5c137cc7bc",
     "config/GMFE69/pathx_overhead.json": "6648b30c83936865ee7b84aa098e523ff049f607999e698979038f6e77a89abe",
     "config/GMFE69/pathx_query.json": "c19da9ac0c894f2fba121fb450c720b6c24998629f5a7d2dfbf15f8637259b74",
-    "config/GMFE69/player.json": "3da0c4cee17b1719306604f17cd111a3daf02a1570b02b9e882d2a8f93852850",
+    "config/GMFE69/player.json": "938fd0fa1bad252012c31ddb8fd4bef68d8c19bad56d8eff162a063010ab464e",
     "config/GMFE69/player_bounds.json": "99c3b1db8bf667edc415d50e6505302a385f81c01c32c8d2cd10417503695cc7",
     "config/GMFE69/player_ctor.json": "5bceac2b5529aa93e70749117b0e33b9b0bed1a5054863120adc74abcba83f72",
     "config/GMFE69/player_dtor.json": "fc10b203c591c37df2f0876678b14805af3022bfc8e45226cfcf4cf0638edb6e",
@@ -2296,7 +2296,7 @@
     "src/game/particlesystem_rotation.cpp": "41bd5b6cf4c66b720f11cd0a65f702fbfaaff0fccd0cdc966cbfa82beee31855",
     "src/game/particlesystem_validate.cpp": "476c288024b835bb90c93ce2497b7fbad53ceed4011b106daa0489be983cbdc0",
     "src/game/particlesystem_visible.cpp": "3ae71d853719340435287205399c3b226c6d6e6d337f4bf903425023e312b80c",
-    "src/game/player.cpp": "5d6de79298166b94651df7f614dd61e0fd190ffe6084abb5575e5f6212fb19fc",
+    "src/game/player.cpp": "fe8cfb79e166c555007fa620c4fa5e9c43da8bc820423bc0b45d73e46686dbf4",
     "src/game/player_bounds.cpp": "a43082b50053789054a368258cd5874dae55cfd38403e80d87c402d1f5d54ac7",
     "src/game/player_ctor.cpp": "c3c04b2fabbfb00a00d81d7e50a2ca86ec9ed4dd1b293b4c7b7ebbb48c99790a",
     "src/game/player_dtor.cpp": "9be753a44e98bf59c85712ce3ca679aa7f49559d7ef0f3215184ccd58a9eada3",
@@ -19976,8 +19976,8 @@
     {
       "id": "player",
       "category": "reconstructed_game",
-      "functions": 3,
-      "code_bytes": 16,
+      "functions": 7,
+      "code_bytes": 216,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -20009,8 +20009,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "5619c6630a17a4ed555f8bc8476cf77c222e864fc2f7f9b3a771cddc5f0b8469",
-      "linked_sha256": "6fbaa510fe77a75e08f1952689d7c48bc480458a9ce780cff4f679bd766c363e"
+      "object_sha256": "3a44f989db8488cb7a5d353551661548e1ac0e1639111e6cca760eaff88586ae",
+      "linked_sha256": "124d08e2b8bb5afb8402a85129f74f235b3248e0fcdbd8d16b34ec5e1f85a845"
     },
     {
       "id": "UIStudio",
@@ -46701,34 +46701,6 @@
             "kind": "function",
             "name": "CanPlayerSwitchWeapon__13CPlayerObjectFv",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x800a78a8",
-            "size": 20,
-            "kind": "function",
-            "name": "GetWorldLinearVelocity__13CPlayerObjectCFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800a78bc",
-            "size": 56,
-            "kind": "function",
-            "name": "Destroy__13CPlayerObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800a78f4",
-            "size": 32,
-            "kind": "function",
-            "name": "MathFunClamp<f>__Ffff",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800a7914",
-            "size": 92,
-            "kind": "function",
-            "name": "__sinit_player_cpp",
-            "evidence": "local-file-symbol"
           }
         ]
       },
