@@ -882,7 +882,8 @@
     "particlesystem_link.json",
     "decal_link.json",
     "decal_reset.json",
-    "dmesh_bins.json"
+    "dmesh_bins.json",
+    "projectilebullet_link.json"
   ],
   "progress": {
     "code_bytes": 1414572,

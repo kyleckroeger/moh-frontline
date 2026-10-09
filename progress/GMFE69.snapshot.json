@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 572760,
+    "matching_code_bytes": 574040,
     "total_executable_code_bytes": 1414572,
-    "percent": 40.489985663508115,
+    "percent": 40.580472397304625,
     "categories": {
-      "reconstructed_game": 352568,
+      "reconstructed_game": 353848,
       "restored_library": 220192
     },
-    "matching_functions": 3468
+    "matching_functions": 3470
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -596,11 +596,12 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "6de890194df7b7f3974aa09371da73ece8cde0fc398fe2675ab664d380be5616",
+    "config/GMFE69/project.json": "8802548e28fbd26b0621164ee48321fd8332258dfe8c6a65834e5226421406c4",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
     "config/GMFE69/projectilebullet_init.json": "59efa2f81e573b18eb9d4793a24578d542a47e4cded42890b4e9f88779a0b4a4",
+    "config/GMFE69/projectilebullet_link.json": "2baa1545bd23d530bc9eefabf0fa73a6fc9196399939034d25664b7c432a31dd",
     "config/GMFE69/propdat.json": "94c13be6b252275e231dd50cdadd1f04d86ac3c0a7b8d32e3b090ffd947a87c0",
     "config/GMFE69/propdat_bsp.json": "bd4b85e3a27ac50301d2ad04642bca1abf864b5f74397505530539b31bf4c0d1",
     "config/GMFE69/propdat_core.json": "f39ac88bbf9ece15072d202c6e8c58a47906feb1a12bf62fcc97388a73c1fdff",
@@ -2264,6 +2265,7 @@
     "src/game/projectilebullet_ctor.cpp": "ef958fc8cbdb36f03a785f4d57822f17edc40fdc3ebfbe90e59963042402798a",
     "src/game/projectilebullet_dtor.cpp": "346cf1d92e80b034a1e28b918f39a6f0d3a6f3e8990f24082535d93c1d37c007",
     "src/game/projectilebullet_init.cpp": "1bf690f6a8f05572d21b3ea732d5ccfa9e224321ae9333907cfd7edb49256cef",
+    "src/game/projectilebullet_link.cpp": "7350d5aa1101d2511a4f71fed6841ca42ee85cfa2c28d9bf065165a9bf0b227d",
     "src/game/propdat.cpp": "b1e26b00f10be619cc409432f6748e200a0064248119fafa81774718c305885d",
     "src/game/propdat_bsp.cpp": "1433421b4435385d1bde79defe5895260b12b84328ae62750cf9b5db44d0b0ef",
     "src/game/propdat_core.cpp": "7523e56194069cbb910b3aa8f1fe42a31a57936bcfd3358e1fe1f92a1122037f",
@@ -39044,6 +39046,45 @@
       "discarded_functions": [],
       "object_sha256": "01b8491d98953a079124c4a41e47a880735f9b13f67acc48ec0a107a13e1f8c9",
       "linked_sha256": "f81f05201658ca34ac83ff2e7c258d89dfbdfe333563bcde7e57e51f4734919a"
+    },
+    {
+      "id": "projectilebullet_link",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 1280,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "d8b8e2a91af5354e9124a73e093dae0b2bea7ea0cbfbcefe4f94e7f31f584ae3",
+      "linked_sha256": "d54801e5d99b536f43894abfaef505d4b504335bf28973475d35ea02bc16a6e5"
     }
   ],
   "code_map": {
@@ -47105,20 +47146,6 @@
         "file_record": 139,
         "file_name": "projectilebullet.cpp",
         "ranges": [
-          {
-            "address": "0x800d063c",
-            "size": 788,
-            "kind": "function",
-            "name": "Link__26CProjectileBulletRenderBinFP7CDmaTagR10CDmaPacket",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800d0950",
-            "size": 492,
-            "kind": "function",
-            "name": "GetVerts__7STracerFP8CVector3",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x800d0b3c",
             "size": 260,
