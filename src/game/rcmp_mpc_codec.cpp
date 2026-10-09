@@ -1,3 +1,5 @@
+// First in this unit (0x80104cb4): the weak empty RCMP::FRAME destructor (its
+// class delete, the RCMP system's free hook, inlined).
 // MPC codec helpers: the frame's class delete through the RCMP system's free
 // hook, the stream frame rate (the decoder's double MPDframe_rate) and the
 // current frame number. MPC_FRAME, MPC_CODEC_INTERNAL, RCMP_SYSTEM and
@@ -15,6 +17,12 @@ public:
 };
 
 extern RCMP_SYSTEM rcmp_sys;
+
+class FRAME {
+public:
+    ~FRAME();
+    void operator delete(void* p) { rcmp_sys.m_free(p); }
+};
 }
 
 extern double MPDframe_rate;
@@ -32,6 +40,9 @@ public:
     unsigned char unknown00[32];
     unsigned int m_frameNumber;
 };
+
+__declspec(weak) RCMP::FRAME::~FRAME() {
+}
 
 __declspec(weak) void MPC_FRAME::operator delete(void* p) {
     RCMP::rcmp_sys.m_free(p);

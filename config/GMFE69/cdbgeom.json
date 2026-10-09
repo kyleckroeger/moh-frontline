@@ -39,24 +39,30 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8006a680",
-      "size": 156,
+      "address": "0x8006a620",
+      "size": 252,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000b5e8",
-      "size": 32,
+      "address": "0x8000b5e0",
+      "size": 40,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x800127dc",
-      "size": 48,
+      "address": "0x800127d0",
+      "size": 60,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "__dt__10CCDBVolBoxFv",
+      "address": "0x8006a620",
+      "size": 96,
+      "binding": 2
+    },
     {
       "name": "TestCollision__10CCDBVolBoxCFRC7IVolumeR10CCollisionb",
       "address": "0x8006a6fc",
@@ -92,7 +98,10 @@
     "TestCollision__7CVolBoxCF8CVector3R10CCollisionb": "0x800c271c",
     "TestCollision__7CVolBoxCFRC10CCDBObjectR10CCollisionb": "0x800c2898",
     "TestCollision__7CVolBoxCFRC7CVolBoxR10CCollisionb": "0x800c37d0",
-    "TestCollision__7CVolBoxCFRC7IVolumeR10CCollisionb": "0x800c50d8"
+    "TestCollision__7CVolBoxCFRC7IVolumeR10CCollisionb": "0x800c50d8",
+    "__dl__FPv": "0x8001ca2c",
+    "__dt__7CVolBoxFv": "0x800c5458",
+    "__vt__10CCDBVolBox": "0x80183978"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -101,5 +110,9 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "cdbgeom.cpp",
-  "original_file_index": 3230
+  "original_file_index": 3230,
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "cdbgeom.json"
+  }
 }

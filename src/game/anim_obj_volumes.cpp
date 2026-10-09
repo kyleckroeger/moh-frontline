@@ -1,3 +1,5 @@
+// First in this unit (0x800950d0): the weak CBullet::GetDamage (0.0f, an entry
+// of the file's .sdata2 pool; the result type is inferred).
 // A fragment of anim_obj.cpp (0x800950d8): CBullet's weak defaults emitted in
 // this file (no script bullet type, not thrown, not a projectile), then
 // CAnimObject::TriggerScriptEvent (forwarded to the script object when there
@@ -23,6 +25,7 @@ public:
 
 class CBullet {
 public:
+    float GetDamage() const;
     int GetScriptBulletType() const;
     CThrownBullet* AsThrown();
     CProjectileBullet* AsProjectile();
@@ -43,6 +46,10 @@ public:
     IVolume* m_worldVolume;
     BSObject* m_script;
 };
+
+__declspec(weak) float CBullet::GetDamage() const {
+    return 0.0f;
+}
 
 __declspec(weak) int CBullet::GetScriptBulletType() const {
     return -1;

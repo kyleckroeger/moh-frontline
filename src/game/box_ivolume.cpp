@@ -1,3 +1,6 @@
+// First in this unit (0x800c50a4): the weak CVector3::Abs (each coordinate of
+// the argument through fabs into this vector; the result type and the vector
+// view are inferred).
 // A fragment of box.cpp: CVolBox's double-dispatch collision tests (against
 // IVolume). Swapped tests reverse the collision order
 // and let the other volume test this one; fiber tests set the collision's
@@ -9,7 +12,15 @@
 // not emitted here); CAnimatedVolume derives from CVolSphere (its tests call
 // the sphere's), and the collision flag is an inferred bit-field view.
 class CMatrix;
-class CVector3;
+class CVector3 {
+public:
+    void Abs(const CVector3&);
+
+    float x;
+    float y;
+    float z;
+    float w;
+} __attribute__((aligned(8)));
 class CTriangle;
 class CPlane;
 class CLine3;
@@ -69,6 +80,12 @@ public:
     virtual bool TestCollision(const CPlane&, CCollision&, bool) const;
     virtual bool TestCollision(const CTriangle&, CCollision&, bool) const;
 };
+
+__declspec(weak) void CVector3::Abs(const CVector3& v) {
+    x = __fabs(v.x);
+    y = __fabs(v.y);
+    z = __fabs(v.z);
+}
 
 bool CVolBox::TestCollision(const IVolume& other, CCollision& collision, bool flag) const {
     collision.SwapOrder();

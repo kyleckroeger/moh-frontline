@@ -39,8 +39,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800c50d8",
-      "size": 116,
+      "address": "0x800c50a4",
+      "size": 168,
       "type": 1
     },
     {
@@ -62,6 +62,12 @@
       "address": "0x800c50d8",
       "size": 116,
       "binding": 1
+    },
+    {
+      "name": "Abs__8CVector3FRC8CVector3",
+      "address": "0x800c50a4",
+      "size": 52,
+      "binding": 2
     }
   ],
   "externals": {
@@ -74,5 +80,9 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "box.cpp",
-  "original_file_index": 7464
+  "original_file_index": 7464,
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "box_ivolume.json"
+  }
 }

@@ -1,3 +1,7 @@
+// First in this unit (0x800d67c8): the weak CStaticMesh constructor (its table
+// pointer, a cleared word and two flag bits set; the members are inferred and
+// the class declares its destructor, defined elsewhere, first so its global
+// table stays elsewhere).
 // A fragment of weaponfactory.cpp (0x800d67fc): CWeaponFactory::
 // LoadWeaponParameters, which loads the multiplayer or difficulty's parameter
 // file, allocates the weapon property table and fills it from the file's
@@ -102,6 +106,22 @@ public:
     unsigned char unknown14[4];
     int m_count;
 };
+
+class CStaticMesh {
+public:
+    virtual ~CStaticMesh(); /* defined elsewhere; keeps the table out */
+    CStaticMesh();
+
+    int m_unknown04;
+    unsigned char m_flag80 : 1;
+    unsigned char m_flag40 : 1;
+    unsigned char m_flags : 6;
+};
+
+__declspec(weak) CStaticMesh::CStaticMesh() : m_unknown04(0) {
+    m_flag80 = 1;
+    m_flag40 = 1;
+}
 
 void CWeaponFactory::LoadWeaponParameters() {
     short offset;

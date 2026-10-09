@@ -39,8 +39,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800950d8",
-      "size": 304,
+      "address": "0x800950d0",
+      "size": 312,
       "type": 1
     },
     {
@@ -74,6 +74,12 @@
       "address": "0x800950f0",
       "size": 56,
       "binding": 1
+    },
+    {
+      "name": "GetDamage__7CBulletCFv",
+      "address": "0x800950d0",
+      "size": 8,
+      "binding": 2
     },
     {
       "name": "GetScriptBulletType__7CBulletCFv",
@@ -116,5 +122,20 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "anim_obj.cpp",
-  "original_file_index": 5634
+  "original_file_index": 5634,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x803503e4"
+    }
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "anim_obj_volumes.json"
+  }
 }

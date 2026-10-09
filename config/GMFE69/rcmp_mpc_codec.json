@@ -39,20 +39,20 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80104d00",
-      "size": 68,
+      "address": "0x80104cb4",
+      "size": 144,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000fcdc",
-      "size": 8,
+      "address": "0x8000fcd4",
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80016a48",
-      "size": 12,
+      "address": "0x80016a3c",
+      "size": 24,
       "type": 1
     }
   ],
@@ -68,6 +68,12 @@
       "address": "0x80104d3c",
       "size": 8,
       "binding": 1
+    },
+    {
+      "name": "__dt__Q24RCMP5FRAMEFv",
+      "address": "0x80104cb4",
+      "size": 76,
+      "binding": 2
     },
     {
       "name": "__dl__9MPC_FRAMEFPv",
@@ -89,5 +95,9 @@
     "MPDframe_rate"
   ],
   "original_file": "rcmp_mpc_codec.cpp",
-  "original_file_index": 10240
+  "original_file_index": 10240,
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "rcmp_mpc_codec.json"
+  }
 }

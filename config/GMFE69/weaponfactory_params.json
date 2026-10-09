@@ -39,8 +39,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800d67fc",
-      "size": 1272,
+      "address": "0x800d67c8",
+      "size": 1324,
       "type": 1
     },
     {
@@ -63,6 +63,12 @@
     }
   ],
   "functions": [
+    {
+      "name": "__ct__11CStaticMeshFv",
+      "address": "0x800d67c8",
+      "size": 52,
+      "binding": 2
+    },
     {
       "name": "EndianSwap__FR23WeaponProperties_struct",
       "address": "0x800d6a5c",
@@ -90,6 +96,7 @@
     "TLT_FindNextResourceByType__F13TLTResourceIDP24LevelFileContentsStruct_": "0x8001d910",
     "TLT_LoadFileFromLevelBigFile__FPCcPi": "0x8001dcb4",
     "__nwa__FUl": "0x8001cae8",
+    "__vt__11CStaticMesh": "0x8018b4f0",
     "g_Shell": "0x80195090",
     "g_bInMultiplayerMode": "0x8034eca5",
     "memcpy": "0x800094f8"
@@ -103,5 +110,9 @@
     "g_bInMultiplayerMode"
   ],
   "original_file": "weaponfactory.cpp",
-  "original_file_index": 8328
+  "original_file_index": 8328,
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "weaponfactory_params.json"
+  }
 }

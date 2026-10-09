@@ -1,5 +1,5 @@
-// A fragment of Moh2.cpp (0x8001ad2c): the weak empty CPlane constructor (a
-// view declaring only it), then the weak IMovingSceneNode destructor
+// A fragment of Moh2.cpp (0x8001acf0): the weak empty CPlane destructor and
+// constructor (a view declaring only them), then the weak IMovingSceneNode destructor
 // (its table pointer, then the inline ISceneNode destructor and IObserver's;
 // the object freed when asked), followed by the weak ISceneNode destructor
 // itself, emitted after its first caller. The file name is this project's;
@@ -11,8 +11,12 @@
 // of ISceneNode's weak table are weak duplicates, linked to the originals.
 class CPlane {
 public:
+    ~CPlane();
     CPlane();
 };
+
+__declspec(weak) CPlane::~CPlane() {
+}
 
 __declspec(weak) CPlane::CPlane() {
 }

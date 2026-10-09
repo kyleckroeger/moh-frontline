@@ -37,8 +37,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80085230",
-      "size": 152,
+      "address": "0x80085210",
+      "size": 184,
       "type": 1
     },
     {
@@ -74,6 +74,12 @@
       "binding": 0
     },
     {
+      "name": "MathFunClamp<l>__Flll",
+      "address": "0x80085210",
+      "size": 32,
+      "binding": 2
+    },
+    {
       "name": "__dt__13CInputManagerFv",
       "address": "0x80085274",
       "size": 84,
@@ -96,6 +102,6 @@
   "original_file_index": 4468,
   "adapted_from": {
     "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
-    "manifest": "inp_old.json"
+    "manifest": "input.json"
   }
 }
