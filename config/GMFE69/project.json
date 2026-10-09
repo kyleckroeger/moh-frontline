@@ -930,7 +930,11 @@
     "sound.json",
     "player_weapon_object.json",
     "toilet.json",
-    "mainloop_game.json"
+    "mainloop_game.json",
+    "AITankDoodad_ctor.json",
+    "AISoldierDoodad_ctor.json",
+    "AIDoodad.json",
+    "AIPlayerDoodad_ctor.json"
   ],
   "progress": {
     "code_bytes": 1414572,
