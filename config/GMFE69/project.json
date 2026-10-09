@@ -906,7 +906,8 @@
     "debug_prof.json",
     "dmesh.json",
     "light.json",
-    "bsbifunc.json"
+    "bsbifunc.json",
+    "sprite_ctor.json"
   ],
   "progress": {
     "code_bytes": 1414572,

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 580920,
+    "matching_code_bytes": 581280,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.06683859146088,
+    "percent": 41.09228798534115,
     "categories": {
-      "reconstructed_game": 360728,
+      "reconstructed_game": 361088,
       "restored_library": 220192
     },
-    "matching_functions": 3520
+    "matching_functions": 3521
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -608,7 +608,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "6eae3a81be5b7d90676c8944f6c1fc5dc4d68c9f83dc44d242924013f70ddbeb",
+    "config/GMFE69/project.json": "f8663985f307c01344c3df662e227861056ecba65cac365d213e49115d34c8fa",
     "config/GMFE69/projectilebullet.json": "cdb5672aceab48b4c354e7df26f4d02a36355002f12a5c0901f81866b26f9213",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -795,6 +795,7 @@
     "config/GMFE69/spoutlat.json": "4553cd58f368d1b6f94792e9bfc0e27722cb316ad252e27044d73174905b56bb",
     "config/GMFE69/sprite.json": "6e0d9e7f1538a311e9a3740bb9aa0eb6ab377081ed29ea5f6bd1e3609ffc563a",
     "config/GMFE69/sprite_csprite_dtor.json": "0c10b7852a36d907551893f59afe7ccc73e6e1edc1f6274abb92fbfa9ad72784",
+    "config/GMFE69/sprite_ctor.json": "241a0cc7cfb240a7b0af5eacdc354752318c649604db804472056e83ca5a9469",
     "config/GMFE69/sprite_dtor.json": "e1123801c0bacde907695e0daa1816685359b34a975bdce90cdc5631c381cf94",
     "config/GMFE69/sprite_init.json": "0b4f07cffbc6c8d3b6420f2606be8c8ad364a85f63b4cfafcecce122dce00f28",
     "config/GMFE69/srandom.json": "5b76703fc74b3d2999874866b5dc8000d6409377e1795965b9428ee22594ebda",
@@ -2358,6 +2359,7 @@
     "src/game/sphere_dtor.cpp": "94868ca15a7fa361f41ca283682757ebd8085ae6291fa13407861993af0b6005",
     "src/game/sprite.cpp": "104b7bb47ff08649eb2e0412884332605376541f78b6b7262f8bf4bf7d9be164",
     "src/game/sprite_csprite_dtor.cpp": "ad89a18f0c521f888cb692de60853565dfdcd733f9f7ea5dae4ee750a74da16a",
+    "src/game/sprite_ctor.cpp": "e601286f82a0f86bf7fde513b768589e55e94ded50e9404fb73241edbf1448da",
     "src/game/sprite_dtor.cpp": "8b2228e3fc8f7af009f687d4211669a300b7279d5d8e2f8bfb58ccfa56771b36",
     "src/game/sprite_init.cpp": "ca86c0e36bcafeb13e8d6dd7329025015df2aee3e685ec1f1e5dd7e3391e7596",
     "src/game/static_obj_bounds.cpp": "42758ce058b28a87feece41d46488b520f1033fcb93e1a8d01f7fc6fbc13e617",
@@ -40028,6 +40030,45 @@
       "discarded_functions": [],
       "object_sha256": "7a38a5bbade00cac885e5c905aa158077bb3615045cc582a0b10e2a9f856c2e3",
       "linked_sha256": "ccb30c99123c106c1959f14f0fe61d547f7b6e91241cdf928cf0a77a055f1213"
+    },
+    {
+      "id": "sprite_ctor",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 360,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [],
+      "object_sha256": "bcf5f9f4c82650e414a2f3944dda0676a055201e92a27f91117def381081c8dd",
+      "linked_sha256": "46dbee399b0280dfa367a4b4abda47af59fe81254929aae22a6cfd48d7f553d4"
     }
   ],
   "code_map": {
@@ -44616,13 +44657,6 @@
             "size": 212,
             "kind": "function",
             "name": "InitClass__7CSpriteFP11CRenderListP7CScreen",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80082648",
-            "size": 360,
-            "kind": "function",
-            "name": "__ct__7CSpriteFPCcQ27CSprite15ESpriteLoadType15ERenderPriority",
             "evidence": "exception-index"
           },
           {
