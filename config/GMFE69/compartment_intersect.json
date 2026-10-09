@@ -1,0 +1,103 @@
+{
+  "id": "compartment_intersect",
+  "source": "src/game/compartment_intersect.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x80074a78",
+      "size": 344,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000bbb4",
+      "size": 56,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x80012ac4",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "IntersectNode__FR7CPTNodeP16CCharacterShadow",
+      "address": "0x80074a78",
+      "size": 344,
+      "binding": 0
+    }
+  ],
+  "externals": {
+    "SetBasis__7CVolBoxF8CVector38CVector38CVector3": "0x800c5288",
+    "SetCenter__7CVolBoxF8CVector3": "0x800c52bc",
+    "SetDepth__7CVolBoxFf": "0x800c5258",
+    "SetHeight__7CVolBoxFf": "0x800c5268",
+    "SetWidth__7CVolBoxFf": "0x800c5278",
+    "TestCollision__7CVolBoxCFRC7CVolBoxR10CCollisionb": "0x800c37d0",
+    "__ct__10CCollisionFv": "0x800c7cf4",
+    "__dt__10CCollisionFv": "0x800c7b80",
+    "__dt__7CVolBoxFv": "0x800c5458",
+    "__vt__7CVolBox": "0x801894f4",
+    "__vt__7IVolume": "0x80181e28"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "compartment.cpp",
+  "original_file_index": 3422,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034fdc0"
+    }
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "compartment_ctor.json"
+  }
+}

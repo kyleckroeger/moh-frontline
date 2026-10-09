@@ -910,7 +910,8 @@
     "sprite_ctor.json",
     "fiber_visibility.json",
     "cdbgeom_volbox_ctor.json",
-    "particlesystem_register.json"
+    "particlesystem_register.json",
+    "compartment_intersect.json"
   ],
   "progress": {
     "code_bytes": 1414572,
