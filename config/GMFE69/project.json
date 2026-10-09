@@ -878,7 +878,8 @@
     "cdbobject_intersect.json",
     "cdbobject_fastvec_push.json",
     "skybox_bin.json",
-    "fader_link.json"
+    "fader_link.json",
+    "particlesystem_link.json"
   ],
   "progress": {
     "code_bytes": 1414572,
