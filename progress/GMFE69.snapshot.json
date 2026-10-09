@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 588388,
+    "matching_code_bytes": 588412,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.59477212895491,
+    "percent": 41.59646875521359,
     "categories": {
-      "reconstructed_game": 368196,
+      "reconstructed_game": 368220,
       "restored_library": 220192
     },
-    "matching_functions": 3588
+    "matching_functions": 3589
   },
   "input_sha256": {
     "config/GMFE69/AIDoodad.json": "fbe6da2750e71d43ae68554e3fcdce413e76e9d8463f18206e347c607056e6f8",
@@ -614,6 +614,7 @@
     "config/GMFE69/pathx_hold.json": "2a7ca4efffd9195ba078ab52a6ed343078475831916c0b617b8fff5c137cc7bc",
     "config/GMFE69/pathx_overhead.json": "6648b30c83936865ee7b84aa098e523ff049f607999e698979038f6e77a89abe",
     "config/GMFE69/pathx_query.json": "c19da9ac0c894f2fba121fb450c720b6c24998629f5a7d2dfbf15f8637259b74",
+    "config/GMFE69/plane_ctor.json": "6a4408f2a0668bc0c7a542a9080df5f08480715400b00206be156bcaa71d0631",
     "config/GMFE69/player.json": "938fd0fa1bad252012c31ddb8fd4bef68d8c19bad56d8eff162a063010ab464e",
     "config/GMFE69/player_bounds.json": "99c3b1db8bf667edc415d50e6505302a385f81c01c32c8d2cd10417503695cc7",
     "config/GMFE69/player_ctor.json": "5bceac2b5529aa93e70749117b0e33b9b0bed1a5054863120adc74abcba83f72",
@@ -636,7 +637,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "c6248ca52e73f318c6845e267d7f9828b0c91b4b73888a4bd93c7fbbaf639ab9",
+    "config/GMFE69/project.json": "6e7dabcf22482e6e3cd71bdb2d62acb2f7666e5f85362bf1c136efb7ef262e0d",
     "config/GMFE69/projectilebullet.json": "cdb5672aceab48b4c354e7df26f4d02a36355002f12a5c0901f81866b26f9213",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -2336,6 +2337,7 @@
     "src/game/particlesystem_rotation.cpp": "41bd5b6cf4c66b720f11cd0a65f702fbfaaff0fccd0cdc966cbfa82beee31855",
     "src/game/particlesystem_validate.cpp": "476c288024b835bb90c93ce2497b7fbad53ceed4011b106daa0489be983cbdc0",
     "src/game/particlesystem_visible.cpp": "3ae71d853719340435287205399c3b226c6d6e6d337f4bf903425023e312b80c",
+    "src/game/plane_ctor.cpp": "c668c88543a5084ab167f980033b59032d585d7a409cacee1be56af14cbbc013",
     "src/game/player.cpp": "fe8cfb79e166c555007fa620c4fa5e9c43da8bc820423bc0b45d73e46686dbf4",
     "src/game/player_bounds.cpp": "a43082b50053789054a368258cd5874dae55cfd38403e80d87c402d1f5d54ac7",
     "src/game/player_ctor.cpp": "c3c04b2fabbfb00a00d81d7e50a2ca86ec9ed4dd1b293b4c7b7ebbb48c99790a",
@@ -41340,6 +41342,45 @@
       "discarded_functions": [],
       "object_sha256": "17c60a24239e9906de5d45884c4cebd52a87a54454ad78a2e8c3a228be77d6dc",
       "linked_sha256": "fe50b56e2fb7a24c10e5785cc1e415d0be7f19f6bd3f9c6709320417b978e36b"
+    },
+    {
+      "id": "plane_ctor",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 24,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "5ffff833e11e56d0cf64fa3a6cbd266c67d8424e674434e68115c29deca98f9d",
+      "linked_sha256": "020d92fdc623f6c28f70de03e1d55db8c10e0af67f77b5079e1eafa9aee89dcb"
     }
   ],
   "code_map": {
@@ -46285,7 +46326,7 @@
         ]
       },
       {
-        "name": "Unmatched files/plane.cpp [inferred file group]",
+        "name": "Unmatched files/plane.cpp [symbol evidence]",
         "file_record": 101,
         "file_name": "plane.cpp",
         "ranges": [
@@ -46302,13 +46343,6 @@
             "kind": "function",
             "name": "Transform__6CPlaneFRC7CMatrix",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x80091408",
-            "size": 24,
-            "kind": "function",
-            "name": "__ct__6CPlaneF8CVector3f",
-            "evidence": "same-class (inferred)"
           }
         ]
       },
