@@ -883,7 +883,8 @@
     "decal_link.json",
     "decal_reset.json",
     "dmesh_bins.json",
-    "projectilebullet_link.json"
+    "projectilebullet_link.json",
+    "dmesh_partbin_render.json"
   ],
   "progress": {
     "code_bytes": 1414572,
