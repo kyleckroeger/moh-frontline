@@ -27,7 +27,7 @@
     "-str",
     "reuse",
     "-use_lmw_stmw",
-    "off",
+    "on",
     "-lang",
     "c++"
   ],
@@ -38,11 +38,23 @@
     {
       "name": ".text",
       "address": "0x800e8e64",
-      "size": 412,
+      "size": 1352,
+      "type": 1
+    },
+    {
+      "name": ".sdata2",
+      "address": "0x80350fa8",
+      "size": 16,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "PATHX_statusall",
+      "address": "0x800e9000",
+      "size": 784,
+      "binding": 1
+    },
     {
       "name": "PATHX_endservice",
       "address": "0x800e8e64",
@@ -60,14 +72,27 @@
       "address": "0x800e8f6c",
       "size": 148,
       "binding": 1
+    },
+    {
+      "name": "PATHX_timeremaining",
+      "address": "0x800e9310",
+      "size": 156,
+      "binding": 1
     }
   ],
   "externals": {
     "PATHX_isynctask__Fii": "0x800e9ab8",
-    "PATHX_statusall": "0x800e9000",
     "REAL_abortmessage": "0x80151078",
+    "SNDBANK_patchinfo": "0x80159870",
+    "SNDCTRL_getprogvol": "0x8015cdb4",
+    "SNDSTRM_getprogvol": "0x8015c674",
+    "SNDSTRM_requeststatus": "0x8015c37c",
+    "SNDSTRM_status": "0x8015c288",
     "SNDSYS_add100hzclient": "0x801535bc",
+    "SNDSYS_entercritical": "0x80153554",
+    "SNDSYS_leavecritical": "0x80153588",
     "SNDSYS_remove100hzclient": "0x801535f4",
+    "SNDtimeremaining": "0x8015d238",
     "SYNCTASK_add": "0x801521a4",
     "SYNCTASK_del": "0x8015233c",
     "pathService": "0x8034ecb0",
