@@ -18,7 +18,7 @@
     "on",
     "-O4,p",
     "-inline",
-    "auto",
+    "deferred,auto",
     "-pragma",
     "cats off",
     "-nosyspath",
@@ -37,8 +37,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8007bfa4",
-      "size": 344,
+      "address": "0x8007bf38",
+      "size": 452,
       "type": 1
     },
     {
@@ -49,19 +49,19 @@
     },
     {
       "name": "extab",
-      "address": "0x8000bfc0",
-      "size": 24,
+      "address": "0x8000bfb8",
+      "size": 32,
       "type": 1,
       "linked_offset": 0,
-      "linked_size": 32
+      "linked_size": 40
     },
     {
       "name": "extabindex",
-      "address": "0x80012f2c",
-      "size": 36,
+      "address": "0x80012f20",
+      "size": 48,
       "type": 1,
       "linked_offset": 0,
-      "linked_size": 48
+      "linked_size": 60
     },
     {
       "name": ".bss",
@@ -88,6 +88,12 @@
       "address": "0x8007c050",
       "size": 32,
       "binding": 2
+    },
+    {
+      "name": "SetControl__6CFaderFP13CFaderControl",
+      "address": "0x8007bf38",
+      "size": 108,
+      "binding": 1
     },
     {
       "name": "SetColor__6CFaderF6CColor",
@@ -127,5 +133,20 @@
   "original_file_index": 3903,
   "weak_duplicates": [
     "__dt__10CRenderBinFv"
-  ]
+  ],
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034ffb0"
+    }
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "fader_def.json"
+  }
 }

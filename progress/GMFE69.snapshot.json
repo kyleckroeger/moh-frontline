@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 589136,
+    "matching_code_bytes": 589244,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.64765031401724,
+    "percent": 41.655285132181326,
     "categories": {
-      "reconstructed_game": 368944,
+      "reconstructed_game": 369052,
       "restored_library": 220192
     },
-    "matching_functions": 3592
+    "matching_functions": 3593
   },
   "input_sha256": {
     "config/GMFE69/AIDoodad.json": "fbe6da2750e71d43ae68554e3fcdce413e76e9d8463f18206e347c607056e6f8",
@@ -466,7 +466,7 @@
     "config/GMFE69/eaxadecf_state.json": "1ff14c07304ea5528a72341167912d021ffedf9bff5f17f2009b26802934e0ab",
     "config/GMFE69/exit.json": "3b07cadf08ece16c20653f652a53f18b61ca67f91a03125fec625b819e229da3",
     "config/GMFE69/explosion_dtor.json": "4df00c59c3d33c02b66ec9bce263a218b426be5a5bcf0380bf36869e1681c0fa",
-    "config/GMFE69/fader.json": "50b9ac8343727b7a6394026fe942cd09652d50bd8d4c4961e8f1c8583a143f96",
+    "config/GMFE69/fader.json": "b2b957dca225944b4f53ae00ef24f1b4f8ad04e3d8d88ff01a4fa44797ac0fd9",
     "config/GMFE69/fader_control.json": "ce262f9e7ac27df3097267878937ef3993517e2e39998aef5c29a77e82f56fcc",
     "config/GMFE69/fader_dtor.json": "5662994976edfa8ebc4b444663df2c690c6567deb22fef332142bc8595eb6c28",
     "config/GMFE69/fader_link.json": "6b1c3ca66711053d0ad5ca017cb86e3dcb38bda3fb9c3367935155f67fe17085",
@@ -2264,7 +2264,7 @@
     "src/game/dmrender.cpp": "0c5d7e63d3e8745e0e94191ab8773469f4dde49126919b9ab13b926685d84b19",
     "src/game/draw_context.cpp": "261589cc092b9c8c7b80605255eefc78641468141f4d33264252696f62c9782b",
     "src/game/explosion_dtor.cpp": "e817a0dbeefc80acc2a66d71b33f5452f43316084e641a96af448c533cd5bbd2",
-    "src/game/fader.cpp": "b5982f2407c5af7f4f8a253151abce96f20294fc0962986bb3174d92bcac718b",
+    "src/game/fader.cpp": "3c54d9cfa5a61f86cdddc3f320e2032ffa38b41eae3b36de6a82f1f22d64fbfd",
     "src/game/fader_control.cpp": "d94c0445347627df8d59cf7a2a080c3f5f59c50616957d9c7c5f9db7253b1a7f",
     "src/game/fader_dtor.cpp": "861a3b0d0136e98e1e30306616fad940637a6bf899313eedf28bbd12fdb2aca8",
     "src/game/fader_link.cpp": "c6f822eb64bacc85c7a0a64c69b26e7d8d331105537011fb27801aa2d3ed797e",
@@ -39786,8 +39786,8 @@
     {
       "id": "fader",
       "category": "reconstructed_game",
-      "functions": 5,
-      "code_bytes": 344,
+      "functions": 6,
+      "code_bytes": 452,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -39804,7 +39804,7 @@
         "on",
         "-O4,p",
         "-inline",
-        "auto",
+        "deferred,auto",
         "-pragma",
         "cats off",
         "-nosyspath",
@@ -39819,8 +39819,8 @@
       ],
       "strip_unused": true,
       "discarded_functions": [],
-      "object_sha256": "0eae8a2872782b93d752140b708f8b88b2019af6b10715aad067f035de4f4c7e",
-      "linked_sha256": "28af32f23a6074b8d042758233729f2f6e4be652d0c797015d93a57a62bc5966"
+      "object_sha256": "0670c8b1c37399a993df18be9f4451515483af616d8a2cbae649b8578221cd52",
+      "linked_sha256": "61b97779c0a1dfcb8b0705354bca7b00fd05b504397d1da9de3982a202089eaf"
     },
     {
       "id": "sprite",
@@ -45184,13 +45184,6 @@
             "size": 448,
             "kind": "function",
             "name": "Update__13CFaderControlFf",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007bf38",
-            "size": 108,
-            "kind": "function",
-            "name": "SetControl__6CFaderFP13CFaderControl",
             "evidence": "exception-index"
           }
         ]
