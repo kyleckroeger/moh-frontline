@@ -1,0 +1,148 @@
+{
+  "id": "decal_link",
+  "source": "src/game/decal_link.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk",
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8008304c",
+      "size": 984,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000c280",
+      "size": 24,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x8001325c",
+      "size": 36,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "Link__19CBulletDecalManagerFP7CDmaTagR10CDmaPacket",
+      "address": "0x8008304c",
+      "size": 376,
+      "binding": 1
+    },
+    {
+      "name": "IsUsed__19CBulletDecalManagerFv",
+      "address": "0x80083400",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "IsDrawEnabled__19CBulletDecalManagerCFv",
+      "address": "0x80083414",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "IsVisible__19CBulletDecalManagerCFR12CDrawContext",
+      "address": "0x8008341c",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Draw__19CBulletDecalManagerFR12CDrawContext",
+      "address": "0x8008339c",
+      "size": 100,
+      "binding": 1
+    },
+    {
+      "name": "IsUsed__22CBulletDecalTextureBinFv",
+      "address": "0x800831c4",
+      "size": 20,
+      "binding": 1
+    },
+    {
+      "name": "Link__22CBulletDecalTextureBinFP7CDmaTagR10CDmaPacket",
+      "address": "0x800831d8",
+      "size": 444,
+      "binding": 1
+    },
+    {
+      "name": "Render__22CBulletDecalTextureBinFR10CDmaPacketPv",
+      "address": "0x80083394",
+      "size": 8,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "GXBegin": "0x8012c3c8",
+    "GXClearVtxDesc": "0x8012b554",
+    "GXSetAlphaCompare": "0x8012f4e4",
+    "GXSetBlendMode": "0x8012fa78",
+    "GXSetCullMode": "0x8012c63c",
+    "GXSetNumChans": "0x8012d7dc",
+    "GXSetNumTevStages": "0x8012f794",
+    "GXSetNumTexGens": "0x8012bf4c",
+    "GXSetTevAlphaIn": "0x8012f09c",
+    "GXSetTevAlphaOp": "0x8012f1e0",
+    "GXSetTevColorIn": "0x8012f01c",
+    "GXSetTevColorOp": "0x8012f120",
+    "GXSetTevOrder": "0x8012f5b8",
+    "GXSetTexCoordGen2": "0x8012bc7c",
+    "GXSetVtxAttrFmt": "0x8012b5a0",
+    "GXSetVtxDesc": "0x8012b08c",
+    "GXSetZCompLoc": "0x8012fc74",
+    "GXSetZMode": "0x8012fbfc",
+    "Load__8CTextureFR10CDmaPacketP11CRenderList": "0x80082a60",
+    "Render__11CRenderListFR10CRenderBinPv": "0x800f1168",
+    "g_pContext": "0x8034ea78",
+    "g_pRenderList": "0x8034ea70"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [
+    "g_pContext",
+    "g_pRenderList"
+  ],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "g_pContext",
+    "g_pRenderList"
+  ],
+  "original_file": "decal.cpp",
+  "original_file_index": 4342
+}
