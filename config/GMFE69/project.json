@@ -869,7 +869,8 @@
     "AIFilter_linechecks.json",
     "AIFilter_visit.json",
     "Screen_vblank.json",
-    "world_volume_edit.json"
+    "world_volume_edit.json",
+    "light_animmanager.json"
   ],
   "progress": {
     "code_bytes": 1414572,

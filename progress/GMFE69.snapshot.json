@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 561464,
+    "matching_code_bytes": 562008,
     "total_executable_code_bytes": 1414572,
-    "percent": 39.691440237753895,
+    "percent": 39.72989709961741,
     "categories": {
-      "reconstructed_game": 341272,
+      "reconstructed_game": 341816,
       "restored_library": 220192
     },
-    "matching_functions": 3411
+    "matching_functions": 3417
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -486,6 +486,7 @@
     "config/GMFE69/k_rem_pio2.json": "98e7c06d536b5d074d8001e65314d859cc90af96052300f3d60796c07912caec",
     "config/GMFE69/k_sin.json": "83303a92dec0945bbc9e8d29698030d3fed1d722b341f4dfd5c163705e01f806",
     "config/GMFE69/k_tan.json": "5e836f5272de8311719911c6d828e87588e253e3c00bf27901135926e0aedd42",
+    "config/GMFE69/light_animmanager.json": "2e9a7c5f280a2aedd471b0153345f8557bfd91b140c72e7a119a8ecb8495774a",
     "config/GMFE69/light_animmanager_dtor.json": "6b170da52539da07540d0c77b71341b45d5ca1c51074abee5ff3790895294a65",
     "config/GMFE69/light_dtor.json": "0c78711ec0f90949b7014c91aada7c828ba6131a161b8ad50da5571a8ef1b84d",
     "config/GMFE69/light_instanced_dtor.json": "960ee911950d8c846b9b641d00302051d9d3eaf0adeeca0446a5d663d3471c4b",
@@ -584,7 +585,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "96c345464dc2f19c1bf9109fdbea0ee3937499f29ed0b2cb4ac69dc3d3d95389",
+    "config/GMFE69/project.json": "bad043e33ed3fdd4e8739da9dc5be333e98ff9ee882fd6e36faa4e57ffddb52f",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -2185,6 +2186,7 @@
     "src/game/isexportdefs.cpp": "cfddaccff8e4f85109db6b8879e41d64279a7954d8ae854d4bc0f7b9263974bf",
     "src/game/ispausegroup.cpp": "0c753a0282f658f20f6b2ac5993ba1dbf816d060854fe6d7b1214ce27300b93a",
     "src/game/ispauselibrary.cpp": "401366234b5be8c2c4373684294ab2f4cb1e03911118fb1f984429b39d9b5c3c",
+    "src/game/light_animmanager.cpp": "2b7a2b9080067e2c9aae6442b240292e62829640df505e38b25c262770de22e4",
     "src/game/light_animmanager_dtor.cpp": "2efd3ac7f402f9405cf423f15b9342ac2676b64494b475a4e415588ba83b5655",
     "src/game/light_dtor.cpp": "17bcb6248b274d92b93f74644d29bbc3940ae94b5d946121dcdab18914254825",
     "src/game/light_instanced_dtor.cpp": "dfe26b5ce2aedaefdb8fbbb89a9713b184518048a510d02cfa2d9a07b139892b",
@@ -38511,6 +38513,45 @@
       "discarded_functions": [],
       "object_sha256": "b093dc54bd69840718b798bb9ad85194d9c9dd47773b46a853b0c164d5a90026",
       "linked_sha256": "5c6d1ac96016ec2998dbca41f7dffaa0ffb5bbc51bc65b97462cca58bac3e93f"
+    },
+    {
+      "id": "light_animmanager",
+      "category": "reconstructed_game",
+      "functions": 6,
+      "code_bytes": 544,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "3811cb2212151d9b4047470f60577f8618d2a99958ac50467a1966f964bbdaff",
+      "linked_sha256": "3b9046179aa726b87a0620e7583df60e1bb4068fa4fdef8c1f56bee9e952a4d1"
     }
   ],
   "code_map": {
@@ -42758,48 +42799,6 @@
         "file_record": 66,
         "file_name": "light.cpp",
         "ranges": [
-          {
-            "address": "0x800777c0",
-            "size": 4,
-            "kind": "function",
-            "name": "AsLight__6CLightCFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800777c4",
-            "size": 4,
-            "kind": "function",
-            "name": "AsLight__6CLightFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800777c8",
-            "size": 144,
-            "kind": "function",
-            "name": "Create__17CAnimLightManagerFP24MOH_animatedLight_Struct",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80077858",
-            "size": 224,
-            "kind": "function",
-            "name": "Create__17CAnimLightManagerFUl",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80077938",
-            "size": 108,
-            "kind": "function",
-            "name": "Destroy__19CInstancedAnimLightFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800779a4",
-            "size": 60,
-            "kind": "function",
-            "name": "__ct__19CInstancedAnimLightFP24MOH_animatedLight_Struct",
-            "evidence": "exception-index"
-          },
           {
             "address": "0x800779e0",
             "size": 500,
