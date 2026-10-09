@@ -447,7 +447,7 @@
     "support.json",
     "targimpl.json",
     "renderlist.json",
-    "debug_prof.json",
+    "debug_prof_timers.json",
     "alarm.json",
     "toilet.json",
     "stream.json",
@@ -902,7 +902,8 @@
     "fader.json",
     "sprite.json",
     "staticmesh.json",
-    "particlesystem.json"
+    "particlesystem.json",
+    "debug_prof.json"
   ],
   "progress": {
     "code_bytes": 1414572,
