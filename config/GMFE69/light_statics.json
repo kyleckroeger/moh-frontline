@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x800785a4",
-      "size": 228,
+      "size": 872,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000be20",
-      "size": 24,
+      "size": 40,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80012d04",
-      "size": 36,
+      "size": 60,
       "type": 1
     }
   ],
@@ -92,26 +92,47 @@
       "address": "0x80078674",
       "size": 20,
       "binding": 1
+    },
+    {
+      "name": "ResetClass__6CLightFv",
+      "address": "0x80078688",
+      "size": 332,
+      "binding": 1
+    },
+    {
+      "name": "InitClass__6CLightFP6CScene",
+      "address": "0x800787d4",
+      "size": 312,
+      "binding": 1
     }
   ],
   "externals": {
     "Create__17CAnimLightManagerFP24MOH_animatedLight_Struct": "0x800777c8",
     "Create__17CAnimLightManagerFUl": "0x80077858",
+    "DWI_alloc__FPCcii": "0x8001c974",
     "IsNodeInScene__6CSceneCFPC10ISceneNode": "0x800d8214",
     "MarkForDestruction__8ISubjectFi": "0x800d8148",
     "Remove__6CSceneFR10ISceneNode": "0x800dc190",
     "g_AnimLightManager": "0x801ddd84",
     "g_DefaultLightVolume": "0x80183ef8",
+    "g_bReady": "0x8034e9d0",
     "g_scene": "0x8019484c"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
   "local_externals": [
-    "g_AnimLightManager"
+    "g_AnimLightManager",
+    "g_bReady"
   ],
   "discarded_local_functions": [],
-  "sda_externals": [],
+  "sda_externals": [
+    "g_bReady"
+  ],
   "original_file": "light.cpp",
-  "original_file_index": 3594
+  "original_file_index": 3594,
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "light_statics.json"
+  }
 }
