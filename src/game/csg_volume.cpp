@@ -1,4 +1,5 @@
-// CCSGVolume, the functions at the start of the file: an empty
+// CCSGVolume, the functions at the start of the file (0x800c7f50): the weak
+// empty SClsnContact constructor (a view declaring only it), then an empty
 // TransformedCopy, the extents as the union of the hierarchy object's
 // sub-volume extents (starting from FLT_MAX and -FLT_MAX), Create, and the
 // collision tests against each volume type: every sub-volume of the
@@ -16,6 +17,13 @@
 // record view (32 bytes with an out-of-line constructor and destructor;
 // depth at +12, line flag, result at +20) is inferred. The rest of the file (CheckContacts, the line test, Init,
 // the destructor and the constructor) is not part of this unit.
+struct SClsnContact {
+    SClsnContact();
+};
+
+__declspec(weak) SClsnContact::SClsnContact() {
+}
+
 class CMatrix;
 class CDrawContext;
 class CTriangle;

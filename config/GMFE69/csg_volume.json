@@ -39,8 +39,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800c7f54",
-      "size": 4072,
+      "address": "0x800c7f50",
+      "size": 4076,
       "type": 1
     },
     {
@@ -63,6 +63,12 @@
     }
   ],
   "functions": [
+    {
+      "name": "__ct__12SClsnContactFv",
+      "address": "0x800c7f50",
+      "size": 4,
+      "binding": 2
+    },
     {
       "name": "TestCollision__10CCSGVolumeCFRC7IVolumeR10CCollisionb",
       "address": "0x800c8ec8",
@@ -173,5 +179,9 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "csg_volume.cpp",
-  "original_file_index": 7628
+  "original_file_index": 7628,
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "csg_volume.json"
+  }
 }
