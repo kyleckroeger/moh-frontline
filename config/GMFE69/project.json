@@ -861,7 +861,8 @@
     "thrownbullet_ctor.json",
     "player_ctor.json",
     "skybox_renderbin.json",
-    "dmesh_cremapbin_ctor.json"
+    "dmesh_cremapbin_ctor.json",
+    "Screen_fieldmode.json"
   ],
   "progress": {
     "code_bytes": 1414572,
