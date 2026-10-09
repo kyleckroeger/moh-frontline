@@ -891,7 +891,8 @@
     "cdbgeom_vector.json",
     "cdbgeom_sphere.json",
     "cdbgeom_triangle_ctor.json",
-    "staticmesh_animdraw.json"
+    "staticmesh_animdraw.json",
+    "renderlist_draw.json"
   ],
   "progress": {
     "code_bytes": 1414572,

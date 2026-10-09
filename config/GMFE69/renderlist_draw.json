@@ -1,0 +1,87 @@
+{
+  "id": "renderlist_draw",
+  "source": "src/game/renderlist_draw.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800f10fc",
+      "size": 308,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000f660",
+      "size": 16,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x8001628c",
+      "size": 24,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "Draw__11CRenderListFv",
+      "address": "0x800f10fc",
+      "size": 108,
+      "binding": 1
+    },
+    {
+      "name": "Render__11CRenderListFR10CRenderBinPv",
+      "address": "0x800f1168",
+      "size": 200,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "Finish__11CRenderListFv": "0x800f0b80",
+    "g_bEmptyList": "0x8034e318"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "g_bEmptyList"
+  ],
+  "original_file": "renderlist.cpp",
+  "original_file_index": 9344
+}
