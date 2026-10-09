@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 562620,
+    "matching_code_bytes": 566260,
     "total_executable_code_bytes": 1414572,
-    "percent": 39.77316106921387,
+    "percent": 40.0304827184477,
     "categories": {
-      "reconstructed_game": 342428,
+      "reconstructed_game": 346068,
       "restored_library": 220192
     },
-    "matching_functions": 3429
+    "matching_functions": 3437
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -363,6 +363,7 @@
     "config/GMFE69/cdbobject_fastvec_frame.json": "898185339062a856afd45c4424bf40480cd7d4d130b87c309a8ffaada595e109",
     "config/GMFE69/cdbobject_line.json": "91bd47e7a562d0b8378533ea53f11df8c56f5a4050726c04a7d0025b3409432d",
     "config/GMFE69/cdbobject_offsetptr.json": "0d67bbd2cab2036cd652831eb2cba088e30e569df1f5f590bd8e026e668b60ee",
+    "config/GMFE69/cdbobject_trigroups.json": "ec60037e9618ecdf748229cab7146cd3e9602771a162601c8783a706cf69dd37",
     "config/GMFE69/coda.json": "ed79629f16e36603a2a74fe3bfd2db4c7043efb597de702316a222bcbb355440",
     "config/GMFE69/collisionvolume.json": "4b42015c953c1335d95d5edae0ec810f53e76935e2b6b0e446fd20b039dbc795",
     "config/GMFE69/collisionvolume_ctor.json": "74a3ffe0b9e4cb4a528ab49d378a9927cb04979868253a451f08228a030492b3",
@@ -587,7 +588,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "4236fc0c34c443a0394b9230df66eb5e5b518be940b3e3e805d0cf0e6ced63e9",
+    "config/GMFE69/project.json": "1a86e9f05a4b1d82145b1ea4e5996e7816234bf4ff4c747146d1a9d7893056e3",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -2120,6 +2121,7 @@
     "src/game/cdbobject_fastvec_frame.cpp": "9e4071d8be4a6dada815d66979bc764f3284af7c4e459ea0a39e2a4d604ac48a",
     "src/game/cdbobject_line.cpp": "9a1aca01d57b33016c9bee73e665ee19bac161dca1e16b28ce4a1f094c76c3f1",
     "src/game/cdbobject_offsetptr.cpp": "f82eb14ae3f2e366291ce6f2ee0dda723985a0a5b2b1e11b300bf9d73e05d7cd",
+    "src/game/cdbobject_trigroups.cpp": "ca566c0da2d6acf457ef48b1408c63ac094fb545bbc60de498a24b6a77effe24",
     "src/game/collisionvolume.cpp": "43ba2b786b6016be28ed111443666151b7721d434b959794c048a582f6b8b826",
     "src/game/collisionvolume_ctor.cpp": "0c3d7d24cf70b216ef8f6f78f03cf55e040c5c6e26208dd4bbfbb4790dcde5d6",
     "src/game/collisionvolume_rows.cpp": "99bf2752de600fe57337217065052826b62f776cd7fb728d5dcddead6ed52cb0",
@@ -38634,6 +38636,45 @@
       "discarded_functions": [],
       "object_sha256": "6fce440c6984d612e1e91206055f2c94d19a545e72c55a5a3d494617cff21e61",
       "linked_sha256": "1c1b7baa5543e3eb748b8c6bdbce881e73b6824fa3a7946683c2e5004a9851b6"
+    },
+    {
+      "id": "cdbobject_trigroups",
+      "category": "reconstructed_game",
+      "functions": 8,
+      "code_bytes": 3640,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [],
+      "object_sha256": "65d8f064b283b50c474b432b557038a46e18a34d1221e90059b82bf1f5d85873",
+      "linked_sha256": "496cd0366774e47bc51b8017c2a1e7e53f2eef552a87ec0ece0479dd61665a71"
     }
   ],
   "code_map": {
@@ -42494,62 +42535,6 @@
             "size": 784,
             "kind": "function",
             "name": "Init__10CCDBObjectFP3CDB",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800716b8",
-            "size": 576,
-            "kind": "function",
-            "name": "TestCollisionWithTriGroup__FRC11CDBTriGroupRC6CLine3R10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800718f8",
-            "size": 340,
-            "kind": "function",
-            "name": "TestCollisionWithTriGroups<15CAnimatedVolume>__FRCQ23dwi24fast_vec<P11CDBTriGroup>RC15CAnimatedVolumeR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80071a4c",
-            "size": 340,
-            "kind": "function",
-            "name": "TestCollisionWithTriGroups<11CVolCapsule>__FRCQ23dwi24fast_vec<P11CDBTriGroup>RC11CVolCapsuleR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80071ba0",
-            "size": 340,
-            "kind": "function",
-            "name": "TestCollisionWithTriGroups<10CVolSphere>__FRCQ23dwi24fast_vec<P11CDBTriGroup>RC10CVolSphereR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80071cf4",
-            "size": 340,
-            "kind": "function",
-            "name": "TestCollisionWithTriGroups<7CVolBox>__FRCQ23dwi24fast_vec<P11CDBTriGroup>RC7CVolBoxR10CCollisionb",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80071e48",
-            "size": 608,
-            "kind": "function",
-            "name": "TestCDBBranchNodeCollision<15CAnimatedVolume>__10CCDBObjectCFRC13CDBBranchNodeRC15CAnimatedVolumeR10CCollisionbRQ23dwi24fast_vec<P11CDBTriGroup>",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800720a8",
-            "size": 488,
-            "kind": "function",
-            "name": "TestCDBBranchNodeCollision<11CVolCapsule>__10CCDBObjectCFRC13CDBBranchNodeRC11CVolCapsuleR10CCollisionbRQ23dwi24fast_vec<P11CDBTriGroup>",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80072290",
-            "size": 608,
-            "kind": "function",
-            "name": "TestCDBBranchNodeCollision<10CVolSphere>__10CCDBObjectCFRC13CDBBranchNodeRC10CVolSphereR10CCollisionbRQ23dwi24fast_vec<P11CDBTriGroup>",
             "evidence": "exception-index"
           },
           {
