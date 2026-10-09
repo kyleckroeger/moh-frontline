@@ -867,7 +867,8 @@
     "rcmp_playmovie.json",
     "AIFilter_collisiondist.json",
     "AIFilter_linechecks.json",
-    "AIFilter_visit.json"
+    "AIFilter_visit.json",
+    "Screen_vblank.json"
   ],
   "progress": {
     "code_bytes": 1414572,
