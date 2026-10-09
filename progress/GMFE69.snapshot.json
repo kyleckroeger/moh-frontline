@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 593792,
+    "matching_code_bytes": 593876,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.976795808202056,
+    "percent": 41.982734000107456,
     "categories": {
-      "reconstructed_game": 373600,
+      "reconstructed_game": 373684,
       "restored_library": 220192
     },
-    "matching_functions": 3631
+    "matching_functions": 3632
   },
   "input_sha256": {
     "config/GMFE69/AIDoodad.json": "fbe6da2750e71d43ae68554e3fcdce413e76e9d8463f18206e347c607056e6f8",
@@ -518,7 +518,7 @@
     "config/GMFE69/initosalloc.json": "5324f4e73a3982e763bab556d4b226d91ef242cc4b14e07a057a1fe18a367ae0",
     "config/GMFE69/inittmr.json": "7755f1641b77990ae66e1ef55ad3b56891762a7784c3a1f993f458cc6bc71f24",
     "config/GMFE69/initvblt.json": "554084076489dbae1fed3c4188edc39c814244a8b70ee237e98293269aee6202",
-    "config/GMFE69/input.json": "038e1f76ec379aa5b97f5b008a14efbda78507f428cce1fa96d254a77839b6dc",
+    "config/GMFE69/input.json": "61d95d206e5751a21597a03efa0791df3d054efc3d817a353e14e647ec8729f0",
     "config/GMFE69/input_manager.json": "509be3d25173b961f588aa17cefa28584de0ca46a3cc7cbd2a57da308653053f",
     "config/GMFE69/ipad.json": "fe62ef6fabba51edecb03f6464270668d31d21e6f39e87cfc575288ec7a94707",
     "config/GMFE69/isShellGroup.json": "fb2aea8e1fb5357a5c99b30450f95fb25d60066fb795346e9238568ba1eab8ac",
@@ -2293,7 +2293,7 @@
     "src/game/hwvideodisplaylist_delete.cpp": "2d8c0018edf0e33470978aa401e3d3c36404a4f37d74343a1baf5eb2af354c2e",
     "src/game/hwvideodisplaylist_draw.cpp": "1f5737af4e889c77ab531c8bb61b351c60d3aa84eedf8a41e9d64e626722c792",
     "src/game/impact_dtor.cpp": "976c508e4a446788a0972daa617b736d08e81d6fe6838a3ec7074bc92d0bb3d7",
-    "src/game/input.cpp": "5c4ab818765b5960ea1af03499aa34834a8fab91145df5a78b19f1c2fd5d0285",
+    "src/game/input.cpp": "bedd8c06c698d488e0765ed879db3003ec0544dfe0f1b46cf7ae27108e0e9cf4",
     "src/game/input_manager.cpp": "f423b50026076f75ce12146742b8d32ea50651646c0bfadd5a233d3743c608f9",
     "src/game/isShellGroup.cpp": "a276f86c558cbb5460692a1b2ae338e44366b0b6f9b45abc5406e266afaf1835",
     "src/game/isShellLibrary.cpp": "ae9a7d394bea82036581aa3df912b060eb78489f9beca039208986f25250b068",
@@ -40685,8 +40685,8 @@
     {
       "id": "input",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 68,
+      "functions": 2,
+      "code_bytes": 152,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -40718,8 +40718,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "915460b36c0bccdd4c11629f789dc5c0ffeff2d58594b0b5057feb39a22d309c",
-      "linked_sha256": "f8b476ececc22650ce02099beaaf1519e869d6de577233ba6a742d924bf1942b"
+      "object_sha256": "48b6a3a2946cafd6ad3f4ce6397235db94887ef6fa71097ba74475f41cb991b7",
+      "linked_sha256": "337838553ccb71ae566e047391b043b026af7ef453aa21afbe5a6d3896722c54"
     },
     {
       "id": "bsutil",
@@ -45564,13 +45564,6 @@
             "kind": "function",
             "name": "MathFunClamp<l>__Flll",
             "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80085274",
-            "size": 84,
-            "kind": "function",
-            "name": "__dt__13CInputManagerFv",
-            "evidence": "exception-index"
           }
         ]
       },
