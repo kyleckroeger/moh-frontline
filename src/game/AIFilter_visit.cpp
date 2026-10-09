@@ -1,26 +1,15 @@
-// A fragment of AIFilter.cpp (0x8005bea4): the static
-// CAIFilterGlobal::GetCollisionDistLineToEnvironment. A line from the start to
-// the end position (CLine3's inline constructor through SetSE, as in
-// fiber_dtor.cpp) becomes a fiber volume and is tested against the world
-// object's bounding volume (a hit scales the distance by the collision's t);
-// then every static object is visited with a MechanicCollisionChecker that
-// skips the filter's own scene node (through its script object) and keeps
-// the nearest distance. The result is the distance when anything was hit,
-// otherwise -1.0f. The file name is this project's; the original record is
-// AIFilter.cpp, between AIFilter_caifilterobject_dtor.cpp and
-// AIFilter_mechchecker_dtor.cpp. The classes, the template and the functions
-// are named by the mangled symbols; the scene-node and volume virtuals are
-// declared in table order; CAIFilterRealPosition is viewed as an 8-aligned
-// 16-byte vector (the positions are copied as double pairs), CLine3 as
-// 16-byte aligned (the function realigns its stack; see AIFilter_linechecks.cpp), and the members, the
-// checker's constructor and the owner chain from the filter are inferred.
-// BSGO_Basic's three words precede its table pointer, as in
-// thrown_obj_ctor.cpp. CLine3 has an inline (weak) destructor: the original's
-// exception table covers the line. The checker's and the line's inline
-// destructors and the visitor's weak table and destructor the compiler emits
-// are weak duplicates, linked to the
-// original copies (the checker's in AIFilter_mechchecker_dtor.cpp). The -1.0f
-// constant is an item of the file's .sdata2 pool.
+// A fragment of AIFilter.cpp (0x8005c570): MechanicCollisionChecker::Visit
+// (false for the skipped node; nodes whose collision id is -1, 16 or 22, or
+// also 15 or 17 when the second flag is set, are ignored; otherwise the
+// node's world volume is tested with the checker's fiber, and a hit keeps the
+// nearer scaled distance when a distance is set and returns the first flag).
+// The file name is this project's; the original record is AIFilter.cpp, after
+// AIFilter_linechecks.cpp. The views are those of AIFilter_linechecks.cpp,
+// except that the checker's destructor (weak in the original, inline there)
+// is declared without a body, first, here: Visit is the checker's only
+// other virtual, so it would otherwise be the key function and this unit
+// would emit the checker's global virtual table. The 0.0f constant is an item of
+// the file's .sdata2 pool.
 class CBullet;
 class CCollision;
 class CDrawContext;
@@ -159,6 +148,8 @@ class CVolBox;
 class CVolSphere;
 class CVolCapsule;
 class CCDBObject;
+class CAnimatedVolume;
+class CWorldVolume;
 
 /* IVolume's virtuals in table order up to the fiber test. */
 class IVolume {
@@ -172,6 +163,10 @@ public:
     virtual int TestCollision(const CVolCapsule&, CCollision&, bool) const;
     virtual int TestCollision(const CCDBObject&, CCollision&, bool) const;
     virtual int TestCollision(const CVolFiber&, CCollision&, bool) const;
+    virtual int TestCollision(const CAnimatedVolume&, CCollision&, bool) const;
+    virtual int TestCollision(const CWorldVolume&, CCollision&, bool) const;
+    virtual int TestCollision(CVector3, CCollision&, bool) const;
+    virtual int TestCollision(const CLine3&, CCollision&, bool) const;
 };
 
 class CVolFiber : public IVolume {
@@ -191,7 +186,8 @@ public:
 
     unsigned char unknown00[12];
     float m_t;
-    unsigned char unknown10[16];
+    bool m_lineTest : 1;
+    unsigned char unknown10[15];
 };
 
 namespace dwi {
@@ -205,10 +201,10 @@ public:
 
 class MechanicCollisionChecker : public dwi::IVisitor<ISceneNode> {
 public:
-    MechanicCollisionChecker(const CVolFiber& fiber, float distance, ISceneNode* skip)
-        : m_fiber(fiber), data60(0), data61(0), m_distance(distance), m_nearest(distance), m_skip(skip) {}
+    MechanicCollisionChecker(const CVolFiber& fiber, float distance, ISceneNode* skip, bool flag60, bool flag61)
+        : m_fiber(fiber), data60(flag60), data61(flag61), m_distance(distance), m_nearest(distance), m_skip(skip) {}
+    virtual ~MechanicCollisionChecker();
     virtual bool Visit(ISceneNode&);
-    virtual ~MechanicCollisionChecker() {}
 
     unsigned char unknown04[12];
     CVolFiber m_fiber;
@@ -221,7 +217,7 @@ public:
 
 class CScene {
 public:
-    void VisitAllStaticObjects(dwi::IVisitor<ISceneNode>&);
+    bool VisitAllStaticObjects(dwi::IVisitor<ISceneNode>&);
 
     unsigned char unknown000[24];
     ISceneNode* m_worldObject;
@@ -252,36 +248,27 @@ public:
     AIFilterOwnerView* m_owner;
 };
 
-class CAIFilterGlobal {
-public:
-    static float GetCollisionDistLineToEnvironment(const CAIFilterRealPosition&, const CAIFilterRealPosition&,
-                                                   CAIFilterObject*, float);
-};
 
-float CAIFilterGlobal::GetCollisionDistLineToEnvironment(const CAIFilterRealPosition& start,
-                                                         const CAIFilterRealPosition& end, CAIFilterObject* filter,
-                                                         float distance) {
-    CLine3 line(start, end);
+bool MechanicCollisionChecker::Visit(ISceneNode& node) {
+    if (&node == m_skip)
+        return false;
     CCollision collision;
-    ISceneNode* worldObject = g_scene.m_worldObject;
-    int result = 1;
-    CVolFiber fiber(line);
-    IVolume* world = (IVolume*)worldObject->GetWorldBoundingVolume((ISceneNode::EVolumeType)0);
-    if (world)
-        result = world->TestCollision(fiber, collision, true);
-    bool hit = result != 1;
-    if (hit)
-        distance *= collision.m_t;
-    ISceneNode* skip = 0;
-    if (filter)
-        skip = filter->m_owner->m_script->GetSceneNode();
-    MechanicCollisionChecker checker(fiber, distance, skip);
-    g_scene.VisitAllStaticObjects(checker);
-    if (checker.m_nearest < distance) {
-        distance = checker.m_nearest;
-        hit = true;
+    EClsnId id = node.GetCollisionId();
+    bool test = false;
+    if (id != -1 && id != 16 && id != 22)
+        test = true;
+    if (data61)
+        test &= id != 15 && id != 17;
+    if (test) {
+        IVolume* volume = (IVolume*)node.GetWorldBoundingVolume((ISceneNode::EVolumeType)0);
+        if (volume && volume->TestCollision(m_fiber, collision, false) != 1) {
+            if (m_distance > 0.0f) {
+                float distance = m_distance * collision.m_t;
+                if (distance < m_nearest)
+                    m_nearest = distance;
+            }
+            return data60;
+        }
     }
-    if (hit)
-        return distance;
-    return -1.0f;
+    return false;
 }

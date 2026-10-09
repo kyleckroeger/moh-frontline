@@ -10,7 +10,10 @@
 // whether anything was hit. The file name is this project's; the original
 // record is AIFilter.cpp, after AIFilter_mechchecker_dtor.cpp. The views are
 // those of AIFilter_collisiondist.cpp (the checker's constructor gains its two
-// flags; the collision's flag bit is an inferred one-bit field). The inline
+// flags, which are bool; Visit returns bool; the collision's flag bit is an
+// inferred one-bit field). CLine3 is 16-byte aligned: these functions
+// realign their stack, MechanicCollisionChecker::Visit (AIFilter_visit.cpp,
+// no line) does not. The inline
 // destructors of the checker and the line and the visitor's weak table and
 // destructor the compiler emits are weak duplicates, linked to the original
 // copies. The -1.0f constant is an item of the file's .sdata2 pool.
@@ -58,8 +61,7 @@ public:
     float m_value34;
     unsigned char m_flag38;
     unsigned char m_flag39;
-};
-
+} __attribute__((aligned(16)));
 class IDestructible {
 public:
     IDestructible() {}
@@ -193,14 +195,14 @@ public:
     float m_t;
     bool m_lineTest : 1;
     unsigned char unknown10[15];
-} __attribute__((aligned(16)));
+};
 
 namespace dwi {
 template <class T>
 class IVisitor {
 public:
     virtual ~IVisitor() {}
-    virtual void Visit(T&) = 0;
+    virtual bool Visit(T&) = 0;
 };
 }
 
@@ -208,13 +210,13 @@ class MechanicCollisionChecker : public dwi::IVisitor<ISceneNode> {
 public:
     MechanicCollisionChecker(const CVolFiber& fiber, float distance, ISceneNode* skip, bool flag60, bool flag61)
         : m_fiber(fiber), data60(flag60), data61(flag61), m_distance(distance), m_nearest(distance), m_skip(skip) {}
-    virtual void Visit(ISceneNode&);
+    virtual bool Visit(ISceneNode&);
     virtual ~MechanicCollisionChecker() {}
 
     unsigned char unknown04[12];
     CVolFiber m_fiber;
-    unsigned char data60;
-    unsigned char data61;
+    bool data60;
+    bool data61;
     float m_distance;
     float m_nearest;
     ISceneNode* m_skip;

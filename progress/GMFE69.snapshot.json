@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 560552,
+    "matching_code_bytes": 560880,
     "total_executable_code_bytes": 1414572,
-    "percent": 39.62696843992388,
+    "percent": 39.65015566545924,
     "categories": {
-      "reconstructed_game": 340360,
+      "reconstructed_game": 340688,
       "restored_library": 220192
     },
-    "matching_functions": 3408
+    "matching_functions": 3409
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -25,6 +25,7 @@
     "config/GMFE69/AIFilter_mechchecker_dtor.json": "678d5e87e222356181986273a9dcc23057b6594655905f2e38a87929b98354bc",
     "config/GMFE69/AIFilter_soldier_dtor.json": "ed35f302ec0c96bf409c3d2815cce552cf29d65b165c37b631b0f8d218ba5690",
     "config/GMFE69/AIFilter_tank_dtor.json": "7b26c2829bebdc968339fe1e783bf8dddff52d66132791b9e921892dfb5c670f",
+    "config/GMFE69/AIFilter_visit.json": "d796125fd78b1b7b47cfed013f2f4dfae0df978e85e39e8e4fc28c5ca94a6adf",
     "config/GMFE69/AIObject.json": "78272cd8e1cac270e55d0a7c4398d75f6fd061fb21c7e354531af28d1bceade6",
     "config/GMFE69/AIObject_arbitrary.json": "ec69b61edf7e8ca5d7df8be0377e9a6f097c7234d891642f9ae58c4d77733807",
     "config/GMFE69/AIObject_enemy.json": "59502e12ffe7782c05a67a681f29e81b902cb6aaed21af44b8ec0fbdb4e5dcd5",
@@ -582,7 +583,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "d151582e862eb301c612083da4a014f3e365f7f86b73f90ab0ccbb8dbdd70562",
+    "config/GMFE69/project.json": "adf4a53e22cf58e2598c14efa0097c890596a1ed028c57eeb8b265d59857c317",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -1867,12 +1868,13 @@
     "src/game/AIFilter.cpp": "f07b9b59492ad0297b6a3567e44a9931c993d85dec42bf59089f1d58322d8e93",
     "src/game/AIFilter_astar.cpp": "dfb5331542cc3964e587f11594ee7e8cce3f74bbe9751b82fcc3e87c00cd79da",
     "src/game/AIFilter_caifilterobject_dtor.cpp": "74a1bad2f4372942648724f0ee107aa50b21424f3b9372e4a8c193961c3efaf6",
-    "src/game/AIFilter_collisiondist.cpp": "ebc261e92c2826a1d92f0d66c7caec30f0f26833b6e027636741c58ab85a809b",
+    "src/game/AIFilter_collisiondist.cpp": "71b686b852204e001142e6c5999850ad9bd2e8558e269003dbd4abeb08640286",
     "src/game/AIFilter_fastvec.cpp": "6d276a12bde7199d708af6cd13ab64306c7c5f64486a9ba036ac3d6b0e5bf7fc",
-    "src/game/AIFilter_linechecks.cpp": "e3f253890b659822a230b38a05cc9fb4e27b74950d0bdd16c5792c200f397396",
+    "src/game/AIFilter_linechecks.cpp": "251a98e238821ebe03cf95b6e2fcb5147ad84472be8a727d8887fb0a53a9c652",
     "src/game/AIFilter_mechchecker_dtor.cpp": "af8fcfe8356b90aaf2cfc22a7e597228e54591feccdd2ae17d650974988820a2",
     "src/game/AIFilter_soldier_dtor.cpp": "055b43c3c6e7e49bf782f0f63d45a51f438561db3de258810b4d52c0b4586e79",
     "src/game/AIFilter_tank_dtor.cpp": "0bc0d291505e886614de67cd86d7d2f78fa7707e2342edbfcc52fed517e7627c",
+    "src/game/AIFilter_visit.cpp": "c51216f358db283d3a19cc78f7c5bbbd1c35819d50071a98ba361cd6e4083ea2",
     "src/game/AIObject.cpp": "3a8fa9ba36ed6fad882da222f8ff9734bd2ee4bb6f375c7be6781e40ff65539b",
     "src/game/AIObject_arbitrary.cpp": "005b0c6e6ed97f87b1cdf736b83eef96667bf81834ca547ea2a1694b9aacca8f",
     "src/game/AIObject_enemy.cpp": "a2b3f80aaf450d23b0e8a8e5dd19374c4c038c8e57d8b1a5a5b7994ef500ae5b",
@@ -38388,6 +38390,45 @@
       "discarded_functions": [],
       "object_sha256": "24a5a3823ad4222c147e9d7808524bbd7a0894e7381106e8b5eafc0aabc8f758",
       "linked_sha256": "28268ccdceac02fb60739f99f72d4ff6f2b8b0b20aaf03ef87792f60f324a0c0"
+    },
+    {
+      "id": "AIFilter_visit",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 328,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "4ae55b3df6ab99ac99dba31c9b3769692ee5b96b5c93fc711478c8f06b86a99c",
+      "linked_sha256": "a44e4a0575bef6fe94cbd84666252c874a241029391dd40dc915156dd889e5c9"
     }
   ],
   "code_map": {
@@ -41313,13 +41354,6 @@
             "kind": "function",
             "name": "ChooseTarget__15CAIFilterObjectFf",
             "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8005c570",
-            "size": 328,
-            "kind": "function",
-            "name": "Visit__24MechanicCollisionCheckerFR10ISceneNode",
-            "evidence": "exception-index"
           },
           {
             "address": "0x8005c6b8",
