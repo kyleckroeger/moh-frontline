@@ -39,8 +39,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x800f6b1c",
-      "size": 516,
+      "address": "0x800f69e4",
+      "size": 828,
       "type": 1
     },
     {
@@ -51,19 +51,19 @@
     },
     {
       "name": "extab",
-      "address": "0x8000f8e0",
-      "size": 16,
+      "address": "0x8000f8c8",
+      "size": 40,
       "type": 1,
       "linked_offset": 0,
-      "linked_size": 32
+      "linked_size": 56
     },
     {
       "name": "extabindex",
-      "address": "0x800165e0",
-      "size": 24,
+      "address": "0x800165bc",
+      "size": 60,
       "type": 1,
       "linked_offset": 0,
-      "linked_size": 48
+      "linked_size": 84
     },
     {
       "name": ".bss",
@@ -84,10 +84,35 @@
       "address": "0x800f6ce8",
       "size": 56,
       "binding": 0
+    },
+    {
+      "name": "InitClass__6CDMeshFP11CRenderList",
+      "address": "0x800f69e4",
+      "size": 100,
+      "binding": 1
+    },
+    {
+      "name": "GetName__5CPartFv",
+      "address": "0x800f6a48",
+      "size": 12,
+      "binding": 2
+    },
+    {
+      "name": "__dt__9CRemapBinFv",
+      "address": "0x800f6a54",
+      "size": 92,
+      "binding": 2
+    },
+    {
+      "name": "__dt__8CPartBinFv",
+      "address": "0x800f6ab0",
+      "size": 108,
+      "binding": 2
     }
   ],
   "externals": {
     "InitClass__7CMatrixFv": "0x80090b78",
+    "Register__11CRenderListFR10CRenderBin": "0x800f127c",
     "__construct_array": "0x8013834c",
     "__ct__9CRemapBinFv": "0x800f6d20",
     "__destroy_arr": "0x801382d4",
@@ -96,20 +121,29 @@
     "__dt__12CDMRenderBinFv": "0x800f5860",
     "__dt__14CFinishPartBinFv": "0x800f6d5c",
     "__dt__15CUcodeRenderBinFv": "0x80074304",
-    "__dt__9CRemapBinFv": "0x800f6a54",
     "__register_global_object": "0x801381bc",
     "__vt__10CRenderBin": "0x80183c5c",
     "__vt__12CDMRenderBin": "0x8018b5cc",
     "__vt__14CFinishPartBin": "0x8018b69c",
     "__vt__15CUcodeRenderBin": "0x80183c40",
+    "__vt__5CPart": "0x8018b5fc",
+    "__vt__8CPartBin": "0x8018b668",
+    "__vt__9CRemapBin": "0x8018b630",
+    "_remap_next": "0x8034ed8c",
+    "_renderList": "0x8034ed88",
     "s_ClassInit__7CMatrix": "0x8034eab0"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
-  "local_externals": [],
+  "local_externals": [
+    "_remap_next",
+    "_renderList"
+  ],
   "discarded_local_functions": [],
   "sda_externals": [
+    "_remap_next",
+    "_renderList",
     "s_ClassInit__7CMatrix"
   ],
   "original_file": "dmesh.cpp",
@@ -118,8 +152,19 @@
     "__dt__10CRenderBinFv",
     "__dt__15CUcodeRenderBinFv"
   ],
+  "pooled_sections": [
+    ".rodata"
+  ],
+  "pool_references": [
+    {
+      "section": ".rodata",
+      "offset": 0,
+      "size": 11,
+      "address": "0x8017a7b4"
+    }
+  ],
   "adapted_from": {
     "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
-    "manifest": "dmesh_cpartbin_dtor.json"
+    "manifest": "dmesh.json"
   }
 }
