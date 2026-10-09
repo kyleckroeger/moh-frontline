@@ -6,12 +6,12 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 586012,
+    "matching_code_bytes": 585888,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.42680612934513,
+    "percent": 41.418040227008596,
     "categories": {
-      "reconstructed_game": 365820,
-      "restored_library": 220192
+      "reconstructed_game": 365944,
+      "restored_library": 219944
     },
     "matching_functions": 3562
   },
@@ -534,7 +534,7 @@
     "config/GMFE69/light_visible.json": "8c836e812fe34c340bb43e1008bd7983aa6c949f63d6d4772676498915b7a608",
     "config/GMFE69/locatbig.json": "951de0b6c115be49b7755a129307e91c30deb6c630ba9c49821cf71f0db076f0",
     "config/GMFE69/main_TRK.json": "53a7c3f8fdc516d26210c5002897d55d0bb651015e4e46852c26248d117ade9b",
-    "config/GMFE69/mainloop.json": "2994436609fef577d03fa3220d0c44d5933025297dcfae7a7880dded142e765a",
+    "config/GMFE69/mainloop.json": "9c61d478a014eecb2e02c270160acc1dba843f11b0ac1ac93bc3c6d6eaef466a",
     "config/GMFE69/math_ppc.json": "b9333b4067895dff685beb9b33137457e747e7894562c6b8de8258785645b3f6",
     "config/GMFE69/matrix.json": "b03949cf47d4c176d47539cbe3753fd3f81477f14b7b6ed44254db12e93e3f87",
     "config/GMFE69/matrix_endian.json": "35c628c3517d44c1bfa0c1a6b556a95393a1b0890fb43fd4206e279493ad5784",
@@ -2291,6 +2291,7 @@
     "src/game/light_rows.cpp": "ee305d6a4bbdcda116b02c0c3b0c0665b2487928f78c5472c8e50ee310d03f88",
     "src/game/light_statics.cpp": "f66fa5262f3c6648dd16c22ccd8d6275bb82b3ef82b8c25933f91683a5fa4016",
     "src/game/light_visible.cpp": "1aff95e093197ccb9edc92eb0c3b9a76e3b409725a66d9992627ca3f1bfaaca5",
+    "src/game/mainloop.cpp": "737d1965982728d6b7eaa43a46e3a6b9ce55122ca931a402690524e1af5cf172",
     "src/game/matrix.cpp": "a96eb3870d35734f394703c179de4a81405cd1554ff2efeec3fbf4920a567683",
     "src/game/matrix_endian.cpp": "a3cb6bd6ab0ddf9752630e1e14e237a2239fe328cd296ba457666c13e73434d3",
     "src/game/matrix_multiply.cpp": "3146c4f7a195c8a4205349e903a586d9b4a0540589146e74c4439a81e279a721",
@@ -9448,9 +9449,9 @@
     },
     {
       "id": "mainloop",
-      "category": "restored_library",
+      "category": "reconstructed_game",
       "functions": 1,
-      "code_bytes": 248,
+      "code_bytes": 124,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -9464,48 +9465,26 @@
         "-fp",
         "hardware",
         "-Cpp_exceptions",
-        "off",
+        "on",
+        "-O4,p",
         "-inline",
         "auto",
         "-pragma",
         "cats off",
-        "-pragma",
-        "warn_notinlined off",
-        "-maxerrors",
-        "1",
         "-nosyspath",
         "-RTTI",
         "off",
-        "-fp_contract",
-        "on",
         "-str",
-        "reuse",
-        "-multibyte",
-        "-DVERSION=0",
-        "-DNDEBUG=1",
-        "-O4,p",
+        "reuse,readonly",
         "-use_lmw_stmw",
         "on",
-        "-rostr",
-        "-str",
-        "reuse",
-        "-common",
-        "off",
-        "-inline",
-        "deferred,auto",
-        "-char",
-        "signed",
-        "-sdata",
-        "0",
-        "-sdata2",
-        "0",
-        "-enum",
-        "min"
+        "-fp_contract",
+        "on"
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "31bde3b1e34871c0706ef491434b96ee673ba3d48dfb342c4e0750760910e740",
-      "linked_sha256": "c3c54f83ce105d75bd5bd973062876ff2f9c8ae5fdc29a97ea19a52b9d3c851a"
+      "object_sha256": "21f31ddd97c8d1415fb5564eb36bdc2ecac0cea3e4a60f202f2925612e0e033e",
+      "linked_sha256": "f38ae8a5fe079d7c907e518ca25df1beb8a88b58788c20bd3adfe6ee077590c3"
     },
     {
       "id": "nubevent",
@@ -44995,13 +44974,6 @@
             "kind": "function",
             "name": "LoadLevelSettings__Fv",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007b898",
-            "size": 124,
-            "kind": "function",
-            "name": "__sinit_mainloop_cpp",
-            "evidence": "local-file-symbol"
           }
         ]
       },
@@ -51262,6 +51234,18 @@
             "kind": "function",
             "name": "PATHI_sortprojects__Fv",
             "evidence": "exception-index"
+          }
+        ]
+      },
+      {
+        "name": "Unknown file/.text @ 80130f2c",
+        "ranges": [
+          {
+            "address": "0x80130f2c",
+            "size": 248,
+            "kind": "function",
+            "name": "TRKNubMainLoop",
+            "evidence": "unknown-file"
           }
         ]
       },
