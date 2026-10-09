@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 594516,
+    "matching_code_bytes": 595024,
     "total_executable_code_bytes": 1414572,
-    "percent": 42.02797736700571,
+    "percent": 42.0638892894812,
     "categories": {
-      "reconstructed_game": 374324,
+      "reconstructed_game": 374832,
       "restored_library": 220192
     },
-    "matching_functions": 3643
+    "matching_functions": 3644
   },
   "input_sha256": {
     "config/GMFE69/AIDoodad.json": "fbe6da2750e71d43ae68554e3fcdce413e76e9d8463f18206e347c607056e6f8",
@@ -365,7 +365,7 @@
     "config/GMFE69/bulletfactory_thrown_ctor.json": "5bc56bbfbbb13c0d38cda13a6362b98a81761e593324bf6c0c2bfe41500dd90b",
     "config/GMFE69/bulletfactory_thrown_pool.json": "c72b05045b24264f3fce4169a7c503b0cebd24f69da74e897db104aaaf516ba1",
     "config/GMFE69/camera_dtor.json": "8fda5d013b822dddd4ca34337ca7d0e498694d558397e2429fb3bd14cd03a8c7",
-    "config/GMFE69/camera_rows.json": "1b74ab2186218d87b08ef8188d1c247dc7997f17ff2a25340764ea861db80d35",
+    "config/GMFE69/camera_rows.json": "0eea972bec52052dfbbec6825da9b89e654431077cf14b9caf4e1b8698abb6d3",
     "config/GMFE69/capsule_create.json": "7ea379e9f4627abeeeaad959530bebd332ea158e9e77b0b66fe4115669d57173",
     "config/GMFE69/capsule_dispatch.json": "8d4ce50085d048b2ca15db431aa32afcb32d3faf6e2d9555a17e8dd9ed937f06",
     "config/GMFE69/capsule_dispatch2.json": "246a1105784823a9a0860573243e4715e1dfc1fdee38a7525a4e67c0bd954175",
@@ -2189,7 +2189,7 @@
     "src/game/bulletfactory_thrown_ctor.cpp": "e4395dc0515217717387866d4c9dbb72929d0eea865ba32b5f0b406065bd0985",
     "src/game/bulletfactory_thrown_pool.cpp": "9833f26e5bd172ba5aaaa3b25a86c6b63760bd1ec4aca397b989ffb3ac67509b",
     "src/game/camera_dtor.cpp": "0ff34e7089128735738983773a98dc0b02813b2b745d1de37624412931e1f637",
-    "src/game/camera_rows.cpp": "ad6da75e4f2269b17a88cd8f54e5e65003cd57b25bb284dce60bf13894115962",
+    "src/game/camera_rows.cpp": "042782254f333a8f857f19b8f9d87d98e656fc3a9b30b3388d3ac4b498fbdf76",
     "src/game/capsule_create.cpp": "e5bdd4e3000036dbae68266376af90a76a315822e580f2da15283faec1d3127b",
     "src/game/capsule_dispatch.cpp": "6797cda02018a30483dbb8d1dd412f91c6c0110513b9a9b8b4c39d710ed6056a",
     "src/game/capsule_dispatch2.cpp": "6059fab262cc1517dd2b31f1b59ddf0df000b3728d91a7993daaffd5bd960393",
@@ -23774,8 +23774,8 @@
     {
       "id": "camera_rows",
       "category": "reconstructed_game",
-      "functions": 21,
-      "code_bytes": 1104,
+      "functions": 22,
+      "code_bytes": 1612,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -23807,8 +23807,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "0a2245a932325bd0053de0a59b137a4ed7f52104aa0072e298b60bdb9035f465",
-      "linked_sha256": "1648f8fb1585204f4850767f48811b52f99d31cb6f0ffd0c5809ad942982e754"
+      "object_sha256": "77fe93854f052676f98f230172c9c8c37ad79d4db2886386b7fe76f448be266b",
+      "linked_sha256": "86c60122317213d4e8fb2af383b4ccee18475fbaaf86612d331547c0a338af2b"
     },
     {
       "id": "hearingvolume_rows",
@@ -44927,13 +44927,6 @@
             "size": 108,
             "kind": "function",
             "name": "SetPerspective__7CCameraFff",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007a338",
-            "size": 508,
-            "kind": "function",
-            "name": "AttemptUpdate__7CCameraFf",
             "evidence": "exception-index"
           }
         ]

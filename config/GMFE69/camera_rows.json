@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x80079ee8",
-      "size": 1104,
+      "size": 1612,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000bea8",
-      "size": 136,
+      "size": 144,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80012dd0",
-      "size": 204,
+      "size": 216,
       "type": 1
     }
   ],
@@ -182,12 +182,20 @@
       "address": "0x8007a334",
       "size": 4,
       "binding": 1
+    },
+    {
+      "name": "AttemptUpdate__7CCameraFf",
+      "address": "0x8007a338",
+      "size": 508,
+      "binding": 1
     }
   ],
   "externals": {
     "Ident__7CMatrixFv": "0x8008f1b0",
     "Multiply__7CMatrixFRC7CMatrixRC7CMatrix": "0x8008fc50",
+    "Orthographic__7CMatrixFffff": "0x8008fba0",
     "Orthonormalize__7CMatrixFv": "0x8008f1e8",
+    "Perspective__7CMatrixFffff": "0x8008fc0c",
     "RotateX__7CMatrixFf": "0x800903cc",
     "RotateY__7CMatrixFf": "0x800902b0",
     "RotateZ__7CMatrixFf": "0x80090194",
@@ -196,15 +204,59 @@
     "SetPos__7CMatrixF8CVector3": "0x80090728",
     "SetRight__7CMatrixF8CVector3": "0x8009077c",
     "SetUp__7CMatrixF8CVector3": "0x80090744",
+    "Transform__6CPlaneFRC7CMatrix": "0x80091344",
     "Translate__7CMatrixF8CVector3": "0x80090660",
-    "__as__7CMatrixFRC7CMatrix": "0x80090b34"
+    "UpdateWorldToCamera__7CCameraFv": "0x80079c68",
+    "__as__7CMatrixFRC7CMatrix": "0x80090b34",
+    "g_bInMultiplayerMode": "0x8034eca5"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
   "local_externals": [],
   "discarded_local_functions": [],
-  "sda_externals": [],
+  "sda_externals": [
+    "g_bInMultiplayerMode"
+  ],
   "original_file": "camera.cpp",
-  "original_file_index": 3766
+  "original_file_index": 3766,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034ff00"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x8034fed4"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 8,
+      "address": "0x8034fed8"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 16,
+      "size": 8,
+      "address": "0x8034fee0"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 24,
+      "size": 4,
+      "address": "0x8034fee8"
+    }
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "camera_rows.json"
+  }
 }
