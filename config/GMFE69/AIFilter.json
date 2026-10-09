@@ -39,93 +39,54 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8005a4d0",
-      "size": 884,
+      "address": "0x8005dd48",
+      "size": 272,
+      "type": 1
+    },
+    {
+      "name": ".ctors",
+      "address": "0x8016df7c",
+      "size": 4,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000aedc",
-      "size": 56,
+      "address": "0x8000b290",
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80012020",
-      "size": 84,
+      "address": "0x800122d8",
+      "size": 24,
       "type": 1
     },
     {
-      "name": ".sdata2",
-      "address": "0x8034fb48",
-      "size": 24,
-      "type": 1
+      "name": ".bss",
+      "address": "0x801c6cc8",
+      "size": 264,
+      "type": 8
     }
   ],
   "functions": [
     {
-      "name": "ShouldILeaveMMG__15CAIFilterObjectFP8BSObject",
-      "address": "0x8005a4d0",
-      "size": 40,
-      "binding": 1
+      "name": "__sinit_AIFilter_cpp",
+      "address": "0x8005dd48",
+      "size": 168,
+      "binding": 0
     },
     {
-      "name": "ChooseMMGPoint__15CAIFilterObjectFv",
-      "address": "0x8005a4f8",
-      "size": 56,
-      "binding": 1
-    },
-    {
-      "name": "GetTargetGuessPosition__15CAIFilterObjectFR21CAIFilterRealPosition",
-      "address": "0x8005a530",
-      "size": 56,
-      "binding": 1
-    },
-    {
-      "name": "CalculateAngleDiff__27CAIFilterRealEulerDirectionCFRC21CAIFilterRealPositionRC21CAIFilterRealPositionPfPf",
-      "address": "0x8005a568",
-      "size": 232,
-      "binding": 1
-    },
-    {
-      "name": "RotateAboutZ__20CAIFilterRealVector3Ff",
-      "address": "0x8005a650",
-      "size": 128,
-      "binding": 1
-    },
-    {
-      "name": "GetDistanceSquaredXYReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition",
-      "address": "0x8005a6d0",
-      "size": 36,
-      "binding": 1
-    },
-    {
-      "name": "GetDistanceSquaredXYZReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition",
-      "address": "0x8005a6f4",
-      "size": 52,
-      "binding": 1
-    },
-    {
-      "name": "GetDistanceXYReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition",
-      "address": "0x8005a728",
-      "size": 136,
-      "binding": 1
-    },
-    {
-      "name": "GetDistanceXYZReal__21CAIFilterRealPositionCFRC21CAIFilterRealPosition",
-      "address": "0x8005a7b0",
-      "size": 148,
-      "binding": 1
+      "name": "__dt__Q23dwi20fast_vec<9NoiseInfo>Fv",
+      "address": "0x8005ddf0",
+      "size": 104,
+      "binding": 2
     }
   ],
   "externals": {
-    "ChooseMMGPoint__9CAIObjectFv": "0x80047b04",
-    "MathFunAtan2F__Fff": "0x8009358c",
-    "MathFunNormalizeAngleNegativePiToPi__Ff": "0x8009340c",
-    "MathFunRotateAboutZ__FPfPff": "0x80093474",
-    "ShouldILeaveMMG__9CAIObjectFP20TriggerObject_struct": "0x800478b8",
-    "cos": "0x80143228",
-    "sin": "0x80143790"
+    "MEM_free": "0x8014f83c",
+    "__dl__FPv": "0x8001ca2c",
+    "__dt__15CAIFilterGlobalFv": "0x8005db6c",
+    "__register_global_object": "0x801381bc"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -134,5 +95,20 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "AIFilter.cpp",
-  "original_file_index": 2575
+  "original_file_index": 2575,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034fb48"
+    }
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "AIFilter.json"
+  }
 }

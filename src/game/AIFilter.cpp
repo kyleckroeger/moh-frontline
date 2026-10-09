@@ -1,149 +1,65 @@
-// AI filter objects, the functions after the first one in the file: the MMG
-// queries forwarded to the AI object, the target guess position, the
-// Euler-direction angle difference, Z rotation and the real-position
-// distances (sqrtf is the SDK's inline; the XY distance squares a zero z). The
-// class names come from the mangled symbols; the members are inferred from
-// offsets, and the conversion from the game's CVector3 (a by-value copy, then
-// the three coordinates) is written as an inferred inline constructor.
-// CAIFilterPlayerObject::GetLookDirection comes first in the file and is not
-// matched (stack slot order of its CVector3 copies; draft in
-// scratch/lib/AIFilter_wip.cpp). UpdateFromGameObject on are not part of this
-// unit.
-extern "C" {
-#include <math.h>
-}
-
-struct TriggerObject_struct;
-
-class CVector3 {
-public:
-    float x;
-    float y;
-    float z;
-} __attribute__((aligned(8)));
-
-class CAIFilterRealVector3 {
-public:
-    CAIFilterRealVector3() {}
-    void RotateAboutZ(float);
-
-    float x;
-    float y;
-    float z;
+// The end of AIFilter.cpp (0x8005dd48): the static initialisation of the
+// global AI filter object (its inline constructor clears its members and
+// stores three successive values of its flag word at +20; the meaning of the
+// flags is not known) and of the recent-sounds vector (a fast_vec over the
+// file's 16-entry static storage, not owning it), each with its destructor
+// registered, then the weak dwi::fast_vec<NoiseInfo> destructor, which frees
+// the storage when the vector owns it. The template, CAIFilterGlobal,
+// NoiseInfo and the objects are named by the mangled symbols; the members
+// are inferred (as in compartment_weak.cpp and AIFilter_astar.cpp), the
+// NoiseInfo size comes from the storage symbol, and the constructors are
+// inferred inlines. The destructor is a weak template copy emitted in this
+// file, defined __declspec(weak) out of the class and instantiated by the
+// registration (so it follows the static initialisation). The unit defines the file's .bss block. The rest of the file
+// is in other units.
+struct NoiseInfo {
+    unsigned char data[12];
 };
 
-class CAIFilterRealPosition {
+extern "C" void MEM_free(void*);
+
+namespace dwi {
+template <class T>
+class fast_vec {
 public:
-    CAIFilterRealPosition() {}
-    CAIFilterRealPosition(CVector3 v) : x(v.x), y(v.y), z(v.z) {}
-    float GetDistanceSquaredXYReal(const CAIFilterRealPosition&) const;
-    float GetDistanceSquaredXYZReal(const CAIFilterRealPosition&) const;
-    float GetDistanceXYReal(const CAIFilterRealPosition&) const;
-    float GetDistanceXYZReal(const CAIFilterRealPosition&) const;
+    fast_vec(T* data, int capacity) : m_data(data), m_unknown4(0), m_size(0), m_capacity(capacity), m_owned(false), m_growth(0) {}
+    ~fast_vec();
 
-    float x;
-    float y;
-    float z;
+    T* m_data;
+    int m_unknown4;
+    int m_size;
+    int m_capacity;
+    bool m_owned;
+    int m_growth;
 };
 
-class CAIFilterRealEulerDirection {
+template <class T> __declspec(weak) fast_vec<T>::~fast_vec() {
+    if (m_owned && m_data)
+        MEM_free(m_data);
+}
+}
+
+class CAIFilterGlobal {
 public:
-    void CalculateAngleDiff(const CAIFilterRealPosition&, const CAIFilterRealPosition&, float*, float*) const;
+    CAIFilterGlobal() {
+        m_flags = 0x44b0;
+        m_flags = 0x44d0;
+        m_unknown00 = 0;
+        m_time = 0.0f;
+        m_splines = 0;
+        m_pathNodes = 0;
+        m_flags = 0x4ca0;
+    }
+    ~CAIFilterGlobal();
 
-    float pitch;
-    float roll;
-    float yaw;
+    int m_unknown00;
+    float m_time;
+    unsigned char unknown08[4];
+    void* m_splines;
+    void* m_pathNodes;
+    int m_flags;
 };
 
-float MathFunAtan2F(float, float);
-void MathFunRotateAboutZ(float*, float*, float);
-float MathFunNormalizeAngleNegativePiToPi(float);
-
-class CAIObject {
-public:
-    int ShouldILeaveMMG(TriggerObject_struct*);
-    CAIObject* ChooseMMGPoint();
-
-    unsigned char unknown000[8];
-    void* m_gameObject;
-    unsigned char unknown00c[228];
-    CVector3 m_targetGuess;
-};
-
-struct BSObject {
-    unsigned char unknown00[8];
-    TriggerObject_struct* triggerObject;
-};
-
-class CAIFilterObject {
-public:
-    int ShouldILeaveMMG(BSObject*);
-    void* ChooseMMGPoint();
-    void GetTargetGuessPosition(CAIFilterRealPosition&);
-
-    unsigned char unknown00[4];
-    void* m_gameObject;
-    CAIObject* m_aiObject;
-};
-
-int CAIFilterObject::ShouldILeaveMMG(BSObject* script) {
-    return m_aiObject->ShouldILeaveMMG(script->triggerObject);
-}
-
-void* CAIFilterObject::ChooseMMGPoint() {
-    CAIObject* point = m_aiObject->ChooseMMGPoint();
-    return point ? point->m_gameObject : 0;
-}
-
-void CAIFilterObject::GetTargetGuessPosition(CAIFilterRealPosition& position) {
-    position = CAIFilterRealPosition(m_aiObject->m_targetGuess);
-}
-
-void CAIFilterRealEulerDirection::CalculateAngleDiff(const CAIFilterRealPosition& from, const CAIFilterRealPosition& to,
-                                                     float* yawDiff, float* pitchDiff) const {
-    float delta[3];
-    delta[0] = to.x - from.x;
-    delta[1] = to.y - from.y;
-    delta[2] = to.z - from.z;
-    float yawTo = MathFunAtan2F(delta[0], delta[1]);
-    MathFunRotateAboutZ(&delta[0], &delta[1], -yawTo);
-    float pitchTo = MathFunAtan2F(-delta[2], delta[1]);
-    *yawDiff = MathFunNormalizeAngleNegativePiToPi(yawTo - yaw);
-    *pitchDiff = MathFunNormalizeAngleNegativePiToPi(pitchTo - pitch);
-}
-
-void CAIFilterRealVector3::RotateAboutZ(float angle) {
-    float s = sin(angle);
-    float c = cos(angle);
-    float oy = y;
-    float ox = x;
-    x = ox * c - oy * s;
-    y = ox * s + oy * c;
-}
-
-float CAIFilterRealPosition::GetDistanceSquaredXYReal(const CAIFilterRealPosition& other) const {
-    float dx = x - other.x;
-    float dy = y - other.y;
-    return dx * dx + dy * dy;
-}
-
-float CAIFilterRealPosition::GetDistanceSquaredXYZReal(const CAIFilterRealPosition& other) const {
-    float dx = x - other.x;
-    float dy = y - other.y;
-    float dz = z - other.z;
-    return dx * dx + dy * dy + dz * dz;
-}
-
-float CAIFilterRealPosition::GetDistanceXYReal(const CAIFilterRealPosition& other) const {
-    float dx = x - other.x;
-    float dy = y - other.y;
-    float dz = 0.0f;
-    return sqrtf(dx * dx + dy * dy + dz * dz);
-}
-
-float CAIFilterRealPosition::GetDistanceXYZReal(const CAIFilterRealPosition& other) const {
-    float dx = x - other.x;
-    float dy = y - other.y;
-    float dz = z - other.z;
-    return sqrtf(dx * dx + dy * dy + dz * dz);
-}
+CAIFilterGlobal g_aigAIFilterGlobalObject;
+static NoiseInfo recent_sounds_mem[16];
+static dwi::fast_vec<NoiseInfo> recent_sounds(recent_sounds_mem, 16);
