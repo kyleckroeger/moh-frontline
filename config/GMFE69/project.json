@@ -907,7 +907,8 @@
     "dmesh.json",
     "light.json",
     "bsbifunc.json",
-    "sprite_ctor.json"
+    "sprite_ctor.json",
+    "fiber_visibility.json"
   ],
   "progress": {
     "code_bytes": 1414572,
