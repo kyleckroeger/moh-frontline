@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 557876,
+    "matching_code_bytes": 558516,
     "total_executable_code_bytes": 1414572,
-    "percent": 39.437794612080545,
+    "percent": 39.4830379789788,
     "categories": {
-      "reconstructed_game": 337684,
+      "reconstructed_game": 338324,
       "restored_library": 220192
     },
-    "matching_functions": 3402
+    "matching_functions": 3404
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -383,6 +383,7 @@
     "config/GMFE69/debug_prof_bins.json": "8333507207fa32bd2e87543dc6bb2746098117e9c8b76a1da68f9f9878bf2d0c",
     "config/GMFE69/debug_prof_cdbgstatsrenderbin_dtor.json": "9813d8fdd5faf8eb748bbd832b0f22a372815337c6332050bca65ec6eb3e6244",
     "config/GMFE69/debug_prof_cprofhistrenderbin_dtor.json": "00e1830a10869cbd4761d60d782d37ea16fb7c729d7bcd4022e612351a1f37f7",
+    "config/GMFE69/debug_prof_stats.json": "8dcd3d54a8afdfb1de007b790e6297ba0114db0f72803a6a900504683f086f17",
     "config/GMFE69/debugger.json": "b4812b86753209416cae697106b949c189ef985bbe634aca332ff006abd18fdb",
     "config/GMFE69/decal_dtor.json": "a454c6b4f69ad8d7b90dd660a437dd63dba158c6bb2328ad6cf5dbd6d6b165cc",
     "config/GMFE69/destructor_queue.json": "2350cf976029cd809d15a75f5f5d41195d68c7984d9c637caabbf8766be0ddd5",
@@ -579,7 +580,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "6e8cc295ec162aa7598cdb0380ac9607c8459c87d00518e012f0c9603a461ecc",
+    "config/GMFE69/project.json": "684dc9553a10b4ac791552aee24f277f17c4ec5de03f1c705fbe9e6865331d72",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -2126,6 +2127,7 @@
     "src/game/debug_prof_bins.cpp": "244d57b6d0b353a0fa4940864deb9b3b0d65840a5a6979e9ecd315e2ac2682af",
     "src/game/debug_prof_cdbgstatsrenderbin_dtor.cpp": "0609e8ee16b0884ca0c8944030f4db7bf87693e65bad6bfc67002b895b88a11d",
     "src/game/debug_prof_cprofhistrenderbin_dtor.cpp": "d4ce99045397aae6ce2a629ff3d63b6ca5c0d0d5f8bd3ebff390f5a7f14793e5",
+    "src/game/debug_prof_stats.cpp": "329b4e66b68a2dacbf7e235cdef1c2aab91ede3d3ae90fbc85d0433ee1244262",
     "src/game/decal_dtor.cpp": "612f9bb1293cebeabc6c596c8fa245727867b0e79fba157ab4d406951cb84c93",
     "src/game/destructor_queue.cpp": "96832ec7b1265822d1e18a69dea9302e793bb1a399694519922f360dbfc5c361",
     "src/game/devicemgr.cpp": "8e6a3c45bc811693b9e025c82952ae10e5b41aaa87683eca70c28ff647b85f97",
@@ -38224,6 +38226,45 @@
       "discarded_functions": [],
       "object_sha256": "7b6c9bf35a697a17d65e2fcb48b2582ed4f3a2acb32d8237fbec323687b32d26",
       "linked_sha256": "2f4c45d938ae5abca8ec9fa90da0c0b9c73210910a408779bc3fd38b789aa663"
+    },
+    {
+      "id": "debug_prof_stats",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 640,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "85220f26d78e0b2f98b6981a5dd51735d1d21492fce8dabf3e2d074ed8ebaa0e",
+      "linked_sha256": "3a4ac9401884d22a0adead4265787b5bfed4b93ba0e6357c44bd7a429746bde1"
     }
   ],
   "code_map": {
@@ -48446,20 +48487,6 @@
             "size": 164,
             "kind": "function",
             "name": "DebugProfTimerDumpAll__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f429c",
-            "size": 296,
-            "kind": "function",
-            "name": "DebugStats_Draw__Fiiiii",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f43c4",
-            "size": 344,
-            "kind": "function",
-            "name": "DebugStats_Init__FP7CScreenP11CRenderList",
             "evidence": "exception-index"
           },
           {

@@ -862,7 +862,8 @@
     "player_ctor.json",
     "skybox_renderbin.json",
     "dmesh_cremapbin_ctor.json",
-    "Screen_fieldmode.json"
+    "Screen_fieldmode.json",
+    "debug_prof_stats.json"
   ],
   "progress": {
     "code_bytes": 1414572,
