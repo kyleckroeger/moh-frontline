@@ -900,7 +900,9 @@
     "font_render.json",
     "projectilebullet_nwa.json",
     "thrownbullet_nwa.json",
-    "dmesh_part_name.json"
+    "dmesh_part_name.json",
+    "compartment_cptmaterial_dtor.json",
+    "compartment_renderbin_dtor.json"
   ],
   "progress": {
     "code_bytes": 1414572,

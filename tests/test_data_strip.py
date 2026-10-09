@@ -172,6 +172,36 @@ class DataStripping(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'not one compiled weak function or data object'):
             strip_objects(compiled, unit)
 
+    def global_vtable_duplicate_unit(self):
+        compiled = (self.build / 'units/compartment_cptmaterial_dtor/compiled.o').read_bytes()
+        return compiled, json.loads((CONFIG / 'compartment_cptmaterial_dtor.json').read_text())
+
+    def test_global_vtable_duplicate_goes_to_the_weak_original(self):
+        compiled, unit = self.global_vtable_duplicate_unit()
+        name = '__vt__11CPTMaterial'
+        compiled_table = [s for s in Elf32(compiled).symbols() if s['name'] == name and s['section']]
+        self.assertEqual([s['binding'] for s in compiled_table], [1])  # compiled global
+        self.assertEqual(unit['stripped_sections'], ['.data'])
+        after = Elf32(strip_objects(compiled, unit))
+        targets = [s for s in relocation_targets(after, '.text') if s['name'].startswith(name)]
+        self.assertTrue(targets)
+        self.assertTrue(all(s['name'] == name and not s['section'] for s in targets))
+        validate_object(after, unit)
+
+    def test_only_virtual_tables_may_be_compiled_global(self):
+        compiled = (self.build / 'units/compartment_renderbin/compiled.o').read_bytes()
+        unit = json.loads((CONFIG / 'compartment_renderbin.json').read_text())
+        unit['weak_duplicates'] = ['__dt__17CTextureSwapCacheFv']  # a global function
+        with self.assertRaisesRegex(ValueError, 'not one compiled weak function or data object'):
+            strip_objects(compiled, unit)
+
+    def test_global_vtable_duplicate_needs_a_weak_original(self):
+        _, unit = self.global_vtable_duplicate_unit()
+        unit['weak_duplicates'] = ['__vt__9CAIDoodad']  # global in the original
+        unit['externals']['__vt__9CAIDoodad'] = '0x80183620'
+        with self.assertRaisesRegex(ValueError, 'lacks one retained original copy'):
+            validate_units(self.original, [unit])
+
     def test_unknown_object_fails(self):
         with self.assertRaisesRegex(ValueError, 'not one compiler object'):
             strip_objects(self.compiled, self.mutated('.sbss', ['NoSuchObject']))

@@ -200,9 +200,15 @@ def match(obj, original, file_index, duplicates=(), pooled=()):
     # A section nothing placed refers to (extabindex) is pinned by its own
     # references to placed code: the original relocation from the section of
     # the same name to the same target fixes its base.
+    # Relocations inside a weak duplicate (a dropped virtual table's entries)
+    # must not pin the section: the duplicate is not placed.
+    dropped_spans = [(s["section"], s["address"], s["address"] + s["size"]) for s in symbols
+                     if s["name"] in duplicates and s["section"] and s["section"] < 0xFF00]
     for section, where, kind, symbol, addend in relocations(obj):
         name = names[section]
         if name in addresses or symbol["section"] not in layout or names[symbol["section"]] not in addresses:
+            continue
+        if any(section == d and a <= where < b for d, a, b in dropped_spans):
             continue
         offset = position(symbol["section"], symbol["address"] + addend)
         if offset is None:

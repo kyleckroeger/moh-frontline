@@ -12,7 +12,9 @@ dead data does not keep discarded functions alive in SN's link.
 A unit may list `weak_duplicates`: weak functions, or weak data objects such
 as a class's virtual table, that it compiles but whose copy in the original
 came from another file, as MW's linker kept the first weak definition and
-dropped later ones. The compiled copy is renamed `<name>$duplicate` and every
+dropped later ones. A listed virtual table may be compiled global (the unit
+defines a weak destructor out of line, which makes it the key function) as
+long as the original copy is weak. The compiled copy is renamed `<name>$duplicate` and every
 relocation to it is pointed at a new undefined symbol of the original name,
 which the unit resolves to the retained copy; SN's unused-code stripping then
 drops a renamed function, and a data section holding only renamed objects is
@@ -44,7 +46,7 @@ from formats import Elf32
 STT_OBJECT, STT_SECTION = 1, 3
 R_PPC_ADDR32 = 1
 SECTION_HEADER_SIZE, ALIGNMENT_FIELD = 40, 32
-STB_WEAK, STT_FUNC = 2, 2
+STB_GLOBAL, STB_WEAK, STT_FUNC = 1, 2, 2
 DUPLICATE_SUFFIX = "$duplicate"
 
 
@@ -107,7 +109,12 @@ def redirect_weak_duplicates(data, unit):
         matches = [i for i, s in enumerate(symbols) if s["name"] == name and s["section"]]
         symbol = symbols[matches[0]] if len(matches) == 1 else None
         code = symbol is not None and obj.sections[symbol["section"]]["name"] in (".text", ".init")
-        if (symbol is None or symbol["binding"] != STB_WEAK
+        # A virtual table may be compiled global: defining a weak destructor out
+        # of line makes it the class's key function. The original copy must
+        # still be weak (project_build checks that), and the compiled table is
+        # dropped like any other duplicate.
+        vtable = symbol is not None and name.startswith("__vt__") and (symbol["type"], code) == (STT_OBJECT, False)
+        if (symbol is None or symbol["binding"] not in ((STB_WEAK, STB_GLOBAL) if vtable else (STB_WEAK,))
                 or (symbol["type"], code) not in ((STT_FUNC, True), (STT_OBJECT, False))):
             raise ValueError(f"Weak duplicate is not one compiled weak function or data object: {name}")
         found.append(matches[0])
