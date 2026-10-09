@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 583592,
+    "matching_code_bytes": 584180,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.2557296482611,
+    "percent": 41.29729699159887,
     "categories": {
-      "reconstructed_game": 363400,
+      "reconstructed_game": 363988,
       "restored_library": 220192
     },
-    "matching_functions": 3530
+    "matching_functions": 3535
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -408,6 +408,7 @@
     "config/GMFE69/debug_prof_stats.json": "8dcd3d54a8afdfb1de007b790e6297ba0114db0f72803a6a900504683f086f17",
     "config/GMFE69/debug_prof_timers.json": "55be7658fe193c6c91eef7449b78be88ec1a421e62537cafe7f4df8d85f2aac1",
     "config/GMFE69/debugger.json": "b4812b86753209416cae697106b949c189ef985bbe634aca332ff006abd18fdb",
+    "config/GMFE69/decal.json": "f775815ac9b5507f5affed7a669b6cc54e9967c55017d1bdc9aff8559f9d065a",
     "config/GMFE69/decal_dtor.json": "a454c6b4f69ad8d7b90dd660a437dd63dba158c6bb2328ad6cf5dbd6d6b165cc",
     "config/GMFE69/decal_link.json": "a9cd419b7f28f863b525d23f4d8f33aaf81204d1a1c12a6f8e9fa4f2c48ffd11",
     "config/GMFE69/decal_reset.json": "4547a8eb423bd81d2a64715034a3a2f954412e0a9f28961b5830b92c7fe9e41f",
@@ -464,8 +465,9 @@
     "config/GMFE69/filesys_ea.json": "dacffd3bb5e27253683c9a096855d1a570e1e50864f054f816c183c91cc4d609",
     "config/GMFE69/filesys_ea_del.json": "42ec0436e074b8549cd6d4042c9475e5de4119516b2b2b3e8b06d0f517ce663b",
     "config/GMFE69/flush_cache.json": "aa1c08f24f7fa7ce6bf2cfa32e6ae398b7b93fea2374de2a6120d5e28e6b9578",
-    "config/GMFE69/font.json": "192da369bd9089ea5ff935965a96644b66682a28b77c07194c7d7bc62b3539e8",
+    "config/GMFE69/font.json": "56ec5e4085fe4be430a0e0bc9f2870a0bae1430b36449d0f699317f3ab478655",
     "config/GMFE69/font_draw.json": "5b076cf5e79a45b55f122dfb0500689760f73b90a131276a81a1303bcfe7b4af",
+    "config/GMFE69/font_driver.json": "6b6cf9d6937c5cd191b23edd80f9b11e5300b4d0dd4fd7ab2b2dde997d2cb36a",
     "config/GMFE69/font_dtor.json": "1e715f04f802f58f34e73eb7642ec5e005026d329b98fdded4a42d0394d02e00",
     "config/GMFE69/font_render.json": "5fc6f85516a9de629cbc62fd74b09edb52a26ddae28fa7cfeacc6814ec2b2304",
     "config/GMFE69/fontchar.json": "52d15cdb73d5c697247c5e96fc9c264304ab2e315365308ab6d0f47d0d6364d8",
@@ -565,7 +567,7 @@
     "config/GMFE69/notify.json": "c38d6c9a4082d80e5a32878f9cd688b3a1f471536d75f5c5735906a7d0084251",
     "config/GMFE69/nubevent.json": "d6afc4bc3a93eb5ab6fc791d166d4243a4fee57863e76656a656235d2e20e0f2",
     "config/GMFE69/nubinit.json": "31d1c39b2e8b521619a8057a399755f5ef941d3d9949999f6b99a43d81fe87a2",
-    "config/GMFE69/objcreate.json": "7ee5848d9937fe23daf92c6b95a773f1ad6e3f253bce5a15d91f930b10582c63",
+    "config/GMFE69/objcreate.json": "7780c06cc834bfacffa713b60bf48a6753f26ca45c800d8d787f3032fe32afa0",
     "config/GMFE69/objcreate_thrown.json": "12ea771133efdc53c651084ede9c6a1f5f050b658c4b1ae5677a475a592ea318",
     "config/GMFE69/objcreate_volumes.json": "9ea49b4ea422dcafd7ef99eeb655960f126c1add85c3f19fb7512d661eb9bacb",
     "config/GMFE69/odenotstub.json": "cde02d0bad08735240dc149deb947f684b59c706dfabe1fb3f4af2f61ebd0dd5",
@@ -615,7 +617,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "31e53d8cf0c109833bc0c8c530cc2ca43c45443f2536f6242cff3bf7166dbb16",
+    "config/GMFE69/project.json": "6d9df0ec79f35da5a1803ccab62fa4e0de123a28358eef61869f7149db90998c",
     "config/GMFE69/projectilebullet.json": "cdb5672aceab48b4c354e7df26f4d02a36355002f12a5c0901f81866b26f9213",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -2202,6 +2204,7 @@
     "src/game/debug_prof_cprofhistrenderbin_dtor.cpp": "d4ce99045397aae6ce2a629ff3d63b6ca5c0d0d5f8bd3ebff390f5a7f14793e5",
     "src/game/debug_prof_stats.cpp": "329b4e66b68a2dacbf7e235cdef1c2aab91ede3d3ae90fbc85d0433ee1244262",
     "src/game/debug_prof_timers.cpp": "a36d77060298ff1dc7be3f288aa7b0714204a28af156806a870f0c70f2c3e51e",
+    "src/game/decal.cpp": "e0d86b79d68c4cdff929cd76e1617ddc7ab1860c96cacd7e388a9dccc9d2745c",
     "src/game/decal_dtor.cpp": "612f9bb1293cebeabc6c596c8fa245727867b0e79fba157ab4d406951cb84c93",
     "src/game/decal_link.cpp": "bacae8a4e726d84634f4a9723e7c05de4257ccf33c187ce51740130f12d99ab3",
     "src/game/decal_reset.cpp": "7e30742ab9acdc0d18aecd5095453f38574bc5887d26a04547d45f5fad367412",
@@ -2231,8 +2234,9 @@
     "src/game/fiber_ivolume.cpp": "6ef502741988da285d30efd673faad6726732f10c1f264b4773aa29b7dcd5e0c",
     "src/game/fiber_visibility.cpp": "fe3137b7bfbdc6c744b78db6ebb7cbabd48b4888ade40afde4bcffd621dd3238",
     "src/game/filesys.cpp": "edc914b77e55cfec7501ffc2150c34cefc432d28c3e9aa1eceea55a4cbe755ad",
-    "src/game/font.cpp": "20dc282ade8622a6477d4a787b1df38aa6a0af7c35078543606bbd3b26152cf1",
+    "src/game/font.cpp": "65255c01226641dd00889793fe46dd4a6a31eee9be31b7b6aeaf2ce6c561398a",
     "src/game/font_draw.cpp": "6824755c9510e8f1d0475d587a33721ecc5a2e74c3ac05b02bc7f50b9dc5e7af",
+    "src/game/font_driver.cpp": "bf6a37772fdeda1200bca043c621d97e1062969444c5ac825ebc2eeaaf217bb5",
     "src/game/font_dtor.cpp": "8c425fb32946c7c293bddfcd88c7f74918c3f654b7d56ee72173e76edbf215b0",
     "src/game/font_render.cpp": "8b8a8b59a300e5d70d688b53b329040aa3401ee1d6291798754a5237c6fce537",
     "src/game/framework.cpp": "8cebad26aba8fe4a9a9ece0492c0bf7bb34882a1eec7dd48a1b3b93d0830914f",
@@ -2273,7 +2277,7 @@
     "src/game/matstack.cpp": "6634a4f6e298738943789d4f05c03cb1b8cf92892785cdac08855af4fec0cf58",
     "src/game/memory.cpp": "75e50f5f66acd16755a070f59afef29e6869b97dede92fada6399d2931c1b27c",
     "src/game/motionblur.cpp": "1b31c01402463956146e455b7b7d444b73c86d939f8738f31f1bce3f99ee9a83",
-    "src/game/objcreate.cpp": "a8ec01efb52c079a05a8d23f4da6a48069b76b8f72381051618d38351aee33c9",
+    "src/game/objcreate.cpp": "0d48087a61a1db87a72c4aae93711e3bdaba21d7e9f05667d9a8b48bc8ef92ee",
     "src/game/objcreate_thrown.cpp": "d9b0ec7a926027460ef4625878ba959f7b619211e867bed686b2ae87556583eb",
     "src/game/objcreate_volumes.cpp": "3e46b56b5e76f2426a12d0bebc6a022380252dfcc1ad4e0f898ffee9b73993bb",
     "src/game/orient.cpp": "031b0d870db82013b99a554649dfe99038d03705b3309d14909ed0094ee43304",
@@ -18878,7 +18882,7 @@
       "linked_sha256": "1ca4ae8f269f9b1d5f18eb2c00790e9f5ffec6d1af0f3b0786382fa240ac4da8"
     },
     {
-      "id": "font",
+      "id": "font_driver",
       "category": "reconstructed_game",
       "functions": 2,
       "code_bytes": 152,
@@ -18913,8 +18917,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "d3b7f07e200abd31f0190f0ce46636c0cef3f7bef00fa3c0a863f247acac970b",
-      "linked_sha256": "6527fa202a68d8f18dd7d790feacee87b4f8f388ec42debfbab94ca1128d6b58"
+      "object_sha256": "13d1d23d0cc32899b6f5fa7736e47424bd43646b29893099297e9cb1d41c28dd",
+      "linked_sha256": "f7ab162f83399665369ea11f23d2545d041717b8c0e20f14a4b89f3a54f3a73f"
     },
     {
       "id": "AIFilter",
@@ -19270,8 +19274,8 @@
     {
       "id": "objcreate",
       "category": "reconstructed_game",
-      "functions": 13,
-      "code_bytes": 188,
+      "functions": 15,
+      "code_bytes": 460,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -19301,10 +19305,10 @@
         "-fp_contract",
         "on"
       ],
-      "strip_unused": false,
+      "strip_unused": true,
       "discarded_functions": [],
-      "object_sha256": "b143c39726f8d55cab5649803c9e3e9a1bb91919d1b9adb9f0da32d4957e22c3",
-      "linked_sha256": "410915a4cd33ea09b66873e3799bd156d080893338aef0bf3fa05029f3cca7de"
+      "object_sha256": "37c607b53cee25aa9ace40e989044cb9c980aa721af308e0ff16deee086aeaa5",
+      "linked_sha256": "4c11629e089c965006e665109b5f7ad86b70f8ee0639cf9a35988cf3b2ca2f16"
     },
     {
       "id": "Moh2",
@@ -40356,6 +40360,84 @@
       "discarded_functions": [],
       "object_sha256": "8dba6469d5b3ed63f1118e4fa5f1123d00bbf496714a44a82a656344e6a4a68c",
       "linked_sha256": "56e3218cc80b130180e4b9fc14296bf87f87ea016d112b0895a46732cf64cbda"
+    },
+    {
+      "id": "font",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 152,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "34038734e48866fe6cc8315bebd8ca36e1eaeed2bbf6921b6d1cf02170a31b7d",
+      "linked_sha256": "a8635dd0318af76992b0b342d6dbb74394734b80dc67bf7cf0021a365f92526f"
+    },
+    {
+      "id": "decal",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 164,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "969b3d7d08871c5aa14b9771fb0789c5db37b052496d3811887967265336d945",
+      "linked_sha256": "3646a00210ec1047581cbfdad6a27c27aa59764bb090630f479bd3dfa32ea9b7"
     }
   ],
   "code_map": {
@@ -41600,20 +41682,6 @@
             "kind": "function",
             "name": "CreateObjectGetMemoryRequirements__Fv",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x80040b5c",
-            "size": 216,
-            "kind": "function",
-            "name": "__sinit_objcreate_cpp",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80040c34",
-            "size": 56,
-            "kind": "function",
-            "name": "__arraydtor$860",
-            "evidence": "local-file-symbol"
           }
         ]
       },
@@ -44588,13 +44656,6 @@
             "kind": "function",
             "name": "InitClass__5CFontFP11CRenderListP7CScreen",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x8007d1d4",
-            "size": 152,
-            "kind": "function",
-            "name": "__sinit_font_cpp",
-            "evidence": "local-file-symbol"
           }
         ]
       },
@@ -44987,20 +45048,6 @@
             "kind": "function",
             "name": "InitClass__19CBulletDecalManagerFP11CRenderListP7CScreen",
             "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80083ec0",
-            "size": 88,
-            "kind": "function",
-            "name": "__sinit_decal_cpp",
-            "evidence": "local-file-symbol"
-          },
-          {
-            "address": "0x80083f18",
-            "size": 76,
-            "kind": "function",
-            "name": "__ct__11BulletDecalFv",
-            "evidence": "between-same-file (inferred)"
           },
           {
             "address": "0x80083f64",

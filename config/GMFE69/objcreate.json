@@ -34,29 +34,53 @@
   "include_dirs": [
     "include/dolphin-sdk/libc"
   ],
-  "strip_unused": false,
+  "strip_unused": true,
   "source_root": "src/game",
   "sections": [
     {
       "name": ".text",
       "address": "0x80040aa0",
-      "size": 188,
+      "size": 460,
+      "type": 1
+    },
+    {
+      "name": ".ctors",
+      "address": "0x8016df5c",
+      "size": 4,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000a52c",
-      "size": 8,
+      "size": 24,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80011570",
-      "size": 12,
+      "size": 36,
       "type": 1
+    },
+    {
+      "name": ".bss",
+      "address": "0x801a1120",
+      "size": 216,
+      "type": 8
     }
   ],
   "functions": [
+    {
+      "name": "__sinit_objcreate_cpp",
+      "address": "0x80040b5c",
+      "size": 216,
+      "binding": 0
+    },
+    {
+      "name": "__arraydtor$860",
+      "address": "0x80040c34",
+      "size": 56,
+      "binding": 0
+    },
     {
       "name": "__dt__20CDumpObjectContainerFv",
       "address": "0x80040aa0",
@@ -137,8 +161,15 @@
     }
   ],
   "externals": {
+    "__construct_array": "0x8013834c",
+    "__ct__35BSUtilObjectInstanceMemoryAllocatorFv": "0x8003bf6c",
+    "__destroy_arr": "0x801382d4",
     "__dl__FPv": "0x8001ca2c",
-    "__dla__FPv": "0x8001c9e8"
+    "__dla__FPv": "0x8001c9e8",
+    "__dt__35BSUtilObjectInstanceMemoryAllocatorFv": "0x80035a6c",
+    "__nwa__FUl": "0x8001cae8",
+    "__register_global_object": "0x801381bc",
+    "memset": "0x80009410"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -147,5 +178,12 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "objcreate.cpp",
-  "original_file_index": 1440
+  "original_file_index": 1440,
+  "weak_duplicates": [
+    "__ct__35BSUtilObjectInstanceMemoryAllocatorFv"
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "objcreate.json"
+  }
 }

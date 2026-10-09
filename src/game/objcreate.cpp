@@ -2,9 +2,15 @@
 // accessors of the script game-object classes that follow it. The class names
 // come from the mangled symbols; the members are inferred from offsets and the
 // accessors' result types are left incomplete. The accessors are inline in
-// the original (weak symbols), so they are defined __declspec(weak). The
-// creators before them and the static initialiser after them are not part of
-// this unit.
+// the original (weak symbols), so they are defined __declspec(weak). The unit
+// ends with the file's static initialisation: the two object allocators and
+// the volume, animated-volume and environment-mechanism allocators (their
+// destructors registered; the array through a generated array destructor) and
+// the dump container (700 bytes allocated and cleared, the rest of its words
+// zero). The allocator and container members and the container's
+// constructor are inferred; the file's .bss block is defined here. The
+// creators before them are not part of this unit.
+extern "C" void* memset(void*, int, unsigned long);
 class ISceneNode;
 struct ProximityDataView;
 struct ScriptDataView;
@@ -12,9 +18,19 @@ struct HitReactionInfoView;
 
 class CDumpObjectContainer {
 public:
+    CDumpObjectContainer() {
+        m_objects = new char[700];
+        memset(m_objects, 0, 700);
+        data08 = 0;
+        data04 = 0;
+        data0c = 0;
+    }
     ~CDumpObjectContainer();
 
     char* m_objects;
+    int data04;
+    int data08;
+    int data0c;
 };
 
 CDumpObjectContainer::~CDumpObjectContainer() {
@@ -117,3 +133,17 @@ __declspec(weak) ProximityDataView* BSGO_Soldier::GetProximityData() {
 __declspec(weak) HitReactionInfoView* BSGO_Soldier::GetEmbeddedHitReactionInfo() {
     return (HitReactionInfoView*)m_hitReaction;
 }
+
+class BSUtilObjectInstanceMemoryAllocator {
+public:
+    BSUtilObjectInstanceMemoryAllocator() {}
+    ~BSUtilObjectInstanceMemoryAllocator();
+
+    unsigned char unknown00[28];
+};
+
+static BSUtilObjectInstanceMemoryAllocator g_pObjectAllocators[2];
+static BSUtilObjectInstanceMemoryAllocator g_pVolumeAllocator;
+static BSUtilObjectInstanceMemoryAllocator g_pAnimatedVolumeAllocator;
+static BSUtilObjectInstanceMemoryAllocator g_pEnvModMechAllocator;
+static CDumpObjectContainer g_DumpObjectContainer;

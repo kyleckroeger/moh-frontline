@@ -1,55 +1,50 @@
-// CFontDriver, the functions at the start of the file: the static font-driver
-// hooks that destroy (nothing to do) and create a font's texture for the
-// current CFont. The class and structure names come from the mangled symbols;
-// the members, the FONT view and CTexture's zeroing constructor are inferred
-// from offsets. CFont is a non-virtual view here. EndDraw follows and is not
-// matched (its colour copy goes through a word temporary on the stack; draft
-// with StartDraw and Draw, which match, in scratch/lib/font_wip.cpp).
-extern "C" void* memset(void*, int, unsigned long);
+// The end of font.cpp (0x8007d1d4): the static initialisation of the file's
+// string packet (its colour set to (0, 0, 0, 128)) and of the font driver,
+// whose hooks are CFontDriver's Draw, StartDraw, EndDraw, CreateFont and
+// DestroyFont (its destructor registered). The rest of the file is in other
+// units. CFontDriver, its functions, FONT, FONTCHAR, stringPacket and
+// g_FontDriver are named by the symbols; the object sizes come from the
+// symbols, while the hook members, the packet view (its type name is not
+// known: StringPacketView is this project's) and the colour constructor are
+// inferred.
+struct FONT;
+struct FONTCHAR;
 
-struct Shape;
-class CTexture {
-public:
-    CTexture() { memset(this, 0, sizeof(CTexture)); }
-    void Set(Shape*, bool);
+struct CColor {
+    CColor(unsigned char ar, unsigned char ag, unsigned char ab, unsigned char aa) : r(ar), g(ag), b(ab), a(aa) {}
 
-    unsigned char unknown00[64];
-    void* m_font;
-    struct FONT* m_owner;
+    unsigned char r;
+    unsigned char g;
+    unsigned char b;
+    unsigned char a;
 };
 
-class CFont {
-public:
-    unsigned char unknown00[36];
-    CTexture* m_texture;
-};
+struct StringPacketView {
+    StringPacketView() : m_color(0, 0, 0, 128) {}
 
-struct FONT {
-    unsigned char unknown00[28];
-    int shapeOffset;
-    unsigned char unknown20[80];
-    CFont* font;
+    unsigned char unknown000[12];
+    CColor m_color;
+    unsigned char unknown010[4096];
 };
-
-extern CFont* g_pCurrentFont;
 
 class CFontDriver {
 public:
-    static void DestroyFont(FONT*);
+    CFontDriver()
+        : m_draw(Draw), m_startDraw(StartDraw), m_endDraw(EndDraw), m_createFont(CreateFont),
+          m_destroyFont(DestroyFont) {}
+    ~CFontDriver();
+    static void Draw(FONT*, const FONTCHAR*, float, float);
+    static void StartDraw(FONT*);
+    static void EndDraw(FONT*);
     static void CreateFont(FONT*);
+    static void DestroyFont(FONT*);
+
+    void (*m_draw)(FONT*, const FONTCHAR*, float, float);
+    void (*m_startDraw)(FONT*);
+    void (*m_endDraw)(FONT*);
+    void (*m_createFont)(FONT*);
+    void (*m_destroyFont)(FONT*);
 };
 
-void CFontDriver::DestroyFont(FONT*) {
-}
-
-void CFontDriver::CreateFont(FONT* font) {
-    if (g_pCurrentFont) {
-        Shape* shape = (Shape*)((char*)font + font->shapeOffset);
-        CTexture* texture = new CTexture;
-        texture->Set(shape, false);
-        texture->m_owner = font;
-        g_pCurrentFont->m_texture = texture;
-        texture->m_font = g_pCurrentFont;
-        font->font = g_pCurrentFont;
-    }
-}
+static StringPacketView stringPacket;
+static CFontDriver g_FontDriver;
