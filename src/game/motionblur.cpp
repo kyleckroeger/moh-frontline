@@ -1,17 +1,35 @@
-// The motion-blur bin's queries and set-up: IsUsed reports whether a blur
-// amount is set, Link does nothing, SetAmount stores the amount and Init
-// registers the blur bin with the render list. CRenderBin, CBlurBin,
-// CMotionBlur and CRenderList are named by the mangled symbols; the bin and
-// the file's statics are opaque or inferred views here, and the classes are
-// non-virtual views (the bin's destructor before these functions and the
-// static initialiser after them are not part of this unit; a draft of the
-// whole file is in scratch/os/motionblur_best.cpp).
+// The whole of motionblur.cpp: the motion-blur render bin, a CRenderBin
+// registered with the render list whose IsUsed reports whether a blur amount
+// is set (its destructor, IsUsed and an empty Link), CMotionBlur's SetAmount
+// and Init, and the static initialisation of the bin. CRenderBinData,
+// CRenderBin, CBlurBin and CMotionBlur are named by the mangled symbols and
+// the RTTI; members, the 113 bin priority and the base layout are inferred.
+// CBlurBin's destructor is its key function, so its table and type
+// information are emitted here; CRenderBin's weak table and inline destructor
+// are weak duplicates, linked to the original copies.
 class CDmaTag;
 class CDmaPacket;
 
-class CRenderBin {
+class CRenderBinData {
 public:
-    unsigned char data[32];
+    CRenderBinData() : m_field0(0), m_field4(0), m_field8(0), m_fieldC(0), m_field10(0), m_priority(3) {}
+
+    int m_field0;
+    int m_field4;
+    int m_field8;
+    int m_fieldC;
+    int m_field10;
+    int m_priority;
+    int m_field18;
+};
+
+class CRenderBin : public CRenderBinData {
+public:
+    virtual ~CRenderBin() {}
+    virtual void Render(CDmaPacket&, void*);
+    virtual void Init();
+    virtual void Link(CDmaTag*, CDmaPacket&);
+    virtual bool IsUsed();
 };
 
 class CRenderList {
@@ -21,8 +39,10 @@ public:
 
 class CBlurBin : public CRenderBin {
 public:
-    bool IsUsed();
-    void Link(CDmaTag*, CDmaPacket&);
+    CBlurBin() { m_priority = 113; }
+    virtual ~CBlurBin();
+    virtual void Link(CDmaTag*, CDmaPacket&);
+    virtual bool IsUsed();
 };
 
 class CMotionBlur {
@@ -31,9 +51,12 @@ public:
     static void Init(CRenderList*);
 };
 
-extern CRenderList* g_pRenderList;
-extern float g_BlurAmount;
-extern CBlurBin g_BlurBin;
+static CRenderList* g_pRenderList;
+static float g_BlurAmount;
+static CBlurBin g_BlurBin;
+
+__declspec(weak) CBlurBin::~CBlurBin() {
+}
 
 bool CBlurBin::IsUsed() {
     return g_BlurAmount != 0.0f;

@@ -806,7 +806,6 @@
     "cdbobject_dtor.json",
     "compartment_ccptmatbin_dtor.json",
     "fader_dtor.json",
-    "motionblur_dtor.json",
     "sprite_dtor.json",
     "decal_dtor.json",
     "projectilebullet_dtor.json",
