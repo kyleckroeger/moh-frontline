@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 568464,
+    "matching_code_bytes": 568660,
     "total_executable_code_bytes": 1414572,
-    "percent": 40.18628956320357,
+    "percent": 40.20014534431616,
     "categories": {
-      "reconstructed_game": 348272,
+      "reconstructed_game": 348468,
       "restored_library": 220192
     },
-    "matching_functions": 3442
+    "matching_functions": 3445
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -360,7 +360,8 @@
     "config/GMFE69/cdbobject_ctor.json": "17c5de33bddcfe6b76fe4b222f9f7e606514c39ed21666bf7556f888b84b5f95",
     "config/GMFE69/cdbobject_dtor.json": "dd4a1b1929eddcd398618422e1ba8f18cf84cc1f587f7356add847a0ecdb35f2",
     "config/GMFE69/cdbobject_fastvec_branch.json": "0bccba109667cd4ab51465f8f4add80f256f6e5b151d133741a27f1035be6c0d",
-    "config/GMFE69/cdbobject_fastvec_frame.json": "898185339062a856afd45c4424bf40480cd7d4d130b87c309a8ffaada595e109",
+    "config/GMFE69/cdbobject_fastvec_frame.json": "c7c0aef6f1061beabc6befe68adc31b254e9e9ca48aba67596469b6ff26f8d55",
+    "config/GMFE69/cdbobject_fastvec_push.json": "12c5e895a7e0faa4caca9a275cdf882801a443f0641923de87797c12dfcbaac8",
     "config/GMFE69/cdbobject_intersect.json": "5de593a87a82359e6d9970843478881c4cfa92d8a4fd89f0d691b97618a5a57a",
     "config/GMFE69/cdbobject_leaf.json": "bcdd152fdf0120812550ad10d1d8bc9adc997c4c69f618bf5efb7bab4702eda2",
     "config/GMFE69/cdbobject_line.json": "91bd47e7a562d0b8378533ea53f11df8c56f5a4050726c04a7d0025b3409432d",
@@ -590,7 +591,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "38df276309d32fe6face3b56a401b9036adf2846056f5a0e2df8a16ee4ace3d6",
+    "config/GMFE69/project.json": "aa3b665f2e9ebcdd1e523da9d3895356787badf83a86ba32ab709d0f6299acb8",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -2120,7 +2121,8 @@
     "src/game/cdbobject_ctor.cpp": "4ef3d8ae7c6a59de2b8a6a2e8ecaf0bfa5d2495899a28cb4a7381db951fa91f0",
     "src/game/cdbobject_dtor.cpp": "994dea16ba11a5b0019cf28c70e42a6fbb20e920a2b20acaeecb7aac5cccfeea",
     "src/game/cdbobject_fastvec_branch.cpp": "b59233f54b8e8b3c49ce04a5859460a66d783d1d3f7320571a3b31837043be98",
-    "src/game/cdbobject_fastvec_frame.cpp": "9e4071d8be4a6dada815d66979bc764f3284af7c4e459ea0a39e2a4d604ac48a",
+    "src/game/cdbobject_fastvec_frame.cpp": "9f947ad7df978b4824e4737faa6dbaf33099696156626f7a76987bd700c26c33",
+    "src/game/cdbobject_fastvec_push.cpp": "6abcdba878a5a14d4779d4ebc0465753ea88c4fae7ff78a928c57c895e66ffc0",
     "src/game/cdbobject_intersect.cpp": "acb603d61819a02fa98ca169f117f9158843ca773003b5276d6773fc3c470768",
     "src/game/cdbobject_leaf.cpp": "a175af7e99c711fae80ce84c91460f3929cfe989a1d37b7c7cc18190ca2cd311",
     "src/game/cdbobject_line.cpp": "9a1aca01d57b33016c9bee73e665ee19bac161dca1e16b28ce4a1f094c76c3f1",
@@ -33997,8 +33999,8 @@
     {
       "id": "cdbobject_fastvec_frame",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 104,
+      "functions": 3,
+      "code_bytes": 168,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -34028,10 +34030,10 @@
         "-fp_contract",
         "on"
       ],
-      "strip_unused": false,
+      "strip_unused": true,
       "discarded_functions": [],
-      "object_sha256": "9843c8d5ca015b7c7b09b451a9bbd88f5d3d46232cf8043879806171c76465ae",
-      "linked_sha256": "635193cfbb6cbfb5de4c4821540827569cfc9470cb3725f8bfbe4c55862ab4c4"
+      "object_sha256": "9feb360ce3049108c2a284ad4dfbb3a00b7d6621977b881556d46cc8ac351ff8",
+      "linked_sha256": "8326ec75721fb0ab3f5f432853a7cf974755c7cfb07b84b8dcccfc964725eb9d"
     },
     {
       "id": "compartment_fastvec_tri",
@@ -38757,6 +38759,45 @@
       "discarded_functions": [],
       "object_sha256": "415081e5993bf013c08cb17c12b0df5c2e6252747f5bb0d4f33fa55c5a0f9502",
       "linked_sha256": "c254f15f815df793cf2f383b8c0aaf5c6b9968b0042efadaee84a813225b4c04"
+    },
+    {
+      "id": "cdbobject_fastvec_push",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 132,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "050fa9e5a15e01b5d98f02f9e802a6063571a684016e813926a7d435aa6d0f97",
+      "linked_sha256": "d539f0b4ec33f75ce4315ccac0b5e9c5ee64935a42abb29bbb21befa1e58eb1e"
     }
   ],
   "code_map": {
@@ -42583,27 +42624,6 @@
             "kind": "function",
             "name": "TestCDBBranchNodeCollision<6CLine3>__10CCDBObjectCFRC13CDBBranchNodeRC6CLine3R10CCollisionbRQ23dwi24fast_vec<P11CDBTriGroup>",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x80070c5c",
-            "size": 132,
-            "kind": "function",
-            "name": "push_back__Q23dwi23fast_vec<11SLocalFrame>F11SLocalFrame",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80070d48",
-            "size": 60,
-            "kind": "function",
-            "name": "__dt__11SLocalFrameFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80070d84",
-            "size": 4,
-            "kind": "function",
-            "name": "__ct__11SLocalFrameFv",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x8007133c",

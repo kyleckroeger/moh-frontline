@@ -1,13 +1,10 @@
-// A fragment of cdbobject.cpp (0x80070ce0): the weak
-// dwi::fast_vec<SLocalFrame> destructor, which frees the storage when the
-// vector owns it, and the weak SLocalFrame destructor and constructor after
-// it (the line's destructor is inline and empty). The template, SLocalFrame
-// and CLine3 are named by the mangled symbols; the members are inferred (as
-// in compartment_weak.cpp and capsule_create.cpp). The vector's destructor
-// is a weak template copy emitted in this file, defined __declspec(weak) out
-// of the class and instantiated explicitly; push_back
-// (cdbobject_fastvec_push.cpp) is not defined here. The compiler's copy of
-// the weak CLine3 destructor is a weak duplicate.
+// A fragment of cdbobject.cpp (0x80070c5c): the weak
+// dwi::fast_vec<SLocalFrame>::push_back (the frame is copied into the next
+// element: the node, then the line through its assignment). The template,
+// SLocalFrame and CLine3 are named by the mangled symbols; the members are
+// inferred views. The function is a weak template copy, defined
+// __declspec(weak) out of the class and instantiated explicitly; the
+// vector's destructor (cdbobject_fastvec_frame.cpp) is not defined here.
 extern "C" void MEM_free(void*);
 
 /* Inferred: CVector3 as four floats overlaid with two doubles. */
@@ -63,6 +60,7 @@ struct SLocalFrame {
 };
 
 namespace dwi {
+// Inferred: the vector over caller storage (as in cdbobject_fastvec_frame.cpp).
 template <class T>
 class fast_vec {
 public:
@@ -77,16 +75,9 @@ public:
     int m_growth;
 };
 
-template <class T> __declspec(weak) fast_vec<T>::~fast_vec() {
-    if (m_owned && m_data)
-        MEM_free(m_data);
+template <class T> __declspec(weak) void fast_vec<T>::push_back(T x) {
+    m_data[m_size++] = x;
 }
 }
 
 template class dwi::fast_vec<SLocalFrame>;
-
-__declspec(weak) SLocalFrame::~SLocalFrame() {
-}
-
-__declspec(weak) SLocalFrame::SLocalFrame() {
-}
