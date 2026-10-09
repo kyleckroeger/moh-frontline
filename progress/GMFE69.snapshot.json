@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 577240,
+    "matching_code_bytes": 577344,
     "total_executable_code_bytes": 1414572,
-    "percent": 40.80668923179591,
+    "percent": 40.814041278916875,
     "categories": {
-      "reconstructed_game": 357048,
+      "reconstructed_game": 357152,
       "restored_library": 220192
     },
-    "matching_functions": 3490
+    "matching_functions": 3493
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -602,7 +602,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "4252811ec17ad9a4a8a2bad551643eba931e7c60b51e91e397ef858407fc5da0",
+    "config/GMFE69/project.json": "2f9bedc13f7d1b522316169e021afef394c46d2b219947a5dcd3c3729dbdc9f7",
     "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -835,6 +835,7 @@
     "config/GMFE69/staticmesh_ctor.json": "2683d49ca98568d7645f4aaad6af2f3bd14883f224ca2a181274d57b75345afd",
     "config/GMFE69/staticmesh_offsetptr.json": "3f64cd5ec86a076e964f38a02e61d22bced25fd2b619e9027051b0ea78b21fa7",
     "config/GMFE69/staticmesh_render.json": "8706f10d4ec4af9c4dc449be5a1d6f869cd3422c520b6c543cf57460b161c5d0",
+    "config/GMFE69/staticmesh_simplebin.json": "5fb23a801437c0a09b0f12aec1762ea737197d71a1aa7a2c8e748b89b51f8abe",
     "config/GMFE69/staticobjfactory_compare.json": "de1e67e6914665d44c53427f73165463477956801f570f811aa1fe0e5cbd9ca8",
     "config/GMFE69/staticobjfactory_helmet.json": "2f6c5bd1badbac055cee6052433a73eb31ff69f724bb8439e2595d8129547181",
     "config/GMFE69/staticobjfactory_lookup.json": "05da9b919b5c5cc725d9b572eb48fa3edaa1993694239bee8372b2f69a3d2b2a",
@@ -2356,6 +2357,7 @@
     "src/game/staticmesh_ctor.cpp": "e7eb98a60efde4ad494b850cccdf587b6a7cc13769418e9628dff2216c377817",
     "src/game/staticmesh_offsetptr.cpp": "263d6411bb35449103cd581719c514339486b9d567f9c6ee5f77f1aab7850101",
     "src/game/staticmesh_render.cpp": "3f82f45df8a968dcb67dddaf130bf325787a952bbdcf1da6b5debcd4d3a01ec1",
+    "src/game/staticmesh_simplebin.cpp": "4d84ad0402d5112ba7c963dbd34fbec6bc14627b22537f3cfda9e1897a33b73e",
     "src/game/staticobjfactory_compare.cpp": "713d08159595fa45ee2498632dc7666ad6ee3deca9c5d03887be732880e0a9c2",
     "src/game/staticobjfactory_helmet.cpp": "9b5a4f644352cb9549448714ea358a2644373c8bd515fddc78342451d20e9e8d",
     "src/game/staticobjfactory_lookup.cpp": "12e3336a3169efc66ddbfa52373f4c7e35fca8d619fca81e4c27a7a6b002f7c2",
@@ -39577,6 +39579,45 @@
       "discarded_functions": [],
       "object_sha256": "64466aa4cb410d7f5ce7405d63cb90afdc4b4ba7e03251e53a2d431794f957f6",
       "linked_sha256": "18a6230a9dd0269b31c1a11652a6a00950f4944d703a681fe9080c4d89e60dfa"
+    },
+    {
+      "id": "staticmesh_simplebin",
+      "category": "reconstructed_game",
+      "functions": 3,
+      "code_bytes": 104,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [],
+      "object_sha256": "88184ba729f2a058da614d80d75a84d45591c232ef18de4abcc8565a4fee3304",
+      "linked_sha256": "2d82c84ab8ffa2073cb77accae04b507d3cbccc55178e15c91bf096940384a2d"
     }
   ],
   "code_map": {
@@ -49107,27 +49148,6 @@
             "kind": "function",
             "name": "__dt__11MSHMaterialFv",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f1dfc",
-            "size": 92,
-            "kind": "function",
-            "name": "Init__13CMshSimpleBinFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x800f1e58",
-            "size": 8,
-            "kind": "function",
-            "name": "IsUsed__13CMshSimpleBinFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x800f1e60",
-            "size": 4,
-            "kind": "function",
-            "name": "Link__13CMshSimpleBinFP7CDmaTagR10CDmaPacket",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x800f1e64",
