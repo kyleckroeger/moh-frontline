@@ -1,53 +1,61 @@
-// CSprite, the first functions of the file: Init clears two counters and
-// initialises every render bin in the list it holds, and Unload closes the
-// sprite's loaded file. CSprite, CRenderBin, CDmaTag and CDmaPacket are named
-// by the mangled symbols; CSprite is a non-virtual view with members inferred
-// from offsets. CRenderBin's virtual functions are declared in the order of
-// __vt__10CRenderBin (destructor, Render, Init, Link, IsUsed), with its links
-// before and its virtual table pointer after 28 bytes of members. Init is a
-// weak symbol in the target (inline in the class), so it is defined
-// __declspec(weak).
+// The end of sprite.cpp (0x80082818): the static initialisation of the
+// file's untextured sprite bin (built through the inline CRenderBinData and
+// CRenderBin constructors with priority 10, its destructor registered) and of
+// g_DrawContext, whose colour is set to (0, 0, 0, 128). The rest of the file
+// is in other units or not reconstructed. CSpriteNoTextureBin, CRenderBin,
+// g_SpriteNoTexture and g_DrawContext are named by the symbols; members, the
+// base layout, the 10 priority, the colour constructor and g_DrawContext's
+// type are inferred (its type name is not known: DrawContextView is this
+// project's). CSpriteNoTextureBin's virtuals are defined elsewhere, so its
+// table is external; CRenderBin's inline destructor is a weak duplicate.
 class CDmaTag;
 class CDmaPacket;
 
-void TLT_CloseFile(void*);
+struct CColor {
+    CColor(unsigned char ar, unsigned char ag, unsigned char ab, unsigned char aa) : r(ar), g(ag), b(ab), a(aa) {}
 
-class CRenderBin {
+    unsigned char r;
+    unsigned char g;
+    unsigned char b;
+    unsigned char a;
+};
+
+class CRenderBinData {
 public:
-    CRenderBin* m_prev;
-    CRenderBin* m_next;
-    unsigned char unknown08[20];
+    CRenderBinData() : m_field0(0), m_field4(0), m_field8(0), m_fieldC(0), m_field10(0), m_priority(3) {}
 
-    virtual ~CRenderBin();
-    virtual void Render(CDmaPacket&, void*);
+    int m_field0;
+    int m_field4;
+    int m_field8;
+    int m_fieldC;
+    int m_field10;
+    int m_priority;
+    int m_field18;
+};
+
+class CRenderBin : public CRenderBinData {
+public:
+    virtual ~CRenderBin() {}
+    virtual int Render(CDmaPacket&, void*);
     virtual void Init();
     virtual void Link(CDmaTag*, CDmaPacket&);
     virtual bool IsUsed();
 };
 
-class CSprite {
+class CSpriteNoTextureBin : public CRenderBin {
 public:
-    void Init();
-    void Unload();
-
-    unsigned char unknown00[8];
-    CRenderBin* m_bins;
-    int m_count0c;
-    int m_count10;
-    unsigned char unknown14[12];
-    void* m_file;
+    virtual int Render(CDmaPacket&, void*);
+    CSpriteNoTextureBin() { m_priority = 10; }
+    virtual ~CSpriteNoTextureBin();
+    virtual void Link(CDmaTag*, CDmaPacket&);
 };
 
-__declspec(weak) void CSprite::Init() {
-    m_count0c = 0;
-    m_count10 = 0;
-    for (CRenderBin* bin = m_bins; bin; bin = bin->m_next)
-        bin->Init();
-}
+struct DrawContextView {
+    DrawContextView() : m_color(0, 0, 0, 128) {}
 
-void CSprite::Unload() {
-    if (m_file) {
-        TLT_CloseFile(m_file);
-        m_file = 0;
-    }
-}
+    unsigned char unknown00[28];
+    CColor m_color;
+};
+
+static CSpriteNoTextureBin g_SpriteNoTexture;
+static DrawContextView g_DrawContext;

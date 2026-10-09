@@ -3,7 +3,65 @@
 // the weapon-record view are inferred from offsets, the result types are
 // inferred, and the class is a non-virtual view. The accessors are inline in
 // the original (weak symbols), so they are defined __declspec(weak). The static
-// initialiser that follows and the rest of the file are not part of this unit.
+// initialiser follows: the file's camera matrix (its inline constructor
+// initialises the matrix class once) and the tracer render bin (built through
+// the inline CRenderBinData/CRenderBin constructors with priority 7, its flag
+// cleared, and its destructor registered). The rest of the file is not part
+// of this unit. The bin's members, the 7 priority and the base layout are
+// inferred; CProjectileBulletRenderBin declares Render (defined elsewhere)
+// first so its global table stays elsewhere, and CRenderBin's inline
+// destructor is a weak duplicate. The texture after the flag is opaque here.
+class CDmaTag;
+class CDmaPacket;
+
+class CMatrix {
+public:
+    /* The default argument is not known; it does not change this code. */
+    CMatrix(int unknown = 0) {
+        if (!s_ClassInit)
+            InitClass();
+    }
+    static void InitClass();
+    static bool s_ClassInit;
+
+    float m[4][4];
+} __attribute__((aligned(16)));
+
+class CRenderBinData {
+public:
+    CRenderBinData() : m_field0(0), m_field4(0), m_field8(0), m_fieldC(0), m_field10(0), m_priority(3) {}
+
+    int m_field0;
+    int m_field4;
+    int m_field8;
+    int m_fieldC;
+    int m_field10;
+    int m_priority;
+    int m_field18;
+};
+
+class CRenderBin : public CRenderBinData {
+public:
+    virtual ~CRenderBin() {}
+    virtual int Render(CDmaPacket&, void*);
+    virtual void Init();
+    virtual void Link(CDmaTag*, CDmaPacket&);
+    virtual bool IsUsed();
+};
+
+class CProjectileBulletRenderBin : public CRenderBin {
+public:
+    virtual int Render(CDmaPacket&, void*);
+    CProjectileBulletRenderBin() : m_flag(false) { m_priority = 7; }
+    virtual ~CProjectileBulletRenderBin();
+
+    bool m_flag;
+    unsigned char m_texture[64];
+};
+
+static CMatrix g_WorldToCamera;
+static CProjectileBulletRenderBin g_BulletBin;
+
 class ISceneNode {
 public:
     enum EVolumeType {};

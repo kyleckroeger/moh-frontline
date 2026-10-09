@@ -459,7 +459,7 @@
     "AIStatus.json",
     "svol.json",
     "SearchNode.json",
-    "sprite.json",
+    "sprite_init.json",
     "AITankObject.json",
     "sfecho.json",
     "saemsmbf.json",
@@ -901,7 +901,8 @@
     "compartment_renderbin_dtor.json",
     "staticmesh_mshmaterial_dtor.json",
     "Moh2_scenenode_dtors.json",
-    "fader.json"
+    "fader.json",
+    "sprite.json"
   ],
   "progress": {
     "code_bytes": 1414572,

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 578620,
+    "matching_code_bytes": 578916,
     "total_executable_code_bytes": 1414572,
-    "percent": 40.904245241670274,
+    "percent": 40.925170298860714,
     "categories": {
-      "reconstructed_game": 358428,
+      "reconstructed_game": 358724,
       "restored_library": 220192
     },
-    "matching_functions": 3511
+    "matching_functions": 3513
   },
   "input_sha256": {
     "config/GMFE69/AIFilter.json": "fa4c5a7074fc0dba3643e64d20cf12bb313225660568c33bd3435cf2fc2afdab",
@@ -604,8 +604,8 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "b79f6da587d111d3636e7b7341edba00f8baf3eaca0d651f135d8ecf4fff7b10",
-    "config/GMFE69/projectilebullet.json": "d0b1c040264580fa3603e492b7056e2587b5dce87256eb525afeac35d5e66a9f",
+    "config/GMFE69/project.json": "1af2305561db12e20ff03c262aa71bcd101e1a7c5213af1f0b0963c1027eb507",
+    "config/GMFE69/projectilebullet.json": "cdb5672aceab48b4c354e7df26f4d02a36355002f12a5c0901f81866b26f9213",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
     "config/GMFE69/projectilebullet_init.json": "59efa2f81e573b18eb9d4793a24578d542a47e4cded42890b4e9f88779a0b4a4",
@@ -789,9 +789,10 @@
     "config/GMFE69/spktplay.json": "e3031d7fd2e6d5b807dad340cd7e7036ccf5f939c9ee55219901d340525a540e",
     "config/GMFE69/splysdef.json": "1638d2f55f48444894a7ccfb52aff3a616b52b1a6e9df0c16050153b8210b5d2",
     "config/GMFE69/spoutlat.json": "4553cd58f368d1b6f94792e9bfc0e27722cb316ad252e27044d73174905b56bb",
-    "config/GMFE69/sprite.json": "0933ea1071f921fad8ffcf3344607706a17b49a286504c8b6cea232463983d07",
+    "config/GMFE69/sprite.json": "6e0d9e7f1538a311e9a3740bb9aa0eb6ab377081ed29ea5f6bd1e3609ffc563a",
     "config/GMFE69/sprite_csprite_dtor.json": "0c10b7852a36d907551893f59afe7ccc73e6e1edc1f6274abb92fbfa9ad72784",
     "config/GMFE69/sprite_dtor.json": "e1123801c0bacde907695e0daa1816685359b34a975bdce90cdc5631c381cf94",
+    "config/GMFE69/sprite_init.json": "0b4f07cffbc6c8d3b6420f2606be8c8ad364a85f63b4cfafcecce122dce00f28",
     "config/GMFE69/srandom.json": "5b76703fc74b3d2999874866b5dc8000d6409377e1795965b9428ee22594ebda",
     "config/GMFE69/sresopat.json": "0326091f37307189def68532b5e49f21e4d66036974bad0c284294b67928558d",
     "config/GMFE69/srrange.json": "c40af795f9ba69dc137d2a911904e9b2d80da86aa67e87ebab6d69919b7165ab",
@@ -2287,7 +2288,7 @@
     "src/game/player_weapon_object.cpp": "1fd752be827cdffac6452a0457941d3237b13d77dec02900a4a7dac4c597d1fa",
     "src/game/player_weapon_selectable.cpp": "948a057eff27a7b565104c23d7cfddef4a5202207c2c4342f63865c782cd2741",
     "src/game/popup.cpp": "f7338a66e75f7f7549049f217d4e923f74433a9a8e5a97385b60b74aca1831a7",
-    "src/game/projectilebullet.cpp": "cdac318e5bfe1930442fa86d43227ce01dc8c4d8c571ac800610814275ec44e2",
+    "src/game/projectilebullet.cpp": "ead47250a3dc7568ead9a2b141a4cdb24055245e16eb460efdfbccdd7b20df26",
     "src/game/projectilebullet_ctor.cpp": "ef958fc8cbdb36f03a785f4d57822f17edc40fdc3ebfbe90e59963042402798a",
     "src/game/projectilebullet_dtor.cpp": "346cf1d92e80b034a1e28b918f39a6f0d3a6f3e8990f24082535d93c1d37c007",
     "src/game/projectilebullet_init.cpp": "1bf690f6a8f05572d21b3ea732d5ccfa9e224321ae9333907cfd7edb49256cef",
@@ -2347,9 +2348,10 @@
     "src/game/sphere_create.cpp": "4f2ad9592bc15cab266e199a7fbbd785d9d756c7d11b527e660c3059b0109505",
     "src/game/sphere_dispatch.cpp": "239974e0157852c05cde75174e5b367d62c47bb56ad27e7aad2f59f156cc1b83",
     "src/game/sphere_dtor.cpp": "94868ca15a7fa361f41ca283682757ebd8085ae6291fa13407861993af0b6005",
-    "src/game/sprite.cpp": "bc15c2b65f957f90ba36ae02628c870761a9a18da28ef55e964a2382df205aa4",
+    "src/game/sprite.cpp": "104b7bb47ff08649eb2e0412884332605376541f78b6b7262f8bf4bf7d9be164",
     "src/game/sprite_csprite_dtor.cpp": "ad89a18f0c521f888cb692de60853565dfdcd733f9f7ea5dae4ee750a74da16a",
     "src/game/sprite_dtor.cpp": "8b2228e3fc8f7af009f687d4211669a300b7279d5d8e2f8bfb58ccfa56771b36",
+    "src/game/sprite_init.cpp": "ca86c0e36bcafeb13e8d6dd7329025015df2aee3e685ec1f1e5dd7e3391e7596",
     "src/game/static_obj_bounds.cpp": "42758ce058b28a87feece41d46488b520f1033fcb93e1a8d01f7fc6fbc13e617",
     "src/game/static_obj_commit.cpp": "082c0322d4e466d5c2e15078dbeccedc79d79457460620dd246269727958ece6",
     "src/game/static_obj_dtor.cpp": "d2900e0d83d6c40dd8fd027146a758f25846f8251c15dfb928b9d909a1f9c275",
@@ -19556,8 +19558,8 @@
     {
       "id": "projectilebullet",
       "category": "reconstructed_game",
-      "functions": 5,
-      "code_bytes": 40,
+      "functions": 6,
+      "code_bytes": 180,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -19587,10 +19589,10 @@
         "-fp_contract",
         "on"
       ],
-      "strip_unused": false,
+      "strip_unused": true,
       "discarded_functions": [],
-      "object_sha256": "3680660dcba997cace946d1ceff92e3e655a6fa269d89bf202ed8fed21b516d0",
-      "linked_sha256": "46259c2a44343d4c6935fd9a106f3201679a732fd4d9447ebb7dc13f2843b243"
+      "object_sha256": "0cc20a96f19cce21921d47d71a423c04dbe2199d20654fff17c77a39882b8e81",
+      "linked_sha256": "266e031c46d2229afa0aba49791ed200b71d71c4e318260406023e17847d0790"
     },
     {
       "id": "world_volume",
@@ -22391,7 +22393,7 @@
       "linked_sha256": "aefd1bf482d05c854fada857fd495a1c4a4ffac2f4104bc0e074beb24f5f4bdd"
     },
     {
-      "id": "sprite",
+      "id": "sprite_init",
       "category": "reconstructed_game",
       "functions": 2,
       "code_bytes": 152,
@@ -22426,8 +22428,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "34d9d5636d2f2ef1b5f06e2e45f6977842b1f5497ae72c60df7f635693e142a9",
-      "linked_sha256": "895a26523fbfc75d95535e86ff5eb8802b6784038da93131df2f8f4186367465"
+      "object_sha256": "335743458bb365cb2eac3799b1d20c0ea3e342623a8da2253321829ead7bb16b",
+      "linked_sha256": "e0be62592dcf99a29196fa4abbc8ae939c2ca34e353bcf1ff5993b496831aaeb"
     },
     {
       "id": "AITankObject",
@@ -39823,6 +39825,45 @@
       "discarded_functions": [],
       "object_sha256": "0eae8a2872782b93d752140b708f8b88b2019af6b10715aad067f035de4f4c7e",
       "linked_sha256": "28af32f23a6074b8d042758233729f2f6e4be652d0c797015d93a57a62bc5966"
+    },
+    {
+      "id": "sprite",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 156,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": true,
+      "discarded_functions": [],
+      "object_sha256": "5e79ebfb440b5dd83ae2dffecf765ff9c47442f2345c9c89ef9cf50de1590325",
+      "linked_sha256": "8610ecdd23401c7b3d9bc0fa08f1f64966a3a1053b374614c4f1cbaa5c7104b2"
     }
   ],
   "code_map": {
@@ -44454,13 +44495,6 @@
             "kind": "function",
             "name": "Render__19CSpriteNoTextureBinFR10CDmaPacketPv",
             "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80082818",
-            "size": 156,
-            "kind": "function",
-            "name": "__sinit_sprite_cpp",
-            "evidence": "local-file-symbol"
           }
         ]
       },
@@ -47792,13 +47826,6 @@
             "kind": "function",
             "name": "InitClass__17CProjectileBulletFP11CRenderListP7CScreen",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x800d1bcc",
-            "size": 140,
-            "kind": "function",
-            "name": "__sinit_projectilebullet_cpp",
-            "evidence": "local-file-symbol"
           }
         ]
       },
