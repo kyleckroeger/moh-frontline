@@ -39,24 +39,36 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x8001bea4",
-      "size": 120,
+      "address": "0x8001be68",
+      "size": 180,
       "type": 1
     },
     {
       "name": "extab",
-      "address": "0x8000976c",
-      "size": 8,
+      "address": "0x80009764",
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
-      "address": "0x80010178",
-      "size": 12,
+      "address": "0x8001016c",
+      "size": 24,
       "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "GetCurrent__7CScreenFv",
+      "address": "0x8001be68",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "Init__7CScreenFv",
+      "address": "0x8001be70",
+      "size": 52,
+      "binding": 1
+    },
     {
       "name": "__dt__7CScreenFv",
       "address": "0x8001bea4",
@@ -65,8 +77,12 @@
     }
   ],
   "externals": {
+    "VBlankHandler__7CScreenFUl": "0x8001bf1c",
+    "VIInit": "0x8011b2c0",
+    "VISetPreRetraceCallback": "0x8011aff4",
     "__dl__FPv": "0x8001ca2c",
     "__vt__7CScreen": "0x80181dc4",
+    "g_bReady": "0x8034e721",
     "g_pScreen": "0x8034e714",
     "g_prevScreen": "0x8034e710"
   },
@@ -74,14 +90,20 @@
   "discarded_functions": [],
   "upstream": {},
   "local_externals": [
+    "g_bReady",
     "g_pScreen",
     "g_prevScreen"
   ],
   "discarded_local_functions": [],
   "sda_externals": [
+    "g_bReady",
     "g_pScreen",
     "g_prevScreen"
   ],
   "original_file": "Screen.cpp",
-  "original_file_index": 183
+  "original_file_index": 183,
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "Screen_cscreen_dtor.json"
+  }
 }
