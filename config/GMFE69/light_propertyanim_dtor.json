@@ -39,8 +39,8 @@
   "sections": [
     {
       "name": ".text",
-      "address": "0x80077c40",
-      "size": 144,
+      "address": "0x80077bd4",
+      "size": 252,
       "type": 1
     },
     {
@@ -62,6 +62,12 @@
   ],
   "functions": [
     {
+      "name": "Destroy__18CPropertyAnimLightFv",
+      "address": "0x80077bd4",
+      "size": 108,
+      "binding": 1
+    },
+    {
       "name": "__dt__18CPropertyAnimLightFv",
       "address": "0x80077c40",
       "size": 144,
@@ -77,12 +83,15 @@
     "__vt__10ISceneNode": "0x80181c78",
     "__vt__16IMovingSceneNode": "0x80181b54",
     "__vt__18CPropertyAnimLight": "0x80184248",
-    "__vt__6CLight": "0x8018436c"
+    "__vt__6CLight": "0x8018436c",
+    "g_AnimLightManager": "0x801ddd84"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
   "upstream": {},
-  "local_externals": [],
+  "local_externals": [
+    "g_AnimLightManager"
+  ],
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "light.cpp",
@@ -95,5 +104,9 @@
     "__dt__16IMovingSceneNodeFv",
     "__vt__10ISceneNode",
     "__vt__16IMovingSceneNode"
-  ]
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "light_propertyanim_dtor.json"
+  }
 }

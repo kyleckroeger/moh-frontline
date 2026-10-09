@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 591256,
+    "matching_code_bytes": 591364,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.79751896686772,
+    "percent": 41.8051537850318,
     "categories": {
-      "reconstructed_game": 371064,
+      "reconstructed_game": 371172,
       "restored_library": 220192
     },
-    "matching_functions": 3609
+    "matching_functions": 3610
   },
   "input_sha256": {
     "config/GMFE69/AIDoodad.json": "fbe6da2750e71d43ae68554e3fcdce413e76e9d8463f18206e347c607056e6f8",
@@ -537,7 +537,7 @@
     "config/GMFE69/light_animmanager_dtor.json": "6b170da52539da07540d0c77b71341b45d5ca1c51074abee5ff3790895294a65",
     "config/GMFE69/light_dtor.json": "0c78711ec0f90949b7014c91aada7c828ba6131a161b8ad50da5571a8ef1b84d",
     "config/GMFE69/light_instanced_dtor.json": "960ee911950d8c846b9b641d00302051d9d3eaf0adeeca0446a5d663d3471c4b",
-    "config/GMFE69/light_propertyanim_dtor.json": "e7e3d30aad511ef85bb0f44d78e3b363844c12c87e8a135e3c3c4b2d6998941f",
+    "config/GMFE69/light_propertyanim_dtor.json": "8d2a5979b53407a3b8a12fc5290151d00afc1013b263d7527cc0ad76c1eb5980",
     "config/GMFE69/light_rows.json": "b1e2d208b2efeb78c81fb9a601b42cdb105ad6470af43234fd1d07b362395e31",
     "config/GMFE69/light_statics.json": "730af9a96b78cf0df1ca0a668451523c0bdb4e5a6cfcd50a6f21e4afe0d39cb4",
     "config/GMFE69/light_visible.json": "8c836e812fe34c340bb43e1008bd7983aa6c949f63d6d4772676498915b7a608",
@@ -1922,7 +1922,6 @@
     "src/ea/stream_greedy.cpp": "3357523a97088d2259a33a67b7a43549a03167dd7038677aa0f03d15fa5f40e7",
     "src/ea/stream_prio.cpp": "78e45fbfeaf50cbbd39f4f2543003d4b23b0bf084724f61f1a8124ec88df293b",
     "src/ea/stretch.c": "ee57f26e69055ee4d65ebc19c03a895da6badd9bc262a26c99808ab396ea8eb1",
-    "src/ea/stricmp.cpp": "dae5cff2aa9c92c020ffc191f7049b131c7b0ca4d9ef514427033ef3ba7ae823",
     "src/ea/supf.c": "6887947b6223d085d1b4ae151937fb4107e5f1338b36fe73fd37bb15718a7cf9",
     "src/ea/suplf.c": "dfe878bc5bc53b45e72bb0ed6608b43d00ace2d55bb924f9cd199a5c04123aad",
     "src/ea/supmutf.c": "9dd420f031cc5c776078ad4d7385adfbd4be1c6fe16b6832cf0130623106f98e",
@@ -2309,7 +2308,7 @@
     "src/game/light_animmanager_dtor.cpp": "2efd3ac7f402f9405cf423f15b9342ac2676b64494b475a4e415588ba83b5655",
     "src/game/light_dtor.cpp": "17bcb6248b274d92b93f74644d29bbc3940ae94b5d946121dcdab18914254825",
     "src/game/light_instanced_dtor.cpp": "dfe26b5ce2aedaefdb8fbbb89a9713b184518048a510d02cfa2d9a07b139892b",
-    "src/game/light_propertyanim_dtor.cpp": "0d3a91fa8348b2b0575c28e9d50630b11c91b75c84d1e01389507876a7284096",
+    "src/game/light_propertyanim_dtor.cpp": "2a371d4c270a60c8fe1cce701ab0fddbb6942734c6229ac8c0f700dc1b564b9b",
     "src/game/light_rows.cpp": "ee305d6a4bbdcda116b02c0c3b0c0665b2487928f78c5472c8e50ee310d03f88",
     "src/game/light_statics.cpp": "3b668c751c5611c7fcb137dca194e5abf94fac42d94cf7ec498be79b9b11f1eb",
     "src/game/light_visible.cpp": "1aff95e093197ccb9edc92eb0c3b9a76e3b409725a66d9992627ca3f1bfaaca5",
@@ -37568,8 +37567,8 @@
     {
       "id": "light_propertyanim_dtor",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 144,
+      "functions": 2,
+      "code_bytes": 252,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -37601,8 +37600,8 @@
       ],
       "strip_unused": true,
       "discarded_functions": [],
-      "object_sha256": "0dcb834bf9bc5aa5a90ec2c2646e1b2ee9a23f24ec445a399224e50e099d3a66",
-      "linked_sha256": "412bc18cfd508a0ef3e9936569ca4c8b96d005b59e20270d233be9c2fc57b764"
+      "object_sha256": "beb6327f36fecde721c96680db9ed385a7888c82441fdfdbafbc19b65c6b1ad8",
+      "linked_sha256": "9fb571e54c35300b59e164b5a1f89a6f20c608aa271a3972704fba4655d5b179"
     },
     {
       "id": "light_animmanager_dtor",
@@ -44995,13 +44994,6 @@
             "kind": "function",
             "name": "BeginUpdate__18CPropertyAnimLightFf",
             "evidence": "exception-index"
-          },
-          {
-            "address": "0x80077bd4",
-            "size": 108,
-            "kind": "function",
-            "name": "Destroy__18CPropertyAnimLightFv",
-            "evidence": "between-same-file"
           },
           {
             "address": "0x80077cd0",
