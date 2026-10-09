@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 593732,
+    "matching_code_bytes": 593792,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.97255424255535,
+    "percent": 41.976795808202056,
     "categories": {
-      "reconstructed_game": 373540,
+      "reconstructed_game": 373600,
       "restored_library": 220192
     },
-    "matching_functions": 3630
+    "matching_functions": 3631
   },
   "input_sha256": {
     "config/GMFE69/AIDoodad.json": "fbe6da2750e71d43ae68554e3fcdce413e76e9d8463f18206e347c607056e6f8",
@@ -333,7 +333,7 @@
     "config/GMFE69/bsbifunc_translate.json": "1a144fd68ee4fc87e3944f3711817a1f846a56b4d3a5ea8e198315a32d03a974",
     "config/GMFE69/bsbifunc_vibration.json": "c525b69dc2e36d0ad6e40409da3a1f1dea2a32238e14c2877acfd493878d7ee2",
     "config/GMFE69/bsearch.json": "dd287b9523a5f289e22dc32f273d0f9756b610c9280ec41b84aac1d7ea50912b",
-    "config/GMFE69/bsevents.json": "2aeb131d0a02fd08f26cd8f361e30969243ceb6f7d6ac5bed95127a164c234d3",
+    "config/GMFE69/bsevents.json": "aa7dd294f1fc574b3f663d78757f6edac1c94d0c9962135fa15230a5a532f457",
     "config/GMFE69/bsevents_head.json": "214dd97eb3b394d4a514cc4f7584f6bac263f5a8692e7ab38f1a59add09c3199",
     "config/GMFE69/bsfile.json": "f961138f149b308ce0811724b7e70892a6161a21bf25023f415870d3dd03c2f7",
     "config/GMFE69/bsmachin.json": "99e6f626f2cdb4c5eddca656c56ef9cc28369e547992ff630f5c3bbc93fa72ef",
@@ -2159,7 +2159,7 @@
     "src/game/bsbifunc_targetsearch.cpp": "2284c553e4ea9300571a2398758d5689a9ee64f7cb7050ec33af28c6c783daee",
     "src/game/bsbifunc_translate.cpp": "d1915d1a5106223f684829156d43feab4702a6fdc447b2532addd9941ddc195e",
     "src/game/bsbifunc_vibration.cpp": "43ba02afe369628880a3cfa0c998d04397a1cc2ca9bec847caf3b60f5b910065",
-    "src/game/bsevents.cpp": "aa32aad0e0e904d7bd279360bf2722adf227b1ecccac7293c15c96e384a0a844",
+    "src/game/bsevents.cpp": "ec38373536c7b31b7c54ee3d5990b7b284d298c49740a07fd021663c569a22c9",
     "src/game/bsevents_head.cpp": "b485fb5293b1ed2cb8052f460e86469f0eeabec70a4810718761d759b6d339eb",
     "src/game/bsfile.cpp": "af375447dad6c73a39950974ef6a4ac7c892bbbb7541fba3b32587c6d1c69cab",
     "src/game/bsmachin.cpp": "29ef7c9c19942e3dc51d97c49266ac9b237c8658ffef55d4536c8968e7d44b1e",
@@ -40646,8 +40646,8 @@
     {
       "id": "bsevents",
       "category": "reconstructed_game",
-      "functions": 1,
-      "code_bytes": 56,
+      "functions": 2,
+      "code_bytes": 116,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -40679,8 +40679,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "deb80c2a9f9309117d44e025ea5b0611bfcd920f8171765b253513af502aab6a",
-      "linked_sha256": "0ef91371ffdd0a35d53458543749ec7394b64bcb0af2a43f3b7d9b37e1666454"
+      "object_sha256": "fa4fbbffc9182690ad5f4e29c0c8e2e7268459092c62adcb4fc7e004409f795f",
+      "linked_sha256": "be085585d27a2972f1363b70a9bc0ff6a464d644c71bf4b8d24f6f5ec9701b5c"
     },
     {
       "id": "input",
@@ -42149,13 +42149,6 @@
             "size": 56,
             "kind": "function",
             "name": "BSEventGetMemoryRequirements__Fv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80035a6c",
-            "size": 60,
-            "kind": "function",
-            "name": "__dt__35BSUtilObjectInstanceMemoryAllocatorFv",
             "evidence": "exception-index"
           }
         ]

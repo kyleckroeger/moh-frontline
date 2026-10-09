@@ -38,7 +38,7 @@
     {
       "name": ".text",
       "address": "0x80035a34",
-      "size": 56,
+      "size": 116,
       "type": 1
     },
     {
@@ -50,13 +50,13 @@
     {
       "name": "extab",
       "address": "0x8000a234",
-      "size": 8,
+      "size": 16,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x800110fc",
-      "size": 12,
+      "size": 24,
       "type": 1
     },
     {
@@ -72,10 +72,16 @@
       "address": "0x80035a34",
       "size": 56,
       "binding": 0
+    },
+    {
+      "name": "__dt__35BSUtilObjectInstanceMemoryAllocatorFv",
+      "address": "0x80035a6c",
+      "size": 60,
+      "binding": 2
     }
   ],
   "externals": {
-    "__dt__35BSUtilObjectInstanceMemoryAllocatorFv": "0x80035a6c",
+    "__dl__FPv": "0x8001ca2c",
     "__register_global_object": "0x801381bc"
   },
   "undefined_in_discarded_code": [],
@@ -85,5 +91,9 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "bsevents.cpp",
-  "original_file_index": 1139
+  "original_file_index": 1139,
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "bsevents.json"
+  }
 }
