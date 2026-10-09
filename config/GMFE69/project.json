@@ -887,7 +887,8 @@
     "dmesh_partbin_render.json",
     "csg_volume_line.json",
     "skybox_instance.json",
-    "skybox_textures.json"
+    "skybox_textures.json",
+    "cdbgeom_vector.json"
   ],
   "progress": {
     "code_bytes": 1414572,
