@@ -939,7 +939,8 @@
     "AIPlayerObject_ctor.json",
     "AITankObject_ctor.json",
     "debug_picker.json",
-    "plane_ctor.json"
+    "plane_ctor.json",
+    "AIFilter_soldier_ctor.json"
   ],
   "progress": {
     "code_bytes": 1414572,

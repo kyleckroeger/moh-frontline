@@ -1,0 +1,122 @@
+{
+  "id": "AIFilter_soldier_ctor",
+  "source": "src/game/AIFilter_soldier_ctor.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8005bda4",
+      "size": 184,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000b01c",
+      "size": 28,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800121ac",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "SetupTargetMatchList__15CAIFilterObjectF20aifilter_target_modeP14aistatus_matchi",
+      "address": "0x8005be48",
+      "size": 4,
+      "binding": 1
+    },
+    {
+      "name": "ResetTargetMatchList__15CAIFilterObjectF20aifilter_target_mode",
+      "address": "0x8005be4c",
+      "size": 4,
+      "binding": 1
+    },
+    {
+      "name": "SetTargetMode__15CAIFilterObjectF20aifilter_target_mode",
+      "address": "0x8005be50",
+      "size": 4,
+      "binding": 1
+    },
+    {
+      "name": "ChooseTarget__15CAIFilterObjectFf",
+      "address": "0x8005be54",
+      "size": 8,
+      "binding": 1
+    },
+    {
+      "name": "__ct__22CAIFilterSoldierObjectFv",
+      "address": "0x8005bda4",
+      "size": 120,
+      "binding": 1
+    },
+    {
+      "name": "GetTargetScript__15CAIFilterObjectCFv",
+      "address": "0x8005be1c",
+      "size": 36,
+      "binding": 1
+    },
+    {
+      "name": "LinkGameObject__15CAIFilterObjectFPv",
+      "address": "0x8005be40",
+      "size": 8,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "__ct__16CAISoldierObjectFPv": "0x8004fa1c",
+    "__dt__15CAIFilterObjectFv": "0x8005be5c",
+    "__nw__16CAISoldierObjectFUlPv": "0x8004fa8c",
+    "__vt__15CAIFilterObject": "0x80183800",
+    "__vt__22CAIFilterSoldierObject": "0x801837dc"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "AIFilter.cpp",
+  "original_file_index": 2575,
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "AIFilter_soldier_dtor.json"
+  }
+}

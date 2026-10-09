@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 589544,
+    "matching_code_bytes": 589728,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.67649296041488,
+    "percent": 41.689500428398134,
     "categories": {
-      "reconstructed_game": 369352,
+      "reconstructed_game": 369536,
       "restored_library": 220192
     },
-    "matching_functions": 3597
+    "matching_functions": 3604
   },
   "input_sha256": {
     "config/GMFE69/AIDoodad.json": "fbe6da2750e71d43ae68554e3fcdce413e76e9d8463f18206e347c607056e6f8",
@@ -24,6 +24,7 @@
     "config/GMFE69/AIFilter_fastvec.json": "afcacc0b636055fa6183e423afbdae833fa0216f57cadcf06893fa9fa2e4ba79",
     "config/GMFE69/AIFilter_linechecks.json": "2b952f4eb91c42bd2da84282d07969d91463036eca1aca3f8664a216f5df6231",
     "config/GMFE69/AIFilter_mechchecker_dtor.json": "678d5e87e222356181986273a9dcc23057b6594655905f2e38a87929b98354bc",
+    "config/GMFE69/AIFilter_soldier_ctor.json": "644466e1af9e7ba52183a5d32e623f5cb68f23e37a71908b10e05fce2f92091e",
     "config/GMFE69/AIFilter_soldier_dtor.json": "ed35f302ec0c96bf409c3d2815cce552cf29d65b165c37b631b0f8d218ba5690",
     "config/GMFE69/AIFilter_tank_dtor.json": "7b26c2829bebdc968339fe1e783bf8dddff52d66132791b9e921892dfb5c670f",
     "config/GMFE69/AIFilter_visit.json": "d796125fd78b1b7b47cfed013f2f4dfae0df978e85e39e8e4fc28c5ca94a6adf",
@@ -637,7 +638,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "6e7dabcf22482e6e3cd71bdb2d62acb2f7666e5f85362bf1c136efb7ef262e0d",
+    "config/GMFE69/project.json": "4ddbd7e0c6be5a3158660ea73ee12f9b375539bb3049e5b367595e2190b1a491",
     "config/GMFE69/projectilebullet.json": "cdb5672aceab48b4c354e7df26f4d02a36355002f12a5c0901f81866b26f9213",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -1945,6 +1946,7 @@
     "src/game/AIFilter_fastvec.cpp": "6d276a12bde7199d708af6cd13ab64306c7c5f64486a9ba036ac3d6b0e5bf7fc",
     "src/game/AIFilter_linechecks.cpp": "251a98e238821ebe03cf95b6e2fcb5147ad84472be8a727d8887fb0a53a9c652",
     "src/game/AIFilter_mechchecker_dtor.cpp": "af8fcfe8356b90aaf2cfc22a7e597228e54591feccdd2ae17d650974988820a2",
+    "src/game/AIFilter_soldier_ctor.cpp": "f436457b079a2ca07870874e59ca34068104021a07205e29256d2e7fdbf02e9d",
     "src/game/AIFilter_soldier_dtor.cpp": "055b43c3c6e7e49bf782f0f63d45a51f438561db3de258810b4d52c0b4586e79",
     "src/game/AIFilter_tank_dtor.cpp": "0bc0d291505e886614de67cd86d7d2f78fa7707e2342edbfcc52fed517e7627c",
     "src/game/AIFilter_visit.cpp": "c51216f358db283d3a19cc78f7c5bbbd1c35819d50071a98ba361cd6e4083ea2",
@@ -41381,6 +41383,45 @@
       "discarded_functions": [],
       "object_sha256": "5ffff833e11e56d0cf64fa3a6cbd266c67d8424e674434e68115c29deca98f9d",
       "linked_sha256": "020d92fdc623f6c28f70de03e1d55db8c10e0af67f77b5079e1eafa9aee89dcb"
+    },
+    {
+      "id": "AIFilter_soldier_ctor",
+      "category": "reconstructed_game",
+      "functions": 7,
+      "code_bytes": 184,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "4e2823701aa427f31283761d4ec10c477cfd8f2cee8c0401ee7b1cc0e09c430a",
+      "linked_sha256": "83f67374a04b07a7cfafb9d7d4aa19ea8272083987326141680b8e8c3ad7d3e9"
     }
   ],
   "code_map": {
@@ -43896,55 +43937,6 @@
             "size": 8,
             "kind": "function",
             "name": "__nw__22CAIFilterSoldierObjectFUlPv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8005bda4",
-            "size": 120,
-            "kind": "function",
-            "name": "__ct__22CAIFilterSoldierObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8005be1c",
-            "size": 36,
-            "kind": "function",
-            "name": "GetTargetScript__15CAIFilterObjectCFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8005be40",
-            "size": 8,
-            "kind": "function",
-            "name": "LinkGameObject__15CAIFilterObjectFPv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8005be48",
-            "size": 4,
-            "kind": "function",
-            "name": "SetupTargetMatchList__15CAIFilterObjectF20aifilter_target_modeP14aistatus_matchi",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8005be4c",
-            "size": 4,
-            "kind": "function",
-            "name": "ResetTargetMatchList__15CAIFilterObjectF20aifilter_target_mode",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8005be50",
-            "size": 4,
-            "kind": "function",
-            "name": "SetTargetMode__15CAIFilterObjectF20aifilter_target_mode",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8005be54",
-            "size": 8,
-            "kind": "function",
-            "name": "ChooseTarget__15CAIFilterObjectFf",
             "evidence": "between-same-file"
           },
           {
