@@ -1,0 +1,97 @@
+{
+  "id": "staticmesh_render",
+  "source": "src/game/staticmesh_render.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x800f1c58",
+      "size": 328,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000f6a0",
+      "size": 8,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800162ec",
+      "size": 12,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "Render__10CMSHMatBinFR10CDmaPacketPv",
+      "address": "0x800f1c58",
+      "size": 328,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "GetGAMECUBEMatrix34__7CMatrixCFRA3_A4_f": "0x8008eefc",
+    "UpdateLightingParams__FR10CDmaPacket": "0x800f2ce4",
+    "g_CurrState": "0x8034ed24",
+    "g_WorldToCameraMatrix": "0x802da560"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [
+    "g_CurrState",
+    "g_WorldToCameraMatrix"
+  ],
+  "discarded_local_functions": [],
+  "sda_externals": [
+    "g_CurrState"
+  ],
+  "original_file": "staticmesh.cpp",
+  "original_file_index": 9367,
+  "pooled_sections": [
+    ".sdata"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034e320"
+    }
+  ]
+}
