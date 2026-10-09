@@ -2,12 +2,13 @@
 // RCMP system's REAL defaults, or restore the framework. FRAMEWORK, g_fw,
 // RCMP and RCMP_SYSTEM are named by the symbols; the framework object is an
 // opaque view here. The unit ends with the static initialisation, which
-// registers g_fw's destructor; the rest of the file is not part of it.
+// registers g_fw's destructor, and that weak empty destructor (emitted for
+// the registration); the rest of the file is not part of it.
 class FRAMEWORK {
 public:
     void Init();
     void Restore();
-    ~FRAMEWORK();
+    ~FRAMEWORK() {}
 
     int m_state;
 };

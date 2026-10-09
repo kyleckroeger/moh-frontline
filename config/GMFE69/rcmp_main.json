@@ -40,7 +40,7 @@
     {
       "name": ".text",
       "address": "0x8010422c",
-      "size": 136,
+      "size": 196,
       "type": 1
     },
     {
@@ -52,13 +52,13 @@
     {
       "name": "extab",
       "address": "0x8000fc54",
-      "size": 24,
+      "size": 32,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x800169b8",
-      "size": 36,
+      "size": 48,
       "type": 1
     },
     {
@@ -92,13 +92,19 @@
       "address": "0x80104250",
       "size": 48,
       "binding": 1
+    },
+    {
+      "name": "__dt__9FRAMEWORKFv",
+      "address": "0x801042b4",
+      "size": 60,
+      "binding": 2
     }
   ],
   "externals": {
     "Init__9FRAMEWORKFv": "0x800fce58",
     "Restore__9FRAMEWORKFv": "0x800fce54",
     "SetREALDefaults__Q24RCMP11RCMP_SYSTEMFv": "0x80105234",
-    "__dt__9FRAMEWORKFv": "0x801042b4",
+    "__dl__FPv": "0x8001ca2c",
     "__register_global_object": "0x801381bc",
     "rcmp_sys__4RCMP": "0x803158ac"
   },
