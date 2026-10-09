@@ -18,11 +18,40 @@ void DebugMsg(const char*, ...);
 class CAIObject {
 public:
     void SetTarget(CAIObject*);
+    void Init();
+    bool UpdateReactionTime();
+    void UpdateTargetPosition();
+    void WalkNextSplinePathPoint();
+    void WalkAStarPath();
+    void WalkToCoverPointDirect();
+    void WalkToCoverPointIndirect();
+    void WalkToCoverPoint();
+    void CheckCoverpointUsefulness();
+    void WalkToArbitraryPoint();
+    void ProcessObstacleAvoidance();
 
     unsigned char unknown00[4];
     CAIObject* m_next;
     unsigned char unknown08[12];
     unsigned char m_team;
+    unsigned char data015;
+    unsigned char unknown016[174];
+    void* m_target;
+    unsigned char unknown0c8[236];
+    int data1b4;
+    int data1b8;
+    int data1bc;
+    int data1c0;
+    int data1c4;
+    int data1c8;
+    unsigned char unknown01cc[8];
+    int data1d4;
+    unsigned char unknown01d8[60];
+    int data214;
+    int m_walkMode;
+    unsigned char unknown021c[200];
+    bool m_avoidObstacles;
+    unsigned char unknown02e5[1107];
 };
 
 class CAITankObject : public CAIObject {
@@ -30,8 +59,12 @@ public:
     CAIObject* ChooseTarget(CAIObject*, float);
     void SetupTargetMatchList(aifilter_target_mode, aistatus_match*, int);
     void ResetTargetMatchList(aifilter_target_mode);
+    void Init();
+    void Update(float);
+    void PreUpdate();
 
-    unsigned char unknown018[1832];
+    float data738;
+    float data73c;
     aifilter_target_mode m_targetMode;
     aistatus_match m_matches[4];
     int m_matchCount;
@@ -125,4 +158,52 @@ void CAITankObject::ResetTargetMatchList(aifilter_target_mode) {
         m_matchCount = 2;
         break;
     }
+}
+
+void CAITankObject::Init() {
+    CAIObject::Init();
+    data1b4 = 15.0f * (data738 / data73c) + 0.999f;
+    data1b8 = data015;
+    data1bc = data214;
+    data1c0 = 4;
+    data1c4 = 1;
+    data1c8 = m_team;
+    data1d4 = 0;
+    m_targetMode = (aifilter_target_mode)3;
+}
+
+void CAITankObject::Update(float) {
+    if (UpdateReactionTime() && m_target)
+        UpdateTargetPosition();
+    switch (m_walkMode) {
+    case 1:
+        WalkNextSplinePathPoint();
+        break;
+    case 2:
+        WalkAStarPath();
+        break;
+    case 3:
+        WalkToCoverPointDirect();
+        break;
+    case 4:
+        WalkToCoverPointIndirect();
+        break;
+    case 9:
+        WalkToCoverPoint();
+        break;
+    case 5:
+        CheckCoverpointUsefulness();
+        break;
+    case 8:
+        WalkToArbitraryPoint();
+        break;
+    }
+    if (m_avoidObstacles)
+        ProcessObstacleAvoidance();
+    data1b4 = 15.0f * (data738 / data73c) + 0.999f;
+    data1c0 = 4;
+    data1c4 = 1;
+}
+
+void CAITankObject::PreUpdate() {
 }

@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 587020,
+    "matching_code_bytes": 587792,
     "total_executable_code_bytes": 1414572,
-    "percent": 41.49806443220989,
+    "percent": 41.552639243530905,
     "categories": {
-      "reconstructed_game": 366828,
+      "reconstructed_game": 367600,
       "restored_library": 220192
     },
-    "matching_functions": 3576
+    "matching_functions": 3585
   },
   "input_sha256": {
     "config/GMFE69/AIDoodad.json": "fbe6da2750e71d43ae68554e3fcdce413e76e9d8463f18206e347c607056e6f8",
@@ -39,6 +39,7 @@
     "config/GMFE69/AIPlayerDoodad.json": "5ab45909efeb94b828331a8b68a46467e9cb19518255f572f32340c24b98dff2",
     "config/GMFE69/AIPlayerDoodad_ctor.json": "9ed1f96e0a4447ba5131b13995d0c306f81d6fe19541c101dbeb15e1c1e728a2",
     "config/GMFE69/AIPlayerObject.json": "89824370512e8f14345d260f39b95516cf337b026e7e61b8d6013d4d3664516a",
+    "config/GMFE69/AIPlayerObject_ctor.json": "80ebb37115b93a0105fc405c2eb5ae17a8c51cf02abe03fbfde55bf941c15967",
     "config/GMFE69/AISoldierDoodad.json": "2ff63fd49039400e569490a49c8f89bc08ec427340dabd46764dc1812cdf00c9",
     "config/GMFE69/AISoldierDoodad_ctor.json": "caeacd6d69ad0007c4315aea9525831c62aaaab40809d07dd8273ad3ac35a256",
     "config/GMFE69/AISoldierObject.json": "c3d1756c0755251a68f135a86019766caa0aa2b222b71095c50f2d42aa27f69f",
@@ -48,7 +49,8 @@
     "config/GMFE69/AIStatus.json": "660a5d8ecd6c07021df76f56c05e8c09028a125b685db2bdc15ffc00155e6916",
     "config/GMFE69/AITankDoodad.json": "733dd452ed553547b1c19276c94ec192493fdac622dc9fe66b677e200a12a55a",
     "config/GMFE69/AITankDoodad_ctor.json": "b7339de28c2f82bb5a2232ffe6f5a7490858774ac38a3f336ca933e0efa117a9",
-    "config/GMFE69/AITankObject.json": "c22940ad844f57e41ae90453d0f3a59482f748692aa22e9de34d36f2a126f68f",
+    "config/GMFE69/AITankObject.json": "25601fa508dec87a67381da565f58f6e07d74a0c1ce417934a5b14544108cc27",
+    "config/GMFE69/AITankObject_ctor.json": "80a2de5d6b46adaf2a55ce5c70416b3e9934098e1729caf15b7ed05864b28418",
     "config/GMFE69/AX.json": "9f1dc192bbf2a804e1bc70c4908f57a4239b099f0d64abd99844dab7657f62fe",
     "config/GMFE69/AXAlloc.json": "b51afdb5cb97132361ccd2fe3e018cda2e215277e2c457b6ff35b3a9cd352f47",
     "config/GMFE69/AXAux.json": "e73769cf63d05e457ce16280d154d201b73a7014df5904ad30b39446572b82ce",
@@ -633,7 +635,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "61ee26492f99068415b2a8fe4e710d32f9370f1fd6b382bc61c1154195b64127",
+    "config/GMFE69/project.json": "ab8b0fab112736daed3e4257695e8221769556ffcbb571a2d9341e29dab2e908",
     "config/GMFE69/projectilebullet.json": "cdb5672aceab48b4c354e7df26f4d02a36355002f12a5c0901f81866b26f9213",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -1956,6 +1958,7 @@
     "src/game/AIPlayerDoodad.cpp": "218144f1416be0e264e2255e27e05126728778a56d650e5705a961e69003196e",
     "src/game/AIPlayerDoodad_ctor.cpp": "affe5c0403f8734a6b3c76b21fc0ab50abd04c970203215da1450d867457c621",
     "src/game/AIPlayerObject.cpp": "b1e57451819617f12a53f7185419f09b4ece3035859b25fcedb2752ec9d226bf",
+    "src/game/AIPlayerObject_ctor.cpp": "4f285ebef430e1e16a0a440db064984c974d09df782b8e30526e50b82a209f4e",
     "src/game/AISoldierDoodad.cpp": "a70f1395b35f9773c7b6bbcd36e3da76824a4604449b9d8b5472447931a9754a",
     "src/game/AISoldierDoodad_ctor.cpp": "0a5911f8b1c6b7647ab7662922691130ca86efa59d043c34880b405ee46b1b44",
     "src/game/AISoldierObject.cpp": "82ab8c934b605ad46fc5f84e47ad097ad75cbe488964e674f7b99f931cd36a00",
@@ -1965,7 +1968,8 @@
     "src/game/AIStatus.cpp": "b0cb64aa93cf6090a9a87ef0cecc6265f1501230bb50b10428d58cfb2173001c",
     "src/game/AITankDoodad.cpp": "35252fb5c75740ecddc982a39bfecfc3c4a046a4e75046679eff1050fd598da9",
     "src/game/AITankDoodad_ctor.cpp": "8255a774b4a9461f08ade2f235e630d06713d1fbf28edbf1bdbaec5cc5e1b4e7",
-    "src/game/AITankObject.cpp": "d08f8aaea2eb44b990720c13ef97541d442300a050d416fb99b0a64607996f73",
+    "src/game/AITankObject.cpp": "16884551de80d9d21264f0f4b728c886d3f3e389b50300ef239697f31c4ade49",
+    "src/game/AITankObject_ctor.cpp": "1f030f4858f98d025d0a1e30b0085e5e02d5393045f481cb86a72d8f752ad35c",
     "src/game/AnimObjFactory.cpp": "2e2b57fc04c9964fdce19f6a41496489c097cd607462f4cb7bd82763e1df4ab8",
     "src/game/ConfigGC.cpp": "046f94990755952d7365859a057d8e875e0e78e8e4b4a7c82186f1ec54912a3f",
     "src/game/IStudio.cpp": "475da8a6cac14dba071556791d28fa6fb39f7fb4ec8a0f04509aa437a3bd75ef",
@@ -22500,8 +22504,8 @@
     {
       "id": "AITankObject",
       "category": "reconstructed_game",
-      "functions": 3,
-      "code_bytes": 744,
+      "functions": 6,
+      "code_bytes": 1152,
       "compiler_family": "GC",
       "compiler_version": "1.3.2",
       "compiler_flags": [
@@ -22533,8 +22537,8 @@
       ],
       "strip_unused": false,
       "discarded_functions": [],
-      "object_sha256": "304b8054efc9daed5ba38af27a77d12b7a4864413e333ea0fbe6fc957eaea317",
-      "linked_sha256": "784439e1ae4911228b328e25f27d5e6698d382c330205a0f3c881c9577a65cc3"
+      "object_sha256": "2f07b25d93d9bd1b99bf9885e441ca30fe1f84e69e68adc7a46ea1def02dd5d3",
+      "linked_sha256": "406b33045e07146987225a7872330cfb8f9fa31bac5300c8bdb86f9ddfce51c7"
     },
     {
       "id": "sfecho",
@@ -41217,6 +41221,84 @@
       "discarded_functions": [],
       "object_sha256": "04883215b3e56f8b81642fd86eb926de6b3871ac6161bb5fcd52872ef62ee61a",
       "linked_sha256": "ef2d8a8becb0880c1c9f634b036920ac721be7bbf7a154af129aa99490871ccd"
+    },
+    {
+      "id": "AIPlayerObject_ctor",
+      "category": "reconstructed_game",
+      "functions": 2,
+      "code_bytes": 172,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "20acb9ef1842637ce58b28f08463a9194ea30bb7aac2854eba65273f864a7b53",
+      "linked_sha256": "b6ccea3dab447fc54c63f79048ffd18196a7748de41ac9b110880dc042f9718e"
+    },
+    {
+      "id": "AITankObject_ctor",
+      "category": "reconstructed_game",
+      "functions": 4,
+      "code_bytes": 192,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "8cd63124f61021571440767d611947f76f98766ba26db1bee7812eeec216a633",
+      "linked_sha256": "37d5b56b4c4b7571c65d09b1079562dd3ce4673b2bf00ef308e9a6b2b6f2206a"
     }
   ],
   "code_map": {
@@ -42969,27 +43051,6 @@
         ]
       },
       {
-        "name": "Unmatched files/AIPlayerObject.cpp [symbol evidence]",
-        "file_record": 26,
-        "file_name": "AIPlayerObject.cpp",
-        "ranges": [
-          {
-            "address": "0x8004f270",
-            "size": 96,
-            "kind": "function",
-            "name": "__dt__15CAIPlayerObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8004f2d0",
-            "size": 76,
-            "kind": "function",
-            "name": "__ct__15CAIPlayerObjectFPv",
-            "evidence": "exception-index"
-          }
-        ]
-      },
-      {
         "name": "Unmatched files/AISoldierObject.cpp [inferred file group]",
         "file_record": 27,
         "file_name": "AISoldierObject.cpp",
@@ -43119,67 +43180,6 @@
             "kind": "function",
             "name": "ExpandDerivative__20CAISplinePathSegmentFfR8CVector3",
             "evidence": "between-same-file"
-          }
-        ]
-      },
-      {
-        "name": "Unmatched files/AITankObject.cpp [symbol evidence]",
-        "file_record": 30,
-        "file_name": "AITankObject.cpp",
-        "ranges": [
-          {
-            "address": "0x80052174",
-            "size": 140,
-            "kind": "function",
-            "name": "Init__13CAITankObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80052200",
-            "size": 264,
-            "kind": "function",
-            "name": "Update__13CAITankObjectFf",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80052308",
-            "size": 4,
-            "kind": "function",
-            "name": "PreUpdate__13CAITankObjectFv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x8005230c",
-            "size": 8,
-            "kind": "function",
-            "name": "__nw__13CAITankObjectFUlPv",
-            "evidence": "between-same-file"
-          },
-          {
-            "address": "0x80052314",
-            "size": 68,
-            "kind": "function",
-            "name": "__dt__13CAITankObjectFv",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80052358",
-            "size": 112,
-            "kind": "function",
-            "name": "__ct__13CAITankObjectFPv",
-            "evidence": "exception-index"
-          }
-        ]
-      },
-      {
-        "name": "Unknown file/.text @ 800523c8",
-        "ranges": [
-          {
-            "address": "0x800523c8",
-            "size": 4,
-            "kind": "function",
-            "name": "__ct__21CAIFilterRealPositionFv",
-            "evidence": "unknown-file"
           }
         ]
       },

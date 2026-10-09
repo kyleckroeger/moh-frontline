@@ -40,19 +40,19 @@
     {
       "name": ".text",
       "address": "0x80051e8c",
-      "size": 744,
+      "size": 1152,
       "type": 1
     },
     {
       "name": "extab",
       "address": "0x8000aa6c",
-      "size": 16,
+      "size": 32,
       "type": 1
     },
     {
       "name": "extabindex",
       "address": "0x80011be8",
-      "size": 24,
+      "size": 48,
       "type": 1
     },
     {
@@ -61,9 +61,27 @@
       "size": 133,
       "type": 1,
       "input_alignment": 4
+    },
+    {
+      "name": ".data",
+      "address": "0x801835f8",
+      "size": 40,
+      "type": 1
     }
   ],
   "functions": [
+    {
+      "name": "Update__13CAITankObjectFf",
+      "address": "0x80052200",
+      "size": 264,
+      "binding": 1
+    },
+    {
+      "name": "PreUpdate__13CAITankObjectFv",
+      "address": "0x80052308",
+      "size": 4,
+      "binding": 1
+    },
     {
       "name": "ChooseTarget__13CAITankObjectFP9CAIObjectf",
       "address": "0x80051e8c",
@@ -81,11 +99,28 @@
       "address": "0x80051fb0",
       "size": 452,
       "binding": 1
+    },
+    {
+      "name": "Init__13CAITankObjectFv",
+      "address": "0x80052174",
+      "size": 140,
+      "binding": 1
     }
   ],
   "externals": {
+    "CheckCoverpointUsefulness__9CAIObjectFv": "0x8004aa28",
     "DebugMsg__FPCce": "0x80018c88",
-    "SetTarget__9CAIObjectFP9CAIObject": "0x8004d41c"
+    "Init__9CAIObjectFv": "0x8004ebe0",
+    "ProcessObstacleAvoidance__9CAIObjectFv": "0x80049dd4",
+    "SetTarget__9CAIObjectFP9CAIObject": "0x8004d41c",
+    "UpdateReactionTime__9CAIObjectFv": "0x8004ec04",
+    "UpdateTargetPosition__9CAIObjectFv": "0x8004e024",
+    "WalkAStarPath__9CAIObjectFv": "0x8004b8fc",
+    "WalkNextSplinePathPoint__9CAIObjectFv": "0x8004cd34",
+    "WalkToArbitraryPoint__9CAIObjectFv": "0x80049e88",
+    "WalkToCoverPointDirect__9CAIObjectFv": "0x8004a284",
+    "WalkToCoverPointIndirect__9CAIObjectFv": "0x8004a0ec",
+    "WalkToCoverPoint__9CAIObjectFv": "0x8004a454"
   },
   "undefined_in_discarded_code": [],
   "discarded_functions": [],
@@ -94,5 +129,26 @@
   "discarded_local_functions": [],
   "sda_externals": [],
   "original_file": "AITankObject.cpp",
-  "original_file_index": 2121
+  "original_file_index": 2121,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x8034f9f0"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x8034f9f4"
+    }
+  ],
+  "adapted_from": {
+    "repository": "https://github.com/lifewillbeokay/moh-rising-sun",
+    "manifest": "AITankObject.json"
+  }
 }
