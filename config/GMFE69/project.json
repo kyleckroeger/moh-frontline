@@ -939,7 +939,8 @@
     "AIFilter_soldier_ctor.json",
     "particlesystem_reset.json",
     "AIObject_ctor.json",
-    "swvideodisplaylist_dtor.json"
+    "swvideodisplaylist_dtor.json",
+    "path_createtrack.json"
   ],
   "progress": {
     "code_bytes": 1414572,
