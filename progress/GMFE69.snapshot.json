@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 598776,
+    "matching_code_bytes": 598856,
     "total_executable_code_bytes": 1414572,
-    "percent": 42.32912852792223,
+    "percent": 42.33478394878451,
     "categories": {
-      "reconstructed_game": 378584,
+      "reconstructed_game": 378664,
       "restored_library": 220192
     },
-    "matching_functions": 3661
+    "matching_functions": 3662
   },
   "input_sha256": {
     "config/GMFE69/AIDoodad.json": "fbe6da2750e71d43ae68554e3fcdce413e76e9d8463f18206e347c607056e6f8",
@@ -539,6 +539,7 @@
     "config/GMFE69/light_rows.json": "b1e2d208b2efeb78c81fb9a601b42cdb105ad6470af43234fd1d07b362395e31",
     "config/GMFE69/light_statics.json": "730af9a96b78cf0df1ca0a668451523c0bdb4e5a6cfcd50a6f21e4afe0d39cb4",
     "config/GMFE69/light_visible.json": "8c836e812fe34c340bb43e1008bd7983aa6c949f63d6d4772676498915b7a608",
+    "config/GMFE69/line.json": "14feba82157321efb5f145ac48a77087a2dc3af0a7d897010d1c8a6ed3add761",
     "config/GMFE69/locatbig.json": "951de0b6c115be49b7755a129307e91c30deb6c630ba9c49821cf71f0db076f0",
     "config/GMFE69/main_TRK.json": "53a7c3f8fdc516d26210c5002897d55d0bb651015e4e46852c26248d117ade9b",
     "config/GMFE69/mainloop.json": "2994436609fef577d03fa3220d0c44d5933025297dcfae7a7880dded142e765a",
@@ -638,7 +639,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "5921e7415b4a4bd32751414f0ec23d779ee724561db828d9df2376eb0b09f511",
+    "config/GMFE69/project.json": "88a723ed83c2ac14a8bc4bed913a093172248d5ebf498fb1b2f0944ab97a53f6",
     "config/GMFE69/projectilebullet.json": "cdb5672aceab48b4c354e7df26f4d02a36355002f12a5c0901f81866b26f9213",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -2311,6 +2312,7 @@
     "src/game/light_rows.cpp": "ee305d6a4bbdcda116b02c0c3b0c0665b2487928f78c5472c8e50ee310d03f88",
     "src/game/light_statics.cpp": "3b668c751c5611c7fcb137dca194e5abf94fac42d94cf7ec498be79b9b11f1eb",
     "src/game/light_visible.cpp": "1aff95e093197ccb9edc92eb0c3b9a76e3b409725a66d9992627ca3f1bfaaca5",
+    "src/game/line.cpp": "0a38f575a6ef0763dc7df5178432e9c05f15ec0e262e7286fb71c13bcf01d421",
     "src/game/mainloop.cpp": "737d1965982728d6b7eaa43a46e3a6b9ce55122ca931a402690524e1af5cf172",
     "src/game/matrix.cpp": "f70a0142eeb28c529bf11a33e99b3c5fd0ea55e1cf068f038b9228c29f9659d5",
     "src/game/matrix_endian.cpp": "e342534dedf41a3cc8e97898b3e66ada0e476de40351f51bef798d27a64a5e46",
@@ -41465,6 +41467,45 @@
       "discarded_functions": [],
       "object_sha256": "cc5572097baab918300b50c9bf6028eb2fd6cfc0a9f9ab8c02234bbfd8dc5d30",
       "linked_sha256": "46bef8764090567e83cbb13cfd58bd8772dc4128b9f83f6360cbc8d0a849b378"
+    },
+    {
+      "id": "line",
+      "category": "reconstructed_game",
+      "functions": 1,
+      "code_bytes": 80,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "b535518811033f8c9a6867cf245e12e8de9c754f7a8f2480299c82a807be95f8",
+      "linked_sha256": "c1ecc1cca4029e7a84d407d0a9275244a48138211af9f6307d110394fcc6bee9"
     }
   ],
   "code_map": {
@@ -46201,13 +46242,6 @@
         "file_record": 105,
         "file_name": "line.cpp",
         "ranges": [
-          {
-            "address": "0x800922f4",
-            "size": 80,
-            "kind": "function",
-            "name": "IsDegenerate__6CLine3CFv",
-            "evidence": "private-reference"
-          },
           {
             "address": "0x80092344",
             "size": 2020,
