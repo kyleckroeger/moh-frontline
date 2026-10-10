@@ -940,7 +940,8 @@
     "particlesystem_reset.json",
     "AIObject_ctor.json",
     "swvideodisplaylist_dtor.json",
-    "path_createtrack.json"
+    "path_createtrack.json",
+    "MathFun_rotate.json"
   ],
   "progress": {
     "code_bytes": 1414572,

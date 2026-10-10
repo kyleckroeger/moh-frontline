@@ -6,14 +6,14 @@
   "dol_sha1": "0e96c0bea0d7717297f376b7b11229ca99b4b9c6",
   "runtime_tested": false,
   "progress": {
-    "matching_code_bytes": 596928,
+    "matching_code_bytes": 597456,
     "total_executable_code_bytes": 1414572,
-    "percent": 42.19848830600351,
+    "percent": 42.23581408369457,
     "categories": {
-      "reconstructed_game": 376736,
+      "reconstructed_game": 377264,
       "restored_library": 220192
     },
-    "matching_functions": 3655
+    "matching_functions": 3659
   },
   "input_sha256": {
     "config/GMFE69/AIDoodad.json": "fbe6da2750e71d43ae68554e3fcdce413e76e9d8463f18206e347c607056e6f8",
@@ -106,6 +106,7 @@
     "config/GMFE69/LinkedList.json": "602f883f2de084765f8942b8e59f71e78eba4a2f6decd323bf7ba7b64498ec81",
     "config/GMFE69/MallocInit.json": "8084909a7be143dbe22e68d1ec13bf2de5447a3ce15fc2023dff212530d007d1",
     "config/GMFE69/MathFun.json": "d1ab7afb2af9cadf02e249106d121c5a9d825d11e0c21945f3b10467862b5682",
+    "config/GMFE69/MathFun_rotate.json": "b39fb1db5affcac7298dd4844c3bda739d4219f69bc913297a61c3f274c0992b",
     "config/GMFE69/MemoryCardGC.json": "181b70b0acd6c7b7ce4e3285a39a302993af67a5082bd61b037246bdeabc3d68",
     "config/GMFE69/MemoryCardGC_blocks.json": "7d2fcfecad6a958975600a6a583d710e1beead8f8318f43cd292994bede153d0",
     "config/GMFE69/MemoryCardGC_close.json": "24947d4305e42b3fc5d06c842080d4f02462ba07ace217958e200ee3bdc6e68d",
@@ -637,7 +638,7 @@
     "config/GMFE69/popup.json": "47739561832811c8bbf6693ac803a5196b89812ef4fb952acbef56f7756808a3",
     "config/GMFE69/printf.json": "99130232b41dba4e0aa3f60aeb58e6020463cc30757edc204a72c608f46a890d",
     "config/GMFE69/printstr.json": "7f4aafcc4ffd925b00bf8fb0d0a8985a091cd20c4e95d8e299b32ebf72d84a5c",
-    "config/GMFE69/project.json": "7efc71c2fc98d2d2dc503c66950360efcab99f647879ec63586ae9c9e0cd042d",
+    "config/GMFE69/project.json": "5921e7415b4a4bd32751414f0ec23d779ee724561db828d9df2376eb0b09f511",
     "config/GMFE69/projectilebullet.json": "cdb5672aceab48b4c354e7df26f4d02a36355002f12a5c0901f81866b26f9213",
     "config/GMFE69/projectilebullet_ctor.json": "da3a005482c44d0b7d7475002150267ca5974367d07e3a9cb67da533b75ab244",
     "config/GMFE69/projectilebullet_dtor.json": "aba7badbb4f5e46c7283a00f5951e082c9bb858412001c0a1c4924539072cea8",
@@ -1983,6 +1984,7 @@
     "src/game/LinkedList.cpp": "3007b79180a5844b8b799dc4fc11618f6b5da77679e6c73c6f388fec501beb2a",
     "src/game/MallocInit.cpp": "ba35f4c9ac530c717f81930ab9aa3a203ea81844e4776914ae6b51acf4188a74",
     "src/game/MathFun.cpp": "5a60cf13aeb557c033e5adb906365756165d8401c8d9f239c72e95a9c96b96df",
+    "src/game/MathFun_rotate.cpp": "752683a7f2fd640d5c8c3e15ff8f658fb0ccb0485fb1a70503906b7eb2a7b107",
     "src/game/MemoryCardGC.cpp": "e1ba23aa6e93c5a5957581dfb804d9446e03f95caefa87437b92a318a2ff28f4",
     "src/game/MemoryCardGC_blocks.cpp": "98069d95c07e193d8445fbcb0e940c6962faf8f81d70534c2652c80f2084267b",
     "src/game/MemoryCardGC_close.cpp": "18d4c5cdeb6a1182427d48bbd4174695e634daf5988d9bb64f0fc388ad1241a9",
@@ -41424,6 +41426,45 @@
       "discarded_functions": [],
       "object_sha256": "1c9d2b10b16719b3b912855193ee00f8c4236be1935df620d9a40d71990d3ad1",
       "linked_sha256": "097b7f001fac3d435ba29fdbb782d898c5a367ca95916e54417ffe0c54ed64cf"
+    },
+    {
+      "id": "MathFun_rotate",
+      "category": "reconstructed_game",
+      "functions": 4,
+      "code_bytes": 528,
+      "compiler_family": "GC",
+      "compiler_version": "1.3.2",
+      "compiler_flags": [
+        "-nodefaults",
+        "-proc",
+        "gekko",
+        "-align",
+        "powerpc",
+        "-enum",
+        "int",
+        "-fp",
+        "hardware",
+        "-Cpp_exceptions",
+        "on",
+        "-O4,p",
+        "-inline",
+        "auto",
+        "-pragma",
+        "cats off",
+        "-nosyspath",
+        "-RTTI",
+        "off",
+        "-str",
+        "reuse,readonly",
+        "-use_lmw_stmw",
+        "on",
+        "-fp_contract",
+        "on"
+      ],
+      "strip_unused": false,
+      "discarded_functions": [],
+      "object_sha256": "5e6bf996688868927780ad7e5265e753751596932cb352d5da38cf11fe02d74e",
+      "linked_sha256": "1693240e51698411bae57ebc6a6ab6df1eb9ba386a372ca693ae734d6e84877c"
     }
   ],
   "code_map": {
@@ -46200,34 +46241,6 @@
             "size": 452,
             "kind": "function",
             "name": "MathFunGetPanAngleDiffNoRoll__FP8CVector3P8CVector3P8CVector3",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8009340c",
-            "size": 104,
-            "kind": "function",
-            "name": "MathFunNormalizeAngleNegativePiToPi__Ff",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80093474",
-            "size": 140,
-            "kind": "function",
-            "name": "MathFunRotateAboutZ__FPfPff",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x80093500",
-            "size": 140,
-            "kind": "function",
-            "name": "MathFunRotateAboutY__FPfPff",
-            "evidence": "exception-index"
-          },
-          {
-            "address": "0x8009358c",
-            "size": 144,
-            "kind": "function",
-            "name": "MathFunAtan2F__Fff",
             "evidence": "exception-index"
           }
         ]

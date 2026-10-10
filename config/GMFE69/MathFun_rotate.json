@@ -1,0 +1,145 @@
+{
+  "id": "MathFun_rotate",
+  "source": "src/game/MathFun_rotate.cpp",
+  "category": "reconstructed_game",
+  "compiler_family": "GC",
+  "compiler_version": "1.3.2",
+  "compiler_flags": [
+    "-nodefaults",
+    "-proc",
+    "gekko",
+    "-align",
+    "powerpc",
+    "-enum",
+    "int",
+    "-fp",
+    "hardware",
+    "-Cpp_exceptions",
+    "on",
+    "-O4,p",
+    "-inline",
+    "auto",
+    "-pragma",
+    "cats off",
+    "-nosyspath",
+    "-RTTI",
+    "off",
+    "-str",
+    "reuse,readonly",
+    "-use_lmw_stmw",
+    "on",
+    "-fp_contract",
+    "on"
+  ],
+  "include_dirs": [
+    "include/dolphin-sdk/libc"
+  ],
+  "strip_unused": false,
+  "source_root": "src/game",
+  "sections": [
+    {
+      "name": ".text",
+      "address": "0x8009340c",
+      "size": 528,
+      "type": 1
+    },
+    {
+      "name": "extab",
+      "address": "0x8000c7d8",
+      "size": 32,
+      "type": 1
+    },
+    {
+      "name": "extabindex",
+      "address": "0x800138e0",
+      "size": 48,
+      "type": 1
+    }
+  ],
+  "functions": [
+    {
+      "name": "MathFunNormalizeAngleNegativePiToPi__Ff",
+      "address": "0x8009340c",
+      "size": 104,
+      "binding": 1
+    },
+    {
+      "name": "MathFunRotateAboutZ__FPfPff",
+      "address": "0x80093474",
+      "size": 140,
+      "binding": 1
+    },
+    {
+      "name": "MathFunRotateAboutY__FPfPff",
+      "address": "0x80093500",
+      "size": 140,
+      "binding": 1
+    },
+    {
+      "name": "MathFunAtan2F__Fff",
+      "address": "0x8009358c",
+      "size": 144,
+      "binding": 1
+    }
+  ],
+  "externals": {
+    "atan": "0x80143000",
+    "cos": "0x80143228",
+    "sin": "0x80143790"
+  },
+  "undefined_in_discarded_code": [],
+  "discarded_functions": [],
+  "upstream": {},
+  "local_externals": [],
+  "discarded_local_functions": [],
+  "sda_externals": [],
+  "original_file": "MathFun.cpp",
+  "original_file_index": 5594,
+  "pooled_sections": [
+    ".sdata2"
+  ],
+  "pool_references": [
+    {
+      "section": ".sdata2",
+      "offset": 0,
+      "size": 4,
+      "address": "0x803503b4"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 4,
+      "size": 4,
+      "address": "0x803503c4"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 8,
+      "size": 4,
+      "address": "0x803503b8"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 16,
+      "size": 8,
+      "address": "0x803503a8"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 24,
+      "size": 4,
+      "address": "0x803503b0"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 28,
+      "size": 4,
+      "address": "0x803503bc"
+    },
+    {
+      "section": ".sdata2",
+      "offset": 32,
+      "size": 4,
+      "address": "0x803503c0"
+    }
+  ]
+}
